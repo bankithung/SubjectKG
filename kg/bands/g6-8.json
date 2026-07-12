@@ -8,7 +8,11 @@
       "strand": "num",
       "description": "You will read, write, compare and order large numbers in both the Indian (lakh, crore) and international (million, billion) systems, and use rounding to estimate sums, differences and products. Estimation is the everyday superpower of mathematics: it lets you sanity-check bills, budgets and news headlines in seconds.",
       "prerequisites": [
-        "g5.num.large-numbers"
+        {
+          "id": "g5.num.large-numbers",
+          "strength": "hard",
+          "reason": "Reading crores and millions builds directly on the place-value reading of large numbers from Class 5 — without it the commas mean nothing."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -20,6 +24,7 @@
         "4.NBT.A.2",
         "4.NBT.A.3"
       ],
+      "parent_check": "Point to any big number in the news — say a city's population like 84,00,000 — and ask them to read it aloud, then round it: 'roughly how many lakh is that?' If they can read it in both lakh-crore and million style and say 'about 84 lakh' without counting digits on fingers, they've got it.",
       "learning_outcomes": [
         "Can read and write numbers up to crores using both Indian and international place-value systems, with correct comma placement",
         "Can compare and order large numbers by aligning place values, not just by looking at leading digits",
@@ -158,8 +163,16 @@
       "strand": "num",
       "description": "Whole numbers are the counting numbers together with zero. You will explore their behaviour on the number line and the properties of addition and multiplication — commutativity, associativity, distributivity and the special roles of 0 and 1 — and use these properties to compute cleverly instead of laboriously.",
       "prerequisites": [
-        "g6.num.knowing-numbers",
-        "g5.num.mult-div-large"
+        {
+          "id": "g6.num.knowing-numbers",
+          "strength": "hard",
+          "reason": "The properties studied here belong to numbers you can already read, write and order — that fluency comes from this node."
+        },
+        {
+          "id": "g5.num.mult-div-large",
+          "strength": "hard",
+          "reason": "You can't see why multiplication distributes over addition if multiplying multi-digit numbers is still a struggle."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -171,6 +184,7 @@
         "3.OA.B.5",
         "6.EE.A.3"
       ],
+      "parent_check": "While paying at a shop, ask them to total three prices like ₹48 + ₹99 + ₹52 in their head. The real check: ask HOW they did it. A good answer reorders the numbers — '48 and 52 make 100, then 99 more' — which is exactly the number properties this topic teaches.",
       "learning_outcomes": [
         "Can identify predecessors and successors and locate whole numbers on a number line",
         "Can state which operations on whole numbers are commutative and associative, with counterexamples for subtraction and division",
@@ -309,8 +323,16 @@
       "strand": "num",
       "description": "Numbers have hidden structure: factors, multiples, primes and composites. You will learn divisibility tests, prime factorisation, and how to find the HCF (highest common factor) and LCM (lowest common multiple) of numbers — tools you will use constantly with fractions, ratios and repeating events.",
       "prerequisites": [
-        "g5.num.factors-multiples",
-        "g3.num.division-intro"
+        {
+          "id": "g5.num.factors-multiples",
+          "strength": "hard",
+          "reason": "HCF and LCM are built directly out of factors and multiples — if those two words are fuzzy, nothing here will stick."
+        },
+        {
+          "id": "g3.num.division-intro",
+          "strength": "hard",
+          "reason": "Testing divisibility and hunting for factors is repeated division — quotients and remainders must already make sense."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -321,6 +343,7 @@
       "ccss": [
         "6.NS.B.4"
       ],
+      "parent_check": "Say: 'We have 12 laddoos and 18 biscuits to pack into identical party plates with nothing left over — what's the biggest number of plates we can make?' (6.) Then ask what goes on each plate. If they explain it using the words 'common factor', the idea has landed.",
       "learning_outcomes": [
         "Can list factors and multiples of a number and classify numbers as prime or composite",
         "Can apply divisibility tests for 2, 3, 4, 5, 6, 8, 9, 10 and 11",
@@ -459,7 +482,11 @@
       "strand": "num",
       "description": "Integers extend the number line to the left of zero, letting us describe temperatures below freezing, depths below sea level and money owed. You will order integers, and add and subtract them using the number line and zero-pair models — the foundation for all of algebra.",
       "prerequisites": [
-        "g6.num.whole-numbers"
+        {
+          "id": "g6.num.whole-numbers",
+          "strength": "hard",
+          "reason": "Negative numbers extend the whole-number line to the left — you need to be sure-footed on the right half first."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -473,6 +500,7 @@
         "6.NS.C.7",
         "7.NS.A.1"
       ],
+      "parent_check": "Ask: 'Srinagar is at −4°C and Chennai at 31°C — how many degrees warmer is Chennai?' (35.) The real check: ask why the answer is bigger than 31. If they can explain the jump across zero, negative numbers make sense to them.",
       "learning_outcomes": [
         "Can represent real situations (temperature, altitude, credit/debit) with positive and negative integers",
         "Can place integers on a number line and compare/order them correctly",
@@ -612,9 +640,21 @@
       "strand": "num",
       "description": "You will work confidently with proper fractions, improper fractions and mixed numbers, convert between forms, and add and subtract fractions with unlike denominators using equivalent fractions and the LCM. This is where fraction arithmetic becomes a reliable tool instead of a guessing game.",
       "prerequisites": [
-        "g5.num.fractions-add-sub",
-        "g5.num.fractions-equivalent-compare",
-        "g6.num.playing-with-numbers"
+        {
+          "id": "g5.num.fractions-add-sub",
+          "strength": "hard",
+          "reason": "Adding fractions with different denominators grows out of the same-denominator adding learned in Class 5."
+        },
+        {
+          "id": "g5.num.fractions-equivalent-compare",
+          "strength": "hard",
+          "reason": "Finding a common denominator IS making equivalent fractions — that skill has to be automatic here."
+        },
+        {
+          "id": "g6.num.playing-with-numbers",
+          "strength": "soft",
+          "reason": "LCM gives the quickest common denominator, but you can get by listing multiples — it speeds things up rather than blocks."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -626,6 +666,7 @@
         "5.NF.A.1",
         "5.NF.A.2"
       ],
+      "parent_check": "While cooking, ask: 'The recipe needs ¾ cup of milk and we've already poured ¼ — how much more?' (½.) Let them work it out with the measuring cups in hand. Watch for adding tops and bottoms separately (getting 4/8 by a fluke or 2/6-style errors elsewhere) — that habit is the classic mistake this topic fixes.",
       "learning_outcomes": [
         "Can convert between improper fractions and mixed numbers in both directions",
         "Can compare fractions by making denominators (or numerators) equal",
@@ -765,8 +806,16 @@
       "strand": "num",
       "description": "Decimals are fractions with denominators 10, 100, 1000 written in place-value form. You will compare decimals correctly, add and subtract them by aligning the decimal point, and use them with money and metric units — where decimals live in real life.",
       "prerequisites": [
-        "g5.num.decimals-intro",
-        "g5.num.decimals-add-sub"
+        {
+          "id": "g5.num.decimals-intro",
+          "strength": "hard",
+          "reason": "You can't compare or add decimals until you know what the digits after the point actually mean."
+        },
+        {
+          "id": "g5.num.decimals-add-sub",
+          "strength": "soft",
+          "reason": "Class 5 practice with adding decimals gives a running start, but this chapter rebuilds the skill with money and units anyway."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -777,6 +826,7 @@
       "ccss": [
         "6.NS.B.3"
       ],
+      "parent_check": "Hand over a shop receipt and ask them to check the total of any three items, like ₹35.50 + ₹9.75 + ₹120. Then the real check: ask which is bigger, ₹35.5 or ₹35.45. Anyone who says ₹35.45 'because 45 is more than 5' has the classic decimal misconception this chapter cures.",
       "learning_outcomes": [
         "Can read and write decimals up to thousandths and connect them to fractions",
         "Can compare and order decimals by place value, including cases like 0.5 vs 0.45",
@@ -915,8 +965,16 @@
       "strand": "num",
       "description": "A ratio compares quantities by division rather than subtraction, and a proportion says two ratios are equal. With the unitary method — find the value of ONE, then scale — you can solve price, speed and recipe problems. This multiplicative way of thinking underpins percentages, similar triangles and trigonometry later.",
       "prerequisites": [
-        "g5.num.fractions-equivalent-compare",
-        "g5.num.mult-div-large"
+        {
+          "id": "g5.num.fractions-equivalent-compare",
+          "strength": "hard",
+          "reason": "A ratio in simplest form is an equivalent fraction in disguise — simplifying 12:18 uses the same moves as simplifying 12/18."
+        },
+        {
+          "id": "g5.num.mult-div-large",
+          "strength": "hard",
+          "reason": "The unitary method is 'divide to get one, multiply to get many' — it collapses without fluent multiplication and division."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -928,6 +986,7 @@
         "6.RP.A.1",
         "6.RP.A.3"
       ],
+      "parent_check": "Say: 'My chai uses 1 cup of milk for every 3 cups of water. If I use 2 cups of milk, how much water?' (6.) Then flip it: 'I want 8 cups of chai in total — how much milk?' (2.) The flipped question is the real test of proportional thinking.",
       "learning_outcomes": [
         "Can express a comparison as a ratio in simplest form, attending to order and same units",
         "Can test whether four numbers are in proportion (a:b = c:d)",
@@ -1068,8 +1127,16 @@
       "strand": "alg",
       "description": "Algebra begins when a letter stands for a number that can vary. You will write rules for patterns (like the perimeter of a square, 4s), build expressions from operations, and evaluate them for given values. Learning to treat a letter as a NUMBER — not an object or a label — is the single most important idea of this chapter.",
       "prerequisites": [
-        "g4.alg.patterns-rules",
-        "g6.num.whole-numbers"
+        {
+          "id": "g4.alg.patterns-rules",
+          "strength": "soft",
+          "reason": "Seeing the rule behind a pattern ('add 3 each time') is the friendliest on-ramp to variables, though letters can also be met head-on."
+        },
+        {
+          "id": "g6.num.whole-numbers",
+          "strength": "hard",
+          "reason": "An expression like 3n + 2 only makes sense if the number operations inside it are already secure."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -1081,6 +1148,7 @@
         "6.EE.A.2",
         "6.EE.B.6"
       ],
+      "parent_check": "Play 'think of a number': they pick a secret number, you tell them to double it and add 4, they say the result, and you 'magically' announce their number (halve the result, subtract 2). Then swap roles and ask them to explain the trick using a letter for the secret number — writing 2n + 4 is exactly what this topic is about.",
       "learning_outcomes": [
         "Can use a variable to state a general rule for a pattern (e.g. matchstick patterns, perimeter formulas)",
         "Can translate word phrases into algebraic expressions and back",
@@ -1221,8 +1289,16 @@
       "strand": "geo",
       "description": "Geometry's vocabulary starts here: points, line segments, rays and lines; open and closed curves; polygons with their sides, vertices and diagonals; and the circle with its centre, radius, diameter and chords. Precise language now makes every later theorem readable.",
       "prerequisites": [
-        "g3.geo.lines-shapes",
-        "g4.geo.circle-intro"
+        {
+          "id": "g3.geo.lines-shapes",
+          "strength": "hard",
+          "reason": "Points, lines and polygons formalise the shapes and edges first met in Class 3 — the new vocabulary hangs on that experience."
+        },
+        {
+          "id": "g4.geo.circle-intro",
+          "strength": "soft",
+          "reason": "Having met centre and radius before makes the circle section quicker, but the ideas are re-introduced from scratch here."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -1233,6 +1309,7 @@
       "ccss": [
         "4.G.A.1"
       ],
+      "parent_check": "In one room, ask them to find and name three things in two minutes: something with parallel edges, a closed curve, and a corner they can call a vertex. No paper needed. If they point and use the right words — parallel, closed curve, vertex — this chapter has done its job.",
       "learning_outcomes": [
         "Can distinguish a line, a line segment and a ray, and use correct notation for each",
         "Can identify open/closed curves, and the interior, boundary and exterior of a closed curve",
@@ -1372,8 +1449,16 @@
       "strand": "geo",
       "description": "You will measure and classify angles (acute, right, obtuse, straight, reflex), classify triangles by sides and angles, meet the family of quadrilaterals, and recognise common solids with their faces, edges and vertices. Classifying shapes trains you to reason from properties rather than appearances.",
       "prerequisites": [
-        "g6.geo.basic-ideas",
-        "g5.geo.angles-intro"
+        {
+          "id": "g6.geo.basic-ideas",
+          "strength": "hard",
+          "reason": "You can't classify triangles and quadrilaterals before you can name their parts — sides, vertices and angles come from this node."
+        },
+        {
+          "id": "g5.geo.angles-intro",
+          "strength": "hard",
+          "reason": "Sorting shapes by angle type (right, acute, obtuse) requires already knowing how to see and measure an angle."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -1385,6 +1470,7 @@
         "4.G.A.2",
         "4.MD.C.5"
       ],
+      "parent_check": "Ask: 'What kind of angle do the clock hands make at 3 o'clock? At 4 o'clock? At 6?' (Right, obtuse, straight.) If they can also tell you roughly how many degrees each one is — 90, about 120, 180 — this topic is solid.",
       "learning_outcomes": [
         "Can classify angles as acute, right, obtuse, straight or reflex, and estimate angle sizes",
         "Can classify triangles by sides (scalene, isosceles, equilateral) and by angles (acute, right, obtuse)",
@@ -1524,7 +1610,11 @@
       "strand": "geo",
       "description": "A figure has line symmetry when one half folds exactly onto the other. You will find all lines of symmetry of common shapes and letters, and complete half-drawn symmetric figures. Symmetry sharpens visual reasoning and reappears in reflections, transformations and even algebraic graphs.",
       "prerequisites": [
-        "g4.geo.symmetry-reflection"
+        {
+          "id": "g4.geo.symmetry-reflection",
+          "strength": "hard",
+          "reason": "This extends the Class 4 mirror-line idea to shapes with several lines of symmetry — the mirror test itself must already be familiar."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -1535,6 +1625,7 @@
       "ccss": [
         "4.G.A.3"
       ],
+      "parent_check": "At the dining table, ask them to sort a few objects — a spoon, a plate, a rectangular book, a leaf — by how many lines of symmetry each has. The plate is the fun one: let them argue about whether a circle has 4, 10 or endless mirror lines (it's endless).",
       "learning_outcomes": [
         "Can test a proposed line of symmetry by (mentally or physically) folding",
         "Can find ALL lines of symmetry of standard shapes: square (4), rectangle (2), equilateral triangle (3), circle (infinitely many)",
@@ -1674,8 +1765,16 @@
       "strand": "geo",
       "description": "Using only an unmarked straightedge and a compass, you will construct circles, copy segments, draw perpendiculars and perpendicular bisectors, and build angles of 60°, 30°, 90° and 120°. Constructions teach WHY figures have their properties — every arc is a statement about equal distances.",
       "prerequisites": [
-        "g6.geo.basic-ideas",
-        "g4.geo.circle-intro"
+        {
+          "id": "g6.geo.basic-ideas",
+          "strength": "hard",
+          "reason": "You can't construct a perpendicular or bisect an angle before knowing what segments, rays and angles are."
+        },
+        {
+          "id": "g4.geo.circle-intro",
+          "strength": "hard",
+          "reason": "Every compass construction works because all points on a circle are the same distance from the centre — that circle idea is the engine here."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -1686,6 +1785,7 @@
       "ccss": [
         "7.G.A.2"
       ],
+      "parent_check": "Give them a pencil, a piece of string and paper, and ask them to draw a perfect circle without tracing anything round. Then ask: 'why does the string trick work?' The answer — every point ends up the same distance from the centre — is the whole secret behind compass constructions.",
       "learning_outcomes": [
         "Can draw a circle of given radius and copy a line segment with compass and ruler",
         "Can construct the perpendicular bisector of a segment and a perpendicular through a point",
@@ -1824,7 +1924,11 @@
       "strand": "mea",
       "description": "Perimeter measures the boundary of a figure; area measures the surface it covers. You will use the formulas for squares and rectangles, work with the right units (cm vs cm²), and discover that figures with the same perimeter can enclose very different areas.",
       "prerequisites": [
-        "g5.mea.area-perimeter-rect"
+        {
+          "id": "g5.mea.area-perimeter-rect",
+          "strength": "hard",
+          "reason": "This chapter turns the counting-squares and fence-length ideas from Class 5 into formulas — the ideas must come before the formulas."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -1835,6 +1939,7 @@
       "ccss": [
         "4.MD.A.3"
       ],
+      "parent_check": "Ask them to price a decorative tape border around a poster or photo frame in their room: measure it, then cost the tape at ₹5 per metre. The real check: ask whether this job needs perimeter or area, and how they'd know which one a question is asking for.",
       "learning_outcomes": [
         "Can compute perimeters of rectangles, squares and figures made of straight segments",
         "Can compute areas of rectangles and squares, and of shapes decomposable into rectangles",
@@ -1975,7 +2080,11 @@
       "strand": "dat",
       "description": "Data becomes useful when organised: you will record data with tally marks, and read and draw pictographs and bar graphs — including ones where a symbol or one unit of height stands for many items. Reading scales correctly is the key skill; it protects you from misleading graphs forever after.",
       "prerequisites": [
-        "g5.dat.data-interpretation"
+        {
+          "id": "g5.dat.data-interpretation",
+          "strength": "hard",
+          "reason": "Drawing your own tally charts and bar graphs builds directly on being able to read ready-made ones."
+        }
       ],
       "ncert": {
         "class": 6,
@@ -1987,6 +2096,7 @@
         "3.MD.B.3",
         "6.SP.B.4"
       ],
+      "parent_check": "During a cricket match (or from yesterday's scorecard), ask them to tally how a batter's runs came — 1s, 2s, 4s, 6s — for a few overs, then turn the tally into a quick bar graph. Finish with one reading question: 'which type of run came most often, and how does the graph show it?'",
       "learning_outcomes": [
         "Can record raw data in a frequency table using tally marks (bundles of five)",
         "Can read and draw a pictograph where one symbol represents multiple units, including half symbols",
@@ -2126,8 +2236,16 @@
       "strand": "num",
       "description": "Building on integer addition and subtraction, you will multiply and divide integers, master the sign rules (and why they work), and use properties like distributivity with negative numbers. These rules power all of algebra — every bracket you expand later depends on them.",
       "prerequisites": [
-        "g6.num.integers-intro",
-        "g3.num.mult-tables"
+        {
+          "id": "g6.num.integers-intro",
+          "strength": "hard",
+          "reason": "You can't multiply and divide integers before adding and subtracting them — the sign rules stand on that number-line footing."
+        },
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "hard",
+          "reason": "The only new thing here is the signs — the times tables underneath must already be instant."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -2138,6 +2256,7 @@
       "ccss": [
         "7.NS.A.2"
       ],
+      "parent_check": "Ask: 'You lose ₹5 on each of 4 rounds of a game — what's your total?' (−₹20.) Then the tricky one: 'so what is (−5) × (−4)?' and let them try to convince you the answer is positive. Any story they invent — cancelling debts, reversing losses — shows real understanding, not a memorised rule.",
       "learning_outcomes": [
         "Can multiply integers with any combination of signs and justify the sign of the product",
         "Can divide integers and connect division to multiplication facts",
@@ -2278,8 +2397,16 @@
       "strand": "num",
       "description": "You will multiply and divide fractions and decimals, understand 'of' as multiplication, and see why dividing by a fraction means multiplying by its reciprocal. Along the way you will confront a big surprise: multiplying can make numbers smaller, and dividing can make them bigger.",
       "prerequisites": [
-        "g6.num.fractions-ops",
-        "g6.num.decimals-ops"
+        {
+          "id": "g6.num.fractions-ops",
+          "strength": "hard",
+          "reason": "Multiplying fractions only makes sense once adding, comparing and picturing them is secure."
+        },
+        {
+          "id": "g6.num.decimals-ops",
+          "strength": "hard",
+          "reason": "Decimal multiplication and division extend decimal place value and addition — those have to come first."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -2292,6 +2419,7 @@
         "7.NS.A.2",
         "5.NF.B.4"
       ],
+      "parent_check": "Ask them to halve a recipe out loud: 'It needs ¾ cup sugar — how much do we use?' (⅜.) Then the check question: 'you multiplied by ½ and the answer got SMALLER — how can multiplying make something smaller?' Their explanation is the whole point of this topic.",
       "learning_outcomes": [
         "Can multiply fractions (including mixed numbers) and interpret 'of' as multiplication",
         "Can divide by a fraction using the reciprocal, and explain why the method works",
@@ -2432,8 +2560,16 @@
       "strand": "num",
       "description": "Rational numbers are all numbers expressible as p/q with integers p, q and q ≠ 0 — uniting integers, fractions and their negatives into one family. You will write rationals in standard form, place them on the number line, compare them, and find rationals between any two given ones.",
       "prerequisites": [
-        "g6.num.integers-intro",
-        "g6.num.fractions-ops"
+        {
+          "id": "g6.num.integers-intro",
+          "strength": "hard",
+          "reason": "Rational numbers are fractions allowed to be negative — integers supply the negative half of that picture."
+        },
+        {
+          "id": "g6.num.fractions-ops",
+          "strength": "hard",
+          "reason": "Placing and comparing p/q is fraction work with a sign attached — fraction sense is the other half of the picture."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -2445,6 +2581,7 @@
         "6.NS.C.6",
         "6.NS.C.7"
       ],
+      "parent_check": "Ask: 'The temperature fell from 2°C to −1.5°C overnight — by how much?' (3.5°C.) Then ask which is colder, −1.5°C or −2°C. Getting the drop right and knowing −2 is colder — even though 1.5 'looks smaller' than 2 — shows negative fractions have clicked.",
       "learning_outcomes": [
         "Can write a rational number in standard form (positive denominator, lowest terms)",
         "Can place positive and negative rationals on the number line",
@@ -2584,8 +2721,16 @@
       "strand": "num",
       "description": "Percentages turn every comparison into 'per hundred', making unlike things comparable. You will convert between fractions, decimals and percents, compute percentage increase/decrease, profit and loss on cost price, and simple interest. These are the most-used school mathematics in adult life.",
       "prerequisites": [
-        "g6.num.ratio-proportion",
-        "g6.num.decimals-ops"
+        {
+          "id": "g6.num.ratio-proportion",
+          "strength": "hard",
+          "reason": "A percentage IS a ratio out of 100 — every percentage move here is a Class 6 ratio move in new clothes."
+        },
+        {
+          "id": "g6.num.decimals-ops",
+          "strength": "hard",
+          "reason": "Prices, profit and interest all land in decimals — money answers need decimal arithmetic."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -2596,6 +2741,7 @@
       "ccss": [
         "7.RP.A.3"
       ],
+      "parent_check": "Show them a '30% off' tag on something costing ₹600 and ask for the sale price (₹420). Then the real check: 'if the shop later adds 30% back onto ₹420, do we get ₹600 again?' Let them wrestle with why the answer is no — 30% of a smaller number is smaller.",
       "learning_outcomes": [
         "Can convert fluently between fractions, decimals and percentages",
         "Can find a percentage of a quantity and express one quantity as a percentage of another",
@@ -2736,8 +2882,16 @@
       "strand": "num",
       "description": "Exponents compress repeated multiplication: 10⁵ instead of 10×10×10×10×10. You will evaluate powers, use the laws of exponents (product, quotient, power of a power), and write large numbers in standard form. Exponents are the language of both astronomy and algebra.",
       "prerequisites": [
-        "g6.num.whole-numbers",
-        "g7.num.integers-ops"
+        {
+          "id": "g6.num.whole-numbers",
+          "strength": "hard",
+          "reason": "A power is repeated multiplication, so the properties of multiplication must already be solid."
+        },
+        {
+          "id": "g7.num.integers-ops",
+          "strength": "hard",
+          "reason": "Bases like (−2)³ turn up immediately — the sign rules for multiplying integers are used constantly."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -2749,6 +2903,7 @@
         "6.EE.A.1",
         "8.EE.A.1"
       ],
+      "parent_check": "Play the doubling game: 'I give you ₹1 today, ₹2 tomorrow, ₹4 the next day, doubling for 10 days — guess the day-10 amount before working it out.' (₹512.) Almost everyone guesses far too low; talking about why doubling explodes like that is exactly what exponents teach.",
       "learning_outcomes": [
         "Can evaluate powers with whole-number exponents, including powers of negative bases",
         "Can apply a^m × a^n = a^(m+n), a^m ÷ a^n = a^(m−n) and (a^m)^n = a^(mn) with justification",
@@ -2913,8 +3068,16 @@
       "strand": "alg",
       "description": "An equation is a balance: whatever you do to one side you must do to the other. You will solve equations like 5x − 3 = 12 by systematic inverse operations (or transposition done with understanding), check solutions by substitution, and translate word problems into equations.",
       "prerequisites": [
-        "g6.alg.intro-algebra",
-        "g6.num.integers-intro"
+        {
+          "id": "g6.alg.intro-algebra",
+          "strength": "hard",
+          "reason": "You can't solve for a letter before you're comfortable that a letter stands for a number and can build expressions with it."
+        },
+        {
+          "id": "g6.num.integers-intro",
+          "strength": "hard",
+          "reason": "Solving equations is undoing operations — you need to know what the operations do to integers first."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -2926,6 +3089,7 @@
         "6.EE.B.7",
         "7.EE.B.4"
       ],
+      "parent_check": "Say: 'I'm thinking of a number. I multiplied it by 3, added 7, and got 22. What was my number?' (5.) The answer isn't the check — ask them to explain how they worked BACKWARDS: subtract 7 first, then divide by 3. Undoing steps in reverse order is exactly what solving an equation is.",
       "learning_outcomes": [
         "Can maintain balance: perform the same operation on both sides of an equation",
         "Can solve one- and two-step linear equations in one variable, including with integer solutions",
@@ -3066,8 +3230,16 @@
       "strand": "alg",
       "description": "You will take expressions apart into terms, factors and coefficients, combine like terms, add and subtract whole expressions, and evaluate them for given values — including negative ones. Fluency here is what makes equation-solving and identities feel easy next year.",
       "prerequisites": [
-        "g6.alg.intro-algebra",
-        "g7.num.integers-ops"
+        {
+          "id": "g6.alg.intro-algebra",
+          "strength": "hard",
+          "reason": "Combining like terms assumes expressions with variables are already meaningful objects, not mystery symbols."
+        },
+        {
+          "id": "g7.num.integers-ops",
+          "strength": "hard",
+          "reason": "Coefficients are frequently negative — collecting −3x + 5x uses the integer rules directly."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -3080,6 +3252,7 @@
         "6.EE.A.4",
         "7.EE.A.1"
       ],
+      "parent_check": "Ask: 'If x is the price of one samosa, what does 4x + 30 mean?' (Four samosas plus a ₹30 drink, perhaps.) Then ask them to invent a shopping story of their own for 2x + 3y. Turning symbols into stories and back again is the skill this topic builds.",
       "learning_outcomes": [
         "Can identify terms, factors, coefficients, and classify monomials/binomials/trinomials",
         "Can identify like terms and combine them correctly",
@@ -3244,7 +3417,11 @@
       "strand": "geo",
       "description": "You will work with complementary, supplementary, adjacent and vertically opposite angles, then study what happens when a transversal cuts parallel lines: corresponding and alternate angles are equal, and co-interior angles add to 180°. These angle facts are the raw material of all later geometric proof.",
       "prerequisites": [
-        "g6.geo.elementary-shapes"
+        {
+          "id": "g6.geo.elementary-shapes",
+          "strength": "hard",
+          "reason": "Angle pairs and parallel-line rules assume you can already spot, name and measure angles from Class 6."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -3256,6 +3433,7 @@
         "7.G.B.5",
         "8.G.A.5"
       ],
+      "parent_check": "Look at a window grill, a gate or a photo of railway tracks together. Ask them to find two parallel lines and a line crossing them, then point out two angles that MUST be equal. Push once: 'how sure are you?' — 'they're corresponding (or alternate) angles' is a much better answer than 'they look the same'.",
       "learning_outcomes": [
         "Can find complements (to 90°) and supplements (to 180°) of given angles",
         "Can identify and use vertically opposite angles and linear pairs",
@@ -3395,7 +3573,11 @@
       "strand": "geo",
       "description": "Every triangle hides three strong laws: its angles sum to 180°, an exterior angle equals the sum of the two remote interior angles, and any two sides together exceed the third. For right triangles you will meet the Pythagoras property relating the squares on the sides.",
       "prerequisites": [
-        "g7.geo.lines-angles"
+        {
+          "id": "g7.geo.lines-angles",
+          "strength": "hard",
+          "reason": "The angle-sum proof and the exterior-angle rule both stand on the parallel-line angle facts from this node."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -3407,6 +3589,7 @@
         "8.G.A.5",
         "8.G.B.7"
       ],
+      "parent_check": "Ask them to draw any triangle they like, measure its three corners with a protractor and add them up (about 180°). Then the check: 'if I drew a triangle in secret, could you tell me its angle total without seeing it?' Complete certainty about 180° — for EVERY triangle — is the point of this chapter.",
       "learning_outcomes": [
         "Can use the angle-sum property (180°) to find unknown angles",
         "Can apply the exterior-angle property: exterior = sum of the two remote interior angles",
@@ -3547,7 +3730,11 @@
       "strand": "geo",
       "description": "Two figures are congruent when one fits exactly on the other. For triangles you don't need to check all six parts: the criteria SSS, SAS, ASA and RHS each guarantee congruence from just three well-chosen parts. Congruence is your first taste of deductive proof.",
       "prerequisites": [
-        "g7.geo.triangle-properties"
+        {
+          "id": "g7.geo.triangle-properties",
+          "strength": "hard",
+          "reason": "You need to know a triangle's parts and angle relationships before judging when two triangles are exact copies."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -3558,6 +3745,7 @@
       "ccss": [
         "8.G.A.2"
       ],
+      "parent_check": "Pose this: 'A carpenter needs an exact copy of a triangular shelf bracket, but can only phone the measurements through. What's the fewest numbers to send — and which ones?' Let them argue why three well-chosen measurements (like two sides and the angle between them) are enough to force an exact copy.",
       "learning_outcomes": [
         "Can state what congruence means and write correspondences (ΔABC ≅ ΔPQR) in the right order",
         "Can select and apply the appropriate criterion: SSS, SAS, ASA or RHS",
@@ -3697,7 +3885,11 @@
       "strand": "geo",
       "description": "Beyond mirror lines, shapes can also match themselves under turning: a shape has rotational symmetry of order n if it looks unchanged n times during a full 360° turn. You will find orders and angles of rotation, and discover that line symmetry and rotational symmetry are independent properties.",
       "prerequisites": [
-        "g6.geo.symmetry"
+        {
+          "id": "g6.geo.symmetry",
+          "strength": "hard",
+          "reason": "Rotational symmetry is taught by contrast with line symmetry — the mirror-line idea must already be settled."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -3708,6 +3900,7 @@
       "ccss": [
         "4.G.A.3"
       ],
+      "parent_check": "Point at the ceiling fan, then a playing card, then the letter S written on paper. Ask: which of these look exactly the same after a half or part turn, but have NO mirror line? The fan and the S are the surprise — perfectly symmetric, yet a mirror ruins them. That's rotational symmetry.",
       "learning_outcomes": [
         "Can find the order of rotational symmetry of a figure and its angle of rotation (360°/order)",
         "Can locate the centre of rotation of a symmetric figure",
@@ -3847,8 +4040,16 @@
       "strand": "geo",
       "description": "Solids live in 3D but we draw them in 2D. You will match solids with their nets, draw oblique and isometric sketches, imagine cross-sections made by cuts, and read views (top, front, side) and shadows. Strong 3D visualisation pays off in geometry, science diagrams and engineering drawing.",
       "prerequisites": [
-        "g5.geo.nets-3d",
-        "g6.geo.elementary-shapes"
+        {
+          "id": "g5.geo.nets-3d",
+          "strength": "soft",
+          "reason": "Class 5 net-folding gives a real head start, but this chapter revisits nets from the beginning."
+        },
+        {
+          "id": "g6.geo.elementary-shapes",
+          "strength": "hard",
+          "reason": "You must know the solids and their faces, edges and vertices before drawing their nets and cross-sections."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -3860,6 +4061,7 @@
         "6.G.A.4",
         "7.G.A.3"
       ],
+      "parent_check": "Before an empty food box (toothpaste or sweet box) goes in the bin, ask them to sketch what it will look like flattened out — then actually flatten it and compare. The surprises (where the flaps and faces end up) are the learning, and it takes two minutes.",
       "learning_outcomes": [
         "Can count and name faces, edges and vertices of common solids",
         "Can decide whether a given net folds into a given solid (cube, cuboid, cylinder, cone)",
@@ -3999,9 +4201,21 @@
       "strand": "geo",
       "description": "With ruler and compass you will construct a line parallel to a given line through a point, and triangles from given data: three sides (SSS), two sides and the included angle (SAS), two angles and a side (ASA), and right triangles (RHS). Each construction succeeds exactly when the corresponding congruence criterion holds — construction and congruence are two sides of the same coin.",
       "prerequisites": [
-        "g6.geo.constructions-intro",
-        "g7.geo.lines-angles",
-        "g7.geo.congruence"
+        {
+          "id": "g6.geo.constructions-intro",
+          "strength": "hard",
+          "reason": "Triangle constructions chain together the basic ruler-compass moves — copying lengths, bisecting — learned in Class 6."
+        },
+        {
+          "id": "g7.geo.lines-angles",
+          "strength": "hard",
+          "reason": "Constructing a line parallel to another uses the alternate-angle idea directly — that's the method, not a bonus."
+        },
+        {
+          "id": "g7.geo.congruence",
+          "strength": "soft",
+          "reason": "Congruence rules explain WHY three measurements fix a triangle — they turn the construction recipe into a reason, but you can follow the steps without them."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -4012,6 +4226,7 @@
       "ccss": [
         "7.G.A.2"
       ],
+      "parent_check": "Ask them to construct a triangle with sides exactly 5 cm, 6 cm and 7 cm using ruler and compass — no guessing or adjusting. Then the check: 'could someone else, following the same three numbers, end up with a DIFFERENT triangle?' The confident 'no, it's forced' is what this topic teaches.",
       "learning_outcomes": [
         "Can construct a line parallel to a given line through an external point using equal alternate/corresponding angles",
         "Can construct triangles from SSS, SAS, ASA and RHS data",
@@ -4151,9 +4366,21 @@
       "strand": "mea",
       "description": "You will extend area from rectangles to parallelograms (base × height) and triangles (half of that), and meet the circle's two famous formulas: circumference 2πr and area πr². Choosing the RIGHT base–height pair, and the right formula, is the heart of this chapter.",
       "prerequisites": [
-        "g6.mea.mensuration-perimeter-area",
-        "g7.num.fractions-decimals-ops",
-        "g4.geo.circle-intro"
+        {
+          "id": "g6.mea.mensuration-perimeter-area",
+          "strength": "hard",
+          "reason": "Triangle and parallelogram areas are found by cutting and rearranging rectangles — the rectangle formulas are the raw material."
+        },
+        {
+          "id": "g7.num.fractions-decimals-ops",
+          "strength": "hard",
+          "reason": "½ × base × height and π ≈ 3.14 mean fraction and decimal multiplication appear in nearly every problem."
+        },
+        {
+          "id": "g4.geo.circle-intro",
+          "strength": "hard",
+          "reason": "You can't use C = 2πr without knowing what the radius and diameter of a circle are."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -4166,6 +4393,7 @@
         "7.G.B.4",
         "7.G.B.6"
       ],
+      "parent_check": "Ask: 'Which is more food — one 10-inch pizza or two 6-inch pizzas?' Let them work it out (they'll need the area of a circle; paper or calculator is fine). The single 10-inch winning surprises almost everyone, and explains why doubling a pizza's width more than doubles the pizza.",
       "learning_outcomes": [
         "Can compute areas of parallelograms and triangles using base and the PERPENDICULAR height",
         "Can compute circumference and area of circles, using π ≈ 22/7 or 3.14",
@@ -4331,9 +4559,21 @@
       "strand": "dat",
       "description": "One number can represent a whole data set: the mean (fair share), median (middle of the sorted list) and mode (most frequent value) — each useful in different situations, with range measuring spread. You will also take your first formal steps into probability as a number between 0 and 1.",
       "prerequisites": [
-        "g6.dat.data-handling",
-        "g6.num.decimals-ops",
-        "g7.num.fractions-decimals-ops"
+        {
+          "id": "g6.dat.data-handling",
+          "strength": "hard",
+          "reason": "You have to collect and organise data before you can summarise it with mean, median and mode."
+        },
+        {
+          "id": "g6.num.decimals-ops",
+          "strength": "hard",
+          "reason": "Averages rarely come out whole — reading 6.5 as 'between 6 and 7' needs decimal sense."
+        },
+        {
+          "id": "g7.num.fractions-decimals-ops",
+          "strength": "hard",
+          "reason": "Computing a mean is adding then dividing, often into decimals — that division skill comes from here."
+        }
       ],
       "ncert": {
         "class": 7,
@@ -4346,6 +4586,7 @@
         "6.SP.B.5",
         "7.SP.C.5"
       ],
+      "parent_check": "Pull up a favourite batter's last five scores and ask for the average. Then the real check: 'next match they score 0 — what happens to the average? Can one terrible innings be cancelled out by one great one?' Talking about how averages move is where the understanding shows.",
       "learning_outcomes": [
         "Can compute the mean and explain it as equal sharing / balance point",
         "Can find the median (after sorting!) and the mode of a data set",
@@ -4486,8 +4727,16 @@
       "strand": "num",
       "description": "You will study rational numbers as a system: closure, commutativity and associativity, the roles of 0 and 1, negatives (additive inverses) and reciprocals (multiplicative inverses), and distributivity as a computation shortcut. The headline property is density — between any two rationals lie infinitely many more.",
       "prerequisites": [
-        "g7.num.rational-numbers-intro",
-        "g7.num.fractions-decimals-ops"
+        {
+          "id": "g7.num.rational-numbers-intro",
+          "strength": "hard",
+          "reason": "Properties and density presuppose you already know what rational numbers are and how to place and compare them."
+        },
+        {
+          "id": "g7.num.fractions-decimals-ops",
+          "strength": "hard",
+          "reason": "Finding rationals between rationals means averaging and scaling fractions — fraction multiplication and division do the work."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -4499,6 +4748,7 @@
         "7.NS.A.1",
         "7.NS.A.2"
       ],
+      "parent_check": "Play the 'always another one' game: 'Name a number between 1/2 and 3/4. Now one between your number and 1/2. Again. Can we keep going forever?' Two minutes of this is the density idea — the win is when they can explain WHY you never run out of numbers in between.",
       "learning_outcomes": [
         "Can state and use the properties of operations on rational numbers, with counterexamples for subtraction/division",
         "Can find additive and multiplicative inverses and keep the two ideas apart",
@@ -4638,8 +4888,16 @@
       "strand": "num",
       "description": "Perfect squares are numbers like 1, 4, 9, 16 — areas of whole-number squares. You will spot their patterns (unit digits, odd-number sums), find square roots by prime factorisation and by long division, and estimate roots of non-perfect squares. Square roots return in Pythagoras, quadratics and beyond.",
       "prerequisites": [
-        "g7.num.exponents-intro",
-        "g6.num.playing-with-numbers"
+        {
+          "id": "g7.num.exponents-intro",
+          "strength": "hard",
+          "reason": "A square is just the second power — exponent notation and its laws come first."
+        },
+        {
+          "id": "g6.num.playing-with-numbers",
+          "strength": "hard",
+          "reason": "Finding square roots by prime factorisation runs entirely on the factorising skills from Class 6."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -4650,6 +4908,7 @@
       "ccss": [
         "8.EE.A.2"
       ],
+      "parent_check": "Ask: 'A square carpet covers 64 square feet — how long is each side?' (8.) Then the real check: 'and if it covered 60 square feet?' You're not after an exact answer — you want to hear 'between 7 and 8, closer to 8'. Estimating roots by trapping them between squares is the skill.",
       "learning_outcomes": [
         "Can compute squares efficiently and recognise perfect squares up to at least 400",
         "Can use unit-digit and other patterns to rule out non-squares (no perfect square ends in 2, 3, 7 or 8)",
@@ -4790,7 +5049,11 @@
       "strand": "num",
       "description": "Cubing a number multiplies it by itself three times — the volume of a cube of that side. You will recognise perfect cubes, use prime factorisation (triples of factors) to find cube roots, and exploit unit-digit patterns for quick mental roots. Unlike squares, cubes of negatives stay negative.",
       "prerequisites": [
-        "g8.num.squares-roots"
+        {
+          "id": "g8.num.squares-roots",
+          "strength": "hard",
+          "reason": "Cube roots reuse the square-root playbook — prime factorisation and estimation — one dimension up."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -4801,6 +5064,7 @@
       "ccss": [
         "8.EE.A.2"
       ],
+      "parent_check": "Ask: 'A cubic gift box holds 27 laddoos in a 3-by-3-by-3 pack. How many fit in the cube one size up, 4 on each edge?' (64.) The check: ask why doubling a box's edge lets it hold 8 times as much, not double. Cubes growing in three directions at once is the whole idea.",
       "learning_outcomes": [
         "Can compute cubes and recognise perfect cubes up to 1000 (and 12³ = 1728)",
         "Can find cube roots by grouping prime factors into triples",
@@ -4940,7 +5204,11 @@
       "strand": "num",
       "description": "Real prices move in chains: marked price → discount → sales tax/GST → final bill, and savings grow by compound interest, where each year's interest itself earns interest. You will compute successive percentage changes correctly by multiplying growth factors — the single most useful trick in consumer maths.",
       "prerequisites": [
-        "g7.num.comparing-quantities"
+        {
+          "id": "g7.num.comparing-quantities",
+          "strength": "hard",
+          "reason": "Discounts and compound interest are single-step percentage calculations chained together — the Class 7 percentage work must be automatic."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -4951,6 +5219,7 @@
       "ccss": [
         "7.RP.A.3"
       ],
+      "parent_check": "At a sale, ask: 'This ₹1000 shirt has 20% off, and a coupon gives another 10% off the reduced price. Is that 30% off in total?' Have them work both out (₹720 versus ₹700 for a straight 30%) and explain where the ₹20 gap comes from. That gap IS how compound percentage works.",
       "learning_outcomes": [
         "Can compute discount, sale price, and tax/GST on a purchase",
         "Can handle successive percentage changes by multiplying factors (×0.9, ×1.18, …)",
@@ -5090,8 +5359,16 @@
       "strand": "num",
       "description": "Negative exponents extend the power ladder below 1: 10⁻³ means 1/10³, letting scientific notation describe the very small (a bacterium's width) as easily as the very large. You will apply all the exponent laws with integer exponents and convert numbers to and from standard form in both directions.",
       "prerequisites": [
-        "g7.num.exponents-intro",
-        "g7.num.rational-numbers-intro"
+        {
+          "id": "g7.num.exponents-intro",
+          "strength": "hard",
+          "reason": "Negative exponents extend the exponent laws from Class 7 — you can't extend rules you don't yet own."
+        },
+        {
+          "id": "g7.num.rational-numbers-intro",
+          "strength": "hard",
+          "reason": "2⁻³ is the fraction 1/8 — negative exponents produce rational numbers, so those must already be comfortable."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -5104,6 +5381,7 @@
         "8.EE.A.3",
         "8.EE.A.4"
       ],
+      "parent_check": "Ask them to write two sizes the 'scientist's way': the width of a hair, about 0.0001 metres, and the distance to the sun, about 150,000,000,000 metres. Then the check: which is easier to compare at a glance — strings of zeros, or powers of 10 — and what does a NEGATIVE power mean?",
       "learning_outcomes": [
         "Can evaluate powers with negative integer exponents via a⁻ⁿ = 1/aⁿ",
         "Can apply the laws of exponents across integer exponents, including a⁰ = 1",
@@ -5268,8 +5546,16 @@
       "strand": "num",
       "description": "Two quantities are in direct proportion when their RATIO stays constant (double one, double the other) and in inverse proportion when their PRODUCT stays constant (double one, halve the other). The crucial skill is deciding which model — if either — fits a situation before computing.",
       "prerequisites": [
-        "g6.num.ratio-proportion",
-        "g7.num.fractions-decimals-ops"
+        {
+          "id": "g6.num.ratio-proportion",
+          "strength": "hard",
+          "reason": "Direct proportion is the unitary method grown up — Class 6 ratio reasoning is the foundation."
+        },
+        {
+          "id": "g7.num.fractions-decimals-ops",
+          "strength": "hard",
+          "reason": "Proportion problems constantly multiply and divide by fractions and decimals — that fluency has to be in place."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -5281,6 +5567,7 @@
         "7.RP.A.2",
         "8.EE.B.5"
       ],
+      "parent_check": "Ask: 'If 2 painters take 6 days to paint a house, how long do 4 painters take?' (3 days.) Then straight after: 'if 2 kg of rice costs ₹120, what do 4 kg cost?' (₹240.) The real check: why did doubling make one answer halve and the other double? Spotting which way it goes is the whole topic.",
       "learning_outcomes": [
         "Can test whether tabled data shows direct proportion (y/x constant) or inverse proportion (xy constant)",
         "Can solve direct-proportion problems via the constant ratio or unitary method",
@@ -5421,8 +5708,16 @@
       "strand": "num",
       "description": "Writing a two-digit number as 10a + b turns number tricks into algebra: you can PROVE why ab + ba is always divisible by 11, justify the divisibility tests for 3 and 9, and crack letter-for-digit puzzles. This chapter is a first taste of proof through generalisation.",
       "prerequisites": [
-        "g6.num.playing-with-numbers",
-        "g7.alg.expressions"
+        {
+          "id": "g6.num.playing-with-numbers",
+          "strength": "hard",
+          "reason": "The divisibility tricks being proved here are the ones first met in Class 6 — you need to know the tricks before proving them."
+        },
+        {
+          "id": "g7.alg.expressions",
+          "strength": "hard",
+          "reason": "Writing a two-digit number as 10a + b and manipulating it is pure algebraic-expression work."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -5431,6 +5726,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask them to pick any 2-digit number, reverse its digits, and subtract the smaller from the larger (say 72 − 27 = 45). Try three different numbers — the answer is always a multiple of 9. Then the real check: can they show you WHY, using letters for the two digits?",
       "learning_outcomes": [
         "Can express 2- and 3-digit numbers in general form (10a + b, 100a + 10b + c)",
         "Can prove simple facts like 11 | (ab + ba) and 9 | (abc − cba variants) using the general form",
@@ -5570,8 +5866,16 @@
       "strand": "alg",
       "description": "Equations now carry the variable on BOTH sides (2x + 5 = x + 9), and may involve fractions or expressions that need simplifying first. You will reduce them systematically to x = value, and use them to crack age, number, perimeter and money problems.",
       "prerequisites": [
-        "g7.alg.simple-equations",
-        "g8.num.rational-numbers"
+        {
+          "id": "g7.alg.simple-equations",
+          "strength": "hard",
+          "reason": "Equations with variables on both sides use the same undoing moves as one-side equations — those moves must be second nature."
+        },
+        {
+          "id": "g8.num.rational-numbers",
+          "strength": "hard",
+          "reason": "Coefficients and solutions here are freely fractional and negative — rational-number arithmetic appears in almost every step."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -5582,6 +5886,7 @@
       "ccss": [
         "8.EE.C.7"
       ],
+      "parent_check": "Pose: 'I have twice as much money as you. If I give you ₹30, we'll have exactly the same. How much do I have?' (₹120 and ₹60.) However they crack it — algebra or clever trial — insist on the last step: check the answer back in the story. Verifying a solution is half the discipline of equations.",
       "learning_outcomes": [
         "Can solve linear equations with variables on both sides",
         "Can clear fractions by multiplying EVERY term by the common denominator",
@@ -5721,8 +6026,16 @@
       "strand": "alg",
       "description": "You will multiply monomials, binomials and polynomials, and meet the standard identities: (a+b)² = a²+2ab+b², (a−b)² = a²−2ab+b², and (a+b)(a−b) = a²−b². Identities are equalities true for ALL values — and they turn ugly arithmetic like 103² into two-second mental maths.",
       "prerequisites": [
-        "g7.alg.expressions",
-        "g7.num.exponents-intro"
+        {
+          "id": "g7.alg.expressions",
+          "strength": "hard",
+          "reason": "Multiplying expressions requires total comfort with terms, like terms and coefficients from Class 7."
+        },
+        {
+          "id": "g7.num.exponents-intro",
+          "strength": "hard",
+          "reason": "Multiplying x² by x³ is an exponent law in action — those laws are used in every product here."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -5734,6 +6047,7 @@
         "7.EE.A.1",
         "HSA-APR.A.1"
       ],
+      "parent_check": "Challenge them to do 31 × 29 in their head using an algebra shortcut (answer 899 — it's 30 × 30 minus 1). If they can then do 52 × 48 the same way (2496, from 2500 − 4) and tell you the pattern, the identity (a+b)(a−b) = a² − b² has become a party trick they actually own.",
       "learning_outcomes": [
         "Can multiply monomials and binomials, applying exponent rules to variables",
         "Can expand using the three standard identities and recognise when they apply",
@@ -5873,8 +6187,16 @@
       "strand": "alg",
       "description": "Factorisation reverses expansion: rewriting an expression as a product of factors. You will take out common factors, regroup, apply the identities backwards (a² − b² = (a+b)(a−b)), split the middle term of x² + bx + c, and divide expressions cleanly — with a spotlight on the cancellation errors everyone must unlearn.",
       "prerequisites": [
-        "g8.alg.expressions-identities",
-        "g6.num.playing-with-numbers"
+        {
+          "id": "g8.alg.expressions-identities",
+          "strength": "hard",
+          "reason": "Factorising is multiplying identities run in reverse — you can't play the film backwards before seeing it forwards."
+        },
+        {
+          "id": "g6.num.playing-with-numbers",
+          "strength": "hard",
+          "reason": "Taking the common factor out of 6x + 9 uses exactly the HCF thinking from Class 6."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -5885,6 +6207,7 @@
       "ccss": [
         "HSA-SSE.A.2"
       ],
+      "parent_check": "Ask: 'A rectangular garden has area 6x + 9 square metres, and the gardener says one side is 3 metres whatever x is. How long is the other side?' (2x + 3.) Pulling the 3 out is factorising. The check: ask how they'd spot the biggest number that comes out of BOTH 6 and 9.",
       "learning_outcomes": [
         "Can factor out the greatest common monomial factor completely",
         "Can factorise using identities, especially the difference of squares",
@@ -6024,8 +6347,16 @@
       "strand": "alg",
       "description": "The coordinate plane turns pairs of numbers into points and relationships into pictures. You will plot points, read line graphs, and draw the graphs of simple linear relationships like y = 2x — seeing for the first time that an equation IS a line. This bridge between algebra and geometry carries all of higher mathematics.",
       "prerequisites": [
-        "g6.num.integers-intro",
-        "g8.alg.linear-equations-1var"
+        {
+          "id": "g6.num.integers-intro",
+          "strength": "hard",
+          "reason": "All four quadrants use negative coordinates — plotting (−3, 2) is impossible without integer sense."
+        },
+        {
+          "id": "g8.alg.linear-equations-1var",
+          "strength": "soft",
+          "reason": "Linear graphs are pictures of equations, so solving them first enriches the meaning — but plotting points doesn't have to wait for it."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -6037,6 +6368,7 @@
         "5.G.A.1",
         "8.EE.B.5"
       ],
+      "parent_check": "Draw a quick grid and play three-in-a-row: you call points like (2, 3), they mark them, then swap. The sneaky check: call (3, 2) right after (2, 3) and see whether they land on DIFFERENT squares. Order mattering — across first, then up — is the heart of coordinates.",
       "learning_outcomes": [
         "Can plot and read points (x, y), respecting the order of coordinates",
         "Can locate points on the axes and state where axis points belong",
@@ -6176,8 +6508,16 @@
       "strand": "geo",
       "description": "The interior angles of an n-sided polygon sum to (n−2)×180°, while exterior angles always total 360°. You will use these facts, then dive into the parallelogram family — opposite sides and angles equal, diagonals bisecting each other — and see how rectangle, rhombus and square refine it step by step.",
       "prerequisites": [
-        "g7.geo.triangle-properties",
-        "g6.geo.elementary-shapes"
+        {
+          "id": "g7.geo.triangle-properties",
+          "strength": "hard",
+          "reason": "The polygon angle-sum comes from splitting shapes into triangles — the 180° triangle fact is the engine."
+        },
+        {
+          "id": "g6.geo.elementary-shapes",
+          "strength": "hard",
+          "reason": "You must already know the quadrilateral family — square, rectangle, rhombus, trapezium — before proving facts about them."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -6188,6 +6528,7 @@
       "ccss": [
         "HSG-CO.C.11"
       ],
+      "parent_check": "Ask: 'Is a square a rectangle? Is a rectangle a square?' and let them defend both answers. Then the tiebreaker: 'what EXTRA rule does a square obey that a rectangle doesn't have to?' Sorting the quadrilateral family by rules rather than by looks is exactly this chapter.",
       "learning_outcomes": [
         "Can compute interior angle sums of polygons via (n−2) × 180° and use the 360° exterior-angle fact",
         "Can use parallelogram properties (opposite sides/angles equal, adjacent angles supplementary, diagonals bisect each other) to find unknowns",
@@ -6328,8 +6669,16 @@
       "strand": "geo",
       "description": "A quadrilateral needs five independent measurements to be pinned down — four sides alone leave it floppy. You will construct quadrilaterals from five given parts (e.g. four sides and a diagonal) by splitting them into two triangles, reusing everything you know about triangle construction.",
       "prerequisites": [
-        "g8.geo.quadrilaterals",
-        "g7.geo.practical-geometry"
+        {
+          "id": "g8.geo.quadrilaterals",
+          "strength": "hard",
+          "reason": "You need each quadrilateral's properties to know which five measurements pin it down."
+        },
+        {
+          "id": "g7.geo.practical-geometry",
+          "strength": "hard",
+          "reason": "A quadrilateral is constructed as two triangles glued along a diagonal — triangle construction is literally step one."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -6340,6 +6689,7 @@
       "ccss": [
         "7.G.A.2"
       ],
+      "parent_check": "Pose: 'A carpenter wants a table top that's a perfect rectangle. He checks that opposite sides are equal — is that enough?' Let them explain the sneaky failure (it could still be a slanted parallelogram) and what one extra measurement fixes it: a diagonal. Knowing which measurements pin a shape down is the topic.",
       "learning_outcomes": [
         "Can explain why 5 measurements (suitably chosen) determine a quadrilateral while 4 do not",
         "Can construct quadrilaterals given: 4 sides + 1 diagonal; 3 sides + 2 diagonals; 2 adjacent sides + 3 angles; 3 sides + 2 included angles",
@@ -6479,7 +6829,11 @@
       "strand": "geo",
       "description": "You will map solids from different viewpoints (top, front, side), read simple maps, and discover Euler's beautiful relation for polyhedra: F + V − E = 2 — faces plus vertices minus edges equals two, for EVERY polyhedron from a cube to a football. It is many students' first universal theorem about 3D space.",
       "prerequisites": [
-        "g7.geo.visualising-solids"
+        {
+          "id": "g7.geo.visualising-solids",
+          "strength": "hard",
+          "reason": "Views and Euler's relation assume you can already read nets, sketches and the faces, edges and vertices of a solid."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -6488,6 +6842,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Line up a mug, a book and a bottle, and ask for three quick doodles: the row seen from the front, from the side, and from directly above. Then ask which two objects seem to merge or hide in one of the views, and why. Reading objects from different views is the skill.",
       "learning_outcomes": [
         "Can draw and match top, front and side views of solids and cube arrangements",
         "Can distinguish polyhedra (flat faces) from non-polyhedra (cylinder, sphere, cone)",
@@ -6627,8 +6982,16 @@
       "strand": "mea",
       "description": "You will find areas of trapeziums and general quadrilaterals via triangles, then step into 3D: surface areas and volumes of cuboids and cylinders. Keeping 'how much to paint' (surface area) separate from 'how much it holds' (volume) — and their different units — is the chapter's central discipline.",
       "prerequisites": [
-        "g7.mea.perimeter-area",
-        "g5.mea.volume-intuition"
+        {
+          "id": "g7.mea.perimeter-area",
+          "strength": "hard",
+          "reason": "Trapezium and polygon areas are cut-and-paste jobs on triangles and parallelograms — those formulas come first."
+        },
+        {
+          "id": "g5.mea.volume-intuition",
+          "strength": "soft",
+          "reason": "The stacking-cubes picture of volume makes the formulas meaningful, but the formulas can be learned and applied without it."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -6640,6 +7003,7 @@
         "7.G.B.6",
         "8.G.C.9"
       ],
+      "parent_check": "In the kitchen, ask: 'Which holds more — the tall thin bottle or the short fat jar?' Take guesses, then settle it with water and a measuring cup. The real check: ask why tall containers fool us so often — height is only one of the three directions that decide volume.",
       "learning_outcomes": [
         "Can compute the area of a trapezium as ½(a + b)h and of polygons by triangulation",
         "Can compute lateral/total surface area of cuboids, cubes and cylinders",
@@ -6781,7 +7145,11 @@
       "strand": "dat",
       "description": "You will group data into class intervals and draw histograms (bars touching — the scale is continuous), build and read pie charts where slices are proportional shares of 360°, and compute probabilities of equally likely outcomes — learning why a coin has no memory.",
       "prerequisites": [
-        "g7.dat.data-handling-averages"
+        {
+          "id": "g7.dat.data-handling-averages",
+          "strength": "hard",
+          "reason": "Histograms and probability start from organising raw data and summarising it — the Class 7 data work comes first."
+        }
       ],
       "ncert": {
         "class": 8,
@@ -6793,6 +7161,7 @@
         "6.SP.B.4",
         "7.SP.C.6"
       ],
+      "parent_check": "Toss a coin 10 times together and record the results. Ask: 'Before we started, what was the chance of heads? We got 7 — is the coin unfair?' Two minutes on why a 50% chance doesn't promise exactly 5 out of 10 is the best first probability lesson there is.",
       "learning_outcomes": [
         "Can group raw data into class intervals and draw/read a histogram",
         "Can explain why histogram bars touch while bar-graph bars do not",
