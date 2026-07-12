@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- node: g5.num.fractions-equivalent-compare
+     Reference implementation of harness/templates/interactive/README.md conventions:
+     self-contained, one concept, interaction-first, built-in diagnostic check with
+     tagged distractors, result code the student reports back to the tutor. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Same Pizza, Different Cuts — Equivalent Fractions</title>
+<style>
+  :root { --ink:#0b0b0b; --sub:#52514e; --page:#f9f9f7; --card:#fcfcfb;
+          --a:#2a78d6; --b:#1baf7a; --ok:#0ca30c; --warn:#fab219; --line:#e1e0d9; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#fff; --sub:#c3c2b7; --page:#0d0d0d; --card:#1a1a19;
+            --a:#3987e5; --b:#199e70; --line:#2c2c2a; }
+  }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--page); color:var(--ink); max-width:640px; margin:0 auto;
+         padding:20px; font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  h1 { font-size:22px; margin-bottom:4px; } .sub { color:var(--sub); margin-bottom:18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px;
+          padding:16px; margin-bottom:16px; }
+  .bar { display:flex; height:56px; border-radius:8px; overflow:hidden; margin:10px 0;
+         border:1px solid var(--line); }
+  .bar div { border-right:2px solid var(--page); transition:background .15s; }
+  .bar div:last-child { border-right:none; }
+  input[type=range] { width:100%; }
+  .frac { font-size:24px; font-weight:700; text-align:center; margin:6px 0; }
+  .q { margin-top:8px; } .opt { display:block; width:100%; text-align:left; margin:6px 0;
+       padding:10px 12px; border:1px solid var(--line); border-radius:8px; cursor:pointer;
+       background:var(--card); color:var(--ink); font-size:16px; }
+  .opt:hover { border-color:var(--a); }
+  .fb { padding:10px 12px; border-radius:8px; margin-top:8px; display:none; }
+  #result { font-weight:700; margin-top:12px; padding:10px; border:2px dashed var(--line);
+            border-radius:8px; display:none; }
+</style>
+</head>
+<body>
+<h1>Same pizza, different cuts 🍕</h1>
+<p class="sub">Move the slider. The <b>shaded amount never changes</b> — only the number of cuts does. Watch what happens to the fraction.</p>
+
+<div class="card">
+  <div class="frac" id="fracLabel">1/2</div>
+  <div class="bar" id="wall"></div>
+  <input type="range" id="cuts" min="1" max="6" value="1" aria-label="multiply the cuts">
+  <p class="sub" style="margin-top:6px">Cuts multiplied by <b id="mult">1</b> → same shading, new name for the same amount.</p>
+</div>
+
+<div class="card q" id="q1">
+  <b>Check 1.</b> Which fraction is the same amount as <b>2/3</b>?
+  <button class="opt" data-k="A" data-tag="ok">A. 8/12</button>
+  <button class="opt" data-k="B" data-tag="m-add">B. 3/4 <!-- added 1 to top and bottom --></button>
+  <button class="opt" data-k="C" data-tag="m-topsame">C. 2/6 <!-- kept numerator, changed denominator --></button>
+  <button class="opt" data-k="D" data-tag="slip-swap">D. 3/2 <!-- swapped top and bottom --></button>
+  <div class="fb" id="fb1"></div>
+</div>
+
+<div class="card q" id="q2">
+  <b>Check 2.</b> Which is <b>bigger</b>: 3/5 or 3/8?
+  <button class="opt" data-k="A" data-tag="ok">A. 3/5 — fifths are bigger pieces than eighths</button>
+  <button class="opt" data-k="B" data-tag="m-bigden">B. 3/8 — because 8 is bigger than 5</button>
+  <button class="opt" data-k="C" data-tag="m-same">C. They are equal — both have 3 on top</button>
+  <button class="opt" data-k="D" data-tag="slip-guess">D. Can't tell without a calculator</button>
+  <div class="fb" id="fb2"></div>
+</div>
+
+<div id="result"></div>
+
+<script>
+  const wall = document.getElementById('wall'), cuts = document.getElementById('cuts');
+  function render() {
+    const m = +cuts.value, parts = 2 * m;
+    document.getElementById('mult').textContent = m;
+    document.getElementById('fracLabel').textContent = `${m}/${parts}`;
+    wall.innerHTML = '';
+    for (let i = 0; i < parts; i++) {
+      const d = document.createElement('div');
+      d.style.flex = '1';
+      d.style.background = i < m ? 'var(--a)' : 'transparent';
+      wall.appendChild(d);
+    }
+  }
+  cuts.oninput = render; render();
+
+  // Feedback speaks to the THINKING each option reveals (see rules/30-assessment.md).
+  const FB = {
+    'ok': ['✅ Yes! You multiplied (or compared) the pieces, not just the digits.', 'var(--ok)'],
+    'm-add': ['Not quite — you added 1 to the top and bottom. Adding changes the amount; only <b>multiplying both</b> by the same number keeps it equal. Try the slider again!', 'var(--warn)'],
+    'm-topsame': ['Careful — the top stayed the same but the pieces got smaller, so 2/6 is <b>less</b> than 2/3. Both numbers must be multiplied by the same amount.', 'var(--warn)'],
+    'slip-swap': ['That flipped the fraction upside down — 3/2 is more than one whole pizza! Keep the top on top. 😄', 'var(--warn)'],
+    'm-bigden': ['This is the classic trap: a bigger bottom number means <b>smaller pieces</b>, not a bigger fraction. Cut a pizza into 8 vs 5 — which slices are bigger?', 'var(--warn)'],
+    'm-same': ['Same count, but count of <b>what</b>? 3 big pieces beat 3 small pieces. The bottom number tells you the piece size.', 'var(--warn)'],
+    'slip-guess': ['You can tell! Same top number → just compare piece sizes. No calculator needed — that\\'s the whole superpower here.', 'var(--warn)']
+  };
+  const answers = {};
+  document.querySelectorAll('.q').forEach((qEl, qi) => {
+    qEl.querySelectorAll('.opt').forEach(btn => btn.onclick = () => {
+      const tag = btn.dataset.tag, fb = qEl.querySelector('.fb');
+      answers['q' + (qi + 1)] = btn.dataset.k + (tag === 'ok' ? '' : ':' + tag);
+      fb.style.display = 'block';
+      fb.innerHTML = FB[tag][0];
+      fb.style.border = `2px solid ${FB[tag][1]}`;
+      if (answers.q1 && answers.q2) {
+        const r = document.getElementById('result');
+        r.style.display = 'block';
+        r.textContent = `Tell your tutor this code → RESULT: q1=${answers.q1} q2=${answers.q2}`;
+      }
+    });
+  });
+</script>
+</body>
+</html>

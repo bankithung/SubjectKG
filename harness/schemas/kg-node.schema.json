@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subjectkg/kg-node",
+  "title": "Knowledge Graph Node",
+  "description": "A single teachable concept in the Maths knowledge graph. IDs come from kg/spine.json and are immutable.",
+  "type": "object",
+  "required": ["id", "title", "grade", "strand", "description", "prerequisites", "learning_outcomes", "misconceptions", "teaching", "questions"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^g([1-9]|1[0-2])\\.(num|alg|geo|mea|dat|tri|cal|vec)\\.[a-z0-9-]+$" },
+    "title": { "type": "string" },
+    "grade": { "type": "integer", "minimum": 1, "maximum": 12 },
+    "strand": { "enum": ["num", "alg", "geo", "mea", "dat", "tri", "cal", "vec"] },
+    "description": { "type": "string", "description": "2-4 sentences: what the concept is and why it matters, student-readable." },
+    "prerequisites": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Node IDs from kg/spine.json that should be mastered first. Only list true conceptual prerequisites, not everything earlier."
+    },
+    "ncert": {
+      "type": "object",
+      "description": "Mapping to the NCERT textbook chapter(s) covering this node.",
+      "properties": {
+        "class": { "type": "integer" },
+        "chapters": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "ccss": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Common Core State Standards codes this node aligns with, e.g. 6.RP.A.1, HSA-REI.B.4. Empty array if no clean alignment."
+    },
+    "learning_outcomes": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string" },
+      "description": "Observable 'can-do' statements used as the mastery checklist."
+    },
+    "misconceptions": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "signal", "remedy"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^m[0-9]+$", "description": "Unique within the node; referenced by question distractors." },
+          "description": { "type": "string", "description": "The faulty mental model, e.g. 'multiplication always makes numbers bigger'." },
+          "signal": { "type": "string", "description": "What a student who holds this misconception typically does or says." },
+          "remedy": { "type": "string", "description": "The teaching move that best repairs this specific misconception." }
+        }
+      }
+    },
+    "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "est_minutes": { "type": "integer", "description": "Typical minutes to first mastery for an on-grade student." },
+    "teaching": {
+      "type": "object",
+      "required": ["modalities", "thinking_routines", "real_world_hooks"],
+      "additionalProperties": false,
+      "properties": {
+        "modalities": {
+          "type": "array",
+          "items": { "enum": ["visual", "verbal", "worked-example", "manipulative", "interactive-html", "video", "story", "game", "practice-drill", "socratic"] },
+          "description": "Modalities that work especially well for THIS concept, best-first."
+        },
+        "thinking_routines": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Routine IDs from harness/rules/20-thinking-routines.md that fit this concept, e.g. 'see-think-wonder', 'claim-support-question'."
+        },
+        "real_world_hooks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Concrete contexts that make this concept feel real (cricket scores, cooking, money, games...)."
+        },
+        "video_search": { "type": "string", "description": "A good YouTube search query for this concept (do not hardcode URLs; they rot)." }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["id", "skill", "difficulty", "prompt", "options", "explanation"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^q[0-9]+$", "description": "Unique within the node." },
+          "skill": { "enum": ["recall", "procedural", "conceptual", "application"] },
+          "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "prompt": { "type": "string" },
+          "options": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "required": ["text"],
+              "additionalProperties": false,
+              "properties": {
+                "text": { "type": "string" },
+                "correct": { "type": "boolean" },
+                "misconception": { "type": "string", "description": "The misconception id (m1...) in this node that choosing this distractor reveals. REQUIRED on every incorrect option unless diagnosis explains a slip instead." },
+                "diagnosis": { "type": "string", "description": "What choosing this option tells us about the student's thinking (e.g. 'careless sign slip, concept likely intact')." }
+              }
+            },
+            "description": "Exactly 4 options, exactly 1 correct. Every wrong option MUST be engineered to catch a specific error - never random fillers."
+          },
+          "explanation": { "type": "string", "description": "Full worked solution shown after answering." }
+        }
+      }
+    }
+  }
+}

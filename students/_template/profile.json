@@ -1,0 +1,21 @@
+{
+  "$schema": "../../harness/schemas/student-profile.schema.json",
+  "id": "S000",
+  "created": "1970-01-01",
+  "grade": 6,
+  "goals": { "target": "", "notes": "" },
+  "interests": [],
+  "mastery": {},
+  "strategy_stats": {},
+  "behavior": {
+    "hint_appetite": "healthy",
+    "frustration_signals": [],
+    "reengagement_moves": [],
+    "own_metaphors": []
+  },
+  "affect": { "confidence_by_strand": {}, "anxiety_flags": [] },
+  "calibration": { "samples": 0, "overconfidence": 0 },
+  "spaced_repetition": {},
+  "session_count": 0,
+  "last_session": null
+}

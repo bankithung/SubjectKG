@@ -1,0 +1,9 @@
+# Raw source PDFs (downloaded by scripts/ingest_ncert.py) - large binaries stay out of git
+data/raw/
+
+# The only place a student's real name may exist (see harness/rules/40-personalization.md)
+students/*/private-notes.md
+
+__pycache__/
+*.pyc
+.DS_Store

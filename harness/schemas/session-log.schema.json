@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subjectkg/session-log",
+  "title": "Session Log",
+  "description": "One tutoring session's record. Lives at students/<id>/sessions/YYYY-MM-DD-nn.json. Append-only; never edited after the fact.",
+  "type": "object",
+  "required": ["student", "date", "goal", "nodes_touched", "events", "assessment", "profile_updates", "reflection"],
+  "properties": {
+    "student": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "duration_min": { "type": "number" },
+    "goal": { "type": "string", "description": "Planned goal, as a KG node id + intent, e.g. 'g6.num.ratio-proportion: first teach'." },
+    "nodes_touched": { "type": "array", "items": { "type": "string" } },
+    "reviews_done": { "type": "array", "items": { "type": "string" }, "description": "Node ids reviewed at session start (spaced repetition)." },
+    "events": {
+      "type": "array",
+      "description": "Chronological teaching moves and observations.",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": { "enum": ["hook", "teach", "routine", "micro-check", "question", "hint", "break", "modality-switch", "interactive", "video", "observation"] },
+          "node": { "type": "string" },
+          "strategy": { "type": "string", "description": "Modality or routine used." },
+          "detail": { "type": "string" },
+          "student_response": { "type": "string" },
+          "outcome": { "enum": ["landed", "partial", "missed", "n/a"] },
+          "latency_sec": { "type": "number" },
+          "confidence_stated": { "type": "integer", "minimum": 1, "maximum": 5 }
+        }
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["node", "question", "correct"],
+            "properties": {
+              "node": { "type": "string" },
+              "question": { "type": "string", "description": "Question id from the node bank, or 'generated:<hash>' with the item stored in generated_items." },
+              "correct": { "type": "boolean" },
+              "option_chosen": { "type": "string" },
+              "misconception_signalled": { "type": "string", "description": "Tag of the chosen distractor, if wrong." },
+              "confirmed_as": { "enum": ["misconception", "slip", "unclear"], "description": "After the what-makes-you-say-that follow-up." },
+              "latency_sec": { "type": "number" }
+            }
+          }
+        },
+        "generated_items": { "type": "array", "items": { "type": "object" }, "description": "Full bodies of any questions generated during the session (same schema as KG node questions), so they can be reused/promoted to the bank." }
+      }
+    },
+    "profile_updates": {
+      "type": "object",
+      "description": "Summary of what changed in profile.json because of this session (mastery deltas, new strategy_stats, behavior notes). Duplicated here so the profile's evolution is auditable.",
+      "properties": {
+        "mastery_deltas": { "type": "object", "additionalProperties": { "type": "number" } },
+        "misconceptions_observed": { "type": "array", "items": { "type": "string" } },
+        "misconceptions_repaired": { "type": "array", "items": { "type": "string" } },
+        "strategy_outcomes": { "type": "object", "additionalProperties": { "enum": ["worked", "failed", "unclear"] } },
+        "behavior_notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "reflection": {
+      "type": "object",
+      "required": ["goal_met", "what_worked", "what_failed", "next_time"],
+      "properties": {
+        "goal_met": { "type": "boolean" },
+        "evidence": { "type": "string" },
+        "what_worked": { "type": "array", "items": { "type": "string" } },
+        "what_failed": { "type": "array", "items": { "type": "string" } },
+        "surprises": { "type": "array", "items": { "type": "string" } },
+        "next_time": { "type": "string", "description": "Concrete, testable plan for the next session." },
+        "insight_for_ledger": { "type": "string", "description": "If a generalizable lesson emerged, the entry appended to harness/insights.md." }
+      }
+    }
+  }
+}

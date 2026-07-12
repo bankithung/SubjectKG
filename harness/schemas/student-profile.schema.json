@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subjectkg/student-profile",
+  "title": "Student Profile",
+  "description": "The harness's persistent memory of one student. Updated after every session (Hard Rule). Lives at students/<id>/profile.json.",
+  "type": "object",
+  "required": ["id", "created", "grade", "mastery", "strategy_stats", "behavior", "spaced_repetition"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^S[0-9]{3,}$", "description": "Anonymous ID; never store real names here (keep any name only in students/<id>/private-notes.md, gitignored)." },
+    "created": { "type": "string", "format": "date" },
+    "grade": { "type": "integer", "minimum": 1, "maximum": 12, "description": "Nominal school grade. Actual level comes from mastery, not this." },
+    "goals": {
+      "type": "object",
+      "properties": {
+        "target": { "type": "string" },
+        "exam_date": { "type": "string", "format": "date" },
+        "notes": { "type": "string" }
+      }
+    },
+    "interests": { "type": "array", "items": { "type": "string" }, "description": "Used for problem contexts and hooks: cricket, drawing, space, Minecraft..." },
+    "mastery": {
+      "type": "object",
+      "description": "Keyed by KG node id.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["score", "evidence_count", "last_seen"],
+        "properties": {
+          "score": { "type": "number", "minimum": 0, "maximum": 1 },
+          "evidence_count": { "type": "integer" },
+          "last_seen": { "type": "string", "format": "date" },
+          "conceptual_ok": { "type": "boolean", "description": "At least one conceptual/application item answered correctly (required for true mastery)." },
+          "misconceptions_active": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "first_seen"],
+              "properties": {
+                "id": { "type": "string", "description": "Misconception id within that node, e.g. m2." },
+                "first_seen": { "type": "string", "format": "date" },
+                "repair_stage": { "enum": ["observed", "confronted", "retest-due", "repaired"] },
+                "notes": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "strategy_stats": {
+      "type": "object",
+      "description": "Keyed by strategy name (modality or thinking routine, optionally scoped ':strand', e.g. 'visual:num', 'socratic', 'see-think-wonder').",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["tried", "worked"],
+        "properties": {
+          "tried": { "type": "integer" },
+          "worked": { "type": "integer", "description": "Sessions where the follow-up check succeeded after this strategy." },
+          "last_used": { "type": "string", "format": "date" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "behavior": {
+      "type": "object",
+      "properties": {
+        "attention_span_min": { "type": "number", "description": "Observed productive minutes before a break is needed." },
+        "session_sweet_spot_min": { "type": "number" },
+        "best_time_of_day": { "type": "string" },
+        "hint_appetite": { "enum": ["asks-immediately", "healthy", "never-asks"] },
+        "frustration_signals": { "type": "array", "items": { "type": "string" }, "description": "Observed tells: short answers, 'whatever', asks to switch topic..." },
+        "reengagement_moves": { "type": "array", "items": { "type": "string" }, "description": "What has actually re-engaged this student." },
+        "impulsivity": { "enum": ["impulsive", "balanced", "hesitant"], "description": "From latency×correctness patterns." },
+        "own_metaphors": { "type": "array", "items": { "type": "string" }, "description": "The student's own working metaphors — reuse them when teaching." }
+      }
+    },
+    "affect": {
+      "type": "object",
+      "properties": {
+        "confidence_by_strand": { "type": "object", "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 } },
+        "anxiety_flags": { "type": "array", "items": { "type": "string" } },
+        "praise_response": { "type": "string" }
+      }
+    },
+    "calibration": {
+      "type": "object",
+      "properties": {
+        "samples": { "type": "integer" },
+        "overconfidence": { "type": "number", "description": "Mean(predicted−actual); positive = overconfident." }
+      }
+    },
+    "spaced_repetition": {
+      "type": "object",
+      "description": "Keyed by KG node id.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["next_review", "interval_days"],
+        "properties": {
+          "next_review": { "type": "string", "format": "date" },
+          "interval_days": { "type": "number" },
+          "lapses": { "type": "integer" }
+        }
+      }
+    },
+    "session_count": { "type": "integer" },
+    "last_session": { "type": "string", "format": "date" }
+  }
+}

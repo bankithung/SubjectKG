@@ -1,0 +1,25 @@
+{
+  "$comment": "Source material for building/refining the knowledge graph. scripts/ingest_ncert.py downloads what it can into data/raw/ (gitignored). NCERT textbook PDFs follow a stable URL scheme: https://ncert.nic.in/textbook/pdf/<code>1dd.pdf where dd is the zero-padded chapter, or <code>ps.pdf for the full-book zip prefix. Codes below are the official NCERT book codes for Mathematics.",
+  "ncert_textbooks": [
+    { "class": 1, "title": "Joyful Mathematics", "code": "aejm1", "chapters": 13 },
+    { "class": 2, "title": "Joyful Mathematics", "code": "bejm1", "chapters": 13 },
+    { "class": 3, "title": "Maths Mela", "code": "cemm1", "chapters": 14 },
+    { "class": 4, "title": "Math-Magic", "code": "demh1", "chapters": 14 },
+    { "class": 5, "title": "Math-Magic", "code": "eemh1", "chapters": 14 },
+    { "class": 6, "title": "Ganita Prakash / Mathematics", "code": "femh1", "chapters": 14 },
+    { "class": 7, "title": "Mathematics", "code": "gemh1", "chapters": 15 },
+    { "class": 8, "title": "Mathematics", "code": "hemh1", "chapters": 16 },
+    { "class": 9, "title": "Mathematics", "code": "iemh1", "chapters": 15 },
+    { "class": 10, "title": "Mathematics", "code": "jemh1", "chapters": 15 },
+    { "class": 11, "title": "Mathematics", "code": "kemh1", "chapters": 16 },
+    { "class": 12, "title": "Mathematics Part I", "code": "lemh1", "chapters": 6 },
+    { "class": 12, "title": "Mathematics Part II", "code": "lemh2", "chapters": 7 }
+  ],
+  "standards_documents": [
+    { "name": "CBSE Class 11-12 Mathematics Learning Framework", "url": "https://cbseacademic.nic.in/web_material/Manuals/Math_LF.pdf" },
+    { "name": "CBSE Secondary (9-10) Learning Outcomes - Mathematics", "url": "https://cbseacademic.nic.in/web_material/CurriculumMain22/Sec/Learning_Outcomes_Mathematics_Sec.pdf" },
+    { "name": "Common Core State Standards - Mathematics", "url": "https://www.thecorestandards.org/Math/", "note": "HTML; grade-by-grade standards K-12. CCSS codes in the KG align to these." },
+    { "name": "NCERT Learning Outcomes Elementary Stage", "url": "https://ncert.nic.in/pdf/publication/otherpublications/tilops101.pdf" }
+  ],
+  "note": "ncert.nic.in and cbseacademic.nic.in were unreachable from the authoring environment (network policy). v1 of the graph was authored from NCERT chapter structure + CCSS knowledge; run the ingest script from an unrestricted machine to download sources and refine the graph against the actual texts (see scripts/ingest_ncert.py)."
+}

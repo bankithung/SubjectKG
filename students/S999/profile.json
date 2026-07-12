@@ -1,0 +1,51 @@
+{
+  "$schema": "../../harness/schemas/student-profile.schema.json",
+  "$comment": "SYNTHETIC DEMO FIXTURE - not a real student. Exists so `/kg show S999` and the viewer overlay can be demonstrated before any real sessions. Delete freely.",
+  "id": "S999",
+  "created": "2026-07-12",
+  "grade": 6,
+  "goals": { "target": "comfortable with Class 6 maths, enjoys it again", "notes": "demo fixture" },
+  "interests": ["cricket", "drawing", "space"],
+  "mastery": {
+    "g3.num.mult-tables": { "score": 0.92, "evidence_count": 6, "last_seen": "2026-07-01", "conceptual_ok": true },
+    "g4.num.mult-multi-digit": { "score": 0.88, "evidence_count": 5, "last_seen": "2026-07-03", "conceptual_ok": true },
+    "g4.num.division-long-intro": { "score": 0.85, "evidence_count": 4, "last_seen": "2026-07-03", "conceptual_ok": true },
+    "g4.num.fractions-equal-parts": { "score": 0.86, "evidence_count": 5, "last_seen": "2026-07-05", "conceptual_ok": true },
+    "g5.num.fractions-equivalent-compare": {
+      "score": 0.55, "evidence_count": 3, "last_seen": "2026-07-08", "conceptual_ok": false,
+      "misconceptions_active": [
+        { "id": "m1", "first_seen": "2026-07-08", "repair_stage": "confronted", "notes": "bigger denominator = bigger fraction; area model confrontation done, retest due" }
+      ]
+    },
+    "g5.num.decimals-intro": { "score": 0.35, "evidence_count": 2, "last_seen": "2026-07-10", "conceptual_ok": false }
+  },
+  "strategy_stats": {
+    "visual:num": { "tried": 4, "worked": 4, "last_used": "2026-07-10" },
+    "worked-example": { "tried": 3, "worked": 2, "last_used": "2026-07-08" },
+    "socratic": { "tried": 2, "worked": 0, "last_used": "2026-07-05", "notes": "shuts down under pure questioning; needs scaffolding first" },
+    "see-think-wonder": { "tried": 2, "worked": 2, "last_used": "2026-07-10" }
+  },
+  "behavior": {
+    "attention_span_min": 18,
+    "session_sweet_spot_min": 30,
+    "best_time_of_day": "evening",
+    "hint_appetite": "asks-immediately",
+    "frustration_signals": ["one-word answers", "asks 'is this almost done?'"],
+    "reengagement_moves": ["cricket-context problem", "switch to drawing the problem"],
+    "impulsivity": "impulsive",
+    "own_metaphors": ["calls equivalent fractions 'same pizza, different cuts'"]
+  },
+  "affect": {
+    "confidence_by_strand": { "num": 0.5, "geo": 0.7, "mea": 0.6 },
+    "anxiety_flags": ["freezes on timed questions"],
+    "praise_response": "responds to effort-praise; deflects ability-praise"
+  },
+  "calibration": { "samples": 8, "overconfidence": 0.9 },
+  "spaced_repetition": {
+    "g4.num.fractions-equal-parts": { "next_review": "2026-07-14", "interval_days": 7, "lapses": 0 },
+    "g5.num.fractions-equivalent-compare": { "next_review": "2026-07-12", "interval_days": 1, "lapses": 2 },
+    "g4.num.division-long-intro": { "next_review": "2026-07-20", "interval_days": 16, "lapses": 1 }
+  },
+  "session_count": 6,
+  "last_session": "2026-07-10"
+}
