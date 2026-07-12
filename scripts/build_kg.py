@@ -52,7 +52,11 @@ def main() -> int:
         for cf in sorted(classes_dir.glob("class-*.json")):
             cls = json.loads(cf.read_text())
             for m in cls.get("micros", []):
-                micros_by_parent.setdefault(m["parent"], []).append(m)
+                parent = m.get("parent")
+                if not parent:
+                    print(f"WARN: micro without parent in {cf.name}: {m.get('id')}", file=sys.stderr)
+                    continue
+                micros_by_parent.setdefault(parent, []).append(m)
                 n_micros += 1
     for node in nodes:
         if node["id"] in micros_by_parent:

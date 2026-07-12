@@ -41,11 +41,12 @@ def fetch(url: str, dest: Path) -> bool:
         return True
     try:
         req = urllib.request.Request(url, headers=UA)
-        with urllib.request.urlopen(req, timeout=60) as r, open(dest, "wb") as f:
-            f.write(r.read())
-        if dest.stat().st_size < 10_000:  # error page, not a PDF
-            dest.unlink()
+        with urllib.request.urlopen(req, timeout=60) as r:
+            data = r.read()
+        # real PDFs start with %PDF; size alone lets HTML error pages through
+        if len(data) < 10_000 or not data.startswith(b"%PDF"):
             return False
+        dest.write_bytes(data)
         return True
     except Exception as e:
         print(f"  FAIL {url}: {e}")

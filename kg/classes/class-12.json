@@ -1,0 +1,1739 @@
+{
+  "class": 12,
+  "micros": [
+    {
+      "id": "g12.alg.relations-functions.relation-types",
+      "parent": "g12.alg.relations-functions",
+      "title": "Reflexive, Symmetric and Transitive Relations",
+      "description": "Test a relation on a set for reflexivity, symmetry and transitivity from its defining rule or its list of ordered pairs, producing counterexamples where a property fails.",
+      "outcomes": [
+        "Can check each of the three properties for a relation given as pairs or as a rule",
+        "Can produce a specific counterexample pair whenever a property fails"
+      ],
+      "prereqs": ["g11.alg.sets", "g11.alg.relations-functions"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.alg.relations-functions.equivalence-relations",
+      "parent": "g12.alg.relations-functions",
+      "title": "Equivalence Relations and Equivalence Classes",
+      "description": "Recognise relations that are reflexive, symmetric and transitive as equivalence relations, and describe the partition of the set into equivalence classes (e.g. congruence modulo n).",
+      "outcomes": [
+        "Can verify that a relation is an equivalence relation",
+        "Can list the equivalence classes of relations like 'a ≡ b (mod 3)' and explain why classes partition the set"
+      ],
+      "prereqs": ["g12.alg.relations-functions.relation-types"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.alg.relations-functions.one-one-functions",
+      "parent": "g12.alg.relations-functions",
+      "title": "One-one (Injective) Functions",
+      "description": "Prove a function is one-one by showing f(x1) = f(x2) forces x1 = x2, or disprove it with two distinct inputs sharing an output; read injectivity off a graph with the horizontal line test.",
+      "outcomes": [
+        "Can prove or disprove injectivity algebraically",
+        "Can state the difference between 'every input has one output' (function) and 'distinct inputs have distinct outputs' (one-one)"
+      ],
+      "prereqs": ["g11.alg.relations-functions"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which of the following functions from R to R is one-one?",
+        "options": [
+          { "text": "f(x) = 2x + 3", "correct": true },
+          { "text": "f(x) = x², because each input x gives exactly one output x²", "misconception": "m4" },
+          { "text": "f(x) = |x|", "diagnosis": "Missed that |−a| = |a| pairs two inputs to one output; did not hunt for collisions." },
+          { "text": "f(x) = sin x", "diagnosis": "Ignored periodicity: sin 0 = sin π = 0 already breaks injectivity." }
+        ],
+        "explanation": "f(x) = 2x + 3 is one-one: 2x1 + 3 = 2x2 + 3 forces x1 = x2. x² fails since f(−1) = f(1) = 1 — 'each input has one output' is the definition of a FUNCTION, not of one-one. |x| and sin x also send distinct inputs to equal outputs."
+      }
+    },
+    {
+      "id": "g12.alg.relations-functions.onto-functions",
+      "parent": "g12.alg.relations-functions",
+      "title": "Onto (Surjective) Functions",
+      "description": "Decide whether every element of the codomain is attained: solve f(x) = y for arbitrary y in the codomain, or exhibit a y with no pre-image. Contrast range with codomain.",
+      "outcomes": [
+        "Can prove or disprove surjectivity for functions like f: R→R, f(x) = x² or f(x) = 2x + 3",
+        "Can adjust the codomain to make a given function onto"
+      ],
+      "prereqs": ["g12.alg.relations-functions.one-one-functions"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.alg.relations-functions.composition",
+      "parent": "g12.alg.relations-functions",
+      "title": "Composition of Functions",
+      "description": "Compute (g∘f)(x) = g(f(x)), feeding the output of the inner function into the outer one, and show with examples that g∘f and f∘g generally differ.",
+      "outcomes": [
+        "Can compute g∘f and f∘g for algebraic and trigonometric functions",
+        "Can give an example where g∘f ≠ f∘g and explain why order matters"
+      ],
+      "prereqs": ["g11.alg.relations-functions"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "If f(x) = x² and g(x) = 2x + 1, then (g∘f)(x) equals:",
+        "options": [
+          { "text": "2x² + 1", "correct": true },
+          { "text": "4x² + 4x + 1", "misconception": "m1" },
+          { "text": "2x³ + x²", "misconception": "m1" },
+          { "text": "2x² + 2x", "diagnosis": "Attempted g(f(x)) but distributed 2 over x² + x; algebra slip after a correct setup." }
+        ],
+        "explanation": "(g∘f)(x) = g(f(x)) = g(x²) = 2x² + 1. Computing (f∘g)(x) = (2x+1)² = 4x² + 4x + 1 swaps the order — composition is not commutative — and 2x³ + x² is the PRODUCT g(x)·f(x), which is not composition at all."
+      }
+    },
+    {
+      "id": "g12.alg.relations-functions.invertibility",
+      "parent": "g12.alg.relations-functions",
+      "title": "Invertible Functions and Finding f⁻¹",
+      "description": "A function has an inverse exactly when it is one-one and onto (bijective). Find f⁻¹ for simple bijections by solving y = f(x) for x, and verify f⁻¹∘f = identity.",
+      "outcomes": [
+        "Can state and apply the bijectivity criterion for invertibility",
+        "Can compute f⁻¹ explicitly for functions like f(x) = 3x + 2 or f(x) = (x−1)/(x+2)",
+        "Can distinguish f⁻¹(x) from the reciprocal 1/f(x)"
+      ],
+      "prereqs": [
+        "g12.alg.relations-functions.one-one-functions",
+        "g12.alg.relations-functions.onto-functions",
+        "g12.alg.relations-functions.composition"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m2", "m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The function f: R → R, f(x) = 3x + 2 is invertible. Its inverse f⁻¹(x) is:",
+        "options": [
+          { "text": "(x − 2)/3", "correct": true },
+          { "text": "1/(3x + 2)", "misconception": "m2" },
+          { "text": "3x − 2", "diagnosis": "Reversed only the signs, not the operations; never solved y = 3x + 2 for x." },
+          { "text": "(x + 2)/3", "diagnosis": "Undid the operations in the wrong order: added 2 before dividing instead of subtracting first." }
+        ],
+        "explanation": "Set y = 3x + 2 and solve for x: x = (y − 2)/3, so f⁻¹(x) = (x − 2)/3. Check: f⁻¹(f(x)) = ((3x+2) − 2)/3 = x. The reciprocal 1/f(x) is a completely different function — f⁻¹ undoes f, it does not divide 1 by it."
+      }
+    },
+    {
+      "id": "g12.alg.relations-functions.domain-restriction",
+      "parent": "g12.alg.relations-functions",
+      "title": "Restricting Domain and Codomain to Force Invertibility",
+      "description": "A non-bijective function becomes invertible after restricting its domain (to make it one-one) and shrinking its codomain to the range (to make it onto), e.g. x² on [0, ∞).",
+      "outcomes": [
+        "Can choose a restricted domain and codomain that make functions like x² or sin x bijective",
+        "Can explain why the restriction is necessary before an inverse can exist"
+      ],
+      "prereqs": ["g12.alg.relations-functions.invertibility"],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "misconception_refs": ["m3"]
+    },
+
+    {
+      "id": "g12.tri.inverse-functions.inverse-idea",
+      "parent": "g12.tri.inverse-functions",
+      "title": "What sin⁻¹x Means (and Doesn't)",
+      "description": "sin⁻¹x is the inverse FUNCTION of a restricted sine, not the reciprocal 1/sin x. Because sine is not one-one on R, its domain must be cut down before an inverse can exist.",
+      "outcomes": [
+        "Can explain why sin, cos, tan need restricted domains to be invertible",
+        "Can distinguish sin⁻¹x from cosec x = 1/sin x in notation and meaning"
+      ],
+      "prereqs": ["g12.alg.relations-functions.domain-restriction", "g11.tri.functions"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which statement correctly describes sin⁻¹x?",
+        "options": [
+          { "text": "The angle in [−π/2, π/2] whose sine is x", "correct": true },
+          { "text": "1/sin x, the reciprocal of sin x", "misconception": "m1" },
+          { "text": "sin(1/x)", "diagnosis": "Moved the −1 exponent onto the argument; parsing error in function notation." },
+          { "text": "Any angle whose sine is x", "diagnosis": "Ignores the principal branch: without restricting to [−π/2, π/2] there are infinitely many such angles and sin⁻¹ would not be a function." }
+        ],
+        "explanation": "sin⁻¹ is the inverse of the sine function restricted to [−π/2, π/2]: it returns the unique angle in that interval with the given sine. The reciprocal of sin x is written cosec x — the superscript −1 on a function name means inverse function, not power."
+      }
+    },
+    {
+      "id": "g12.tri.inverse-functions.principal-branches",
+      "parent": "g12.tri.inverse-functions",
+      "title": "Principal-value Branches: Domains and Ranges",
+      "description": "Memorise and justify the principal branches: sin⁻¹: [−1,1] → [−π/2, π/2], cos⁻¹: [−1,1] → [0, π], tan⁻¹: R → (−π/2, π/2), and why these particular intervals are chosen.",
+      "outcomes": [
+        "Can state domain and range of sin⁻¹, cos⁻¹, tan⁻¹ without error",
+        "Can explain why cos⁻¹ needs [0, π] rather than [−π/2, π/2]"
+      ],
+      "prereqs": ["g12.tri.inverse-functions.inverse-idea"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3"]
+    },
+    {
+      "id": "g12.tri.inverse-functions.principal-values",
+      "parent": "g12.tri.inverse-functions",
+      "title": "Evaluating Principal Values",
+      "description": "Evaluate expressions like sin⁻¹(1/2), cos⁻¹(−1/2), tan⁻¹(−1), landing in the correct principal branch — especially for negative arguments where sin⁻¹ and tan⁻¹ give negative angles but cos⁻¹ gives an angle in (π/2, π].",
+      "outcomes": [
+        "Can evaluate inverse trig expressions at standard values in the correct branch",
+        "Can use sin⁻¹(−x) = −sin⁻¹x and cos⁻¹(−x) = π − cos⁻¹x correctly"
+      ],
+      "prereqs": ["g12.tri.inverse-functions.principal-branches"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The principal value of cos⁻¹(−1/2) is:",
+        "options": [
+          { "text": "2π/3", "correct": true },
+          { "text": "−π/3", "misconception": "m3" },
+          { "text": "π/3", "diagnosis": "Dropped the negative sign on the argument and evaluated cos⁻¹(1/2)." },
+          { "text": "5π/6", "diagnosis": "Confused −1/2 with −√3/2; wrong standard value inside the right branch." }
+        ],
+        "explanation": "cos⁻¹ takes values in [0, π], never negative. cos⁻¹(−1/2) = π − cos⁻¹(1/2) = π − π/3 = 2π/3, and indeed cos(2π/3) = −1/2. The answer −π/3 uses the sin⁻¹-style branch [−π/2, π/2], which is wrong for cosine."
+      }
+    },
+    {
+      "id": "g12.tri.inverse-functions.simplify-compositions",
+      "parent": "g12.tri.inverse-functions",
+      "title": "Simplifying sin⁻¹(sin x) and cos⁻¹(cos x)",
+      "description": "sin⁻¹(sin x) = x only when x is inside [−π/2, π/2]; otherwise the answer is the angle in the principal branch with the same sine. Fold arbitrary angles back into the branch using symmetry.",
+      "outcomes": [
+        "Can evaluate sin⁻¹(sin x) and cos⁻¹(cos x) for x outside the principal branch",
+        "Can explain why blind cancellation fails using the graph of sin⁻¹(sin x)"
+      ],
+      "prereqs": ["g12.tri.inverse-functions.principal-values"],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 4,
+        "prompt": "sin⁻¹(sin(2π/3)) equals:",
+        "options": [
+          { "text": "π/3", "correct": true },
+          { "text": "2π/3", "misconception": "m2" },
+          { "text": "−π/3", "diagnosis": "Folded into the principal branch but flipped the sign; sin(2π/3) is positive so the answer must be positive." },
+          { "text": "π/6", "diagnosis": "Used sin(2π/3) = 1/2 instead of √3/2; standard-value slip." }
+        ],
+        "explanation": "sin(2π/3) = sin(π − 2π/3) = sin(π/3) = √3/2. Since 2π/3 lies outside [−π/2, π/2], sin⁻¹ cannot return it: sin⁻¹(√3/2) = π/3. Cancelling sin⁻¹(sin x) to x is only valid inside the principal branch."
+      }
+    },
+    {
+      "id": "g12.tri.inverse-functions.identities-graphs",
+      "parent": "g12.tri.inverse-functions",
+      "title": "Identities and Graphs of Inverse Trig Functions",
+      "description": "Use identities such as sin⁻¹x + cos⁻¹x = π/2 and tan⁻¹x + cot⁻¹x = π/2, and interpret the graphs of sin⁻¹, cos⁻¹, tan⁻¹ as reflections of the restricted originals in the line y = x.",
+      "outcomes": [
+        "Can apply sin⁻¹x + cos⁻¹x = π/2 to evaluate and simplify expressions",
+        "Can sketch inverse trig graphs by reflecting the restricted trig graphs in y = x"
+      ],
+      "prereqs": ["g12.tri.inverse-functions.principal-values"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+
+    {
+      "id": "g12.alg.matrices.matrix-basics",
+      "parent": "g12.alg.matrices",
+      "title": "Matrix Notation, Order and Types",
+      "description": "A matrix is a rectangular array a_ij with i indexing rows and j columns. Identify order m×n, equality of matrices, and special types: row, column, square, diagonal, scalar, identity, zero.",
+      "outcomes": [
+        "Can state the order of a matrix and locate the entry a_ij",
+        "Can classify matrices by type and use equality to solve for unknown entries"
+      ],
+      "prereqs": ["g8.alg.expressions-identities"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g12.alg.matrices.add-scalar-multiply",
+      "parent": "g12.alg.matrices",
+      "title": "Matrix Addition and Scalar Multiplication",
+      "description": "Add matrices of the same order entrywise and multiply a matrix by a scalar; use the algebra of these operations (commutativity, associativity, additive inverse) to solve matrix equations like 2X + A = B.",
+      "outcomes": [
+        "Can add, subtract and scalar-multiply matrices of matching orders",
+        "Can solve simple matrix equations for an unknown matrix X"
+      ],
+      "prereqs": ["g12.alg.matrices.matrix-basics"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g12.alg.matrices.matrix-multiplication",
+      "parent": "g12.alg.matrices",
+      "title": "Matrix Multiplication: the Row-by-Column Rule",
+      "description": "Multiply an m×n matrix by an n×p matrix: the (i,j) entry is the dot product of row i with column j. Check compatibility of orders before multiplying — and never multiply entry-by-entry.",
+      "outcomes": [
+        "Can decide when a product AB is defined and state its order",
+        "Can compute 2×2 and 3×3 products accurately with the row-by-column rule"
+      ],
+      "prereqs": ["g12.alg.matrices.add-scalar-multiply"],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Let A = [[1, 2], [3, 4]] and B = [[2, 0], [1, 3]] (rows listed). Then AB equals:",
+        "options": [
+          { "text": "[[4, 6], [10, 12]]", "correct": true },
+          { "text": "[[2, 0], [3, 12]]", "misconception": "m3" },
+          { "text": "[[2, 4], [10, 14]]", "misconception": "m1" },
+          { "text": "[[4, 6], [7, 12]]", "diagnosis": "Row-column slip in the (2,1) entry: computed 3 + 4 instead of 3×2 + 4×1." }
+        ],
+        "explanation": "AB = [[1·2 + 2·1, 1·0 + 2·3], [3·2 + 4·1, 3·0 + 4·3]] = [[4, 6], [10, 12]]. Multiplying entry-by-entry gives [[2, 0], [3, 12]], which is not matrix multiplication, and [[2, 4], [10, 14]] is BA — order matters."
+      }
+    },
+    {
+      "id": "g12.alg.matrices.non-commutativity",
+      "parent": "g12.alg.matrices",
+      "title": "Why AB ≠ BA: Matrix Algebra Identities",
+      "description": "Matrix multiplication is associative and distributive but NOT commutative. Consequently number-algebra identities mutate: (A+B)² = A² + AB + BA + B², and (A+B)(A−B) = A² − AB + BA − B².",
+      "outcomes": [
+        "Can produce a concrete pair with AB ≠ BA",
+        "Can expand (A+B)² and (A+B)(A−B) correctly without merging AB and BA"
+      ],
+      "prereqs": ["g12.alg.matrices.matrix-multiplication"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "For square matrices A and B of the same order, (A + B)² always equals:",
+        "options": [
+          { "text": "A² + AB + BA + B²", "correct": true },
+          { "text": "A² + 2AB + B²", "misconception": "m2" },
+          { "text": "A² + 2BA + B²", "misconception": "m1" },
+          { "text": "A² + B²", "diagnosis": "Dropped both cross terms entirely — the 'freshman's dream' carried into matrices." }
+        ],
+        "explanation": "(A+B)² = (A+B)(A+B) = A² + AB + BA + B² by distributivity. The terms AB and BA cannot be merged into 2AB unless A and B happen to commute, which matrices generally do not."
+      }
+    },
+    {
+      "id": "g12.alg.matrices.zero-divisors",
+      "parent": "g12.alg.matrices",
+      "title": "AB = O Without A = O or B = O",
+      "description": "Unlike numbers, matrices have zero divisors: nonzero matrices can multiply to the zero matrix, and AB = AC does not allow cancelling A. Build and verify explicit examples.",
+      "outcomes": [
+        "Can exhibit nonzero A, B with AB = O",
+        "Can explain why cancellation fails and connect it to A not being invertible"
+      ],
+      "prereqs": ["g12.alg.matrices.matrix-multiplication"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A and B are 2×2 matrices with AB = O (the zero matrix). Which statement is correct?",
+        "options": [
+          { "text": "It is possible that A ≠ O and B ≠ O", "correct": true },
+          { "text": "Necessarily A = O or B = O", "misconception": "m4" },
+          { "text": "Necessarily both A = O and B = O", "diagnosis": "Even stronger version of the no-zero-divisors belief; also fails for numbers (2 × 0 = 0)." },
+          { "text": "B must be the inverse of A", "diagnosis": "Confused the zero matrix with the identity: AB = I is the inverse condition, not AB = O." }
+        ],
+        "explanation": "Take A = [[0, 1], [0, 0]] and B = [[1, 0], [0, 0]]: both are nonzero, yet AB = O. Matrices, unlike real numbers, have zero divisors — so AB = O never justifies concluding a factor is zero."
+      }
+    },
+    {
+      "id": "g12.alg.matrices.transpose-symmetric",
+      "parent": "g12.alg.matrices",
+      "title": "Transpose, Symmetric and Skew-symmetric Matrices",
+      "description": "Form the transpose by swapping rows and columns; use (AB)ᵀ = BᵀAᵀ. Classify square matrices as symmetric (Aᵀ = A) or skew-symmetric (Aᵀ = −A), and split any square matrix into a symmetric plus skew-symmetric part.",
+      "outcomes": [
+        "Can compute transposes and apply (A + B)ᵀ, (kA)ᵀ, (AB)ᵀ rules",
+        "Can verify symmetry/skew-symmetry and write A = (A + Aᵀ)/2 + (A − Aᵀ)/2"
+      ],
+      "prereqs": ["g12.alg.matrices.matrix-multiplication"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.alg.matrices.invertible-matrices",
+      "parent": "g12.alg.matrices",
+      "title": "Identity Matrix and Invertibility",
+      "description": "The identity matrix I satisfies AI = IA = A. A square matrix A is invertible when some B gives AB = BA = I; the inverse is unique, and (AB)⁻¹ = B⁻¹A⁻¹. Verification by direct multiplication.",
+      "outcomes": [
+        "Can verify a proposed inverse by computing AB and BA",
+        "Can state and use uniqueness of the inverse and the reversal rule (AB)⁻¹ = B⁻¹A⁻¹"
+      ],
+      "prereqs": ["g12.alg.matrices.matrix-multiplication", "g12.alg.matrices.non-commutativity"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+
+    {
+      "id": "g12.alg.determinants.det-2x2",
+      "parent": "g12.alg.determinants",
+      "title": "2×2 Determinants and What They Detect",
+      "description": "Compute |[[a, b], [c, d]]| = ad − bc, connect a zero determinant to the rows being proportional (singular matrix), and to a pair of linear equations having no unique solution.",
+      "outcomes": [
+        "Can evaluate 2×2 determinants quickly and accurately",
+        "Can link |A| = 0 to proportional rows and to non-unique solutions of linear systems"
+      ],
+      "prereqs": ["g12.alg.matrices.matrix-basics", "g10.alg.linear-pair-2var"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g12.alg.determinants.minors-cofactors",
+      "parent": "g12.alg.determinants",
+      "title": "Minors and Cofactors",
+      "description": "The minor M_ij deletes row i and column j and takes the determinant of what remains; the cofactor C_ij = (−1)^(i+j) M_ij attaches the checkerboard sign. Fluency here prevents sign errors in every later computation.",
+      "outcomes": [
+        "Can compute any minor and cofactor of a 3×3 matrix",
+        "Can reproduce the (−1)^(i+j) sign checkerboard from the formula rather than memory"
+      ],
+      "prereqs": ["g12.alg.determinants.det-2x2"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "For A = [[2, 3, 1], [4, 0, 5], [6, 7, 8]] (rows listed), the cofactor C₁₂ is:",
+        "options": [
+          { "text": "−2", "correct": true },
+          { "text": "2", "diagnosis": "Gave the minor M₁₂; forgot the sign factor (−1)^(1+2) = −1." },
+          { "text": "−17", "diagnosis": "Computed C₂₁ instead of C₁₂; deleted the wrong row and column." },
+          { "text": "62", "diagnosis": "Added the cross products 4×8 + 5×6 instead of subtracting; determinant rule misremembered." }
+        ],
+        "explanation": "Delete row 1, column 2: M₁₂ = |[[4, 5], [6, 8]]| = 4×8 − 5×6 = 32 − 30 = 2. Then C₁₂ = (−1)^(1+2) × 2 = −2. The checkerboard sign at position (1,2) is negative."
+      }
+    },
+    {
+      "id": "g12.alg.determinants.cofactor-expansion-3x3",
+      "parent": "g12.alg.determinants",
+      "title": "Evaluating 3×3 Determinants by Cofactor Expansion",
+      "description": "Expand a 3×3 determinant along any row or column as Σ a_ij C_ij, choosing the row or column with the most zeros. Confirm the answer is independent of the row chosen.",
+      "outcomes": [
+        "Can expand along any row or column and get the same value",
+        "Can pick the expansion line strategically to minimise arithmetic"
+      ],
+      "prereqs": ["g12.alg.determinants.minors-cofactors"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.alg.determinants.determinant-properties",
+      "parent": "g12.alg.determinants",
+      "title": "Properties of Determinants",
+      "description": "Row swaps flip the sign; a common factor of one row comes out once, so |kA| = kⁿ|A| for an n×n matrix; identical or proportional rows force zero; |AB| = |A||B| but |A + B| ≠ |A| + |B| in general.",
+      "outcomes": [
+        "Can predict the effect of row operations on a determinant",
+        "Can apply |kA| = kⁿ|A| and |AB| = |A||B|, and refute |A+B| = |A|+|B| with a counterexample"
+      ],
+      "prereqs": ["g12.alg.determinants.cofactor-expansion-3x3"],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m1", "m2", "m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A is a 3×3 matrix with |A| = 5. The value of |2A| is:",
+        "options": [
+          { "text": "40", "correct": true },
+          { "text": "10", "misconception": "m2" },
+          { "text": "5", "misconception": "m3" },
+          { "text": "80", "diagnosis": "Used k⁴ instead of k³; miscounted the number of rows each carrying a factor of 2." }
+        ],
+        "explanation": "2A multiplies EVERY row by 2, and each of the 3 rows releases one factor of 2: |2A| = 2³|A| = 8 × 5 = 40. |kA| = k|A| would be true only if just one row were scaled."
+      }
+    },
+    {
+      "id": "g12.alg.determinants.adjoint-inverse",
+      "parent": "g12.alg.determinants",
+      "title": "Adjoint and Inverse of a Matrix",
+      "description": "adj A is the transpose of the cofactor matrix; A · adj A = |A| I, so A⁻¹ = adj A / |A| whenever |A| ≠ 0. A matrix with |A| = 0 is singular and has no inverse.",
+      "outcomes": [
+        "Can compute adj A for 2×2 and 3×3 matrices",
+        "Can compute A⁻¹ = adj A / |A| and verify AA⁻¹ = I",
+        "Can recognise singular matrices as non-invertible"
+      ],
+      "prereqs": ["g12.alg.determinants.cofactor-expansion-3x3", "g12.alg.matrices.invertible-matrices"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 4,
+        "prompt": "For A = [[1, 2], [3, 4]] (rows listed), A⁻¹ equals:",
+        "options": [
+          { "text": "(−1/2) × [[4, −2], [−3, 1]]", "correct": true },
+          { "text": "[[4, −2], [−3, 1]]", "misconception": "m4" },
+          { "text": "(1/2) × [[4, −2], [−3, 1]]", "diagnosis": "Used |A| = 2 instead of −2; sign slip in ad − bc = 4 − 6." },
+          { "text": "(−1/2) × [[4, 2], [3, 1]]", "diagnosis": "Formed the adjoint by swapping the diagonal but forgot to negate the off-diagonal entries." }
+        ],
+        "explanation": "|A| = 1×4 − 2×3 = −2 and adj A = [[4, −2], [−3, 1]] (swap diagonal, negate off-diagonal). So A⁻¹ = adj A / |A| = (−1/2)[[4, −2], [−3, 1]]. Forgetting to divide by |A| gives adj A itself, which fails AA⁻¹ = I."
+      }
+    },
+    {
+      "id": "g12.alg.determinants.matrix-method-systems",
+      "parent": "g12.alg.determinants",
+      "title": "Solving Linear Systems by the Matrix Method",
+      "description": "Write a system as AX = B and solve X = A⁻¹B when |A| ≠ 0. When |A| = 0, use (adj A)B to distinguish inconsistent systems from ones with infinitely many solutions.",
+      "outcomes": [
+        "Can solve 2- and 3-variable systems via X = A⁻¹B",
+        "Can classify a system as unique / inconsistent / infinite using |A| and (adj A)B"
+      ],
+      "prereqs": ["g12.alg.determinants.adjoint-inverse"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m4"]
+    },
+
+    {
+      "id": "g12.cal.continuity-differentiability.continuity-at-a-point",
+      "parent": "g12.cal.continuity-differentiability",
+      "title": "Continuity at a Point: the Three-part Test",
+      "description": "f is continuous at a exactly when the left limit, right limit and f(a) all exist AND are equal. Apply the test to piecewise and rational functions, and classify what fails when a function is discontinuous.",
+      "outcomes": [
+        "Can run the three-part continuity test at a point",
+        "Can name which ingredient fails (limit missing, value missing, or unequal) in a discontinuity"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Define f(x) = (x² − 9)/(x − 3) for x ≠ 3 and f(3) = 4. Is f continuous at x = 3?",
+        "options": [
+          { "text": "No: the limit is 6 but f(3) = 4, and the two must be equal", "correct": true },
+          { "text": "Yes, because f(3) is defined", "misconception": "m2" },
+          { "text": "Yes, because the limit as x → 3 exists", "misconception": "m2" },
+          { "text": "No, because f is not defined at x = 3", "diagnosis": "Did not read the definition: f(3) IS defined (as 4); the failure is the mismatch, not a missing value." }
+        ],
+        "explanation": "For x ≠ 3, f(x) = (x−3)(x+3)/(x−3) = x + 3, so the limit at 3 is 6. Continuity needs limit = value: 6 ≠ 4, so f is discontinuous at 3. Having a defined value, or an existing limit, is necessary but not sufficient — they must agree."
+      }
+    },
+    {
+      "id": "g12.cal.continuity-differentiability.continuity-parameters",
+      "parent": "g12.cal.continuity-differentiability",
+      "title": "Choosing Parameters for Continuity of Piecewise Functions",
+      "description": "Given a piecewise function with an unknown constant (e.g. f(x) = kx² for x ≤ 2, f(x) = 3 for x > 2), equate the one-sided limits and the value at the joint to solve for the constant.",
+      "outcomes": [
+        "Can set up and solve the matching equation at the junction point",
+        "Can verify the resulting function is continuous by re-running the three-part test"
+      ],
+      "prereqs": ["g12.cal.continuity-differentiability.continuity-at-a-point"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g12.cal.continuity-differentiability.differentiability-vs-continuity",
+      "parent": "g12.cal.continuity-differentiability",
+      "title": "Differentiability Implies Continuity — Not Conversely",
+      "description": "Differentiability at a point requires equal left-hand and right-hand derivatives. Every differentiable function is continuous, but |x| at 0 is continuous with a corner: continuity does not buy smoothness.",
+      "outcomes": [
+        "Can check differentiability by comparing one-sided derivatives",
+        "Can state and instantiate the one-way implication with |x| at 0"
+      ],
+      "prereqs": ["g12.cal.continuity-differentiability.continuity-at-a-point", "g11.cal.limits-derivatives"],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m1", "m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "At x = 0, the function f(x) = |x| is:",
+        "options": [
+          { "text": "Continuous but not differentiable", "correct": true },
+          { "text": "Both continuous and differentiable", "misconception": "m1" },
+          { "text": "Differentiable but not continuous", "diagnosis": "Reversed the implication: differentiability is the STRONGER condition and always brings continuity with it." },
+          { "text": "Neither continuous nor differentiable", "diagnosis": "Misread the V-shaped graph as broken; |x| has no jump at 0, only a corner." }
+        ],
+        "explanation": "|x| → 0 as x → 0 from both sides and |0| = 0, so it is continuous. But the left-hand derivative is −1 while the right-hand derivative is +1; since they differ, f′(0) does not exist. Corners are continuous, not smooth."
+      }
+    },
+    {
+      "id": "g12.cal.continuity-differentiability.chain-rule",
+      "parent": "g12.cal.continuity-differentiability",
+      "title": "The Chain Rule for Composite Functions",
+      "description": "Differentiate f(g(x)) as f′(g(x)) · g′(x): outer derivative evaluated at the inner function, times the inner derivative. Drill on trig, power and nested compositions until the inner factor is never dropped.",
+      "outcomes": [
+        "Can differentiate compositions like sin(x²), (3x² + 1)⁵, cos³x",
+        "Can handle double compositions such as sin(cos(x²))"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The derivative of sin(x²) with respect to x is:",
+        "options": [
+          { "text": "2x cos(x²)", "correct": true },
+          { "text": "cos(x²)", "misconception": "m3" },
+          { "text": "2x sin(x²)", "diagnosis": "Multiplied by the inner derivative but never differentiated the outer sine to cosine." },
+          { "text": "cos(2x)", "diagnosis": "Differentiated the inner function INSIDE the argument instead of multiplying outside; chain rule structure garbled." }
+        ],
+        "explanation": "With outer f(u) = sin u and inner u = x²: d/dx sin(x²) = cos(x²) · d/dx(x²) = 2x cos(x²). Stopping at cos(x²) amputates the chain — the inner derivative 2x must multiply the result."
+      }
+    },
+    {
+      "id": "g12.cal.continuity-differentiability.implicit-differentiation",
+      "parent": "g12.cal.continuity-differentiability",
+      "title": "Implicit Differentiation and Inverse Trig Derivatives",
+      "description": "Differentiate relations like x² + y² = 25 term-by-term, attaching dy/dx to every y-derivative via the chain rule, then solve for dy/dx. Derive and use d/dx sin⁻¹x = 1/√(1−x²) and d/dx tan⁻¹x = 1/(1+x²).",
+      "outcomes": [
+        "Can find dy/dx from an implicit relation",
+        "Can differentiate expressions containing sin⁻¹, cos⁻¹, tan⁻¹"
+      ],
+      "prereqs": ["g12.cal.continuity-differentiability.chain-rule", "g12.tri.inverse-functions.principal-branches"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"]
+    },
+    {
+      "id": "g12.cal.continuity-differentiability.exp-log-derivatives",
+      "parent": "g12.cal.continuity-differentiability",
+      "title": "Derivatives of Exponential and Logarithmic Functions",
+      "description": "Use d/dx eˣ = eˣ, d/dx ln x = 1/x, d/dx aˣ = aˣ ln a, combined with the chain rule for forms like e^(3x²) and ln(sin x).",
+      "outcomes": [
+        "Can differentiate exponential and logarithmic compositions",
+        "Can explain why aˣ needs the extra ln a factor"
+      ],
+      "prereqs": ["g12.cal.continuity-differentiability.chain-rule"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"]
+    },
+    {
+      "id": "g12.cal.continuity-differentiability.logarithmic-differentiation",
+      "parent": "g12.cal.continuity-differentiability",
+      "title": "Logarithmic Differentiation",
+      "description": "For functions of the form u(x)^v(x) or unwieldy products/quotients, take ln of both sides, differentiate implicitly, and multiply back by y. The classic: d/dx xˣ = xˣ(1 + ln x).",
+      "outcomes": [
+        "Can differentiate xˣ and similar variable-power functions",
+        "Can decide when logarithmic differentiation is the efficient route"
+      ],
+      "prereqs": [
+        "g12.cal.continuity-differentiability.exp-log-derivatives",
+        "g12.cal.continuity-differentiability.implicit-differentiation"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4
+    },
+    {
+      "id": "g12.cal.continuity-differentiability.parametric-second-derivatives",
+      "parent": "g12.cal.continuity-differentiability",
+      "title": "Parametric Differentiation and Second Derivatives",
+      "description": "For x = f(t), y = g(t), compute dy/dx = (dy/dt)/(dx/dt); iterate carefully for d²y/dx² by differentiating dy/dx with respect to t and dividing by dx/dt again. Compute second derivatives of explicit functions.",
+      "outcomes": [
+        "Can compute dy/dx for parametric curves like x = a cos t, y = a sin t",
+        "Can compute second derivatives, including the parametric case"
+      ],
+      "prereqs": ["g12.cal.continuity-differentiability.chain-rule"],
+      "est_minutes": 30,
+      "difficulty": 4
+    },
+
+    {
+      "id": "g12.cal.applications-derivatives.rate-of-change",
+      "parent": "g12.cal.applications-derivatives",
+      "title": "Derivative as an Instantaneous Rate of Change",
+      "description": "Interpret dy/dx as the rate of change of y with respect to x in applied units — marginal cost, velocity, rate of area growth with radius — and evaluate rates at specific instants.",
+      "outcomes": [
+        "Can compute and interpret a rate of change with correct units",
+        "Can translate 'rate of change of A with respect to r' into dA/dr"
+      ],
+      "prereqs": ["g12.cal.continuity-differentiability.chain-rule"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g12.cal.applications-derivatives.related-rates",
+      "parent": "g12.cal.applications-derivatives",
+      "title": "Related Rates: Differentiating Through Time",
+      "description": "When two quantities are linked by a geometric relation, differentiate the RELATION with respect to time t using the chain rule, and only then substitute the instant's values. Balloons, ladders, melting cubes.",
+      "outcomes": [
+        "Can set up dA/dt = (dA/dr)(dr/dt)-style chains from a geometric formula",
+        "Can explain why substituting values before differentiating destroys the problem"
+      ],
+      "prereqs": ["g12.cal.applications-derivatives.rate-of-change"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "The radius of a circle is increasing at 2 cm/s. How fast is the area increasing when the radius is 5 cm?",
+        "options": [
+          { "text": "20π cm²/s", "correct": true },
+          { "text": "0 cm²/s", "misconception": "m3" },
+          { "text": "25π cm²/s", "diagnosis": "Reported the AREA πr² at r = 5, not its rate of change; never differentiated." },
+          { "text": "4π cm²/s", "diagnosis": "Computed 2π(dr/dt) — forgot the factor r when differentiating πr²." }
+        ],
+        "explanation": "A = πr², so dA/dt = 2πr · dr/dt = 2π(5)(2) = 20π cm²/s. Substituting r = 5 BEFORE differentiating gives A = 25π, a constant whose derivative is 0 — the classic related-rates trap."
+      }
+    },
+    {
+      "id": "g12.cal.applications-derivatives.increasing-decreasing",
+      "parent": "g12.cal.applications-derivatives",
+      "title": "Increasing and Decreasing Functions via the Sign of f′",
+      "description": "f is increasing where f′ > 0 and decreasing where f′ < 0. Solve the inequality f′(x) > 0, present intervals of monotonicity, and keep the sign of f itself firmly separate from the sign of f′.",
+      "outcomes": [
+        "Can find intervals of increase/decrease by solving f′(x) > 0 and f′(x) < 0",
+        "Can articulate why the sign of f says nothing about monotonicity"
+      ],
+      "prereqs": ["g12.cal.continuity-differentiability.chain-rule"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The function f(x) = x² − 4x + 5 is increasing exactly on:",
+        "options": [
+          { "text": "(2, ∞)", "correct": true },
+          { "text": "(−∞, ∞), because f(x) > 0 for all x", "misconception": "m2" },
+          { "text": "(−∞, 2)", "diagnosis": "Solved f′(x) < 0 (or flipped the inequality); found the decreasing interval instead." },
+          { "text": "(4, ∞)", "diagnosis": "Set x − 4 > 0, dropping the factor 2 incorrectly when differentiating; f′(x) = 2x − 4, not x − 4... the root is x = 2." }
+        ],
+        "explanation": "f′(x) = 2x − 4 > 0 ⟺ x > 2, so f increases on (2, ∞). Note f(x) = (x−2)² + 1 is positive EVERYWHERE, yet f still decreases on (−∞, 2): positivity of f and increase of f are unrelated properties."
+      }
+    },
+    {
+      "id": "g12.cal.applications-derivatives.critical-points",
+      "parent": "g12.cal.applications-derivatives",
+      "title": "Critical Points and the First-derivative Test",
+      "description": "Find points where f′ = 0 or f′ fails to exist, then classify them by the SIGN CHANGE of f′: + to − gives a local max, − to + a local min, no change (like x³ at 0) gives neither.",
+      "outcomes": [
+        "Can locate critical points and run the first-derivative sign test",
+        "Can exhibit a critical point that is not an extremum"
+      ],
+      "prereqs": ["g12.cal.applications-derivatives.increasing-decreasing"],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "For f(x) = x³, we have f′(0) = 0. At x = 0 the function has:",
+        "options": [
+          { "text": "Neither a local maximum nor a local minimum", "correct": true },
+          { "text": "A local minimum", "misconception": "m1" },
+          { "text": "A local maximum", "misconception": "m1" },
+          { "text": "No critical point", "diagnosis": "Confused 'not an extremum' with 'not a critical point': f′(0) = 0 makes x = 0 critical by definition." }
+        ],
+        "explanation": "f′(x) = 3x² ≥ 0 on both sides of 0 — the sign of f′ does not change, so x³ keeps rising through the origin. f′(c) = 0 is necessary for an interior extremum but never sufficient; the sign change is what decides."
+      }
+    },
+    {
+      "id": "g12.cal.applications-derivatives.second-derivative-test",
+      "parent": "g12.cal.applications-derivatives",
+      "title": "The Second-derivative Test",
+      "description": "At a critical point c with f′(c) = 0: f″(c) < 0 means local max, f″(c) > 0 means local min, and f″(c) = 0 is inconclusive — fall back to the first-derivative test.",
+      "outcomes": [
+        "Can classify critical points using f″",
+        "Can recognise the inconclusive case f″(c) = 0 and switch tests"
+      ],
+      "prereqs": [
+        "g12.cal.applications-derivatives.critical-points",
+        "g12.cal.continuity-differentiability.parametric-second-derivatives"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g12.cal.applications-derivatives.absolute-extrema",
+      "parent": "g12.cal.applications-derivatives",
+      "title": "Absolute Extrema on a Closed Interval",
+      "description": "On [a, b], the absolute maximum and minimum occur at critical points OR at the endpoints. Build the candidate list (critical points inside the interval plus both endpoints), evaluate f at each, and compare.",
+      "outcomes": [
+        "Can execute the closed-interval method completely, endpoints included",
+        "Can discard critical points that fall outside the interval"
+      ],
+      "prereqs": ["g12.cal.applications-derivatives.critical-points"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 4,
+        "prompt": "The absolute maximum value of f(x) = x³ − 3x on the interval [0, 3] is:",
+        "options": [
+          { "text": "18", "correct": true },
+          { "text": "−2", "misconception": "m4" },
+          { "text": "2", "diagnosis": "Used the critical point x = −1 (where f = 2), which lies OUTSIDE [0, 3]." },
+          { "text": "0", "diagnosis": "Evaluated only the left endpoint x = 0; never compared all candidates." }
+        ],
+        "explanation": "f′(x) = 3x² − 3 = 0 gives x = ±1; only x = 1 lies in [0, 3]. Candidates: f(0) = 0, f(1) = −2, f(3) = 27 − 9 = 18. The absolute maximum is 18, attained at the ENDPOINT x = 3 — checking only critical points would wrongly return −2."
+      }
+    },
+    {
+      "id": "g12.cal.applications-derivatives.optimisation-problems",
+      "parent": "g12.cal.applications-derivatives",
+      "title": "Optimisation Word Problems",
+      "description": "Translate a story (maximum area, minimum cost, fastest route) into a one-variable function using the constraint, find and classify its critical points, and answer in context with the nature of the optimum verified.",
+      "outcomes": [
+        "Can set up the objective function and eliminate a variable via the constraint",
+        "Can verify max/min with a derivative test and state the answer with units"
+      ],
+      "prereqs": [
+        "g12.cal.applications-derivatives.second-derivative-test",
+        "g12.cal.applications-derivatives.absolute-extrema",
+        "g10.alg.quadratic-equations"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1", "m4"]
+    },
+
+    {
+      "id": "g12.cal.integrals.antiderivative-idea",
+      "parent": "g12.cal.integrals",
+      "title": "The Antiderivative Idea and the Constant of Integration",
+      "description": "Integration reverses differentiation: F is an antiderivative of f when F′ = f. Because constants die under d/dx, every answer carries + C — a whole family of curves, one for each constant.",
+      "outcomes": [
+        "Can antidifferentiate power functions with the reversed power rule (exponent up, then divide)",
+        "Can explain why + C is mandatory and what it represents geometrically"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives", "g12.cal.continuity-differentiability.chain-rule"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "∫ x² dx equals:",
+        "options": [
+          { "text": "x³/3 + C", "correct": true },
+          { "text": "2x", "misconception": "m3" },
+          { "text": "x³/3", "misconception": "m1" },
+          { "text": "x³ + C", "diagnosis": "Raised the power but forgot to divide by the new exponent 3." }
+        ],
+        "explanation": "The power rule in reverse: raise the exponent to 3, divide by 3, and add the constant: ∫x² dx = x³/3 + C. Check by differentiating: d/dx(x³/3 + C) = x². Answering 2x differentiates instead of integrating; omitting + C loses infinitely many antiderivatives."
+      }
+    },
+    {
+      "id": "g12.cal.integrals.standard-integrals-table",
+      "parent": "g12.cal.integrals",
+      "title": "The Table of Standard Integrals",
+      "description": "Command the standard forms: xⁿ, 1/x, eˣ, aˣ, sin x, cos x, sec²x, 1/(1+x²), 1/√(1−x²) — each verified by differentiating the claimed answer, with special care on signs (∫sin x dx = −cos x + C).",
+      "outcomes": [
+        "Can quote and apply the standard integral table accurately, signs included",
+        "Can verify any table entry by differentiation"
+      ],
+      "prereqs": ["g12.cal.integrals.antiderivative-idea"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"]
+    },
+    {
+      "id": "g12.cal.integrals.substitution-method",
+      "parent": "g12.cal.integrals",
+      "title": "Integration by Substitution",
+      "description": "When the integrand contains a function AND (a constant multiple of) its derivative, set u equal to the inner function so du absorbs the derivative factor: ∫2x cos(x²) dx becomes ∫cos u du.",
+      "outcomes": [
+        "Can spot the u–du pair and carry out the substitution completely",
+        "Can convert back to x and verify by differentiating"
+      ],
+      "prereqs": [
+        "g12.cal.integrals.standard-integrals-table",
+        "g12.cal.continuity-differentiability.chain-rule"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "∫ 2x cos(x²) dx equals:",
+        "options": [
+          { "text": "sin(x²) + C", "correct": true },
+          { "text": "x² sin(x²) + C", "misconception": "m2" },
+          { "text": "−sin(x²) + C", "diagnosis": "Sign flipped: confused ∫cos u du = sin u with ∫sin u du = −cos u." },
+          { "text": "2 sin(x²) + C", "diagnosis": "Substituted u = x² but never let du = 2x dx absorb the factor 2; double-counted it." }
+        ],
+        "explanation": "Let u = x², so du = 2x dx — the 2x in the integrand is exactly du. Then ∫cos u du = sin u + C = sin(x²) + C. Differentiate to confirm: cos(x²)·2x. Multiplying the pieces' separate integrals (x²·sin(x²)) is not a valid rule."
+      }
+    },
+    {
+      "id": "g12.cal.integrals.integration-by-parts",
+      "parent": "g12.cal.integrals",
+      "title": "Integration by Parts",
+      "description": "∫u dv = uv − ∫v du, with u chosen by ILATE (Inverse trig, Log, Algebraic, Trig, Exponential). Handles products like x·eˣ, x·sin x, ln x that substitution cannot touch.",
+      "outcomes": [
+        "Can choose u and dv sensibly and execute the formula",
+        "Can handle repeated application and the ∫eˣ(f + f′) shortcut"
+      ],
+      "prereqs": ["g12.cal.integrals.substitution-method"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "∫ x eˣ dx equals:",
+        "options": [
+          { "text": "x eˣ − eˣ + C", "correct": true },
+          { "text": "(x²/2) eˣ + C", "misconception": "m2" },
+          { "text": "x eˣ + eˣ + C", "diagnosis": "Sign slip in the parts formula: used uv + ∫v du instead of uv − ∫v du." },
+          { "text": "eˣ + C", "diagnosis": "Treated x as a constant that integration ignores; only integrated the eˣ factor." }
+        ],
+        "explanation": "Take u = x (algebraic before exponential in ILATE), dv = eˣ dx: ∫x eˣ dx = x eˣ − ∫eˣ dx = x eˣ − eˣ + C. Check: d/dx(xeˣ − eˣ) = eˣ + xeˣ − eˣ = xeˣ. Integrating each factor separately and multiplying — (x²/2)eˣ — is not a valid rule: differentiation of products needs the product rule, so integration of products needs parts."
+      }
+    },
+    {
+      "id": "g12.cal.integrals.partial-fractions",
+      "parent": "g12.cal.integrals",
+      "title": "Integration by Partial Fractions",
+      "description": "Split a proper rational function with factorable denominator into simpler fractions — A/(x−a) + B/(x−b), with repeated-factor and quadratic-factor patterns — then integrate each piece to logarithms and arctangents.",
+      "outcomes": [
+        "Can decompose rational integrands with distinct and repeated linear factors",
+        "Can integrate the resulting pieces, e.g. ∫dx/((x−1)(x+2))"
+      ],
+      "prereqs": ["g12.cal.integrals.standard-integrals-table", "g10.alg.polynomials"],
+      "est_minutes": 30,
+      "difficulty": 4
+    },
+    {
+      "id": "g12.cal.integrals.definite-integral-as-limit",
+      "parent": "g12.cal.integrals",
+      "title": "The Definite Integral as a Limit of Sums",
+      "description": "∫ₐᵇ f(x) dx is the limit of Riemann sums: slice [a, b] into n strips, sum the strip areas f(xᵢ)·Δx, and let n → ∞. This is what the integral MEANS; the Fundamental Theorem is what makes it computable.",
+      "outcomes": [
+        "Can set up a Riemann sum for a simple function and pass to the limit",
+        "Can interpret the definite integral as signed area accumulated from a to b"
+      ],
+      "prereqs": ["g12.cal.integrals.antiderivative-idea", "g11.cal.limits-derivatives"],
+      "est_minutes": 25,
+      "difficulty": 4
+    },
+    {
+      "id": "g12.cal.integrals.fundamental-theorem",
+      "parent": "g12.cal.integrals",
+      "title": "The Fundamental Theorem of Calculus",
+      "description": "If F′ = f on [a, b], then ∫ₐᵇ f(x) dx = F(b) − F(a): upper-limit value minus lower-limit value, in that order, and no + C. The bridge between antiderivatives and areas.",
+      "outcomes": [
+        "Can evaluate definite integrals via F(b) − F(a) with correct order and signs",
+        "Can explain why the constant of integration cancels in definite integrals"
+      ],
+      "prereqs": [
+        "g12.cal.integrals.definite-integral-as-limit",
+        "g12.cal.integrals.standard-integrals-table"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "∫₁² 2x dx equals:",
+        "options": [
+          { "text": "3", "correct": true },
+          { "text": "−3", "misconception": "m4" },
+          { "text": "5", "misconception": "m4" },
+          { "text": "4", "diagnosis": "Evaluated F(2) = 4 only; forgot to subtract the lower-limit value F(1) = 1." }
+        ],
+        "explanation": "An antiderivative of 2x is x². By the Fundamental Theorem: ∫₁² 2x dx = [x²]₁² = 2² − 1² = 4 − 1 = 3. Subtracting in the wrong order gives −3; adding gives 5. And a definite integral is a NUMBER — no + C appears."
+      }
+    },
+    {
+      "id": "g12.cal.integrals.properties-of-definite-integrals",
+      "parent": "g12.cal.integrals",
+      "title": "Properties of Definite Integrals",
+      "description": "Exploit structure instead of computing: swapping limits flips the sign, ∫₀ᵃ f(x)dx = ∫₀ᵃ f(a−x)dx, splitting at an interior point, and even/odd symmetry on [−a, a] (odd integrands give 0).",
+      "outcomes": [
+        "Can apply the king property f(x) → f(a−x) to evaluate resistant integrals",
+        "Can use even/odd symmetry and limit-splitting to shortcut evaluation"
+      ],
+      "prereqs": ["g12.cal.integrals.fundamental-theorem"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m4"]
+    },
+
+    {
+      "id": "g12.cal.applications-integrals.sketch-region",
+      "parent": "g12.cal.applications-integrals",
+      "title": "Sketching the Region Before Integrating",
+      "description": "Draw the curves, lines and axis limits first: find intercepts and intersection points, decide where each curve sits relative to the axis and to the other curve. The sketch dictates the limits and the integrand.",
+      "outcomes": [
+        "Can sketch regions bounded by a parabola/circle/line combination",
+        "Can find intersection points algebraically to serve as integration limits"
+      ],
+      "prereqs": ["g11.geo.conic-sections", "g12.cal.integrals.fundamental-theorem"],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.cal.applications-integrals.area-under-curve",
+      "parent": "g12.cal.applications-integrals",
+      "title": "Area Under a Curve Between Two Ordinates",
+      "description": "For f ≥ 0 on [a, b], the area between the curve, the x-axis and the ordinates x = a, x = b is ∫ₐᵇ f(x) dx. Also compute areas against the y-axis via ∫ x dy.",
+      "outcomes": [
+        "Can compute the area under a non-negative curve as a definite integral",
+        "Can switch to y-integration when the region is naturally bounded by y-limits"
+      ],
+      "prereqs": ["g12.cal.applications-integrals.sketch-region"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.cal.applications-integrals.area-sign-crossings",
+      "parent": "g12.cal.applications-integrals",
+      "title": "Handling Regions Below the Axis",
+      "description": "The definite integral counts area below the x-axis as negative. For true geometric area, split the integral at every axis crossing and add ABSOLUTE values of the pieces — never let lobes cancel.",
+      "outcomes": [
+        "Can locate axis crossings and split the integral there",
+        "Can report total geometric area as the sum of absolute lobe areas"
+      ],
+      "prereqs": ["g12.cal.applications-integrals.area-under-curve"],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 4,
+        "prompt": "The total area enclosed between the curve y = sin x and the x-axis from x = 0 to x = 2π is:",
+        "options": [
+          { "text": "4", "correct": true },
+          { "text": "0", "misconception": "m2" },
+          { "text": "2", "misconception": "m1" },
+          { "text": "−4", "diagnosis": "Summed absolute lobe sizes but attached a stray negative sign; area can never be negative." }
+        ],
+        "explanation": "∫₀^π sin x dx = [−cos x]₀^π = (−(−1)) − (−1) = 2 and ∫_π^{2π} sin x dx = −2. The plain integral over [0, 2π] is 0 because the lobes cancel — but the GEOMETRIC area is |2| + |−2| = 4. Split at the crossing x = π and add absolute values."
+      }
+    },
+    {
+      "id": "g12.cal.applications-integrals.area-between-curves",
+      "parent": "g12.cal.applications-integrals",
+      "title": "Area Between Two Curves",
+      "description": "Find the intersection points, establish which curve is on top over the interval, and integrate (upper − lower). If the curves swap positions, split the integral at the swap point.",
+      "outcomes": [
+        "Can find intersections and identify the upper curve on each sub-interval",
+        "Can compute areas like the region between y = x and y = x²"
+      ],
+      "prereqs": ["g12.cal.applications-integrals.area-under-curve"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The area of the region enclosed between y = x and y = x² is:",
+        "options": [
+          { "text": "1/6", "correct": true },
+          { "text": "−1/6", "misconception": "m3" },
+          { "text": "5/6", "diagnosis": "Added the two integrals (1/2 + 1/3) instead of subtracting lower from upper." },
+          { "text": "1/2", "diagnosis": "Integrated only the line y = x over [0, 1]; forgot to remove the region under the parabola." }
+        ],
+        "explanation": "The curves meet where x = x², i.e. x = 0 and x = 1, and on (0, 1) the line lies above the parabola (at x = 1/2: 0.5 > 0.25). Area = ∫₀¹ (x − x²) dx = 1/2 − 1/3 = 1/6. Integrating (x² − x) — lower minus upper — produces the impossible negative area."
+      }
+    },
+    {
+      "id": "g12.cal.applications-integrals.standard-regions",
+      "parent": "g12.cal.applications-integrals",
+      "title": "Areas of Standard Regions: Circles, Ellipses, Parabola–Line",
+      "description": "Assemble the full toolkit on classic board configurations: area of a circle or ellipse by integration (using symmetry and quarter-regions), and mixed regions like a parabola cut by a chord.",
+      "outcomes": [
+        "Can derive the area of a circle x² + y² = a² or ellipse by integrating a quarter and multiplying by 4",
+        "Can compute the area between a parabola and a chord line"
+      ],
+      "prereqs": [
+        "g12.cal.applications-integrals.area-between-curves",
+        "g12.cal.applications-integrals.area-sign-crossings"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"]
+    },
+
+    {
+      "id": "g12.cal.differential-equations.order-degree",
+      "parent": "g12.cal.differential-equations",
+      "title": "Order and Degree of a Differential Equation",
+      "description": "Order = highest derivative present; degree = the power of THAT highest derivative once the equation is polynomial in its derivatives (and undefined otherwise). Two different dials — do not cross the wires.",
+      "outcomes": [
+        "Can read off order and degree, including when radicals must first be cleared",
+        "Can recognise equations where the degree is not defined"
+      ],
+      "prereqs": ["g12.cal.continuity-differentiability.parametric-second-derivatives"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "For the differential equation (d²y/dx²)³ + (dy/dx)⁴ + y = 0, the order and degree are respectively:",
+        "options": [
+          { "text": "Order 2, degree 3", "correct": true },
+          { "text": "Order 3, degree 2", "misconception": "m1" },
+          { "text": "Order 2, degree 4", "diagnosis": "Took the highest power appearing ANYWHERE; degree is the power of the highest-ORDER derivative only." },
+          { "text": "Order 4, degree 3", "diagnosis": "Read the exponent 4 on dy/dx as an order; order counts differentiation, not powers." }
+        ],
+        "explanation": "The highest derivative present is d²y/dx² → order 2. The equation is polynomial in derivatives, and that highest derivative carries power 3 → degree 3. The power 4 sits on the lower-order dy/dx and is irrelevant to the degree."
+      }
+    },
+    {
+      "id": "g12.cal.differential-equations.verify-solutions",
+      "parent": "g12.cal.differential-equations",
+      "title": "Verifying Solutions of Differential Equations",
+      "description": "Substitute a candidate function into the equation: differentiate it as many times as needed and check the identity holds for all x. Verification builds the meaning of 'solution' before any solving technique.",
+      "outcomes": [
+        "Can verify that a given function satisfies a given differential equation",
+        "Can show a candidate FAILS to be a solution by exhibiting the mismatch"
+      ],
+      "prereqs": ["g12.cal.differential-equations.order-degree", "g12.cal.continuity-differentiability.chain-rule"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g12.cal.differential-equations.general-particular",
+      "parent": "g12.cal.differential-equations",
+      "title": "General vs Particular Solutions",
+      "description": "The general solution of an order-n equation carries n independent arbitrary constants; initial conditions pin them down to a particular solution. The number of constants matches the ORDER, not the degree.",
+      "outcomes": [
+        "Can distinguish general from particular solutions and count constants correctly",
+        "Can apply an initial condition to extract the particular solution"
+      ],
+      "prereqs": ["g12.cal.differential-equations.verify-solutions"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g12.cal.differential-equations.separable-equations",
+      "parent": "g12.cal.differential-equations",
+      "title": "Solving Separable Equations",
+      "description": "Rewrite dy/dx = g(x)h(y) as dy/h(y) = g(x) dx — a multiplicative separation, never additive — integrate both sides, keep ONE arbitrary constant, and simplify it legitimately (e.g. e^C → A).",
+      "outcomes": [
+        "Can separate variables correctly and integrate both sides",
+        "Can manage the constant of integration through exponentials and note solutions lost by division"
+      ],
+      "prereqs": [
+        "g12.cal.integrals.substitution-method",
+        "g12.cal.differential-equations.general-particular"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m2", "m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The general solution of dy/dx = 2xy is:",
+        "options": [
+          { "text": "y = C e^(x²)", "correct": true },
+          { "text": "y = e^(x²)", "misconception": "m2" },
+          { "text": "y = x²y + C", "diagnosis": "Integrated the right side with respect to x while treating y as a constant — the variables were never separated." },
+          { "text": "y = C e^(2x)", "diagnosis": "Integrated 2x incorrectly as 2x again; ∫2x dx = x², not 2x." }
+        ],
+        "explanation": "Separate: dy/y = 2x dx. Integrate: ln|y| = x² + C₁, so y = ±e^(C₁) e^(x²) = C e^(x²). Dropping the constant gives only ONE solution curve out of infinitely many; the constant must ride along from the moment of integration."
+      }
+    },
+    {
+      "id": "g12.cal.differential-equations.integrating-factor",
+      "parent": "g12.cal.differential-equations",
+      "title": "First-order Linear Equations and the Integrating Factor",
+      "description": "For dy/dx + P(x)y = Q(x), multiply through by IF = e^(∫P dx) — integrate P FIRST, then exponentiate — so the left side collapses to d/dx(y·IF); then y·IF = ∫Q·IF dx + C.",
+      "outcomes": [
+        "Can compute the integrating factor correctly",
+        "Can solve equations like dy/dx + y/x = x² end to end"
+      ],
+      "prereqs": [
+        "g12.cal.differential-equations.separable-equations",
+        "g12.cal.integrals.integration-by-parts"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The integrating factor of the differential equation dy/dx + (1/x)y = x², for x > 0, is:",
+        "options": [
+          { "text": "x", "correct": true },
+          { "text": "ln x", "misconception": "m3" },
+          { "text": "e^(1/x)", "misconception": "m3" },
+          { "text": "1/x", "diagnosis": "Used P(x) itself as the integrating factor; skipped both the integration and the exponentiation." }
+        ],
+        "explanation": "IF = e^(∫P dx) = e^(∫dx/x) = e^(ln x) = x (for x > 0). Both steps are essential: integrate P to get ln x, THEN exponentiate. Multiplying the equation by x gives d/dx(xy) = x³, which integrates immediately."
+      }
+    },
+    {
+      "id": "g12.cal.differential-equations.growth-decay-models",
+      "parent": "g12.cal.differential-equations",
+      "title": "Modelling with Differential Equations: Growth and Decay",
+      "description": "dy/dt = ky yields y = y₀e^(kt): exponential growth (k > 0) or decay (k < 0). Fit k and y₀ from data, and answer doubling-time / half-life style questions for populations, investments and radioactivity.",
+      "outcomes": [
+        "Can derive y = y₀e^(kt) from dy/dt = ky with an initial condition",
+        "Can solve applied growth/decay problems including doubling time"
+      ],
+      "prereqs": ["g12.cal.differential-equations.separable-equations"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+
+    {
+      "id": "g12.vec.algebra.vector-basics",
+      "parent": "g12.vec.algebra",
+      "title": "Vectors in Component Form: Magnitude and Unit Vectors",
+      "description": "Write vectors as xi + yj + zk, compute magnitude |a| = √(x² + y² + z²), build the unit vector a/|a|, and distinguish vectors (magnitude + direction) from scalars.",
+      "outcomes": [
+        "Can compute magnitudes and unit vectors in 3D",
+        "Can identify equal, collinear and coinitial vectors from components"
+      ],
+      "prereqs": ["g11.vec.intro-3d"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g12.vec.algebra.addition-section-formula",
+      "parent": "g12.vec.algebra",
+      "title": "Vector Addition and the Section Formula",
+      "description": "Add vectors componentwise (triangle/parallelogram law) — magnitudes do NOT simply add unless the vectors are parallel. Use the section formula (mb + na)/(m + n) for points dividing a segment.",
+      "outcomes": [
+        "Can add and subtract vectors and interpret the triangle law geometrically",
+        "Can find position vectors of internal/external division points"
+      ],
+      "prereqs": ["g12.vec.algebra.vector-basics"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Vectors a and b are perpendicular with |a| = 3 and |b| = 4. Then |a + b| equals:",
+        "options": [
+          { "text": "5", "correct": true },
+          { "text": "7", "misconception": "m1" },
+          { "text": "1", "diagnosis": "Subtracted the magnitudes; that bounds |a − b| for parallel vectors, not this sum." },
+          { "text": "12", "diagnosis": "Multiplied the magnitudes — confused vector addition with some product." }
+        ],
+        "explanation": "|a + b|² = |a|² + |b|² + 2a·b = 9 + 16 + 0 = 25, so |a + b| = 5 — the Pythagorean diagonal of the rectangle with sides 3 and 4. Magnitudes add to 7 only when the vectors point the SAME way; direction always matters."
+      }
+    },
+    {
+      "id": "g12.vec.algebra.dot-product",
+      "parent": "g12.vec.algebra",
+      "title": "The Dot Product: a Scalar from Two Vectors",
+      "description": "a·b = |a||b|cos θ = a₁b₁ + a₂b₂ + a₃b₃ — the output is a NUMBER. Use it to find the angle between vectors; it is commutative and distributes over addition.",
+      "outcomes": [
+        "Can compute dot products in component form",
+        "Can extract cos θ = a·b/(|a||b|) and interpret its sign"
+      ],
+      "prereqs": ["g12.vec.algebra.vector-basics", "g11.tri.functions"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "If a = 2i + 3j − k and b = i − j + 2k, then a·b equals:",
+        "options": [
+          { "text": "−3", "correct": true },
+          { "text": "2i − 3j − 2k", "misconception": "m2" },
+          { "text": "3", "diagnosis": "Sign slip: computed 2 + 3 − 2 by ignoring the negative components." },
+          { "text": "−1", "diagnosis": "Dropped the third term (−1)(2) = −2 from the sum; incomplete expansion." }
+        ],
+        "explanation": "a·b = (2)(1) + (3)(−1) + (−1)(2) = 2 − 3 − 2 = −3. The dot product is a SCALAR — multiplying matching components and summing collapses everything to a single number; 2i − 3j − 2k keeps the terms as a vector, which is a type error."
+      }
+    },
+    {
+      "id": "g12.vec.algebra.projections",
+      "parent": "g12.vec.algebra",
+      "title": "Projection of One Vector on Another",
+      "description": "The scalar projection of a on b is a·b/|b|, the vector projection is (a·b/|b|²)b. Interpret as the shadow of a along b's direction.",
+      "outcomes": [
+        "Can compute scalar and vector projections",
+        "Can explain the difference between the two and when each is asked for"
+      ],
+      "prereqs": ["g12.vec.algebra.dot-product"],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.vec.algebra.perpendicularity",
+      "parent": "g12.vec.algebra",
+      "title": "Perpendicularity and the Zero Dot Product",
+      "description": "For nonzero vectors, a·b = 0 means a ⊥ b — not that either vector vanishes. Use this test to find unknowns making vectors perpendicular and to verify orthogonality of i, j, k.",
+      "outcomes": [
+        "Can test and impose perpendicularity via a·b = 0",
+        "Can state the correct logic: a·b = 0 ⟹ a = 0 or b = 0 or a ⊥ b"
+      ],
+      "prereqs": ["g12.vec.algebra.dot-product"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "a and b are NONZERO vectors with a·b = 0. What can you conclude?",
+        "options": [
+          { "text": "a is perpendicular to b", "correct": true },
+          { "text": "a = 0 or b = 0", "misconception": "m3" },
+          { "text": "a is parallel to b", "diagnosis": "Swapped the tests: parallel vectors give a×b = 0; parallel NONZERO vectors have a·b = ±|a||b| ≠ 0." },
+          { "text": "|a| = |b|", "diagnosis": "Invented a magnitude condition; the dot product vanishing constrains the ANGLE (cos θ = 0), not the lengths." }
+        ],
+        "explanation": "a·b = |a||b|cos θ. With both magnitudes nonzero, the product can only vanish through cos θ = 0, i.e. θ = 90°. Unlike real-number multiplication, a zero dot product does not force a zero factor — perpendicularity is the third way."
+      }
+    },
+    {
+      "id": "g12.vec.algebra.cross-product",
+      "parent": "g12.vec.algebra",
+      "title": "The Cross Product via the Determinant Rule",
+      "description": "a×b = |i j k; a₁ a₂ a₃; b₁ b₂ b₃| — the output is a VECTOR perpendicular to both, with |a×b| = |a||b|sin θ. It is anti-commutative: a×b = −(b×a).",
+      "outcomes": [
+        "Can compute cross products with the determinant expansion",
+        "Can state and use a×b = −(b×a) and check the result is perpendicular to both inputs"
+      ],
+      "prereqs": ["g12.vec.algebra.dot-product", "g12.alg.determinants.cofactor-expansion-3x3"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m2", "m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "If a × b = 3i − j + 2k, then b × a equals:",
+        "options": [
+          { "text": "−3i + j − 2k", "correct": true },
+          { "text": "3i − j + 2k", "misconception": "m4" },
+          { "text": "√14", "misconception": "m2" },
+          { "text": "0", "diagnosis": "Confused anti-commutativity with the products cancelling; b × a is the opposite VECTOR, not zero." }
+        ],
+        "explanation": "The cross product is anti-commutative: b × a = −(a × b) = −3i + j − 2k. Swapping two rows of the defining determinant flips its sign. And the output is a vector — √14 is merely the common MAGNITUDE of both products."
+      }
+    },
+    {
+      "id": "g12.vec.algebra.cross-applications",
+      "parent": "g12.vec.algebra",
+      "title": "Applications of the Cross Product: Areas and Parallelism",
+      "description": "|a×b| is the area of the parallelogram on a and b (half it for the triangle); a×b = 0 for nonzero vectors means they are parallel. Compute areas of triangles from vertex coordinates.",
+      "outcomes": [
+        "Can compute parallelogram and triangle areas via cross products",
+        "Can test collinearity/parallelism with a×b = 0"
+      ],
+      "prereqs": ["g12.vec.algebra.cross-product"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"]
+    },
+
+    {
+      "id": "g12.vec.3d-geometry.direction-cosines",
+      "parent": "g12.vec.3d-geometry",
+      "title": "Direction Ratios and Direction Cosines",
+      "description": "Direction ratios a, b, c fix a line's direction up to scale; direction cosines l, m, n are the ratios NORMALISED by √(a² + b² + c²), so that l² + m² + n² = 1 always.",
+      "outcomes": [
+        "Can convert direction ratios to direction cosines by dividing by the magnitude",
+        "Can verify l² + m² + n² = 1 and recover the angle each axis makes"
+      ],
+      "prereqs": ["g12.vec.algebra.vector-basics"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A line has direction ratios 2, −3, 6. Its direction cosines are:",
+        "options": [
+          { "text": "2/7, −3/7, 6/7", "correct": true },
+          { "text": "2, −3, 6", "misconception": "m1" },
+          { "text": "2/11, −3/11, 6/11", "diagnosis": "Divided by the sum of absolute values 2 + 3 + 6 = 11 instead of the root-sum-of-squares." },
+          { "text": "4/49, 9/49, 36/49", "diagnosis": "Reported the squared cosines (which sum to 1) instead of the cosines themselves." }
+        ],
+        "explanation": "The magnitude is √(2² + (−3)² + 6²) = √(4 + 9 + 36) = √49 = 7, so (l, m, n) = (2/7, −3/7, 6/7). Check: 4/49 + 9/49 + 36/49 = 1. Raw ratios are only proportional to the cosines — they must be normalised."
+      }
+    },
+    {
+      "id": "g12.vec.3d-geometry.line-equations",
+      "parent": "g12.vec.3d-geometry",
+      "title": "Equations of a Line in Space",
+      "description": "Write a line through point a with direction b as r = a + λb, and in Cartesian symmetric form (x−x₁)/a = (y−y₁)/b = (z−z₁)/c; also through two given points. Convert fluently between the two forms.",
+      "outcomes": [
+        "Can write vector and Cartesian equations of lines from point + direction or two points",
+        "Can translate between the vector and symmetric forms"
+      ],
+      "prereqs": ["g12.vec.3d-geometry.direction-cosines"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.vec.3d-geometry.angle-between-lines",
+      "parent": "g12.vec.3d-geometry",
+      "title": "Angle Between Two Lines; Parallel and Perpendicular Tests",
+      "description": "cos θ = |b₁·b₂|/(|b₁||b₂|) from the direction vectors. Lines are parallel when direction ratios are proportional and perpendicular when a₁a₂ + b₁b₂ + c₁c₂ = 0 — keep the two tests straight.",
+      "outcomes": [
+        "Can compute the angle between lines from direction ratios",
+        "Can apply the proportionality test for parallel and the zero-dot-product test for perpendicular"
+      ],
+      "prereqs": ["g12.vec.3d-geometry.line-equations", "g12.vec.algebra.dot-product"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Two lines have direction ratios (1, 2, 2) and (2, 1, −2). The lines are:",
+        "options": [
+          { "text": "Perpendicular", "correct": true },
+          { "text": "Parallel", "misconception": "m3" },
+          { "text": "Inclined at 45°", "diagnosis": "Computed cos θ with a wrong dot product or magnitudes; the dot product here is exactly 0." },
+          { "text": "Coincident", "diagnosis": "Coincidence requires proportional ratios AND a shared point; neither condition holds." }
+        ],
+        "explanation": "Dot product of directions: (1)(2) + (2)(1) + (2)(−2) = 2 + 2 − 4 = 0, so the lines are perpendicular. Parallelism would need proportional ratios (1/2 = 2/1 = 2/−2 fails immediately)."
+      }
+    },
+    {
+      "id": "g12.vec.3d-geometry.skew-lines-distance",
+      "parent": "g12.vec.3d-geometry",
+      "title": "Shortest Distance Between Skew Lines",
+      "description": "Skew lines neither meet nor run parallel. The shortest distance is |(a₂ − a₁)·(b₁×b₂)|/|b₁×b₂| — the projection of the connecting vector onto the common perpendicular direction b₁×b₂.",
+      "outcomes": [
+        "Can classify a pair of lines as intersecting, parallel or skew",
+        "Can compute the shortest distance between skew lines with the formula"
+      ],
+      "prereqs": ["g12.vec.3d-geometry.angle-between-lines", "g12.vec.algebra.cross-product"],
+      "est_minutes": 30,
+      "difficulty": 4
+    },
+    {
+      "id": "g12.vec.3d-geometry.plane-equations",
+      "parent": "g12.vec.3d-geometry",
+      "title": "Equations of a Plane",
+      "description": "A plane is fixed by its normal n: r·n = d (normal form) or ax + by + cz + d = 0 in Cartesian form, where (a, b, c) are the normal's direction ratios. Build plane equations from a point and normal, or three points.",
+      "outcomes": [
+        "Can write a plane's equation from point + normal and read off the normal from ax + by + cz + d = 0",
+        "Can test whether points lie on, or lines lie in, a given plane"
+      ],
+      "prereqs": ["g12.vec.3d-geometry.line-equations", "g12.vec.algebra.dot-product"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.vec.3d-geometry.angle-line-plane",
+      "parent": "g12.vec.3d-geometry",
+      "title": "Angle Between a Line and a Plane",
+      "description": "The line's direction meets the plane's NORMAL at some angle θ; the angle with the plane itself is the complement 90° − θ, computed via sin φ = |b·n|/(|b||n|). Parallel/perpendicular tests follow from the normal.",
+      "outcomes": [
+        "Can compute the angle between a line and a plane via the normal",
+        "Can state why the line–normal and line–plane angles are complementary"
+      ],
+      "prereqs": ["g12.vec.3d-geometry.plane-equations"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2", "m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A line makes an angle of 30° with the normal to a plane. The angle between the line and the plane is:",
+        "options": [
+          { "text": "60°", "correct": true },
+          { "text": "30°", "misconception": "m2" },
+          { "text": "90°", "diagnosis": "Treated 'angle with the plane' as always a right angle; only a line ALONG the normal is perpendicular to the plane." },
+          { "text": "150°", "diagnosis": "Subtracted from 180° instead of 90°; used supplement instead of complement." }
+        ],
+        "explanation": "The angle with the plane and the angle with its normal always add to 90°: the plane lies at right angles to the normal. So the required angle is 90° − 30° = 60°. Reporting 30° hands in the line–normal angle by mistake."
+      }
+    },
+    {
+      "id": "g12.vec.3d-geometry.point-plane-distance",
+      "parent": "g12.vec.3d-geometry",
+      "title": "Distance from a Point to a Plane",
+      "description": "Distance from (x₁, y₁, z₁) to ax + by + cz + d = 0 is |ax₁ + by₁ + cz₁ + d| / √(a² + b² + c²) — the division by |n| is what converts the raw substitution into a genuine length.",
+      "outcomes": [
+        "Can compute point-to-plane distances with correct normalisation",
+        "Can find the distance between parallel planes via a point on one of them"
+      ],
+      "prereqs": ["g12.vec.3d-geometry.plane-equations"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The distance from the point (1, 1, 1) to the plane x + 2y + 2z − 3 = 0 is:",
+        "options": [
+          { "text": "2/3", "correct": true },
+          { "text": "2", "misconception": "m4" },
+          { "text": "2/9", "diagnosis": "Divided by |n|² = 9 instead of |n| = 3; squared the normaliser." },
+          { "text": "8/3", "diagnosis": "Substituted +3 instead of −3 for the constant term; sign of d mishandled." }
+        ],
+        "explanation": "Numerator: |1 + 2(1) + 2(1) − 3| = |2| = 2. Normal magnitude: √(1² + 2² + 2²) = √9 = 3. Distance = 2/3. Skipping the division by |n| leaves the un-normalised value 2, which has no geometric meaning as a length."
+      }
+    },
+
+    {
+      "id": "g12.alg.linear-programming.formulate-lpp",
+      "parent": "g12.alg.linear-programming",
+      "title": "Formulating a Linear Programming Problem",
+      "description": "Extract decision variables from the story, write the linear objective function Z to maximise or minimise, and translate every resource limit and requirement into a linear constraint — including x ≥ 0, y ≥ 0.",
+      "outcomes": [
+        "Can define variables and write the objective function from a word problem",
+        "Can list ALL constraints including non-negativity"
+      ],
+      "prereqs": ["g11.alg.linear-inequalities"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"]
+    },
+    {
+      "id": "g12.alg.linear-programming.feasible-region",
+      "parent": "g12.alg.linear-programming",
+      "title": "Graphing Constraints and the Feasible Region",
+      "description": "Plot each constraint line, shade the correct half-plane (test with the origin), and intersect all shaded regions with the first quadrant to obtain the feasible region — the set of all allowed decisions.",
+      "outcomes": [
+        "Can shade the correct side of each constraint using a test point",
+        "Can identify the feasible region and its vertices from the graph"
+      ],
+      "prereqs": ["g12.alg.linear-programming.formulate-lpp", "g11.geo.straight-lines"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Which point lies in the feasible region determined by x + y ≤ 4, x ≥ 0, y ≥ 0?",
+        "options": [
+          { "text": "(1, 2)", "correct": true },
+          { "text": "(−1, 3)", "misconception": "m4" },
+          { "text": "(3, 2)", "diagnosis": "Checked only the non-negativity conditions; 3 + 2 = 5 violates x + y ≤ 4." },
+          { "text": "(5, −1)", "diagnosis": "Satisfies neither x + y ≤ 4 nor y ≥ 0; substitution never performed." }
+        ],
+        "explanation": "(1, 2): 1 + 2 = 3 ≤ 4 ✓, 1 ≥ 0 ✓, 2 ≥ 0 ✓ — all three constraints hold. (−1, 3) satisfies x + y ≤ 4 but breaks x ≥ 0: the non-negativity constraints are real constraints and must be checked every time."
+      }
+    },
+    {
+      "id": "g12.alg.linear-programming.corner-point-method",
+      "parent": "g12.alg.linear-programming",
+      "title": "The Corner-point Method",
+      "description": "For a bounded feasible region, the optimum of a linear objective occurs at a VERTEX: find all corner points (intersections that actually lie in the region), evaluate Z at each, and pick the best.",
+      "outcomes": [
+        "Can find corner points by solving pairs of boundary equations and discarding infeasible intersections",
+        "Can evaluate Z at every vertex and identify maximum and minimum"
+      ],
+      "prereqs": ["g12.alg.linear-programming.feasible-region"],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The corner points of a bounded feasible region are (0, 0), (5, 0), (3, 4) and (0, 6). The maximum of Z = 4x + y over the region is:",
+        "options": [
+          { "text": "20, at (5, 0)", "correct": true },
+          { "text": "10, attained at the interior point (2, 2)", "misconception": "m1" },
+          { "text": "16, at (3, 4)", "diagnosis": "Evaluated Z at only some vertices, or assumed the 'highest-looking' corner wins without comparing all four values." },
+          { "text": "6, at (0, 6)", "diagnosis": "Picked the vertex with the largest coordinate instead of the largest Z; Z weights x four times y here." }
+        ],
+        "explanation": "Z at the corners: (0,0) → 0, (5,0) → 20, (3,4) → 16, (0,6) → 6. The maximum is 20 at (5, 0). A linear objective over a convex polygon always peaks at a vertex — interior points like (2, 2) with Z = 10 can never beat the best corner."
+      }
+    },
+    {
+      "id": "g12.alg.linear-programming.unbounded-regions",
+      "parent": "g12.alg.linear-programming",
+      "title": "Optima on Unbounded Feasible Regions",
+      "description": "With an unbounded region the corner-point value is only a CANDIDATE: the optimum exists iff the open half-plane beyond it (Z > M for max, Z < m for min) shares no point with the region. Run this check every time.",
+      "outcomes": [
+        "Can perform the open half-plane test on an unbounded region",
+        "Can decide whether a candidate optimum is genuine or the problem has no optimum"
+      ],
+      "prereqs": ["g12.alg.linear-programming.corner-point-method"],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 4,
+        "prompt": "Minimising Z = x + 2y over an UNBOUNDED feasible region, the smallest corner-point value is 6. What must you do before declaring 6 the minimum?",
+        "options": [
+          { "text": "Check whether the open half-plane x + 2y < 6 has any point in common with the feasible region; 6 is the minimum only if it has none", "correct": true },
+          { "text": "Nothing — the smallest corner value is always the minimum", "misconception": "m3" },
+          { "text": "Conclude no minimum exists, since unbounded regions never have optima", "misconception": "m3" },
+          { "text": "Evaluate Z at a few interior points to see if anything smaller appears", "misconception": "m1" }
+        ],
+        "explanation": "On an unbounded region the region may stretch into territory where Z keeps decreasing forever. The definitive test: intersect the region with the OPEN half-plane x + 2y < 6. Empty intersection → 6 is the true minimum; non-empty → no minimum exists. Unbounded regions sometimes do and sometimes don't have optima — only the test decides."
+      }
+    },
+    {
+      "id": "g12.alg.linear-programming.applied-problems",
+      "parent": "g12.alg.linear-programming",
+      "title": "Applied LPP: Diet, Manufacturing and Transport",
+      "description": "Solve complete board-style problems end to end: formulate from the story, graph, run the corner-point method, and interpret the optimal vertex as a real decision (units to produce, packets to buy).",
+      "outcomes": [
+        "Can solve a full two-variable LPP word problem from text to interpreted answer",
+        "Can sanity-check the answer against the constraints and context"
+      ],
+      "prereqs": ["g12.alg.linear-programming.corner-point-method"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m2", "m4"]
+    },
+
+    {
+      "id": "g12.dat.probability.conditional-probability",
+      "parent": "g12.dat.probability",
+      "title": "Conditional Probability from the Definition",
+      "description": "P(A|B) = P(A∩B)/P(B) re-scales probability to the world where B has happened. Compute it from given probabilities and from two-way tables, and keep P(A|B) firmly distinct from P(B|A).",
+      "outcomes": [
+        "Can compute conditional probabilities from the definition and from tables",
+        "Can explain with an example why P(A|B) ≠ P(B|A) in general"
+      ],
+      "prereqs": ["g11.dat.probability"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Given P(A) = 0.8, P(B) = 0.5 and P(A∩B) = 0.2, the value of P(A|B) is:",
+        "options": [
+          { "text": "0.4", "correct": true },
+          { "text": "0.25", "misconception": "m1" },
+          { "text": "0.1", "diagnosis": "Multiplied P(A∩B) by P(B) instead of dividing; formula inverted." },
+          { "text": "0.7", "diagnosis": "Added 0.2 + 0.5; no conditional structure used at all." }
+        ],
+        "explanation": "P(A|B) = P(A∩B)/P(B) = 0.2/0.5 = 0.4. Dividing by P(A) instead gives P(B|A) = 0.2/0.8 = 0.25 — the swapped conditional. The event AFTER the bar supplies the denominator."
+      }
+    },
+    {
+      "id": "g12.dat.probability.multiplication-rule",
+      "parent": "g12.dat.probability",
+      "title": "The Multiplication Rule for Dependent Events",
+      "description": "P(A∩B) = P(A)·P(B|A): the second factor must be CONDITIONED on the first event having happened. Essential for without-replacement draws, where the sample space shrinks between picks.",
+      "outcomes": [
+        "Can chain conditional probabilities for sequential draws without replacement",
+        "Can decide when the second factor needs updating and when it does not"
+      ],
+      "prereqs": ["g12.dat.probability.conditional-probability"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Two cards are drawn from a standard 52-card pack WITHOUT replacement. The probability that both are kings is:",
+        "options": [
+          { "text": "1/221", "correct": true },
+          { "text": "1/169", "misconception": "m3" },
+          { "text": "4/663", "diagnosis": "Updated the denominator to 51 but kept 4 kings for the second draw; forgot one king left the pack." },
+          { "text": "2/13", "diagnosis": "Added 4/52 + 4/52; used the addition rule where the multiplication rule belongs." }
+        ],
+        "explanation": "P(K₁∩K₂) = P(K₁)·P(K₂|K₁) = (4/52)(3/51) = (1/13)(1/17) = 1/221. After the first king leaves, only 3 kings remain among 51 cards. Squaring 4/52 (= 1/169) pretends the draws are independent, which without replacement they are not."
+      }
+    },
+    {
+      "id": "g12.dat.probability.independence",
+      "parent": "g12.dat.probability",
+      "title": "Independent Events vs Mutually Exclusive Events",
+      "description": "A and B are independent when P(A∩B) = P(A)P(B) — knowing one occurred doesn't change the other's probability. Mutually exclusive events CANNOT co-occur, and (for positive-probability events) are never independent.",
+      "outcomes": [
+        "Can test independence numerically with P(A∩B) = P(A)P(B)",
+        "Can articulate the difference between independent and mutually exclusive with examples"
+      ],
+      "prereqs": ["g12.dat.probability.multiplication-rule"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A and B are INDEPENDENT events with P(A) = 0.5 and P(B) = 0.4. Then P(A∩B) equals:",
+        "options": [
+          { "text": "0.2", "correct": true },
+          { "text": "0, because independent events cannot occur together", "misconception": "m2" },
+          { "text": "0.9", "diagnosis": "Added the probabilities — that computes P(A∪B) for mutually exclusive events, not P(A∩B) for independent ones." },
+          { "text": "0.4", "diagnosis": "Took min(P(A), P(B)) or assumed B ⊂ A; no multiplication performed." }
+        ],
+        "explanation": "Independence MEANS P(A∩B) = P(A)P(B) = 0.5 × 0.4 = 0.2. It is mutually EXCLUSIVE events that cannot co-occur (P(A∩B) = 0). Independent events with positive probabilities always can — one happening simply tells you nothing about the other."
+      }
+    },
+    {
+      "id": "g12.dat.probability.total-probability",
+      "parent": "g12.dat.probability",
+      "title": "The Theorem of Total Probability",
+      "description": "When events E₁, ..., Eₙ partition the sample space, P(A) = Σ P(Eᵢ)P(A|Eᵢ): the overall probability of A is the prior-weighted average over the scenarios. Tree diagrams make the sum visible.",
+      "outcomes": [
+        "Can compute P(A) across a partition using a tree diagram",
+        "Can verify the partition is genuine (exhaustive and mutually exclusive) before applying the theorem"
+      ],
+      "prereqs": ["g12.dat.probability.multiplication-rule"],
+      "est_minutes": 25,
+      "difficulty": 4
+    },
+    {
+      "id": "g12.dat.probability.bayes-theorem",
+      "parent": "g12.dat.probability",
+      "title": "Bayes' Theorem: Reversing the Conditional",
+      "description": "P(Eᵢ|A) = P(Eᵢ)P(A|Eᵢ) / Σ P(Eⱼ)P(A|Eⱼ): update a prior in the light of evidence. The denominator is the total probability of the evidence; the prior must never be ignored, however accurate the 'test'.",
+      "outcomes": [
+        "Can set up the Bayes numerator and total-probability denominator correctly",
+        "Can explain base-rate neglect with a rare-disease example"
+      ],
+      "prereqs": ["g12.dat.probability.total-probability"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1", "m4"],
+      "question": {
+        "skill": "application",
+        "difficulty": 4,
+        "prompt": "A disease affects 1% of a population. A test detects it with probability 0.9 in the diseased, but also gives a false positive with probability 0.1 in the healthy. A randomly chosen person tests positive. The probability they actually have the disease is:",
+        "options": [
+          { "text": "1/12", "correct": true },
+          { "text": "0.9", "misconception": "m4" },
+          { "text": "0.009", "diagnosis": "Reported the joint probability P(disease AND positive); never divided by the total probability of testing positive." },
+          { "text": "0.108", "diagnosis": "Reported the denominator P(positive) itself as the answer; Bayes fraction left unassembled." }
+        ],
+        "explanation": "P(D|+) = P(D)P(+|D) / [P(D)P(+|D) + P(D′)P(+|D′)] = (0.01)(0.9) / [(0.01)(0.9) + (0.99)(0.1)] = 0.009/0.108 = 1/12 ≈ 0.083. Despite the '90% accurate' test, the disease is so rare that most positives are false — ignoring the 1% base rate inflates the answer tenfold."
+      }
+    },
+    {
+      "id": "g12.dat.probability.random-variables",
+      "parent": "g12.dat.probability",
+      "title": "Discrete Random Variables and Probability Distributions",
+      "description": "A random variable assigns a number to each outcome; its probability distribution lists each value with its probability, all probabilities non-negative and summing to 1. Build distributions for coin, die and card experiments.",
+      "outcomes": [
+        "Can construct the distribution table of a discrete random variable",
+        "Can use Σpᵢ = 1 to find an unknown probability in a table"
+      ],
+      "prereqs": ["g12.dat.probability.multiplication-rule"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g12.dat.probability.expected-value",
+      "parent": "g12.dat.probability",
+      "title": "Mean (Expected Value) of a Random Variable",
+      "description": "E(X) = Σ xᵢpᵢ: the probability-weighted average of the values — the long-run average per trial, not the most likely single outcome. Compute and interpret means of small discrete distributions.",
+      "outcomes": [
+        "Can compute E(X) from a distribution table",
+        "Can interpret the mean as a long-run average, including non-attainable values like 3.5 for a die"
+      ],
+      "prereqs": ["g12.dat.probability.random-variables"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A random variable X takes values 0, 1, 2 with probabilities 0.3, 0.5, 0.2 respectively. The mean E(X) is:",
+        "options": [
+          { "text": "0.9", "correct": true },
+          { "text": "1", "diagnosis": "Averaged the values (0 + 1 + 2)/3, ignoring the probabilities entirely." },
+          { "text": "3", "diagnosis": "Summed the values of X; probabilities never entered the computation." },
+          { "text": "0.5", "diagnosis": "Reported the largest probability instead of the weighted average of the values." }
+        ],
+        "explanation": "E(X) = Σxᵢpᵢ = 0(0.3) + 1(0.5) + 2(0.2) = 0 + 0.5 + 0.4 = 0.9. Each value is weighted by how often it occurs; the unweighted average (0+1+2)/3 = 1 would only be right if all three values were equally likely."
+      }
+    }
+  ]
+}

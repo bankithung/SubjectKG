@@ -1,0 +1,1597 @@
+{
+  "class": 5,
+  "micros": [
+    {
+      "id": "g5.num.large-numbers.lakh-landmark",
+      "parent": "g5.num.large-numbers",
+      "title": "The Lakh Landmark",
+      "description": "Meet 1,00,000 as one lakh: how many zeros it has, where it sits on the number ladder, and where the Indian-system commas go (three digits from the right, then pairs).",
+      "outcomes": [
+        "Can write 1 lakh and 10 lakh in figures with correct Indian-system commas",
+        "Can recite the landmark ladder: 1,000 -> 10,000 -> 1,00,000 -> 10,00,000"
+      ],
+      "prereqs": ["g4.num.numbers-to-100000"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "How is FIVE LAKH written in figures?",
+        "options": [
+          { "text": "5,00,000", "correct": true },
+          { "text": "50,000", "misconception": "m2" },
+          { "text": "50,00,000", "diagnosis": "Wrote fifty lakh — one landmark step too far up the ladder." },
+          { "text": "5,000", "diagnosis": "Confused lakh with thousand; the landmark ladder needs rebuilding." }
+        ],
+        "explanation": "One lakh is 1,00,000 (a 1 with five zeros), so five lakh is 5,00,000. Indian commas go three digits from the right, then in pairs: 5,00,000."
+      }
+    },
+    {
+      "id": "g5.num.large-numbers.read-write-6-7-digit",
+      "parent": "g5.num.large-numbers",
+      "title": "Reading and Writing 6- and 7-digit Numbers",
+      "description": "Read and write numbers up to ten lakh in figures and in words, using a place-value frame (TL L TTh Th H T O) and filling untouched columns with zeros.",
+      "outcomes": [
+        "Can write a spoken 6- or 7-digit number in figures with every zero in place",
+        "Can read a 6- or 7-digit numeral aloud in words using lakhs and thousands"
+      ],
+      "prereqs": ["g5.num.large-numbers.lakh-landmark"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Write 'three lakh forty thousand six' in figures.",
+        "options": [
+          { "text": "3,40,006", "correct": true },
+          { "text": "3,40,0006", "misconception": "m2" },
+          { "text": "3,46,000", "diagnosis": "Pushed the 6 into the thousands block; a place-value frame keeps each spoken part in its own column." },
+          { "text": "34,006", "diagnosis": "Dropped a place — three lakh needs six more digits after the 3, with zeros holding the empty columns." }
+        ],
+        "explanation": "Fill the frame: 3 lakhs, 4 ten-thousands, 0 thousands, 0 hundreds, 0 tens, 6 ones — 3,40,006. Zeros must be written for every column that is not spoken."
+      }
+    },
+    {
+      "id": "g5.num.large-numbers.compare-order",
+      "parent": "g5.num.large-numbers",
+      "title": "Comparing and Ordering Large Numbers",
+      "description": "Compare and order numbers up to ten lakh: count digits first, and only when the digit counts match, compare place by place from the left.",
+      "outcomes": [
+        "Can state which of two large numbers is greater, giving digit count as the first reason",
+        "Can order four or five large numbers from smallest to greatest"
+      ],
+      "prereqs": ["g5.num.large-numbers.read-write-6-7-digit"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which number is greater: 8,76,543 or 12,34,567?",
+        "options": [
+          { "text": "12,34,567 — it has 7 digits while 8,76,543 has only 6", "correct": true },
+          { "text": "8,76,543 — because 8 is greater than 1", "misconception": "m3" },
+          { "text": "8,76,543 — because 76 is greater than 34", "diagnosis": "Compared inner digit pairs without lining the numbers up by place value first." },
+          { "text": "They are equal — both are in lakhs", "diagnosis": "No comparison strategy applied; digit count settles it at once." }
+        ],
+        "explanation": "Count digits first: 12,34,567 has 7 digits, so it is past ten lakh, while 8,76,543 is below ten lakh. Any 7-digit number beats any 6-digit number."
+      }
+    },
+    {
+      "id": "g5.num.large-numbers.round-nearest",
+      "parent": "g5.num.large-numbers",
+      "title": "Rounding to the Nearest Ten, Hundred and Thousand",
+      "description": "Round a number by finding its two neighbours at the rounding place and choosing the closer one, using the digit to the right to decide. Rounding is about closeness, not chopping.",
+      "outcomes": [
+        "Can round any number to the nearest ten, hundred or thousand",
+        "Can show a rounding decision on an empty number line between the two neighbours"
+      ],
+      "prereqs": ["g5.num.large-numbers.read-write-6-7-digit"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Round 45,678 to the nearest HUNDRED.",
+        "options": [
+          { "text": "45,700", "correct": true },
+          { "text": "45,600", "misconception": "m1" },
+          { "text": "45,680", "diagnosis": "Rounded to the nearest ten; the target place was misread." },
+          { "text": "46,000", "diagnosis": "Rounded to the nearest thousand instead of the nearest hundred." }
+        ],
+        "explanation": "45,678 sits between 45,600 and 45,700. The tens digit is 7, so 45,678 is closer to 45,700 — it rounds UP. Chopping off '78' always rounds down, which is not rounding."
+      }
+    },
+    {
+      "id": "g5.num.large-numbers.estimate-check",
+      "parent": "g5.num.large-numbers",
+      "title": "Estimating with Rounded Numbers",
+      "description": "Use rounded numbers to estimate sums and differences before calculating exactly, and use the estimate to sense-check the exact answer.",
+      "outcomes": [
+        "Can estimate a sum or difference by rounding each number first",
+        "Can spot an unreasonable exact answer by comparing it with an estimate"
+      ],
+      "prereqs": ["g5.num.large-numbers.round-nearest", "g4.num.add-sub-large"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+
+    {
+      "id": "g5.num.mult-div-large.multiply-tens-hundreds",
+      "parent": "g5.num.mult-div-large",
+      "title": "Multiplying by Tens and Hundreds (Zero Patterns)",
+      "description": "Multiply numbers like 60 x 400 by separating the basic fact from the zeros: do 6 x 4, then attach exactly the zeros that came from each factor.",
+      "outcomes": [
+        "Can multiply by 10, 100 and their multiples using counted zeros",
+        "Can explain where each zero in the answer came from"
+      ],
+      "prereqs": ["g4.num.mult-multi-digit"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "30 x 500 = ?",
+        "options": [
+          { "text": "15,000", "correct": true },
+          { "text": "1,500", "misconception": "m3" },
+          { "text": "1,50,000", "diagnosis": "Attached one zero too many; the zeros must be counted from the factors (1 + 2 = 3), not guessed." },
+          { "text": "530", "diagnosis": "Added the numbers instead of multiplying; the operation was misread." }
+        ],
+        "explanation": "3 x 5 = 15. Now attach the zeros: one from 30 and two from 500, three in all — 15,000."
+      }
+    },
+    {
+      "id": "g5.num.mult-div-large.estimate-products-quotients",
+      "parent": "g5.num.mult-div-large",
+      "title": "Estimating Products and Quotients",
+      "description": "Round the numbers to friendly tens and hundreds to estimate a product or quotient before computing, so a wildly wrong exact answer is caught immediately.",
+      "outcomes": [
+        "Can estimate a product like 245 x 32 as about 250 x 30",
+        "Can use an estimate to reject an answer that is far too big or too small"
+      ],
+      "prereqs": ["g5.num.mult-div-large.multiply-tens-hundreds", "g5.num.large-numbers.round-nearest"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g5.num.mult-div-large.mult-3digit-by-2digit",
+      "parent": "g5.num.mult-div-large",
+      "title": "Multiplying 3-digit by 2-digit Numbers",
+      "description": "Multiply a 3-digit number by a 2-digit number using partial products, writing the second row as a multiplication by tens — with its placeholder zero written first.",
+      "outcomes": [
+        "Can compute a 3-digit x 2-digit product with both partial products",
+        "Can explain why the second partial-product row must end in zero"
+      ],
+      "prereqs": ["g5.num.mult-div-large.estimate-products-quotients"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "132 x 24 = ?",
+        "options": [
+          { "text": "3,168", "correct": true },
+          { "text": "792", "misconception": "m1" },
+          { "text": "2,640", "diagnosis": "Computed 132 x 20 = 2,640 and stopped; the 132 x 4 partial product was never added." },
+          { "text": "3,268", "diagnosis": "Both partial products right (2,640 and 528) but a regrouping slip while adding them." }
+        ],
+        "explanation": "132 x 24 = 132 x 20 + 132 x 4 = 2,640 + 528 = 3,168. Estimate first: 130 x 25 is about 3,250, so 792 is far too small — it comes from multiplying by 2 instead of 20."
+      }
+    },
+    {
+      "id": "g5.num.mult-div-large.divide-2digit-divisor",
+      "parent": "g5.num.mult-div-large",
+      "title": "Dividing by a 2-digit Divisor",
+      "description": "Run long division with 2-digit divisors like 21 and 24: estimate each quotient digit by trying multiples of the divisor, then divide-multiply-subtract-bring-down as usual.",
+      "outcomes": [
+        "Can divide a 3-digit number by a 2-digit divisor",
+        "Can choose a sensible first quotient digit by trying multiples of the divisor"
+      ],
+      "prereqs": ["g5.num.mult-div-large.estimate-products-quotients", "g4.num.division-long-intro"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "672 divided by 21 = ?",
+        "options": [
+          { "text": "32", "correct": true },
+          { "text": "31 remainder 21", "misconception": "m2" },
+          { "text": "302", "diagnosis": "An extra zero slipped into the quotient during bring-down; estimating (about 660 / 22 = 30) flags a 3-digit answer." },
+          { "text": "22", "diagnosis": "Quotient never verified — 21 x 22 = 462, leaving 210 unaccounted for; the multiply-back check is missing." }
+        ],
+        "explanation": "21 x 32 = 672 exactly, so 672 / 21 = 32 with remainder 0. Stopping at 31 leaves remainder 21, which is as big as the divisor — one more 21 still fits."
+      }
+    },
+    {
+      "id": "g5.num.mult-div-large.check-division",
+      "parent": "g5.num.mult-div-large",
+      "title": "Checking Division: Remainder Rule and Multiply-back",
+      "description": "Finish every division with two checks: the remainder must be smaller than the divisor, and quotient x divisor + remainder must rebuild the dividend.",
+      "outcomes": [
+        "Can verify a division answer using quotient x divisor + remainder = dividend",
+        "Can spot and fix a division that stopped with a remainder as big as the divisor"
+      ],
+      "prereqs": ["g5.num.mult-div-large.divide-2digit-divisor"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Asha divides 850 by 25 and writes: '33 remainder 25'. What should she notice?",
+        "options": [
+          { "text": "The remainder 25 is not smaller than the divisor — one more 25 fits, so the answer is exactly 34", "correct": true },
+          { "text": "Nothing — 33 remainder 25 is a finished answer", "misconception": "m2" },
+          { "text": "She should add the remainder to the quotient: 33 + 25 = 58", "diagnosis": "Remainder and quotient measure different things; they can never be added together." },
+          { "text": "She must start again — 850 cannot be divided by 25", "diagnosis": "The division is possible; only the final remainder check was skipped." }
+        ],
+        "explanation": "25 x 33 = 825, leaving 25 — but 25 fills one more whole group. So 850 / 25 = 34 exactly (25 x 34 = 850). A remainder must always be SMALLER than the divisor."
+      }
+    },
+
+    {
+      "id": "g5.num.factors-multiples.factor-pairs",
+      "parent": "g5.num.factors-multiples",
+      "title": "Finding Factors with Factor Pairs",
+      "description": "List all factors of a number systematically by finding pairs that multiply to it (1 x 12, 2 x 6, 3 x 4), using rectangle arrays of counters as the picture.",
+      "outcomes": [
+        "Can list all factors of a number up to 50 using factor pairs",
+        "Can show a factor pair as a rectangle arrangement of counters"
+      ],
+      "prereqs": ["g3.num.mult-tables", "g3.num.division-intro"],
+      "est_minutes": 20,
+      "difficulty": 1,
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "Which of these is a factor of 20?",
+        "options": [
+          { "text": "5", "correct": true },
+          { "text": "40", "misconception": "m2" },
+          { "text": "3", "diagnosis": "No divisibility test applied — 20 / 3 leaves remainder 2." },
+          { "text": "6", "diagnosis": "Used a near fact (4 x 6 = 24?); 20 / 6 leaves remainder 2, so 6 does not divide 20 exactly." }
+        ],
+        "explanation": "5 divides 20 exactly: 5 x 4 = 20. The full factor list of 20 is 1, 2, 4, 5, 10, 20. Note 40 is a MULTIPLE of 20 — factors never go above the number itself."
+      }
+    },
+    {
+      "id": "g5.num.factors-multiples.multiples-listing",
+      "parent": "g5.num.factors-multiples",
+      "title": "Multiples: The Never-ending Times Table",
+      "description": "List multiples of a number by skip counting, and decide whether a given number is a multiple of another by testing exact division. Multiples go on forever; factors stop at the number.",
+      "outcomes": [
+        "Can list the first several multiples of any number up to 12",
+        "Can decide whether one number is a multiple of another and justify it"
+      ],
+      "prereqs": ["g5.num.factors-multiples.factor-pairs"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Which of these is a multiple of 6?",
+        "options": [
+          { "text": "42", "correct": true },
+          { "text": "3", "misconception": "m2" },
+          { "text": "26", "diagnosis": "Looks close to the 6 times table but 26 / 6 leaves remainder 2; nearness is not divisibility." },
+          { "text": "16", "diagnosis": "Ends in 6, but 16 / 6 leaves remainder 4 — the last digit alone cannot decide multiples of 6." }
+        ],
+        "explanation": "42 = 6 x 7, so 42 is a multiple of 6. The number 3 is a FACTOR of 6, not a multiple — multiples of 6 are 6, 12, 18, 24, ... and are never smaller than 6."
+      }
+    },
+    {
+      "id": "g5.num.factors-multiples.factor-vs-multiple",
+      "parent": "g5.num.factors-multiples",
+      "title": "Factor or Multiple? Keeping Them Apart",
+      "description": "Contrast the two ideas with the size rule: factors of a number fit inside it (never bigger), multiples are its times table (never smaller). Sort numbers into 'factors of n' and 'multiples of n' bins.",
+      "outcomes": [
+        "Can classify given numbers as factors of n, multiples of n, or neither",
+        "Can state that n itself is both a factor and a multiple of n"
+      ],
+      "prereqs": ["g5.num.factors-multiples.factor-pairs", "g5.num.factors-multiples.multiples-listing"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Ravi is asked for the factors of 6 and writes: 6, 12, 18. What went wrong?",
+        "options": [
+          { "text": "He listed multiples of 6 — the factors of 6 are 1, 2, 3 and 6", "correct": true },
+          { "text": "Nothing — 12 and 18 are factors of 6", "misconception": "m2" },
+          { "text": "Only the 6 is wrong — a number can never be its own factor", "diagnosis": "6 IS a factor of itself (6 x 1 = 6); the wrong entries are 12 and 18." },
+          { "text": "He stopped too soon — 24 should also be in the list", "diagnosis": "Continues the multiples list; the question asked for factors, which never exceed 6." }
+        ],
+        "explanation": "Factors of 6 divide it exactly and are never bigger than 6: they are 1, 2, 3, 6. The list 6, 12, 18 is the start of the MULTIPLES of 6 — the times table of 6."
+      }
+    },
+    {
+      "id": "g5.num.factors-multiples.prime-composite",
+      "parent": "g5.num.factors-multiples",
+      "title": "Prime and Composite Numbers",
+      "description": "A prime has exactly two factors: 1 and itself. Test candidates by trying small divisors (2, 3, 5, 7), and settle the special case: 1 has only one factor, so it is neither prime nor composite.",
+      "outcomes": [
+        "Can identify primes and composites up to 100 by testing small divisors",
+        "Can explain why 1 is neither prime nor composite",
+        "Can show a composite number as a rectangle array with more than one row"
+      ],
+      "prereqs": ["g5.num.factors-multiples.factor-pairs"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these numbers is prime?",
+        "options": [
+          { "text": "23", "correct": true },
+          { "text": "27", "misconception": "m1" },
+          { "text": "21", "diagnosis": "Missed 21 = 3 x 7; odd candidates must be tested against 3 and 7, not just 2." },
+          { "text": "1", "diagnosis": "1 has only ONE factor (itself), so it is neither prime nor composite — primes need exactly two factors." }
+        ],
+        "explanation": "23 has exactly two factors, 1 and 23 — no number from 2 to 22 divides it. But 27 = 3 x 9 and 21 = 3 x 7: odd numbers can still be composite."
+      }
+    },
+    {
+      "id": "g5.num.factors-multiples.factor-count-surprise",
+      "parent": "g5.num.factors-multiples",
+      "title": "Who Has More Factors? Size Doesn't Decide",
+      "description": "Count factors of several numbers and discover that bigger does not mean more factors: a small number like 12 can beat a bigger one like 25, and huge primes have only two.",
+      "outcomes": [
+        "Can count and compare the number of factors of two numbers",
+        "Can give an example showing a bigger number with fewer factors"
+      ],
+      "prereqs": ["g5.num.factors-multiples.prime-composite", "g5.num.factors-multiples.factor-vs-multiple"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which number has MORE factors: 12 or 25?",
+        "options": [
+          { "text": "12 — it has six factors (1, 2, 3, 4, 6, 12) while 25 has only three (1, 5, 25)", "correct": true },
+          { "text": "25 — it is the bigger number, so it must have more factors", "misconception": "m3" },
+          { "text": "They have the same number — both are composite", "diagnosis": "Being composite says 'more than two factors', not 'the same count'; the lists must actually be made." },
+          { "text": "Cannot tell without dividing by every number up to 25", "diagnosis": "Factor pairs make the count quick: each divisor found brings its partner with it." }
+        ],
+        "explanation": "List them: 12 has 1, 2, 3, 4, 6, 12 — six factors. 25 has only 1, 5, 25 — three. How many factors a number has depends on how it is built, not on how big it is."
+      }
+    },
+
+    {
+      "id": "g5.num.fractions-equivalent-compare.make-equivalent",
+      "parent": "g5.num.fractions-equivalent-compare",
+      "title": "Making Equivalent Fractions",
+      "description": "Generate fractions that name the same amount by multiplying BOTH the numerator and denominator by the same number — re-cutting every piece into equal sub-pieces on a fraction wall.",
+      "outcomes": [
+        "Can generate equivalent fractions by multiplying both terms by the same number",
+        "Can explain with a picture why multiplying both terms keeps the amount unchanged"
+      ],
+      "prereqs": ["g4.num.fractions-equal-parts"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Which fraction is equivalent to 2/5?",
+        "options": [
+          { "text": "4/10", "correct": true },
+          { "text": "3/6", "misconception": "m1" },
+          { "text": "2/10", "diagnosis": "Doubled only the denominator — that halves the fraction instead of preserving it." },
+          { "text": "4/5", "diagnosis": "Doubled only the numerator — that doubles the fraction; both terms must change together." }
+        ],
+        "explanation": "Multiply top and bottom by the same number: 2/5 = (2x2)/(5x2) = 4/10. Adding 1 to both terms gives 3/6, which equals 1/2 — a different amount. Check both on a fraction wall."
+      }
+    },
+    {
+      "id": "g5.num.fractions-equivalent-compare.simplest-form",
+      "parent": "g5.num.fractions-equivalent-compare",
+      "title": "Reducing to Simplest Form",
+      "description": "Run equivalence backwards: divide both terms by the same number until no common divisor is left, giving the fraction in its simplest form.",
+      "outcomes": [
+        "Can reduce a fraction like 6/8 to its simplest form",
+        "Can check that a fraction is fully simplified by hunting for common divisors"
+      ],
+      "prereqs": ["g5.num.fractions-equivalent-compare.make-equivalent"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is 6/8 in its simplest form?",
+        "options": [
+          { "text": "3/4", "correct": true },
+          { "text": "5/7", "misconception": "m1" },
+          { "text": "4/6", "diagnosis": "Subtracted 2 from both terms — additive change moves the amount (4/6 = 2/3, not 6/8)." },
+          { "text": "8/6", "diagnosis": "Swapped numerator and denominator; flipping a fraction changes its value completely." }
+        ],
+        "explanation": "Divide both terms by 2: 6/8 = 3/4, and 3 and 4 share no common divisor, so it is fully simplified. Subtracting 1 from both terms gives 5/7 — a different point on the number line."
+      }
+    },
+    {
+      "id": "g5.num.fractions-equivalent-compare.same-denominator-numerator",
+      "parent": "g5.num.fractions-equivalent-compare",
+      "title": "Comparing with Same Denominators or Same Numerators",
+      "description": "Two quick comparison rules: same denominator — more pieces wins; same numerator — the bigger denominator means smaller pieces, so it LOSES.",
+      "outcomes": [
+        "Can compare fractions with equal denominators by comparing numerators",
+        "Can compare fractions with equal numerators by reasoning about piece size"
+      ],
+      "prereqs": ["g5.num.fractions-equivalent-compare.make-equivalent"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which is greater: 3/5 or 3/8?",
+        "options": [
+          { "text": "3/5 — fifths are bigger pieces than eighths, and there are 3 of each", "correct": true },
+          { "text": "3/8 — because 8 is greater than 5", "misconception": "m2" },
+          { "text": "They are equal — both have numerator 3", "diagnosis": "Compared numerators only; the denominators say how big each piece is." },
+          { "text": "They cannot be compared without a common denominator", "diagnosis": "Common denominators always work, but same-numerator reasoning settles this instantly." }
+        ],
+        "explanation": "Both take 3 pieces, but a fifth of a roti is bigger than an eighth of it. So 3/5 > 3/8. (Common denominators agree: 24/40 > 15/40.)"
+      }
+    },
+    {
+      "id": "g5.num.fractions-equivalent-compare.common-denominator-compare",
+      "parent": "g5.num.fractions-equivalent-compare",
+      "title": "Comparing Any Two Fractions with a Common Denominator",
+      "description": "When neither the tops nor the bottoms match, rewrite both fractions with a common denominator using equivalence, then compare the numerators.",
+      "outcomes": [
+        "Can compare two unlike fractions by rewriting both over a common denominator",
+        "Can pick a sensible common denominator for a pair of fractions"
+      ],
+      "prereqs": [
+        "g5.num.fractions-equivalent-compare.make-equivalent",
+        "g5.num.fractions-equivalent-compare.same-denominator-numerator"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Which is greater: 2/3 or 3/5?",
+        "options": [
+          { "text": "2/3 — as fifteenths, 2/3 = 10/15 and 3/5 = 9/15", "correct": true },
+          { "text": "3/5 — because 5 is greater than 3, fifths beat thirds", "misconception": "m2" },
+          { "text": "3/5 — because 3 is greater than 2 on top", "diagnosis": "Compared numerators of fractions with DIFFERENT denominators; the pieces are not the same size." },
+          { "text": "They are equal — 2/3 becomes 3/5 by adding 1 to top and bottom", "misconception": "m1" }
+        ],
+        "explanation": "Rewrite both over 15: 2/3 = 10/15 and 3/5 = 9/15, so 2/3 is greater. Adding 1 to both terms does NOT keep a fraction equal — it slides it to a new point."
+      }
+    },
+    {
+      "id": "g5.num.fractions-equivalent-compare.benchmark-compare",
+      "parent": "g5.num.fractions-equivalent-compare",
+      "title": "Benchmark Tricks: Half and Distance from One Whole",
+      "description": "Compare fractions mentally against benchmarks: is each more or less than 1/2? For near-whole fractions like 5/6 and 7/8, compare the SIZE of the missing piece instead of the count.",
+      "outcomes": [
+        "Can decide whether a fraction is more or less than 1/2 without computing",
+        "Can compare near-whole fractions by comparing their distances from 1"
+      ],
+      "prereqs": ["g5.num.fractions-equivalent-compare.common-denominator-compare"],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which is greater: 7/8 or 9/10?",
+        "options": [
+          { "text": "9/10 — it is missing only 1/10, and 1/10 is smaller than the missing 1/8", "correct": true },
+          { "text": "They are equal — each is exactly one piece short of a whole", "misconception": "m3" },
+          { "text": "7/8 — eighths are bigger pieces than tenths", "diagnosis": "Right fact, wrong conclusion — bigger pieces make the MISSING piece bigger too, pulling 7/8 further below 1." },
+          { "text": "Cannot say without a calculator", "diagnosis": "Distance-from-one settles it mentally: compare the missing pieces 1/8 and 1/10." }
+        ],
+        "explanation": "7/8 = 1 - 1/8 and 9/10 = 1 - 1/10. Since 1/10 < 1/8, 9/10 is closer to the whole, so 9/10 > 7/8. Check: 7/8 = 35/40 and 9/10 = 36/40."
+      }
+    },
+
+    {
+      "id": "g5.num.fractions-add-sub.like-denominators",
+      "parent": "g5.num.fractions-add-sub",
+      "title": "Adding and Subtracting Like Fractions",
+      "description": "With the same denominator, only the counts of pieces are added or subtracted — the denominator is the NAME of the piece and stays put: 3 eighths + 2 eighths = 5 eighths.",
+      "outcomes": [
+        "Can add and subtract fractions with the same denominator",
+        "Can explain why the denominator does not change during the operation"
+      ],
+      "prereqs": ["g4.num.fractions-equal-parts"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "2/7 + 3/7 = ?",
+        "options": [
+          { "text": "5/7", "correct": true },
+          { "text": "5/14", "misconception": "m1" },
+          { "text": "6/7", "diagnosis": "Multiplied the numerators (2 x 3 = 6); a times-table fact intruded on addition." },
+          { "text": "1/7", "diagnosis": "Subtracted the numerators — the operation sign was misread." }
+        ],
+        "explanation": "2 sevenths + 3 sevenths = 5 sevenths = 5/7. The denominator is the piece's name — it never gets added, just as 2 mangoes + 3 mangoes is 5 mangoes."
+      }
+    },
+    {
+      "id": "g5.num.fractions-add-sub.rename-then-add",
+      "parent": "g5.num.fractions-add-sub",
+      "title": "Adding with Related Denominators",
+      "description": "When one denominator is a multiple of the other (halves and quarters, thirds and sixths), first re-cut the coarser fraction into the finer pieces using equivalence, then add like fractions.",
+      "outcomes": [
+        "Can add fractions where one denominator is a multiple of the other",
+        "Can write and verify the renaming step (1/2 = 2/4) before adding"
+      ],
+      "prereqs": [
+        "g5.num.fractions-add-sub.like-denominators",
+        "g5.num.fractions-equivalent-compare.make-equivalent"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "1/3 + 1/6 = ?",
+        "options": [
+          { "text": "1/2", "correct": true },
+          { "text": "2/9", "misconception": "m1" },
+          { "text": "2/6", "misconception": "m2" },
+          { "text": "1/6", "diagnosis": "Subtracted instead of adding: 1/3 - 1/6 = 1/6; the operation sign was misread." }
+        ],
+        "explanation": "Re-cut the third into sixths: 1/3 = 2/6. Then 2/6 + 1/6 = 3/6 = 1/2. Changing only the denominator (1/3 into 1/6) silently shrinks the fraction — the numerator must scale too."
+      }
+    },
+    {
+      "id": "g5.num.fractions-add-sub.rename-then-subtract",
+      "parent": "g5.num.fractions-add-sub",
+      "title": "Subtracting with Related Denominators",
+      "description": "Subtract fractions like 3/4 - 1/8 by first renaming the coarser fraction into the finer pieces (3/4 = 6/8), then subtracting the counts.",
+      "outcomes": [
+        "Can subtract fractions where one denominator is a multiple of the other",
+        "Can check a fraction subtraction by adding back"
+      ],
+      "prereqs": ["g5.num.fractions-add-sub.rename-then-add"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g5.num.fractions-add-sub.subtract-from-whole",
+      "parent": "g5.num.fractions-add-sub",
+      "title": "Taking a Fraction Away from a Whole",
+      "description": "Rename 1 as 4/4, 8/8 or whatever denominator is needed — the same whole in different clothes — so that fractions can be subtracted from wholes.",
+      "outcomes": [
+        "Can rewrite 1 (or 2, 3, ...) as an equivalent fraction with any denominator",
+        "Can subtract a fraction from a whole number"
+      ],
+      "prereqs": ["g5.num.fractions-add-sub.like-denominators"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A water tank is full. The family uses 2/5 of it in one day. How much of the tank is left?",
+        "options": [
+          { "text": "3/5", "correct": true },
+          { "text": "It cannot be worked out — you cannot take 2/5 away from 1", "misconception": "m3" },
+          { "text": "2/5", "diagnosis": "Reported the part USED; the question asks for the part remaining." },
+          { "text": "1 2/5", "diagnosis": "Added instead of subtracting; using water removes it from the whole." }
+        ],
+        "explanation": "Rename the full tank: 1 = 5/5. Then 5/5 - 2/5 = 3/5 of the tank is left. Any whole can be rewritten as a fraction over the denominator you need."
+      }
+    },
+    {
+      "id": "g5.num.fractions-add-sub.word-problems",
+      "parent": "g5.num.fractions-add-sub",
+      "title": "Fraction Word Problems: Food, Time and Lengths",
+      "description": "Solve one-step story problems about sharing food, cooking measures, time and lengths by choosing add or subtract, renaming where needed, and sanity-checking the answer against the whole.",
+      "outcomes": [
+        "Can translate a one-step fraction story into an addition or subtraction",
+        "Can judge whether a fraction answer is sensible (not bigger than the whole, etc.)"
+      ],
+      "prereqs": [
+        "g5.num.fractions-add-sub.rename-then-subtract",
+        "g5.num.fractions-add-sub.subtract-from-whole"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A recipe needs 1/2 cup of dal plus 1/4 cup extra. How much dal is that in all?",
+        "options": [
+          { "text": "3/4 cup", "correct": true },
+          { "text": "2/6 cup", "misconception": "m1" },
+          { "text": "2/4 cup", "misconception": "m2" },
+          { "text": "1/8 cup", "diagnosis": "Multiplied the fractions instead of adding them; 'plus extra' means addition." }
+        ],
+        "explanation": "Re-cut the half into quarters: 1/2 = 2/4. Then 2/4 + 1/4 = 3/4 cup. Adding tops and bottoms (2/6) gives less than the 1/2 cup you started with — impossible when you are adding more."
+      }
+    },
+
+    {
+      "id": "g5.num.decimals-intro.tenths-on-number-line",
+      "parent": "g5.num.decimals-intro",
+      "title": "Tenths on the Number Line",
+      "description": "Cut the gap between whole numbers into ten equal hops: each hop is one tenth, written 0.1. Read and place numbers like 0.4 and 2.7 on the number line and connect them to fractions like 4/10.",
+      "outcomes": [
+        "Can write tenths as both fractions (7/10) and decimals (0.7)",
+        "Can place and read tenths on a number line between whole numbers"
+      ],
+      "prereqs": ["g4.num.fractions-equal-parts"],
+      "est_minutes": 20,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "On a number line, each hop from 0 is one tenth. What number do you reach after 4 hops?",
+        "options": [
+          { "text": "0.4", "correct": true },
+          { "text": "4", "misconception": "m3" },
+          { "text": "0.04", "diagnosis": "Landed in the hundredths column; one hop of a tenth is 0.1, not 0.01." },
+          { "text": "4.10", "diagnosis": "Glued the count and the denominator together; the 10 is shown by the digit's POSITION, not written out." }
+        ],
+        "explanation": "Four hops of one tenth is 4 tenths = 4/10 = 0.4 — still less than 1. Reaching the number 4 would take forty hops."
+      }
+    },
+    {
+      "id": "g5.num.decimals-intro.hundredths-and-money",
+      "parent": "g5.num.decimals-intro",
+      "title": "Hundredths and Money",
+      "description": "Split each tenth into ten again to get hundredths: 0.07 is 7/100, ten times smaller than 0.7. Money makes it concrete — 1 rupee is 100 paise, so 45 paise is Rs 0.45.",
+      "outcomes": [
+        "Can write hundredths as fractions and decimals and tell them apart from tenths",
+        "Can convert between rupees-and-paise and decimal rupee amounts"
+      ],
+      "prereqs": ["g5.num.decimals-intro.tenths-on-number-line"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "1 rupee = 100 paise. How do you write 45 paise in rupees?",
+        "options": [
+          { "text": "Rs 0.45", "correct": true },
+          { "text": "Rs 45", "misconception": "m3" },
+          { "text": "Rs 4.50", "diagnosis": "Wrote 45 TENTHS of a rupee — that is 4 rupees 50 paise, ten times too much." },
+          { "text": "Rs 0.045", "diagnosis": "Slid the digits one place too far; 45 out of 100 sits in the tenths and hundredths columns." }
+        ],
+        "explanation": "45 paise is 45 out of 100 paise, so it is 45/100 of a rupee = Rs 0.45. Dropping the decimal point turns 45 paise into 45 whole rupees — a hundred times too much."
+      }
+    },
+    {
+      "id": "g5.num.decimals-intro.place-value-table-extension",
+      "parent": "g5.num.decimals-intro",
+      "title": "Extending the Place-value Table Past the Point",
+      "description": "Add tenths and hundredths columns to the right of the ones: each step right divides by 10. Name every digit by its column, and see why 0.30 equals 0.3 but 0.03 does not.",
+      "outcomes": [
+        "Can state the place value of any digit in a number like 3.65",
+        "Can explain why a zero at the right end after the point changes nothing"
+      ],
+      "prereqs": ["g5.num.decimals-intro.hundredths-and-money"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "In the number 3.65, what is the value of the digit 6?",
+        "options": [
+          { "text": "6 tenths (0.6)", "correct": true },
+          { "text": "just 6", "misconception": "m3" },
+          { "text": "6 hundredths (0.06)", "diagnosis": "Counted one column too far right; the first place after the point is tenths." },
+          { "text": "60", "diagnosis": "Read the digits 65 as a whole number sitting after the 3; the point pins each digit to a column." }
+        ],
+        "explanation": "The first column after the decimal point is tenths, so the 6 in 3.65 is worth 6 tenths = 0.6. The 5 next to it is 5 hundredths."
+      }
+    },
+    {
+      "id": "g5.num.decimals-intro.comparing-decimals",
+      "parent": "g5.num.decimals-intro",
+      "title": "Comparing Decimals Place by Place",
+      "description": "Compare decimals by lining up the places and comparing from the left, padding with zeros so both have the same number of places — never by counting digits.",
+      "outcomes": [
+        "Can compare two decimals by padding to equal places and comparing place by place",
+        "Can order a mixed list like 0.5, 0.45, 0.7 from smallest to largest"
+      ],
+      "prereqs": ["g5.num.decimals-intro.place-value-table-extension"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which is greater: 0.6 or 0.42?",
+        "options": [
+          { "text": "0.6 — it equals 0.60, and 60 hundredths is more than 42 hundredths", "correct": true },
+          { "text": "0.42 — because 42 is greater than 6", "misconception": "m1" },
+          { "text": "0.42 — more decimal places always make a bigger number", "diagnosis": "Digit COUNT is being used instead of place value; extra places refine a number, they do not enlarge it." },
+          { "text": "They are equal — both start with 0", "diagnosis": "Compared only the whole-number parts and stopped; the tenths digits (6 vs 4) decide it." }
+        ],
+        "explanation": "Pad to equal places: 0.6 = 0.60. Comparing tenths first: 6 tenths beats 4 tenths, so 0.6 > 0.42. On a hundred-square grid, 0.6 shades 60 small squares and 0.42 only 42."
+      }
+    },
+    {
+      "id": "g5.num.decimals-intro.decimals-vs-fractions-link",
+      "parent": "g5.num.decimals-intro",
+      "title": "Decimals and Fractions: Two Names, One Number",
+      "description": "Translate both ways between decimals and fractions with denominators 10 and 100 (0.25 = 25/100 = 1/4), and place both forms at the same point on the number line.",
+      "outcomes": [
+        "Can convert tenths and hundredths between fraction and decimal form both ways",
+        "Can show that a decimal and its fraction sit at the same point on the number line"
+      ],
+      "prereqs": ["g5.num.decimals-intro.comparing-decimals"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which fraction is exactly equal to 0.25?",
+        "options": [
+          { "text": "25/100", "correct": true },
+          { "text": "25/10", "misconception": "m3" },
+          { "text": "2/5", "diagnosis": "Used the digits 2 and 5 as top and bottom; 2/5 = 0.4, a different number." },
+          { "text": "1/25", "diagnosis": "Turned the digits into a denominator; 0.25 means 25 parts OF a hundred, not 1 part of 25." }
+        ],
+        "explanation": "Two places after the point means hundredths: 0.25 = 25/100, which simplifies to 1/4. Writing 25/10 would be 25 tenths = 2.5 — the point's position matters."
+      }
+    },
+
+    {
+      "id": "g5.num.decimals-add-sub.line-up-points",
+      "parent": "g5.num.decimals-add-sub",
+      "title": "Lining Up the Decimal Points",
+      "description": "Set up decimal additions in columns with the decimal points in one vertical line, padding ragged numbers with trailing zeros (4.5 becomes 4.50) so every column is complete.",
+      "outcomes": [
+        "Can set up and add decimals with different numbers of places correctly",
+        "Can explain why right-aligning the digits (ignoring the points) gives wrong answers"
+      ],
+      "prereqs": ["g5.num.decimals-intro.place-value-table-extension", "g4.num.add-sub-large"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "3.2 + 1.45 = ?",
+        "options": [
+          { "text": "4.65", "correct": true },
+          { "text": "1.77", "misconception": "m1" },
+          { "text": "17.7", "diagnosis": "Shifted 3.2 one column over (added 3.2 to 14.5); the points must sit in one vertical line." },
+          { "text": "4.6", "diagnosis": "Dropped the 5 hundredths; padding 3.2 to 3.20 keeps every column accounted for." }
+        ],
+        "explanation": "Line up the points and pad: 3.20 + 1.45. Hundredths: 0 + 5 = 5; tenths: 2 + 4 = 6; ones: 3 + 1 = 4. Answer: 4.65. Right-aligning the raw digits computes 32 + 145 and lands on 1.77."
+      }
+    },
+    {
+      "id": "g5.num.decimals-add-sub.regroup-across-point",
+      "parent": "g5.num.decimals-add-sub",
+      "title": "Carrying Across the Decimal Point",
+      "description": "See the carry cross the point: 8 tenths + 6 tenths = 14 tenths = 1 whole and 4 tenths. The point separates columns, not two different numbers.",
+      "outcomes": [
+        "Can add decimals where tenths regroup into ones (and hundredths into tenths)",
+        "Can explain a carry across the point using tenths language"
+      ],
+      "prereqs": ["g5.num.decimals-add-sub.line-up-points"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "0.7 + 0.5 = ?",
+        "options": [
+          { "text": "1.2", "correct": true },
+          { "text": "0.12", "misconception": "m2" },
+          { "text": "12", "diagnosis": "Lost the decimal point entirely and answered in whole numbers." },
+          { "text": "1.3", "diagnosis": "Addition-fact slip (7 + 5 taken as 13); the decimal handling itself is right." }
+        ],
+        "explanation": "7 tenths + 5 tenths = 12 tenths = 1 whole and 2 tenths = 1.2. Writing 0.12 traps the 12 after the point — ten of those tenths must carry into the ones."
+      }
+    },
+    {
+      "id": "g5.num.decimals-add-sub.subtract-decimals",
+      "parent": "g5.num.decimals-add-sub",
+      "title": "Subtracting Decimals with Borrowing",
+      "description": "Subtract decimals in columns, padding with zeros (6 becomes 6.00) so borrows can visibly cross the decimal point, and check by adding back or counting up.",
+      "outcomes": [
+        "Can subtract decimals including borrows that cross the decimal point",
+        "Can check a decimal subtraction by counting up from the smaller number"
+      ],
+      "prereqs": [
+        "g5.num.decimals-add-sub.line-up-points",
+        "g5.num.decimals-add-sub.regroup-across-point"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "6 - 2.75 = ?",
+        "options": [
+          { "text": "3.25", "correct": true },
+          { "text": "4.75", "misconception": "m3" },
+          { "text": "3.35", "diagnosis": "A single borrow slip in the tenths column; the overall method is intact." },
+          { "text": "2.25", "diagnosis": "Borrowed from the ones twice; write 6 as 6.00 and track each borrow once." }
+        ],
+        "explanation": "Write 6 as 6.00, then subtract: 6.00 - 2.75 = 3.25. Check by counting up: 2.75 + 0.25 = 3, and 3 + 3 = 6, so the gap is 3.25. Doing '6 - 2 = 4, keep the .75' counts the 75 hundredths the wrong way."
+      }
+    },
+    {
+      "id": "g5.num.decimals-add-sub.money-change-problems",
+      "parent": "g5.num.decimals-add-sub",
+      "title": "Bills and Change with Money",
+      "description": "Total a shopping bill in rupees and paise and work out the change from a note, using column work or the shopkeeper's counting-up method.",
+      "outcomes": [
+        "Can total a bill of two or three decimal money amounts",
+        "Can compute change from a note, borrowing across the point correctly"
+      ],
+      "prereqs": ["g5.num.decimals-add-sub.subtract-decimals"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Arun's bill at the kirana shop is Rs 63.50. He pays with a Rs 100 note. How much change should he get?",
+        "options": [
+          { "text": "Rs 36.50", "correct": true },
+          { "text": "Rs 37.50", "misconception": "m3" },
+          { "text": "Rs 46.50", "diagnosis": "A borrow slip in the tens column; estimate first — the change should be a bit less than 40." },
+          { "text": "Rs 63.50", "diagnosis": "Reported the bill instead of the change; the subtraction from 100 was never done." }
+        ],
+        "explanation": "100.00 - 63.50 = 36.50. Count up to check: 63.50 + 0.50 = 64, and 64 + 36 = 100, so the change is Rs 36.50. The shortcut '100 - 63 = 37, keep the .50' double-counts the 50 paise."
+      }
+    },
+    {
+      "id": "g5.num.decimals-add-sub.measures-add-sub",
+      "parent": "g5.num.decimals-add-sub",
+      "title": "Adding and Subtracting Measures",
+      "description": "Apply decimal addition and subtraction to real measures — race timings in seconds, weights in kilograms, lengths in metres — keeping units consistent throughout.",
+      "outcomes": [
+        "Can add and subtract decimal measurements of length, weight and time",
+        "Can state the answer with its correct unit"
+      ],
+      "prereqs": [
+        "g5.num.decimals-add-sub.regroup-across-point",
+        "g5.num.decimals-add-sub.subtract-decimals"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+
+    {
+      "id": "g5.geo.angles-intro.angle-as-turn",
+      "parent": "g5.geo.angles-intro",
+      "title": "An Angle Is a Turn",
+      "description": "An angle measures how far one arm swings away from the other — the opening, not the drawing. Longer arms do not make a bigger angle.",
+      "outcomes": [
+        "Can compare two angles by their openings, ignoring arm length",
+        "Can demonstrate an angle as a turn with arms, scissors or clock hands"
+      ],
+      "prereqs": ["g3.geo.lines-shapes"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Angle P is drawn with arms 10 cm long but a narrow opening. Angle Q has arms only 3 cm long but is opened much wider. Which angle is bigger?",
+        "options": [
+          { "text": "Angle Q — the angle is the amount of opening between the arms", "correct": true },
+          { "text": "Angle P — its arms are much longer", "misconception": "m1" },
+          { "text": "They are equal — both have two arms", "diagnosis": "Counting arms tells you it IS an angle; the amount of turn between them is what is measured." },
+          { "text": "Impossible to compare without a protractor", "diagnosis": "Wide-versus-narrow can be compared by overlaying tracings; no measuring is needed." }
+        ],
+        "explanation": "An angle measures the TURN between its arms. Extending or shortening the arms changes the picture's size, not the opening. Q is opened wider, so Q is the bigger angle."
+      }
+    },
+    {
+      "id": "g5.geo.angles-intro.right-angle-tester",
+      "parent": "g5.geo.angles-intro",
+      "title": "Right Angles in Every Direction",
+      "description": "Make a folded-paper corner tester and use it to find right angles around you — including tilted ones. The tester fits or it doesn't; the tilt is irrelevant.",
+      "outcomes": [
+        "Can test any corner for a right angle with a folded-paper tester",
+        "Can recognise right angles in non-standard orientations"
+      ],
+      "prereqs": ["g5.geo.angles-intro.angle-as-turn"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A kite's corner is a right angle, but the kite hangs tilted so neither arm is horizontal or vertical. Is the corner still a right angle?",
+        "options": [
+          { "text": "Yes — tilting the whole corner does not change how open it is", "correct": true },
+          { "text": "No — a right angle needs one flat arm and one upright arm", "misconception": "m2" },
+          { "text": "No — tilting squeezes it into an acute angle", "diagnosis": "Rotation moves both arms together; the opening between them never changes." },
+          { "text": "Only if you redraw it on squared paper", "diagnosis": "An angle's size belongs to the angle, not to the paper beneath it." }
+        ],
+        "explanation": "A folded-paper corner tester still fits the kite's corner perfectly however it hangs. Turning an angle moves both arms together, so the 90-degree opening is unchanged."
+      }
+    },
+    {
+      "id": "g5.geo.angles-intro.degree-landmarks",
+      "parent": "g5.geo.angles-intro",
+      "title": "Degree Landmarks: 90, 180, 360",
+      "description": "Anchor the three big degree landmarks with body turns and the clock: a quarter turn is 90 (right angle), a half turn is 180 (straight angle), a full spin is 360.",
+      "outcomes": [
+        "Can state the degrees in a right angle, straight angle and full turn",
+        "Can show that four square corners fill a full turn (4 x 90 = 360)"
+      ],
+      "prereqs": ["g5.geo.angles-intro.right-angle-tester"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "How many degrees are there in a FULL turn (spinning all the way around)?",
+        "options": [
+          { "text": "360", "correct": true },
+          { "text": "180", "misconception": "m3" },
+          { "text": "100", "diagnosis": "Degrees do not work in hundreds like money; a full turn is four right angles, 4 x 90 = 360." },
+          { "text": "90", "diagnosis": "Named the quarter turn (right angle); a full spin is four of those." }
+        ],
+        "explanation": "Face north and spin all the way back to north: that is 360 degrees. Half way (facing south) is 180, and a quarter (facing east) is 90 — four square corners tile a full turn."
+      }
+    },
+    {
+      "id": "g5.geo.angles-intro.classify-acute-obtuse",
+      "parent": "g5.geo.angles-intro",
+      "title": "Acute, Right, Obtuse, Straight",
+      "description": "Classify angles against the 90-degree benchmark: smaller than a right angle is acute, bigger (but less than straight) is obtuse. Use the corner tester as the judge.",
+      "outcomes": [
+        "Can classify a drawn angle as acute, right, obtuse or straight",
+        "Can find one angle of each type in the classroom"
+      ],
+      "prereqs": ["g5.geo.angles-intro.degree-landmarks"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "An angle measures 120 degrees. What kind of angle is it?",
+        "options": [
+          { "text": "Obtuse — bigger than 90 but less than 180", "correct": true },
+          { "text": "Acute", "diagnosis": "Acute means SMALLER than a right angle; 120 is past the 90 benchmark." },
+          { "text": "Right", "diagnosis": "A right angle is exactly 90; 120 overshoots it by 30." },
+          { "text": "Straight", "diagnosis": "A straight angle is exactly 180 — a full straight line; 120 is short of that." }
+        ],
+        "explanation": "Compare with the landmarks: 90 < 120 < 180, so the angle is obtuse — wider than a square corner but not yet a straight line."
+      }
+    },
+    {
+      "id": "g5.geo.angles-intro.estimate-everyday-angles",
+      "parent": "g5.geo.angles-intro",
+      "title": "Estimating Everyday Angles",
+      "description": "Estimate the angles made by clock hands, door openings, scissors and laptop lids by comparing them with the 90-degree benchmark and its half, 45.",
+      "outcomes": [
+        "Can estimate a real-world angle to the nearest landmark (45, 90, 180)",
+        "Can state the angle between clock hands at o'clock times like 3:00 and 6:00"
+      ],
+      "prereqs": ["g5.geo.angles-intro.classify-acute-obtuse"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3", "m1"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "At exactly 3:00, what angle do the clock's two hands make?",
+        "options": [
+          { "text": "90 degrees — a right angle, a quarter of the clock face", "correct": true },
+          { "text": "180 degrees", "misconception": "m3" },
+          { "text": "15 degrees", "diagnosis": "Counted the 15 minutes between the hands; minutes are not degrees — 15 minutes is a quarter of the face, which is 90 degrees." },
+          { "text": "3 degrees", "diagnosis": "Read the hour number as the angle; the angle comes from the turn between the hands." }
+        ],
+        "explanation": "At 3:00 the hands point to 12 and 3 — a quarter of the way around the face. A quarter of the full 360 is 90 degrees, a perfect right angle. (6:00 gives the straight 180.)"
+      }
+    },
+
+    {
+      "id": "g5.geo.nets-3d.faces-edges-vertices",
+      "parent": "g5.geo.nets-3d",
+      "title": "Faces, Edges and Vertices of Boxes",
+      "description": "Count the 6 faces, 12 edges and 8 vertices of cubes and cuboids using real boxes and paint-stamping, remembering that a drawing hides half the faces.",
+      "outcomes": [
+        "Can count faces, edges and vertices of cubes and cuboids, including hidden ones",
+        "Can mark the hidden faces on a sketch of a box"
+      ],
+      "prereqs": ["g2.geo.2d-3d-shapes", "g3.geo.lines-shapes"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "How many faces does a closed cuboid box (like a toothpaste carton) have?",
+        "options": [
+          { "text": "6", "correct": true },
+          { "text": "3", "misconception": "m2" },
+          { "text": "12", "diagnosis": "Counted the edges instead of the faces." },
+          { "text": "8", "diagnosis": "Counted the corners (vertices) instead of the faces." }
+        ],
+        "explanation": "Every cuboid has 6 faces: top, bottom, front, back and two sides. A drawing can only show 3 of them — stamp each face of a real box in paint and you always get 6 prints."
+      }
+    },
+    {
+      "id": "g5.geo.nets-3d.cube-net-or-not",
+      "parent": "g5.geo.nets-3d",
+      "title": "Will It Fold into a Cube?",
+      "description": "Test arrangements of six squares by real and mental folding. Six squares are necessary but not enough — the ARRANGEMENT decides whether it closes into a cube.",
+      "outcomes": [
+        "Can decide by folding (mental or paper) whether a 6-square arrangement is a cube net",
+        "Can explain why a 1x6 strip and a 2x3 block fail as cube nets"
+      ],
+      "prereqs": ["g5.geo.nets-3d.faces-edges-vertices"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Six squares are joined in a 2 x 3 block (two rows of three). Will this fold into a cube?",
+        "options": [
+          { "text": "No — folding makes squares land on top of each other, leaving some faces uncovered", "correct": true },
+          { "text": "Yes — it has exactly 6 squares, which is all a cube needs", "misconception": "m1" },
+          { "text": "Yes — any six squares work if you fold gently", "diagnosis": "No folding test was performed; care cannot fix an impossible layout." },
+          { "text": "No — a cube's net needs 8 squares", "diagnosis": "Wrong face count; a cube needs 6 squares — the 2 x 3 block fails because of its arrangement." }
+        ],
+        "explanation": "Fold the 2 x 3 block and squares overlap while two faces of the cube stay open. Six squares are needed, but only 11 special arrangements fold into a cube — count and layout both matter."
+      }
+    },
+    {
+      "id": "g5.geo.nets-3d.many-nets-one-box",
+      "parent": "g5.geo.nets-3d",
+      "title": "Many Nets, One Box",
+      "description": "Unfold identical boxes along different edges to collect different-looking nets of the same cube — cross, T and Z shapes are all valid. A net records the unfolding path, not the solid's silhouette.",
+      "outcomes": [
+        "Can accept and verify unfamiliar-looking valid cube nets",
+        "Can produce two different nets of the same box by unfolding along different edges"
+      ],
+      "prereqs": ["g5.geo.nets-3d.cube-net-or-not"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A net is drawn as a cross: a column of four squares, with one square attached to each side of the second square. Can it fold into a cube?",
+        "options": [
+          { "text": "Yes — the four column squares wrap around, and the two side squares close the ends", "correct": true },
+          { "text": "No — a cube is square-shaped, and this looks like a plus sign", "misconception": "m3" },
+          { "text": "No — only a 2 x 3 rectangle of squares folds into a cube", "diagnosis": "Reversed: the compact 2 x 3 block is one of the arrangements that FAILS; the cross is a classic valid net." },
+          { "text": "Only if the cross is drawn upright", "diagnosis": "Rotating a net changes nothing about how it folds." }
+        ],
+        "explanation": "Fold the column of four into a ring (front, bottom, back, top), then the two side squares swing up to become the left and right faces. A net never looks like the solid — it records an unfolding."
+      }
+    },
+    {
+      "id": "g5.geo.nets-3d.opposite-faces",
+      "parent": "g5.geo.nets-3d",
+      "title": "Opposite Faces on a Net",
+      "description": "Predict which faces of a net end up opposite each other after folding, and check with a dice — opposite faces of a dice always add up to 7.",
+      "outcomes": [
+        "Can mark pairs of opposite faces on a cube net before folding",
+        "Can use the opposite-faces-sum-to-7 rule of a dice"
+      ],
+      "prereqs": ["g5.geo.nets-3d.many-nets-one-box"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g5.geo.nets-3d.draw-nets-sketches",
+      "parent": "g5.geo.nets-3d",
+      "title": "Drawing Nets and Box Sketches",
+      "description": "Draw a correct net for an open or closed box and make a simple 3D sketch of a box on flat paper, choosing the right number of faces for each design.",
+      "outcomes": [
+        "Can draw a net for a closed box (6 faces) and an open box (5 faces)",
+        "Can sketch a cuboid showing its hidden edges with dotted lines"
+      ],
+      "prereqs": ["g5.geo.nets-3d.opposite-faces"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "You are drawing the net for a CLOSED cuboid gift box. How many rectangle faces must the net contain?",
+        "options": [
+          { "text": "6", "correct": true },
+          { "text": "4", "misconception": "m2" },
+          { "text": "5", "diagnosis": "Left out the lid — 5 faces is the net of an OPEN box, but this one is closed." },
+          { "text": "12", "diagnosis": "Counted edges instead of faces; the net needs one rectangle per face." }
+        ],
+        "explanation": "A closed box has 6 faces, so its net needs all 6 rectangles — including the bottom and back you cannot see in a sketch. An open box would need only 5."
+      }
+    },
+
+    {
+      "id": "g5.geo.patterns-symmetry-turns.turn-vocabulary",
+      "parent": "g5.geo.patterns-symmetry-turns",
+      "title": "Quarter, Half and Full Turns",
+      "description": "Connect turn words to degrees and directions: a quarter turn is 90, a half turn 180, a full turn 360 — and turns add up, so two quarter turns make a half turn.",
+      "outcomes": [
+        "Can state the degrees for quarter, half and full turns",
+        "Can combine turns (two quarters make a half; four quarters return home)"
+      ],
+      "prereqs": ["g5.geo.angles-intro.degree-landmarks"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Riya makes two quarter turns in the same direction. How far has she turned in all?",
+        "options": [
+          { "text": "A half turn — 180 degrees", "correct": true },
+          { "text": "A full turn — she is back where she started", "misconception": "m3" },
+          { "text": "A quarter turn — 90 degrees", "diagnosis": "Each new turn was treated as starting over; turns in the same direction add up." },
+          { "text": "45 degrees", "diagnosis": "Halved a quarter turn instead of doubling it; 90 + 90 = 180." }
+        ],
+        "explanation": "Each quarter turn is 90 degrees, so two of them make 90 + 90 = 180 — a half turn. Facing north, Riya now faces south. It takes FOUR quarter turns to get back to the start."
+      }
+    },
+    {
+      "id": "g5.geo.patterns-symmetry-turns.predict-after-turn",
+      "parent": "g5.geo.patterns-symmetry-turns",
+      "title": "Predicting a Shape After a Turn",
+      "description": "Predict what a letter or shape looks like after a quarter or half turn using trace-and-turn: trace it, pin the centre, rotate the tracing. Turning is spinning flat — not flipping over.",
+      "outcomes": [
+        "Can draw or pick the image of a shape after a 90 or 180 degree turn",
+        "Can distinguish the result of a turn from the result of a mirror flip"
+      ],
+      "prereqs": ["g5.geo.patterns-symmetry-turns.turn-vocabulary", "g4.geo.symmetry-reflection"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which of these letters looks EXACTLY the same after a half turn (180 degrees)?",
+        "options": [
+          { "text": "N", "correct": true },
+          { "text": "E — it is symmetric, so it must look the same", "misconception": "m1" },
+          { "text": "A — it is balanced, so it looks the same upside down", "misconception": "m2" },
+          { "text": "b — every letter survives a half turn", "diagnosis": "Turn it and check: b spins into q; trace-and-turn is the test, not a guess." }
+        ],
+        "explanation": "Trace N, pin its centre and spin it 180 degrees: it lands exactly on itself. E has a MIRROR line but spins into a backwards E; A turns upside down; b becomes q. Mirror symmetry and turning symmetry are different tests."
+      }
+    },
+    {
+      "id": "g5.geo.patterns-symmetry-turns.rotational-symmetry-test",
+      "parent": "g5.geo.patterns-symmetry-turns",
+      "title": "The Trace-and-Turn Symmetry Test",
+      "description": "Test whether a figure has turning symmetry: trace it, rotate the tracing a quarter or half turn, and see if it truly matches — and notice this is independent of mirror symmetry.",
+      "outcomes": [
+        "Can test a figure for quarter-turn and half-turn symmetry with a tracing",
+        "Can give an example with turning symmetry but no mirror line (like S), and the reverse"
+      ],
+      "prereqs": ["g5.geo.patterns-symmetry-turns.predict-after-turn"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The letter S has no mirror line at all. Does it look the same after a half turn?",
+        "options": [
+          { "text": "Yes — spin S half way around and it lands exactly on itself", "correct": true },
+          { "text": "No — without a line of symmetry it cannot have turning symmetry", "misconception": "m1" },
+          { "text": "No — it becomes the number 2", "diagnosis": "That is what a mirror FLIP does to S; a flat spin keeps its curves hooked the same way." },
+          { "text": "Only shapes with straight sides can have turning symmetry", "diagnosis": "Curved figures can have turning symmetry too — test with a tracing, not a rule about sides." }
+        ],
+        "explanation": "Trace S, pin the centre and rotate 180 degrees: it matches itself perfectly. Mirror symmetry and turning symmetry are separate properties — S has the second without the first."
+      }
+    },
+    {
+      "id": "g5.geo.patterns-symmetry-turns.turn-tiling-patterns",
+      "parent": "g5.geo.patterns-symmetry-turns",
+      "title": "Patterns Built from Turns",
+      "description": "Continue and create border and tiling patterns made by repeating one motif with a quarter or half turn each time, as in rangoli and railway-station floors.",
+      "outcomes": [
+        "Can continue a border pattern whose rule is 'turn the motif 90 degrees each time'",
+        "Can design a four-tile motif pattern using repeated quarter turns"
+      ],
+      "prereqs": ["g5.geo.patterns-symmetry-turns.rotational-symmetry-test", "g4.alg.patterns-rules"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"]
+    },
+
+    {
+      "id": "g5.mea.area-perimeter-rect.area-formula-rows",
+      "parent": "g5.mea.area-perimeter-rect",
+      "title": "Area Formula from Rows of Squares",
+      "description": "Turn square-counting into multiplication: a rectangle's unit squares sit in equal rows, so area = length x width. The formula is a fast way of counting squares, and its unit is SQUARE units.",
+      "outcomes": [
+        "Can compute a rectangle's area with length x width and justify it with rows",
+        "Can attach square units (sq cm, sq m) to every area answer"
+      ],
+      "prereqs": ["g4.mea.area-intro", "g4.num.mult-multi-digit"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "A rectangle is 7 cm long and 3 cm wide. What is its AREA?",
+        "options": [
+          { "text": "21 square cm", "correct": true },
+          { "text": "20 square cm", "misconception": "m1" },
+          { "text": "21 cm", "misconception": "m3" },
+          { "text": "10 square cm", "diagnosis": "Added the two sides (7 + 3) instead of multiplying the rows of squares." }
+        ],
+        "explanation": "Area = 7 x 3 = 21 square cm — three rows of seven unit squares. 20 comes from the perimeter recipe 2 x (7 + 3); and area must carry SQUARE units because it counts squares, not sticks."
+      }
+    },
+    {
+      "id": "g5.mea.area-perimeter-rect.perimeter-formula",
+      "parent": "g5.mea.area-perimeter-rect",
+      "title": "Perimeter Formula: 2 x (Length + Width)",
+      "description": "Walk the boundary — long, short, long, short — and compress it into the shortcut perimeter = 2 x (length + width), measured in plain length units.",
+      "outcomes": [
+        "Can compute a rectangle's perimeter with 2 x (length + width)",
+        "Can explain the formula as walking all four sides"
+      ],
+      "prereqs": ["g4.mea.perimeter-intro", "g5.mea.area-perimeter-rect.area-formula-rows"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A rectangular garden is 10 m long and 6 m wide. How much fencing does its PERIMETER need?",
+        "options": [
+          { "text": "32 m", "correct": true },
+          { "text": "60 m", "misconception": "m1" },
+          { "text": "16 m", "diagnosis": "Computed length + width but forgot to double — only half the boundary was walked." },
+          { "text": "26 m", "diagnosis": "Doubled only the length (2 x 10 + 6); both widths must be counted too." }
+        ],
+        "explanation": "Perimeter = 2 x (10 + 6) = 2 x 16 = 32 m. Multiplying 10 x 6 = 60 gives the AREA in square metres — the grass inside, not the fence around it."
+      }
+    },
+    {
+      "id": "g5.mea.area-perimeter-rect.units-and-which-formula",
+      "parent": "g5.mea.area-perimeter-rect",
+      "title": "Cover It or Go Around It? Choosing Formula and Unit",
+      "description": "Sort real problems by the question they ask — covering (area, square units) or surrounding (perimeter, length units) — before touching any numbers.",
+      "outcomes": [
+        "Can decide whether a word problem needs area or perimeter",
+        "Can pick the correct unit (cm vs sq cm, m vs sq m) for each answer"
+      ],
+      "prereqs": [
+        "g5.mea.area-perimeter-rect.area-formula-rows",
+        "g5.mea.area-perimeter-rect.perimeter-formula"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "You want to know how much carpet covers a room's floor. Which unit should the answer be in?",
+        "options": [
+          { "text": "Square metres — carpet covers a surface", "correct": true },
+          { "text": "Metres", "misconception": "m3" },
+          { "text": "Cubic metres", "diagnosis": "Cubic units measure filled SPACE (volume); a carpet covers a flat surface." },
+          { "text": "Litres", "diagnosis": "Litres measure liquid capacity; a floor is covered, not filled." }
+        ],
+        "explanation": "Covering questions are area questions, and area is measured by laying down unit SQUARES — so square metres. Plain metres would measure the skirting that runs AROUND the room (perimeter)."
+      }
+    },
+    {
+      "id": "g5.mea.area-perimeter-rect.missing-side",
+      "parent": "g5.mea.area-perimeter-rect",
+      "title": "Finding a Missing Side",
+      "description": "Run the formulas backwards: given a rectangle's area (or perimeter) and one side, find the other side by dividing (or halving then subtracting).",
+      "outcomes": [
+        "Can find a missing side from the area and one side",
+        "Can find a missing side from the perimeter and one side"
+      ],
+      "prereqs": ["g5.mea.area-perimeter-rect.units-and-which-formula"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A rectangle has an AREA of 24 square cm. Its length is 6 cm. What is its width?",
+        "options": [
+          { "text": "4 cm", "correct": true },
+          { "text": "6 cm", "misconception": "m1" },
+          { "text": "18 cm", "diagnosis": "Subtracted 6 from 24; area is length TIMES width, so undoing it needs division." },
+          { "text": "144 cm", "diagnosis": "Multiplied 24 by 6 instead of dividing; check — a 6 x 144 rectangle has a huge area, not 24." }
+        ],
+        "explanation": "Area = length x width, so width = 24 / 6 = 4 cm. Check: 6 x 4 = 24 square cm. Answering 6 comes from treating 24 as the PERIMETER: 2 x (6 + 6) = 24 — the wrong formula."
+      }
+    },
+    {
+      "id": "g5.mea.area-perimeter-rect.same-perimeter-different-area",
+      "parent": "g5.mea.area-perimeter-rect",
+      "title": "Same Fence, Different Fields",
+      "description": "Explore rectangles sharing one perimeter and discover their areas differ — the squarer the rectangle, the more it encloses. Equal boundary never guarantees equal area.",
+      "outcomes": [
+        "Can build several rectangles with the same perimeter and compute each area",
+        "Can explain why a fixed fence length can enclose different amounts of ground"
+      ],
+      "prereqs": [
+        "g5.mea.area-perimeter-rect.perimeter-formula",
+        "g5.mea.area-perimeter-rect.missing-side"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Two plots each use exactly 20 m of fencing: Plot A is 2 m x 8 m and Plot B is 5 m x 5 m. Do they enclose the same area?",
+        "options": [
+          { "text": "No — Plot B holds 25 sq m but Plot A only 16 sq m", "correct": true },
+          { "text": "Yes — the same fence means the same space inside", "misconception": "m2" },
+          { "text": "Plot A is bigger — it is longer", "diagnosis": "One long dimension does not decide coverage; the narrow 2 m width starves Plot A of area." },
+          { "text": "They cannot be compared without walking around both", "diagnosis": "The formulas settle it: 2 x 8 = 16 and 5 x 5 = 25 square metres." }
+        ],
+        "explanation": "Both perimeters are 20 m (2 x (2+8) = 20 and 4 x 5 = 20), but the areas are 16 and 25 square metres. Same fence, different fields — the squarer plot is roomier."
+      }
+    },
+
+    {
+      "id": "g5.mea.volume-intuition.count-unit-cubes",
+      "parent": "g5.mea.volume-intuition",
+      "title": "Volume Is Counting Cubes",
+      "description": "Volume measures filled space, and its unit is a little cube — not a flat square. Find the volume of small cube buildings by counting every unit cube.",
+      "outcomes": [
+        "Can find the volume of a simple cube building by counting unit cubes",
+        "Can state that volume is measured in cubes while area is measured in squares"
+      ],
+      "prereqs": ["g4.mea.area-intro", "g3.num.mult-tables"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g5.mea.volume-intuition.hidden-cubes",
+      "parent": "g5.mea.volume-intuition",
+      "title": "X-ray Counting: The Hidden Cubes",
+      "description": "Drawings hide cubes at the back and underneath, but they still count. Practise X-ray counting: for each visible column, count how many cubes stand in it top to bottom.",
+      "outcomes": [
+        "Can count all cubes in a drawn stack, including hidden ones",
+        "Can verify a drawing count by building the solid from real cubes"
+      ],
+      "prereqs": ["g5.mea.volume-intuition.count-unit-cubes"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A solid stack is 3 cubes long, 2 cubes wide and 2 cubes high. In the drawing, Ravi can see only 9 cubes, so he answers 9. How many cubes are really in the stack?",
+        "options": [
+          { "text": "12", "correct": true },
+          { "text": "9", "misconception": "m1" },
+          { "text": "7", "diagnosis": "Counted only the front layer plus one; a 3-wide, 2-deep, 2-high block has two full layers of six." },
+          { "text": "16", "diagnosis": "Multiplied the wrong dimensions (perhaps 4 x 4); the block is 3 x 2 x 2." }
+        ],
+        "explanation": "Each layer holds 3 x 2 = 6 cubes, and there are 2 layers: 6 x 2 = 12. The cubes hidden at the back and bottom of the drawing are still there — a drawing shows at most three sides."
+      }
+    },
+    {
+      "id": "g5.mea.volume-intuition.layer-counting",
+      "parent": "g5.mea.volume-intuition",
+      "title": "Counting by Layers",
+      "description": "A box packs cubes in identical layers, so the fast count is cubes in one layer x number of layers — watched live by filling a real box layer by layer.",
+      "outcomes": [
+        "Can compute a box's cube count as one layer x layers",
+        "Can find the cubes in one layer as rows x columns"
+      ],
+      "prereqs": ["g5.mea.volume-intuition.hidden-cubes"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A carton is filled with 3 layers of cubes. Each layer has 4 rows of 3 cubes. How many cubes fill the carton?",
+        "options": [
+          { "text": "36", "correct": true },
+          { "text": "12", "misconception": "m2" },
+          { "text": "21", "diagnosis": "Added rows and columns first (4 + 3 = 7) then multiplied by layers; one layer holds 4 x 3 = 12 cubes." },
+          { "text": "10", "diagnosis": "Added all three numbers (4 + 3 + 3); the structure is layers OF arrays, which multiply." }
+        ],
+        "explanation": "One layer holds 4 x 3 = 12 cubes. Three layers hold 12 x 3 = 36 cubes. Stopping at 12 counts only the bottom layer — the box keeps filling upward."
+      }
+    },
+    {
+      "id": "g5.mea.volume-intuition.rearrange-conserve",
+      "parent": "g5.mea.volume-intuition",
+      "title": "Rearranging Never Changes Volume",
+      "description": "Rebuild the same set of cubes from a tall tower into a flat slab and back: the shape changes, the count never does. Height and spread trade off; nothing is created or destroyed.",
+      "outcomes": [
+        "Can state that rearranging cubes preserves volume, with a demonstration",
+        "Can reject 'taller means more' by counting both builds"
+      ],
+      "prereqs": ["g5.mea.volume-intuition.layer-counting"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Meena stacks 18 cubes into one tall tower. Arjun arranges his own 18 identical cubes into a low 3 x 3 x 2 block. Whose build takes up more space?",
+        "options": [
+          { "text": "Both the same — 18 cubes is 18 cubes, however they are arranged", "correct": true },
+          { "text": "Meena's — the tower is taller, so it must be more", "misconception": "m2" },
+          { "text": "Impossible to tell without weighing both builds", "misconception": "m3" },
+          { "text": "Arjun's — his block covers more of the table", "diagnosis": "Judged by footprint; spreading out is the flip side of height, and neither changes the cube count." }
+        ],
+        "explanation": "Check Arjun's block: 3 x 3 x 2 = 18 cubes — exactly Meena's count. Rearranging never adds or removes a cube, so the volumes are equal. Weighing would only confirm 18 = 18."
+      }
+    },
+    {
+      "id": "g5.mea.volume-intuition.compare-order-volumes",
+      "parent": "g5.mea.volume-intuition",
+      "title": "Comparing and Ordering Volumes",
+      "description": "Compare cube buildings by count (not by look) and order containers by how much they hold, previewing capacity: pouring and packing decide, not height alone.",
+      "outcomes": [
+        "Can compare two cube buildings by computing both volumes",
+        "Can order three containers or builds from smallest to largest volume"
+      ],
+      "prereqs": ["g5.mea.volume-intuition.rearrange-conserve"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"]
+    },
+
+    {
+      "id": "g5.dat.data-interpretation.read-tables",
+      "parent": "g5.dat.data-interpretation",
+      "title": "Reading Data Tables",
+      "description": "Pull the right value out of a table, then compare entries to find least and greatest — routing every comparison through place value, not first digits.",
+      "outcomes": [
+        "Can extract a named value from a data table",
+        "Can find the least and greatest entries in a table column correctly"
+      ],
+      "prereqs": ["g4.dat.bar-charts", "g5.num.large-numbers.compare-order"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "A table shows rainfall in mm: June 8, July 12, August 25, September 9. Which month had the MOST rain?",
+        "options": [
+          { "text": "August", "correct": true },
+          { "text": "September — 9 is the biggest digit in the list", "misconception": "m3" },
+          { "text": "June", "diagnosis": "Picked the least value — the question asks for the most; flag least/most words before reading." },
+          { "text": "July", "diagnosis": "Compared 12 and 25 by their second digits; line values up and compare place by place from the left." }
+        ],
+        "explanation": "Compare all four: 8 < 9 < 12 < 25, so August (25 mm) had the most rain. A big single digit like 9 still loses to any two-digit number."
+      }
+    },
+    {
+      "id": "g5.dat.data-interpretation.bar-graph-scale",
+      "parent": "g5.dat.data-interpretation",
+      "title": "Bar Graphs with Scaled Axes",
+      "description": "Read bar graphs where one division stands for 5, 10 or more: run the scale-check ritual first, and read bars that end between gridlines exactly — the half division is data too.",
+      "outcomes": [
+        "Can state a bar graph's scale before reading any bar",
+        "Can read a bar ending mid-division as divisions x scale, including the half"
+      ],
+      "prereqs": ["g5.dat.data-interpretation.read-tables"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "On a runs-per-over graph, 1 division stands for 10 runs. The bar for over 3 rises 3 and a half divisions. How many runs were scored in over 3?",
+        "options": [
+          { "text": "35", "correct": true },
+          { "text": "4", "misconception": "m2" },
+          { "text": "30", "diagnosis": "Multiplied by the scale but dropped the half division — that half stands for 5 real runs." },
+          { "text": "40", "diagnosis": "Rounded the bar up to the next gridline before scaling; the graph must be read exactly." }
+        ],
+        "explanation": "3.5 divisions x 10 runs per division = 35 runs. Counting gridlines as if each were 1 (and rounding the half away) throws away both the scale and part of the data."
+      }
+    },
+    {
+      "id": "g5.dat.data-interpretation.pie-chart-fractions",
+      "parent": "g5.dat.data-interpretation",
+      "title": "Pie Slices Are Fractions of the Total",
+      "description": "Read a simple pie chart by writing the total above it first, then computing each slice as a fraction OF that total: half of 80 is 40, a quarter of 80 is 20.",
+      "outcomes": [
+        "Can compute the count for a half or quarter slice from the stated total",
+        "Can explain why the same slice means different counts for different totals"
+      ],
+      "prereqs": ["g5.dat.data-interpretation.read-tables", "g4.num.fractions-equal-parts"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A pie chart shows the favourite games of 80 children. The cricket slice is a QUARTER of the circle. How many children chose cricket?",
+        "options": [
+          { "text": "20", "correct": true },
+          { "text": "25", "misconception": "m1" },
+          { "text": "40", "diagnosis": "Took half of 80 instead of a quarter; the slice is one fourth of the circle." },
+          { "text": "4", "diagnosis": "Used the denominator of the fraction as the answer; the quarter must be applied TO the total of 80." }
+        ],
+        "explanation": "A quarter OF the 80 children is 80 / 4 = 20. The answer 25 treats 'quarter' as a fixed number (like 25 out of 100), but a slice is a fraction whose count depends on the total."
+      }
+    },
+    {
+      "id": "g5.dat.data-interpretation.compare-two-pies",
+      "parent": "g5.dat.data-interpretation",
+      "title": "Comparing Pie Charts with Different Totals",
+      "description": "Compare slices across two pie charts with different totals and discover that a smaller slice of a bigger total can beat a bigger slice of a smaller total.",
+      "outcomes": [
+        "Can compare slice counts across two pies by applying each fraction to its own total",
+        "Can explain why slice size alone cannot be compared across pies"
+      ],
+      "prereqs": ["g5.dat.data-interpretation.pie-chart-fractions"],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "In School A's pie chart (100 students), HALF the circle likes mango. In School B's pie chart (400 students), only a QUARTER of the circle likes mango. Which school has more mango lovers?",
+        "options": [
+          { "text": "School B — a quarter of 400 is 100, more than half of 100, which is 50", "correct": true },
+          { "text": "School A — half a circle always beats a quarter circle", "misconception": "m1" },
+          { "text": "They are equal — the slices balance out", "diagnosis": "No computation done; each fraction must be applied to its OWN total before comparing." },
+          { "text": "Cannot be answered from pie charts", "diagnosis": "It can — the totals are given, so each slice converts to a real count." }
+        ],
+        "explanation": "Half of 100 = 50 mango lovers at School A; a quarter of 400 = 100 at School B. The smaller-looking slice wins because its total is four times bigger — a slice is a fraction, not a count."
+      }
+    },
+    {
+      "id": "g5.dat.data-interpretation.multi-step-questions",
+      "parent": "g5.dat.data-interpretation",
+      "title": "Multi-step Questions from One Display",
+      "description": "Answer questions that need two or more readings from the same table or graph — totals across rows, differences between bars, and 'how many more' comparisons.",
+      "outcomes": [
+        "Can combine two readings from one display into a total or difference",
+        "Can answer 'how many more' questions from tables and bar graphs"
+      ],
+      "prereqs": [
+        "g5.dat.data-interpretation.bar-graph-scale",
+        "g5.dat.data-interpretation.pie-chart-fractions"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2", "m3"]
+    }
+  ]
+}

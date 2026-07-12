@@ -1,0 +1,1976 @@
+{
+  "class": 6,
+  "micros": [
+    {
+      "id": "g6.num.knowing-numbers.place-value-recap",
+      "parent": "g6.num.knowing-numbers",
+      "title": "Place Value up to Lakhs: Recap and Warm-up",
+      "description": "Revise the Indian place-value chart up to lakhs: face value versus place value, and expanded form of 5- and 6-digit numbers.",
+      "outcomes": [
+        "Can state the place value and face value of any digit in a 6-digit number",
+        "Can write a 6-digit number in expanded form and rebuild it from expanded form"
+      ],
+      "prereqs": ["g5.num.large-numbers"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.num.knowing-numbers.reading-writing-crores",
+      "parent": "g6.num.knowing-numbers",
+      "title": "Reading and Writing Numbers up to Crores",
+      "description": "Extend the Indian system to ten lakh, crore and ten crore, placing commas after thousands, lakhs and crores (3-2-2 pattern) and reading number names aloud.",
+      "outcomes": [
+        "Can insert commas correctly in the Indian system for numbers up to 10 crore",
+        "Can write the number name for a given numeral and the numeral for a given name"
+      ],
+      "prereqs": ["g6.num.knowing-numbers.place-value-recap"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g6.num.knowing-numbers.international-system",
+      "parent": "g6.num.knowing-numbers",
+      "title": "The International System: Millions and Billions",
+      "description": "Read and write the same digit string in the international system (thousand, million, billion) and convert between lakhs/crores and millions.",
+      "outcomes": [
+        "Can punctuate a number with international commas (groups of 3) and read it",
+        "Can convert between lakh/crore and hundred thousand/million (1 lakh = 100 thousand, 1 crore = 10 million)"
+      ],
+      "prereqs": ["g6.num.knowing-numbers.reading-writing-crores"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "Which of these is equal to 1 million?",
+        "options": [
+          { "text": "10 lakh", "correct": true },
+          { "text": "1 lakh", "misconception": "m2" },
+          { "text": "1 crore", "diagnosis": "Confused million with crore; 1 crore is 10 million, not 1 million." },
+          { "text": "100 crore", "diagnosis": "That is 1 billion (1,000 million), several steps too large." }
+        ],
+        "explanation": "1 million = 1,000,000 = 10,00,000 in Indian commas, which is ten lakh. A useful conversion strip: 1 lakh = 100 thousand, 10 lakh = 1 million, 1 crore = 10 million."
+      }
+    },
+    {
+      "id": "g6.num.knowing-numbers.comparing-ordering",
+      "parent": "g6.num.knowing-numbers",
+      "title": "Comparing and Ordering Large Numbers",
+      "description": "Compare large numbers by first counting digits, then comparing place by place from the left; order lists ascending and descending and build greatest/smallest numbers from given digits.",
+      "outcomes": [
+        "Can compare two large numbers using digit count first, then leftmost differing digit",
+        "Can arrange four or more large numbers in ascending or descending order",
+        "Can form the greatest and smallest numbers from a set of digits"
+      ],
+      "prereqs": ["g6.num.knowing-numbers.place-value-recap"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these numbers is the greatest?",
+        "options": [
+          { "text": "99,876", "misconception": "m1" },
+          { "text": "1,02,345", "correct": true },
+          { "text": "87,654", "misconception": "m1", "diagnosis": "Picked a five-digit number by its large leading digits instead of counting digits first." },
+          { "text": "9,876", "diagnosis": "Chose a four-digit number; not attending to the number of digits at all." }
+        ],
+        "explanation": "Count digits first: 1,02,345 has six digits while 99,876 and 87,654 have five, and 9,876 has four. Any six-digit number beats every five-digit number, so 1,02,345 is the greatest even though it starts with 1."
+      }
+    },
+    {
+      "id": "g6.num.knowing-numbers.rounding-numbers",
+      "parent": "g6.num.knowing-numbers",
+      "title": "Rounding to Tens, Hundreds, Thousands and Lakhs",
+      "description": "Round a number to a chosen place by underlining the rounding place and letting only the single digit to its right decide up or down, verified on a number line.",
+      "outcomes": [
+        "Can round any number to the nearest ten, hundred, thousand or lakh",
+        "Can justify a rounding decision by naming which two multiples the number lies between and which is nearer"
+      ],
+      "prereqs": ["g6.num.knowing-numbers.comparing-ordering"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Round 3,472 to the nearest hundred.",
+        "options": [
+          { "text": "3,500", "correct": true },
+          { "text": "3,400", "misconception": "m3", "diagnosis": "Used the ones digit (2) to decide instead of the tens digit (7)." },
+          { "text": "3,000", "diagnosis": "Rounded to the nearest thousand instead of the nearest hundred." },
+          { "text": "3,470", "diagnosis": "Rounded to the nearest ten; misread which place was asked for." }
+        ],
+        "explanation": "The hundreds digit is 4. The digit just to its right is the tens digit 7, and 7 is 5 or more, so round up: 3,472 lies between 3,400 and 3,500 and is nearer 3,500."
+      }
+    },
+    {
+      "id": "g6.num.knowing-numbers.estimating-outcomes",
+      "parent": "g6.num.knowing-numbers",
+      "title": "Estimating Sums, Differences and Products",
+      "description": "Use controlled rounding to estimate the result of an addition, subtraction or multiplication before (or instead of) computing exactly, and judge whether an exact answer is reasonable.",
+      "outcomes": [
+        "Can estimate a sum or difference by rounding each number to a sensible place",
+        "Can estimate a product by rounding each factor and explain why the estimate is not a random guess"
+      ],
+      "prereqs": ["g6.num.knowing-numbers.rounding-numbers"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Estimate 4,317 + 2,896 by rounding each number to the nearest thousand.",
+        "options": [
+          { "text": "7,000", "correct": true },
+          { "text": "7,213", "misconception": "m4", "diagnosis": "Computed the exact sum instead of estimating; estimation means working with rounded numbers." },
+          { "text": "6,000", "diagnosis": "Truncated both numbers down instead of rounding to the nearest thousand." },
+          { "text": "8,000", "diagnosis": "Rounded both numbers up regardless of the hundreds digit." }
+        ],
+        "explanation": "4,317 rounds to 4,000 (hundreds digit 3 < 5) and 2,896 rounds to 3,000 (hundreds digit 8 >= 5). Estimated sum: 4,000 + 3,000 = 7,000. The exact sum 7,213 confirms the estimate is close."
+      }
+    },
+
+    {
+      "id": "g6.num.whole-numbers.zero-and-number-line",
+      "parent": "g6.num.whole-numbers",
+      "title": "Whole Numbers, Zero and the Number Line",
+      "description": "Meet the whole numbers as the counting numbers together with 0, locate them on the number line, and find successors and predecessors.",
+      "outcomes": [
+        "Can explain that 0 is the smallest whole number and that every whole number has a successor",
+        "Can find the successor and predecessor of any whole number and model addition/subtraction as jumps on the number line"
+      ],
+      "prereqs": ["g6.num.knowing-numbers.place-value-recap"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "Which is the smallest whole number?",
+        "options": [
+          { "text": "0", "correct": true },
+          { "text": "1", "misconception": "m3" },
+          { "text": "There is no smallest whole number", "diagnosis": "Confused smallest with largest; whole numbers have no largest member, but they do start at 0." },
+          { "text": "-1", "diagnosis": "Negative numbers are integers but not whole numbers." }
+        ],
+        "explanation": "Whole numbers are 0, 1, 2, 3, ... Zero is a genuine number (not 'nothing') and it is the smallest whole number. There is no largest whole number because adding 1 always gives another one."
+      }
+    },
+    {
+      "id": "g6.num.whole-numbers.commutativity-associativity",
+      "parent": "g6.num.whole-numbers",
+      "title": "Commutativity and Associativity of Addition and Multiplication",
+      "description": "Discover that addition and multiplication can be done in any order and any grouping, and test whether subtraction and division share these properties (they do not).",
+      "outcomes": [
+        "Can state and use a + b = b + a and (a + b) + c = a + (b + c), and the same for multiplication",
+        "Can give a counterexample showing subtraction and division are not commutative"
+      ],
+      "prereqs": ["g6.num.whole-numbers.zero-and-number-line"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which statement is true for ALL whole numbers a and b?",
+        "options": [
+          { "text": "a + b = b + a", "correct": true },
+          { "text": "a - b = b - a", "misconception": "m2" },
+          { "text": "a / b = b / a", "misconception": "m2" },
+          { "text": "a - b is always a whole number", "diagnosis": "Whole numbers are not closed under subtraction: 3 - 5 is not a whole number." }
+        ],
+        "explanation": "Addition is commutative: swapping the numbers never changes the sum. Subtraction and division are not: 5 - 3 = 2 but 3 - 5 is not 2, and 8 / 4 = 2 but 4 / 8 is not 2."
+      }
+    },
+    {
+      "id": "g6.num.whole-numbers.identities-zero-one",
+      "parent": "g6.num.whole-numbers",
+      "title": "The Special Roles of 0 and 1",
+      "description": "Explore 0 as the additive identity and 1 as the multiplicative identity, what multiplying by zero does, and why division by zero is not defined.",
+      "outcomes": [
+        "Can use a + 0 = a, a x 1 = a and a x 0 = 0 fluently",
+        "Can explain with a sharing or repeated-subtraction argument why dividing by 0 is undefined"
+      ],
+      "prereqs": ["g6.num.whole-numbers.zero-and-number-line"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "What is 7 / 0?",
+        "options": [
+          { "text": "It is not defined", "correct": true },
+          { "text": "0", "misconception": "m1" },
+          { "text": "7", "misconception": "m1", "diagnosis": "Treated dividing by zero like dividing by one." },
+          { "text": "70", "diagnosis": "Appended the zero instead of dividing; confusing division with place-value shifting." }
+        ],
+        "explanation": "7 / 0 asks 'how many zeros add up to 7?' No number of zeros ever totals 7, so the question has no answer: division by zero is not defined. (By contrast, 0 / 7 = 0.)"
+      }
+    },
+    {
+      "id": "g6.num.whole-numbers.distributivity",
+      "parent": "g6.num.whole-numbers",
+      "title": "Distributivity of Multiplication over Addition",
+      "description": "Use a x (b + c) = a x b + a x c, seen through area/array pictures, making sure the outside factor multiplies BOTH terms inside the bracket.",
+      "outcomes": [
+        "Can expand a x (b + c) correctly, distributing over every term",
+        "Can use distributivity to compute products like 6 x 105 or 8 x 99 mentally"
+      ],
+      "prereqs": ["g6.num.whole-numbers.commutativity-associativity"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Use distributivity to find 6 x 105.",
+        "options": [
+          { "text": "630", "correct": true },
+          { "text": "605", "misconception": "m4", "diagnosis": "Computed 6 x 100 + 5, multiplying only the first term inside the bracket." },
+          { "text": "600", "diagnosis": "Dropped the 6 x 5 part entirely; multiplied 6 x 100 only." },
+          { "text": "660", "diagnosis": "Rounded 105 up to 110 and multiplied; that is an estimate, not the exact product." }
+        ],
+        "explanation": "6 x 105 = 6 x (100 + 5) = 6 x 100 + 6 x 5 = 600 + 30 = 630. The 6 must multiply both the 100 and the 5."
+      }
+    },
+    {
+      "id": "g6.num.whole-numbers.clever-calculation",
+      "parent": "g6.num.whole-numbers",
+      "title": "Clever Calculation Using Properties",
+      "description": "Combine commutativity, associativity and distributivity to reorder and regroup computations (like pairing 4 x 25 = 100 or 8 x 125 = 1000) and simplify multi-step arithmetic.",
+      "outcomes": [
+        "Can rearrange a sum or product to create friendly pairs before computing",
+        "Can name which property justifies each rearrangement step"
+      ],
+      "prereqs": [
+        "g6.num.whole-numbers.distributivity",
+        "g6.num.whole-numbers.identities-zero-one"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+
+    {
+      "id": "g6.num.playing-with-numbers.factors-multiples-review",
+      "parent": "g6.num.playing-with-numbers",
+      "title": "Factors and Multiples: Properties Review",
+      "description": "Revise factors and multiples and establish their key properties: 1 is a factor of every number, every number is a factor and multiple of itself, factors are finitely many while multiples never end.",
+      "outcomes": [
+        "Can list all factors of a number systematically using factor pairs",
+        "Can list multiples of a number and state which of the factor/multiple properties applies in an example"
+      ],
+      "prereqs": ["g5.num.factors-multiples", "g3.num.division-intro"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.num.playing-with-numbers.primes-and-composites",
+      "parent": "g6.num.playing-with-numbers",
+      "title": "Prime and Composite Numbers",
+      "description": "Classify numbers as prime (exactly two factors) or composite (more than two), see why 1 is neither, and sieve out the primes up to 100.",
+      "outcomes": [
+        "Can decide whether a number under 100 is prime, composite, or neither",
+        "Can explain why 1 is not prime and why 2 is the only even prime"
+      ],
+      "prereqs": ["g6.num.playing-with-numbers.factors-multiples-review"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which statement is true?",
+        "options": [
+          { "text": "2 is the only even prime number", "correct": true },
+          { "text": "1 is a prime number", "misconception": "m1" },
+          { "text": "2 is composite because it is even", "misconception": "m1" },
+          { "text": "9 is a prime number", "diagnosis": "9 = 3 x 3 has three factors (1, 3, 9), so it is composite." }
+        ],
+        "explanation": "A prime has exactly two different factors: 1 and itself. 1 has only one factor, so it is neither prime nor composite. 2 has exactly the factors 1 and 2, so it is prime; every other even number also has 2 as an extra factor, so 2 is the only even prime."
+      }
+    },
+    {
+      "id": "g6.num.playing-with-numbers.divisibility-tests",
+      "parent": "g6.num.playing-with-numbers",
+      "title": "Divisibility Tests for 2, 3, 4, 5, 6, 8, 9, 10 and 11",
+      "description": "Learn and apply the quick divisibility tests, distinguishing last-digit tests (2, 5, 10), last-digits tests (4, 8) and digit-sum tests (3, 9).",
+      "outcomes": [
+        "Can apply the correct test to check divisibility by 2, 3, 4, 5, 6, 8, 9, 10 or 11 without dividing",
+        "Can explain why divisibility by 3 depends on the digit sum, not the last digit"
+      ],
+      "prereqs": ["g6.num.playing-with-numbers.factors-multiples-review"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Which of these numbers is divisible by 3?",
+        "options": [
+          { "text": "2,145", "correct": true },
+          { "text": "1,00,003", "misconception": "m4", "diagnosis": "Chose the number ending in 3; divisibility by 3 uses the digit sum, not the last digit." },
+          { "text": "526", "diagnosis": "Digit sum 5 + 2 + 6 = 13, which is not a multiple of 3." },
+          { "text": "1,111", "diagnosis": "Digit sum 1 + 1 + 1 + 1 = 4, not a multiple of 3." }
+        ],
+        "explanation": "Test with the digit sum: 2 + 1 + 4 + 5 = 12, and 12 is a multiple of 3, so 2,145 is divisible by 3 (2,145 = 3 x 715). For 1,00,003 the digit sum is 4, so it is not divisible by 3 even though it ends in 3."
+      }
+    },
+    {
+      "id": "g6.num.playing-with-numbers.prime-factorisation",
+      "parent": "g6.num.playing-with-numbers",
+      "title": "Prime Factorisation",
+      "description": "Break a number into a product of primes using a factor tree or repeated division, and check that the factorisation is complete (every factor prime).",
+      "outcomes": [
+        "Can find the prime factorisation of numbers up to 4 digits by factor tree or division ladder",
+        "Can check whether a claimed factorisation is truly into primes"
+      ],
+      "prereqs": [
+        "g6.num.playing-with-numbers.primes-and-composites",
+        "g6.num.playing-with-numbers.divisibility-tests"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Which of these is the prime factorisation of 36?",
+        "options": [
+          { "text": "2 x 2 x 3 x 3", "correct": true },
+          { "text": "4 x 9", "diagnosis": "The product is 36, but 4 and 9 are composite; a prime factorisation must use primes only." },
+          { "text": "2 x 3 x 6", "diagnosis": "6 is not prime; it must be broken further into 2 x 3." },
+          { "text": "1 x 2 x 2 x 3 x 3", "misconception": "m1", "diagnosis": "Included 1 as if it were a prime factor; 1 is not prime." }
+        ],
+        "explanation": "36 = 4 x 9 = (2 x 2) x (3 x 3), and 2 and 3 are primes, so the prime factorisation is 2 x 2 x 3 x 3. We never list 1, because 1 is not a prime."
+      }
+    },
+    {
+      "id": "g6.num.playing-with-numbers.finding-hcf",
+      "parent": "g6.num.playing-with-numbers",
+      "title": "Highest Common Factor (HCF)",
+      "description": "Find the HCF of two or three numbers by listing common factors and by taking the common prime factors, and interpret HCF as the largest number dividing all of them.",
+      "outcomes": [
+        "Can find the HCF of two or three numbers by listing and by prime factorisation",
+        "Can explain in words what the HCF of two numbers means"
+      ],
+      "prereqs": ["g6.num.playing-with-numbers.prime-factorisation"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is the HCF of 12 and 18?",
+        "options": [
+          { "text": "6", "correct": true },
+          { "text": "36", "misconception": "m2", "diagnosis": "Gave the LCM (lowest common multiple) instead of the HCF." },
+          { "text": "216", "diagnosis": "Multiplied the two numbers; the HCF is a common divisor, never bigger than the numbers themselves." },
+          { "text": "2", "diagnosis": "Found a common factor but not the highest one; 6 also divides both." }
+        ],
+        "explanation": "Factors of 12: 1, 2, 3, 4, 6, 12. Factors of 18: 1, 2, 3, 6, 9, 18. Common factors: 1, 2, 3, 6, and the highest is 6. Quick check: the HCF can never exceed the smaller number, so 36 and 216 are impossible."
+      }
+    },
+    {
+      "id": "g6.num.playing-with-numbers.finding-lcm",
+      "parent": "g6.num.playing-with-numbers",
+      "title": "Lowest Common Multiple (LCM)",
+      "description": "Find the LCM of two or three numbers by listing multiples and by prime factorisation, and notice that the LCM equals the product only when the numbers share no common factor.",
+      "outcomes": [
+        "Can find the LCM of two or three numbers by listing and by prime factorisation",
+        "Can give an example where the LCM is smaller than the product of the numbers"
+      ],
+      "prereqs": ["g6.num.playing-with-numbers.prime-factorisation"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2", "m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is the LCM of 4 and 6?",
+        "options": [
+          { "text": "12", "correct": true },
+          { "text": "24", "misconception": "m3", "diagnosis": "Multiplied 4 x 6; the product is a common multiple but not the lowest one here." },
+          { "text": "2", "misconception": "m2", "diagnosis": "Gave the HCF instead of the LCM." },
+          { "text": "10", "diagnosis": "Added the two numbers; addition plays no role in finding common multiples." }
+        ],
+        "explanation": "Multiples of 4: 4, 8, 12, 16, 24, ... Multiples of 6: 6, 12, 18, 24, ... The first common one is 12. Since 4 and 6 share the factor 2, the LCM (12) is smaller than the product (24)."
+      }
+    },
+    {
+      "id": "g6.num.playing-with-numbers.hcf-lcm-problems",
+      "parent": "g6.num.playing-with-numbers",
+      "title": "HCF and LCM Word Problems",
+      "description": "Decide which of HCF or LCM a story situation needs: 'largest piece / greatest measure that fits exactly' means HCF; 'when do repeating events coincide / smallest common quantity' means LCM.",
+      "outcomes": [
+        "Can classify a word problem as an HCF problem or an LCM problem before computing",
+        "Can solve two-step HCF/LCM word problems and check the answer against the story"
+      ],
+      "prereqs": [
+        "g6.num.playing-with-numbers.finding-hcf",
+        "g6.num.playing-with-numbers.finding-lcm"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m2", "m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Two bells ring together now. One rings every 4 minutes, the other every 6 minutes. After how many minutes will they next ring together?",
+        "options": [
+          { "text": "12 minutes", "correct": true },
+          { "text": "2 minutes", "misconception": "m2", "diagnosis": "Found the HCF of 4 and 6; coinciding repeated events need the LCM." },
+          { "text": "24 minutes", "misconception": "m3", "diagnosis": "Multiplied 4 x 6; the bells already coincide earlier, at the LCM." },
+          { "text": "10 minutes", "diagnosis": "Added 4 + 6; at 10 minutes neither bell is due (10 is a multiple of neither 4 nor 6)." }
+        ],
+        "explanation": "The bells coincide at common multiples of 4 and 6. The first (lowest) common multiple is 12, so they next ring together after 12 minutes. They do also coincide at 24, but that is not the NEXT time."
+      }
+    },
+
+    {
+      "id": "g6.num.integers-intro.negatives-in-real-life",
+      "parent": "g6.num.integers-intro",
+      "title": "Negative Numbers in Real Life",
+      "description": "Meet negative numbers through temperatures below zero, floors below ground level, debts and depths below sea level, and use the sign to encode direction or opposite-ness.",
+      "outcomes": [
+        "Can represent real situations (temperature, money owed, depth) with signed numbers",
+        "Can state the opposite of a given situation and its integer"
+      ],
+      "prereqs": ["g6.num.whole-numbers.zero-and-number-line"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.num.integers-intro.number-line-extension",
+      "parent": "g6.num.integers-intro",
+      "title": "Extending the Number Line to the Left",
+      "description": "Extend the number line past zero, place negative integers, and see that every integer has an opposite the same distance from 0 on the other side.",
+      "outcomes": [
+        "Can mark any integer between -20 and 20 on a number line",
+        "Can name the opposite of an integer and locate both on the line"
+      ],
+      "prereqs": ["g6.num.integers-intro.negatives-in-real-life"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.num.integers-intro.ordering-integers",
+      "parent": "g6.num.integers-intro",
+      "title": "Comparing and Ordering Integers",
+      "description": "Compare integers by position on the number line: numbers further right are greater, so every negative number is less than zero and -3 is greater than -5.",
+      "outcomes": [
+        "Can compare any two integers using the number line and the < and > symbols",
+        "Can order a mixed list of positive and negative integers ascending or descending"
+      ],
+      "prereqs": ["g6.num.integers-intro.number-line-extension"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which is greater: -5 or -3?",
+        "options": [
+          { "text": "-3, because it lies to the right of -5 on the number line", "correct": true },
+          { "text": "-5, because 5 > 3", "misconception": "m1" },
+          { "text": "-5, because it is farther from zero", "misconception": "m1", "diagnosis": "Compared by distance from zero (magnitude) instead of position on the line." },
+          { "text": "They are equal", "diagnosis": "Treated the signs as decoration; -5 and -3 are different points on the number line." }
+        ],
+        "explanation": "On the number line ... -5, -4, -3, -2 ... the number -3 lies to the RIGHT of -5, so -3 > -5. Think temperatures: -3 degrees is warmer than -5 degrees. For negatives, bigger magnitude means a smaller number."
+      }
+    },
+    {
+      "id": "g6.num.integers-intro.absolute-value-idea",
+      "parent": "g6.num.integers-intro",
+      "title": "Absolute Value as Distance from Zero",
+      "description": "Understand |a| as the distance of a from 0, so |-7| = |7| = 7, and separate the two questions 'which is greater?' and 'which is farther from zero?'.",
+      "outcomes": [
+        "Can find the absolute value of any integer",
+        "Can explain why -8 < 2 even though |-8| > |2|"
+      ],
+      "prereqs": ["g6.num.integers-intro.number-line-extension"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g6.num.integers-intro.adding-integers-same-sign",
+      "parent": "g6.num.integers-intro",
+      "title": "Adding Integers with the Same Sign",
+      "description": "Add two negatives (or two positives) using number-line jumps or counters: add the magnitudes and keep the common sign.",
+      "outcomes": [
+        "Can add two integers of the same sign with number-line or counter models",
+        "Can state the rule 'add magnitudes, keep the sign' and say why it works"
+      ],
+      "prereqs": ["g6.num.integers-intro.absolute-value-idea"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "(-3) + (-4) = ?",
+        "options": [
+          { "text": "-7", "correct": true },
+          { "text": "7", "misconception": "m2", "diagnosis": "Dropped both minus signs and added as positives." },
+          { "text": "-1", "diagnosis": "Subtracted the magnitudes as if the signs were different." },
+          { "text": "1", "diagnosis": "Subtracted magnitudes and dropped the sign as well." }
+        ],
+        "explanation": "Start at -3 and move 4 more steps left: you land at -7. Two debts of 3 rupees and 4 rupees make a debt of 7 rupees, so (-3) + (-4) = -7."
+      }
+    },
+    {
+      "id": "g6.num.integers-intro.adding-integers-different-sign",
+      "parent": "g6.num.integers-intro",
+      "title": "Adding Integers with Different Signs",
+      "description": "Add a positive and a negative by cancelling opposite pairs: subtract the smaller magnitude from the larger and take the sign of the larger.",
+      "outcomes": [
+        "Can add integers of opposite signs using zero pairs or number-line jumps",
+        "Can predict the sign of the answer before computing"
+      ],
+      "prereqs": ["g6.num.integers-intro.adding-integers-same-sign"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "(-8) + 5 = ?",
+        "options": [
+          { "text": "-3", "correct": true },
+          { "text": "13", "misconception": "m2", "diagnosis": "Ignored the minus sign and added the magnitudes." },
+          { "text": "-13", "diagnosis": "Added the magnitudes and attached a minus; opposite signs mean the magnitudes partly cancel." },
+          { "text": "3", "diagnosis": "Subtracted correctly but took the wrong sign; the larger magnitude (8) is negative." }
+        ],
+        "explanation": "Five of the eight negatives are cancelled by the five positives, leaving three negatives: (-8) + 5 = -3. The answer takes the sign of the number with the larger magnitude."
+      }
+    },
+    {
+      "id": "g6.num.integers-intro.subtracting-integers",
+      "parent": "g6.num.integers-intro",
+      "title": "Subtracting Integers",
+      "description": "Subtract any integer by adding its opposite, so 5 - (-2) = 5 + 2 = 7, and see that subtracting a bigger number from a smaller one is now perfectly possible.",
+      "outcomes": [
+        "Can rewrite any subtraction as adding the opposite and evaluate it",
+        "Can compute differences like 3 - 9 and explain the negative answer on the number line"
+      ],
+      "prereqs": ["g6.num.integers-intro.adding-integers-different-sign"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3", "m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "5 - (-2) = ?",
+        "options": [
+          { "text": "7", "correct": true },
+          { "text": "3", "misconception": "m3", "diagnosis": "Treated subtracting -2 like subtracting +2." },
+          { "text": "-7", "diagnosis": "Added the magnitudes but attached a minus sign for no reason." },
+          { "text": "-3", "diagnosis": "Computed 5 - 2 and then flipped the sign; a double error." }
+        ],
+        "explanation": "Subtracting a number means adding its opposite. The opposite of -2 is +2, so 5 - (-2) = 5 + 2 = 7. Removing a debt of 2 rupees makes you 2 rupees richer."
+      }
+    },
+
+    {
+      "id": "g6.num.fractions-ops.fraction-review-number-line",
+      "parent": "g6.num.fractions-ops",
+      "title": "Fractions as Parts and as Points on the Number Line",
+      "description": "Revise a fraction as equal parts of a whole and of a collection, and place fractions on the number line between whole numbers.",
+      "outcomes": [
+        "Can represent a fraction as part of a whole, part of a collection, and a point on the number line",
+        "Can identify the fraction shown by a marked point between 0 and 2"
+      ],
+      "prereqs": ["g5.num.fractions-equivalent-compare"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.num.fractions-ops.proper-improper-mixed",
+      "parent": "g6.num.fractions-ops",
+      "title": "Proper, Improper and Mixed Fractions",
+      "description": "Classify fractions as proper or improper, see that improper fractions are perfectly legitimate numbers bigger than or equal to 1, and convert between improper fractions and mixed numbers.",
+      "outcomes": [
+        "Can convert a mixed number to an improper fraction and back",
+        "Can explain that 2 3/4 means 2 + 3/4, not 2 x 3/4",
+        "Can place improper fractions like 7/4 on the number line"
+      ],
+      "prereqs": ["g6.num.fractions-ops.fraction-review-number-line"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3", "m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Write 2 3/4 as an improper fraction.",
+        "options": [
+          { "text": "11/4", "correct": true },
+          { "text": "6/4", "misconception": "m3", "diagnosis": "Computed 2 x 3/4; a mixed number means 2 PLUS 3/4." },
+          { "text": "23/4", "diagnosis": "Glued the digits 2 and 3 together instead of converting the whole-number part to quarters." },
+          { "text": "It cannot be written as a fraction because the top would exceed the bottom", "misconception": "m4" }
+        ],
+        "explanation": "2 3/4 = 2 + 3/4. Each whole is 4/4, so 2 wholes are 8/4, and 8/4 + 3/4 = 11/4. Improper fractions like 11/4 are completely valid numbers - they are simply greater than 1."
+      }
+    },
+    {
+      "id": "g6.num.fractions-ops.simplest-form",
+      "parent": "g6.num.fractions-ops",
+      "title": "Equivalent Fractions and Simplest Form",
+      "description": "Generate equivalent fractions by multiplying or dividing numerator and denominator by the same number, and reduce a fraction to simplest form by dividing out the HCF.",
+      "outcomes": [
+        "Can test whether two fractions are equivalent",
+        "Can reduce a fraction to simplest form using the HCF of numerator and denominator"
+      ],
+      "prereqs": [
+        "g6.num.fractions-ops.fraction-review-number-line",
+        "g6.num.playing-with-numbers.finding-hcf"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g6.num.fractions-ops.comparing-fractions",
+      "parent": "g6.num.fractions-ops",
+      "title": "Comparing Like and Unlike Fractions",
+      "description": "Compare fractions with the same denominator directly, unit fractions by reasoning about piece size, and unlike fractions by converting to a common denominator.",
+      "outcomes": [
+        "Can explain why 1/4 > 1/8 using piece size, not digit size",
+        "Can compare and order unlike fractions using a common denominator"
+      ],
+      "prereqs": [
+        "g6.num.fractions-ops.simplest-form",
+        "g6.num.playing-with-numbers.finding-lcm"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which is greater: 1/4 or 1/8?",
+        "options": [
+          { "text": "1/4, because cutting into fewer parts makes each part bigger", "correct": true },
+          { "text": "1/8, because 8 > 4", "misconception": "m2" },
+          { "text": "They are equal, because both have numerator 1", "diagnosis": "The numerator alone does not decide; the size of each part matters too." },
+          { "text": "1/8, because eighths are used for smaller things", "misconception": "m2", "diagnosis": "Still reasoning from the bigger denominator digit rather than the piece size." }
+        ],
+        "explanation": "Cut the same roti into 4 parts or into 8 parts: quarters are bigger pieces than eighths. So 1/4 > 1/8. A bigger denominator means MORE pieces, hence each piece is SMALLER."
+      }
+    },
+    {
+      "id": "g6.num.fractions-ops.add-sub-like",
+      "parent": "g6.num.fractions-ops",
+      "title": "Adding and Subtracting Like Fractions",
+      "description": "Add and subtract fractions with the same denominator by combining numerators while the denominator - the name of the piece size - stays the same.",
+      "outcomes": [
+        "Can add and subtract like fractions and simplify the result",
+        "Can explain why the denominator does not change when adding like fractions"
+      ],
+      "prereqs": ["g6.num.fractions-ops.fraction-review-number-line"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "3/8 + 2/8 = ?",
+        "options": [
+          { "text": "5/8", "correct": true },
+          { "text": "5/16", "misconception": "m1", "diagnosis": "Added the denominators as well as the numerators." },
+          { "text": "6/8", "diagnosis": "Numerator slip: 3 + 2 = 5, not 6." },
+          { "text": "1/8", "diagnosis": "Subtracted instead of adding." }
+        ],
+        "explanation": "Three eighths plus two eighths is five eighths: 3/8 + 2/8 = 5/8. The pieces are all eighths, so only the count of pieces (the numerator) changes - the denominator names the piece size and stays 8."
+      }
+    },
+    {
+      "id": "g6.num.fractions-ops.add-sub-unlike",
+      "parent": "g6.num.fractions-ops",
+      "title": "Adding and Subtracting Unlike Fractions",
+      "description": "Add and subtract fractions with different denominators by first rewriting both over the LCM of the denominators, then combining numerators.",
+      "outcomes": [
+        "Can add and subtract unlike fractions using the LCM as common denominator",
+        "Can spot and explain the error in 1/2 + 1/3 = 2/5"
+      ],
+      "prereqs": [
+        "g6.num.fractions-ops.add-sub-like",
+        "g6.num.fractions-ops.comparing-fractions"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "1/2 + 1/3 = ?",
+        "options": [
+          { "text": "5/6", "correct": true },
+          { "text": "2/5", "misconception": "m1", "diagnosis": "Added tops and bottoms separately; note 2/5 is LESS than 1/2, so the 'sum' shrank - impossible when adding a positive amount." },
+          { "text": "2/6", "diagnosis": "Found the common denominator 6 but forgot to scale the numerators before adding." },
+          { "text": "1/6", "diagnosis": "Multiplied the fractions instead of adding them." }
+        ],
+        "explanation": "Rewrite over sixths: 1/2 = 3/6 and 1/3 = 2/6, so 1/2 + 1/3 = 3/6 + 2/6 = 5/6. Sanity check: the answer must be bigger than 1/2, and 5/6 is; 2/5 is not."
+      }
+    },
+    {
+      "id": "g6.num.fractions-ops.mixed-number-add-sub",
+      "parent": "g6.num.fractions-ops",
+      "title": "Adding and Subtracting Mixed Numbers",
+      "description": "Add and subtract mixed numbers either by converting to improper fractions or by handling wholes and parts separately with regrouping, and use them in word problems.",
+      "outcomes": [
+        "Can add and subtract mixed numbers by both methods",
+        "Can solve one-step word problems involving mixed numbers of metres, litres or hours"
+      ],
+      "prereqs": [
+        "g6.num.fractions-ops.add-sub-unlike",
+        "g6.num.fractions-ops.proper-improper-mixed"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m3"]
+    },
+
+    {
+      "id": "g6.num.decimals-ops.decimal-place-value",
+      "parent": "g6.num.decimals-ops",
+      "title": "Decimal Place Value: Tenths, Hundredths, Thousandths",
+      "description": "Extend the place-value chart to the right of the ones: tenths, hundredths and thousandths, reading and writing decimals in figures, words and expanded form.",
+      "outcomes": [
+        "Can state the place value of any digit in a decimal like 12.305",
+        "Can write a decimal in expanded form (e.g. 4.56 = 4 + 5/10 + 6/100)"
+      ],
+      "prereqs": ["g5.num.decimals-intro"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.num.decimals-ops.decimals-and-fractions",
+      "parent": "g6.num.decimals-ops",
+      "title": "Decimals as Fractions and on the Number Line",
+      "description": "Convert between decimals and fractions with denominators 10, 100 and 1000, and locate decimals between whole numbers on a zoomed-in number line.",
+      "outcomes": [
+        "Can convert between tenths/hundredths fractions and decimals in both directions",
+        "Can place decimals like 0.7 and 1.35 on a number line"
+      ],
+      "prereqs": [
+        "g6.num.decimals-ops.decimal-place-value",
+        "g6.num.fractions-ops.fraction-review-number-line"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g6.num.decimals-ops.comparing-decimals",
+      "parent": "g6.num.decimals-ops",
+      "title": "Comparing and Ordering Decimals",
+      "description": "Compare decimals place by place from the left after padding with zeros, so 0.5 = 0.50 > 0.45, defeating the 'longer is larger' trap.",
+      "outcomes": [
+        "Can compare any two decimals by padding to equal length and comparing place by place",
+        "Can explain why 0.7 and 0.70 are the same number"
+      ],
+      "prereqs": ["g6.num.decimals-ops.decimals-and-fractions"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which is greater: 0.5 or 0.45?",
+        "options": [
+          { "text": "0.5, because 0.5 = 0.50 and 50 hundredths > 45 hundredths", "correct": true },
+          { "text": "0.45, because 45 > 5", "misconception": "m1" },
+          { "text": "0.45, because it has more digits after the point", "misconception": "m3", "diagnosis": "Judging size by the number of decimal digits; extra digits mean finer detail, not a bigger number." },
+          { "text": "They are equal", "diagnosis": "Padded 0.5 to 0.45 by dropping/moving digits instead of appending a zero: 0.5 = 0.50, not 0.45." }
+        ],
+        "explanation": "Pad to the same length: 0.5 = 0.50. Now compare hundredths: 50 > 45, so 0.5 > 0.45. Appending a zero on the right of a decimal (0.5 -> 0.50) never changes its value."
+      }
+    },
+    {
+      "id": "g6.num.decimals-ops.adding-decimals",
+      "parent": "g6.num.decimals-ops",
+      "title": "Adding Decimals",
+      "description": "Add decimals by lining up the decimal points (padding with zeros where needed) so that tenths sit under tenths and hundredths under hundredths.",
+      "outcomes": [
+        "Can add decimals of different lengths by aligning decimal points",
+        "Can estimate the sum first to catch alignment errors"
+      ],
+      "prereqs": [
+        "g6.num.decimals-ops.comparing-decimals",
+        "g5.num.decimals-add-sub"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "3.5 + 1.25 = ?",
+        "options": [
+          { "text": "4.75", "correct": true },
+          { "text": "1.60", "misconception": "m2", "diagnosis": "Right-aligned the digits like whole numbers (35 + 125 = 160) instead of aligning the decimal points." },
+          { "text": "4.30", "diagnosis": "Treated 3.5 as 3.05; the 5 is in the tenths place, so 3.5 = 3.50." },
+          { "text": "4.7", "diagnosis": "Dropped the 5 hundredths from 1.25." }
+        ],
+        "explanation": "Line up the points: 3.50 + 1.25. Hundredths: 0 + 5 = 5; tenths: 5 + 2 = 7; ones: 3 + 1 = 4. Sum = 4.75. Estimate check: 3.5 + 1.25 is about 3.5 + 1.3 = 4.8, so 4.75 is reasonable and 1.60 is impossible."
+      }
+    },
+    {
+      "id": "g6.num.decimals-ops.subtracting-decimals",
+      "parent": "g6.num.decimals-ops",
+      "title": "Subtracting Decimals",
+      "description": "Subtract decimals with decimal-point alignment and zero-padding, including borrowing across the decimal point.",
+      "outcomes": [
+        "Can subtract decimals of different lengths, borrowing across the point where needed",
+        "Can check a subtraction by adding back"
+      ],
+      "prereqs": ["g6.num.decimals-ops.adding-decimals"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "6.4 - 2.13 = ?",
+        "options": [
+          { "text": "4.27", "correct": true },
+          { "text": "3.91", "misconception": "m2", "diagnosis": "Padded on the wrong side, treating 6.4 as 6.04 before subtracting." },
+          { "text": "4.33", "diagnosis": "Subtracted the smaller digit from the larger in each column instead of borrowing (took 3 - 0 in the hundredths)." },
+          { "text": "8.53", "diagnosis": "Added instead of subtracting." }
+        ],
+        "explanation": "Pad and align: 6.40 - 2.13. Hundredths: 0 - 3 needs a borrow, giving 10 - 3 = 7; tenths become 3 - 1 = 2; ones: 6 - 2 = 4. Answer: 4.27. Check: 4.27 + 2.13 = 6.40."
+      }
+    },
+    {
+      "id": "g6.num.decimals-ops.money-length-weight-units",
+      "parent": "g6.num.decimals-ops",
+      "title": "Decimals in Money, Length and Weight",
+      "description": "Use decimals to convert within units: paise to rupees (divide by 100), cm to m (divide by 100), mm to cm (divide by 10), g to kg (divide by 1000), moving the decimal point the right number of places.",
+      "outcomes": [
+        "Can convert between paise/rupees, mm/cm/m/km and g/kg using decimals",
+        "Can decide how many places (and in which direction) the decimal point moves for a given conversion"
+      ],
+      "prereqs": ["g6.num.decimals-ops.decimal-place-value"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Express 45 cm in metres.",
+        "options": [
+          { "text": "0.45 m", "correct": true },
+          { "text": "4.5 m", "misconception": "m4", "diagnosis": "Moved the decimal point only one place; 1 m = 100 cm, so divide by 100 (two places)." },
+          { "text": "0.045 m", "diagnosis": "Divided by 1000 as if converting grams to kilograms." },
+          { "text": "4,500 m", "diagnosis": "Multiplied by 100 instead of dividing; 45 cm is less than a metre, so the answer must be less than 1." }
+        ],
+        "explanation": "1 m = 100 cm, so 45 cm = 45/100 m = 0.45 m. Dividing by 100 moves the decimal point two places left. Sanity check: 45 cm is under half a metre, and 0.45 is under 0.5."
+      }
+    },
+
+    {
+      "id": "g6.num.ratio-proportion.ratio-idea",
+      "parent": "g6.num.ratio-proportion",
+      "title": "Ratio as Comparison by Division",
+      "description": "Compare two quantities of the same kind by division rather than subtraction, write the comparison as a:b, and see that the order of the terms matters.",
+      "outcomes": [
+        "Can write the ratio of two quantities in the stated order after matching units",
+        "Can explain the difference between comparing by subtraction and comparing by ratio"
+      ],
+      "prereqs": [
+        "g5.num.mult-div-large",
+        "g6.num.fractions-ops.simplest-form"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A class has 8 boys and 12 girls. What is the ratio of boys to girls?",
+        "options": [
+          { "text": "2:3", "correct": true },
+          { "text": "3:2", "misconception": "m2", "diagnosis": "Reversed the order; boys were asked first, so boys' number comes first." },
+          { "text": "2:5", "misconception": "m3", "diagnosis": "Compared boys with the whole class (8:20) instead of with the girls." },
+          { "text": "4", "misconception": "m1", "diagnosis": "Subtracted 12 - 8; a ratio compares by division, not by difference." }
+        ],
+        "explanation": "Boys to girls is 8:12. Divide both terms by their HCF 4 to get 2:3. Order matters: girls to boys would be 3:2, a different comparison."
+      }
+    },
+    {
+      "id": "g6.num.ratio-proportion.equivalent-ratios",
+      "parent": "g6.num.ratio-proportion",
+      "title": "Equivalent Ratios and Simplest Form",
+      "description": "Scale a ratio up or down by multiplying or dividing BOTH terms by the same number, and reduce ratios to simplest form - adding the same amount to both terms breaks the ratio.",
+      "outcomes": [
+        "Can generate equivalent ratios and reduce a ratio to simplest form",
+        "Can show with an example why adding the same number to both terms changes the ratio"
+      ],
+      "prereqs": [
+        "g6.num.ratio-proportion.ratio-idea",
+        "g5.num.fractions-equivalent-compare"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which ratio is equivalent to 2:3?",
+        "options": [
+          { "text": "4:6", "correct": true },
+          { "text": "3:4", "misconception": "m1", "diagnosis": "Added 1 to both terms; ratios scale by multiplying, not by adding." },
+          { "text": "4:5", "misconception": "m1", "diagnosis": "Added 2 to both terms instead of multiplying both by the same number." },
+          { "text": "3:2", "misconception": "m2", "diagnosis": "Reversed the terms; 3:2 is a different comparison from 2:3." }
+        ],
+        "explanation": "Multiply both terms of 2:3 by 2 to get 4:6 - the multiplicative relationship (second term is 1.5 times the first) is preserved. In 3:4 and 4:5 the second term is no longer 1.5 times the first, so they are not equivalent."
+      }
+    },
+    {
+      "id": "g6.num.ratio-proportion.part-and-whole",
+      "parent": "g6.num.ratio-proportion",
+      "title": "Part-to-Part and Part-to-Whole Ratios",
+      "description": "Distinguish ratios between two parts (boys:girls) from ratios of a part to the whole (boys:class), and move between the two by finding the total.",
+      "outcomes": [
+        "Can extract both part-to-part and part-to-whole ratios from the same data",
+        "Can find the whole from a part-to-part ratio and a total"
+      ],
+      "prereqs": ["g6.num.ratio-proportion.ratio-idea"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "In a class of 30 students, 12 are boys. What is the ratio of boys to the TOTAL number of students?",
+        "options": [
+          { "text": "2:5", "correct": true },
+          { "text": "2:3", "misconception": "m3", "diagnosis": "Gave boys to girls (12:18); the question asked boys to the whole class." },
+          { "text": "3:5", "diagnosis": "Gave girls to total (18:30); the question asked about boys." },
+          { "text": "5:2", "misconception": "m2", "diagnosis": "Reversed the terms; boys come first." }
+        ],
+        "explanation": "Boys to total is 12:30, which simplifies (divide by 6) to 2:5. Boys to girls would be 12:18 = 2:3 - a part-to-part ratio, which is a different comparison."
+      }
+    },
+    {
+      "id": "g6.num.ratio-proportion.proportion-idea",
+      "parent": "g6.num.ratio-proportion",
+      "title": "Proportion: When Two Ratios Are Equal",
+      "description": "Say four quantities are in proportion when the ratio of the first pair equals the ratio of the second pair (a:b :: c:d), and test proportionality by simplifying both ratios.",
+      "outcomes": [
+        "Can test whether four numbers are in proportion",
+        "Can find a missing term in a simple proportion"
+      ],
+      "prereqs": ["g6.num.ratio-proportion.equivalent-ratios"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Which pair of ratios forms a proportion?",
+        "options": [
+          { "text": "4:6 and 8:12", "correct": true },
+          { "text": "2:3 and 3:4", "misconception": "m1", "diagnosis": "Each term was increased by 1; equal steps do not make equal ratios." },
+          { "text": "5:10 and 10:5", "misconception": "m2", "diagnosis": "Reversing the terms gives the inverse ratio, not an equal one." },
+          { "text": "3:5 and 6:8", "diagnosis": "Only the first term was doubled correctly; 6:8 simplifies to 3:4, not 3:5." }
+        ],
+        "explanation": "4:6 simplifies to 2:3 and 8:12 also simplifies to 2:3, so 4:6 :: 8:12 is a true proportion. In each wrong pair the two ratios simplify to different values."
+      }
+    },
+    {
+      "id": "g6.num.ratio-proportion.unitary-method",
+      "parent": "g6.num.ratio-proportion",
+      "title": "The Unitary Method",
+      "description": "Solve value problems by first finding the value of ONE unit (divide), then scaling to the required number of units (multiply), checking that the answer moves in the sensible direction.",
+      "outcomes": [
+        "Can solve cost/quantity problems via the value of one unit",
+        "Can check direction: fewer items must cost less, more items must cost more"
+      ],
+      "prereqs": ["g6.num.ratio-proportion.proportion-idea"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "6 notebooks cost Rs 90. What do 4 notebooks cost?",
+        "options": [
+          { "text": "Rs 60", "correct": true },
+          { "text": "Rs 135", "misconception": "m4", "diagnosis": "Inverted the proportion (90 / 4 x 6); fewer notebooks must cost LESS than Rs 90, not more." },
+          { "text": "Rs 360", "diagnosis": "Multiplied the total cost by 4 without first finding the cost of one notebook." },
+          { "text": "Rs 15", "diagnosis": "Stopped after finding the cost of one notebook." }
+        ],
+        "explanation": "One notebook costs 90 / 6 = Rs 15, so 4 notebooks cost 15 x 4 = Rs 60. Direction check: 4 < 6, so the answer must be below Rs 90 - which rules out Rs 135 and Rs 360 instantly."
+      }
+    },
+    {
+      "id": "g6.num.ratio-proportion.ratio-applications",
+      "parent": "g6.num.ratio-proportion",
+      "title": "Dividing a Quantity in a Given Ratio",
+      "description": "Split money, lengths or ingredients in a given ratio by adding the ratio terms to find the number of equal shares, then multiplying each term by the share size.",
+      "outcomes": [
+        "Can divide a quantity in a given two-term ratio",
+        "Can solve recipe and map-scale style problems combining ratio and the unitary method"
+      ],
+      "prereqs": [
+        "g6.num.ratio-proportion.unitary-method",
+        "g6.num.ratio-proportion.part-and-whole"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m1", "m3"]
+    },
+
+    {
+      "id": "g6.alg.intro-algebra.patterns-to-rules",
+      "parent": "g6.alg.intro-algebra",
+      "title": "From Matchstick Patterns to Rules",
+      "description": "Build matchstick and dot patterns, tabulate how the count grows, and describe the rule in words ('twice the number of shapes') as a bridge to letters.",
+      "outcomes": [
+        "Can extend a growing pattern and tabulate shape number against stick count",
+        "Can state the general rule of a linear pattern in words"
+      ],
+      "prereqs": ["g4.alg.patterns-rules"],
+      "est_minutes": 20,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.alg.intro-algebra.idea-of-variable",
+      "parent": "g6.alg.intro-algebra",
+      "title": "The Idea of a Variable",
+      "description": "Meet a letter as a placeholder for ANY number - not an object, not a fixed secret, and not its alphabet position - so one rule like 2n covers every case of a pattern at once.",
+      "outcomes": [
+        "Can explain that a variable stands for a number that can vary",
+        "Can use a rule like 2n to compute the pattern value for any given n"
+      ],
+      "prereqs": ["g6.alg.intro-algebra.patterns-to-rules"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2", "m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "In the expression 3 + n, what does the letter n stand for?",
+        "options": [
+          { "text": "Any number - the expression gives a value once we choose n", "correct": true },
+          { "text": "An object, like 'n notebooks'", "misconception": "m1" },
+          { "text": "Always 14, because n is the 14th letter of the alphabet", "misconception": "m4" },
+          { "text": "Exactly one secret number that is the same in every problem", "misconception": "m2" }
+        ],
+        "explanation": "A variable is a number in disguise, free to take different values in different situations: if n = 2 then 3 + n = 5; if n = 100 then 3 + n = 103. It is not a label for objects and has nothing to do with alphabet positions."
+      }
+    },
+    {
+      "id": "g6.alg.intro-algebra.forming-expressions",
+      "parent": "g6.alg.intro-algebra",
+      "title": "Forming Expressions with Variables",
+      "description": "Build expressions like x + 3, y - 5, 4m and p/2 from operations on a variable, keeping addition visible: 3 + x cannot be squeezed into 3x.",
+      "outcomes": [
+        "Can form an expression from a described operation on a variable",
+        "Can explain the difference between 3 + x and 3x"
+      ],
+      "prereqs": ["g6.alg.intro-algebra.idea-of-variable"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Write 'add 3 to x' as an expression.",
+        "options": [
+          { "text": "x + 3", "correct": true },
+          { "text": "3x", "misconception": "m3", "diagnosis": "Glued the 3 and the x together; 3x means 3 TIMES x, not 3 plus x." },
+          { "text": "x - 3", "diagnosis": "Subtracted instead of adding." },
+          { "text": "x3", "misconception": "m3", "diagnosis": "Conjoined the symbols as if building a two-character numeral." }
+        ],
+        "explanation": "Adding 3 to x gives x + 3. The plus sign must stay: writing 3x would mean multiplication (3 times x), which is a different operation. Check with x = 10: x + 3 = 13 but 3x = 30."
+      }
+    },
+    {
+      "id": "g6.alg.intro-algebra.rules-as-expressions",
+      "parent": "g6.alg.intro-algebra",
+      "title": "Writing Everyday and Geometry Rules with Letters",
+      "description": "Express familiar rules with variables: perimeter of a square is 4s, of a rectangle 2(l + b), and arithmetic properties like a + b = b + a, seeing algebra as compressed language.",
+      "outcomes": [
+        "Can write perimeter and simple everyday rules as expressions",
+        "Can state a number property (commutativity, distributivity) using letters"
+      ],
+      "prereqs": [
+        "g6.alg.intro-algebra.forming-expressions",
+        "g6.num.whole-numbers.commutativity-associativity"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g6.alg.intro-algebra.substituting-values",
+      "parent": "g6.alg.intro-algebra",
+      "title": "Evaluating Expressions by Substitution",
+      "description": "Replace the variable with a chosen number and evaluate the expression, remembering that 2n means 2 x n, never the two-digit numeral '2 then n'.",
+      "outcomes": [
+        "Can evaluate expressions like 2n + 3 or 10 - m for given values",
+        "Can compare values of an expression as the variable changes"
+      ],
+      "prereqs": ["g6.alg.intro-algebra.forming-expressions"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "If n = 5, what is the value of 2n + 3?",
+        "options": [
+          { "text": "13", "correct": true },
+          { "text": "28", "misconception": "m3", "diagnosis": "Read 2n as the two-digit number 25, then added 3." },
+          { "text": "10", "diagnosis": "Computed 2n but forgot to add the 3." },
+          { "text": "16", "diagnosis": "Added first: 2 x (5 + 3); multiplication binds before addition." }
+        ],
+        "explanation": "2n means 2 x n. With n = 5: 2 x 5 = 10, then 10 + 3 = 13. The digits are never glued together - 2n is a product, not a numeral."
+      }
+    },
+    {
+      "id": "g6.alg.intro-algebra.equations-intro",
+      "parent": "g6.alg.intro-algebra",
+      "title": "What Is an Equation? Solving by Trial",
+      "description": "Distinguish an equation (a condition with an equals sign, true only for certain values) from an expression, and find solutions of simple equations like x + 4 = 9 by systematic trial.",
+      "outcomes": [
+        "Can tell an equation from an expression and test whether a value satisfies an equation",
+        "Can solve simple one-step equations by trial and error"
+      ],
+      "prereqs": ["g6.alg.intro-algebra.substituting-values"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+
+    {
+      "id": "g6.geo.basic-ideas.points-lines-segments",
+      "parent": "g6.geo.basic-ideas",
+      "title": "Points, Line Segments, Lines and Rays",
+      "description": "Distinguish the four basic objects: a point (position only), a segment (two endpoints, definite length), a ray (one endpoint, extends forever one way) and a line (no endpoints, extends forever both ways).",
+      "outcomes": [
+        "Can name and notate points, segments, rays and lines from a figure",
+        "Can say which of the four objects have a measurable length and why"
+      ],
+      "prereqs": ["g3.geo.lines-shapes"],
+      "est_minutes": 20,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Which of these has a definite length you could measure?",
+        "options": [
+          { "text": "A line segment", "correct": true },
+          { "text": "A line", "misconception": "m1" },
+          { "text": "A ray", "diagnosis": "A ray has one endpoint but extends without end in the other direction, so it has no total length." },
+          { "text": "All three of them", "misconception": "m1", "diagnosis": "Treating lines and rays as if they stop where the drawing stops." }
+        ],
+        "explanation": "Only a segment has two endpoints, so only a segment has a definite length. A line extends endlessly in both directions and a ray in one direction - the arrowheads in a drawing mean 'keeps going', so neither can be measured."
+      }
+    },
+    {
+      "id": "g6.geo.basic-ideas.intersecting-parallel",
+      "parent": "g6.geo.basic-ideas",
+      "title": "Intersecting and Parallel Lines",
+      "description": "Classify pairs of lines as intersecting (meet at exactly one point) or parallel (never meet however far extended), reasoning about the full lines rather than the drawn segments.",
+      "outcomes": [
+        "Can identify intersecting and parallel line pairs and the point of intersection",
+        "Can explain why two segments that do not touch on the page may still lie on intersecting lines"
+      ],
+      "prereqs": ["g6.geo.basic-ideas.points-lines-segments"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Two line segments are drawn on a page and do not touch. What can you say about the lines they lie on?",
+        "options": [
+          { "text": "The lines may still intersect when extended - we must check their directions", "correct": true },
+          { "text": "The lines never intersect, because the segments do not touch", "misconception": "m4" },
+          { "text": "The lines must be parallel", "misconception": "m4", "diagnosis": "Parallel means they NEVER meet even when extended; non-touching drawings are not proof of that." },
+          { "text": "The lines must intersect somewhere", "diagnosis": "Overcorrection: if the segments happen to be parallel, their lines never meet." }
+        ],
+        "explanation": "A drawing shows only part of each line. Lines extend without end, so two non-touching segments lie on intersecting lines whenever their directions differ - the meeting point is simply off the page. Only same-direction (parallel) lines never meet."
+      }
+    },
+    {
+      "id": "g6.geo.basic-ideas.curves-open-closed",
+      "parent": "g6.geo.basic-ideas",
+      "title": "Curves: Open, Closed, Interior and Exterior",
+      "description": "Classify curves as open or closed and simple or self-crossing, and for closed curves identify the interior, the boundary and the exterior.",
+      "outcomes": [
+        "Can classify a drawn curve as open/closed and simple/not simple",
+        "Can mark points in the interior, on the boundary and in the exterior of a closed curve"
+      ],
+      "prereqs": ["g6.geo.basic-ideas.points-lines-segments"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.geo.basic-ideas.polygons-intro",
+      "parent": "g6.geo.basic-ideas",
+      "title": "Polygons: Sides, Vertices and Diagonals",
+      "description": "Define a polygon as a simple closed figure made ENTIRELY of line segments, and name its sides, vertices, adjacent sides and diagonals.",
+      "outcomes": [
+        "Can decide whether a figure is a polygon and justify using the definition",
+        "Can count and name sides, vertices and diagonals of polygons up to hexagons"
+      ],
+      "prereqs": ["g6.geo.basic-ideas.curves-open-closed"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these is a polygon?",
+        "options": [
+          { "text": "A closed figure made of 5 line segments", "correct": true },
+          { "text": "A circle", "misconception": "m3" },
+          { "text": "An oval (egg shape)", "misconception": "m3", "diagnosis": "Closed, yes - but made of curves, and polygons allow only straight line segments." },
+          { "text": "An open zigzag of 4 line segments", "diagnosis": "Made of segments but not closed; a polygon must enclose a region." }
+        ],
+        "explanation": "A polygon needs BOTH properties: closed AND made only of line segments. A circle and an oval are closed but curved, and a zigzag is straight-edged but open, so only the closed 5-segment figure (a pentagon) qualifies."
+      }
+    },
+    {
+      "id": "g6.geo.basic-ideas.angles-intro",
+      "parent": "g6.geo.basic-ideas",
+      "title": "Angles: Vertex, Arms, Interior and Exterior",
+      "description": "See an angle as two rays sharing a common endpoint, name it with three letters (vertex in the middle), and identify its interior and exterior regions.",
+      "outcomes": [
+        "Can identify and name the vertex and arms of an angle using three-letter notation",
+        "Can decide whether a point lies in the interior, on the angle, or in the exterior"
+      ],
+      "prereqs": ["g6.geo.basic-ideas.points-lines-segments"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g6.geo.basic-ideas.circle-parts",
+      "parent": "g6.geo.basic-ideas",
+      "title": "Parts of a Circle",
+      "description": "Identify centre, radius, diameter, chord, arc, sector and segment of a circle, and establish that the diameter is a chord through the centre, twice the radius.",
+      "outcomes": [
+        "Can label centre, radius, diameter, chord and arc on a circle",
+        "Can use diameter = 2 x radius in both directions"
+      ],
+      "prereqs": [
+        "g6.geo.basic-ideas.curves-open-closed",
+        "g4.geo.circle-intro"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "A circle has radius 5 cm. What is its diameter?",
+        "options": [
+          { "text": "10 cm", "correct": true },
+          { "text": "5 cm", "misconception": "m2", "diagnosis": "Treated the radius as if it already stretched all the way across the circle." },
+          { "text": "2.5 cm", "misconception": "m2", "diagnosis": "Halved instead of doubling - the radius is the HALF, the diameter is the whole width." },
+          { "text": "25 cm", "diagnosis": "Multiplied 5 x 5; the diameter is twice the radius, not the radius squared." }
+        ],
+        "explanation": "The radius runs from the centre to the circle (5 cm); the diameter runs all the way across through the centre, which is two radii: 2 x 5 = 10 cm."
+      }
+    },
+
+    {
+      "id": "g6.geo.elementary-shapes.measuring-segments",
+      "parent": "g6.geo.elementary-shapes",
+      "title": "Measuring and Comparing Line Segments",
+      "description": "Compare segments by observation, by tracing, and accurately with a divider and ruler, avoiding end-of-ruler and eye-position errors.",
+      "outcomes": [
+        "Can measure a segment correctly with a ruler, starting from the zero mark",
+        "Can compare two segments with a divider without measuring numbers"
+      ],
+      "prereqs": ["g6.geo.basic-ideas.points-lines-segments"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.geo.elementary-shapes.angles-as-turns",
+      "parent": "g6.geo.elementary-shapes",
+      "title": "Angles as Turns: Right, Straight and Complete",
+      "description": "Measure angle as an amount of TURN between the arms - a quarter turn is a right angle, a half turn a straight angle, a full turn a complete angle - independent of how long the arms are drawn.",
+      "outcomes": [
+        "Can relate quarter, half and full turns to right, straight and complete angles",
+        "Can explain why redrawing an angle with longer arms does not change the angle"
+      ],
+      "prereqs": [
+        "g6.geo.basic-ideas.angles-intro",
+        "g5.geo.angles-intro"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g6.geo.elementary-shapes.classifying-angles",
+      "parent": "g6.geo.elementary-shapes",
+      "title": "Classifying Angles: Acute, Right, Obtuse, Straight, Reflex",
+      "description": "Classify angles by comparing with the right angle (90 degrees) and straight angle (180 degrees): acute below 90, obtuse between 90 and 180, reflex beyond 180.",
+      "outcomes": [
+        "Can classify a given angle as acute, right, obtuse, straight or reflex",
+        "Can estimate whether an angle is more or less than 90 degrees using a corner of paper"
+      ],
+      "prereqs": ["g6.geo.elementary-shapes.angles-as-turns"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "An angle measures 95 degrees. What type of angle is it?",
+        "options": [
+          { "text": "Obtuse", "correct": true },
+          { "text": "Acute", "misconception": "m3" },
+          { "text": "Right", "misconception": "m3", "diagnosis": "A right angle is exactly 90 degrees; 95 degrees has opened past the square corner." },
+          { "text": "Reflex", "diagnosis": "Reflex angles are larger than 180 degrees; 95 is well below that." }
+        ],
+        "explanation": "Compare with 90 and 180: since 90 < 95 < 180, the angle is obtuse. Acute means less than 90, right exactly 90, straight exactly 180 and reflex more than 180."
+      }
+    },
+    {
+      "id": "g6.geo.elementary-shapes.measuring-with-protractor",
+      "parent": "g6.geo.elementary-shapes",
+      "title": "Measuring Angles with a Protractor",
+      "description": "Measure angles in degrees with a protractor - centre on the vertex, baseline on one arm, read the correct scale - and confirm that arm length never affects the measure.",
+      "outcomes": [
+        "Can measure an angle to the nearest degree, choosing the correct protractor scale",
+        "Can predict the size class of an angle before measuring and use it to catch wrong-scale readings"
+      ],
+      "prereqs": ["g6.geo.elementary-shapes.classifying-angles"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Angle A is drawn with 10 cm arms and measures 30 degrees. Angle B is drawn with 2 cm arms and measures 45 degrees. Which angle is bigger?",
+        "options": [
+          { "text": "Angle B, because 45 degrees is more turn than 30 degrees", "correct": true },
+          { "text": "Angle A, because its arms are much longer", "misconception": "m1" },
+          { "text": "They are equal - longer arms balance out the smaller degree measure", "misconception": "m1", "diagnosis": "Mixing arm length into angle size; only the opening between the arms counts." },
+          { "text": "It cannot be decided without seeing the drawings", "diagnosis": "The degree measures already decide it; drawings add nothing." }
+        ],
+        "explanation": "An angle measures the amount of turn between its arms, and 45 degrees is more turn than 30 degrees, so B is bigger. Arm length is just how far the rays are drawn - extending the arms of a 30-degree angle keeps it a 30-degree angle."
+      }
+    },
+    {
+      "id": "g6.geo.elementary-shapes.perpendicular-lines",
+      "parent": "g6.geo.elementary-shapes",
+      "title": "Perpendicular Lines and Perpendicular Bisectors",
+      "description": "Recognise perpendicular lines as lines meeting at a right angle, spot perpendiculars in the environment, and meet the idea of a perpendicular bisector of a segment.",
+      "outcomes": [
+        "Can identify perpendicular pairs in figures and surroundings",
+        "Can describe what makes a line the perpendicular bisector of a segment"
+      ],
+      "prereqs": ["g6.geo.elementary-shapes.classifying-angles"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g6.geo.elementary-shapes.classifying-triangles",
+      "parent": "g6.geo.elementary-shapes",
+      "title": "Classifying Triangles by Sides and Angles",
+      "description": "Classify triangles as scalene, isosceles or equilateral (by sides) and acute, right or obtuse (by angles), seeing that the categories overlap: every equilateral triangle is also isosceles.",
+      "outcomes": [
+        "Can classify a triangle simultaneously by sides and by angles",
+        "Can explain why an equilateral triangle is a special isosceles triangle"
+      ],
+      "prereqs": [
+        "g6.geo.elementary-shapes.measuring-segments",
+        "g6.geo.elementary-shapes.classifying-angles"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which statement about triangles is true?",
+        "options": [
+          { "text": "Every equilateral triangle is also isosceles", "correct": true },
+          { "text": "An equilateral triangle cannot be isosceles", "misconception": "m2" },
+          { "text": "Every isosceles triangle is equilateral", "misconception": "m2", "diagnosis": "Inclusion runs the other way: isosceles needs only TWO equal sides." },
+          { "text": "A triangle with exactly two equal sides is scalene", "diagnosis": "Scalene means NO equal sides; two equal sides make it isosceles." }
+        ],
+        "explanation": "Isosceles means 'at least two sides equal'. An equilateral triangle has all three sides equal - so it certainly has two equal sides, making it a special isosceles triangle. The categories nest; they are not rival boxes."
+      }
+    },
+    {
+      "id": "g6.geo.elementary-shapes.classifying-quadrilaterals",
+      "parent": "g6.geo.elementary-shapes",
+      "title": "Quadrilaterals: Squares, Rectangles, Parallelograms, Rhombuses, Trapeziums",
+      "description": "Sort quadrilaterals by their properties (parallel sides, equal sides, right angles) and build the inclusion ladder: a square is a special rectangle and a special rhombus, and all three are parallelograms.",
+      "outcomes": [
+        "Can name a quadrilateral from its side/angle properties",
+        "Can justify from properties why every square is a rectangle"
+      ],
+      "prereqs": ["g6.geo.elementary-shapes.perpendicular-lines"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which statement is true?",
+        "options": [
+          { "text": "Every square is a rectangle", "correct": true },
+          { "text": "A square is not a rectangle", "misconception": "m4" },
+          { "text": "Every rectangle is a square", "diagnosis": "Reversed the inclusion: rectangles need not have all sides equal." },
+          { "text": "A rhombus is never a parallelogram", "misconception": "m4", "diagnosis": "Judging by typical appearance; a rhombus has two pairs of parallel sides, so it IS a parallelogram." }
+        ],
+        "explanation": "A rectangle is defined by four right angles with opposite sides equal. A square has four right angles (and all sides equal), so it meets every requirement of a rectangle - it is a special rectangle. Classification goes by properties, not by how the shape typically looks."
+      }
+    },
+    {
+      "id": "g6.geo.elementary-shapes.three-d-shapes",
+      "parent": "g6.geo.elementary-shapes",
+      "title": "Three-Dimensional Shapes: Faces, Edges and Vertices",
+      "description": "Recognise cubes, cuboids, cylinders, cones, spheres, prisms and pyramids, and count faces, edges and vertices of the straight-edged solids.",
+      "outcomes": [
+        "Can name common solids from pictures and real objects",
+        "Can count faces, edges and vertices of a cube, cuboid, prism and pyramid"
+      ],
+      "prereqs": ["g5.geo.nets-3d"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+
+    {
+      "id": "g6.geo.symmetry.symmetry-idea",
+      "parent": "g6.geo.symmetry",
+      "title": "The Idea of Line Symmetry: Fold and Mirror Tests",
+      "description": "A figure has line symmetry when folding along a line makes the two halves match exactly; test symmetry by folding paper cutouts and with a mirror on the fold line.",
+      "outcomes": [
+        "Can test a proposed line of symmetry by the fold or mirror test",
+        "Can explain why matching halves must coincide exactly, not merely have equal areas"
+      ],
+      "prereqs": ["g4.geo.symmetry-reflection"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.geo.symmetry.finding-lines-of-symmetry",
+      "parent": "g6.geo.symmetry",
+      "title": "Finding ALL Lines of Symmetry",
+      "description": "Hunt systematically for every line of symmetry of a figure - vertical, horizontal AND slanted - rotating the page so no direction gets special treatment.",
+      "outcomes": [
+        "Can find all lines of symmetry of a given figure, including slanted ones",
+        "Can verify a claimed count of symmetry lines by testing each candidate"
+      ],
+      "prereqs": ["g6.geo.symmetry.symmetry-idea"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "How many lines of symmetry does a square have?",
+        "options": [
+          { "text": "4", "correct": true },
+          { "text": "2", "misconception": "m3", "diagnosis": "Found only the vertical and horizontal lines; the two diagonals are also lines of symmetry." },
+          { "text": "1", "misconception": "m3", "diagnosis": "Only checked the vertical mirror line." },
+          { "text": "8", "diagnosis": "Counted each line twice (once per direction); a line and its reverse are the same line." }
+        ],
+        "explanation": "A square has 4 lines of symmetry: vertical, horizontal, and BOTH diagonals. Fold a paper square along each diagonal to check - the halves match perfectly."
+      }
+    },
+    {
+      "id": "g6.geo.symmetry.symmetry-of-standard-shapes",
+      "parent": "g6.geo.symmetry",
+      "title": "Symmetry of Standard Shapes",
+      "description": "Catalogue the lines of symmetry of rectangles, squares, triangles, rhombuses, regular polygons and circles, discovering that a rectangle's diagonal is NOT a symmetry line and side count need not equal line count.",
+      "outcomes": [
+        "Can state the number of lines of symmetry of common shapes",
+        "Can demonstrate by folding why the diagonal of a (non-square) rectangle is not a line of symmetry"
+      ],
+      "prereqs": [
+        "g6.geo.symmetry.finding-lines-of-symmetry",
+        "g6.geo.elementary-shapes.classifying-quadrilaterals"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "How many lines of symmetry does a rectangle (that is not a square) have?",
+        "options": [
+          { "text": "2", "correct": true },
+          { "text": "4", "misconception": "m1", "diagnosis": "Counted the diagonals as well; folding a rectangle along a diagonal leaves the corners sticking out - the halves do not match." },
+          { "text": "1", "misconception": "m3", "diagnosis": "Only found the vertical mirror line and missed the horizontal one." },
+          { "text": "0", "diagnosis": "The two lines through the midpoints of opposite sides ARE lines of symmetry." }
+        ],
+        "explanation": "A rectangle has exactly 2 lines of symmetry: the lines joining midpoints of opposite sides. The diagonals fail the fold test (the two triangles are congruent but fold onto each other's wrong side), and 4 sides does not force 4 symmetry lines."
+      }
+    },
+    {
+      "id": "g6.geo.symmetry.shapes-without-symmetry",
+      "parent": "g6.geo.symmetry",
+      "title": "Shapes with No Lines of Symmetry (and Shapes with Many)",
+      "description": "Meet figures with zero lines of symmetry (scalene triangle, parallelogram, letter F) and figures with many (regular polygons, circle), breaking the belief that every shape has at least one.",
+      "outcomes": [
+        "Can give examples of shapes with 0, 1, 2, 3 and infinitely many lines of symmetry",
+        "Can justify why a scalene triangle has no line of symmetry"
+      ],
+      "prereqs": ["g6.geo.symmetry.finding-lines-of-symmetry"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2", "m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "How many lines of symmetry does a scalene triangle have?",
+        "options": [
+          { "text": "0", "correct": true },
+          { "text": "1", "misconception": "m2", "diagnosis": "Assuming every shape must have at least one line of symmetry; folding a scalene triangle never matches the halves." },
+          { "text": "3", "misconception": "m4", "diagnosis": "Matched the count to the number of sides; only the EQUILATERAL triangle has 3 lines." },
+          { "text": "2", "diagnosis": "No triangle has exactly 2 lines of symmetry - the options are 0 (scalene), 1 (isosceles) or 3 (equilateral)." }
+        ],
+        "explanation": "All three sides of a scalene triangle are different, so no fold can make two sides coincide: it has 0 lines of symmetry. Symmetry is a special property, not a guarantee."
+      }
+    },
+    {
+      "id": "g6.geo.symmetry.completing-figures",
+      "parent": "g6.geo.symmetry",
+      "title": "Completing Symmetric Figures and Reflections",
+      "description": "Complete the other half of a figure given its line of symmetry on squared paper, and connect line symmetry with mirror reflection (left-right reversal, distances preserved).",
+      "outcomes": [
+        "Can complete a half-drawn figure across a given symmetry line on a grid",
+        "Can predict the mirror image of a simple shape or letter"
+      ],
+      "prereqs": ["g6.geo.symmetry.symmetry-of-standard-shapes"],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+
+    {
+      "id": "g6.geo.constructions-intro.tools-and-idea",
+      "parent": "g6.geo.constructions-intro",
+      "title": "The Idea of Construction: Ruler-and-Compass Rules",
+      "description": "Learn what counts as a geometric construction - figures produced with an unmarked straightedge and a compass by steps that can be justified - as opposed to measuring with protractor or marked ruler.",
+      "outcomes": [
+        "Can name the allowed tools and moves in ruler-and-compass construction",
+        "Can explain why constructing differs from measuring and drawing"
+      ],
+      "prereqs": ["g6.geo.basic-ideas.points-lines-segments"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these counts as a ruler-and-compass CONSTRUCTION of a right angle?",
+        "options": [
+          { "text": "Producing it with compass arcs and a straightedge, with each step justified", "correct": true },
+          { "text": "Measuring 90 degrees with a protractor and drawing the arm", "misconception": "m1" },
+          { "text": "Tracing the corner of a set-square", "misconception": "m1", "diagnosis": "Copying a manufactured corner is measurement by proxy, not a reasoned construction." },
+          { "text": "Drawing it freehand very carefully", "diagnosis": "However neat, freehand drawing has no guarantee of exactness and no justification." }
+        ],
+        "explanation": "A construction uses only an unmarked straightedge and a compass, and each step is exact by reasoning (equal radii give equal lengths). Protractors and set-squares measure or copy - useful, but not constructions."
+      }
+    },
+    {
+      "id": "g6.geo.constructions-intro.drawing-circles",
+      "parent": "g6.geo.constructions-intro",
+      "title": "Drawing Circles with a Compass",
+      "description": "Draw circles of a given radius with a compass, keeping the opening fixed while rotating, and see the circle as all points at one fixed distance from the centre.",
+      "outcomes": [
+        "Can draw a circle of given radius smoothly with a fixed compass opening",
+        "Can explain why a slipping compass opening spoils the circle"
+      ],
+      "prereqs": [
+        "g6.geo.constructions-intro.tools-and-idea",
+        "g6.geo.basic-ideas.circle-parts"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g6.geo.constructions-intro.copying-a-segment",
+      "parent": "g6.geo.constructions-intro",
+      "title": "Constructing and Copying a Line Segment",
+      "description": "Construct a segment of given length and copy a given segment onto another line using the compass as a distance-carrier, without reading a marked scale.",
+      "outcomes": [
+        "Can copy a segment onto a given ray using only compass and straightedge",
+        "Can construct a segment equal to the sum or difference of two given segments"
+      ],
+      "prereqs": ["g6.geo.constructions-intro.drawing-circles"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g6.geo.constructions-intro.perpendicular-through-point",
+      "parent": "g6.geo.constructions-intro",
+      "title": "Perpendicular to a Line Through a Point",
+      "description": "Construct the perpendicular to a given line through a point on the line, and through a point not on the line, using pairs of equal arcs.",
+      "outcomes": [
+        "Can construct a perpendicular through a point on the line",
+        "Can construct a perpendicular from an external point and check it with a set-square"
+      ],
+      "prereqs": [
+        "g6.geo.constructions-intro.copying-a-segment",
+        "g6.geo.elementary-shapes.perpendicular-lines"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g6.geo.constructions-intro.perpendicular-bisector",
+      "parent": "g6.geo.constructions-intro",
+      "title": "The Perpendicular Bisector of a Segment",
+      "description": "Construct the perpendicular bisector with intersecting arcs from both endpoints, and understand it as the line that BOTH passes through the midpoint AND meets the segment at 90 degrees.",
+      "outcomes": [
+        "Can construct the perpendicular bisector of a segment with equal arcs from both ends",
+        "Can state both defining properties (midpoint and right angle) and check them"
+      ],
+      "prereqs": ["g6.geo.constructions-intro.perpendicular-through-point"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3", "m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which of these describes the perpendicular bisector of segment AB?",
+        "options": [
+          { "text": "The line through the midpoint of AB that meets AB at 90 degrees", "correct": true },
+          { "text": "Any line that passes through the midpoint of AB", "misconception": "m3" },
+          { "text": "The midpoint of AB itself", "misconception": "m3", "diagnosis": "The bisector is a whole line, not a single point." },
+          { "text": "Any line that meets AB at 90 degrees", "diagnosis": "Perpendicular, yes - but it must also cut AB exactly in half." }
+        ],
+        "explanation": "'Perpendicular' and 'bisector' are two separate requirements: the line must cross AB at its midpoint (bisect) AND at a right angle (perpendicular). Infinitely many lines pass through the midpoint; only one of them is perpendicular to AB."
+      }
+    },
+    {
+      "id": "g6.geo.constructions-intro.copying-an-angle",
+      "parent": "g6.geo.constructions-intro",
+      "title": "Copying an Angle of Unknown Measure",
+      "description": "Copy a given angle onto a new ray using two arcs and a transferred chord distance - no protractor and no knowledge of the angle's degree measure needed.",
+      "outcomes": [
+        "Can copy any given angle with compass and straightedge",
+        "Can explain which equal distances make the copy exact"
+      ],
+      "prereqs": [
+        "g6.geo.constructions-intro.copying-a-segment",
+        "g6.geo.elementary-shapes.measuring-with-protractor"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g6.geo.constructions-intro.bisecting-an-angle",
+      "parent": "g6.geo.constructions-intro",
+      "title": "Bisecting an Angle",
+      "description": "Bisect an angle with an arc from the vertex and two equal arcs from the crossing points, and see that any sufficiently large compass opening gives the SAME bisector.",
+      "outcomes": [
+        "Can bisect any angle with compass and straightedge and verify by measuring both halves",
+        "Can explain why the choice of arc radius does not change the bisector"
+      ],
+      "prereqs": ["g6.geo.constructions-intro.copying-an-angle"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "While bisecting an angle, Riya uses a much wider compass opening for her arcs than Arjun does for the same angle. What happens?",
+        "options": [
+          { "text": "Both get the same bisector - any sufficiently large opening works", "correct": true },
+          { "text": "They get different bisectors, because the arc size changes the answer", "misconception": "m4" },
+          { "text": "Only one 'correct' opening exists, so at most one of them is right", "misconception": "m4", "diagnosis": "Believing there is a single magic radius; the construction works for every workable radius." },
+          { "text": "The wider opening makes the angle itself bigger", "diagnosis": "Arcs are scaffolding; they cannot change the angle being bisected." }
+        ],
+        "explanation": "The construction relies only on the arcs being EQUAL to each other, not on their particular size. Different radii produce crossing points at different distances, but all those crossing points lie on the same bisector ray."
+      }
+    },
+
+    {
+      "id": "g6.mea.mensuration-perimeter-area.perimeter-idea",
+      "parent": "g6.mea.mensuration-perimeter-area",
+      "title": "Perimeter as Distance Around",
+      "description": "Establish perimeter as the total length of the boundary - walked, fenced or traced - and find perimeters of arbitrary straight-sided figures by adding ALL the sides.",
+      "outcomes": [
+        "Can find the perimeter of any polygon by summing every side",
+        "Can identify real situations (fencing, lace border, running a lap) that call for perimeter"
+      ],
+      "prereqs": ["g4.mea.perimeter-intro"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g6.mea.mensuration-perimeter-area.perimeter-formulas",
+      "parent": "g6.mea.mensuration-perimeter-area",
+      "title": "Perimeter Formulas for Rectangles and Squares",
+      "description": "Compress side-adding into formulas - rectangle: 2 x (length + breadth), square: 4 x side - remembering the shape has four sides, so length + breadth is only halfway there.",
+      "outcomes": [
+        "Can apply P = 2(l + b) and P = 4s correctly with units",
+        "Can find a missing side given the perimeter"
+      ],
+      "prereqs": ["g6.mea.mensuration-perimeter-area.perimeter-idea"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A rectangle is 8 cm long and 5 cm wide. What is its perimeter?",
+        "options": [
+          { "text": "26 cm", "correct": true },
+          { "text": "13 cm", "misconception": "m4", "diagnosis": "Added length + breadth only; that covers just two of the four sides." },
+          { "text": "40 cm", "misconception": "m1", "diagnosis": "Multiplied 8 x 5 - that is the area formula, not the perimeter." },
+          { "text": "21 cm", "diagnosis": "Computed 8 + 8 + 5, forgetting one of the widths." }
+        ],
+        "explanation": "The boundary has four sides: 8 + 5 + 8 + 5 = 26 cm, i.e. P = 2 x (8 + 5) = 2 x 13 = 26 cm. Length plus breadth (13 cm) is only half the way around."
+      }
+    },
+    {
+      "id": "g6.mea.mensuration-perimeter-area.area-counting-squares",
+      "parent": "g6.mea.mensuration-perimeter-area",
+      "title": "Area by Counting Unit Squares",
+      "description": "Measure area as the number of unit squares a region covers, counting full squares, half squares, and estimating for more-than-half / less-than-half squares on grid paper.",
+      "outcomes": [
+        "Can find areas of grid figures including halves and irregular edges",
+        "Can explain area as covered surface, distinct from distance around"
+      ],
+      "prereqs": ["g4.mea.area-intro"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g6.mea.mensuration-perimeter-area.area-formulas",
+      "parent": "g6.mea.mensuration-perimeter-area",
+      "title": "Area Formulas for Rectangles and Squares",
+      "description": "Derive area = length x breadth from rows of unit squares, use area = side x side for squares, and attach SQUARE units (cm2, m2) because area counts squares, not lengths.",
+      "outcomes": [
+        "Can compute areas of rectangles and squares with correct square units",
+        "Can find a missing side from the area and explain why area units are squared"
+      ],
+      "prereqs": [
+        "g6.mea.mensuration-perimeter-area.area-counting-squares",
+        "g5.mea.area-perimeter-rect"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is the area of a square of side 6 cm?",
+        "options": [
+          { "text": "36 cm2", "correct": true },
+          { "text": "24 cm", "misconception": "m1", "diagnosis": "Computed the perimeter (4 x 6) instead of the area." },
+          { "text": "36 cm", "misconception": "m3", "diagnosis": "Right number, wrong unit: area counts unit SQUARES, so it needs cm2." },
+          { "text": "12 cm2", "diagnosis": "Added 6 + 6 instead of multiplying 6 x 6." }
+        ],
+        "explanation": "Area = side x side = 6 x 6 = 36, measured in square centimetres: 36 cm2. The unit matters - 36 cm would describe a length, but area counts the 1 cm x 1 cm squares covering the surface."
+      }
+    },
+    {
+      "id": "g6.mea.mensuration-perimeter-area.perimeter-vs-area",
+      "parent": "g6.mea.mensuration-perimeter-area",
+      "title": "Same Perimeter, Different Area (and Vice Versa)",
+      "description": "Build different rectangles with equal perimeters and compare their areas (and equal areas with different perimeters), proving the two measures are independent.",
+      "outcomes": [
+        "Can construct rectangles with the same perimeter but different areas",
+        "Can explain why knowing the perimeter does not determine the area"
+      ],
+      "prereqs": [
+        "g6.mea.mensuration-perimeter-area.perimeter-formulas",
+        "g6.mea.mensuration-perimeter-area.area-formulas"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Rectangle P is 6 cm by 2 cm. Rectangle Q is 5 cm by 3 cm. Both have perimeter 16 cm. Which has the bigger area?",
+        "options": [
+          { "text": "Q, because 5 x 3 = 15 cm2 is more than 6 x 2 = 12 cm2", "correct": true },
+          { "text": "They must have the same area, because their perimeters are equal", "misconception": "m2" },
+          { "text": "P, because it is longer", "diagnosis": "A longer shape with the same perimeter is thinner; length alone does not decide area." },
+          { "text": "It cannot be determined from the given information", "diagnosis": "Both areas can be computed directly: 12 cm2 and 15 cm2." }
+        ],
+        "explanation": "P: 6 x 2 = 12 cm2. Q: 5 x 3 = 15 cm2. Same perimeter (16 cm), different areas - the squarer the rectangle, the more area a fixed boundary encloses. Perimeter does not control area."
+      }
+    },
+    {
+      "id": "g6.mea.mensuration-perimeter-area.real-world-problems",
+      "parent": "g6.mea.mensuration-perimeter-area",
+      "title": "Choosing Perimeter or Area in Word Problems",
+      "description": "Solve fencing, framing, tiling and painting problems by first deciding which measure the situation needs - boundary length (perimeter) or covered surface (area) - including cost calculations.",
+      "outcomes": [
+        "Can classify a real problem as a perimeter or an area problem before computing",
+        "Can solve cost problems like fencing at Rs per metre or tiling at Rs per square metre"
+      ],
+      "prereqs": ["g6.mea.mensuration-perimeter-area.perimeter-vs-area"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A square park has side 50 m. How much wire is needed to fence it once all around?",
+        "options": [
+          { "text": "200 m", "correct": true },
+          { "text": "2,500 m", "misconception": "m1", "diagnosis": "Computed the area 50 x 50; fencing follows the boundary, which is the perimeter." },
+          { "text": "100 m", "misconception": "m4", "diagnosis": "Added only two sides (50 + 50); the fence must run along all four." },
+          { "text": "50 m", "diagnosis": "Used a single side; the fence goes all the way around." }
+        ],
+        "explanation": "Fencing runs along the boundary, so we need the perimeter: 4 x 50 = 200 m. The area (2,500 m2) tells how much ground the park covers - useful for laying grass, irrelevant for fencing."
+      }
+    },
+
+    {
+      "id": "g6.dat.data-handling.collecting-organising",
+      "parent": "g6.dat.data-handling",
+      "title": "Collecting and Organising Data",
+      "description": "Gather raw data from a survey, and organise it into a frequency table so questions like 'which is most common?' can be answered at a glance.",
+      "outcomes": [
+        "Can record survey responses and organise raw data into a frequency table",
+        "Can answer simple most/least/how-many questions from an organised table"
+      ],
+      "prereqs": ["g4.dat.bar-charts"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g6.dat.data-handling.tally-marks",
+      "parent": "g6.dat.data-handling",
+      "title": "Recording with Tally Marks",
+      "description": "Use tally marks in bundles of five - four strokes and a fifth diagonal across - to record counts quickly and read them back by counting bundles, not strokes.",
+      "outcomes": [
+        "Can record counts in five-bar tally bundles",
+        "Can read a tally accurately as 5 per full bundle plus leftover singles"
+      ],
+      "prereqs": ["g6.dat.data-handling.collecting-organising"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "A tally shows two full five-bar bundles and 3 single strokes. What count does it represent?",
+        "options": [
+          { "text": "13", "correct": true },
+          { "text": "11", "misconception": "m1", "diagnosis": "Counted each bundle as 4 strokes (4 + 4 + 3); the diagonal fifth stroke is part of the bundle." },
+          { "text": "10", "diagnosis": "Counted only the full bundles and ignored the 3 single strokes." },
+          { "text": "15", "diagnosis": "Counted the singles as a third full bundle of five." }
+        ],
+        "explanation": "Each full five-bar gate is 5 (four uprights plus the diagonal): 5 + 5 = 10, then add the 3 singles: 10 + 3 = 13."
+      }
+    },
+    {
+      "id": "g6.dat.data-handling.pictographs",
+      "parent": "g6.dat.data-handling",
+      "title": "Reading and Drawing Pictographs",
+      "description": "Interpret and draw pictographs where one symbol stands for a scaled quantity given by the key, handling half-symbols as half the key value.",
+      "outcomes": [
+        "Can read a pictograph by multiplying symbol count by the key value, including half symbols",
+        "Can choose a sensible key and draw a pictograph for given data"
+      ],
+      "prereqs": ["g6.dat.data-handling.tally-marks"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In a pictograph, one book symbol = 10 books. A row shows 3 full symbols and 1 half symbol. How many books is that?",
+        "options": [
+          { "text": "35", "correct": true },
+          { "text": "4", "misconception": "m3", "diagnosis": "Counted symbols as items (3 full + 1 half rounded to 4), ignoring the key of 10 per symbol." },
+          { "text": "30", "misconception": "m3", "diagnosis": "Used the key for full symbols but dropped the half symbol worth 5." },
+          { "text": "40", "diagnosis": "Treated the half symbol as a full one; a half symbol means half the key value." }
+        ],
+        "explanation": "Each full symbol is 10 books and the half symbol is 5: 3 x 10 + 5 = 35 books. Always read the key first - symbols are counters of the key value, not of single items."
+      }
+    },
+    {
+      "id": "g6.dat.data-handling.reading-bar-graphs",
+      "parent": "g6.dat.data-handling",
+      "title": "Reading Bar Graphs with a Scale",
+      "description": "Read bar graphs whose axis uses a scale (1 unit = 10, 20, 100...), converting bar heights into actual values before answering any question.",
+      "outcomes": [
+        "Can convert bar heights to values using the stated scale",
+        "Can answer comparison and total questions from a scaled bar graph"
+      ],
+      "prereqs": [
+        "g6.dat.data-handling.collecting-organising",
+        "g5.dat.data-interpretation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A bar graph uses the scale 1 unit = 20 students. The bar for Class 6 is 6 units tall. How many students does it show?",
+        "options": [
+          { "text": "120", "correct": true },
+          { "text": "6", "misconception": "m2", "diagnosis": "Read the bar height as the raw count, ignoring the scale." },
+          { "text": "26", "diagnosis": "Added the scale to the height (6 + 20) instead of multiplying." },
+          { "text": "60", "diagnosis": "Used a scale of 10 per unit instead of the stated 20." }
+        ],
+        "explanation": "Each unit of height stands for 20 students, so 6 units represent 6 x 20 = 120 students. The first step in reading any bar graph is to check the scale."
+      }
+    },
+    {
+      "id": "g6.dat.data-handling.drawing-bar-graphs",
+      "parent": "g6.dat.data-handling",
+      "title": "Drawing Bar Graphs",
+      "description": "Draw bar graphs from frequency tables: choose an appropriate scale, keep bar widths and gaps equal, and label axes and title.",
+      "outcomes": [
+        "Can choose a scale that fits the data on the grid",
+        "Can draw a correctly labelled bar graph with uniform bars and gaps"
+      ],
+      "prereqs": ["g6.dat.data-handling.reading-bar-graphs"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g6.dat.data-handling.comparing-with-graphs",
+      "parent": "g6.dat.data-handling",
+      "title": "Answering Comparison Questions from Graphs",
+      "description": "Answer 'how many more', 'how many fewer' and 'total' questions from bar graphs and pictographs by computing differences and sums of the actual values - not just naming the bigger category.",
+      "outcomes": [
+        "Can answer how-many-more questions by subtracting the two values",
+        "Can combine values from a graph to answer total and two-step questions"
+      ],
+      "prereqs": [
+        "g6.dat.data-handling.reading-bar-graphs",
+        "g6.dat.data-handling.pictographs"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A bar graph shows 40 students chose cricket and 25 chose football. HOW MANY MORE students chose cricket than football?",
+        "options": [
+          { "text": "15", "correct": true },
+          { "text": "Cricket", "misconception": "m4", "diagnosis": "Named the bigger category; 'how many more' asks for the difference as a number." },
+          { "text": "40", "misconception": "m4", "diagnosis": "Restated the larger value instead of subtracting the smaller from it." },
+          { "text": "65", "diagnosis": "Added the two values; the question asks for the difference, not the total." }
+        ],
+        "explanation": "'How many more' means find the difference: 40 - 25 = 15. Fifteen more students chose cricket than football. Naming the winning category answers 'which is more', a different question."
+      }
+    }
+  ]
+}

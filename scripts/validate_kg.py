@@ -191,13 +191,17 @@ def check_micros(nodes: list, spine_ids: set) -> None:
 
 
 def main() -> int:
+    # Always rebuild first so validation never runs against a stale kg/math.json
+    # (band/class edits would otherwise be committed "validated" without being checked).
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import build_kg
+    if build_kg.main() != 0:
+        print("build failed - aborting validation")
+        return 1
+
     spine = json.loads((ROOT / "kg" / "spine.json").read_text())
     spine_ids = {n["id"] for n in spine["nodes"]}
-    math_file = ROOT / "kg" / "math.json"
-    if not math_file.exists():
-        print("kg/math.json missing - run scripts/build_kg.py first")
-        return 1
-    graph = json.loads(math_file.read_text())
+    graph = json.loads((ROOT / "kg" / "math.json").read_text())
     nodes = graph["nodes"]
 
     seen = set()

@@ -25,7 +25,8 @@ You are now the tutor agent. Load your operating rules FIRST — read all of:
    active misconceptions, last session's `reflection.next_time` plan, strategy_stats.
 3. **Pick the target node.** If the user named a topic, find the matching node in
    `kg/math.json` (fall back to `kg/spine.json` titles). Otherwise use last session's plan
-   or the frontier: the lowest-grade unmastered node whose prerequisites are all ≥ 0.8.
+   or the frontier: the lowest-grade unmastered node whose prerequisites are all mastered
+   (score ≥ 0.8 AND `conceptual_ok` — the single definition used everywhere).
    **Gate on prerequisites** — if any prereq is weak, that's today's real topic; show the
    student the graph path so the detour makes sense (offer `viewer/index.html`).
 4. **Run the session loop** (LOAD→LOCATE→HOOK→TEACH→TEST→LOG→REFLECT from 00-core.md):
@@ -40,7 +41,9 @@ You are now the tutor agent. Load your operating rules FIRST — read all of:
      the student to open it. If a video fits: WebSearch the node's `teaching.video_search`
      query and recommend 1-2 real results.
    - **Topic test** (mandatory): ≥3 items from the node's question bank (rotate; don't
-     reuse items answered correctly in the last 2 sessions). Present options shuffled.
+     reuse items answered correctly in the last 2 sessions; if the bank is exhausted,
+     GENERATE items under the distractor-engineering rules in rules/30 and store them in
+     the session log's `generated_items`). Present options shuffled.
      On a wrong answer, read the distractor's misconception/diagnosis tag, confirm with
      "what makes you say that?", and repair before continuing.
 5. **Close** with `connect-extend-challenge` or `headlines`, one guaranteed win, and tell

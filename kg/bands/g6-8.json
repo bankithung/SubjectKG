@@ -395,7 +395,7 @@
             },
             {
               "text": "216",
-              "misconception": "m3"
+              "diagnosis": "Gave the product 12 × 18 — swapped HCF for LCM and also assumed the LCM is always the product of the numbers."
             }
           ],
           "explanation": "Factors of 12: 1, 2, 3, 4, 6, 12. Factors of 18: 1, 2, 3, 6, 9, 18. Common factors are 1, 2, 3, 6 and the highest is 6. Note 36 is the LCM, and 216 = 12 × 18 is the product — neither is a factor of both numbers."
@@ -1939,7 +1939,7 @@
               "diagnosis": "Added two sides (7 + 7) instead of multiplying side × side."
             }
           ],
-          "explanation": "Area = side × side = 7 × 7 = 49, and since we are counting 1 cm × 1 cm tiles, the unit is cm². Note 28 cm is the perimeter (4 × 7). The number 49 with unit 'cm' is wrong too — area is measured in square units."
+          "explanation": "Area = side × side = 7 × 7 = 49, and since we are counting 1 cm × 1 cm tiles, the unit is cm². The option '28 cm²' comes from the perimeter calculation 4 × 7 = 28 — that number is the perimeter, not an area, whatever unit is pasted on. And 49 with unit 'cm' is wrong too — area is measured in square units."
         },
         {
           "id": "q3",
@@ -2008,7 +2008,7 @@
         },
         {
           "id": "m3",
-          "description": "Reads each pictograph symbol as one item even when the key says otherwise, and drops half symbols.",
+          "description": "Reads each pictograph symbol as one item even when the key says otherwise — counting a half symbol as one more whole item, or dropping it.",
           "signal": "Answers '3' or '4' for a row of 3½ symbols with key '1 symbol = 10 fans'.",
           "remedy": "Ritualise 'key first': circle the key before reading any row. Practise with keys of 2, 5, 10 and rows containing half symbols so multiplying by the key becomes automatic."
         },
@@ -2062,7 +2062,7 @@
             },
             {
               "text": "22",
-              "misconception": "m3"
+              "diagnosis": "Treated each five-bar bundle as worth 10 instead of 5: 10 + 10 + 2 = 22."
             }
           ],
           "explanation": "Each full five-bar gate 卌 is 5 (four strokes plus the crossing fifth). So 5 + 5 + 2 = 12. Counting a bundle as 4 gives 10; treating each bundle as 10 gives 22 — both come from misreading the convention."
@@ -2402,7 +2402,7 @@
           "id": "q3",
           "skill": "application",
           "difficulty": 3,
-          "prompt": "A jug holds 3/4 litre of juice. How many 1/2-litre glasses can be completely or partly filled — that is, what is 3/4 ÷ 1/2?",
+          "prompt": "A jug holds 3/4 litre of juice. How many half-litre glasses' worth of juice is that — that is, what is 3/4 ÷ 1/2?",
           "options": [
             {
               "text": "3/2 (= 1½ glasses)",
@@ -2721,7 +2721,7 @@
               "diagnosis": "Reported the total amount (principal + interest) instead of the interest alone."
             },
             {
-              "text": "₹80",
+              "text": "₹80,000",
               "misconception": "m3"
             }
           ],
@@ -2877,7 +2877,32 @@
               "diagnosis": "Off by one: counted all six digits instead of the five decimal shifts."
             }
           ],
-          "explanation": "Place the decimal after the leading digit: 3.84. The point moves 5 places to restore 384,000, so the power is 10⁵: 384,000 = 3.84 × 10⁵. Counting only the three zeros undercounts the shifts."
+          "explanation": "Place the decimal after the leading digit: 3.84. The point moves 5 places to restore 384,000, so the power is 10⁵: 384,000 = 3.84 × 10⁵. Counting only the three zeros undercounts the shifts. Note 38.4 × 10⁴ has exactly the same VALUE — but the question asks for standard form, so the answer is matched by the exact form written: the first factor must be at least 1 and less than 10."
+        },
+        {
+          "id": "q4",
+          "skill": "conceptual",
+          "difficulty": 3,
+          "prompt": "Why does 5⁰ equal 1 (and not 0)?",
+          "options": [
+            {
+              "text": "The quotient law gives 5³ ÷ 5³ = 5⁰, and any nonzero number divided by itself is 1",
+              "correct": true
+            },
+            {
+              "text": "An exponent of 0 means there are no fives at all, and having nothing means the value is 0",
+              "misconception": "m3"
+            },
+            {
+              "text": "It doesn't — 5⁰ equals 5, because raising to the power 0 leaves the base unchanged",
+              "misconception": "m3"
+            },
+            {
+              "text": "Because 5⁰ means 5 multiplied by 0, which should give 0, so mathematicians just define it as 1",
+              "misconception": "m2"
+            }
+          ],
+          "explanation": "Walk down the power ladder: 5³ = 125, 5² = 25, 5¹ = 5 — each step down divides by 5, so the next step is 5⁰ = 5 ÷ 5 = 1. Equivalently, the quotient law says 5³ ÷ 5³ = 5³⁻³ = 5⁰, and 125/125 = 1. The exponent counts factors, it is not a multiplier: 5⁰ is an EMPTY product, and an empty product is 1 (the multiplicative identity), not 0."
         }
       ]
     },
@@ -3180,10 +3205,35 @@
             },
             {
               "text": "−8",
-              "misconception": "m3"
+              "diagnosis": "Computed (−2)² as −4 AND dropped the sign in 2x: −12 + 4 = −8 — two slips chained."
             }
           ],
           "explanation": "Substitute with brackets: 3(−2)² + 2(−2) = 3(4) + (−4) = 12 − 4 = 8. The trap is (−2)²: squaring a negative gives POSITIVE 4. Writing −2² without brackets is how the −16 and −8 answers arise."
+        },
+        {
+          "id": "q4",
+          "skill": "conceptual",
+          "difficulty": 3,
+          "prompt": "A student claims that 2a + 3b simplifies to 5ab. What is the best way to test this claim, and what does the test show?",
+          "options": [
+            {
+              "text": "Substitute values such as a = 2, b = 3: then 2a + 3b = 13 but 5ab = 30, so unlike terms cannot be combined",
+              "correct": true
+            },
+            {
+              "text": "No test is needed — the claim is correct, since 2 + 3 = 5 and the letters a and b join together to make ab",
+              "misconception": "m1"
+            },
+            {
+              "text": "Substitution shows the claim is nearly right; the simplified form should instead be written as 5(a + b)",
+              "diagnosis": "Still pools unlike coefficients: 5(a + b) = 5a + 5b, which is not equal to 2a + 3b either — check with a = 2, b = 3."
+            },
+            {
+              "text": "The claim cannot be tested with numbers, because letters in algebra can stand for absolutely anything",
+              "diagnosis": "Hasn't grasped that a single counterexample disproves a general identity — if the claim were true it would hold for EVERY substitution."
+            }
+          ],
+          "explanation": "An identity must hold for every value of the variables, so one counterexample kills it. Take a = 2, b = 3: 2a + 3b = 4 + 9 = 13, while 5ab = 5 × 2 × 3 = 30. Since 13 ≠ 30, the expressions are not equal. 2a and 3b are UNLIKE terms (different variable parts), so 2a + 3b is already in simplest form — 3 samosas plus 2 teas never becomes 5 samosa-teas."
         }
       ]
     },
@@ -4246,6 +4296,31 @@
             }
           ],
           "explanation": "Circumference = 2πr = 2 × (22/7) × 7 = 44 cm. The value 154 is the AREA, πr² = (22/7) × 49 — right numbers, wrong formula. Dimension check: circumference is a length, so the formula uses r once, not r²."
+        },
+        {
+          "id": "q4",
+          "skill": "conceptual",
+          "difficulty": 3,
+          "prompt": "A parallelogram has sides 8 cm and 6 cm, and the height drawn to the 8 cm base is 5 cm. Why is its area 8 × 5 = 40 cm² rather than 8 × 6 = 48 cm²?",
+          "options": [
+            {
+              "text": "Area needs the PERPENDICULAR rise above the base; the slant side of 6 cm is longer than the true height of 5 cm",
+              "correct": true
+            },
+            {
+              "text": "It isn't — the area of a parallelogram is one side times the other side, so 8 × 6 = 48 cm² is actually the right answer",
+              "misconception": "m4"
+            },
+            {
+              "text": "Because a slanted figure only gets half of the product of its sides, the area is ½ × 8 × 6 = 24 cm², so both are wrong",
+              "diagnosis": "Applied the triangle's ½ to a parallelogram — the ½ exists because a diagonal cuts a parallelogram into TWO triangles; the parallelogram itself keeps base × height."
+            },
+            {
+              "text": "Because for a slanted figure we should really add the sides instead: the area is 2 × (8 + 6) = 28 cm² of surface",
+              "misconception": "m1"
+            }
+          ],
+          "explanation": "Push the parallelogram over into a rectangle: slicing a right triangle off one end and sliding it to the other turns it into a rectangle 8 cm wide and 5 cm tall — the height is how far the shape rises AT RIGHT ANGLES to the base. The 6 cm side leans, so it overstates the rise (it is the hypotenuse of a right triangle whose vertical leg is 5 cm). Area = base × perpendicular height = 8 × 5 = 40 cm²; 2(8 + 6) = 28 cm would be the perimeter, a length, not an area."
         }
       ]
     },
@@ -4347,7 +4422,7 @@
             },
             {
               "text": "12",
-              "misconception": "m3"
+              "diagnosis": "Reported the largest data value instead of computing the mean — an average is not the maximum."
             }
           ],
           "explanation": "Mean = (2 + 3 + 7 + 12) ÷ 4 = 24 ÷ 4 = 6. Notice 6 is not one of the data values — that is perfectly fine; the mean is the equal-share value, not necessarily a member of the list."
@@ -4548,7 +4623,7 @@
               "diagnosis": "Found one valid in-between number but stopped; averaging can be repeated without end."
             },
             {
-              "text": "Exactly 25 (the hundredths from 0.26 to 0.49, minus one)",
+              "text": "Exactly 24 (the hundredths 0.26, 0.27, …, 0.49)",
               "misconception": "m1"
             }
           ],
@@ -5157,7 +5232,32 @@
               "diagnosis": "Equal in value but not standard form — the leading factor must be at least 1 and less than 10."
             }
           ],
-          "explanation": "Move the decimal point 4 places right to get 5.2, so 0.00052 = 5.2 × 10⁻⁴. The exponent is negative because the number is less than 1, and it is 4 (not 5) because the point hops four places. Check: 5.2 ÷ 10⁴ = 0.00052 ✓."
+          "explanation": "Move the decimal point 4 places right to get 5.2, so 0.00052 = 5.2 × 10⁻⁴. The exponent is negative because the number is less than 1, and it is 4 (not 5) because the point hops four places. Check: 5.2 ÷ 10⁴ = 0.00052 ✓. Note 52 × 10⁻⁵ has exactly the same VALUE — but the question asks for standard form, so the answer is matched by the exact form written: the leading factor must be at least 1 and less than 10."
+        },
+        {
+          "id": "q4",
+          "skill": "conceptual",
+          "difficulty": 3,
+          "prompt": "Continue the pattern 2³ = 8, 2² = 4, 2¹ = 2, 2⁰ = 1. What must 2⁻¹ be, and why?",
+          "options": [
+            {
+              "text": "1/2 — each step down the ladder divides the value by 2, so the pattern forces 2⁻¹ = 1 ÷ 2",
+              "correct": true
+            },
+            {
+              "text": "−2 — the minus sign in the exponent carries over and makes the value of the power negative",
+              "misconception": "m1"
+            },
+            {
+              "text": "−1/2 — you take the reciprocal of the base and then attach the minus sign from the exponent",
+              "misconception": "m1"
+            },
+            {
+              "text": "0 — the values 8, 4, 2, 1 keep shrinking, so the ladder must finally bottom out at zero here",
+              "diagnosis": "Sees the shrinking but not its mechanism: each step HALVES the value, and repeatedly halving a positive number never reaches 0."
+            }
+          ],
+          "explanation": "Going down one rung of the ladder always divides by the base: 8 → 4 → 2 → 1, each time ÷ 2. So the next rung is 2⁻¹ = 1 ÷ 2 = 1/2, and then 2⁻² = 1/4. A negative exponent means RECIPROCAL (a⁻ⁿ = 1/aⁿ), not a negative value — every power of a positive base stays positive, just smaller and smaller."
         }
       ]
     },
@@ -5253,7 +5353,7 @@
             },
             {
               "text": "4.8",
-              "misconception": "m4"
+              "diagnosis": "Applied the inverse-proportion model (constant product xy = 48) to a direct-proportion situation: 48 ÷ 10 = 4.8."
             },
             {
               "text": "120",
@@ -5599,7 +5699,7 @@
             },
             {
               "text": "16.5",
-              "misconception": "m3"
+              "diagnosis": "Ignored the two +5s for 'in 5 years' and solved 4x = 66 directly."
             },
             {
               "text": "42",

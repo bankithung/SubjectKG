@@ -38,6 +38,7 @@
                 "id": { "type": "string", "description": "Misconception id within that node, e.g. m2." },
                 "first_seen": { "type": "string", "format": "date" },
                 "repair_stage": { "enum": ["observed", "confronted", "retest-due", "repaired"] },
+                "retest_after": { "type": "string", "format": "date", "description": "When the next repair-confirmation retest is due (rules/40: +2d, then +7d)." },
                 "notes": { "type": "string" }
               }
             }
@@ -101,6 +102,6 @@
       }
     },
     "session_count": { "type": "integer" },
-    "last_session": { "type": "string", "format": "date" }
+    "last_session": { "type": ["string", "null"], "format": "date", "description": "null until the first session." }
   }
 }

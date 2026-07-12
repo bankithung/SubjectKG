@@ -1,0 +1,1720 @@
+{
+  "class": 4,
+  "micros": [
+    {
+      "id": "g4.num.numbers-to-100000.ten-thousands-place",
+      "parent": "g4.num.numbers-to-100000",
+      "title": "The Ten-Thousands Place: Crossing 9,999",
+      "description": "What happens one step after 9,999: a new column opens up. Build 10,000 from ten thousands and meet the five-column place-value frame (TTh Th H T O).",
+      "outcomes": [
+        "Can say what number comes after 9,999 and explain why a new column is needed",
+        "Can place the digits of a 5-digit number into a TTh Th H T O frame"
+      ],
+      "prereqs": ["g3.num.numbers-to-9999"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": []
+    },
+    {
+      "id": "g4.num.numbers-to-100000.read-write-figures",
+      "parent": "g4.num.numbers-to-100000",
+      "title": "Reading and Writing 5-digit Numbers",
+      "description": "Read 5-digit numbers aloud, write them from words, and place Indian-system commas (last three digits, then pairs). Zeros hold empty places and must be written.",
+      "outcomes": [
+        "Can write a spoken or worded number in figures using a place-value frame",
+        "Can read a 5-digit numeral aloud correctly, including ones with middle zeros",
+        "Can place Indian-system commas correctly in a 5-digit number"
+      ],
+      "prereqs": ["g4.num.numbers-to-100000.ten-thousands-place"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Write 'sixty thousand three hundred nine' in figures.",
+        "options": [
+          { "text": "60,309", "correct": true },
+          { "text": "6,00,309", "misconception": "m2", "diagnosis": "Transcribed each spoken chunk in full and glued them together, producing extra digits." },
+          { "text": "63,009", "diagnosis": "Pushed the 'three hundred' up into the thousands place; the place-value frame was not used." },
+          { "text": "60,390", "diagnosis": "Wrote 'ninety' instead of 'nine' — the final 9 belongs in the ones column, with 0 holding the tens." }
+        ],
+        "explanation": "Fill the frame: 6 ten-thousands, 0 thousands, 3 hundreds, 0 tens, 9 ones → 60,309. Every untouched column gets a 0 before you read the numeral off."
+      }
+    },
+    {
+      "id": "g4.num.numbers-to-100000.place-face-value",
+      "parent": "g4.num.numbers-to-100000",
+      "title": "Place Value and Face Value",
+      "description": "A digit's face value is the digit itself; its place value is digit × the worth of its column. The same digit is worth different amounts in different positions.",
+      "outcomes": [
+        "Can state the place value and the face value of any digit in a 5-digit number",
+        "Can explain why the two 5s in 55,000 are worth different amounts"
+      ],
+      "prereqs": ["g4.num.numbers-to-100000.read-write-figures"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "What is the place value of the digit 5 in 52,346?",
+        "options": [
+          { "text": "50,000", "correct": true },
+          { "text": "5", "misconception": "m3", "diagnosis": "Gave the face value; position multiplies a digit's worth." },
+          { "text": "5,000", "diagnosis": "Named the thousands place instead of ten thousands; columns miscounted from the right." },
+          { "text": "500", "diagnosis": "Counted positions from the left instead of from the ones place." }
+        ],
+        "explanation": "The 5 sits in the ten-thousands column, so it is worth 5 × 10,000 = 50,000. Its face value is just 5 — the position does the multiplying."
+      }
+    },
+    {
+      "id": "g4.num.numbers-to-100000.expanded-form",
+      "parent": "g4.num.numbers-to-100000",
+      "title": "Expanded Form: Breaking and Rebuilding Numbers",
+      "description": "Write a 5-digit number as ten-thousands + thousands + hundreds + tens + ones, and rebuild the numeral from an expansion — even a jumbled one.",
+      "outcomes": [
+        "Can expand a 5-digit number as a sum of place values",
+        "Can rebuild the numeral from an expansion given in any order",
+        "Can spot a wrong expansion such as 7 + 4 + 5 + 6 + 8 for 74,568"
+      ],
+      "prereqs": ["g4.num.numbers-to-100000.place-face-value"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"]
+    },
+    {
+      "id": "g4.num.numbers-to-100000.compare-order",
+      "parent": "g4.num.numbers-to-100000",
+      "title": "Comparing and Ordering 5-digit Numbers",
+      "description": "Compare numbers by first counting digits — more digits means a bigger number — and only then comparing place by place from the left. Order sets of numbers ascending and descending.",
+      "outcomes": [
+        "Can compare two numbers by counting digits first, then comparing from the leftmost place",
+        "Can order four or five large numbers from smallest to greatest"
+      ],
+      "prereqs": ["g4.num.numbers-to-100000.place-face-value"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Meera says, '9,876 is greater than 12,345 because 9 is greater than 1.' Which statement is correct?",
+        "options": [
+          { "text": "Meera is wrong — 12,345 has 5 digits and 9,876 has only 4, so 12,345 is greater", "correct": true },
+          { "text": "Meera is right — 9 beats 1, so 9,876 is greater", "misconception": "m1", "diagnosis": "Compared leftmost digits without first counting how many digits each number has." },
+          { "text": "Meera is right — the digits of 9,876 add up to more", "diagnosis": "Digit-sum (30 vs 15) does not decide which number is larger." },
+          { "text": "9,876 is greater because its ones digit 6 beats 5", "diagnosis": "Compares ones digits first; that rule fails even for 19 vs 25." }
+        ],
+        "explanation": "Count digits first: every 5-digit number is at least 10,000, and every 4-digit number is at most 9,999. So 12,345 > 9,876 before we look at any digit."
+      }
+    },
+    {
+      "id": "g4.num.numbers-to-100000.make-largest-smallest",
+      "parent": "g4.num.numbers-to-100000",
+      "title": "Making the Largest and Smallest Numbers from Digits",
+      "description": "Given a set of digits, arrange them to build the largest and the smallest possible 5-digit number — including the trick that 0 cannot lead.",
+      "outcomes": [
+        "Can build the largest number by placing the biggest digit in the highest place",
+        "Can build the smallest number, moving a 0 to second place instead of first"
+      ],
+      "prereqs": ["g4.num.numbers-to-100000.compare-order"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+
+    {
+      "id": "g4.num.add-sub-large.estimate-first",
+      "parent": "g4.num.add-sub-large",
+      "title": "Estimate Before You Calculate",
+      "description": "Round each number to a friendly nearby thousand or hundred and add or subtract in your head, so you know roughly what the exact answer must be before you start.",
+      "outcomes": [
+        "Can give a rough estimate for a sum or difference of 4- and 5-digit numbers",
+        "Can use the estimate to reject an answer that is clearly too big or too small"
+      ],
+      "prereqs": ["g3.num.add-sub-3digit", "g4.num.numbers-to-100000.compare-order"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": []
+    },
+    {
+      "id": "g4.num.add-sub-large.add-with-regrouping",
+      "parent": "g4.num.add-sub-large",
+      "title": "Column Addition with Carrying",
+      "description": "Add 4- and 5-digit numbers in columns, carrying into the next place whenever a column sum reaches 10 — sometimes in several columns of the same sum.",
+      "outcomes": [
+        "Can add two numbers up to 5 digits with carrying in any or all columns",
+        "Can explain what the small carry mark records (ten ones traded for one ten)"
+      ],
+      "prereqs": ["g3.num.add-sub-3digit", "g4.num.numbers-to-100000.place-face-value"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "4,567 + 3,876 = ?",
+        "options": [
+          { "text": "8,443", "correct": true },
+          { "text": "7,333", "misconception": "m2", "diagnosis": "Wrote each column's ones digit and dropped every carry." },
+          { "text": "8,343", "diagnosis": "Dropped only the tens-column carry; regrouping is applied inconsistently." },
+          { "text": "9,443", "diagnosis": "Added an extra carry into the thousands column." }
+        ],
+        "explanation": "Ones: 7 + 6 = 13, write 3 carry 1. Tens: 6 + 7 + 1 = 14, write 4 carry 1. Hundreds: 5 + 8 + 1 = 14, write 4 carry 1. Thousands: 4 + 3 + 1 = 8. Answer: 8,443."
+      }
+    },
+    {
+      "id": "g4.num.add-sub-large.subtract-with-borrowing",
+      "parent": "g4.num.add-sub-large",
+      "title": "Column Subtraction with Borrowing",
+      "description": "Subtract large numbers in columns. When the top digit is smaller, break one from the next place into ten — never just flip the digits around.",
+      "outcomes": [
+        "Can subtract numbers up to 5 digits with borrowing in one or more columns",
+        "Can explain why 52 − 38 is not 26: you must borrow, not take smaller from larger"
+      ],
+      "prereqs": ["g4.num.add-sub-large.add-with-regrouping"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "6,243 − 2,578 = ?",
+        "options": [
+          { "text": "3,665", "correct": true },
+          { "text": "4,335", "misconception": "m1", "diagnosis": "Took the smaller digit from the larger in every column instead of borrowing." },
+          { "text": "3,675", "diagnosis": "Single borrowing slip in the tens column; the method is otherwise intact." },
+          { "text": "3,565", "diagnosis": "Borrowing slip in the hundreds column; check by adding back would catch it." }
+        ],
+        "explanation": "Ones: borrow to make 13 − 8 = 5. Tens: 3 − 7 needs another borrow, 13 − 7 = 6. Hundreds: 1 − 5 needs a borrow, 11 − 5 = 6. Thousands: 5 − 2 = 3. Answer: 3,665. Check: 3,665 + 2,578 = 6,243."
+      }
+    },
+    {
+      "id": "g4.num.add-sub-large.borrow-across-zeros",
+      "parent": "g4.num.add-sub-large",
+      "title": "Borrowing Across Zeros",
+      "description": "Subtracting from numbers like 7,000 means borrowing across several zeros. Rename the whole block first (7,000 = 6 thousands, 9 hundreds, 9 tens, 10 ones), then subtract place by place.",
+      "outcomes": [
+        "Can subtract from a number with one or more zeros in the top row",
+        "Can rename a round number as thousands-hundreds-tens-ones before subtracting"
+      ],
+      "prereqs": ["g4.num.add-sub-large.subtract-with-borrowing"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3", "m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "7,000 − 3,458 = ?",
+        "options": [
+          { "text": "3,542", "correct": true },
+          { "text": "4,542", "misconception": "m3", "diagnosis": "Borrowed the 10 but never reduced the thousands column it came from — the leading digit is 1 too big." },
+          { "text": "4,458", "misconception": "m1", "diagnosis": "Took the smaller digit from the larger in every column; no borrowing at all." },
+          { "text": "3,642", "diagnosis": "Slip in the hundreds column while borrowing; the renaming step was rushed." }
+        ],
+        "explanation": "Rename 7,000 as 6 thousands, 9 hundreds, 9 tens, 10 ones. Then 10 − 8 = 2, 9 − 5 = 4, 9 − 4 = 5, 6 − 3 = 3, giving 3,542. Check: 3,542 + 3,458 = 7,000."
+      }
+    },
+    {
+      "id": "g4.num.add-sub-large.check-by-adding-back",
+      "parent": "g4.num.add-sub-large",
+      "title": "Checking Answers by Adding Back",
+      "description": "Every subtraction can be checked: answer + number subtracted must give the starting number. Make the add-back check a habit that catches borrowing mistakes.",
+      "outcomes": [
+        "Can check a subtraction with the add-back rule and say whether the answer stands",
+        "Can find which column went wrong when the check fails"
+      ],
+      "prereqs": ["g4.num.add-sub-large.subtract-with-borrowing"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g4.num.add-sub-large.two-step-word-problems",
+      "parent": "g4.num.add-sub-large",
+      "title": "Two-step Word Problems",
+      "description": "Real problems often need two moves — add first, then subtract, or the other way round. Plan the steps, estimate the answer, compute, and check it makes sense in the story.",
+      "outcomes": [
+        "Can plan and solve a word problem that needs both an addition and a subtraction",
+        "Can state the answer in a sentence with the right unit and sense-check it"
+      ],
+      "prereqs": ["g4.num.add-sub-large.add-with-regrouping", "g4.num.add-sub-large.borrow-across-zeros", "g4.num.add-sub-large.estimate-first"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A school fete collected ₹23,450 on Saturday and ₹18,600 on Sunday. The target was ₹50,000. How much MORE money was needed to reach the target?",
+        "options": [
+          { "text": "₹7,950", "correct": true },
+          { "text": "₹8,950", "misconception": "m3", "diagnosis": "Borrowed across the zeros of 50,000 without reducing the column the 10 came from." },
+          { "text": "₹42,050", "diagnosis": "Stopped after step one — that is the total collected, not the shortfall." },
+          { "text": "₹92,050", "diagnosis": "Added the target instead of subtracting from it; the question words were not re-read." }
+        ],
+        "explanation": "Step 1: 23,450 + 18,600 = 42,050 collected. Step 2: 50,000 − 42,050 = 7,950. Estimate check: about 42,000 collected of 50,000, so roughly 8,000 short — 7,950 fits."
+      }
+    },
+
+    {
+      "id": "g4.num.mult-multi-digit.mult-by-10-100",
+      "parent": "g4.num.mult-multi-digit",
+      "title": "Multiplying by 10, 100 and Tens",
+      "description": "Multiplying by 10 shifts every digit one place up, leaving a zero in the ones. Use this to compute 27 × 30 as 27 × 3 × 10 — the key fact behind the long multiplication algorithm.",
+      "outcomes": [
+        "Can multiply any number by 10 or 100 and explain the zero pattern by place value",
+        "Can multiply by a multiple of ten, e.g. 27 × 30 = 810"
+      ],
+      "prereqs": ["g3.num.mult-tables"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g4.num.mult-multi-digit.mult-2digit-by-1digit",
+      "parent": "g4.num.mult-multi-digit",
+      "title": "2-digit × 1-digit with Carrying",
+      "description": "Multiply a 2-digit number by a 1-digit number in columns. The rule to say aloud every time: multiply first, THEN add the carry.",
+      "outcomes": [
+        "Can multiply a 2-digit number by a 1-digit number with a carry",
+        "Can verbalise the order: times fact first, carry added after"
+      ],
+      "prereqs": ["g3.num.mult-2digit-by-1digit"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "47 × 8 = ?",
+        "options": [
+          { "text": "376", "correct": true },
+          { "text": "726", "misconception": "m3", "diagnosis": "Added the carry 5 to the 4 BEFORE multiplying: (4 + 5) × 8 = 72. Multiply first, then add the carry." },
+          { "text": "3,256", "diagnosis": "Wrote 32 and 56 side by side instead of regrouping the partial products." },
+          { "text": "366", "diagnosis": "Carried 4 instead of 5 from 7 × 8 = 56; the times fact is fine, the carry record slipped." }
+        ],
+        "explanation": "7 × 8 = 56: write 6, carry 5. Then 4 × 8 = 32, plus the carry 5 gives 37. Answer: 376."
+      }
+    },
+    {
+      "id": "g4.num.mult-multi-digit.mult-3digit-by-1digit",
+      "parent": "g4.num.mult-multi-digit",
+      "title": "3-digit × 1-digit Numbers",
+      "description": "Extend column multiplication to 3-digit numbers, handling carries in more than one column and zeros inside the number (e.g. 305 × 7).",
+      "outcomes": [
+        "Can multiply a 3-digit number by a 1-digit number with carries in several columns",
+        "Can handle a zero inside the 3-digit number correctly"
+      ],
+      "prereqs": ["g4.num.mult-multi-digit.mult-2digit-by-1digit"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"]
+    },
+    {
+      "id": "g4.num.mult-multi-digit.area-model-partials",
+      "parent": "g4.num.mult-multi-digit",
+      "title": "The Area (Box) Model and Partial Products",
+      "description": "Split each factor into tens and ones and draw a box: 23 × 45 becomes four small products (20×40, 20×5, 3×40, 3×5) that add to the answer. This is what the written algorithm secretly records.",
+      "outcomes": [
+        "Can draw the box model for a 2-digit × 2-digit product and find all four partial products",
+        "Can explain why multiplying digit-under-digit misses two of the four boxes"
+      ],
+      "prereqs": ["g4.num.mult-multi-digit.mult-by-10-100", "g4.num.mult-multi-digit.mult-2digit-by-1digit"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "To find 23 × 45 with the box model, you split 23 into 20 + 3 and 45 into 40 + 5. How many small products must you add up?",
+        "options": [
+          { "text": "4", "correct": true },
+          { "text": "2", "misconception": "m2", "diagnosis": "Only multiplies ones with ones and tens with tens — the two cross products are missing." },
+          { "text": "1", "diagnosis": "Thinks the box is just a picture of the final answer; each cell holds its own product." },
+          { "text": "3", "diagnosis": "Dropped one cross product; every part of one factor must meet every part of the other." }
+        ],
+        "explanation": "Each part of 20 + 3 multiplies each part of 40 + 5: 20×40 = 800, 20×5 = 100, 3×40 = 120, 3×5 = 15. Four products, and 800 + 100 + 120 + 15 = 1,035 = 23 × 45."
+      }
+    },
+    {
+      "id": "g4.num.mult-multi-digit.mult-2digit-by-2digit",
+      "parent": "g4.num.mult-multi-digit",
+      "title": "2-digit × 2-digit Column Method",
+      "description": "The compact written method: one row for the ones digit, one row for the tens digit ending in a placeholder zero because you are really multiplying by tens. Add the two partial products.",
+      "outcomes": [
+        "Can multiply two 2-digit numbers with the column method, writing the placeholder zero",
+        "Can explain that the second row is 'times thirty', not 'times three'"
+      ],
+      "prereqs": ["g4.num.mult-multi-digit.area-model-partials"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "43 × 26 = ?",
+        "options": [
+          { "text": "1,118", "correct": true },
+          { "text": "344", "misconception": "m1", "diagnosis": "Second row written as 86 instead of 860 — the placeholder zero for 'times twenty' was dropped." },
+          { "text": "818", "misconception": "m2", "diagnosis": "Multiplied digit under digit (3×6 and 4×2) and wrote the results side by side." },
+          { "text": "1,108", "diagnosis": "Partial products right (258 and 860) but a small slip while adding them." }
+        ],
+        "explanation": "43 × 6 = 258 and 43 × 20 = 860. Add: 258 + 860 = 1,118. The second row must end in 0 because it is 43 × 20, ten times bigger than 43 × 2."
+      }
+    },
+    {
+      "id": "g4.num.mult-multi-digit.estimate-word-problems",
+      "parent": "g4.num.mult-multi-digit",
+      "title": "Estimating and Multiplication Word Problems",
+      "description": "Round the factors to estimate the product first, then solve rows-and-columns, price and earnings problems, using the estimate to spot answers that are far too small or big.",
+      "outcomes": [
+        "Can estimate a product by rounding both factors to friendly numbers",
+        "Can solve a multiplication word problem and check the answer against the estimate"
+      ],
+      "prereqs": ["g4.num.mult-multi-digit.mult-2digit-by-2digit"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A shopkeeper packs 32 boxes with 25 pens in each box. How many pens is that in all?",
+        "options": [
+          { "text": "800", "correct": true },
+          { "text": "224", "misconception": "m1", "diagnosis": "Added 160 + 64 — the second partial product lost its placeholder zero (should be 640)." },
+          { "text": "610", "misconception": "m2", "diagnosis": "Multiplied digit under digit (3×2 and 2×5) and glued the results together." },
+          { "text": "750", "diagnosis": "Reported the estimate 30 × 25 as if it were the exact answer." }
+        ],
+        "explanation": "32 × 25 = 32 × 20 + 32 × 5 = 640 + 160 = 800 pens. Estimate check: 30 × 25 = 750, so 800 is sensible while 224 is far too small."
+      }
+    },
+
+    {
+      "id": "g4.num.division-long-intro.division-as-sharing-recap",
+      "parent": "g4.num.division-long-intro",
+      "title": "Division as Sharing and Grouping: Recap",
+      "description": "Warm up the two meanings of division — sharing equally among plates and making groups of a fixed size — and its link to multiplication facts (24 ÷ 6 asks '6 times what is 24?').",
+      "outcomes": [
+        "Can model a division fact as sharing and as grouping with counters",
+        "Can find a division answer from the matching multiplication table fact"
+      ],
+      "prereqs": ["g3.num.division-intro", "g3.num.mult-tables"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": []
+    },
+    {
+      "id": "g4.num.division-long-intro.divide-tens-then-ones",
+      "parent": "g4.num.division-long-intro",
+      "title": "Divide the Tens, Then the Ones",
+      "description": "Share a 2-digit number place by place: split 84 into 8 tens and 4 ones, share the tens first, then the ones. This place-by-place sharing is what long division writes down.",
+      "outcomes": [
+        "Can divide a 2-digit number by a 1-digit number by sharing tens first, then ones",
+        "Can exchange leftover tens into ones and keep sharing"
+      ],
+      "prereqs": ["g4.num.division-long-intro.division-as-sharing-recap"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": []
+    },
+    {
+      "id": "g4.num.division-long-intro.remainder-meaning",
+      "parent": "g4.num.division-long-intro",
+      "title": "What the Remainder Means",
+      "description": "Sometimes sharing does not come out even — the remainder is what is left. The golden rule: a remainder must always be SMALLER than the divisor, or one more group could still be made.",
+      "outcomes": [
+        "Can find a quotient and remainder for a small division and say what each means",
+        "Can explain why a remainder equal to or bigger than the divisor signals an unfinished division"
+      ],
+      "prereqs": ["g4.num.division-long-intro.divide-tens-then-ones"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "44 ÷ 6 = ?",
+        "options": [
+          { "text": "7 remainder 2", "correct": true },
+          { "text": "6 remainder 8", "misconception": "m1", "diagnosis": "Stopped at 6 × 6 = 36 leaving 8 — but 8 leftover counters still fill one more group of 6." },
+          { "text": "8", "diagnosis": "Overshot: 8 × 6 = 48 is more than 44; the quotient must not overshoot the dividend." },
+          { "text": "7 remainder 4", "diagnosis": "Subtraction slip: 44 − 42 = 2, not 4. Check with 7 × 6 + remainder." }
+        ],
+        "explanation": "6 × 7 = 42 and 44 − 42 = 2, so 44 ÷ 6 = 7 remainder 2. The remainder 2 is smaller than 6, so no more groups can be made. Check: 7 × 6 + 2 = 44."
+      }
+    },
+    {
+      "id": "g4.num.division-long-intro.long-division-algorithm",
+      "parent": "g4.num.division-long-intro",
+      "title": "The Long Division Algorithm",
+      "description": "Divide, multiply, subtract, bring down — repeated for each digit of the dividend. Every digit of the dividend gets a digit written above it, even when that digit is 0.",
+      "outcomes": [
+        "Can divide a 2- or 3-digit number by a 1-digit number using the written algorithm",
+        "Can place a 0 in the quotient when a digit is too small to divide",
+        "Can estimate the quotient first to catch missing-zero answers"
+      ],
+      "prereqs": ["g4.num.division-long-intro.remainder-meaning"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "816 ÷ 4 = ?",
+        "options": [
+          { "text": "204", "correct": true },
+          { "text": "24", "misconception": "m2", "diagnosis": "Skipped the 0 above the tens digit; every digit of the dividend needs a digit in the quotient." },
+          { "text": "240", "diagnosis": "Knew a zero was needed but appended it at the end instead of above the tens digit." },
+          { "text": "214", "diagnosis": "Wrote 1 in the tens place even though 1 ÷ 4 gives 0; the bring-down step got confused." }
+        ],
+        "explanation": "8 ÷ 4 = 2. Then 1 ÷ 4 = 0 (write the 0!) with 1 left over; bring down the 6 to make 16, and 16 ÷ 4 = 4. Quotient: 204. Estimate: 816 ÷ 4 is about 800 ÷ 4 = 200, so 24 cannot be right."
+      }
+    },
+    {
+      "id": "g4.num.division-long-intro.check-by-multiplying",
+      "parent": "g4.num.division-long-intro",
+      "title": "Checking Division by Multiplying Back",
+      "description": "Every division can be verified: quotient × divisor + remainder must rebuild the dividend exactly. Use the check to catch remainder and missing-zero slips.",
+      "outcomes": [
+        "Can check a division answer with quotient × divisor + remainder = dividend",
+        "Can use a failed check to find and fix the error"
+      ],
+      "prereqs": ["g4.num.division-long-intro.long-division-algorithm"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Asha worked out 74 ÷ 3 = 24 remainder 2. Which check shows her answer is right?",
+        "options": [
+          { "text": "24 × 3 + 2 = 74, so the answer rebuilds the dividend", "correct": true },
+          { "text": "24 × 3 should equal 74 exactly", "diagnosis": "Forgot the remainder in the check; 24 × 3 = 72, and the leftover 2 must be added back." },
+          { "text": "24 + 3 + 2 = 74 should be true", "diagnosis": "Added everything instead of multiplying; the check mirrors division with multiplication." },
+          { "text": "74 × 3 = 24 should be true", "diagnosis": "Reversed the roles of dividend and quotient; multiplying the dividend makes it bigger, not smaller." }
+        ],
+        "explanation": "Division undone is multiplication: 24 groups of 3 make 72, and adding the 2 left over gives 74 — exactly the starting number. So 24 r 2 is correct."
+      }
+    },
+    {
+      "id": "g4.num.division-long-intro.word-problems-interpret-remainder",
+      "parent": "g4.num.division-long-intro",
+      "title": "Word Problems: What to Do with the Remainder",
+      "description": "In real problems the remainder must be interpreted: round up (everyone needs a seat), drop it (only full boxes count), or report it (sweets left over). The story decides.",
+      "outcomes": [
+        "Can decide whether a problem needs rounding up, dropping, or reporting the remainder",
+        "Can state the final answer as a sensible sentence, not a bare 'q r n'"
+      ],
+      "prereqs": ["g4.num.division-long-intro.long-division-algorithm", "g4.num.division-long-intro.check-by-multiplying"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A farmer has 75 eggs and packs them into trays that hold 6 eggs each. How many FULL trays can she pack?",
+        "options": [
+          { "text": "12", "correct": true },
+          { "text": "12 remainder 3 trays", "misconception": "m3", "diagnosis": "Reported the division mechanically — 'remainder 3 trays' is not a real-world answer; the 3 are loose eggs." },
+          { "text": "13", "diagnosis": "Rounded up, but the 13th tray would have only 3 eggs — not a FULL tray." },
+          { "text": "3", "diagnosis": "Reported the leftover eggs instead of the full trays; re-read what the question asks." }
+        ],
+        "explanation": "75 ÷ 6 = 12 remainder 3. Twelve trays are completely full (72 eggs) and 3 eggs stay loose. The question asks for full trays, so the remainder is dropped: 12."
+      }
+    },
+
+    {
+      "id": "g4.num.fractions-equal-parts.equal-parts-idea",
+      "parent": "g4.num.fractions-equal-parts",
+      "title": "Fractions Need EQUAL Parts",
+      "description": "A fraction only makes sense when the whole is cut into equal parts. Test cuttings of rotis, cakes and rectangles: equal parts earn fraction names, unequal parts do not.",
+      "outcomes": [
+        "Can say whether a picture shows real fractions by checking the parts are equal",
+        "Can reject 'one of three pieces = one third' when the pieces differ in size"
+      ],
+      "prereqs": ["g3.num.fractions-intro"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "A cake is cut into 3 pieces: one big, one medium, one small. Rani takes the small piece. Did Rani get one third of the cake?",
+        "options": [
+          { "text": "No — thirds must be 3 EQUAL pieces, and these are not equal", "correct": true },
+          { "text": "Yes — the cake is in 3 pieces, so each piece is a third", "misconception": "m1", "diagnosis": "Counts the pieces but never checks that they are equal — the entry ticket to naming a fraction." },
+          { "text": "Yes, but only if she takes the middle-sized piece", "diagnosis": "Still accepts unequal cuts as fractions; no single unequal piece is a true third." },
+          { "text": "Only round cakes can be cut into thirds", "diagnosis": "Shape does not matter — any whole can be cut into 3 equal parts." }
+        ],
+        "explanation": "One third means the cake is shared into 3 equal parts and you take 1. With unequal pieces, nobody can say what fraction each piece is without measuring. Equal parts come first."
+      }
+    },
+    {
+      "id": "g4.num.fractions-equal-parts.name-shaded-fractions",
+      "parent": "g4.num.fractions-equal-parts",
+      "title": "Naming Fractions from Pictures",
+      "description": "Read a fraction off a picture: the bottom number counts the equal parts the whole is cut into, the top number counts the parts taken. Say it aloud: 'cut into __ equal parts, take __'.",
+      "outcomes": [
+        "Can write the fraction for a shaded region or a shared collection",
+        "Can say which number is the denominator and what job it does"
+      ],
+      "prereqs": ["g4.num.fractions-equal-parts.equal-parts-idea"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "A strip is divided into 8 equal parts and 5 of them are shaded. What fraction of the strip is shaded?",
+        "options": [
+          { "text": "5/8", "correct": true },
+          { "text": "8/5", "misconception": "m3", "diagnosis": "Swapped numerator and denominator; the parts-in-the-whole number goes on the bottom." },
+          { "text": "3/8", "diagnosis": "Named the unshaded part instead of the shaded part." },
+          { "text": "5/3", "diagnosis": "Compared shaded parts to unshaded parts instead of to the whole strip." }
+        ],
+        "explanation": "The whole is cut into 8 equal parts (denominator 8) and 5 are taken (numerator 5): the shaded fraction is 5/8."
+      }
+    },
+    {
+      "id": "g4.num.fractions-equal-parts.fraction-of-collection",
+      "parent": "g4.num.fractions-equal-parts",
+      "title": "Fractions of a Collection",
+      "description": "A fraction can also name part of a group: 1/4 of 12 marbles means sharing 12 into 4 equal groups and taking one group. Connect the denominator to dividing.",
+      "outcomes": [
+        "Can find a unit fraction of a small collection by equal sharing",
+        "Can explain why 1/4 of 12 is found by dividing 12 by 4"
+      ],
+      "prereqs": ["g4.num.fractions-equal-parts.name-shaded-fractions", "g3.num.division-intro"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"]
+    },
+    {
+      "id": "g4.num.fractions-equal-parts.compare-unit-fractions",
+      "parent": "g4.num.fractions-equal-parts",
+      "title": "Comparing Unit Fractions of the Same Whole",
+      "description": "For the same whole, more parts means smaller parts: 1/4 of a chapati is bigger than 1/6 of it. Fold paper strips to see why the whole-number order flips for unit fractions.",
+      "outcomes": [
+        "Can compare two unit fractions of the same whole and give the more-parts-smaller-parts reason",
+        "Can order three unit fractions such as 1/2, 1/5, 1/8"
+      ],
+      "prereqs": ["g4.num.fractions-equal-parts.name-shaded-fractions"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Arjun eats 1/5 of a chocolate bar. Priya eats 1/9 of the same bar. Who ate more?",
+        "options": [
+          { "text": "Arjun — fifths are bigger pieces than ninths", "correct": true },
+          { "text": "Priya — because 9 is greater than 5", "misconception": "m2", "diagnosis": "Ordered the fractions like whole numbers; more parts actually means smaller parts." },
+          { "text": "Both the same — each ate exactly one piece", "misconception": "m3", "diagnosis": "Counts pieces without minding their size; a piece's size depends on the denominator." },
+          { "text": "Cannot say without weighing the bar", "diagnosis": "Both fractions are of the SAME bar — that is exactly what makes them comparable." }
+        ],
+        "explanation": "Cutting the same bar into 9 parts makes smaller pieces than cutting it into 5. So 1/5 > 1/9 and Arjun ate more. For the same whole: more parts, smaller parts."
+      }
+    },
+    {
+      "id": "g4.num.fractions-equal-parts.equivalent-fractions-intro",
+      "parent": "g4.num.fractions-equal-parts",
+      "title": "Equivalent Fractions: Different Names, Same Amount",
+      "description": "Cutting every part in half doubles both numbers of a fraction but leaves the amount unchanged: 1/2 = 2/4 = 3/6. Meet equivalence with pictures and the fraction wall.",
+      "outcomes": [
+        "Can find an equivalent fraction by doubling (or tripling) both top and bottom",
+        "Can use a picture to explain why 1/2 and 3/6 name the same amount",
+        "Can spot false equivalents made by changing only one number"
+      ],
+      "prereqs": ["g4.num.fractions-equal-parts.compare-unit-fractions"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which fraction names the SAME amount as 1/2?",
+        "options": [
+          { "text": "3/6", "correct": true },
+          { "text": "2/1", "misconception": "m3", "diagnosis": "Swapped top and bottom; 2/1 is two wholes, far more than a half." },
+          { "text": "2/3", "diagnosis": "Added 1 to both numbers — additive thinking; equivalence multiplies both by the same number." },
+          { "text": "1/4", "diagnosis": "Doubled only the denominator, which halves the amount instead of keeping it equal." }
+        ],
+        "explanation": "Cut each half into 3 smaller pieces: 6 pieces in all, and the 1 shaded half becomes 3 shaded pieces. So 1/2 = 3/6 — both numbers are multiplied by 3 together."
+      }
+    },
+
+    {
+      "id": "g4.geo.circle-intro.parts-of-circle",
+      "parent": "g4.geo.circle-intro",
+      "title": "Centre, Radius, Diameter: Naming the Parts",
+      "description": "Meet the circle's special point (centre), the centre-to-edge distance (radius), the edge-to-edge line through the centre (diameter), and the boundary itself. Label them on drawings and real wheels.",
+      "outcomes": [
+        "Can point out and label centre, radius and diameter on a circle",
+        "Can describe a circle as all points the same distance from the centre"
+      ],
+      "prereqs": ["g3.geo.lines-shapes"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": []
+    },
+    {
+      "id": "g4.geo.circle-intro.all-radii-equal",
+      "parent": "g4.geo.circle-intro",
+      "title": "All Radii of a Circle Are Equal",
+      "description": "Draw a circle with string and chalk: the string cannot stretch, so every point of the curve is exactly one string-length from the centre. Equal radii are what MAKE a circle.",
+      "outcomes": [
+        "Can state that all radii of one circle are equal, without measuring each one",
+        "Can use the string-and-chalk construction to justify the equal-radius property"
+      ],
+      "prereqs": ["g4.geo.circle-intro.parts-of-circle"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "O is the centre of a circle, and point A is on the circle with OA = 4 cm. Point B is also on the circle. How long is OB?",
+        "options": [
+          { "text": "Exactly 4 cm — every centre-to-circle distance is a radius, and all radii are equal", "correct": true },
+          { "text": "It depends on which direction B lies from O", "misconception": "m1", "diagnosis": "Thinks the centre-to-edge distance can change with direction; then the shape would not be a circle." },
+          { "text": "8 cm", "misconception": "m3", "diagnosis": "Doubled to the diameter; OB goes only from the centre to the edge, so it is a radius." },
+          { "text": "We cannot know without measuring OB", "diagnosis": "Treats equal radii as a coincidence to verify rather than the defining property of a circle." }
+        ],
+        "explanation": "A circle is exactly the set of points 4 cm from O. B is on the circle, so OB = 4 cm — guaranteed, no measuring needed."
+      }
+    },
+    {
+      "id": "g4.geo.circle-intro.diameter-double-radius",
+      "parent": "g4.geo.circle-intro",
+      "title": "Diameter = 2 × Radius",
+      "description": "Fold a paper circle in half: the crease is a diameter, made of two radii laid end to end. Convert between radius and diameter in both directions.",
+      "outcomes": [
+        "Can find the diameter from the radius and the radius from the diameter",
+        "Can show with a folded circle why the diameter is twice the radius"
+      ],
+      "prereqs": ["g4.geo.circle-intro.all-radii-equal"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "The diameter of a bangle is 12 cm. What is its radius?",
+        "options": [
+          { "text": "6 cm", "correct": true },
+          { "text": "12 cm", "misconception": "m3", "diagnosis": "Treats radius and diameter as the same length; the radius is half the diameter." },
+          { "text": "24 cm", "diagnosis": "Doubled instead of halving — the conversion went the wrong way." },
+          { "text": "3 cm", "diagnosis": "Halved twice; only one halving takes a diameter to a radius." }
+        ],
+        "explanation": "A diameter is two radii end to end, so radius = diameter ÷ 2 = 12 ÷ 2 = 6 cm."
+      }
+    },
+    {
+      "id": "g4.geo.circle-intro.diameter-vs-chord",
+      "parent": "g4.geo.circle-intro",
+      "title": "No Centre, No Diameter",
+      "description": "Many lines can join two points on a circle (chords), but only the ones through the centre are diameters — and they are the longest. Test lines with the centre rule, not by eye.",
+      "outcomes": [
+        "Can decide whether a line across a circle is a diameter by checking it passes through the centre",
+        "Can explain why the diameter is the longest chord"
+      ],
+      "prereqs": ["g4.geo.circle-intro.diameter-double-radius"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these MUST be true for a line to be a diameter of a circle?",
+        "options": [
+          { "text": "It joins two points on the circle AND passes through the centre", "correct": true },
+          { "text": "It just needs to join any two points on the circle", "misconception": "m2", "diagnosis": "That describes a chord; without the centre it is not a diameter." },
+          { "text": "It needs to look like the widest line across", "diagnosis": "Judges by eye instead of the centre test; looks can deceive." },
+          { "text": "It must be the same length as the radius", "misconception": "m3", "diagnosis": "A diameter is twice the radius, never equal to it." }
+        ],
+        "explanation": "The rule is: no centre, no diameter. Chords that miss the centre are shorter; only the chords through the centre reach the maximum length, 2 × radius."
+      }
+    },
+    {
+      "id": "g4.geo.circle-intro.compass-drawing",
+      "parent": "g4.geo.circle-intro",
+      "title": "Drawing Circles with a Compass",
+      "description": "Set the compass opening to the RADIUS, plant the point at the centre, and sweep. Draw circles of a given radius — and of a given diameter, halving first.",
+      "outcomes": [
+        "Can draw a neat circle of a given radius with a compass",
+        "Can set the compass correctly when the DIAMETER is given, by halving it first"
+      ],
+      "prereqs": ["g4.geo.circle-intro.diameter-double-radius", "g3.mea.length-std-units"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "You must draw a circle of diameter 8 cm with a compass. How wide should you open the compass?",
+        "options": [
+          { "text": "4 cm — the compass opening is the radius, half the diameter", "correct": true },
+          { "text": "8 cm", "misconception": "m3", "diagnosis": "Set the compass to the diameter; that draws a circle of diameter 16 cm." },
+          { "text": "16 cm", "diagnosis": "Doubled instead of halving; the opening was pushed the wrong way twice." },
+          { "text": "2 cm", "diagnosis": "Halved the diameter twice; radius = 8 ÷ 2 = 4 cm, halve only once." }
+        ],
+        "explanation": "The compass point sits at the centre and the pencil traces points one opening away — so the opening IS the radius: 8 ÷ 2 = 4 cm."
+      }
+    },
+    {
+      "id": "g4.geo.circle-intro.why-wheels-round",
+      "parent": "g4.geo.circle-intro",
+      "title": "Why Wheels Are Round",
+      "description": "Because all radii are equal, a rolling wheel keeps its axle at a constant height — that is why carts do not bump up and down. Connect the equal-radius property to wheels, bangles and manhole covers.",
+      "outcomes": [
+        "Can explain a smooth wheel ride using the equal-radius property",
+        "Can predict what would happen with a square or oval wheel"
+      ],
+      "prereqs": ["g4.geo.circle-intro.all-radii-equal"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+
+    {
+      "id": "g4.geo.symmetry-reflection.fold-test",
+      "parent": "g4.geo.symmetry-reflection",
+      "title": "The Fold Test for Symmetry",
+      "description": "A line of symmetry is a fold along which the two halves land EXACTLY on each other. Equal-sized halves are not enough — they must match point for point when folded.",
+      "outcomes": [
+        "Can test a proposed line of symmetry by folding a cut-out or using a mirror",
+        "Can explain why a rectangle's diagonal cuts equal halves but is not a symmetry line"
+      ],
+      "prereqs": ["g3.geo.lines-shapes"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A line cuts a shape into two halves of exactly the same size. Is it always a line of symmetry?",
+        "options": [
+          { "text": "No — the halves must also fold exactly onto each other, like the rectangle's diagonal shows", "correct": true },
+          { "text": "Yes — equal halves is exactly what symmetry means", "misconception": "m1", "diagnosis": "Equal area is not enough; fold a rectangle on its diagonal and the corners stick out." },
+          { "text": "Only if the line stands straight up and down", "misconception": "m2", "diagnosis": "Symmetry lines can be vertical, horizontal or slanted; direction is not the test, folding is." },
+          { "text": "Yes, as long as the line passes through the middle of the shape", "diagnosis": "Overgeneralises 'through the centre' to 'symmetry'; that works for a circle but almost nothing else." }
+        ],
+        "explanation": "The diagonal of a rectangle makes two equal triangles, but folding along it leaves corners sticking out — the halves do not coincide. Symmetry needs a perfect fold-match, not just equal size."
+      }
+    },
+    {
+      "id": "g4.geo.symmetry-reflection.find-all-lines",
+      "parent": "g4.geo.symmetry-reflection",
+      "title": "Finding ALL the Lines of Symmetry",
+      "description": "Hunt for every fold line of squares, rectangles, triangles and circles — vertical, horizontal and slanted. Rotate the cut-out so tilted lines are not missed.",
+      "outcomes": [
+        "Can find all lines of symmetry of common shapes (square 4, rectangle 2, equilateral triangle 3)",
+        "Can keep hunting after the first line is found, in every direction"
+      ],
+      "prereqs": ["g4.geo.symmetry-reflection.fold-test"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "How many lines of symmetry does a rectangle (that is not a square) have?",
+        "options": [
+          { "text": "2", "correct": true },
+          { "text": "4", "misconception": "m1", "diagnosis": "Counted the diagonals too — they cut equal halves but fail the fold test." },
+          { "text": "1", "misconception": "m2", "diagnosis": "Found only the upright fold and missed the horizontal one." },
+          { "text": "0", "diagnosis": "Overcorrection — the folds joining midpoints of opposite sides do work." }
+        ],
+        "explanation": "A rectangle folds onto itself along the two lines joining midpoints of opposite sides. Its diagonals are NOT symmetry lines — folding there leaves corners sticking out. So: 2 lines."
+      }
+    },
+    {
+      "id": "g4.geo.symmetry-reflection.letters-numbers",
+      "parent": "g4.geo.symmetry-reflection",
+      "title": "Symmetry in Letters and Numbers",
+      "description": "Sort the alphabet by symmetry: A has a vertical line, E has a horizontal one, H and O have both, F has none. A small mirror makes the hunt a game.",
+      "outcomes": [
+        "Can find vertical and horizontal symmetry lines in capital letters and digits",
+        "Can name letters with no line of symmetry"
+      ],
+      "prereqs": ["g4.geo.symmetry-reflection.find-all-lines"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which line of symmetry does the capital letter E have?",
+        "options": [
+          { "text": "A horizontal line — the top half folds down exactly onto the bottom half", "correct": true },
+          { "text": "A vertical line", "diagnosis": "Folding E left-onto-right sends the arms away from the spine; they do not match." },
+          { "text": "None — symmetry lines must stand upright, and E has no upright one", "misconception": "m2", "diagnosis": "Only accepts vertical mirror lines; horizontal and slanted folds count too." },
+          { "text": "Both vertical and horizontal", "diagnosis": "Half right — test each fold separately; only the horizontal one works for E." }
+        ],
+        "explanation": "Fold E along a horizontal line through its middle arm: the top and bottom arms land exactly on each other. The vertical fold fails. Symmetry lines can lie in any direction."
+      }
+    },
+    {
+      "id": "g4.geo.symmetry-reflection.draw-reflection",
+      "parent": "g4.geo.symmetry-reflection",
+      "title": "Drawing Mirror Images",
+      "description": "A reflection FLIPS a shape: each point moves to the same distance on the other side of the mirror line, and left-right (or top-bottom) reverses. Copying without flipping is a slide, not a reflection.",
+      "outcomes": [
+        "Can draw the reflection of a simple shape or letter across a mirror line",
+        "Can check a reflection by matching point distances and reversed orientation"
+      ],
+      "prereqs": ["g4.geo.symmetry-reflection.fold-test"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "The letter 'p' is reflected in a vertical mirror standing to its right. What does the image look like?",
+        "options": [
+          { "text": "q", "correct": true },
+          { "text": "p", "misconception": "m3", "diagnosis": "Slid the letter across without flipping it; a mirror reverses left and right." },
+          { "text": "b", "diagnosis": "Flipped top-to-bottom (horizontal mirror) instead of left-to-right." },
+          { "text": "d", "diagnosis": "Rotated the letter a half turn instead of reflecting it." }
+        ],
+        "explanation": "A vertical mirror swaps left and right. The stick of 'p' with its bump on the right becomes a stick with the bump on the left: 'q'."
+      }
+    },
+    {
+      "id": "g4.geo.symmetry-reflection.complete-figures",
+      "parent": "g4.geo.symmetry-reflection",
+      "title": "Completing Symmetric Figures on a Grid",
+      "description": "Given half a figure and its mirror line on squared paper, draw the missing half: count each point's squares to the line and match them on the other side.",
+      "outcomes": [
+        "Can complete a symmetric figure across a vertical or horizontal mirror line on a grid",
+        "Can verify the finished figure with the fold test or a mirror"
+      ],
+      "prereqs": ["g4.geo.symmetry-reflection.draw-reflection"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"]
+    },
+
+    {
+      "id": "g4.mea.perimeter-intro.boundary-idea",
+      "parent": "g4.mea.perimeter-intro",
+      "title": "Perimeter Is the Walk Around the Boundary",
+      "description": "Perimeter is the total distance once around a shape — the length of fence, lace or one lap. It is measured in length units (cm, m). First question for any problem: fence or paint?",
+      "outcomes": [
+        "Can explain perimeter as boundary length and give real examples (fencing, lace, laps)",
+        "Can say that perimeter is measured in cm or m, not square units"
+      ],
+      "prereqs": ["g3.mea.length-std-units"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g4.mea.perimeter-intro.add-all-sides",
+      "parent": "g4.mea.perimeter-intro",
+      "title": "Adding All the Sides",
+      "description": "For any straight-sided shape, trace the whole trip around it and add EVERY side length — triangles, quadrilaterals and odd shapes, including ones with an unlabelled repeated side.",
+      "outcomes": [
+        "Can find the perimeter of a triangle or irregular shape by adding all side lengths",
+        "Can keep track of sides so none is missed or counted twice"
+      ],
+      "prereqs": ["g4.mea.perimeter-intro.boundary-idea", "g3.num.add-sub-3digit"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "A triangle has sides 7 cm, 9 cm and 12 cm. What is its perimeter?",
+        "options": [
+          { "text": "28 cm", "correct": true },
+          { "text": "63 cm", "misconception": "m1", "diagnosis": "Multiplied two sides (7 × 9) as if finding a covering; perimeter adds the boundary." },
+          { "text": "16 cm", "diagnosis": "Added only 7 + 9 and missed the third side; the trip around was not completed." },
+          { "text": "26 cm", "diagnosis": "Adding slip; re-add 7 + 9 + 12 carefully." }
+        ],
+        "explanation": "Walk the whole boundary: 7 + 9 + 12 = 28 cm. Every side is part of the trip around."
+      }
+    },
+    {
+      "id": "g4.mea.perimeter-intro.rectangle-perimeter",
+      "parent": "g4.mea.perimeter-intro",
+      "title": "Perimeter of a Rectangle",
+      "description": "A rectangle's trip goes long-short-long-short: each labelled side appears TWICE. Add all four sides, then meet the shortcut 2 × (length + width).",
+      "outcomes": [
+        "Can find a rectangle's perimeter using all four sides",
+        "Can use and explain the shortcut 2 × (length + width)"
+      ],
+      "prereqs": ["g4.mea.perimeter-intro.add-all-sides"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A rectangle is 9 cm long and 4 cm wide. What is its perimeter?",
+        "options": [
+          { "text": "26 cm", "correct": true },
+          { "text": "13 cm", "misconception": "m2", "diagnosis": "Added only the two labelled sides; each side of a rectangle appears twice." },
+          { "text": "36 cm", "misconception": "m1", "diagnosis": "Multiplied 9 × 4 — that is the area in square cm, not the boundary." },
+          { "text": "22 cm", "diagnosis": "Added three sides (9 + 4 + 9) and stopped before the last width." }
+        ],
+        "explanation": "Go all the way around: 9 + 4 + 9 + 4 = 26 cm, or 2 × (9 + 4) = 26 cm."
+      }
+    },
+    {
+      "id": "g4.mea.perimeter-intro.square-perimeter",
+      "parent": "g4.mea.perimeter-intro",
+      "title": "Perimeter of a Square",
+      "description": "A square's four sides are equal, so its perimeter is 4 × side. Solve fencing problems and reverse ones: given the perimeter, find the side.",
+      "outcomes": [
+        "Can find a square's perimeter with 4 × side",
+        "Can find the side of a square from its perimeter by dividing by 4"
+      ],
+      "prereqs": ["g4.mea.perimeter-intro.rectangle-perimeter"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A square garden has sides of 15 m. How many metres of fencing go all the way around it?",
+        "options": [
+          { "text": "60 m", "correct": true },
+          { "text": "30 m", "misconception": "m2", "diagnosis": "Added only two sides; a square has four equal sides to fence." },
+          { "text": "225 m", "misconception": "m1", "diagnosis": "Computed 15 × 15 — the garden's area in square metres, not the fence length." },
+          { "text": "45 m", "diagnosis": "Added three sides; the walk around the garden was not finished." }
+        ],
+        "explanation": "Four equal sides: 4 × 15 = 60 m of fencing. 225 answers a different question — how much ground the garden covers."
+      }
+    },
+    {
+      "id": "g4.mea.perimeter-intro.missing-side",
+      "parent": "g4.mea.perimeter-intro",
+      "title": "Finding a Missing Side from the Perimeter",
+      "description": "Work backwards: if the perimeter and some sides are known, subtract to find the missing side. For rectangles, remember the missing width appears twice in the total.",
+      "outcomes": [
+        "Can find a missing side of a shape when the perimeter and other sides are given",
+        "Can solve rectangle problems where the unknown side occurs twice"
+      ],
+      "prereqs": ["g4.mea.perimeter-intro.rectangle-perimeter"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A rectangle has perimeter 30 cm and length 9 cm. What is its width?",
+        "options": [
+          { "text": "6 cm", "correct": true },
+          { "text": "21 cm", "misconception": "m2", "diagnosis": "Did 30 − 9, as if the perimeter were just one length plus one width." },
+          { "text": "12 cm", "diagnosis": "Subtracted both lengths (30 − 18 = 12) but forgot that the 12 covers TWO widths." },
+          { "text": "15 cm", "diagnosis": "Halved the perimeter but never subtracted the length." }
+        ],
+        "explanation": "The two lengths use 9 + 9 = 18 cm, leaving 30 − 18 = 12 cm for TWO widths. So each width is 12 ÷ 2 = 6 cm. Check: 2 × (9 + 6) = 30. ✓"
+      }
+    },
+    {
+      "id": "g4.mea.perimeter-intro.same-tiles-different-boundary",
+      "parent": "g4.mea.perimeter-intro",
+      "title": "Same Tiles, Different Boundary",
+      "description": "Build different shapes from the same square tiles and count their boundary units: a stretched-out row has a longer boundary than a compact block. Same covering does not mean same perimeter.",
+      "outcomes": [
+        "Can count boundary units of tile shapes on a grid",
+        "Can show with an example that equal tile counts can give different perimeters"
+      ],
+      "prereqs": ["g4.mea.perimeter-intro.rectangle-perimeter"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Two gardens are built from six 1 m × 1 m patches: Garden A is a 1 × 6 row, Garden B is a 2 × 3 block. Which needs more fencing around it?",
+        "options": [
+          { "text": "Garden A — its boundary is 14 m, while Garden B's is only 10 m", "correct": true },
+          { "text": "Both need the same, because both use 6 patches", "misconception": "m3", "diagnosis": "Same tile count means same area, not same boundary — stretched shapes have longer edges." },
+          { "text": "Garden B — blocky shapes always have bigger boundaries", "diagnosis": "Backwards: compact shapes have SHORTER boundaries; count the edges to see it." },
+          { "text": "6 m each — one metre of fence for each patch", "misconception": "m1", "diagnosis": "Counted patches (covering) instead of walking the boundary." }
+        ],
+        "explanation": "Count outside edges: the 1 × 6 row has 6 + 1 + 6 + 1 = 14 edge-metres; the 2 × 3 block has 2 + 3 + 2 + 3 = 10. Same six patches, different fences."
+      }
+    },
+
+    {
+      "id": "g4.mea.area-intro.covering-idea",
+      "parent": "g4.mea.area-intro",
+      "title": "Area Is How Much a Shape Covers",
+      "description": "Area answers 'how much carpet, paint or land?' and is measured in square units by covering the shape with unit squares — a different question from the boundary walk.",
+      "outcomes": [
+        "Can tell an area question (covering) from a perimeter question (boundary)",
+        "Can say that area is measured in square units"
+      ],
+      "prereqs": ["g4.mea.perimeter-intro.boundary-idea"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Which of these questions is about AREA?",
+        "options": [
+          { "text": "How many tiles are needed to cover the kitchen floor?", "correct": true },
+          { "text": "How long is the fence around the field?", "misconception": "m1", "diagnosis": "Fencing follows the boundary — that is perimeter, measured in metres." },
+          { "text": "How far is one lap around the playground?", "diagnosis": "A lap traces the boundary; that is perimeter again, not covering." },
+          { "text": "How many corners does the room have?", "diagnosis": "Counting corners is about the shape's form, not about covering or boundary." }
+        ],
+        "explanation": "Tiling the floor covers the surface, so it asks for area (in square units). Fences and laps go around the edge — those are perimeter questions."
+      }
+    },
+    {
+      "id": "g4.mea.area-intro.count-unit-squares",
+      "parent": "g4.mea.area-intro",
+      "title": "Counting Unit Squares",
+      "description": "Find the area of grid shapes by counting the unit squares they cover, marking each counted square so none is missed or double-counted — including L-shapes and staircases.",
+      "outcomes": [
+        "Can find the area of a grid shape by counting full unit squares",
+        "Can compare two shapes on the same grid by their square counts"
+      ],
+      "prereqs": ["g4.mea.area-intro.covering-idea"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g4.mea.area-intro.half-squares",
+      "parent": "g4.mea.area-intro",
+      "title": "Handling Half Squares",
+      "description": "Slanted and curved shapes cover partial squares. Rule set: full square = 1, two halves = 1; for estimates, more than half ≈ 1 and less than half ≈ 0.",
+      "outcomes": [
+        "Can find the area of a shape with half squares by pairing them up",
+        "Can estimate the area of a curved shape (like a leaf) on squared paper"
+      ],
+      "prereqs": ["g4.mea.area-intro.count-unit-squares"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A shape traced on squared paper covers 5 full squares and 6 half squares. What is its area?",
+        "options": [
+          { "text": "8 square units", "correct": true },
+          { "text": "11 square units", "misconception": "m2", "diagnosis": "Counted each half square as a whole one; two halves make one square." },
+          { "text": "5 square units", "diagnosis": "Threw the half squares away; partial squares still cover surface." },
+          { "text": "6 square units", "diagnosis": "Paired the halves wrongly — 6 halves make 3 whole squares, not 1." }
+        ],
+        "explanation": "Six half squares pair into 6 ÷ 2 = 3 full squares. Total area = 5 + 3 = 8 square units."
+      }
+    },
+    {
+      "id": "g4.mea.area-intro.rows-times-columns",
+      "parent": "g4.mea.area-intro",
+      "title": "Counting Squares Fast: Rows × Columns",
+      "description": "In a rectangle the squares sit in equal rows, so multiply rows by columns instead of counting one by one. This shortcut is the seed of the area formula met in Class 5.",
+      "outcomes": [
+        "Can find a grid rectangle's area with rows × columns",
+        "Can explain why multiplying counts exactly the same squares as counting one by one"
+      ],
+      "prereqs": ["g4.mea.area-intro.count-unit-squares", "g3.num.mult-tables"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A rectangle on squared paper is 6 squares long and 4 squares wide. What is its area?",
+        "options": [
+          { "text": "24 square units", "correct": true },
+          { "text": "20 square units", "misconception": "m1", "diagnosis": "Counted the boundary units around the shape — that is its perimeter." },
+          { "text": "10 square units", "diagnosis": "Added 6 + 4 instead of counting the full array of squares." },
+          { "text": "14 square units", "diagnosis": "Counted only the squares touching the border and missed the inside ones." }
+        ],
+        "explanation": "The squares sit in 4 rows of 6: 4 × 6 = 24 squares. The boundary count, 2 × (6 + 4) = 20, answers the perimeter question instead."
+      }
+    },
+    {
+      "id": "g4.mea.area-intro.same-perimeter-different-area",
+      "parent": "g4.mea.area-intro",
+      "title": "Same Boundary, Different Area",
+      "description": "Bend one loop of string into different rectangles and count the enclosed squares: the boundary stays the same but the area changes. Equal perimeter does NOT mean equal area.",
+      "outcomes": [
+        "Can show with one string loop that equal perimeters can enclose different areas",
+        "Can explain why compact shapes enclose more than stretched ones"
+      ],
+      "prereqs": ["g4.mea.area-intro.rows-times-columns", "g4.mea.perimeter-intro.rectangle-perimeter"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3", "m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A 20 cm loop of string is first shaped into a 1 cm × 9 cm rectangle, then re-shaped into a 5 cm × 5 cm square. Do the two shapes enclose the same area?",
+        "options": [
+          { "text": "No — the square encloses 25 square cm but the rectangle only 9", "correct": true },
+          { "text": "Yes — the same string must enclose the same space inside", "misconception": "m3", "diagnosis": "Equal boundary does not mean equal covering; count the squares inside each shape." },
+          { "text": "Yes — area is length + width, which is 10 for both", "misconception": "m1", "diagnosis": "Adding sides gives (half) the perimeter; area multiplies to count the covering squares." },
+          { "text": "No — the 1 × 9 rectangle has more area because it is longer", "diagnosis": "Length alone does not decide covering; the thin shape encloses far less." }
+        ],
+        "explanation": "Both have perimeter 20 cm, but 5 × 5 = 25 square cm while 1 × 9 = 9 square cm. The same boundary can hold very different areas — compact shapes hold more."
+      }
+    },
+
+    {
+      "id": "g4.mea.time-duration.clock-24-hour",
+      "parent": "g4.mea.time-duration",
+      "title": "The 24-hour Clock",
+      "description": "After noon the railway clock keeps counting: 13:00, 14:00, ... 23:59. Convert both ways between am/pm times and 24-hour times using the anchor noon = 12:00.",
+      "outcomes": [
+        "Can convert a 24-hour time to am/pm by subtracting 12 after noon",
+        "Can convert an afternoon or evening time to 24-hour form by adding 12"
+      ],
+      "prereqs": ["g3.mea.time-clock"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "A railway board shows a train at 15:30. What time is that on a 12-hour clock?",
+        "options": [
+          { "text": "3:30 pm", "correct": true },
+          { "text": "5:30 pm", "misconception": "m2", "diagnosis": "Subtracted 10 instead of 12; the clock restarts at noon = 12, so take away 12." },
+          { "text": "3:30 am", "diagnosis": "Subtracted 12 correctly but dropped the meaning — times after 12:00 are afternoon (pm)." },
+          { "text": "2:30 pm", "diagnosis": "Subtracted 13; the anchor is 12:00 noon, so subtract exactly 12." }
+        ],
+        "explanation": "After noon the 24-hour clock keeps counting: 13:00 = 1 pm, 14:00 = 2 pm, 15:00 = 3 pm. So 15:30 = 3:30 pm."
+      }
+    },
+    {
+      "id": "g4.mea.time-duration.add-minutes-within-hour",
+      "parent": "g4.mea.time-duration",
+      "title": "Adding Minutes Inside One Hour",
+      "description": "Add a duration to a start time when the sum of minutes stays under 60 — 3:10 + 25 minutes = 3:35. Reading durations in minutes and relating them to quarter and half hours.",
+      "outcomes": [
+        "Can add minutes to a time when no hour boundary is crossed",
+        "Can use quarter-hour landmarks (15, 30, 45 minutes) fluently"
+      ],
+      "prereqs": ["g3.mea.time-clock"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": []
+    },
+    {
+      "id": "g4.mea.time-duration.cross-hour-boundary",
+      "parent": "g4.mea.time-duration",
+      "title": "Crossing the Hour: 60 Minutes, Not 100",
+      "description": "When minutes pass 60 they roll into a new hour — there is no such time as 4:75. Split the added minutes at the next o'clock on a number line of minutes.",
+      "outcomes": [
+        "Can add a duration that crosses an hour boundary by splitting at the next o'clock",
+        "Can explain why times like 4:75 are impossible"
+      ],
+      "prereqs": ["g4.mea.time-duration.add-minutes-within-hour"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A TV show starts at 4:50 pm and lasts 25 minutes. When does it end?",
+        "options": [
+          { "text": "5:15 pm", "correct": true },
+          { "text": "4:75 pm", "misconception": "m1", "diagnosis": "Added minutes as if 100 make an hour; minutes roll over at 60, so 4:75 is not a time." },
+          { "text": "5:25 pm", "diagnosis": "Crossed to 5:00 but then added the whole 25 minutes again, forgetting 10 were already used." },
+          { "text": "5:05 pm", "diagnosis": "Added only 15 minutes after the hour; 25 − 10 = 15 was miscomputed." }
+        ],
+        "explanation": "Split at the hour: 4:50 + 10 minutes = 5:00, and the remaining 15 minutes land on 5:15 pm."
+      }
+    },
+    {
+      "id": "g4.mea.time-duration.elapsed-time-number-line",
+      "parent": "g4.mea.time-duration",
+      "title": "Elapsed Time on an Empty Number Line",
+      "description": "Find how long something lasts by hopping on a time line: jump to the next o'clock, hop whole hours, then the final minutes. Works for any two times on the same side of noon.",
+      "outcomes": [
+        "Can find the duration between two times using jumps on an empty time line",
+        "Can add the hour and minute jumps into a total like 2 h 30 min"
+      ],
+      "prereqs": ["g4.mea.time-duration.cross-hour-boundary"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g4.mea.time-duration.elapsed-across-noon",
+      "parent": "g4.mea.time-duration",
+      "title": "Elapsed Time Across Noon",
+      "description": "Durations that cross 12 o'clock cannot be found by subtracting clock numbers. Bridge at noon: start → 12:00, then 12:00 → finish, and add the two jumps.",
+      "outcomes": [
+        "Can find a duration from a morning time to an afternoon time with the noon bridge",
+        "Can explain why subtracting the clock numbers directly gives nonsense"
+      ],
+      "prereqs": ["g4.mea.time-duration.elapsed-time-number-line", "g4.mea.time-duration.clock-24-hour"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A bus leaves at 10:45 am and arrives at 2:30 pm. How long is the journey?",
+        "options": [
+          { "text": "3 hours 45 minutes", "correct": true },
+          { "text": "8 hours 15 minutes", "misconception": "m3", "diagnosis": "Subtracted the clock numbers (10:45 − 2:30) directly; the clock restarts at 12, so bridge at noon instead." },
+          { "text": "4 hours 15 minutes", "diagnosis": "Counted 10:45 to 2:45 as 4 hours, then mishandled the last 15 minutes — they must come off, not on." },
+          { "text": "3 hours 15 minutes", "diagnosis": "Jumped 10:45 → 12:00 as 1 h 15 min but then took 12:00 → 2:30 as only 2 h." }
+        ],
+        "explanation": "Bridge at noon: 10:45 → 12:00 is 1 h 15 min; 12:00 → 2:30 pm is 2 h 30 min. Total: 3 h 45 min."
+      }
+    },
+    {
+      "id": "g4.mea.time-duration.railway-timetables",
+      "parent": "g4.mea.time-duration",
+      "title": "Reading Railway Timetables",
+      "description": "Use real timetables in 24-hour time: find departures and arrivals, compute journey lengths, and compare trains. All the elapsed-time skills come together here.",
+      "outcomes": [
+        "Can read departure and arrival times from a 24-hour timetable",
+        "Can compute a journey's duration from timetable times",
+        "Can answer comparison questions (which train is faster, which reaches first)"
+      ],
+      "prereqs": ["g4.mea.time-duration.elapsed-across-noon"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A train departs at 11:30 and arrives at 14:15. How long is the journey?",
+        "options": [
+          { "text": "2 hours 45 minutes", "correct": true },
+          { "text": "2 hours 85 minutes", "misconception": "m1", "diagnosis": "Column-subtracted the times like ordinary numbers, borrowing 100 minutes instead of 60." },
+          { "text": "3 hours 15 minutes", "diagnosis": "Counted 11:30 → 14:30 as 3 hours and then ADDED the 15 minutes instead of taking them off." },
+          { "text": "2 hours 15 minutes", "diagnosis": "Took the hours (11 → 14 minus a bit) and just copied the arrival's 15 minutes." }
+        ],
+        "explanation": "Hop on a time line: 11:30 → 12:00 is 30 min, 12:00 → 14:00 is 2 h, 14:00 → 14:15 is 15 min. Total: 2 h 45 min. An answer with 85 minutes is impossible — minutes roll over at 60."
+      }
+    },
+
+    {
+      "id": "g4.mea.unit-conversions.metric-fact-family",
+      "parent": "g4.mea.unit-conversions",
+      "title": "The Metric Fact Family",
+      "description": "Fix the four key relations with real objects: 1 m = 100 cm (metre stick), 1 km = 1000 m (distance boards), 1 kg = 1000 g (sugar pack), 1 L = 1000 mL (water bottle).",
+      "outcomes": [
+        "Can state the four key metric relations from memory",
+        "Can name a real object that proves each relation"
+      ],
+      "prereqs": ["g3.mea.length-std-units", "g3.mea.weight-capacity"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "How many millilitres are there in 1 litre?",
+        "options": [
+          { "text": "1000 mL", "correct": true },
+          { "text": "100 mL", "misconception": "m2", "diagnosis": "Used the metre–centimetre factor; litres and millilitres jump by 1000." },
+          { "text": "10 mL", "diagnosis": "Overgeneralised a pattern of tens; check the label on a 1 L bottle." },
+          { "text": "500 mL", "diagnosis": "Confused 1 L with the common half-litre bottle." }
+        ],
+        "explanation": "'Milli' means a thousandth: 1 L = 1000 mL. A 1-litre water bottle is labelled 1000 mL."
+      }
+    },
+    {
+      "id": "g4.mea.unit-conversions.to-smaller-multiply",
+      "parent": "g4.mea.unit-conversions",
+      "title": "Converting to a Smaller Unit: Multiply",
+      "description": "A smaller unit needs MORE of them, so multiply by the factor: 7 m = 700 cm, 4 kg = 4000 g. Say the sense-check sentence aloud before computing.",
+      "outcomes": [
+        "Can convert m→cm, km→m, kg→g and L→mL by multiplying by the right factor",
+        "Can justify the direction: smaller units means a bigger count"
+      ],
+      "prereqs": ["g4.mea.unit-conversions.metric-fact-family", "g3.num.mult-tables"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A cloth piece is 7 m long. How long is it in centimetres?",
+        "options": [
+          { "text": "700 cm", "correct": true },
+          { "text": "70 cm", "misconception": "m2", "diagnosis": "Multiplied by 10; a metre holds 100 centimetres — check the metre stick." },
+          { "text": "7,000 cm", "diagnosis": "Used the 1000 factor that belongs to km, kg and L, not to metres and centimetres." },
+          { "text": "107 cm", "diagnosis": "Added 100 instead of multiplying by 100." }
+        ],
+        "explanation": "Centimetres are smaller than metres, so we need more of them: 7 × 100 = 700 cm."
+      }
+    },
+    {
+      "id": "g4.mea.unit-conversions.to-bigger-divide",
+      "parent": "g4.mea.unit-conversions",
+      "title": "Converting to a Bigger Unit: Divide",
+      "description": "A bigger unit needs FEWER of them, so divide by the factor: 5000 m = 5 km, 300 cm = 3 m. An absurd-looking answer (a 25,000 m table!) means the direction was wrong.",
+      "outcomes": [
+        "Can convert cm→m, m→km, g→kg and mL→L by dividing by the right factor",
+        "Can catch a wrong-direction conversion by sense-checking the answer's size"
+      ],
+      "prereqs": ["g4.mea.unit-conversions.to-smaller-multiply"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A morning walk track is 5,000 m long. How long is that in kilometres?",
+        "options": [
+          { "text": "5 km", "correct": true },
+          { "text": "50,00,000 km", "misconception": "m1", "diagnosis": "Multiplied when moving to a BIGGER unit; kilometres are bigger, so we need fewer — divide." },
+          { "text": "50 km", "diagnosis": "Divided by 100; the metre–kilometre factor is 1000." },
+          { "text": "500 km", "diagnosis": "Divided by 10 only; a 500 km walk should ring the alarm bell — sense-check the size." }
+        ],
+        "explanation": "A kilometre is bigger than a metre, so we need fewer of them: 5,000 ÷ 1000 = 5 km. A walking track millions of kilometres long is absurd — the sense-check catches it."
+      }
+    },
+    {
+      "id": "g4.mea.unit-conversions.mixed-measures",
+      "parent": "g4.mea.unit-conversions",
+      "title": "Mixed Measures: 2 kg 50 g Is Not 250 g",
+      "description": "Convert mixed measures like 3 m 5 cm or 2 kg 50 g to a single unit: convert the big-unit part first, THEN add the small part. Never glue the digits together.",
+      "outcomes": [
+        "Can express a mixed measure in the smaller unit by converting then adding",
+        "Can explain the zero that holds the empty place (3 m 5 cm = 305 cm, not 35 or 350)"
+      ],
+      "prereqs": ["g4.mea.unit-conversions.to-smaller-multiply"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A parcel weighs 2 kg 50 g. What is its weight in grams?",
+        "options": [
+          { "text": "2,050 g", "correct": true },
+          { "text": "250 g", "misconception": "m3", "diagnosis": "Glued the digits 2 and 50 together; the 2 kg must first become 2,000 g." },
+          { "text": "2,500 g", "diagnosis": "Read '50 g' as '500 g' when combining — the empty hundreds place needs its zero." },
+          { "text": "205 g", "diagnosis": "Converted with the wrong factor and glued the parts; 1 kg is 1000 g, not 100." }
+        ],
+        "explanation": "Convert the kilograms first: 2 kg = 2 × 1000 = 2,000 g. Then add the 50 g: 2,000 + 50 = 2,050 g."
+      }
+    },
+    {
+      "id": "g4.mea.unit-conversions.choose-sensible-units",
+      "parent": "g4.mea.unit-conversions",
+      "title": "Choosing Sensible Units and Estimating",
+      "description": "Pick the right unit for the job — km for city distances, g for a pencil — and estimate everyday measures: a door is about 2 m, an apple about 150 g, a bucket about 10 L.",
+      "outcomes": [
+        "Can choose the sensible unit for a given object or distance",
+        "Can give a reasonable estimate for everyday lengths, weights and capacities"
+      ],
+      "prereqs": ["g4.mea.unit-conversions.metric-fact-family"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [],
+      "question": {
+        "skill": "application",
+        "difficulty": 1,
+        "prompt": "Which is the best estimate for the weight of one apple?",
+        "options": [
+          { "text": "150 g", "correct": true },
+          { "text": "15 kg", "diagnosis": "That is about three big rice bags; the unit is far too heavy for one apple." },
+          { "text": "15 g", "diagnosis": "That is about one small biscuit; an apple is clearly heavier." },
+          { "text": "150 kg", "diagnosis": "That is about two grown-ups; compare with things you have lifted." }
+        ],
+        "explanation": "An apple sits comfortably in one hand — around 150 g. Anchors help: a 1-rupee coin is about 4 g, a bag of sugar is 1 kg (1000 g)."
+      }
+    },
+    {
+      "id": "g4.mea.unit-conversions.conversion-word-problems",
+      "parent": "g4.mea.unit-conversions",
+      "title": "Word Problems with Unit Conversions",
+      "description": "Solve shopping and measuring problems where quantities come in mixed units: total cloth bought in m and cm, milk in L and mL. Convert to one unit before adding or comparing.",
+      "outcomes": [
+        "Can bring all quantities to one unit before adding or comparing",
+        "Can answer with the sensible unit and sense-check the size of the result"
+      ],
+      "prereqs": ["g4.mea.unit-conversions.to-bigger-divide", "g4.mea.unit-conversions.mixed-measures"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m3"]
+    },
+
+    {
+      "id": "g4.alg.patterns-rules.repeating-unit",
+      "parent": "g4.alg.patterns-rules",
+      "title": "Finding the Repeating Unit",
+      "description": "In a repeating pattern, first bracket the block that repeats — [red red blue] — and then continue by restarting the block, not by copying the last item.",
+      "outcomes": [
+        "Can circle the repeating block of a shape or colour pattern",
+        "Can extend a repeating pattern by restarting its block"
+      ],
+      "prereqs": ["g3.alg.patterns-number"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A border pattern repeats the block star-star-moon. The first seven stamps are: star, star, moon, star, star, moon, star. What is the 9th stamp?",
+        "options": [
+          { "text": "Moon — 9 stamps make exactly 3 full blocks, and each block ends with a moon", "correct": true },
+          { "text": "Star — the 7th stamp was a star, so stars keep going", "misconception": "m2", "diagnosis": "Copied the last item instead of restarting the [star, star, moon] block." },
+          { "text": "Cannot tell without stamping all nine", "diagnosis": "No block strategy yet; counting works here but fails for the 90th stamp." },
+          { "text": "Either one — after a while the pattern becomes random", "diagnosis": "A repeating pattern never becomes random; the block fixes every position forever." }
+        ],
+        "explanation": "The block [star, star, moon] has length 3. Since 9 = 3 × 3, the 9th stamp is the last item of a block: moon."
+      }
+    },
+    {
+      "id": "g4.alg.patterns-rules.predict-far-term",
+      "parent": "g4.alg.patterns-rules",
+      "title": "Predicting a Far-away Term",
+      "description": "Use the block length to leap ahead: for a block of 3, the 20th item is found from 20 = 6 blocks + 2, so it matches position 2 — no drawing twenty items.",
+      "outcomes": [
+        "Can find a far-away term of a repeating pattern using full blocks and leftovers",
+        "Can explain the method as division with remainder in disguise"
+      ],
+      "prereqs": ["g4.alg.patterns-rules.repeating-unit"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g4.alg.patterns-rules.find-number-rule",
+      "parent": "g4.alg.patterns-rules",
+      "title": "Finding the Rule of a Number Pattern",
+      "description": "Ask 'what is DONE to each term to get the next?' — add the same number, or multiply. Find the rule and use it to extend the pattern.",
+      "outcomes": [
+        "Can state the rule of an adding or doubling pattern",
+        "Can extend a number pattern two or three terms using its rule"
+      ],
+      "prereqs": ["g3.alg.patterns-number", "g3.num.mult-tables"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "What is the rule of the pattern 2, 6, 18, 54?",
+        "options": [
+          { "text": "Multiply by 3 each time", "correct": true },
+          { "text": "Add 4 each time", "misconception": "m1", "diagnosis": "Fits only the first step (2 → 6) and already fails at 6 → 18; a rule must survive every step." },
+          { "text": "Add 12 each time", "diagnosis": "Fits only 6 → 18; the gaps are growing, so the rule is not a fixed addition." },
+          { "text": "Double each time", "diagnosis": "2 doubled is 4, not 6 — this rule was never checked against even the first step." }
+        ],
+        "explanation": "Test each step: 2 × 3 = 6, 6 × 3 = 18, 18 × 3 = 54. 'Multiply by 3' works everywhere; 'add 4' dies at the second step."
+      }
+    },
+    {
+      "id": "g4.alg.patterns-rules.check-rule-every-step",
+      "parent": "g4.alg.patterns-rules",
+      "title": "A Rule Must Work at EVERY Step",
+      "description": "A candidate rule earns the right to predict only after it explains every given step. Write the rule over each gap and tick it — one failure and the rule is out.",
+      "outcomes": [
+        "Can test a proposed rule against all the given terms, not just the first pair",
+        "Can reject a rule with a counterexample step"
+      ],
+      "prereqs": ["g4.alg.patterns-rules.find-number-rule"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which rule works for EVERY step of the pattern 1, 2, 4, 8?",
+        "options": [
+          { "text": "Double each time — it works at 1→2, 2→4 and 4→8", "correct": true },
+          { "text": "Add 1 each time", "misconception": "m1", "diagnosis": "Fits only 1 → 2 and was never checked at 2 → 4; one look ahead breaks it." },
+          { "text": "Add 2 each time", "diagnosis": "Fits only 2 → 4; a rule must survive every single step." },
+          { "text": "Add 4 each time", "diagnosis": "Fits only 4 → 8; picking the rule from one convenient gap is not enough." }
+        ],
+        "explanation": "Check every gap: 1 × 2 = 2 ✓, 2 × 2 = 4 ✓, 4 × 2 = 8 ✓. Every 'add' rule fails at some step, so doubling is the only rule that explains all the evidence."
+      }
+    },
+    {
+      "id": "g4.alg.patterns-rules.decreasing-patterns",
+      "parent": "g4.alg.patterns-rules",
+      "title": "Patterns Can Shrink Too",
+      "description": "Rules can subtract as well as add: 50, 45, 40 keeps dropping by 5. Practise decreasing patterns beside growing ones so 'pattern' does not mean 'goes up'.",
+      "outcomes": [
+        "Can find and continue a decreasing number pattern",
+        "Can describe a rule neutrally, e.g. 'subtract 5 each time'"
+      ],
+      "prereqs": ["g4.alg.patterns-rules.find-number-rule"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is the next number in the pattern 50, 45, 40, 35, __?",
+        "options": [
+          { "text": "30", "correct": true },
+          { "text": "40", "misconception": "m3", "diagnosis": "Turned the pattern back upward, as if patterns must grow; the rule is 'subtract 5' all the way." },
+          { "text": "25", "diagnosis": "Applied the −5 rule twice in one step." },
+          { "text": "34", "diagnosis": "Switched to 'subtract 1' at the end; the rule slipped while extending." }
+        ],
+        "explanation": "Each term is 5 less than the last: −5, −5, −5, −5. So the next is 35 − 5 = 30. Shrinking sequences are patterns too."
+      }
+    },
+    {
+      "id": "g4.alg.patterns-rules.create-own-patterns",
+      "parent": "g4.alg.patterns-rules",
+      "title": "Creating Patterns from a Rule",
+      "description": "Turn a given rule into a pattern of your own — 'start at 7, add 6' or a repeating block you design — and describe its features (all odd? every third term?).",
+      "outcomes": [
+        "Can generate a pattern from a stated starting number and rule",
+        "Can notice and describe a feature of the pattern that the rule creates"
+      ],
+      "prereqs": ["g4.alg.patterns-rules.check-rule-every-step", "g4.alg.patterns-rules.repeating-unit"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"]
+    },
+
+    {
+      "id": "g4.dat.bar-charts.read-one-unit-bars",
+      "parent": "g4.dat.bar-charts",
+      "title": "Reading Bars When One Division = 1",
+      "description": "Recap bar charts where each gridline step stands for exactly 1: read values, find the tallest and shortest bars, and connect each bar to its label.",
+      "outcomes": [
+        "Can read values from a bar chart with a 1-per-division scale",
+        "Can identify the largest and smallest categories from bar heights"
+      ],
+      "prereqs": ["g3.dat.tables-bar-charts-intro"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": []
+    },
+    {
+      "id": "g4.dat.bar-charts.read-scaled-bars",
+      "parent": "g4.dat.bar-charts",
+      "title": "Reading Scaled Bar Charts",
+      "description": "When one division stands for 2, 5 or 10, a bar's value is divisions × scale. Start every reading with the scale-check ritual: touch the axis, say '1 division = __'.",
+      "outcomes": [
+        "Can read a value from a chart whose scale is 2, 5 or 10 per division",
+        "Can perform the scale check before answering any question"
+      ],
+      "prereqs": ["g4.dat.bar-charts.read-one-unit-bars", "g3.num.mult-tables"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In a chart of library books, each division stands for 2 books. The storybook bar is 6 divisions tall. How many storybooks are there?",
+        "options": [
+          { "text": "12", "correct": true },
+          { "text": "6", "misconception": "m1", "diagnosis": "Counted divisions as if each stood for 1; the axis says each is worth 2." },
+          { "text": "8", "diagnosis": "Added 6 + 2 instead of multiplying divisions by the scale." },
+          { "text": "3", "diagnosis": "Divided by the scale instead of multiplying." }
+        ],
+        "explanation": "Each division = 2 books, so 6 divisions = 6 × 2 = 12 books. The scale multiplies the count."
+      }
+    },
+    {
+      "id": "g4.dat.bar-charts.category-and-value",
+      "parent": "g4.dat.bar-charts",
+      "title": "Category or Value: Answering What Is Asked",
+      "description": "Every bar carries two facts: its label (category) and its height (value). 'Which fruit?' wants the label; 'how many?' wants the number. Practise the two-part sentence 'mango has 40 votes'.",
+      "outcomes": [
+        "Can answer 'which' questions with the category and 'how many' questions with the value",
+        "Can state any bar as a full sentence linking label and value"
+      ],
+      "prereqs": ["g4.dat.bar-charts.read-one-unit-bars"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "A chart shows votes for fruits: mango 30, apple 25, banana 40. Which fruit is the most popular?",
+        "options": [
+          { "text": "Banana", "correct": true },
+          { "text": "40", "misconception": "m2", "diagnosis": "Gave the value when the question asks WHICH fruit — the label answers this question." },
+          { "text": "Mango", "diagnosis": "Picked the first bar instead of the tallest one." },
+          { "text": "95", "diagnosis": "Added all the votes; the question asks for one category, not a total." }
+        ],
+        "explanation": "The tallest bar is banana's (40 votes). The question asks WHICH fruit, so the answer is the category 'banana' — the number 40 answers a different question."
+      }
+    },
+    {
+      "id": "g4.dat.bar-charts.compare-bars-difference",
+      "parent": "g4.dat.bar-charts",
+      "title": "How Many More? Comparing Two Bars",
+      "description": "'How many more A than B?' asks for the difference A − B — the stub of the taller bar poking above the shorter one — not A's value. Read both bars, then subtract.",
+      "outcomes": [
+        "Can answer 'how many more/fewer' questions by subtracting two bar values",
+        "Can point to the difference as the part of the taller bar above the shorter one"
+      ],
+      "prereqs": ["g4.dat.bar-charts.read-scaled-bars"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In a sports survey, 35 children chose cricket and 20 chose football. How many MORE children chose cricket than football?",
+        "options": [
+          { "text": "15", "correct": true },
+          { "text": "35", "misconception": "m3", "diagnosis": "Reported cricket's whole bar; 'how many more' asks for the difference between the bars." },
+          { "text": "55", "diagnosis": "Added the two values; 'more than' compares by subtracting." },
+          { "text": "20", "diagnosis": "Reported football's bar; neither single bar answers a comparison question." }
+        ],
+        "explanation": "'How many more' is the difference: 35 − 20 = 15 children — the part of cricket's bar that rises above football's."
+      }
+    },
+    {
+      "id": "g4.dat.bar-charts.draw-bar-chart",
+      "parent": "g4.dat.bar-charts",
+      "title": "Drawing a Bar Chart from a Table",
+      "description": "Turn a data table into a chart: choose a sensible scale, label the axes, and draw each bar to exactly the right height — including half divisions when the data demands them.",
+      "outcomes": [
+        "Can choose a sensible scale for the given data",
+        "Can draw bars of exactly the right height, using part divisions where needed"
+      ],
+      "prereqs": ["g4.dat.bar-charts.read-scaled-bars"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "You are drawing a chart where 1 division stands for 5 votes. The 'kho-kho' bar must show 35 votes. How many divisions tall should it be?",
+        "options": [
+          { "text": "7 divisions", "correct": true },
+          { "text": "35 divisions", "misconception": "m1", "diagnosis": "Drew one division per vote, ignoring that each division holds 5." },
+          { "text": "5 divisions", "diagnosis": "Drew the scale number itself instead of dividing the value by the scale." },
+          { "text": "6 divisions", "diagnosis": "Division slip: 35 ÷ 5 = 7; six divisions would show only 30 votes." }
+        ],
+        "explanation": "Height in divisions = value ÷ scale = 35 ÷ 5 = 7. A 35-division bar would mean 35 × 5 = 175 votes."
+      }
+    },
+    {
+      "id": "g4.dat.bar-charts.multi-step-questions",
+      "parent": "g4.dat.bar-charts",
+      "title": "Totals and Multi-step Chart Questions",
+      "description": "Combine readings: totals across all bars, differences chained with sums ('how many children in all?', 'how many more on the two busiest days?'). Read each bar with the scale first, then compute.",
+      "outcomes": [
+        "Can find a total across several bars of a scaled chart",
+        "Can solve a two-step question mixing addition and subtraction of bar values"
+      ],
+      "prereqs": ["g4.dat.bar-charts.compare-bars-difference", "g4.dat.bar-charts.draw-bar-chart"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A chart (1 division = 5) shows books read: Monday 20, Tuesday 35, Wednesday 15. How many books were read in the three days altogether?",
+        "options": [
+          { "text": "70", "correct": true },
+          { "text": "14", "misconception": "m1", "diagnosis": "Added the division counts (4 + 7 + 3) and forgot each division stands for 5 books." },
+          { "text": "55", "diagnosis": "Added only Monday and Tuesday; Wednesday's bar was missed." },
+          { "text": "35", "diagnosis": "Reported the tallest bar instead of adding all three." }
+        ],
+        "explanation": "Add the three values: 20 + 35 + 15 = 70 books. Adding raw divisions gives 14 — that number still needs the ×5 scale."
+      }
+    }
+  ]
+}

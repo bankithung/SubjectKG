@@ -22,8 +22,8 @@ claude
                     │  ization · 50 self-improvement             │
                     └───────────────┬────────────────────────────┘
                                     │ read every session
-   kg/math.json  ◄── build ──  kg/spine.json + kg/bands/*.json
-   (165 concepts, Class 1-12,       │
+   kg/math.json  ◄── build ──  kg/spine.json + kg/bands/*.json + kg/classes/*.json
+   (162 concepts, Class 1-12,       │
     prerequisites, misconceptions,  ▼
     diagnostic question banks) ──► /tutor session ◄── students/<id>/profile.json
                                     │                  (mastery, behavior,

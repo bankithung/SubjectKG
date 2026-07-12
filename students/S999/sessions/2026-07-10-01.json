@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../harness/schemas/session-log.schema.json",
+  "$comment": "SYNTHETIC DEMO FIXTURE - reference example of a session log (the 6th and most recent session the demo profile describes). Not a real student.",
+  "student": "S999",
+  "date": "2026-07-10",
+  "duration_min": 31,
+  "goal": "g5.num.decimals-intro: first teach",
+  "nodes_touched": ["g5.num.decimals-intro", "g5.num.fractions-equivalent-compare"],
+  "reviews_done": ["g4.num.fractions-equal-parts"],
+  "events": [
+    { "type": "micro-check", "node": "g4.num.fractions-equal-parts", "strategy": "practice-drill",
+      "detail": "due review: compare 2/6 vs 1/3 with area sketch", "student_response": "equal - 'same pizza, different cuts'",
+      "outcome": "landed" },
+    { "type": "hook", "node": "g5.num.decimals-intro", "strategy": "story",
+      "detail": "cricket strike rates on the scoreboard show 145.5 - what does the .5 mean?",
+      "student_response": "engaged, guessed 'half'", "outcome": "landed" },
+    { "type": "routine", "node": "g5.num.decimals-intro", "strategy": "see-think-wonder",
+      "detail": "shown a metre ruler zoomed between 3 and 4",
+      "student_response": "SEE: little marks; THINK: pieces of a metre; WONDER: 'is 3.7 like 3 and 7 small bits?'",
+      "outcome": "landed" },
+    { "type": "teach", "node": "g5.num.decimals-intro", "strategy": "visual",
+      "detail": "number line tenths; wrote 3.7 = 3 + 7/10 in her own 'cuts' language", "outcome": "landed" },
+    { "type": "micro-check", "node": "g5.num.decimals-intro", "strategy": "visual",
+      "detail": "place 2.3 on the line", "student_response": "correct, quick", "outcome": "landed",
+      "confidence_stated": 4 },
+    { "type": "teach", "node": "g5.num.decimals-intro", "strategy": "worked-example",
+      "detail": "comparing 0.5 vs 0.25 - she claimed 0.25 bigger ('25 > 5')", "outcome": "partial" },
+    { "type": "observation", "detail": "frustration signal at ~22 min (one-word answers); switched to money context (50p vs 25p) which re-engaged her" }
+  ],
+  "assessment": {
+    "items": [
+      { "node": "g5.num.decimals-intro", "question": "q1", "correct": true, "option_chosen": "B" },
+      { "node": "g5.num.decimals-intro", "question": "q2", "correct": false, "option_chosen": "C",
+        "misconception_signalled": "m1", "confirmed_as": "misconception", "confidence_stated": 5 },
+      { "node": "g5.num.decimals-intro", "question": "q3", "correct": true, "option_chosen": "A" }
+    ]
+  },
+  "profile_updates": {
+    "mastery_deltas": { "g5.num.decimals-intro": 0.35, "g4.num.fractions-equal-parts": 0.01 },
+    "misconceptions_observed": ["g5.num.decimals-intro/m1 (longer decimal = larger), high confidence - priority next session"],
+    "strategy_outcomes": { "visual:num": "worked", "see-think-wonder": "worked", "worked-example": "unclear", "story": "worked" },
+    "behavior_notes": ["money context is the reliable re-engagement move", "frustration onset ~20-22 min, consistent with attention_span_min=18"]
+  },
+  "reflection": {
+    "goal_met": true,
+    "evidence": "2/3 on topic test incl. one application item; placed decimals on the line unaided",
+    "what_worked": ["ruler see-think-wonder generated her own tenths definition", "reusing her 'same pizza, different cuts' metaphor for 3.7"],
+    "what_failed": ["worked-example on 0.5 vs 0.25 - she pattern-matched digits instead of place value; confirmed m1 at confidence 5"],
+    "surprises": ["high-confidence error on comparison despite solid number-line placement - representation and comparison are separable skills here"],
+    "next_time": "open with money (50p vs 25p) to confront m1 BEFORE any digit-comparison examples; retest m1 with a fresh item (retest_after 2026-07-12)",
+    "insight_for_ledger": ""
+  }
+}

@@ -35,17 +35,26 @@ During every session, notice and record (in the session log, rolled up to the pr
 
 ## Decision rules
 
-1. **Gate on prerequisites**: target node teachable iff all prereqs have mastery ≥ 0.8.
-   Otherwise the session plan is the shortest prerequisite repair path (the KG gives it).
+1. **Gate on prerequisites**: target node teachable iff all prereqs are MASTERED, which
+   everywhere in this harness means **score ≥ 0.8 AND `conceptual_ok` true** (at least one
+   conceptual/application item answered correctly — same definition as rules/30 and the
+   viewer overlay). Otherwise the session plan is the shortest prerequisite repair path
+   (the KG gives it).
 2. **Difficulty ramp**: keep observed success ~70-85%. Two consecutive too-easy correct
    answers → step difficulty up; success rate < 60% in a set → step down and switch
    modality (don't just repeat louder).
 3. **Strategy re-ranking**: modality/routine choice = node defaults re-scored by this
    student's `strategy_stats` success rates (Laplace-smoothed; explore an under-tried
    strategy ~15% of the time so the data keeps improving — a small epsilon-greedy bandit).
+   Key format: modalities are recorded strand-scoped as `modality:strand` (e.g.
+   `visual:num`) because what works varies by strand; thinking routines are recorded
+   unscoped by their routine id (e.g. `see-think-wonder`). When ranking, fall back from
+   `modality:strand` to any other `modality:*` evidence if the strand has none.
 4. **Session shape**: reviews due (≤5 min) → main teach (student's attention-span-sized
    chunks) → topic test → close with a win + `connect-extend-challenge`.
 5. **Re-test repaired misconceptions** after 2 days, then 7; only then mark repaired.
+   Store the due date in the misconception's `retest_after` field so the next session
+   can see it without re-deriving.
 6. **Never let review debt exceed 10 nodes** — if it does, the next session is a review
    session, and the plan says so honestly ("your brain has 12 things about to fade —
    let's rescue them").

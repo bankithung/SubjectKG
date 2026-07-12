@@ -1,6 +1,6 @@
 ---
 name: kg
-description: Explore, visualise, validate, or edit the maths knowledge graph. Args: [path <node-id>|show <student-id>|validate|find <text>]. Example - /kg path g10.tri.intro
+description: Explore, visualise, validate, or edit the maths knowledge graph. Args: [find <text>|path <node-id> [student-id]|show [student-id]|validate]. Example - /kg path g10.tri.intro S001
 ---
 
 # /kg — Knowledge Graph Operations
@@ -30,7 +30,9 @@ Regenerate viewer data and tell the user to open the viewer:
 1. Run `python3 scripts/build_kg.py` (rebuilds `kg/math.json` and `viewer/kg-data.js`).
 2. If a student id is given, also run `python3 scripts/export_student_overlay.py <id>` to
    write `viewer/student-data.js` (mastery overlay: green mastered / amber in-progress /
-   grey locked / blue frontier).
+   grey locked / blue frontier). Note: there is ONE student-data.js — the viewer always
+   shows the most recently exported student. On a shared machine, re-export before each
+   viewing (or delete the file to show the neutral map).
 3. Tell the user to open `viewer/index.html` in a browser (it is fully self-contained).
 
 ### `validate`

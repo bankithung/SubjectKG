@@ -1078,6 +1078,31 @@
             }
           ],
           "explanation": "T₄ = T(3+1) = 7C3 x⁴ (−2y)³ = 35 · x⁴ · (−8y³) = −280x⁴y³. The whole bracket (−2y) is cubed — giving −8, not −2 — and r = 3 (not 4) for the fourth term."
+        },
+        {
+          "id": "q4",
+          "skill": "conceptual",
+          "difficulty": 4,
+          "prompt": "In the expansion of (a + b)ⁿ the coefficients read the same forwards and backwards, e.g. 1, 4, 6, 4, 1 for n = 4. What is the fundamental reason for this symmetry?",
+          "options": [
+            {
+              "text": "nCr = nC(n−r): choosing which r of the n brackets contribute a b is the same count as choosing which n − r contribute an a",
+              "correct": true
+            },
+            {
+              "text": "Because (a + b)ⁿ = aⁿ + bⁿ, and the two end terms aⁿ and bⁿ mirror each other, forcing the whole row to be symmetric",
+              "misconception": "m1"
+            },
+            {
+              "text": "It is a pattern that happens to hold for small n only; for large enough n the middle coefficients stop matching up in pairs",
+              "diagnosis": "Treats Pascal-triangle symmetry as a small-case accident; nCr = n!/(r!(n−r)!) is visibly unchanged when r is replaced by n − r, for EVERY n."
+            },
+            {
+              "text": "Because the expansion contains exactly n terms, an even count, so pairing the first with the last always matches coefficients",
+              "misconception": "m2"
+            }
+          ],
+          "explanation": "Each term of (a + b)ⁿ comes from choosing, in each of the n brackets, either a or b. The coefficient of aⁿ⁻ʳbʳ counts the ways to pick WHICH r brackets supply the b — that is nCr. But naming the r brackets that give b is exactly the same act as naming the n − r brackets that give a, so nCr = nC(n−r): the coefficient of aⁿ⁻ʳbʳ equals the coefficient of aʳbⁿ⁻ʳ, and the row is symmetric. (Algebraically, n!/(r!(n−r)!) is unchanged under r ↔ n − r. Note the expansion has n + 1 terms, not n.)"
         }
       ]
     },
@@ -1687,6 +1712,31 @@
             }
           ],
           "explanation": "Internal division m:n = 2:1 from A to B: P = ((2·5 + 1·2)/3, (2·2 + 1·(−1))/3, (2·9 + 1·3)/3) = (4, 1, 7). Note P is two-thirds of the way to B, matching the 2:1 estimate; (3, 0, 5) is the 1:2 point — ratio attached to the wrong ends."
+        },
+        {
+          "id": "q4",
+          "skill": "conceptual",
+          "difficulty": 3,
+          "prompt": "Why does the distance formula become √(Δx² + Δy² + Δz²) in three dimensions, rather than keeping the familiar 2D form √(Δx² + Δy²)?",
+          "options": [
+            {
+              "text": "It is Pythagoras applied twice: the floor diagonal has square Δx² + Δy², and this diagonal then forms a right triangle with the vertical change Δz",
+              "correct": true
+            },
+            {
+              "text": "The Δz² term is only a safety margin; whenever two points are far apart horizontally, the 2D formula already gives their true distance in space",
+              "misconception": "m1"
+            },
+            {
+              "text": "Because the z-coordinate of each point measures its distance from the z-axis, and that distance must enter the formula alongside Δx and Δy",
+              "misconception": "m2"
+            },
+            {
+              "text": "Actually the vertical change should be added after the root, without squaring, giving √(Δx² + Δy²) + Δz as the full three-dimensional distance",
+              "diagnosis": "Bolts the vertical leg on additively; perpendicular legs combine through their SQUARES (Pythagoras), and lengths only add when the segments are collinear."
+            }
+          ],
+          "explanation": "Think of the segment as the diagonal of a box. First walk the floor: the horizontal displacement is the hypotenuse of a right triangle with legs Δx and Δy, so its square is Δx² + Δy². That floor diagonal and the vertical rise Δz are perpendicular, so Pythagoras applies again: d² = (Δx² + Δy²) + Δz². Dropping Δz² only works when both points share the same z (m1), and the z-coordinate is a point's distance from the xy-PLANE, not from the z-axis (m2)."
         }
       ]
     },
@@ -3229,6 +3279,31 @@
             }
           ],
           "explanation": "By parts with u = x, dv = eˣdx: ∫x eˣ dx = x eˣ − ∫eˣ dx = x eˣ − eˣ + C = (x − 1)eˣ + C. Verify by differentiating: (x − 1)eˣ + eˣ = x eˣ ✓. Integrating the factors separately — (x²/2)(eˣ) — fails this check."
+        },
+        {
+          "id": "q4",
+          "skill": "conceptual",
+          "difficulty": 5,
+          "prompt": "Priya writes ∫2x dx = x² + 1 and Rahul writes ∫2x dx = x² − 7. Each checks by differentiating and recovers 2x. What is the correct conclusion?",
+          "options": [
+            {
+              "text": "Both are antiderivatives: differentiation kills any added constant, so the antiderivatives of 2x form the family x² + C, any two differing by a constant",
+              "correct": true
+            },
+            {
+              "text": "Neither is right: ∫2x dx is exactly x², because integration and differentiation are inverse operations that pair each function with ONE antiderivative",
+              "misconception": "m1"
+            },
+            {
+              "text": "Both are wrong for a different reason: ∫2x dx = 2, since under the integral sign the power should come down in front and then reduce by one",
+              "misconception": "m3"
+            },
+            {
+              "text": "At least one must contain an algebra slip, because two genuinely different functions can never share exactly the same derivative at every point",
+              "diagnosis": "Assumes differentiation is one-to-one; it is many-to-one — all vertical shifts of a curve have identical slopes, so distinct functions can share a derivative."
+            }
+          ],
+          "explanation": "Differentiate both answers: d/dx(x² + 1) = 2x and d/dx(x² − 7) = 2x. The constant contributes zero slope, so differentiation erases it — and the reverse journey cannot know which constant was erased. Hence 2x has an entire FAMILY of antiderivatives, x² + C, whose graphs are vertical translates of one another; any two members differ by a constant. That is precisely why the indefinite integral must carry +C: writing ∫2x dx = x² alone silently discards every other member of the family."
         }
       ]
     },
@@ -3525,6 +3600,31 @@
             }
           ],
           "explanation": "P(x) = 2/x, so ∫P dx = 2 ln x, and IF = e^{2 ln x} = e^{ln x²} = x². Check: multiplying through by x² gives x²y′ + 2xy = x³, whose left side is exactly d/dx(x²y) ✓ — the collapse test every integrating factor must pass."
+        },
+        {
+          "id": "q4",
+          "skill": "application",
+          "difficulty": 5,
+          "prompt": "A bacterial culture grows according to dy/dx = ky, whose general solution is y = Ce^(kx). Why must a measurement such as y(0) = y₀ be supplied before the model can predict the population at a later time?",
+          "options": [
+            {
+              "text": "The equation only fixes HOW y changes; every value of C gives a curve obeying that growth law, and the initial measurement selects which curve this culture follows",
+              "correct": true
+            },
+            {
+              "text": "It need not be supplied: the equation alone determines y, since the constant C disappears when you differentiate and so it has no real effect on the solution",
+              "misconception": "m2"
+            },
+            {
+              "text": "Because the equation has degree 1, its solution carries one constant; an equation of second degree would instead need two separate measurements to pin down",
+              "misconception": "m1"
+            },
+            {
+              "text": "Because substituting x = 0 into the general solution forces C = 0, so a measurement is needed to restore the constant that the substitution eliminated",
+              "diagnosis": "Thinks x = 0 kills C; in fact y(0) = Ce⁰ = C, so the initial value doesn't destroy the constant — it directly EQUALS it, which is exactly how y₀ pins C down."
+            }
+          ],
+          "explanation": "dy/dx = ky is a statement about slopes: at every point, the growth rate is proportional to the current size. Infinitely many curves satisfy that — y = Ce^(kx) for every C — forming a fan of solutions. The differential equation cannot distinguish a dish seeded with 100 bacteria from one seeded with a million; only a measurement can. Substituting x = 0 gives y(0) = Ce⁰ = C, so C = y₀ and the particular solution is y = y₀e^(kx). (The number of arbitrary constants matches the ORDER of the equation — here first order, one constant — not its degree.)"
         }
       ]
     },

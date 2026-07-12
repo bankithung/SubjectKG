@@ -1,6 +1,6 @@
 ---
 name: reflect
-description: Post-session self-improvement pass - analyse what worked, update the insights ledger, refine the knowledge graph and harness rules. Args: <student-id> [session-file]. Run automatically at the end of every /tutor session; can also be run standalone to mine past sessions.
+description: Post-session self-improvement pass - analyse what worked, update the insights ledger, refine the knowledge graph and harness rules. Args: <student-id> [session-file], or "all" for cross-student mining mode. Run automatically at the end of every /tutor session; run "/reflect all" periodically to mine patterns across all students.
 ---
 
 # /reflect — Self-Improvement Pass
