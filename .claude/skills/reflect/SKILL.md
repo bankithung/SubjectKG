@@ -30,7 +30,10 @@ STUDENT). Both must happen every session.
    Then run `python3 scripts/validate_kg.py` and `python3 scripts/build_kg.py`.
 6. **Amend harness rules** only for insights about the harness itself, per the guardrails
    in 50-self-improvement.md (cite evidence; commit message prefix `harness-learning:`).
-7. **Commit** all changes (profile, session log, insights, KG edits) with a message like
+7. **Regenerate the student's analytics page** — `python3 scripts/build_student_page.py <id>`
+   — so `students/<id>/report.html` always reflects the latest session (it is the page a
+   teacher/parent reads: mastery, misconception tracker, full Q&A history, what works).
+8. **Commit** all changes (profile, session log, report, insights, KG edits) with a message like
    `session: S001 2026-07-12 ratio-proportion (+kg: new misconception m5)`. Never include
    student names — ids only.
 

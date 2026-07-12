@@ -58,6 +58,14 @@ into `harness/insights.md` and feeds improvements back into the knowledge graph 
 misconceptions, better distractors, corrected prerequisite edges) and, with evidence,
 into the harness rules themselves (auditable via `harness-learning:` commits).
 
+**Teachers get a real dashboard.** `python3 scripts/build_student_page.py S001` generates
+`students/S001/report.html` — a self-contained analytics page: mastery by strand and
+topic, an actionable misconception tracker (faulty model → repair stage → the KG's
+recommended remedy), the **complete question history** with every answer, what it
+diagnosed, and confident-error flags, which teaching strategies actually work for this
+student, behavior notes, the spaced-repetition schedule, and a session-by-session
+timeline. Regenerated automatically by `/reflect` after every session.
+
 **Students can see the map.** Open `viewer/index.html` — a self-contained interactive
 viewer of the whole graph: search, filter by strand, click any topic to see what to
 learn first and what it unlocks, and (after `/kg show <student-id>`) their personal

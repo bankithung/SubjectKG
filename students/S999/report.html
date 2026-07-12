@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S999 — Student Analytics</title>
+<style>
+:root { --page:#f9f9f7; --card:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --mut:#898781;
+  --line:#e1e0d9; --ok:#0ca30c; --warn:#fab219; --hot:#d03b3b; --acc:#2a78d6;
+  --s-num:#2a78d6; --s-alg:#1baf7a; --s-geo:#eda100; --s-mea:#008300;
+  --s-dat:#4a3aa7; --s-tri:#e34948; --s-cal:#e87ba4; --s-vec:#eb6834; }
+@media (prefers-color-scheme: dark) {
+  :root { --page:#0d0d0d; --card:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --line:#2c2c2a;
+    --acc:#3987e5; --s-num:#3987e5; --s-alg:#199e70; --s-geo:#c98500;
+    --s-dat:#9085e9; --s-tri:#e66767; --s-cal:#d55181; --s-vec:#d95926; } }
+* { box-sizing:border-box; margin:0; }
+body { background:var(--page); color:var(--ink); max-width:1100px; margin:0 auto;
+  padding:24px 16px 60px; font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+h1 { font-size:22px; } h2 { font-size:15px; margin:28px 0 10px; text-transform:uppercase;
+  letter-spacing:.05em; color:var(--ink2); }
+.tiles { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
+.tile { background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:12px 16px; min-width:130px; }
+.tile b { font-size:22px; display:block; }
+.tile small { color:var(--mut); }
+table { width:100%; border-collapse:collapse; background:var(--card);
+  border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+th,td { text-align:left; padding:8px 10px; border-top:1px solid var(--line);
+  vertical-align:top; font-size:13px; }
+th { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--mut);
+  border-top:none; }
+tr.good td:first-child { border-left:3px solid var(--ok); }
+tr.bad td:first-child { border-left:3px solid var(--hot); }
+.bar { position:relative; background:var(--line); border-radius:6px; height:16px;
+  min-width:110px; }
+.bar div { height:100%; border-radius:6px; }
+.bar span { position:absolute; inset:0; font-size:11px; text-align:center;
+  line-height:16px; color:var(--ink); }
+.dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
+.hot { color:var(--hot); font-size:11px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:12px 16px; margin-bottom:12px; }
+.cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px; margin-top:8px; }
+.cols small { color:var(--mut); letter-spacing:.05em; }
+ul { padding-left:18px; } p { color:var(--ink2); }
+.note { color:var(--mut); font-size:12px; margin-top:6px; }
+.scroll { overflow-x:auto; }
+</style></head><body>
+<h1>Student S999 — Analytics</h1>
+<p class="note">Generated 2026-07-12 · Class 6 ·
+goal: comfortable with Class 6 maths, enjoys it again ·
+anonymous id (names never stored — see harness/rules/40)</p>
+
+<div class="tiles">
+  <div class="tile"><b>6</b><small>sessions</small></div>
+  <div class="tile"><b>4</b><small>topics mastered</small></div>
+  <div class="tile"><b>6</b><small>topics with evidence</small></div>
+  <div class="tile"><b>67%</b><small>overall accuracy (2/3 items)</small></div>
+  <div class="tile"><b>1</b><small>active misconceptions</small></div>
+  <div class="tile"><b>0.9</b><small>calibration (＋ = overconfident)</small></div>
+</div>
+
+<h2>Mastery by strand</h2>
+<div class="scroll"><table><tr><th>Strand</th><th>Progress</th><th>Avg score (seen topics)</th></tr><tr><td><span class="dot" style="background:var(--s-num)"></span>Numbers &amp; Operations</td><td>4/6 mastered <small>(52 total in graph)</small></td><td><div class="bar"><div style="width:73%;background:var(--s-num)"></div><span>73%</span></div></td></tr><tr><td><span class="dot" style="background:var(--s-alg)"></span>Algebra, Sets &amp; Functions</td><td>0/0 mastered <small>(27 total in graph)</small></td><td><small>no evidence yet</small></td></tr><tr><td><span class="dot" style="background:var(--s-geo)"></span>Geometry</td><td>0/0 mastered <small>(34 total in graph)</small></td><td><small>no evidence yet</small></td></tr><tr><td><span class="dot" style="background:var(--s-mea)"></span>Measurement &amp; Mensuration</td><td>0/0 mastered <small>(21 total in graph)</small></td><td><small>no evidence yet</small></td></tr><tr><td><span class="dot" style="background:var(--s-dat)"></span>Data, Statistics &amp; Probability</td><td>0/0 mastered <small>(15 total in graph)</small></td><td><small>no evidence yet</small></td></tr><tr><td><span class="dot" style="background:var(--s-tri)"></span>Trigonometry</td><td>0/0 mastered <small>(4 total in graph)</small></td><td><small>no evidence yet</small></td></tr><tr><td><span class="dot" style="background:var(--s-cal)"></span>Calculus</td><td>0/0 mastered <small>(6 total in graph)</small></td><td><small>no evidence yet</small></td></tr><tr><td><span class="dot" style="background:var(--s-vec)"></span>Vectors &amp; 3D Geometry</td><td>0/0 mastered <small>(3 total in graph)</small></td><td><small>no evidence yet</small></td></tr></table></div>
+
+<h2>Every topic with evidence</h2>
+<div class="scroll"><table><tr><th>Topic</th><th>Mastery</th><th>Conceptual ✓</th><th>Items</th><th>Last seen</th><th>Active misconceptions</th></tr><tr><td>Multiplication Tables and Facts (2–10)<br><small>g3.num.mult-tables · Class 3</small></td><td><div class="bar"><div style="width:92%;background:var(--ok)"></div><span>92%</span></div></td><td>✓</td><td>6</td><td>2026-07-01</td><td>—</td></tr><tr><td>Multi-digit Multiplication<br><small>g4.num.mult-multi-digit · Class 4</small></td><td><div class="bar"><div style="width:88%;background:var(--ok)"></div><span>88%</span></div></td><td>✓</td><td>5</td><td>2026-07-03</td><td>—</td></tr><tr><td>Fractions: Equal Parts, Comparing and Equivalence Intro<br><small>g4.num.fractions-equal-parts · Class 4</small></td><td><div class="bar"><div style="width:86%;background:var(--ok)"></div><span>86%</span></div></td><td>✓</td><td>5</td><td>2026-07-05</td><td>—</td></tr><tr><td>Long Division with 1-digit Divisors and Remainders<br><small>g4.num.division-long-intro · Class 4</small></td><td><div class="bar"><div style="width:85%;background:var(--ok)"></div><span>85%</span></div></td><td>✓</td><td>4</td><td>2026-07-03</td><td>—</td></tr><tr><td>Equivalent Fractions and Comparison<br><small>g5.num.fractions-equivalent-compare · Class 5</small></td><td><div class="bar"><div style="width:55%;background:var(--warn)"></div><span>55%</span></div></td><td>✗</td><td>3</td><td>2026-07-08</td><td>m1 (confronted)</td></tr><tr><td>Decimals: Tenths and Hundredths<br><small>g5.num.decimals-intro · Class 5</small></td><td><div class="bar"><div style="width:35%;background:var(--warn)"></div><span>35%</span></div></td><td>✗</td><td>2</td><td>2026-07-10</td><td>—</td></tr></table></div>
+
+<h2>Misconception tracker (what to repair, and how)</h2>
+<div class="scroll"><table><tr><th>Where</th><th>The faulty model</th><th>Repair stage</th><th>Recommended remedy (from the KG)</th></tr><tr><td>Equivalent Fractions and Comparison<br><small>m1</small></td><td>Makes &#x27;equivalent&#x27; fractions by adding the same number to top and bottom: 3/4 = 4/5 = 5/6.</td><td><b>confronted</b><br><small>first seen 2026-07-08</small></td><td>Test the claim on a fraction wall or by halving a chapati: 3/4 and 4/5 clearly do not match. Equivalence is re-cutting every existing piece into the same number of sub-pieces — which is multiplication, not addition.</td></tr></table></div>
+
+<h2>Complete question history</h2>
+<div class="scroll"><table><tr><th>Date</th><th>Topic</th><th>Question</th><th>Their answer</th><th>Result</th><th>What the answer revealed</th><th>Conf.</th></tr><tr class="good"><td>2026-07-10</td><td>Decimals: Tenths and Hundredths</td><td>Which decimal shows the fraction 7/10?</td><td>B</td><td>✓</td><td>—</td><td>—</td></tr><tr class="bad"><td>2026-07-10</td><td>Decimals: Tenths and Hundredths</td><td>Which is greater: 0.5 or 0.25?</td><td>C <b class="hot">⚠ confident error</b></td><td>✗ (key: 0.5 — it equals 0.50, and 50 hundredths is more than 25 hundredths)</td><td>m1 — Longer decimal means larger number: 0.25 &gt; 0.5 because 25 &gt; 5. <small>(confirmed: misconception)</small></td><td>5</td></tr><tr class="good"><td>2026-07-10</td><td>Decimals: Tenths and Hundredths</td><td>Which number is exactly the same as 0.30?</td><td>A</td><td>✓</td><td>—</td><td>—</td></tr></table></div>
+<p class="note">⚠ confident error = wrong with self-rated confidence ≥4/5 — a genuinely held misconception, not a guess. Address these first.</p>
+
+<h2>What teaching actually works for this student</h2>
+<div class="scroll"><table><tr><th>Strategy</th><th>Worked / tried</th><th>Success rate</th><th>Notes</th></tr><tr><td>visual:num</td><td>4/4</td><td><div class="bar"><div style="width:100%;background:var(--acc)"></div><span>100%</span></div></td><td></td></tr><tr><td>see-think-wonder</td><td>2/2</td><td><div class="bar"><div style="width:100%;background:var(--acc)"></div><span>100%</span></div></td><td></td></tr><tr><td>worked-example</td><td>2/3</td><td><div class="bar"><div style="width:67%;background:var(--acc)"></div><span>67%</span></div></td><td></td></tr><tr><td>socratic</td><td>0/2</td><td><div class="bar"><div style="width:0%;background:var(--acc)"></div><span>0%</span></div></td><td>shuts down under pure questioning; needs scaffolding first</td></tr></table></div>
+
+<h2>Behavior profile</h2>
+<div class="scroll"><table><tr><td>attention span min</td><td>18</td></tr><tr><td>session sweet spot min</td><td>30</td></tr><tr><td>best time of day</td><td>evening</td></tr><tr><td>hint appetite</td><td>asks-immediately</td></tr><tr><td>frustration signals</td><td>one-word answers, asks &#x27;is this almost done?&#x27;</td></tr><tr><td>reengagement moves</td><td>cricket-context problem, switch to drawing the problem</td></tr><tr><td>impulsivity</td><td>impulsive</td></tr><tr><td>own metaphors</td><td>calls equivalent fractions &#x27;same pizza, different cuts&#x27;</td></tr></table></div>
+
+<h2>Review schedule (spaced repetition)</h2>
+<div class="scroll"><table><tr><th>Topic</th><th>Next review</th><th>Interval</th><th>Lapses</th></tr><tr class="bad"><td>Equivalent Fractions and Comparison</td><td>2026-07-12 · <b>due</b></td><td>1d</td><td>2</td></tr><tr class=""><td>Fractions: Equal Parts, Comparing and Equivalence Intro</td><td>2026-07-14</td><td>7d</td><td>0</td></tr><tr class=""><td>Long Division with 1-digit Divisors and Remainders</td><td>2026-07-20</td><td>16d</td><td>1</td></tr></table></div>
+
+<h2>Session timeline (newest first)</h2>
+<div class="card">
+      <b>2026-07-10</b> · g5.num.decimals-intro: first teach ·
+      31 min · test 2/3 ·
+      goal met ✓
+      <div class="cols">
+        <div><small>WORKED</small><ul><li>ruler see-think-wonder generated her own tenths definition</li><li>reusing her &#x27;same pizza, different cuts&#x27; metaphor for 3.7</li></ul></div>
+        <div><small>FAILED</small><ul><li>worked-example on 0.5 vs 0.25 - she pattern-matched digits instead of place value; confirmed m1 at confidence 5</li></ul></div>
+        <div><small>NEXT TIME</small><p>open with money (50p vs 25p) to confront m1 BEFORE any digit-comparison examples; retest m1 with a fresh item (retest_after 2026-07-12)</p></div>
+      </div></div>
+
+<p class="note">Rebuild with: python3 scripts/build_student_page.py S999 ·
+Graph map with this student's overlay: /kg show S999 then open viewer/index.html</p>
+</body></html>
