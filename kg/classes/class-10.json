@@ -1,0 +1,3031 @@
+{
+  "class": 10,
+  "micros": [
+    {
+      "id": "g10.num.real-numbers.fta-prime-factorisation",
+      "parent": "g10.num.real-numbers",
+      "title": "The Fundamental Theorem of Arithmetic",
+      "description": "Every integer greater than 1 factors into primes in exactly one way, apart from the order of factors. Build factor trees, express numbers as products of prime powers, and see why 1 is excluded from the primes.",
+      "outcomes": [
+        "Can express any given composite number as a product of prime powers via a factor tree",
+        "Can state the Fundamental Theorem of Arithmetic and explain why admitting 1 as a prime would destroy uniqueness"
+      ],
+      "prereqs": [
+        "g6.num.playing-with-numbers"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following is THE prime factorisation of 140 as guaranteed by the Fundamental Theorem of Arithmetic?",
+        "options": [
+          {
+            "text": "2² × 5 × 7",
+            "correct": true
+          },
+          {
+            "text": "1 × 2² × 5 × 7",
+            "misconception": "m2",
+            "diagnosis": "Included 1 as a prime factor; 1 is not prime, precisely so that the factorisation stays unique."
+          },
+          {
+            "text": "4 × 5 × 7",
+            "diagnosis": "4 is not prime (4 = 2²); every factor in a prime factorisation must itself be prime."
+          },
+          {
+            "text": "2 × 70",
+            "diagnosis": "Stopped after one split; 70 = 2 × 5 × 7 is composite and must be broken down further."
+          }
+        ],
+        "explanation": "140 = 2 × 70 = 2 × 2 × 35 = 2² × 5 × 7, with every factor prime. Any factor tree for 140 ends at the same multiset of primes {2, 2, 5, 7} — that uniqueness is the theorem. 1 is excluded from the primes because 1 × 2² × 5 × 7 = 1² × 2² × 5 × 7 = ... would give endlessly many 'different' factorisations."
+      }
+    },
+    {
+      "id": "g10.num.real-numbers.hcf-lcm-prime-method",
+      "parent": "g10.num.real-numbers",
+      "title": "HCF and LCM by Prime Factorisation",
+      "description": "Compute HCF (smallest powers of common primes) and LCM (greatest powers of all primes) directly from prime factorisations, and apply them to bells-tolling, tiling and circular-track problems.",
+      "outcomes": [
+        "Can find the HCF and LCM of two or three numbers from their prime factorisations using min/max exponents",
+        "Can decide whether a word problem (bells ringing together, largest square tile, meeting on a track) needs HCF or LCM and solve it"
+      ],
+      "prereqs": [
+        "g10.num.real-numbers.fta-prime-factorisation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g10.num.real-numbers.hcf-lcm-product-identity",
+      "parent": "g10.num.real-numbers",
+      "title": "The Identity HCF × LCM = Product (Two Numbers Only)",
+      "description": "For exactly two numbers a and b, HCF(a,b) × LCM(a,b) = a × b, because min + max of each prime's exponents equals their sum. Use it to find one quantity from the other three — and know it fails for three numbers.",
+      "outcomes": [
+        "Can use HCF × LCM = a × b to find an unknown HCF or LCM without factorising afresh",
+        "Can produce a counterexample showing the identity does not extend to three numbers"
+      ],
+      "prereqs": [
+        "g10.num.real-numbers.hcf-lcm-prime-method"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Given HCF(6, 8, 12) = 2, the LCM(6, 8, 12) is",
+        "options": [
+          {
+            "text": "24",
+            "correct": true
+          },
+          {
+            "text": "288",
+            "misconception": "m4",
+            "diagnosis": "Computed (6 × 8 × 12)/2 = 288 by extending HCF × LCM = product to three numbers; the identity holds only for exactly two numbers."
+          },
+          {
+            "text": "48",
+            "diagnosis": "Applied the two-number identity to the pair 8 and 12 with the three-way HCF: (8 × 12)/2 = 48; mixing the pair identity with a three-number HCF gives nonsense."
+          },
+          {
+            "text": "12",
+            "diagnosis": "Took the largest of the numbers as the LCM; but 8 does not divide 12, so the LCM must be larger."
+          }
+        ],
+        "explanation": "By prime factorisation: 6 = 2·3, 8 = 2³, 12 = 2²·3, so LCM = 2³ × 3 = 24. Note 24 × 2 = 48 ≠ 6 × 8 × 12 = 576: the identity HCF × LCM = product is a TWO-number fact (min exponent + max exponent = sum of exponents) and breaks with three numbers."
+      }
+    },
+    {
+      "id": "g10.num.real-numbers.terminating-decimal-test",
+      "parent": "g10.num.real-numbers",
+      "title": "Terminating vs Recurring Decimals: The 2ᵐ5ⁿ Test",
+      "description": "A rational number p/q in lowest terms has a terminating decimal exactly when q has no prime factor other than 2 and 5. Master the two-step protocol: reduce first, then factor the denominator.",
+      "outcomes": [
+        "Can decide, without dividing, whether a given rational number terminates or recurs",
+        "Can explain why only the primes 2 and 5 can be 'cleared' into a power of 10",
+        "Can state after how many decimal places a terminating expansion ends, from the exponents of 2 and 5"
+      ],
+      "prereqs": [
+        "g10.num.real-numbers.fta-prime-factorisation",
+        "g7.num.rational-numbers-intro"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which of the following rational numbers has a TERMINATING decimal expansion?",
+        "options": [
+          {
+            "text": "6/15",
+            "correct": true
+          },
+          {
+            "text": "5/12",
+            "misconception": "m1",
+            "diagnosis": "Treated 'even denominator' as sufficient; 12 = 2² × 3 contains a 3, so 5/12 recurs. Every prime factor must be 2 or 5."
+          },
+          {
+            "text": "7/6",
+            "diagnosis": "6 = 2 × 3 has the factor 3, so 7/6 = 1.1666... recurs; the single factor 2 does not save it."
+          },
+          {
+            "text": "29/343",
+            "diagnosis": "343 = 7³, and 7 can never be topped up to a power of 10, so the expansion recurs."
+          }
+        ],
+        "explanation": "Reduce FIRST: 6/15 = 2/5, and 5 = 5¹ passes the test — indeed 2/5 = 0.4 terminates. The others fail after reduction: 12 = 2²×3, 6 = 2×3, 343 = 7³ all contain primes other than 2 and 5. The two-step habit (reduce, then factor the denominator) catches traps like 6/15, which looks non-terminating until reduced."
+      }
+    },
+    {
+      "id": "g10.num.real-numbers.irrationality-proof-root2",
+      "parent": "g10.num.real-numbers",
+      "title": "Proving √2 (and √3, √5) Irrational by Contradiction",
+      "description": "Assume √2 = p/q in lowest terms, square both sides, and use the theorem 'if a prime divides a² then it divides a' to force a common factor — contradiction. Run the same engine for √3 and √5.",
+      "outcomes": [
+        "Can reproduce the full contradiction proof that √2 is irrational, justifying each step",
+        "Can adapt the proof to √3 or √5 using the lemma that p | a² implies p | a for a prime p"
+      ],
+      "prereqs": [
+        "g10.num.real-numbers.fta-prime-factorisation",
+        "g9.num.number-systems"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g10.num.real-numbers.irrational-combinations",
+      "parent": "g10.num.real-numbers",
+      "title": "Irrationality of Combinations like 3 + 2√5",
+      "description": "Rationals are closed under +, −, × and ÷ (by nonzero). So if 3 + 2√5 were rational, isolating √5 would make √5 rational — contradiction. One irrational ingredient poisons the whole expression.",
+      "outcomes": [
+        "Can prove expressions like 3 + 2√5, 5 − √3 and √2/7 irrational using closure of the rationals plus contradiction",
+        "Can classify every real number as exactly one of rational or irrational"
+      ],
+      "prereqs": [
+        "g10.num.real-numbers.irrationality-proof-root2"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 4,
+        "prompt": "Given that √2 is irrational, the number 7 − 2√2 is",
+        "options": [
+          {
+            "text": "Irrational: if it were rational, √2 = (7 − that rational)/2 would be rational — contradiction",
+            "correct": true
+          },
+          {
+            "text": "Rational, because 7 and 2 are both rational",
+            "misconception": "m3",
+            "diagnosis": "Rational parts do not dilute irrationality; the closure argument shows one irrational term forces the whole expression irrational."
+          },
+          {
+            "text": "Rational, because 2√2 = √8 and 8 is a rational number",
+            "diagnosis": "√8 = 2√2 is still irrational; 8 being rational does not make its square root rational (8 is not a perfect square)."
+          },
+          {
+            "text": "Impossible to classify without computing its decimal expansion",
+            "diagnosis": "No finite decimal computation can ever settle irrationality; the contradiction argument decides it in three lines."
+          }
+        ],
+        "explanation": "Suppose 7 − 2√2 = r with r rational. Then √2 = (7 − r)/2. Since rationals are closed under subtraction and division by nonzero numbers, (7 − r)/2 would be rational, contradicting the irrationality of √2. Hence 7 − 2√2 is irrational."
+      }
+    },
+    {
+      "id": "g10.alg.polynomials.zeroes-and-graphs",
+      "parent": "g10.alg.polynomials",
+      "title": "Zeroes Geometrically: Where the Graph Meets the x-axis",
+      "description": "A zero of p(x) is an input x with p(x) = 0, so the point (x, 0) lies on the x-axis. Read the number of zeroes straight off a graph, and see that a degree-n polynomial has AT MOST n real zeroes — possibly fewer.",
+      "outcomes": [
+        "Can state the number of zeroes of a polynomial from its graph by counting x-axis meetings",
+        "Can distinguish the y-intercept p(0) from the zeroes (solutions of p(x) = 0)",
+        "Can sketch parabolas with two, one and zero real zeroes"
+      ],
+      "prereqs": [
+        "g9.alg.polynomials",
+        "g8.alg.graphs-intro"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "The graph of a polynomial p(x) crosses the x-axis at 2 points and crosses the y-axis at 1 point. The number of zeroes of p(x) is",
+        "options": [
+          {
+            "text": "2",
+            "correct": true
+          },
+          {
+            "text": "1",
+            "misconception": "m2",
+            "diagnosis": "Counted the y-axis crossing; a zero is where the OUTPUT is zero, i.e. where the graph meets the x-axis, not the y-axis."
+          },
+          {
+            "text": "3",
+            "diagnosis": "Added all axis crossings together; the y-intercept p(0) is generally not a zero and must not be counted."
+          },
+          {
+            "text": "Cannot be determined from the graph",
+            "diagnosis": "The graph determines the real zeroes completely: each meeting with the x-axis is exactly one zero."
+          }
+        ],
+        "explanation": "Zeroes are the x-values where p(x) = 0, i.e. the points where the graph meets the x-axis — here, 2 of them. The y-axis crossing is the point (0, p(0)), the y-intercept, which every polynomial's graph crosses exactly once and which says nothing about zeroes."
+      }
+    },
+    {
+      "id": "g10.alg.polynomials.zeroes-by-factorisation",
+      "parent": "g10.alg.polynomials",
+      "title": "Finding Zeroes of a Quadratic by Factorisation",
+      "description": "Split the middle term, factor the quadratic into two linear brackets, and read off the zeroes with their correct signs. Verify by substituting back.",
+      "outcomes": [
+        "Can factor a quadratic polynomial by splitting the middle term and state its zeroes",
+        "Can verify claimed zeroes by direct substitution, catching sign errors"
+      ],
+      "prereqs": [
+        "g10.alg.polynomials.zeroes-and-graphs",
+        "g8.alg.factorisation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The zeroes of the polynomial x² + 2x − 15 are",
+        "options": [
+          {
+            "text": "3 and −5",
+            "correct": true
+          },
+          {
+            "text": "−3 and 5",
+            "misconception": "m1",
+            "diagnosis": "Read the factors (x − 3)(x + 5) with flipped signs; check: p(5) = 25 + 10 − 15 = 20 ≠ 0."
+          },
+          {
+            "text": "3 and 5",
+            "diagnosis": "Ignored signs entirely; the product of the zeroes must be −15 (negative), so the zeroes must have opposite signs."
+          },
+          {
+            "text": "1 and −15",
+            "diagnosis": "Chose a factor pair of 15 without checking the middle term: 1 + (−15) = −14, but the sum of zeroes must be −2."
+          }
+        ],
+        "explanation": "x² + 2x − 15 = (x + 5)(x − 3), so the zeroes are x = −5 and x = 3. Check: sum = 3 + (−5) = −2 ✓ and product = −15 ✓, and p(3) = 9 + 6 − 15 = 0 ✓. The zero of the factor (x + 5) is −5, not +5 — the sign flips when you solve x + 5 = 0."
+      }
+    },
+    {
+      "id": "g10.alg.polynomials.sum-product-relations",
+      "parent": "g10.alg.polynomials",
+      "title": "Sum and Product of Zeroes vs Coefficients",
+      "description": "For ax² + bx + c with zeroes α and β: α + β = −b/a and αβ = c/a. Derive the relations by comparing a(x − α)(x − β) with the expanded form, and drill the minus sign.",
+      "outcomes": [
+        "Can state and verify α + β = −b/a and αβ = c/a for any quadratic",
+        "Can use the relations to check factorisations without re-expanding"
+      ],
+      "prereqs": [
+        "g10.alg.polynomials.zeroes-by-factorisation"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "If α and β are the zeroes of 3x² + 5x − 2, then α + β equals",
+        "options": [
+          {
+            "text": "−5/3",
+            "correct": true
+          },
+          {
+            "text": "5/3",
+            "misconception": "m1",
+            "diagnosis": "Dropped the minus sign: the sum of zeroes is −b/a, and here b = +5, so the sum is −5/3."
+          },
+          {
+            "text": "−2/3",
+            "diagnosis": "Reported the PRODUCT of zeroes c/a instead of the sum."
+          },
+          {
+            "text": "−5",
+            "diagnosis": "Used −b but forgot to divide by a = 3; the relation is −b/a, not −b."
+          }
+        ],
+        "explanation": "For ax² + bx + c, α + β = −b/a = −5/3 and αβ = c/a = −2/3. Check by factoring: 3x² + 5x − 2 = (3x − 1)(x + 2), zeroes 1/3 and −2; sum = 1/3 − 2 = −5/3 ✓, product = −2/3 ✓."
+      }
+    },
+    {
+      "id": "g10.alg.polynomials.build-quadratic-from-zeroes",
+      "parent": "g10.alg.polynomials",
+      "title": "Constructing a Quadratic from Sum and Product of Zeroes",
+      "description": "Any quadratic with zero-sum S and zero-product P is k[x² − Sx + P]. Build polynomials from given zeroes or from given S and P, watching where each sign lands.",
+      "outcomes": [
+        "Can write a quadratic polynomial with a given sum and product of zeroes using x² − Sx + P",
+        "Can explain why the answer is unique only up to a nonzero constant multiple k"
+      ],
+      "prereqs": [
+        "g10.alg.polynomials.sum-product-relations"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g10.alg.polynomials.symmetric-expressions",
+      "parent": "g10.alg.polynomials",
+      "title": "Evaluating Symmetric Expressions in the Zeroes",
+      "description": "Compute α² + β², 1/α + 1/β, α/β + β/α and similar expressions directly from α + β and αβ, without ever finding α and β themselves. Key identity: α² + β² = (α + β)² − 2αβ.",
+      "outcomes": [
+        "Can evaluate α² + β² and 1/α + 1/β from the coefficient relations alone",
+        "Can rewrite a symmetric expression in terms of α + β and αβ before substituting"
+      ],
+      "prereqs": [
+        "g10.alg.polynomials.sum-product-relations",
+        "g8.alg.expressions-identities"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 4,
+        "prompt": "If α and β are the zeroes of x² − 4x + 3, then α² + β² equals",
+        "options": [
+          {
+            "text": "10",
+            "correct": true
+          },
+          {
+            "text": "16",
+            "diagnosis": "Computed (α + β)² = 16 and stopped; α² + β² needs the correction term −2αβ = −6."
+          },
+          {
+            "text": "22",
+            "diagnosis": "Added 2αβ instead of subtracting: the identity is (α + β)² − 2αβ, not plus."
+          },
+          {
+            "text": "4",
+            "diagnosis": "Reported α + β itself; the question asks for the sum of the SQUARES of the zeroes."
+          }
+        ],
+        "explanation": "α + β = 4 and αβ = 3, so α² + β² = (α + β)² − 2αβ = 16 − 6 = 10. Cross-check: the zeroes are 1 and 3, and 1² + 3² = 10 ✓. The identity lets you skip finding the zeroes entirely — essential when they are irrational."
+      }
+    },
+    {
+      "id": "g10.alg.linear-pair-2var.pair-as-two-lines",
+      "parent": "g10.alg.linear-pair-2var",
+      "title": "A Pair of Equations as Two Lines",
+      "description": "Each linear equation in x and y draws a line; solving the pair means finding points lying on BOTH lines. Crossing lines give one solution, parallel lines none, coincident lines infinitely many.",
+      "outcomes": [
+        "Can solve a pair of linear equations graphically by plotting both lines and reading the intersection",
+        "Can name the three geometric possibilities (intersecting, parallel, coincident) and their solution counts"
+      ],
+      "prereqs": [
+        "g9.alg.linear-equations-2var"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.alg.linear-pair-2var.consistency-ratio-test",
+      "parent": "g10.alg.linear-pair-2var",
+      "title": "Consistency by Coefficient Ratios",
+      "description": "Compare a₁/a₂, b₁/b₂ and c₁/c₂: unequal first two ratios means one solution; all three equal means infinitely many; first two equal but third different means none. All three ratios, always.",
+      "outcomes": [
+        "Can classify a pair of equations as unique-solution, no-solution or infinitely-many using the ratio table",
+        "Can find a parameter value (like k) that makes a pair consistent, inconsistent or dependent"
+      ],
+      "prereqs": [
+        "g10.alg.linear-pair-2var.pair-as-two-lines"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The pair of equations 2x + 3y = 7 and 4x + 6y = 9 has",
+        "options": [
+          {
+            "text": "No solution",
+            "correct": true
+          },
+          {
+            "text": "Infinitely many solutions",
+            "misconception": "m1",
+            "diagnosis": "Stopped after seeing 2/4 = 3/6; coincidence also requires the constants to match the same ratio, but 7/9 ≠ 1/2, so the lines are parallel and distinct."
+          },
+          {
+            "text": "Exactly one solution",
+            "diagnosis": "Never compared the ratios: 2/4 = 3/6 means equal slopes, so the lines cannot cross at a single point."
+          },
+          {
+            "text": "Exactly two solutions",
+            "diagnosis": "Two distinct straight lines can never meet at exactly two points — the only possibilities are one, none, or infinitely many."
+          }
+        ],
+        "explanation": "a₁/a₂ = 2/4 = 1/2, b₁/b₂ = 3/6 = 1/2, but c₁/c₂ = 7/9 ≠ 1/2. Equal coefficient ratios with a different constant ratio means parallel, distinct lines: no solution. (Doubling the first equation gives 4x + 6y = 14, which directly contradicts 4x + 6y = 9.)"
+      }
+    },
+    {
+      "id": "g10.alg.linear-pair-2var.substitution-method",
+      "parent": "g10.alg.linear-pair-2var",
+      "title": "Solving by Substitution",
+      "description": "Isolate one variable from the simpler equation, substitute the expression into the other, solve the resulting one-variable equation, and back-substitute. Best when a coefficient is already 1.",
+      "outcomes": [
+        "Can solve a pair of linear equations by substitution, including fraction-producing cases",
+        "Can choose which variable and which equation to isolate for the least algebra"
+      ],
+      "prereqs": [
+        "g10.alg.linear-pair-2var.pair-as-two-lines",
+        "g8.alg.linear-equations-1var"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g10.alg.linear-pair-2var.elimination-method",
+      "parent": "g10.alg.linear-pair-2var",
+      "title": "Solving by Elimination",
+      "description": "Scale the equations so one variable has matching coefficients, then add or subtract whole equations to eliminate it. Bracket discipline: the minus sign distributes through EVERY term of the subtracted equation.",
+      "outcomes": [
+        "Can eliminate a chosen variable by scaling and adding/subtracting equations with correct signs throughout",
+        "Can convert a subtraction into 'multiply by −1 and add' to avoid sign errors"
+      ],
+      "prereqs": [
+        "g10.alg.linear-pair-2var.substitution-method"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Subtracting the equation x − y = 4 from the equation x + y = 14 gives",
+        "options": [
+          {
+            "text": "2y = 10",
+            "correct": true
+          },
+          {
+            "text": "0 = 10",
+            "misconception": "m2",
+            "diagnosis": "Cancelled the y-terms as if they had the same sign; (+y) − (−y) = +2y, so the y-terms add up, they do not vanish."
+          },
+          {
+            "text": "−2y = 10",
+            "diagnosis": "Lost a sign while distributing the minus; (x + y) − (x − y) = 2y and 14 − 4 = 10, both positive."
+          },
+          {
+            "text": "2x = 10",
+            "diagnosis": "The x-terms are identical, so subtraction eliminates x and leaves the y-terms — not the other way round."
+          }
+        ],
+        "explanation": "(x + y) − (x − y) = x + y − x + y = 2y, and 14 − 4 = 10, so 2y = 10, giving y = 5 and then x = 9. Writing full brackets and pushing the minus through every term of the subtracted equation is what keeps −(−y) = +y honest."
+      }
+    },
+    {
+      "id": "g10.alg.linear-pair-2var.degenerate-outcomes",
+      "parent": "g10.alg.linear-pair-2var",
+      "title": "Interpreting 0 = 0 and 0 = k Endings",
+      "description": "When elimination wipes out BOTH variables, the leftover statement is the verdict: 0 = (nonzero) means parallel lines and no solution; 0 = 0 means the same line twice and infinitely many solutions.",
+      "outcomes": [
+        "Can interpret a variable-free ending of elimination correctly instead of forcing a numeric answer",
+        "Can connect each algebraic ending to its picture: parallel lines or coincident lines"
+      ],
+      "prereqs": [
+        "g10.alg.linear-pair-2var.elimination-method",
+        "g10.alg.linear-pair-2var.consistency-ratio-test"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "While solving a pair of linear equations by elimination, both variables cancel and you are left with the statement 0 = 7. This means",
+        "options": [
+          {
+            "text": "The pair has no solution: the two lines are parallel and never meet",
+            "correct": true
+          },
+          {
+            "text": "x = 7 (or y = 7), and you substitute back to find the other variable",
+            "misconception": "m3",
+            "diagnosis": "Forced a numeric answer out of a variable-free statement; with both variables gone, 0 = 7 is a verdict about the system, not a value."
+          },
+          {
+            "text": "The pair has infinitely many solutions",
+            "diagnosis": "That is the 0 = 0 ending (same line twice); 0 = 7 is a false statement, which rules out every candidate point."
+          },
+          {
+            "text": "An arithmetic mistake must have been made somewhere",
+            "diagnosis": "0 = (nonzero) is a legitimate, informative ending — it is exactly how elimination reports parallel lines."
+          }
+        ],
+        "explanation": "Elimination preserves truth: any (x, y) solving both equations would also have to satisfy 0 = 7, which is impossible — so no solution exists, and the lines are parallel. Had the ending been 0 = 0 (always true), every point of the common line would work: infinitely many solutions."
+      }
+    },
+    {
+      "id": "g10.alg.linear-pair-2var.word-problems-two-unknowns",
+      "parent": "g10.alg.linear-pair-2var",
+      "title": "Word Problems: Ages, Costs, Digits, Speeds, Fractions",
+      "description": "Translate two verbal conditions into two equations: define variables precisely, encode each sentence, solve, and answer the question actually asked. Covers ages, prices, two-digit numbers, boat/stream and fraction problems.",
+      "outcomes": [
+        "Can set up a pair of linear equations from a two-condition word problem with clearly defined variables",
+        "Can solve and interpret the result, checking both original conditions",
+        "Can handle upstream/downstream and two-digit-number templates"
+      ],
+      "prereqs": [
+        "g10.alg.linear-pair-2var.elimination-method"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "question": {
+        "skill": "application",
+        "difficulty": 4,
+        "prompt": "Five years hence, a father's age will be three times his son's age. Five years ago, the father's age was seven times his son's age. Their present ages are",
+        "options": [
+          {
+            "text": "Father 40 years, son 10 years",
+            "correct": true
+          },
+          {
+            "text": "Father 45 years, son 15 years",
+            "diagnosis": "Reported the ages five years HENCE; those are the shifted ages inside the first condition, so subtract the 5 years back."
+          },
+          {
+            "text": "Father 35 years, son 5 years",
+            "diagnosis": "Reported the ages five years AGO instead of the present ages; add the 5 years back."
+          },
+          {
+            "text": "Father 30 years, son 10 years",
+            "diagnosis": "Set up 'father = 3 × son' with present ages, ignoring the 'five years hence' shift that applies to BOTH ages."
+          }
+        ],
+        "explanation": "Let present ages be f and s. Five years hence: f + 5 = 3(s + 5). Five years ago: f − 5 = 7(s − 5). The first gives f = 3s + 10; substituting: 3s + 10 − 5 = 7s − 35, so 4s = 40, s = 10 and f = 40. Check: 45 = 3 × 15 ✓ and 35 = 7 × 5 ✓."
+      }
+    },
+    {
+      "id": "g10.alg.quadratic-equations.standard-form-recognition",
+      "parent": "g10.alg.quadratic-equations",
+      "title": "Standard Form: Recognising a Quadratic Equation",
+      "description": "An equation is quadratic when, after expanding and simplifying, it takes the form ax² + bx + c = 0 with a ≠ 0. Squared terms can cancel and cubes can survive — always simplify before judging.",
+      "outcomes": [
+        "Can reduce a given equation to standard form and decide whether it is quadratic",
+        "Can identify a, b and c with correct signs from the standard form"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities"
+      ],
+      "est_minutes": 10,
+      "difficulty": 2,
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following is a quadratic equation?",
+        "options": [
+          {
+            "text": "(x + 1)² = 2(x − 3)",
+            "correct": true
+          },
+          {
+            "text": "x(x + 1) + 8 = (x + 2)(x − 2)",
+            "diagnosis": "Expanding gives x² + x + 8 = x² − 4: the x² terms cancel, leaving the linear equation x + 12 = 0."
+          },
+          {
+            "text": "(x − 2)(x + 1) = (x − 1)(x + 3)",
+            "diagnosis": "Both sides expand with the same x² term, which cancels; the equation is linear, not quadratic."
+          },
+          {
+            "text": "x³ + 2x = (x + 1)²",
+            "diagnosis": "The x³ term survives simplification, so the equation has degree 3 (cubic), not 2."
+          }
+        ],
+        "explanation": "(x + 1)² = 2(x − 3) expands to x² + 2x + 1 = 2x − 6, i.e. x² + 7 = 0 — degree 2 with a = 1 ≠ 0, so quadratic. The verdict can only be given AFTER simplifying: apparent squares may cancel (options 2 and 3) and higher powers may remain (option 4)."
+      }
+    },
+    {
+      "id": "g10.alg.quadratic-equations.solve-by-factoring",
+      "parent": "g10.alg.quadratic-equations",
+      "title": "Solving by Factorisation and the Zero-Product Principle",
+      "description": "Bring everything to one side, factor, and use the special power of zero: a product is 0 only when a factor is 0. Never divide an equation by an expression that could be zero — factor instead.",
+      "outcomes": [
+        "Can solve quadratic equations by factorisation, keeping both roots alive",
+        "Can explain why pq = 0 forces p = 0 or q = 0, while pq = 12 forces nothing",
+        "Can spot and avoid the root-killing move of dividing through by x"
+      ],
+      "prereqs": [
+        "g10.alg.quadratic-equations.standard-form-recognition",
+        "g10.alg.polynomials.zeroes-by-factorisation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3",
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The solution set of the equation 3x² = 12x is",
+        "options": [
+          {
+            "text": "{0, 4}",
+            "correct": true
+          },
+          {
+            "text": "{4}",
+            "misconception": "m3",
+            "diagnosis": "Divided both sides by 3x, silently assuming x ≠ 0 and destroying the root x = 0."
+          },
+          {
+            "text": "{0}",
+            "diagnosis": "Spotted the obvious root x = 0 but never factored 3x(x − 4) = 0 to find the partner root 4."
+          },
+          {
+            "text": "{2, −2}",
+            "diagnosis": "Misread the equation as 3x² = 12, i.e. x² = 4; the right-hand side 12x contains the variable."
+          }
+        ],
+        "explanation": "Move everything to one side: 3x² − 12x = 0, so 3x(x − 4) = 0, giving x = 0 or x = 4. Dividing by x looks like a harmless simplification but presumes x ≠ 0, killing a genuine root. Factoring against zero keeps both."
+      }
+    },
+    {
+      "id": "g10.alg.quadratic-equations.complete-the-square-idea",
+      "parent": "g10.alg.quadratic-equations",
+      "title": "Completing the Square",
+      "description": "Turn ax² + bx + c = 0 into a(x + d)² = e by adding the right constant, then square-root both sides. This method solves every quadratic and is the engine that derives the quadratic formula.",
+      "outcomes": [
+        "Can solve a quadratic by completing the square, including cases with a ≠ 1",
+        "Can explain the geometric picture: rearranging an x²-plus-strips area into a literal square"
+      ],
+      "prereqs": [
+        "g10.alg.quadratic-equations.solve-by-factoring",
+        "g8.num.squares-roots"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4
+    },
+    {
+      "id": "g10.alg.quadratic-equations.quadratic-formula",
+      "parent": "g10.alg.quadratic-equations",
+      "title": "The Quadratic Formula",
+      "description": "x = (−b ± √(b² − 4ac))/(2a) solves any quadratic. Master the bracket-substitution ritual: write empty brackets first, then fill each with the SIGNED coefficient, so −b and −4ac come out right.",
+      "outcomes": [
+        "Can apply the quadratic formula accurately when b or c is negative",
+        "Can simplify the resulting roots, including surd answers, to lowest form"
+      ],
+      "prereqs": [
+        "g10.alg.quadratic-equations.complete-the-square-idea"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Using the quadratic formula, the roots of 2x² + x − 6 = 0 are",
+        "options": [
+          {
+            "text": "3/2 and −2",
+            "correct": true
+          },
+          {
+            "text": "−3/2 and 2",
+            "misconception": "m2",
+            "diagnosis": "Started the formula with +b instead of −b: (1 ± 7)/4 instead of (−1 ± 7)/4 flips both roots' signs."
+          },
+          {
+            "text": "6 and −8",
+            "diagnosis": "Forgot to divide by 2a = 4: −1 ± 7 gives 6 and −8 only before the division."
+          },
+          {
+            "text": "No real roots, since D = 1 − 48 = −47",
+            "misconception": "m2",
+            "diagnosis": "Mishandled the sign of c: −4ac = −4(2)(−6) = +48, so D = 1 + 48 = 49, not 1 − 48."
+          }
+        ],
+        "explanation": "a = 2, b = 1, c = −6: D = b² − 4ac = 1 − 4(2)(−6) = 1 + 48 = 49, √D = 7. So x = (−1 ± 7)/4, giving x = 6/4 = 3/2 or x = −8/4 = −2. Check: 2(9/4) + 3/2 − 6 = 9/2 + 3/2 − 6 = 0 ✓. Filling brackets with signed values is what keeps −4ac positive here."
+      }
+    },
+    {
+      "id": "g10.alg.quadratic-equations.discriminant-nature-of-roots",
+      "parent": "g10.alg.quadratic-equations",
+      "title": "The Discriminant and the Nature of Roots",
+      "description": "D = b² − 4ac forecasts the roots without solving: D > 0 two distinct real roots, D = 0 two equal real roots, D < 0 no real roots. Geometrically: the parabola crosses, touches, or misses the x-axis.",
+      "outcomes": [
+        "Can compute D and state the nature of the roots, with correct language ('no REAL roots', not 'no solution')",
+        "Can find parameter values making roots equal (D = 0)",
+        "Can match each discriminant case to its parabola picture"
+      ],
+      "prereqs": [
+        "g10.alg.quadratic-equations.quadratic-formula"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The nature of the roots of x² + 3x + 5 = 0 is",
+        "options": [
+          {
+            "text": "No real roots",
+            "correct": true
+          },
+          {
+            "text": "The equation is invalid and has no solution of any kind",
+            "misconception": "m1",
+            "diagnosis": "D < 0 means no REAL roots — the parabola floats above the x-axis — but complex roots exist and arrive in Class 11."
+          },
+          {
+            "text": "Two distinct real roots",
+            "misconception": "m2",
+            "diagnosis": "Likely computed D = 9 + 20 = 29 by mishandling a sign; here b² − 4ac = 9 − 20 = −11."
+          },
+          {
+            "text": "Two equal real roots",
+            "diagnosis": "Equal roots need D exactly 0; D = −11 is negative, a different case entirely."
+          }
+        ],
+        "explanation": "D = b² − 4ac = 3² − 4(1)(5) = 9 − 20 = −11 < 0, so the equation has no real roots: the parabola y = x² + 3x + 5 never touches the x-axis (its minimum value is 5 − 9/4 = 11/4 > 0). Say 'no real roots' — the complex numbers of Class 11 will solve exactly these equations."
+      }
+    },
+    {
+      "id": "g10.alg.quadratic-equations.word-problems-model-then-solve",
+      "parent": "g10.alg.quadratic-equations",
+      "title": "Word Problems: Model, Solve, Reject Inadmissible Roots",
+      "description": "Areas, consecutive numbers, ages and speed-time situations become quadratics. Set up the equation, solve by the best method, then test each root against reality — lengths and speeds cannot be negative.",
+      "outcomes": [
+        "Can translate an area, number or speed-time story into a quadratic equation",
+        "Can solve and then reject roots that violate the physical constraints, stating why",
+        "Can verify the surviving root against the original story"
+      ],
+      "prereqs": [
+        "g10.alg.quadratic-equations.solve-by-factoring",
+        "g10.alg.quadratic-equations.quadratic-formula"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "question": {
+        "skill": "application",
+        "difficulty": 4,
+        "prompt": "A train covers 360 km at a uniform speed of x km/h. If the speed had been 5 km/h more, it would have taken 48 minutes less. The value of x is",
+        "options": [
+          {
+            "text": "45",
+            "correct": true
+          },
+          {
+            "text": "50",
+            "diagnosis": "Solved correctly but reported the increased speed x + 5; the question asks for the original speed x."
+          },
+          {
+            "text": "−50",
+            "diagnosis": "Kept the negative root of x² + 5x − 2250 = 0; a speed cannot be negative, so −50 must be rejected."
+          },
+          {
+            "text": "40",
+            "diagnosis": "Used 48 minutes as 0.48 of an hour (or a similar time-unit slip); 48 minutes is 48/60 = 4/5 hour."
+          }
+        ],
+        "explanation": "Time difference: 360/x − 360/(x + 5) = 4/5 (since 48 min = 4/5 h). So 360·5/(x(x + 5)) = 4/5, giving 9000 = 4x² + 20x, i.e. x² + 5x − 2250 = 0. Then x = (−5 ± √(25 + 9000))/2 = (−5 ± 95)/2 = 45 or −50. Rejecting the negative speed, x = 45. Check: 360/45 = 8 h, 360/50 = 7.2 h, difference 0.8 h = 48 min ✓."
+      }
+    },
+    {
+      "id": "g10.alg.arithmetic-progressions.recognise-ap",
+      "parent": "g10.alg.arithmetic-progressions",
+      "title": "Recognising an AP: The Constant Common Difference",
+      "description": "A sequence is an arithmetic progression exactly when EVERY gap between consecutive terms is the same number d. Check all gaps, not just the first — patterns that grow by changing steps are not APs.",
+      "outcomes": [
+        "Can test whether a given sequence is an AP by computing consecutive differences",
+        "Can state the first term a and common difference d (including negative and fractional d)"
+      ],
+      "prereqs": [
+        "g7.alg.expressions"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following sequences is an arithmetic progression?",
+        "options": [
+          {
+            "text": "2, 5, 8, 11, ...",
+            "correct": true
+          },
+          {
+            "text": "1, 4, 9, 16, ...",
+            "misconception": "m3",
+            "diagnosis": "A clear pattern (perfect squares) but the gaps are 3, 5, 7 — not constant, so not an AP."
+          },
+          {
+            "text": "1, 2, 4, 8, ...",
+            "diagnosis": "The RATIO is constant (each term doubles) but the differences 1, 2, 4 are not; constant ratio makes a GP, not an AP."
+          },
+          {
+            "text": "3, 3.5, 4.5, 6, ...",
+            "diagnosis": "Checked only the first gap; the differences 0.5, 1, 1.5 keep growing, so the sequence fails the constant-difference test."
+          }
+        ],
+        "explanation": "2, 5, 8, 11 has differences 3, 3, 3 — one constant d = 3, so it is an AP. 'Has a pattern' is not the test; the test is that a_{k+1} − a_k is the SAME number for every k. Squares (gaps 3, 5, 7) and doublings (gaps 1, 2, 4) both have patterns yet fail it."
+      }
+    },
+    {
+      "id": "g10.alg.arithmetic-progressions.nth-term-formula",
+      "parent": "g10.alg.arithmetic-progressions",
+      "title": "The nth Term: aₙ = a + (n − 1)d",
+      "description": "From the first term you take only n − 1 steps to reach the nth term — hence a + (n − 1)d, not a + nd. Compute any requested term of an AP, including APs with negative common difference.",
+      "outcomes": [
+        "Can compute the nth term of an AP using aₙ = a + (n − 1)d",
+        "Can explain the (n − 1) by counting steps between terms"
+      ],
+      "prereqs": [
+        "g10.alg.arithmetic-progressions.recognise-ap"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The 10th term of the AP 2, 7, 12, ... is",
+        "options": [
+          {
+            "text": "47",
+            "correct": true
+          },
+          {
+            "text": "52",
+            "misconception": "m1",
+            "diagnosis": "Used a + nd = 2 + 10 × 5; from the 1st to the 10th term there are only 9 steps, so the formula is a + (n − 1)d."
+          },
+          {
+            "text": "45",
+            "diagnosis": "Computed (n − 1)d = 45 but forgot to add the first term a = 2."
+          },
+          {
+            "text": "42",
+            "diagnosis": "Took 8 steps instead of 9 (a + (n − 2)d); the 10th term is 9 steps beyond the 1st."
+          }
+        ],
+        "explanation": "a = 2, d = 5, so a₁₀ = 2 + (10 − 1) × 5 = 2 + 45 = 47. Count the steps: from term 1 to term 10 you jump 9 times, each jump worth d = 5. Writing out a few terms (2, 7, 12, 17, ...) confirms the pattern aₙ = 5n − 3, and 5(10) − 3 = 47 ✓."
+      }
+    },
+    {
+      "id": "g10.alg.arithmetic-progressions.solve-for-a-d-n",
+      "parent": "g10.alg.arithmetic-progressions",
+      "title": "Working Backwards: Finding a, d or n",
+      "description": "Use the nth-term formula in reverse: from two given terms build simultaneous equations for a and d; from a given value find which term it is (n must come out a positive integer); check membership of a number in an AP.",
+      "outcomes": [
+        "Can find a and d from two given terms of an AP by solving a linear pair",
+        "Can determine which term of an AP equals a given value, and reject non-integer n as 'not a term'"
+      ],
+      "prereqs": [
+        "g10.alg.arithmetic-progressions.nth-term-formula",
+        "g10.alg.linear-pair-2var.elimination-method"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g10.alg.arithmetic-progressions.sum-first-n-terms",
+      "parent": "g10.alg.arithmetic-progressions",
+      "title": "The Sum Sₙ = n/2 [2a + (n − 1)d]",
+      "description": "Gauss's pairing trick: writing the sum forwards and backwards makes every pair total the same, giving Sₙ = n/2 [2a + (n − 1)d]. Distinguish sharply between the nth TERM and the SUM of n terms.",
+      "outcomes": [
+        "Can compute Sₙ for a given AP and n",
+        "Can decide from the wording of a problem whether the nth term or the sum is being asked",
+        "Can use aₙ = Sₙ − Sₙ₋₁ to recover terms from a sum formula"
+      ],
+      "prereqs": [
+        "g10.alg.arithmetic-progressions.nth-term-formula"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "For the AP 5, 8, 11, ..., the sum of the first 10 terms S₁₀ is",
+        "options": [
+          {
+            "text": "185",
+            "correct": true
+          },
+          {
+            "text": "32",
+            "misconception": "m2",
+            "diagnosis": "Computed the 10th TERM a₁₀ = 5 + 27 = 32 instead of the SUM of the first 10 terms — the two formulas answer different questions."
+          },
+          {
+            "text": "370",
+            "diagnosis": "Used n instead of n/2 in front: 10 × 37 = 370 is exactly double the correct sum."
+          },
+          {
+            "text": "200",
+            "misconception": "m1",
+            "diagnosis": "Used nd instead of (n − 1)d inside the bracket: 5 × (10 + 30) = 200."
+          }
+        ],
+        "explanation": "S₁₀ = 10/2 × [2(5) + (10 − 1)(3)] = 5 × [10 + 27] = 5 × 37 = 185. Sanity check with the other form: a₁₀ = 5 + 27 = 32, so S₁₀ = 10/2 × (5 + 32) = 5 × 37 = 185 ✓. The term formula answers 'what is the 10th number?'; the sum formula answers 'what do the first 10 add up to?'."
+      }
+    },
+    {
+      "id": "g10.alg.arithmetic-progressions.sum-with-last-term",
+      "parent": "g10.alg.arithmetic-progressions",
+      "title": "The Sum via the Last Term: Sₙ = n/2 (a + l)",
+      "description": "When the last term l is known, Sₙ = n/2 (a + l) is faster — but you must first count the terms correctly using l = a + (n − 1)d. Classic use: sums like 3 + 7 + 11 + ... + 83.",
+      "outcomes": [
+        "Can count the number of terms of a finite AP from its first and last terms",
+        "Can compute sums of the form a + ... + l with Sₙ = n/2 (a + l)"
+      ],
+      "prereqs": [
+        "g10.alg.arithmetic-progressions.sum-first-n-terms"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "id": "g10.alg.arithmetic-progressions.ap-word-problems",
+      "parent": "g10.alg.arithmetic-progressions",
+      "title": "AP Word Problems: Instalments, Rows and Increments",
+      "description": "Salaries with fixed annual increments, loan instalments decreasing steadily, logs stacked in shrinking rows, flag posts and potato races — recognise the AP, decide term-vs-sum, and solve.",
+      "outcomes": [
+        "Can model a real situation as an AP, identifying a, d and what n means in context",
+        "Can choose between the term formula and the sum formula from the question's wording",
+        "Can interpret and reject unrealistic solutions (e.g. negative counts of rows)"
+      ],
+      "prereqs": [
+        "g10.alg.arithmetic-progressions.sum-with-last-term",
+        "g10.alg.arithmetic-progressions.solve-for-a-d-n"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g10.geo.triangles-similarity.similarity-and-scale-factor",
+      "parent": "g10.geo.triangles-similarity",
+      "title": "Similar Figures and the Scale Factor",
+      "description": "Similar figures have equal corresponding angles and proportional corresponding sides — same shape, possibly different size. Scaling is multiplicative: every side is MULTIPLIED by the same factor, never increased by the same amount.",
+      "outcomes": [
+        "Can state the two conditions for similarity of polygons and contrast similarity with congruence",
+        "Can compute unknown sides of similar figures using a multiplicative scale factor"
+      ],
+      "prereqs": [
+        "g7.geo.congruence",
+        "g6.num.ratio-proportion"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A triangle has sides 4 cm, 5 cm and 6 cm. A similar triangle has its shortest side equal to 8 cm. Its other two sides are",
+        "options": [
+          {
+            "text": "10 cm and 12 cm",
+            "correct": true
+          },
+          {
+            "text": "9 cm and 10 cm",
+            "misconception": "m3",
+            "diagnosis": "Added 4 cm to every side because the shortest side grew by 4; scaling multiplies each side by the same factor, it does not add."
+          },
+          {
+            "text": "5 cm and 6 cm",
+            "misconception": "m1",
+            "diagnosis": "Treated similar as congruent, keeping the sides unchanged; similarity preserves shape, not size."
+          },
+          {
+            "text": "20 cm and 24 cm",
+            "diagnosis": "Applied the scale factor 2 twice (multiplied by 4); each side is multiplied by the single factor 8/4 = 2 exactly once."
+          }
+        ],
+        "explanation": "The scale factor is 8/4 = 2, so every side doubles: 5 → 10 and 6 → 12. The additive answer 9, 10 fails the proportionality test: 8/4 = 2 but 9/5 = 1.8 — corresponding sides would no longer be in one common ratio, so the triangles would not be similar."
+      }
+    },
+    {
+      "id": "g10.geo.triangles-similarity.bpt-thales",
+      "parent": "g10.geo.triangles-similarity",
+      "title": "The Basic Proportionality Theorem (Thales)",
+      "description": "A line parallel to one side of a triangle divides the other two sides in the same ratio: if DE ∥ BC then AD/DB = AE/EC. Prove it with equal-area arguments and use it to compute segment lengths.",
+      "outcomes": [
+        "Can state and prove the Basic Proportionality Theorem",
+        "Can compute unknown segment lengths using AD/DB = AE/EC and its equivalent forms (AD/AB = AE/AC)"
+      ],
+      "prereqs": [
+        "g10.geo.triangles-similarity.similarity-and-scale-factor"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "In triangle ABC, DE ∥ BC with D on AB and E on AC. If AD = 2 cm, DB = 3 cm and AE = 1.6 cm, then EC equals",
+        "options": [
+          {
+            "text": "2.4 cm",
+            "correct": true
+          },
+          {
+            "text": "2.6 cm",
+            "misconception": "m3",
+            "diagnosis": "Reasoned additively: DB is 1 cm more than AD, so EC 'should be' 1 cm more than AE; the theorem gives equal RATIOS, not equal differences."
+          },
+          {
+            "text": "1.07 cm (approximately)",
+            "diagnosis": "Inverted the proportion, solving 2/3 = EC/1.6; matching parts must stay in the same positions: AD/DB = AE/EC."
+          },
+          {
+            "text": "4 cm",
+            "diagnosis": "Computed the whole side AC = AE × AB/AD = 4 cm instead of the part EC; the question asks only for the lower segment."
+          }
+        ],
+        "explanation": "By BPT, AD/DB = AE/EC, so 2/3 = 1.6/EC, giving EC = (3 × 1.6)/2 = 2.4 cm. Check the ratios: 2/3 = 1.6/2.4 ✓ (both 0.666...). Note AC = 1.6 + 2.4 = 4 cm — a correct number, but for a different question."
+      }
+    },
+    {
+      "id": "g10.geo.triangles-similarity.bpt-converse",
+      "parent": "g10.geo.triangles-similarity",
+      "title": "Converse of the Basic Proportionality Theorem",
+      "description": "If a line divides two sides of a triangle in the same ratio, it must be parallel to the third side. Use it to prove parallelism from measurements, including the midpoint-theorem special case.",
+      "outcomes": [
+        "Can apply the converse of BPT to establish that a line is parallel to a side",
+        "Can recognise the midpoint theorem as the ratio-1:1 case of BPT and its converse"
+      ],
+      "prereqs": [
+        "g10.geo.triangles-similarity.bpt-thales",
+        "g9.geo.quadrilaterals"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3
+    },
+    {
+      "id": "g10.geo.triangles-similarity.aa-similarity-criterion",
+      "parent": "g10.geo.triangles-similarity",
+      "title": "The AA Similarity Criterion",
+      "description": "Two matching angles force the third to match and the triangles to be similar. Write the correspondence in the correct order (△ABC ∼ △PQR pairs A↔P, B↔Q, C↔R) and extract side ratios from it.",
+      "outcomes": [
+        "Can prove two triangles similar by AA, stating the correspondence in correct vertex order",
+        "Can read off the proportional sides from a written similarity statement",
+        "Can spot AA pairs generated by parallel lines, common angles and vertical angles"
+      ],
+      "prereqs": [
+        "g10.geo.triangles-similarity.similarity-and-scale-factor",
+        "g9.geo.triangles"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g10.geo.triangles-similarity.sss-sas-similarity",
+      "parent": "g10.geo.triangles-similarity",
+      "title": "SSS and SAS Similarity Criteria",
+      "description": "All three side-pairs in one ratio (SSS), or two side-pairs in ratio with the INCLUDED angles equal (SAS), also force similarity. Choose the right criterion from the given data.",
+      "outcomes": [
+        "Can verify SSS similarity by checking all three ratios are equal",
+        "Can apply SAS similarity, checking the equal angle is the included one",
+        "Can select the appropriate criterion (AA, SSS, SAS) for a given problem"
+      ],
+      "prereqs": [
+        "g10.geo.triangles-similarity.aa-similarity-criterion"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.geo.triangles-similarity.areas-of-similar-triangles",
+      "parent": "g10.geo.triangles-similarity",
+      "title": "Areas of Similar Triangles Scale as the Square",
+      "description": "If sides are in ratio k, areas are in ratio k². Both base AND height scale by k, so area picks up the factor twice. Solve area-ratio problems and reverse ones (side ratio from area ratio).",
+      "outcomes": [
+        "Can state and use: ratio of areas of similar triangles = square of the ratio of corresponding sides",
+        "Can recover the side ratio from a given area ratio by taking a square root"
+      ],
+      "prereqs": [
+        "g10.geo.triangles-similarity.aa-similarity-criterion",
+        "g7.mea.perimeter-area"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Two similar triangles have corresponding sides in the ratio 2 : 3. The ratio of their areas is",
+        "options": [
+          {
+            "text": "4 : 9",
+            "correct": true
+          },
+          {
+            "text": "2 : 3",
+            "misconception": "m2",
+            "diagnosis": "Assumed areas scale like the sides; but both base and height scale by 3/2, so area scales by (3/2)² — the ratio must be squared."
+          },
+          {
+            "text": "4 : 6",
+            "diagnosis": "Squared only the first number of the ratio; both parts must be squared: 2² : 3² = 4 : 9."
+          },
+          {
+            "text": "√2 : √3",
+            "diagnosis": "Took square roots instead of squaring; roots are for the reverse direction (finding side ratio FROM area ratio)."
+          }
+        ],
+        "explanation": "Area = ½ × base × height, and in similar triangles BOTH base and height are multiplied by the same factor 3/2. So the area ratio is (2/3)² = 4/9. Concrete check: a 2-4 right triangle (legs) has area 4; scaling by 3/2 gives legs 3 and 6, area 9."
+      }
+    },
+    {
+      "id": "g10.geo.triangles-similarity.pythagoras-and-converse",
+      "parent": "g10.geo.triangles-similarity",
+      "title": "Pythagoras Theorem and Its Converse",
+      "description": "Prove Pythagoras via the similar triangles cut off by the altitude to the hypotenuse; apply a² + b² = c² to find sides, and use the converse to certify right angles. Squares combine — sides do not.",
+      "outcomes": [
+        "Can apply the Pythagoras theorem to compute an unknown side of a right triangle",
+        "Can use the converse to test whether a triangle with given sides is right-angled",
+        "Can explain why √(a² + b²) ≠ a + b using a concrete triangle"
+      ],
+      "prereqs": [
+        "g10.geo.triangles-similarity.aa-similarity-criterion",
+        "g7.geo.triangle-properties"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A 13 m ladder leans against a vertical wall with its foot 5 m from the base of the wall. The height at which the ladder touches the wall is",
+        "options": [
+          {
+            "text": "12 m",
+            "correct": true
+          },
+          {
+            "text": "8 m",
+            "misconception": "m4",
+            "diagnosis": "Computed 13 − 5 = 8, combining lengths linearly; Pythagoras combines SQUARES: height = √(13² − 5²), not 13 − 5."
+          },
+          {
+            "text": "18 m",
+            "misconception": "m4",
+            "diagnosis": "Added 13 + 5; besides combining linearly, the ladder (hypotenuse) is the longest side, so the height must be LESS than 13 m."
+          },
+          {
+            "text": "√194 m (≈ 13.9 m)",
+            "diagnosis": "Added the squares (169 + 25) as if the ladder were a leg; the ladder is the hypotenuse, so its square is the larger one: 13² = 5² + h²."
+          }
+        ],
+        "explanation": "The wall, ground and ladder form a right triangle with hypotenuse 13: h² = 13² − 5² = 169 − 25 = 144, so h = 12 m (the classic 5-12-13 triple). Note 12 ≠ 13 − 5: square-root of a difference of squares is not the difference of the numbers."
+      }
+    },
+    {
+      "id": "g10.geo.coordinate-geometry.distance-formula",
+      "parent": "g10.geo.coordinate-geometry",
+      "title": "The Distance Formula",
+      "description": "Drop horizontal and vertical legs between two points and apply Pythagoras: d = √((x₂ − x₁)² + (y₂ − y₁)²). Square the differences, add, THEN take the square root — no linear shortcuts.",
+      "outcomes": [
+        "Can compute the distance between two given points, including with negative coordinates",
+        "Can derive the formula from Pythagoras with a sketch of the right triangle"
+      ],
+      "prereqs": [
+        "g9.geo.coordinate-geometry",
+        "g10.geo.triangles-similarity.pythagoras-and-converse"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The distance between the points (2, 3) and (10, 9) is",
+        "options": [
+          {
+            "text": "10",
+            "correct": true
+          },
+          {
+            "text": "14",
+            "misconception": "m1",
+            "diagnosis": "Added the coordinate differences 8 + 6 linearly; the differences are the LEGS of a right triangle and must be combined through their squares."
+          },
+          {
+            "text": "100",
+            "misconception": "m1",
+            "diagnosis": "Computed 8² + 6² = 100 but skipped the final square root; the distance is √100 = 10."
+          },
+          {
+            "text": "√28",
+            "diagnosis": "Subtracted the squares (64 − 36) instead of adding them; the formula is √((Δx)² + (Δy)²) with a plus sign."
+          }
+        ],
+        "explanation": "Δx = 10 − 2 = 8 and Δy = 9 − 3 = 6, so d = √(8² + 6²) = √(64 + 36) = √100 = 10 (a 6-8-10 right triangle). The two moves students skip — squaring before adding, and rooting at the end — are both essential."
+      }
+    },
+    {
+      "id": "g10.geo.coordinate-geometry.classify-figures-by-distance",
+      "parent": "g10.geo.coordinate-geometry",
+      "title": "Classifying Triangles and Quadrilaterals by Distances",
+      "description": "Compute all side lengths (and diagonals) to certify a figure: isosceles or equilateral triangles, right triangles via the converse of Pythagoras, squares vs rhombi (equal sides, but check the diagonals).",
+      "outcomes": [
+        "Can classify a triangle from its vertex coordinates by comparing squared side lengths",
+        "Can distinguish a square from a rhombus using diagonals, and a rectangle from a parallelogram"
+      ],
+      "prereqs": [
+        "g10.geo.coordinate-geometry.distance-formula"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g10.geo.coordinate-geometry.midpoint-formula",
+      "parent": "g10.geo.coordinate-geometry",
+      "title": "The Midpoint Formula",
+      "description": "The midpoint averages the endpoints: M = ((x₁ + x₂)/2, (y₁ + y₂)/2). Adding coordinates without dividing by 2 lands you outside the segment entirely.",
+      "outcomes": [
+        "Can compute the midpoint of a segment from its endpoints",
+        "Can find an unknown endpoint given the midpoint and the other endpoint"
+      ],
+      "prereqs": [
+        "g10.geo.coordinate-geometry.distance-formula"
+      ],
+      "est_minutes": 10,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g10.geo.coordinate-geometry.section-formula",
+      "parent": "g10.geo.coordinate-geometry",
+      "title": "The Section Formula",
+      "description": "The point dividing AB in ratio m : n (from A) is ((mx₂ + nx₁)/(m + n), (my₂ + ny₁)/(m + n)): the weight m multiplies the FAR endpoint B. The midpoint is the 1 : 1 special case.",
+      "outcomes": [
+        "Can apply the section formula for internal division with the weights on the correct endpoints",
+        "Can verify an answer by checking the point lies between the endpoints, nearer the correct one"
+      ],
+      "prereqs": [
+        "g10.geo.coordinate-geometry.midpoint-formula"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The point dividing the segment joining A(1, 2) and B(4, 8) in the ratio 2 : 1 (measured from A) is",
+        "options": [
+          {
+            "text": "(3, 6)",
+            "correct": true
+          },
+          {
+            "text": "(2, 4)",
+            "misconception": "m3",
+            "diagnosis": "Attached the weight 2 to A instead of B: in ratio m : n from A, m multiplies the far endpoint B. (2, 4) divides AB in 1 : 2, not 2 : 1."
+          },
+          {
+            "text": "(5, 10)",
+            "misconception": "m2",
+            "diagnosis": "Added the coordinates (1 + 4, 2 + 8) without dividing by m + n = 3; the result is not even on the segment AB."
+          },
+          {
+            "text": "(2.5, 5)",
+            "diagnosis": "Computed the MIDPOINT, ignoring the given 2 : 1 ratio; the required point must lie two-thirds of the way to B, past the midpoint."
+          }
+        ],
+        "explanation": "P = ((2·4 + 1·1)/3, (2·8 + 1·2)/3) = (9/3, 18/3) = (3, 6). Sanity check: AP should be twice PB. From A(1,2) to P(3,6): Δ = (2, 4); from P(3,6) to B(4,8): Δ = (1, 2) — exactly half. The weight m = 2 belongs on B because the point sits closer to B."
+      }
+    },
+    {
+      "id": "g10.geo.coordinate-geometry.triangle-area-collinearity",
+      "parent": "g10.geo.coordinate-geometry",
+      "title": "Area of a Triangle and the Collinearity Test",
+      "description": "Area = ½|x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)|. Take the absolute value of the WHOLE sum at the end; if the area is 0 the three points are collinear.",
+      "outcomes": [
+        "Can compute the area of a triangle from its vertex coordinates",
+        "Can test three points for collinearity using area = 0",
+        "Can find an unknown coordinate given the area or a collinearity condition"
+      ],
+      "prereqs": [
+        "g10.geo.coordinate-geometry.distance-formula"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The points (1, 2), (3, 6) and (5, 10) are the vertices of",
+        "options": [
+          {
+            "text": "No triangle — they are collinear, since the area formula gives 0",
+            "correct": true
+          },
+          {
+            "text": "A triangle of area 24 sq units",
+            "diagnosis": "Took absolute values term by term: ½(|−4| + |24| + |−20|) = 24; the absolute value applies once, to the whole signed sum, which is 0 here."
+          },
+          {
+            "text": "A right-angled triangle",
+            "diagnosis": "Never ran the collinearity test; all three points satisfy y = 2x, a single straight line, so no triangle exists at all."
+          },
+          {
+            "text": "An isosceles triangle",
+            "diagnosis": "Compared two distances and stopped; degenerate 'triangles' on one line can still show equal-looking distances — check the area first."
+          }
+        ],
+        "explanation": "Area = ½|1(6 − 10) + 3(10 − 2) + 5(2 − 6)| = ½|−4 + 24 − 20| = ½|0| = 0, so the points lie on one line (indeed y = 2x through all three). The signed terms must be summed BEFORE the absolute value: making each term positive first invents area that is not there."
+      }
+    },
+    {
+      "id": "g10.geo.coordinate-geometry.reverse-coordinate-problems",
+      "parent": "g10.geo.coordinate-geometry",
+      "title": "Reverse Problems: Unknown Ratios, Points and Parameters",
+      "description": "Run the formulas backwards: find the ratio in which the x-axis or y-axis cuts a segment (set y = 0 or x = 0), find a point equidistant from two given points, or find a coordinate from a given distance.",
+      "outcomes": [
+        "Can find the ratio in which a coordinate axis or a given point divides a segment",
+        "Can set up and solve equations for unknown coordinates from distance or section conditions"
+      ],
+      "prereqs": [
+        "g10.geo.coordinate-geometry.section-formula",
+        "g10.geo.coordinate-geometry.triangle-area-collinearity"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.geo.circles-tangents.tangent-secant-chord",
+      "parent": "g10.geo.circles-tangents",
+      "title": "Tangent vs Secant vs Chord",
+      "description": "A secant cuts the circle at two points; a tangent touches it at exactly one (the point of contact); a chord joins two points on the circle. A tangent is the limiting position of a secant as its two intersection points merge.",
+      "outcomes": [
+        "Can define tangent, secant and chord and identify each in a figure",
+        "Can state how many tangents pass through a point inside, on, and outside a circle (0, 1, 2)"
+      ],
+      "prereqs": [
+        "g9.geo.circles"
+      ],
+      "est_minutes": 10,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.geo.circles-tangents.tangent-radius-perpendicular",
+      "parent": "g10.geo.circles-tangents",
+      "title": "Tangent ⊥ Radius at the Point of Contact",
+      "description": "The tangent at any point of a circle is perpendicular to the radius through that point — the right angle lives AT the point of contact. This turns every tangent problem into a right-triangle problem.",
+      "outcomes": [
+        "Can state and use the tangent-radius perpendicularity theorem with the right angle placed correctly",
+        "Can compute tangent lengths from an external point using Pythagoras on triangle O-contact-external"
+      ],
+      "prereqs": [
+        "g10.geo.circles-tangents.tangent-secant-chord",
+        "g10.geo.triangles-similarity.pythagoras-and-converse"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "From a point P, 13 cm from the centre O of a circle of radius 5 cm, a tangent PT is drawn touching the circle at T. The length PT is",
+        "options": [
+          {
+            "text": "12 cm",
+            "correct": true
+          },
+          {
+            "text": "8 cm",
+            "diagnosis": "Computed 13 − 5 linearly; the right triangle OTP requires PT = √(OP² − OT²), a difference of SQUARES."
+          },
+          {
+            "text": "√194 cm (≈ 13.9 cm)",
+            "misconception": "m2",
+            "diagnosis": "Placed the right angle at O and added the squares (169 + 25); the right angle is at the point of contact T, making OP the hypotenuse."
+          },
+          {
+            "text": "13 cm",
+            "diagnosis": "Took PT equal to OP; but OP is the hypotenuse of right triangle OTP, so the tangent PT must be shorter than 13 cm."
+          }
+        ],
+        "explanation": "OT ⊥ PT at the point of contact T, so triangle OTP is right-angled AT T with hypotenuse OP = 13. Hence PT = √(OP² − OT²) = √(169 − 25) = √144 = 12 cm (the 5-12-13 triple). Placing the right angle anywhere else silently swaps which side is the hypotenuse."
+      }
+    },
+    {
+      "id": "g10.geo.circles-tangents.equal-tangents-external-point",
+      "parent": "g10.geo.circles-tangents",
+      "title": "Equal Tangent Lengths from an External Point",
+      "description": "The two tangent segments from an external point are equal: PA = PB, proved by RHS congruence of triangles OAP and OBP. Also, OP bisects the angle between the tangents.",
+      "outcomes": [
+        "Can prove PA = PB using RHS congruence built on the tangent-radius right angles",
+        "Can chase equal tangent lengths around figures with several external points"
+      ],
+      "prereqs": [
+        "g10.geo.circles-tangents.tangent-radius-perpendicular",
+        "g9.geo.triangles"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g10.geo.circles-tangents.angle-chasing-tangents",
+      "parent": "g10.geo.circles-tangents",
+      "title": "Angle Chasing with Tangents",
+      "description": "In the kite OAPB formed by two tangents and two radii, the two contact angles are 90°, so ∠APB + ∠AOB = 180°. Combine this with isosceles triangles (OA = OB, PA = PB) to find any angle in the figure.",
+      "outcomes": [
+        "Can use the supplementary relation between the angle at the external point and the central angle",
+        "Can find angles in figures mixing tangents, radii and chords"
+      ],
+      "prereqs": [
+        "g10.geo.circles-tangents.equal-tangents-external-point"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Two tangents PA and PB are drawn from an external point P to a circle with centre O, and the angle between them is ∠APB = 60°. Then ∠AOB equals",
+        "options": [
+          {
+            "text": "120°",
+            "correct": true
+          },
+          {
+            "text": "60°",
+            "diagnosis": "Assumed the central angle equals the angle between the tangents; in quadrilateral OAPB the two are supplementary, not equal."
+          },
+          {
+            "text": "90°",
+            "misconception": "m2",
+            "diagnosis": "Placed the right angle at the centre; the 90° angles sit at the points of contact A and B, where tangent meets radius."
+          },
+          {
+            "text": "30°",
+            "diagnosis": "Halved the 60°; halving happens to ∠APB along the bisector OP, but ∠AOB itself is the full supplement 180° − 60°."
+          }
+        ],
+        "explanation": "In quadrilateral OAPB, ∠OAP = ∠OBP = 90° (tangent ⊥ radius at contact). The angles of a quadrilateral sum to 360°, so ∠AOB + ∠APB = 360° − 180° = 180°. Hence ∠AOB = 180° − 60° = 120°."
+      }
+    },
+    {
+      "id": "g10.geo.circles-tangents.circumscribed-figures",
+      "parent": "g10.geo.circles-tangents",
+      "title": "Circles Inside Polygons: Circumscribed Figures",
+      "description": "When a polygon circumscribes a circle, every side is a tangent, so equal tangent lengths pair up around the figure. Key result: for a circumscribed quadrilateral, AB + CD = AD + BC.",
+      "outcomes": [
+        "Can prove AB + CD = AD + BC for a quadrilateral circumscribing a circle",
+        "Can compute unknown sides and contact-segment lengths in circumscribed triangles and quadrilaterals"
+      ],
+      "prereqs": [
+        "g10.geo.circles-tangents.equal-tangents-external-point"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 4,
+        "prompt": "A quadrilateral ABCD circumscribes a circle (all four sides touch it). If AB = 6 cm, BC = 7 cm and CD = 4 cm, then AD equals",
+        "options": [
+          {
+            "text": "3 cm",
+            "correct": true
+          },
+          {
+            "text": "5 cm",
+            "diagnosis": "Guessed by averaging or symmetry; the circumscribed quadrilateral obeys the exact relation AB + CD = AD + BC."
+          },
+          {
+            "text": "17 cm",
+            "diagnosis": "Added the three given sides; the relation is a balance of OPPOSITE side sums, not a total."
+          },
+          {
+            "text": "Cannot be determined from the given data",
+            "misconception": "m1",
+            "diagnosis": "Doubted that the two tangents from each vertex are equal; that equality is a theorem, and it pins AD down uniquely."
+          }
+        ],
+        "explanation": "Label the tangent lengths from A, B, C, D as p, q, r, s. Then AB = p + q, BC = q + r, CD = r + s, DA = s + p, so AB + CD = p + q + r + s = BC + DA. Hence 6 + 4 = 7 + AD, giving AD = 3 cm. The equal-tangents theorem makes the answer forced, not indeterminate."
+      }
+    },
+    {
+      "id": "g10.geo.constructions.divide-segment-ratio",
+      "parent": "g10.geo.constructions",
+      "title": "Dividing a Segment in a Given Ratio",
+      "description": "To divide AB in ratio m : n, draw a ray from A, mark m + n equally spaced points with the compass, join the last point to B, and draw a parallel through the m-th point. The count is m + n — always.",
+      "outcomes": [
+        "Can divide a segment internally in ratio m : n with ruler and compass",
+        "Can state why exactly m + n points are marked on the auxiliary ray"
+      ],
+      "prereqs": [
+        "g9.geo.constructions",
+        "g10.geo.triangles-similarity.bpt-thales"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "To divide a line segment AB internally in the ratio 3 : 4 by the standard construction, the minimum number of equally spaced points to mark on the auxiliary ray AX is",
+        "options": [
+          {
+            "text": "7",
+            "correct": true
+          },
+          {
+            "text": "4",
+            "misconception": "m1",
+            "diagnosis": "Marked only max(3, 4) points; the ray must carry BOTH parts of the ratio, 3 + 4 = 7 points in all."
+          },
+          {
+            "text": "3",
+            "misconception": "m1",
+            "diagnosis": "Marked only the first number of the ratio; the division point is the 3rd of 7 points, so all 7 are needed first."
+          },
+          {
+            "text": "12",
+            "diagnosis": "Multiplied 3 × 4; the construction needs the SUM m + n of the ratio parts, not their product."
+          }
+        ],
+        "explanation": "Mark A₁, A₂, ..., A₇ equally spaced on ray AX (7 = 3 + 4). Join A₇ to B, then draw the line through A₃ parallel to A₇B; it cuts AB at the required point P with AP : PB = 3 : 4, by the Basic Proportionality Theorem applied in triangle ABA₇."
+      }
+    },
+    {
+      "id": "g10.geo.constructions.justify-segment-division",
+      "parent": "g10.geo.constructions",
+      "title": "Justifying the Division Construction",
+      "description": "The parallel through the m-th point creates a BPT configuration: A₃C ∥ A₇B in triangle ABA₇ forces AC/CB = AA₃/A₃A₇ = m/n. Justification is the mathematical warranty, not decoration.",
+      "outcomes": [
+        "Can write the BPT-based justification of the segment-division construction",
+        "Can explain why measuring the result is a check but never a proof"
+      ],
+      "prereqs": [
+        "g10.geo.constructions.divide-segment-ratio"
+      ],
+      "est_minutes": 15,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.geo.constructions.similar-triangle-smaller",
+      "parent": "g10.geo.constructions",
+      "title": "Constructing a Smaller Similar Triangle (Scale Factor < 1)",
+      "description": "For scale factor m/n with m < n, mark n points on the ray from B, join the n-th to C, and draw a parallel through the m-th to cut BC. Complete with a parallel to AC. The copy sits inside the original.",
+      "outcomes": [
+        "Can construct a triangle similar to a given one with a fractional scale factor less than 1",
+        "Can predict from the fraction alone that the image will be smaller than the original"
+      ],
+      "prereqs": [
+        "g10.geo.constructions.divide-segment-ratio",
+        "g10.geo.triangles-similarity.similarity-and-scale-factor"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g10.geo.constructions.similar-triangle-larger",
+      "parent": "g10.geo.constructions",
+      "title": "Constructing a Larger Similar Triangle (Scale Factor > 1)",
+      "description": "For scale factor m/n with m > n, mark m points (the larger number), join the n-th to C, and extend: the parallel through the m-th point lands BEYOND C, producing an enlarged copy.",
+      "outcomes": [
+        "Can construct a similar triangle with scale factor greater than 1, extending sides as needed",
+        "Can decide from m/n vs 1 whether the construction shrinks or enlarges, and how many points to mark"
+      ],
+      "prereqs": [
+        "g10.geo.constructions.similar-triangle-smaller"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "To construct a triangle similar to a given △ABC with scale factor 5/3, the new triangle is ______ and the minimum number of points marked on the ray BX is ______",
+        "options": [
+          {
+            "text": "larger than △ABC; 5 points",
+            "correct": true
+          },
+          {
+            "text": "smaller than △ABC; 5 points",
+            "misconception": "m2",
+            "diagnosis": "Judged the size from the fraction bar instead of its value: 5/3 > 1, so every side is multiplied by more than 1 — the copy is LARGER."
+          },
+          {
+            "text": "larger than △ABC; 3 points",
+            "diagnosis": "Marked only the denominator; the construction needs max(m, n) = 5 points, since the 5th point generates the extended side."
+          },
+          {
+            "text": "larger than △ABC; 8 points",
+            "misconception": "m1",
+            "diagnosis": "Added 5 + 3 as in segment division; for similar-triangle construction you mark max(m, n) points, not m + n."
+          }
+        ],
+        "explanation": "Since 5/3 > 1, sides are scaled UP: the image is larger. Mark 5 = max(5, 3) points on BX; join the 3rd point to C, then draw the parallel through the 5th point to meet BC extended — BPT gives BC' / BC = 5/3. (Contrast with dividing a segment in ratio m : n, which needs m + n points.)"
+      }
+    },
+    {
+      "id": "g10.geo.constructions.tangents-from-external-point",
+      "parent": "g10.geo.constructions",
+      "title": "Constructing Tangents from an External Point",
+      "description": "Bisect OP, draw the circle on OP as diameter, and mark where it cuts the given circle: those are the contact points. Justification: the angle in a semicircle is 90°, giving the required tangent-radius perpendicularity.",
+      "outcomes": [
+        "Can construct the pair of tangents from an external point to a given circle",
+        "Can justify the construction via the angle-in-a-semicircle theorem"
+      ],
+      "prereqs": [
+        "g10.geo.circles-tangents.tangent-radius-perpendicular",
+        "g9.geo.constructions"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.tri.intro.ratio-definitions",
+      "parent": "g10.tri.intro",
+      "title": "Defining sin, cos and tan in a Right Triangle",
+      "description": "For an acute angle θ of a right triangle: sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent. 'Opposite' and 'adjacent' are relative to θ — relabel when the angle changes.",
+      "outcomes": [
+        "Can compute sin, cos and tan of a specified angle from given triangle sides",
+        "Can re-identify opposite and adjacent sides when the reference angle switches"
+      ],
+      "prereqs": [
+        "g10.geo.triangles-similarity.pythagoras-and-converse",
+        "g6.num.ratio-proportion"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In triangle ABC, right-angled at B, AB = 24 cm and BC = 7 cm (so AC = 25 cm). The value of sin A is",
+        "options": [
+          {
+            "text": "7/25",
+            "correct": true
+          },
+          {
+            "text": "24/25",
+            "misconception": "m2",
+            "diagnosis": "Used the side ADJACENT to A (AB = 24) over the hypotenuse — that is cos A; sin needs the side OPPOSITE to A, which is BC = 7."
+          },
+          {
+            "text": "7/24",
+            "diagnosis": "Computed opposite/adjacent, which is tan A; sin divides by the hypotenuse AC = 25."
+          },
+          {
+            "text": "25/7",
+            "diagnosis": "Inverted the ratio (that is cosec A); sine of an acute angle is always at most 1, so 25/7 > 1 is impossible for sin."
+          }
+        ],
+        "explanation": "Relative to angle A: opposite = BC = 7, adjacent = AB = 24, hypotenuse = AC = 25 (the 7-24-25 triple). So sin A = 7/25, cos A = 24/25, tan A = 7/24. Every ratio starts by asking 'which side faces the angle?' — not by habit."
+      }
+    },
+    {
+      "id": "g10.tri.intro.ratios-are-size-free",
+      "parent": "g10.tri.intro",
+      "title": "Why the Ratios Depend Only on the Angle",
+      "description": "Two right triangles sharing an acute angle are similar (AA), so their side ratios are identical: sin 30° is the same in a tiny triangle and a giant one. Trig ratios are properties of the ANGLE, not of the triangle.",
+      "outcomes": [
+        "Can argue via AA similarity that trigonometric ratios are independent of triangle size",
+        "Can reject 'bigger triangle, bigger sine' with a concrete counterexample"
+      ],
+      "prereqs": [
+        "g10.tri.intro.ratio-definitions",
+        "g10.geo.triangles-similarity.aa-similarity-criterion"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Two right triangles each contain a 30° angle. The first has hypotenuse 5 cm; the second has hypotenuse 50 cm. Compared with the first triangle, sin 30° in the second triangle is",
+        "options": [
+          {
+            "text": "Exactly the same, 1/2 — the ratio depends only on the angle",
+            "correct": true
+          },
+          {
+            "text": "Ten times larger, because every side is ten times longer",
+            "misconception": "m4",
+            "diagnosis": "Both the opposite side AND the hypotenuse grow tenfold, so their ratio (25/50 = 2.5/5) is unchanged; the factors cancel."
+          },
+          {
+            "text": "Larger, but by less than ten times",
+            "misconception": "m4",
+            "diagnosis": "Any growth at all is impossible: the two triangles are similar by AA, so all corresponding side ratios are equal."
+          },
+          {
+            "text": "Impossible to compare without knowing the other sides",
+            "diagnosis": "The 30° angle alone fixes the shape (AA similarity), and shape alone fixes every trigonometric ratio."
+          }
+        ],
+        "explanation": "Both triangles have angles 30°, 60°, 90°, so they are similar. In the first, the side opposite 30° is 2.5 cm (ratio 2.5/5 = 1/2); in the second it is 25 cm (ratio 25/50 = 1/2). Scaling multiplies numerator and denominator by the same factor — sin 30° = 1/2 in both. This is exactly why sin 30° can be tabulated once and for all."
+      }
+    },
+    {
+      "id": "g10.tri.intro.reciprocal-ratios",
+      "parent": "g10.tri.intro",
+      "title": "The Reciprocal Ratios: cosec, sec, cot",
+      "description": "cosec θ = 1/sin θ, sec θ = 1/cos θ, cot θ = 1/tan θ = cos θ/sin θ. Watch the criss-cross pairing: coSEC pairs with SIN, SEC pairs with COS.",
+      "outcomes": [
+        "Can compute all six ratios of an angle from a given right triangle",
+        "Can convert between a ratio and its reciprocal without pairing errors"
+      ],
+      "prereqs": [
+        "g10.tri.intro.ratio-definitions"
+      ],
+      "est_minutes": 10,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g10.tri.intro.one-ratio-to-all",
+      "parent": "g10.tri.intro",
+      "title": "From One Ratio to All Six",
+      "description": "Given one ratio, sketch a right triangle with matching sides, find the third side by Pythagoras, and read off the rest. Example: tan θ = 3/4 puts legs 3 and 4 in place, so the hypotenuse is 5.",
+      "outcomes": [
+        "Can construct a reference triangle from one given trigonometric ratio",
+        "Can compute the remaining five ratios using Pythagoras"
+      ],
+      "prereqs": [
+        "g10.tri.intro.reciprocal-ratios"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "If tan θ = 3/4 for an acute angle θ, then sin θ equals",
+        "options": [
+          {
+            "text": "3/5",
+            "correct": true
+          },
+          {
+            "text": "3/4",
+            "diagnosis": "Reused the tangent as the sine; tan uses the two LEGS, while sin needs the hypotenuse, which is 5 by Pythagoras."
+          },
+          {
+            "text": "4/5",
+            "diagnosis": "Picked the adjacent leg over the hypotenuse — that is cos θ; sin θ takes the side opposite θ, which is 3."
+          },
+          {
+            "text": "5/3",
+            "diagnosis": "Inverted the sine (that is cosec θ); an acute angle's sine can never exceed 1."
+          }
+        ],
+        "explanation": "tan θ = opposite/adjacent = 3/4, so draw legs 3 (opposite) and 4 (adjacent); Pythagoras gives hypotenuse √(9 + 16) = 5. Then sin θ = 3/5 and cos θ = 4/5. One ratio pins down the triangle's shape, and the shape yields every other ratio."
+      }
+    },
+    {
+      "id": "g10.tri.intro.standard-angle-values",
+      "parent": "g10.tri.intro",
+      "title": "Exact Values at 0°, 30°, 45°, 60°, 90°",
+      "description": "Derive the exact table from two triangles: the 45-45-90 (sides 1, 1, √2) and the half-equilateral 30-60-90 (sides 1, √3, 2). Values do NOT scale linearly with the angle: sin 60° ≠ 2 sin 30°.",
+      "outcomes": [
+        "Can recall or re-derive all standard values of sin, cos and tan at 0°, 30°, 45°, 60°, 90°",
+        "Can evaluate numeric expressions like 2 tan²45° + cos²30° − sin²60° exactly"
+      ],
+      "prereqs": [
+        "g10.tri.intro.ratio-definitions"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "The value of sin 60° is",
+        "options": [
+          {
+            "text": "√3/2",
+            "correct": true
+          },
+          {
+            "text": "1",
+            "misconception": "m1",
+            "diagnosis": "Doubled sin 30° = 1/2 because the angle doubled; sine does not scale linearly with the angle — sin 60° = √3/2 ≈ 0.866, not 1."
+          },
+          {
+            "text": "1/2",
+            "diagnosis": "Quoted sin 30° (or equivalently cos 60°); in the 30-60-90 triangle the side opposite 60° is the longer leg √3, not 1."
+          },
+          {
+            "text": "1/√2",
+            "diagnosis": "Quoted the 45° value; sin 45° = 1/√2 comes from the isosceles right triangle, a different triangle altogether."
+          }
+        ],
+        "explanation": "Halve an equilateral triangle of side 2: the half-triangle has legs 1 and √3 with hypotenuse 2, so sin 60° = √3/2 ≈ 0.866. Note sin 60° ≠ 2 × sin 30° = 1: doubling the angle does not double the sine ('sin' is not a factor multiplying the angle, so it can never be cancelled or scaled that way)."
+      }
+    },
+    {
+      "id": "g10.tri.intro.pythagorean-identity",
+      "parent": "g10.tri.intro",
+      "title": "The Identity sin²θ + cos²θ = 1",
+      "description": "Divide a² + b² = c² by c² and the Pythagoras theorem becomes sin²θ + cos²θ = 1, true for every angle. Use it to trade sin for cos and to verify values from the standard table.",
+      "outcomes": [
+        "Can prove sin²θ + cos²θ = 1 from the Pythagoras theorem",
+        "Can find cos θ from sin θ (or vice versa) without constructing the triangle"
+      ],
+      "prereqs": [
+        "g10.tri.intro.one-ratio-to-all",
+        "g10.tri.intro.standard-angle-values"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3
+    },
+    {
+      "id": "g10.tri.intro.derived-identities-simplify",
+      "parent": "g10.tri.intro",
+      "title": "Derived Identities and Proving Simple Identities",
+      "description": "Divide sin²θ + cos²θ = 1 by cos²θ or sin²θ to get 1 + tan²θ = sec²θ and 1 + cot²θ = cosec²θ. Use all three to simplify expressions and prove identities by reducing one side to the other.",
+      "outcomes": [
+        "Can derive and apply 1 + tan²θ = sec²θ and 1 + cot²θ = cosec²θ",
+        "Can prove short identities by converting everything to sin and cos",
+        "Can simplify expressions like sec²θ − tan²θ or (1 − cos²θ) cosec²θ instantly"
+      ],
+      "prereqs": [
+        "g10.tri.intro.pythagorean-identity"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The value of 9 sec²A − 9 tan²A is",
+        "options": [
+          {
+            "text": "9",
+            "correct": true
+          },
+          {
+            "text": "1",
+            "diagnosis": "Applied sec²A − tan²A = 1 but dropped the common factor 9: the expression is 9(sec²A − tan²A) = 9 × 1."
+          },
+          {
+            "text": "0",
+            "diagnosis": "Treated sec²A and tan²A as equal; they differ by exactly 1, which is the whole content of the identity 1 + tan²A = sec²A."
+          },
+          {
+            "text": "81",
+            "diagnosis": "Squared the 9; the 9s are plain coefficients that factor out, and the bracket contributes just 1."
+          }
+        ],
+        "explanation": "From 1 + tan²A = sec²A we get sec²A − tan²A = 1, so 9 sec²A − 9 tan²A = 9(sec²A − tan²A) = 9 × 1 = 9, for every angle A where the ratios are defined. Recognising identity-shaped pairs like sec² − tan² saves all computation."
+      }
+    },
+    {
+      "id": "g10.tri.applications.elevation-depression-definitions",
+      "parent": "g10.tri.applications",
+      "title": "Angles of Elevation and Depression",
+      "description": "Both angles are measured FROM THE HORIZONTAL line of sight: elevation opens upward to a raised object, depression opens downward from an elevated observer. Alternate angles make the depression from A to B equal the elevation from B to A.",
+      "outcomes": [
+        "Can mark angles of elevation and depression correctly, always against the horizontal",
+        "Can use the alternate-angle equality between depression from above and elevation from below"
+      ],
+      "prereqs": [
+        "g10.tri.intro.standard-angle-values",
+        "g7.geo.lines-angles"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "From the top of a cliff, an observer sights a boat below. The angle of depression is the angle between",
+        "options": [
+          {
+            "text": "The horizontal line through the observer's eye and the line of sight to the boat",
+            "correct": true
+          },
+          {
+            "text": "The vertical cliff face and the line of sight to the boat",
+            "misconception": "m1",
+            "diagnosis": "Measured from the vertical; depression is defined downward from the HORIZONTAL, and the vertical-based angle is its complement (90° minus it)."
+          },
+          {
+            "text": "The horizontal line at the boat and the surface of the sea",
+            "diagnosis": "That angle is zero — the sea is the horizontal at the boat; the depression is measured at the OBSERVER'S eye level."
+          },
+          {
+            "text": "The line of sight and the cliff's shadow on the water",
+            "diagnosis": "Shadows play no role in the definition; only the observer's horizontal and the line of sight matter."
+          }
+        ],
+        "explanation": "Angle of depression = angle at the observer's eye between the horizontal and the downward line of sight. Drawing the horizontal ray at the top is the critical first stroke of every diagram; by alternate angles (horizontal lines are parallel), this angle re-appears at the boat as the angle of elevation of the cliff top."
+      }
+    },
+    {
+      "id": "g10.tri.applications.diagram-from-description",
+      "parent": "g10.tri.applications",
+      "title": "Drawing the Right-Triangle Model",
+      "description": "Convert words into a labelled right triangle: vertical heights, horizontal ground distances, and the slant line of sight are three DIFFERENT segments. Include the observer's height when given, and never swap slant with horizontal.",
+      "outcomes": [
+        "Can produce a correctly labelled diagram from a verbal description, distinguishing slant, vertical and horizontal lengths",
+        "Can adjust the model for an observer of given height (adding a rectangle under the triangle)"
+      ],
+      "prereqs": [
+        "g10.tri.applications.elevation-depression-definitions"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.tri.applications.single-triangle-problems",
+      "parent": "g10.tri.applications",
+      "title": "Single-Triangle Heights and Distances",
+      "description": "Pick the ratio that links the two sides in play — tan for opposite/adjacent (most common), sin or cos when the slant is involved — and solve with exact values for 30°, 45°, 60°.",
+      "outcomes": [
+        "Can choose the correct trigonometric ratio from the sides involved, not by habit",
+        "Can compute heights and distances exactly, rationalising forms like 30/√3"
+      ],
+      "prereqs": [
+        "g10.tri.applications.diagram-from-description",
+        "g10.tri.intro.standard-angle-values"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "From a point on the ground 30 m from the foot of a tower, the angle of elevation of the top is 60°. The height of the tower is",
+        "options": [
+          {
+            "text": "30√3 m",
+            "correct": true
+          },
+          {
+            "text": "10√3 m",
+            "misconception": "m2",
+            "diagnosis": "Used tan upside-down (30/tan 60° = 30/√3); the height is OPPOSITE the 60° angle, so height = 30 × tan 60°."
+          },
+          {
+            "text": "60 m",
+            "misconception": "m3",
+            "diagnosis": "Computed the slant line of sight (30/cos 60° = 60 m) instead of the vertical height; the hypotenuse is not the tower."
+          },
+          {
+            "text": "30 m",
+            "diagnosis": "Assumed height equals ground distance, which is the 45° case (tan 45° = 1); here the angle is 60°, so the tower is taller than 30 m."
+          }
+        ],
+        "explanation": "tan 60° = height/30, so height = 30 tan 60° = 30√3 ≈ 51.96 m. The ratio must connect the two sides in the problem: opposite (height) and adjacent (30 m) means tangent. The slant distance 60 m and the value 10√3 both come from grabbing the wrong ratio."
+      }
+    },
+    {
+      "id": "g10.tri.applications.two-position-problems",
+      "parent": "g10.tri.applications",
+      "title": "Two Observation Points: Walking-Toward Problems",
+      "description": "One tower seen from two points gives two equations sharing the height. Typical: elevation grows from 30° to 60° after walking distance d toward the tower; subtract the horizontal distances to bring d in.",
+      "outcomes": [
+        "Can set up two tangent equations with a shared height and solve for the unknown",
+        "Can manage exact-surd arithmetic like h√3 − h/√3 = d cleanly"
+      ],
+      "prereqs": [
+        "g10.tri.applications.single-triangle-problems"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g10.tri.applications.depression-two-object-problems",
+      "parent": "g10.tri.applications",
+      "title": "Depression Problems: Two Objects Below",
+      "description": "From a lighthouse or building top, two depression angles to two objects give two horizontal distances from one height; subtract (same side) or add (opposite sides) to answer the question.",
+      "outcomes": [
+        "Can convert depression angles into base angles of right triangles via alternate angles",
+        "Can decide whether to add or subtract the two computed distances from the geometry"
+      ],
+      "prereqs": [
+        "g10.tri.applications.single-triangle-problems"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 4,
+        "prompt": "From the top of a 75 m high lighthouse, the angles of depression of two ships on the same side are 45° and 30°. The distance between the two ships is",
+        "options": [
+          {
+            "text": "75(√3 − 1) m",
+            "correct": true
+          },
+          {
+            "text": "75√3 m",
+            "diagnosis": "Reported only the farther ship's distance from the lighthouse (75/tan 30° = 75√3); the question asks for the gap BETWEEN the ships."
+          },
+          {
+            "text": "75 m",
+            "diagnosis": "Reported only the nearer ship's distance (75/tan 45° = 75); the distance between ships is the difference of the two distances."
+          },
+          {
+            "text": "75(√3 + 1) m",
+            "misconception": "m1",
+            "diagnosis": "Added the distances as if the ships were on opposite sides — or mixed up which angle belongs to which ship; same-side ships require subtraction."
+          }
+        ],
+        "explanation": "Depression 45° (nearer ship): distance = 75/tan 45° = 75 m. Depression 30° (farther ship): distance = 75/tan 30° = 75√3 m. Same side, so the gap = 75√3 − 75 = 75(√3 − 1) ≈ 54.9 m. The steeper depression always belongs to the nearer ship."
+      }
+    },
+    {
+      "id": "g10.mea.areas-circles.circle-formula-review",
+      "parent": "g10.mea.areas-circles",
+      "title": "Warm-up: Circumference vs Area",
+      "description": "Re-anchor C = 2πr (a length, in cm) and A = πr² (an area, in cm²) before fractions of circles appear — the unit check is the fastest way to tell them apart.",
+      "outcomes": [
+        "Can compute circumference and area of a circle fluently (with π and with 22/7)",
+        "Can use units to decide which formula a question needs"
+      ],
+      "prereqs": [
+        "g7.mea.perimeter-area"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g10.mea.areas-circles.arc-length",
+      "parent": "g10.mea.areas-circles",
+      "title": "Arc Length as a Fraction of the Circumference",
+      "description": "A sector's arc is (θ/360) of the full circumference 2πr. Build the fraction idea: the angle tells you what share of the circle you own.",
+      "outcomes": [
+        "Can compute arc length for any central angle",
+        "Can explain why the fraction multiplies 2πr and not πr²"
+      ],
+      "prereqs": [
+        "g10.mea.areas-circles.circle-formula-review"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A sector of a circle of radius 10 cm has central angle 90°. The length of its arc is",
+        "options": [
+          {
+            "text": "5π cm",
+            "correct": true
+          },
+          {
+            "text": "25π cm",
+            "misconception": "m1"
+          },
+          {
+            "text": "20π cm",
+            "diagnosis": "Computed the full circumference 2π(10) and forgot to take the 90/360 fraction."
+          },
+          {
+            "text": "10π cm",
+            "diagnosis": "Used θ/180 instead of θ/360 as the fraction of the circle."
+          }
+        ],
+        "explanation": "Arc = (θ/360) × 2πr = (90/360) × 2π(10) = (1/4)(20π) = 5π cm. Using πr² here gives (1/4)(100π) = 25π — but that is the sector's AREA in cm², not a length. Check units before you finish."
+      }
+    },
+    {
+      "id": "g10.mea.areas-circles.sector-area",
+      "parent": "g10.mea.areas-circles",
+      "title": "Area of a Sector",
+      "description": "Sector area = (θ/360) × πr², the same share-of-the-circle fraction applied to the area formula. Contrast with arc length side by side.",
+      "outcomes": [
+        "Can compute the area of a sector for any central angle",
+        "Can pick the correct base formula (2πr vs πr²) inside the fraction"
+      ],
+      "prereqs": [
+        "g10.mea.areas-circles.arc-length"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The area of a sector of radius 6 cm with central angle 60° is",
+        "options": [
+          {
+            "text": "6π cm²",
+            "correct": true
+          },
+          {
+            "text": "2π cm²",
+            "misconception": "m1"
+          },
+          {
+            "text": "36π cm²",
+            "diagnosis": "Computed the area of the whole circle and forgot the 60/360 fraction."
+          },
+          {
+            "text": "12π cm²",
+            "diagnosis": "Used θ/180 instead of θ/360 as the fraction."
+          }
+        ],
+        "explanation": "Sector area = (60/360) × π(6²) = (1/6)(36π) = 6π cm². The wrong pick (60/360) × 2π(6) = 2π is the ARC LENGTH in cm — circumference belongs to lengths, πr² to areas."
+      }
+    },
+    {
+      "id": "g10.mea.areas-circles.sector-perimeter",
+      "parent": "g10.mea.areas-circles",
+      "title": "Perimeter of a Sector: Arc Plus Two Radii",
+      "description": "The boundary of a sector is the arc AND the two straight radii: P = arc + 2r. Trace the boundary with a finger before computing.",
+      "outcomes": [
+        "Can compute the perimeter of a sector as arc length + 2r",
+        "Can decide from the question whether the arc alone or the full boundary is wanted"
+      ],
+      "prereqs": [
+        "g10.mea.areas-circles.arc-length"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A sector has radius 10 cm and central angle 90°. Its perimeter is",
+        "options": [
+          {
+            "text": "(5π + 20) cm",
+            "correct": true
+          },
+          {
+            "text": "5π cm",
+            "misconception": "m3"
+          },
+          {
+            "text": "(5π + 10) cm",
+            "diagnosis": "Added only one radius — the boundary includes BOTH straight edges."
+          },
+          {
+            "text": "(25π + 20) cm",
+            "misconception": "m1",
+            "diagnosis": "Used the area formula πr² for the arc part of the boundary."
+          }
+        ],
+        "explanation": "Perimeter = arc + two radii = (90/360)(2π·10) + 2(10) = 5π + 20 cm. Tracing the boundary: along one radius (10), around the arc (5π), back along the other radius (10)."
+      }
+    },
+    {
+      "id": "g10.mea.areas-circles.segment-area",
+      "parent": "g10.mea.areas-circles",
+      "title": "Area of a Segment: Sector Minus Triangle",
+      "description": "A chord splits the sector into a triangle and a segment: segment = sector − triangle. Compute the triangle with ½·base·height or ½r² sin θ for standard angles.",
+      "outcomes": [
+        "Can compute the area of a minor segment for 60°, 90°, 120° angles",
+        "Can draw and label sector, chord, triangle and segment correctly"
+      ],
+      "prereqs": [
+        "g10.mea.areas-circles.sector-area",
+        "g10.tri.intro.standard-angle-values"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A chord of a circle of radius 10 cm subtends a right angle at the centre. The area of the minor segment is",
+        "options": [
+          {
+            "text": "(25π − 50) cm²",
+            "correct": true
+          },
+          {
+            "text": "25π cm²",
+            "misconception": "m2"
+          },
+          {
+            "text": "50 cm²",
+            "diagnosis": "Computed only the triangle OAB and stopped — that is the part you SUBTRACT."
+          },
+          {
+            "text": "(25π + 50) cm²",
+            "diagnosis": "Added the triangle instead of subtracting it from the sector."
+          }
+        ],
+        "explanation": "Sector (90°) = (1/4)π(10²) = 25π cm²; triangle = ½ × 10 × 10 = 50 cm² (the two radii are perpendicular). Segment = sector − triangle = 25π − 50 ≈ 28.5 cm². The chord cuts the triangle OFF the sector; what remains is the segment."
+      }
+    },
+    {
+      "id": "g10.mea.areas-circles.combined-plane-figures",
+      "parent": "g10.mea.areas-circles",
+      "title": "Areas of Shaded and Combined Figures",
+      "description": "Board-style shaded regions: circles inside squares, quadrants in corners, rings, flower designs. Strategy: name each region, then add/subtract whole-figure areas.",
+      "outcomes": [
+        "Can decompose a shaded region into standard figures with a labelled plan",
+        "Can solve mixed square-circle-sector area problems accurately"
+      ],
+      "prereqs": [
+        "g10.mea.areas-circles.segment-area"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4
+    },
+    {
+      "id": "g10.mea.surface-volume.formula-inventory",
+      "parent": "g10.mea.surface-volume",
+      "title": "Formula Inventory: CSA, TSA and Volume",
+      "description": "Rebuild the table for cube, cuboid, cylinder, cone, sphere, hemisphere — separating curved surface, total surface (units²) and volume (units³) so they never swap.",
+      "outcomes": [
+        "Can state CSA, TSA and volume formulas for the six standard solids",
+        "Can use dimensional units to catch a surface/volume formula swap"
+      ],
+      "prereqs": [
+        "g9.mea.surface-volume"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "The volume of a sphere of radius r is",
+        "options": [
+          {
+            "text": "(4/3)πr³",
+            "correct": true
+          },
+          {
+            "text": "4πr²",
+            "misconception": "m2"
+          },
+          {
+            "text": "(2/3)πr³",
+            "diagnosis": "That is the volume of a HEMISPHERE — half the sphere."
+          },
+          {
+            "text": "πr²h",
+            "diagnosis": "That is a cylinder's volume; a sphere has no separate height h."
+          }
+        ],
+        "explanation": "Volume of a sphere = (4/3)πr³ (in units³); 4πr² is its surface AREA (units²). The exponent is the tell: volumes carry r³, surfaces r²."
+      }
+    },
+    {
+      "id": "g10.mea.surface-volume.combined-surface-area",
+      "parent": "g10.mea.surface-volume",
+      "title": "Surface Area of Combined Solids",
+      "description": "When solids are glued, the joined faces vanish inside: the surface of the combination is the sum of the EXPOSED (usually curved) surfaces only, never the sum of the TSAs.",
+      "outcomes": [
+        "Can identify which faces are exposed and which are hidden in a combined solid",
+        "Can compute the surface area of toy (cone + hemisphere) and capsule-type solids"
+      ],
+      "prereqs": [
+        "g10.mea.surface-volume.formula-inventory"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A toy is a cone mounted on a hemisphere of the same radius, with their circular rims glued together. Its total surface area is",
+        "options": [
+          {
+            "text": "CSA of the cone + CSA of the hemisphere",
+            "correct": true
+          },
+          {
+            "text": "TSA of the cone + TSA of the hemisphere",
+            "misconception": "m1"
+          },
+          {
+            "text": "CSA of the cone + TSA of the hemisphere",
+            "misconception": "m1",
+            "diagnosis": "The hemisphere's flat circular face is glued inside the toy — it is hidden, not part of the surface."
+          },
+          {
+            "text": "CSA of the cone + CSA of the hemisphere + area of the joining circle",
+            "diagnosis": "Added the glued circle back in; a hidden internal face is counted zero times, not once."
+          }
+        ],
+        "explanation": "Run a finger over the toy: you touch only the cone's slanted surface and the hemisphere's dome. The two flat circles were glued face-to-face and are inside the solid. TSA formulas include those flat faces, so summing TSAs double-counts what no longer exists."
+      }
+    },
+    {
+      "id": "g10.mea.surface-volume.combined-volume",
+      "parent": "g10.mea.surface-volume",
+      "title": "Volume of Combined Solids",
+      "description": "Volumes simply add (and cavities subtract) because volume measures the space filled — unlike surface area, nothing vanishes at the joins.",
+      "outcomes": [
+        "Can compute the volume of a combined solid by adding component volumes",
+        "Can subtract a carved-out or hollow part (e.g., a cavity or scooped hemisphere)"
+      ],
+      "prereqs": [
+        "g10.mea.surface-volume.combined-surface-area"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A solid consists of a cylinder of radius 3 cm and height 4 cm with a hemisphere of radius 3 cm mounted on top. Its volume is",
+        "options": [
+          {
+            "text": "54π cm³",
+            "correct": true
+          },
+          {
+            "text": "45π cm³",
+            "misconception": "m2",
+            "diagnosis": "Used (1/3)πr³ (a cone-style formula) for the hemisphere instead of (2/3)πr³."
+          },
+          {
+            "text": "72π cm³",
+            "diagnosis": "Added a FULL sphere (36π) instead of a hemisphere (18π)."
+          },
+          {
+            "text": "36π cm³",
+            "diagnosis": "Found the cylinder's volume and forgot the hemisphere entirely."
+          }
+        ],
+        "explanation": "Cylinder: π(3²)(4) = 36π. Hemisphere: (2/3)π(3³) = 18π. Total = 36π + 18π = 54π cm³ ≈ 169.6 cm³. Volumes add at a glue joint — only surface areas lose the hidden faces."
+      }
+    },
+    {
+      "id": "g10.mea.surface-volume.conversion-of-solids",
+      "parent": "g10.mea.surface-volume",
+      "title": "Melting and Recasting: Volume Is Conserved",
+      "description": "When a solid is melted, remoulded or water is displaced, the VOLUME stays the same even though the shape and surface area change. Equate volumes to solve.",
+      "outcomes": [
+        "Can set up volume-of-old = volume-of-new equations for recasting problems",
+        "Can find how many small solids a large one yields (and why the count scales with the cube)"
+      ],
+      "prereqs": [
+        "g10.mea.surface-volume.combined-volume"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A metal sphere of radius 6 cm is melted and recast into small spheres of radius 2 cm each. How many small spheres are formed?",
+        "options": [
+          {
+            "text": "27",
+            "correct": true
+          },
+          {
+            "text": "3",
+            "diagnosis": "Compared radii linearly (6 ÷ 2); the count follows the ratio of VOLUMES, which scale with the cube."
+          },
+          {
+            "text": "9",
+            "diagnosis": "Squared the ratio of radii — that would compare surface areas, not volumes."
+          },
+          {
+            "text": "Cannot be found — melting changes the amount of metal",
+            "misconception": "m3"
+          }
+        ],
+        "explanation": "Metal is neither created nor destroyed: (4/3)π(6³) = n × (4/3)π(2³), so n = 216/8 = 27. The radius ratio is 3, and 3³ = 27 — each length ratio gets cubed when volumes are compared."
+      }
+    },
+    {
+      "id": "g10.mea.surface-volume.word-problems-capacity",
+      "parent": "g10.mea.surface-volume",
+      "title": "Capacity, Water Level and Cost Problems",
+      "description": "Full board problems: tents (canvas = surface, air = volume), tanks filling through pipes, water level rise when solids are dropped in, cost per m². Choose surface vs volume from what the question physically asks.",
+      "outcomes": [
+        "Can decide from context whether a quantity is a surface area or a volume",
+        "Can solve multi-step capacity and cost problems with correct units"
+      ],
+      "prereqs": [
+        "g10.mea.surface-volume.conversion-of-solids"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.dat.statistics.grouped-data-review",
+      "parent": "g10.dat.statistics",
+      "title": "Grouped Data: Class Marks and Cumulative Frequency",
+      "description": "Set up the two working columns everything else depends on: class mark xᵢ = (lower + upper)/2 for each interval, and the running cumulative frequency (cf) column.",
+      "outcomes": [
+        "Can compute class marks and build a cumulative frequency column",
+        "Can distinguish frequency of a class from cumulative frequency up to a class"
+      ],
+      "prereqs": [
+        "g9.dat.statistics",
+        "g7.dat.data-handling-averages"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g10.dat.statistics.mean-direct-method",
+      "parent": "g10.dat.statistics",
+      "title": "Mean of Grouped Data: Direct Method",
+      "description": "Mean = Σfᵢxᵢ / Σfᵢ — every class mark is WEIGHTED by its frequency. Contrast with the plain average of class marks to see why frequencies matter.",
+      "outcomes": [
+        "Can compute the mean of a grouped frequency table by the direct method",
+        "Can explain why dividing by the number of classes gives a wrong answer"
+      ],
+      "prereqs": [
+        "g10.dat.statistics.grouped-data-review"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "For the table — classes 0–10, 10–20, 20–30 with frequencies 2, 5, 3 — the mean is",
+        "options": [
+          {
+            "text": "16",
+            "correct": true
+          },
+          {
+            "text": "15",
+            "misconception": "m1"
+          },
+          {
+            "text": "53.3 (approximately)",
+            "diagnosis": "Computed Σfᵢxᵢ = 160 correctly but divided by the 3 classes instead of Σfᵢ = 10."
+          },
+          {
+            "text": "10",
+            "diagnosis": "Reported Σfᵢ, the total number of observations, as the mean."
+          }
+        ],
+        "explanation": "Class marks are 5, 15, 25. Σfᵢxᵢ = 2(5) + 5(15) + 3(25) = 10 + 75 + 75 = 160 and Σfᵢ = 10, so mean = 160/10 = 16. The unweighted average (5 + 15 + 25)/3 = 15 ignores that 15 occurs most often — frequencies are the whole point of the table."
+      }
+    },
+    {
+      "id": "g10.dat.statistics.mean-assumed-step-deviation",
+      "parent": "g10.dat.statistics",
+      "title": "Assumed Mean and Step Deviation Methods",
+      "description": "Shift by an assumed mean a (dᵢ = xᵢ − a) and optionally scale by h (uᵢ = dᵢ/h) to shrink the arithmetic; all three methods give the same mean.",
+      "outcomes": [
+        "Can compute a grouped mean by the assumed mean and step deviation methods",
+        "Can verify that the shortcut agrees with the direct method"
+      ],
+      "prereqs": [
+        "g10.dat.statistics.mean-direct-method"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g10.dat.statistics.mode-of-grouped-data",
+      "parent": "g10.dat.statistics",
+      "title": "Mode of Grouped Data",
+      "description": "Locate the modal class (highest frequency), then interpolate INSIDE it: mode = l + [(f₁ − f₀)/(2f₁ − f₀ − f₂)]·h. The mode is a data value, never a frequency.",
+      "outcomes": [
+        "Can identify the modal class and apply the mode formula correctly",
+        "Can explain why the mode is pulled toward the stronger neighbouring class"
+      ],
+      "prereqs": [
+        "g10.dat.statistics.grouped-data-review"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The modal class of a distribution is 20–30 with frequency 12; the classes before and after it have frequencies 8 and 6, and the class width is 10. The mode is",
+        "options": [
+          {
+            "text": "24",
+            "correct": true
+          },
+          {
+            "text": "12",
+            "misconception": "m2"
+          },
+          {
+            "text": "25",
+            "misconception": "m2",
+            "diagnosis": "Took the midpoint of the modal class — the formula locates the mode off-centre, pulled toward the busier neighbour."
+          },
+          {
+            "text": "20",
+            "diagnosis": "Stopped at the lower limit l and never added the interpolation term."
+          }
+        ],
+        "explanation": "Mode = 20 + [(12 − 8)/(2·12 − 8 − 6)] × 10 = 20 + (4/10) × 10 = 24. The answer must be a VALUE inside 20–30; 12 is a frequency (a count of observations), which lives on a different axis altogether. Note 24 < 25: the mode leans toward the previous class because f₀ = 8 > f₂ = 6."
+      }
+    },
+    {
+      "id": "g10.dat.statistics.median-of-grouped-data",
+      "parent": "g10.dat.statistics",
+      "title": "Median of Grouped Data",
+      "description": "Find the class whose cumulative frequency first reaches n/2, then interpolate: median = l + [(n/2 − cf)/f]·h. The n/2 — not n — is the heart of the method.",
+      "outcomes": [
+        "Can locate the median class using the cf column and n/2",
+        "Can apply the median formula with the PRECEDING class's cf"
+      ],
+      "prereqs": [
+        "g10.dat.statistics.grouped-data-review"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 4,
+        "prompt": "Classes 0–10, 10–20, 20–30, 30–40, 40–50 have frequencies 10, 12, 16, 14, 8 (n = 60). The median is",
+        "options": [
+          {
+            "text": "25",
+            "correct": true
+          },
+          {
+            "text": "50",
+            "misconception": "m3"
+          },
+          {
+            "text": "30",
+            "diagnosis": "Reported n/2 = 30 itself as the median instead of using it to locate the median class."
+          },
+          {
+            "text": "20",
+            "diagnosis": "Found the right median class but stopped at its lower limit without interpolating."
+          }
+        ],
+        "explanation": "cf column: 10, 22, 38, 52, 60. n/2 = 30 first falls in 20–30 (cf 38 ≥ 30). Median = 20 + [(30 − 22)/16] × 10 = 20 + 5 = 25. Hunting for where cf reaches n = 60 lands in 40–50 and gives 50 — the middle observation is the 30th, not the 60th."
+      }
+    },
+    {
+      "id": "g10.dat.statistics.ogives",
+      "parent": "g10.dat.statistics",
+      "title": "Ogives and Reading the Median Graphically",
+      "description": "Draw less-than and more-than ogives from cumulative frequencies; the median is the x-value at cumulative frequency n/2 — equivalently where the two ogives cross.",
+      "outcomes": [
+        "Can plot a less-than ogive from a cumulative frequency table",
+        "Can read the median from an ogive at height n/2"
+      ],
+      "prereqs": [
+        "g10.dat.statistics.median-of-grouped-data"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A less-than ogive is drawn for data with n = 80. To read off the median, you should",
+        "options": [
+          {
+            "text": "Locate 40 on the cumulative-frequency axis, move across to the curve, and read the x-value below",
+            "correct": true
+          },
+          {
+            "text": "Locate 80 on the cumulative-frequency axis and read the x-value there",
+            "misconception": "m3"
+          },
+          {
+            "text": "Locate 40 on the x-axis and read the cumulative frequency above it",
+            "diagnosis": "Axes swapped: the median is an x-value found FROM a cf-value, not the other way round."
+          },
+          {
+            "text": "Find the steepest point of the curve and read the x-value there",
+            "diagnosis": "The steepest stretch marks the modal region, not the median."
+          }
+        ],
+        "explanation": "The median is the value with half the observations below it, so enter the graph at cf = n/2 = 40, not at n = 80 (every observation is below the top of the curve). Cross to the ogive, drop down, and the foot is the median."
+      }
+    },
+    {
+      "id": "g10.dat.probability.classical-definition",
+      "parent": "g10.dat.probability",
+      "title": "The Classical Definition of Probability",
+      "description": "P(E) = favourable outcomes / total equally likely outcomes. Pin down the consequences: 0 ≤ P ≤ 1, P = 0 impossible, P = 1 sure — a probability is a proportion, never a raw count.",
+      "outcomes": [
+        "Can compute P(E) by counting favourable and total outcomes",
+        "Can state and use the bounds 0 ≤ P(E) ≤ 1"
+      ],
+      "prereqs": [
+        "g9.dat.probability-empirical"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following CAN be the probability of some event?",
+        "options": [
+          {
+            "text": "0.7",
+            "correct": true
+          },
+          {
+            "text": "1.3",
+            "misconception": "m4"
+          },
+          {
+            "text": "−0.2",
+            "misconception": "m4",
+            "diagnosis": "Negative probabilities are impossible — even an impossible event scores exactly 0."
+          },
+          {
+            "text": "4, the number of favourable outcomes",
+            "misconception": "m4",
+            "diagnosis": "A count of outcomes is not yet a probability; it must be divided by the total number of outcomes."
+          }
+        ],
+        "explanation": "A probability is a fraction of the total, so it lives in [0, 1]: 0.7 qualifies. 1.3 exceeds certainty, negatives are meaningless, and a raw count like 4 has not been divided by the total yet."
+      }
+    },
+    {
+      "id": "g10.dat.probability.equally-likely-outcomes",
+      "parent": "g10.dat.probability",
+      "title": "Counting Outcomes That Are Actually Equally Likely",
+      "description": "The classical formula only works over equally likely outcomes. Two coins give the 4-outcome space HH, HT, TH, TT — not the 3 'kinds' 0, 1, 2 heads.",
+      "outcomes": [
+        "Can list a complete equally likely sample space for coins and dice",
+        "Can spot when a proposed outcome list is not equally likely"
+      ],
+      "prereqs": [
+        "g10.dat.probability.classical-definition"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Two fair coins are tossed together. The probability of getting exactly one head is",
+        "options": [
+          {
+            "text": "1/2",
+            "correct": true
+          },
+          {
+            "text": "1/3",
+            "misconception": "m2"
+          },
+          {
+            "text": "1/4",
+            "diagnosis": "Counted only HT and missed TH — the two coins are distinct, so both orders count."
+          },
+          {
+            "text": "3/4",
+            "diagnosis": "Computed the probability of AT LEAST one head instead of exactly one."
+          }
+        ],
+        "explanation": "The equally likely outcomes are HH, HT, TH, TT. Exactly one head happens in HT and TH: 2/4 = 1/2. The three 'kinds' (0, 1, 2 heads) are NOT equally likely — one head has two ways of occurring, so 1/3 undercounts it."
+      }
+    },
+    {
+      "id": "g10.dat.probability.single-event-problems",
+      "parent": "g10.dat.probability",
+      "title": "Cards, Dice and Balls: Single-Event Calculations",
+      "description": "Fluency with the standard boards toolkit: the 52-card deck's structure (suits, colours, face cards), one die, and drawing from bags of counted balls.",
+      "outcomes": [
+        "Can compute probabilities for standard card-deck events (face card, red queen, not-an-ace)",
+        "Can solve one-draw bag and die problems accurately"
+      ],
+      "prereqs": [
+        "g10.dat.probability.equally-likely-outcomes"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "One card is drawn from a well-shuffled deck of 52 cards. The probability that it is a face card is",
+        "options": [
+          {
+            "text": "3/13",
+            "correct": true
+          },
+          {
+            "text": "1/13",
+            "diagnosis": "Counted only one rank (e.g., the 4 kings); face cards are jacks, queens AND kings."
+          },
+          {
+            "text": "4/13",
+            "diagnosis": "Included the aces; an ace is not a face card."
+          },
+          {
+            "text": "3/52",
+            "diagnosis": "Counted 3 face cards in total, forgetting there are 3 in EACH of the four suits."
+          }
+        ],
+        "explanation": "Face cards are J, Q, K in each of 4 suits: 12 cards. P = 12/52 = 3/13."
+      }
+    },
+    {
+      "id": "g10.dat.probability.complementary-events",
+      "parent": "g10.dat.probability",
+      "title": "Complementary Events: P(not E) = 1 − P(E)",
+      "description": "E and not-E split certainty between them — and ONLY a complementary pair is guaranteed to sum to 1. Use the complement to shortcut 'at least one' and 'not' questions.",
+      "outcomes": [
+        "Can compute P(not E) from P(E) and recognise when the shortcut applies",
+        "Can explain why two arbitrary events need not have probabilities summing to 1"
+      ],
+      "prereqs": [
+        "g10.dat.probability.classical-definition"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The probability that it rains tomorrow is 0.85. The probability that it does NOT rain tomorrow is",
+        "options": [
+          {
+            "text": "0.15",
+            "correct": true
+          },
+          {
+            "text": "Cannot be determined from the information given",
+            "misconception": "m3"
+          },
+          {
+            "text": "0.85",
+            "diagnosis": "Assumed the event and its opposite are equally likely; they share 1 but not equally."
+          },
+          {
+            "text": "15",
+            "misconception": "m4",
+            "diagnosis": "Dropped the decimal point — a probability of 15 would exceed certainty many times over."
+          }
+        ],
+        "explanation": "Rain and no-rain are complementary: they cover all possibilities and cannot both happen, so P(no rain) = 1 − 0.85 = 0.15. This subtraction is exactly what m3-style guessing skips."
+      }
+    },
+    {
+      "id": "g10.dat.probability.independence-of-trials",
+      "parent": "g10.dat.probability",
+      "title": "What 1/6 Really Means: No Memory, No Quota",
+      "description": "Probability describes long-run proportion, not a short-run quota: a fair coin or die has no memory, so past outcomes never shift the next trial's probability.",
+      "outcomes": [
+        "Can state the probability of the next trial after any streak",
+        "Can explain the difference between P(a streak in advance) and P(next outcome)"
+      ],
+      "prereqs": [
+        "g10.dat.probability.classical-definition"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A fair coin has landed heads 5 times in a row. The probability that the next toss is a head is",
+        "options": [
+          {
+            "text": "Exactly 1/2 — the coin has no memory of earlier tosses",
+            "correct": true
+          },
+          {
+            "text": "Less than 1/2, because a tail is now overdue",
+            "misconception": "m1"
+          },
+          {
+            "text": "More than 1/2, because the coin is on a heads streak",
+            "misconception": "m1",
+            "diagnosis": "The hot-hand version of the same quota thinking — past tosses cannot push the next one either way."
+          },
+          {
+            "text": "1/64, the probability of six heads in a row",
+            "diagnosis": "That is the advance probability of the whole streak HHHHHH; five of those tosses have already happened."
+          }
+        ],
+        "explanation": "Each toss is a fresh 50-50 event. 1/64 is the probability, computed BEFORE any tossing, of six specified outcomes; after five heads are already banked, only one toss of uncertainty remains. 'Due' and 'hot' are both the gambler's fallacy."
+      }
+    },
+    {
+      "id": "g10.dat.probability.two-stage-experiments",
+      "parent": "g10.dat.probability",
+      "title": "Two Dice and Other Two-Stage Experiments",
+      "description": "Build the full 36-cell grid for two dice (ordered pairs!) and read event probabilities from it; extend to two coins + die and two draws with listing.",
+      "outcomes": [
+        "Can construct the 36-outcome table for two dice and count events in it",
+        "Can compute probabilities for sums, doubles and comparisons of two dice"
+      ],
+      "prereqs": [
+        "g10.dat.probability.equally-likely-outcomes"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Two fair dice are thrown together. The probability that the sum of the numbers is 8 is",
+        "options": [
+          {
+            "text": "5/36",
+            "correct": true
+          },
+          {
+            "text": "1/11",
+            "misconception": "m2"
+          },
+          {
+            "text": "1/6",
+            "diagnosis": "Counted six ways by double-counting (4,4); unlike (3,5) and (5,3), the double has only one cell in the grid."
+          },
+          {
+            "text": "1/36",
+            "diagnosis": "Counted a single outcome, treating 'sum 8' as one cell of the table."
+          }
+        ],
+        "explanation": "Favourable cells: (2,6), (3,5), (4,4), (5,3), (6,2) — five of the 36 equally likely ordered pairs, so P = 5/36. The eleven possible sums 2–12 are NOT equally likely: sum 8 has five ways while sum 2 has one."
+      }
+    }
+  ]
+}

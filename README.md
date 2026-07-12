@@ -36,11 +36,15 @@ claude
 ```
 
 **The knowledge graph** (`kg/`) covers Class 1–12 mathematics, structured on the NCERT
-curriculum and aligned to Common Core (CCSS codes on every node). Each node carries:
-prerequisites (the graph edges), learning outcomes, **documented misconceptions with
-signals and remedies**, teaching metadata (best modalities, thinking routines, real-world
-hooks), and a **diagnostic question bank** where every wrong option is engineered to
-detect a specific misconception or slip — no question is ever random.
+curriculum and aligned to Common Core (CCSS codes on every node): **162 concept nodes,
+900 micro-skills (per-class in-depth graphs), 1,100+ diagnostic questions, 570 documented
+misconceptions** — all machine-validated. Each concept node carries: prerequisites (the
+graph edges), learning outcomes, **misconceptions with detection signals and remedies**,
+teaching metadata (best modalities, thinking routines, real-world hooks), and a
+**diagnostic question bank** where every wrong option is engineered to detect a specific
+misconception or slip — no question is ever random. Each class additionally has its own
+in-depth graph (`kg/classes/class-NN.json`) breaking every topic into 4–8 ordered,
+individually-testable micro-skills.
 
 **The student model** (`students/<id>/profile.json`) tracks per-node mastery with
 evidence, active misconceptions and their repair stage, which teaching strategies

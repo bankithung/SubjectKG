@@ -92,9 +92,11 @@ def main() -> int:
             "est_minutes": n.get("est_minutes", 0),
             "stub": n.get("stub", False),
             "micros": [{
-                "id": m["id"], "title": m["title"], "description": m.get("description", ""),
+                "id": m["id"], "parent": m["parent"], "title": m["title"],
+                "description": m.get("description", ""),
                 "outcomes": m.get("outcomes", []), "prereqs": m.get("prereqs", []),
                 "est_minutes": m.get("est_minutes", 0), "difficulty": m.get("difficulty", 0),
+                "question": bool(m.get("question")),
             } for m in n.get("micros", [])],
         })
     payload = {"strands": spine["strands"], "nodes": viewer_nodes}
