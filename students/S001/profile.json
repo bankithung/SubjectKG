@@ -2,21 +2,28 @@
   "$schema": "../../harness/schemas/student-profile.schema.json",
   "id": "S001",
   "created": "2026-07-12",
-  "grade": 6,
+  "grade": 9,
   "goals": {
     "target": "",
     "notes": ""
   },
-  "interests": [],
+  "interests": [
+    "building/developing web applications",
+    "coding & making things"
+  ],
   "language": {
-    "explanation": "",
-    "notes": ""
+    "explanation": "english",
+    "notes": "learns by dialogue - asking, back-and-forth; lean Socratic + explain-it-back"
   },
   "motivation": {
-    "drivers": [],
+    "drivers": [
+      "mastery-pride",
+      "curiosity",
+      "autonomy"
+    ],
     "streaks": {
-      "current_sessions": 0,
-      "best_sessions": 0,
+      "current_sessions": 1,
+      "best_sessions": 1,
       "reviews_cleared_in_a_row": 0,
       "personal_records": []
     },
@@ -34,7 +41,8 @@
   },
   "affect": {
     "confidence_by_strand": {},
-    "anxiety_flags": []
+    "anxiety_flags": [],
+    "praise_response": "finds maths fun - respond well to being challenged, not coddled"
   },
   "calibration": {
     "samples": 0,
