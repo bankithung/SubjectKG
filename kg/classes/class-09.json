@@ -1,0 +1,2768 @@
+{
+  "class": 9,
+  "micros": [
+    {
+      "id": "g9.num.number-systems.rational-recap-density",
+      "parent": "g9.num.number-systems",
+      "title": "Rational Numbers Recap and Density",
+      "description": "Revise what makes a number rational (p/q form, q ≠ 0) and establish that between any two rationals there are infinitely many more — the number line is already crowded before irrationals arrive.",
+      "outcomes": [
+        "Can write terminating and recurring decimals as p/q",
+        "Can insert several rational numbers between any two given rationals"
+      ],
+      "prereqs": [
+        "g8.num.rational-numbers"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g9.num.number-systems.decimal-expansions",
+      "parent": "g9.num.number-systems",
+      "title": "Decimal Expansions: Terminating, Recurring, Neither",
+      "description": "Sort decimal expansions into three kinds — terminating, non-terminating recurring, and non-terminating non-recurring — and see that only the last kind escapes the rationals.",
+      "outcomes": [
+        "Can classify a decimal expansion as terminating, recurring, or non-recurring",
+        "Can convert a recurring decimal like 0.4747… into p/q form",
+        "Can state which expansion types correspond to rational numbers"
+      ],
+      "prereqs": [
+        "g9.num.number-systems.rational-recap-density"
+      ],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following numbers is irrational?",
+        "options": [
+          {
+            "text": "0.101001000100001… (one more zero between each pair of 1s, forever)",
+            "correct": true
+          },
+          {
+            "text": "0.333… (the digit 3 repeating forever)",
+            "misconception": "m3"
+          },
+          {
+            "text": "√25",
+            "misconception": "m2"
+          },
+          {
+            "text": "22/7",
+            "diagnosis": "22/7 is a ratio of two integers, hence rational — it is only an approximation of π, not π itself."
+          }
+        ],
+        "explanation": "Irrational means the decimal expansion never terminates AND never settles into a repeating block. 0.333… repeats, so it is rational (= 1/3); √25 = 5 is a whole number despite the root sign; 22/7 is a fraction by definition. Only 0.101001000100001… has a pattern that never repeats a fixed block."
+      }
+    },
+    {
+      "id": "g9.num.number-systems.irrational-numbers",
+      "parent": "g9.num.number-systems",
+      "title": "Irrational Numbers: √2, π and Friends",
+      "description": "Define irrational numbers as reals that cannot be written as p/q, meet the classic examples (√2, √3, π), and learn to tell genuinely irrational roots from disguised integers like √49.",
+      "outcomes": [
+        "Can decide whether a given root such as √8 or √36 is rational or irrational",
+        "Can explain why π ≠ 22/7 even though they are close"
+      ],
+      "prereqs": [
+        "g9.num.number-systems.decimal-expansions"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g9.num.number-systems.real-line-representation",
+      "parent": "g9.num.number-systems",
+      "title": "Locating Irrationals on the Number Line",
+      "description": "Every point on the line is a real number: construct √2, √3, √5 exactly with right triangles (the square-root spiral) and zoom in on decimals by successive magnification.",
+      "outcomes": [
+        "Can construct √2 and √3 on the number line using right triangles",
+        "Can locate a number like 2.665 by successive magnification"
+      ],
+      "prereqs": [
+        "g9.num.number-systems.irrational-numbers",
+        "g8.num.squares-roots"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g9.num.number-systems.surds-operations",
+      "parent": "g9.num.number-systems",
+      "title": "Operations with Surds and Real Numbers",
+      "description": "Add, subtract, multiply and divide expressions with square roots, discovering which combinations of rationals and irrationals stay irrational — and why √(a+b) is NOT √a + √b.",
+      "outcomes": [
+        "Can simplify expressions like √2 × √8 and (3 + √3)(3 − √3)",
+        "Can give examples where a sum or product of two irrationals is rational",
+        "Can explain why square roots do not distribute over addition"
+      ],
+      "prereqs": [
+        "g9.num.number-systems.irrational-numbers",
+        "g8.num.squares-roots"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "√(16 + 9) = ?",
+        "options": [
+          {
+            "text": "5",
+            "correct": true
+          },
+          {
+            "text": "7",
+            "misconception": "m1"
+          },
+          {
+            "text": "25",
+            "diagnosis": "Added 16 + 9 correctly but forgot to take the square root at the end."
+          },
+          {
+            "text": "12.5",
+            "diagnosis": "Averaged 16 and 9 — there is no averaging rule for square roots."
+          }
+        ],
+        "explanation": "Work inside the root first: √(16 + 9) = √25 = 5. The tempting shortcut √16 + √9 = 4 + 3 = 7 is wrong because square roots do not distribute over addition — 7² = 49, not 25."
+      }
+    },
+    {
+      "id": "g9.num.number-systems.exponent-laws-real",
+      "parent": "g9.num.number-systems",
+      "title": "Laws of Exponents for Real Numbers",
+      "description": "Extend the exponent laws to rational powers: define a^(1/n) as the nth root and a^(m/n) accordingly, then compute expressions like 64^(2/3) and 125^(−1/3).",
+      "outcomes": [
+        "Can evaluate powers with fractional and negative exponents such as 32^(2/5)",
+        "Can simplify products and quotients like 2^(2/3) · 2^(1/3) using the laws"
+      ],
+      "prereqs": [
+        "g8.num.exponents-powers",
+        "g9.num.number-systems.surds-operations"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g9.num.number-systems.rationalisation",
+      "parent": "g9.num.number-systems",
+      "title": "Rationalising the Denominator",
+      "description": "Clear roots out of denominators: multiply by √a/√a for single surds, and by the conjugate for two-term denominators like 1/(√5 − 2), using (a − b)(a + b) = a² − b².",
+      "outcomes": [
+        "Can rationalise denominators of the forms 1/√a and 1/(a + √b)",
+        "Can pick the correct conjugate and expand the difference of squares without sign errors"
+      ],
+      "prereqs": [
+        "g9.num.number-systems.surds-operations"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Rationalise the denominator: 1/(√5 − 2)",
+        "options": [
+          {
+            "text": "√5 + 2",
+            "correct": true
+          },
+          {
+            "text": "√5 − 2",
+            "diagnosis": "Multiplied by (√5 − 2)/(√5 − 2) — the same expression, not the conjugate — which leaves the denominator irrational."
+          },
+          {
+            "text": "(√5 + 2)/3",
+            "diagnosis": "Computed (√5 − 2)(√5 + 2) as 5 − 2 = 3 instead of 5 − 4 = 1: forgot to square the 2."
+          },
+          {
+            "text": "(√5 + 2)/21",
+            "diagnosis": "Computed the denominator as 25 − 4 = 21: squared √5 twice (getting 25) instead of once (getting 5)."
+          }
+        ],
+        "explanation": "Multiply top and bottom by the conjugate √5 + 2: the denominator becomes (√5)² − 2² = 5 − 4 = 1, so the answer is (√5 + 2)/1 = √5 + 2."
+      }
+    },
+    {
+      "id": "g9.alg.polynomials.polynomial-degree-types",
+      "parent": "g9.alg.polynomials",
+      "title": "Polynomials: Terms, Coefficients, Degree, Types",
+      "description": "Pin down what is (and is not) a polynomial, read off terms and coefficients, and classify by degree (linear, quadratic, cubic) and by number of terms (monomial, binomial, trinomial).",
+      "outcomes": [
+        "Can decide whether an expression like x + 1/x or √2·x² is a polynomial",
+        "Can state the degree of any polynomial, including constants",
+        "Can classify polynomials as linear/quadratic/cubic and monomial/binomial/trinomial"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities"
+      ],
+      "est_minutes": 20,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "What is the degree of the polynomial p(x) = x⁵ + 4x³ − 7x?",
+        "options": [
+          {
+            "text": "5",
+            "correct": true
+          },
+          {
+            "text": "3",
+            "misconception": "m3"
+          },
+          {
+            "text": "8",
+            "diagnosis": "Added the exponents 5 + 3 — the degree is the single highest power, not a sum of powers."
+          },
+          {
+            "text": "9",
+            "diagnosis": "Added all the exponents 5 + 3 + 1 — the degree is only the highest power present."
+          }
+        ],
+        "explanation": "The degree is the highest power of the variable with a non-zero coefficient — here x⁵, so degree 5. Counting terms (there are 3) gives the polynomial's type (trinomial), not its degree."
+      }
+    },
+    {
+      "id": "g9.alg.polynomials.value-and-zeroes",
+      "parent": "g9.alg.polynomials",
+      "title": "Value of a Polynomial and Its Zeroes",
+      "description": "Evaluate p(x) at given numbers, define a zero as a value where p(x) = 0, and explore how many zeroes a polynomial can have — including quadratics like x² + 1 with none at all.",
+      "outcomes": [
+        "Can compute p(a) for any polynomial and number a",
+        "Can verify whether a given number is a zero of a polynomial",
+        "Can explain why degree n allows AT MOST n real zeroes, not exactly n"
+      ],
+      "prereqs": [
+        "g9.alg.polynomials.polynomial-degree-types"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "How many real zeroes does p(x) = x² + 1 have?",
+        "options": [
+          {
+            "text": "0 — x² + 1 is at least 1 for every real x",
+            "correct": true
+          },
+          {
+            "text": "2, because the degree is 2",
+            "misconception": "m4"
+          },
+          {
+            "text": "1, namely x = −1",
+            "diagnosis": "Check by substituting: p(−1) = (−1)² + 1 = 2, not 0. Possibly confused the polynomial x² + 1 with the factor x + 1."
+          },
+          {
+            "text": "Infinitely many",
+            "diagnosis": "A non-zero polynomial can never have more zeroes than its degree — infinitely many is impossible."
+          }
+        ],
+        "explanation": "For any real x, x² ≥ 0, so x² + 1 ≥ 1 and never reaches 0. Degree n promises at MOST n real zeroes, not exactly n — x² + 1 uses none of its allowance."
+      }
+    },
+    {
+      "id": "g9.alg.polynomials.remainder-theorem",
+      "parent": "g9.alg.polynomials",
+      "title": "The Remainder Theorem",
+      "description": "Divide polynomials by linear factors the long way once, then shortcut: the remainder when p(x) is divided by (x − a) is simply p(a) — watching the sign of a like a hawk.",
+      "outcomes": [
+        "Can find the remainder on division by (x − a) or (x + a) using substitution",
+        "Can state which value to substitute: the zero of the divisor, not its visible sign"
+      ],
+      "prereqs": [
+        "g9.alg.polynomials.value-and-zeroes"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "What is the remainder when p(x) = x³ − 3x² + 4x + 2 is divided by (x − 2)?",
+        "options": [
+          {
+            "text": "6",
+            "correct": true
+          },
+          {
+            "text": "−26",
+            "misconception": "m1"
+          },
+          {
+            "text": "0",
+            "diagnosis": "Assumed (x − 2) must be a factor without checking — the remainder is only 0 when p(2) actually equals 0."
+          },
+          {
+            "text": "2",
+            "diagnosis": "Took the constant term of p(x) as the remainder — that only works when dividing by x itself."
+          }
+        ],
+        "explanation": "The divisor x − 2 is zero at x = 2, so the remainder is p(2) = 8 − 12 + 8 + 2 = 6. Substituting x = −2 (which gives −26) mishandles the sign: for divisor (x − a), substitute +a."
+      }
+    },
+    {
+      "id": "g9.alg.polynomials.factor-theorem",
+      "parent": "g9.alg.polynomials",
+      "title": "The Factor Theorem",
+      "description": "Specialise the remainder theorem: (x − a) is a factor of p(x) exactly when p(a) = 0. Use it to test candidate factors and to hunt zeroes of cubics among divisors of the constant term.",
+      "outcomes": [
+        "Can test whether (x − a) or (x + a) is a factor of a given polynomial",
+        "Can find one linear factor of a cubic by trying divisors of the constant term"
+      ],
+      "prereqs": [
+        "g9.alg.polynomials.remainder-theorem"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Which of the following is a factor of p(x) = x³ + 2x² − 5x − 6?",
+        "options": [
+          {
+            "text": "x + 1",
+            "correct": true
+          },
+          {
+            "text": "x − 1",
+            "misconception": "m1"
+          },
+          {
+            "text": "x + 2",
+            "diagnosis": "p(−2) = −8 + 8 + 10 − 6 = 4 ≠ 0; perhaps matched the coefficient of 2x² to a factor instead of testing for a zero."
+          },
+          {
+            "text": "x − 3",
+            "diagnosis": "p(3) = 27 + 18 − 15 − 6 = 24 ≠ 0; possibly a sign-flip of the true factor x + 3."
+          }
+        ],
+        "explanation": "Test the zero of each candidate: for x + 1, substitute x = −1: p(−1) = −1 + 2 + 5 − 6 = 0, so x + 1 is a factor. (In full, p(x) = (x + 1)(x − 2)(x + 3).) For a divisor (x + a) you must substitute −a, not +a."
+      }
+    },
+    {
+      "id": "g9.alg.polynomials.factorise-quadratics-splitting",
+      "parent": "g9.alg.polynomials",
+      "title": "Factorising Quadratics by Splitting the Middle Term",
+      "description": "Factorise ax² + bx + c by finding two numbers with product ac and sum b, splitting the middle term, and grouping — the workhorse method for board-style factorisation.",
+      "outcomes": [
+        "Can factorise quadratics like 6x² + 17x + 5 by splitting the middle term",
+        "Can verify a factorisation by expanding it back"
+      ],
+      "prereqs": [
+        "g9.alg.polynomials.factor-theorem",
+        "g8.alg.factorisation"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Factorise: 6x² + 17x + 5",
+        "options": [
+          {
+            "text": "(3x + 1)(2x + 5)",
+            "correct": true
+          },
+          {
+            "text": "(3x + 5)(2x + 1)",
+            "diagnosis": "Swapped the constants between brackets — this expands to 6x² + 13x + 5. Always check the middle term by expanding."
+          },
+          {
+            "text": "(6x + 5)(x + 1)",
+            "diagnosis": "Paired 6 and 5 with the x terms directly — this expands to 6x² + 11x + 5. The split needs two numbers with product ac = 30 and sum 17."
+          },
+          {
+            "text": "(3x − 1)(2x − 5)",
+            "diagnosis": "Right numbers, wrong signs — this expands to 6x² − 17x + 5. With b and c both positive, both brackets take plus signs."
+          }
+        ],
+        "explanation": "ac = 6 × 5 = 30 and b = 17; the pair 15 and 2 works: 6x² + 15x + 2x + 5 = 3x(2x + 5) + 1(2x + 5) = (3x + 1)(2x + 5). Expanding confirms the middle term: 15x + 2x = 17x."
+      }
+    },
+    {
+      "id": "g9.alg.polynomials.algebraic-identities-recap-extend",
+      "parent": "g9.alg.polynomials",
+      "title": "Identities: Squares of Binomials and Trinomials",
+      "description": "Consolidate (a ± b)², a² − b² and (x + a)(x + b), then extend to (a + b + c)² = a² + b² + c² + 2ab + 2bc + 2ca, using each identity both to expand and to factorise.",
+      "outcomes": [
+        "Can expand squares of binomials and trinomials without dropping cross terms",
+        "Can use identities in reverse to factorise expressions like 4x² + 12xy + 9y²",
+        "Can evaluate products like 103 × 97 mentally via identities"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities"
+      ],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Expand: (2a + 3b)²",
+        "options": [
+          {
+            "text": "4a² + 12ab + 9b²",
+            "correct": true
+          },
+          {
+            "text": "4a² + 9b²",
+            "misconception": "m2"
+          },
+          {
+            "text": "4a² + 6ab + 9b²",
+            "diagnosis": "Formed the cross term (2a)(3b) = 6ab but forgot to double it — the identity carries 2xy in the middle."
+          },
+          {
+            "text": "2a² + 6ab + 3b²",
+            "diagnosis": "Squared the variables but not their coefficients: (2a)² = 4a², not 2a²."
+          }
+        ],
+        "explanation": "(x + y)² = x² + 2xy + y² with x = 2a, y = 3b: (2a)² + 2(2a)(3b) + (3b)² = 4a² + 12ab + 9b². Squaring never distributes over a sum — the 12ab cross term is compulsory."
+      }
+    },
+    {
+      "id": "g9.alg.polynomials.cubic-identities",
+      "parent": "g9.alg.polynomials",
+      "title": "Cubic Identities",
+      "description": "Master (a ± b)³, the factorisations a³ ± b³, and the star identity a³ + b³ + c³ − 3abc = (a + b + c)(a² + b² + c² − ab − bc − ca) with its special case when a + b + c = 0.",
+      "outcomes": [
+        "Can expand (a + b)³ and evaluate cubes like 104³ using it",
+        "Can factorise sums and differences of cubes",
+        "Can apply the a + b + c = 0 shortcut: a³ + b³ + c³ = 3abc"
+      ],
+      "prereqs": [
+        "g9.alg.polynomials.algebraic-identities-recap-extend"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 3,
+        "prompt": "Which of the following equals a³ + b³?",
+        "options": [
+          {
+            "text": "(a + b)(a² − ab + b²)",
+            "correct": true
+          },
+          {
+            "text": "(a + b)³",
+            "misconception": "m2"
+          },
+          {
+            "text": "(a + b)(a² + ab + b²)",
+            "diagnosis": "Sign slip in the middle term — this expands to a³ + 2a²b + 2ab² + b³. The + between the cubes forces − ab inside."
+          },
+          {
+            "text": "(a + b)(a² − 2ab + b²)",
+            "diagnosis": "Mixed in the square identity (a − b)² = a² − 2ab + b² — the cube factorisation uses single ab, not 2ab."
+          }
+        ],
+        "explanation": "a³ + b³ = (a + b)(a² − ab + b²): expanding gives a³ − a²b + ab² + a²b − ab² + b³ = a³ + b³. Note (a + b)³ is different — it equals a³ + b³ + 3ab(a + b), so cubing does not distribute over addition."
+      }
+    },
+    {
+      "id": "g9.alg.linear-equations-2var.standard-form-two-vars",
+      "parent": "g9.alg.linear-equations-2var",
+      "title": "The Form ax + by + c = 0",
+      "description": "Meet equations with two unknowns: write situations like 'a notebook costs twice a pen' as ax + by + c = 0, and identify a, b, c after rearranging.",
+      "outcomes": [
+        "Can express a two-variable relationship as ax + by + c = 0",
+        "Can read off a, b and c from any rearranged linear equation"
+      ],
+      "prereqs": [
+        "g8.alg.linear-equations-1var"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g9.alg.linear-equations-2var.solutions-ordered-pairs",
+      "parent": "g9.alg.linear-equations-2var",
+      "title": "Solutions as Ordered Pairs — Infinitely Many",
+      "description": "A solution of 2x + y = 7 is a PAIR (x, y), and there are infinitely many of them: generate solutions by choosing x freely, and check candidate pairs by substitution in the given order.",
+      "outcomes": [
+        "Can generate at least four solutions of a given two-variable equation",
+        "Can verify whether an ordered pair solves an equation, respecting the order",
+        "Can explain why the solution set is infinite"
+      ],
+      "prereqs": [
+        "g9.alg.linear-equations-2var.standard-form-two-vars"
+      ],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following is a solution of 2x + y = 7?",
+        "options": [
+          {
+            "text": "(2, 3)",
+            "correct": true
+          },
+          {
+            "text": "(3, 2)",
+            "misconception": "m3"
+          },
+          {
+            "text": "x = 3.5 by itself",
+            "misconception": "m2"
+          },
+          {
+            "text": "(4, 3)",
+            "diagnosis": "Checked x + y = 7 instead of 2x + y = 7 — the coefficient 2 was ignored: 2(4) + 3 = 11."
+          }
+        ],
+        "explanation": "Substitute in order, x first: 2(2) + 3 = 7 ✓. The pair (3, 2) gives 2(3) + 2 = 8 — order matters. A single number can never solve a two-variable equation; a full solution is always an (x, y) pair, and there are infinitely many of them."
+      }
+    },
+    {
+      "id": "g9.alg.linear-equations-2var.graph-of-linear-equation",
+      "parent": "g9.alg.linear-equations-2var",
+      "title": "Graphing a Linear Equation",
+      "description": "Plot several solutions of an equation like y = 2x + 1 and see them fall on a straight line — the graph IS the complete solution set, so a point lies on the line exactly when it solves the equation.",
+      "outcomes": [
+        "Can draw the graph of a linear equation from a table of solutions",
+        "Can test whether a point lies on a given line by substitution",
+        "Can read solutions off a graph, e.g. where it crosses the axes"
+      ],
+      "prereqs": [
+        "g9.alg.linear-equations-2var.solutions-ordered-pairs",
+        "g8.alg.graphs-intro"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The graph of y = 2x + 1 passes through which of these points?",
+        "options": [
+          {
+            "text": "(3, 7)",
+            "correct": true
+          },
+          {
+            "text": "(7, 3)",
+            "misconception": "m3"
+          },
+          {
+            "text": "(3, 6)",
+            "diagnosis": "Computed y = 2x and dropped the + 1."
+          },
+          {
+            "text": "(3, 8)",
+            "diagnosis": "Computed y = 2(x + 1) — added the 1 to x before doubling instead of after."
+          }
+        ],
+        "explanation": "Substitute x = 3: y = 2(3) + 1 = 7, so (3, 7) is on the line. For (7, 3): 2(7) + 1 = 15 ≠ 3 — swapping the coordinates changes the claim entirely."
+      }
+    },
+    {
+      "id": "g9.alg.linear-equations-2var.lines-parallel-axes",
+      "parent": "g9.alg.linear-equations-2var",
+      "title": "The Lines x = a and y = b",
+      "description": "Decode the deceptively simple equations x = a (a vertical line) and y = b (a horizontal line) in two variables, contrasting them with their one-variable, single-point meaning.",
+      "outcomes": [
+        "Can graph x = a and y = b correctly in the Cartesian plane",
+        "Can explain why x = 3 is a whole line of points (3, y), not one point"
+      ],
+      "prereqs": [
+        "g9.alg.linear-equations-2var.graph-of-linear-equation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "In the Cartesian plane, the graph of the equation x = 3 is:",
+        "options": [
+          {
+            "text": "A line parallel to the y-axis passing through (3, 0)",
+            "correct": true
+          },
+          {
+            "text": "A line parallel to the x-axis passing through (0, 3)",
+            "misconception": "m4"
+          },
+          {
+            "text": "Just the single point (3, 0)",
+            "misconception": "m4"
+          },
+          {
+            "text": "A line through the origin with slope 3",
+            "diagnosis": "Confused x = 3 with the equation y = 3x."
+          }
+        ],
+        "explanation": "x = 3 collects EVERY point whose x-coordinate is 3: (3, 0), (3, 1), (3, −2), … These stack vertically, giving a line parallel to the y-axis. The name 'x = …' fixes the x-value; it does not mean the line runs along the x-axis."
+      }
+    },
+    {
+      "id": "g9.alg.linear-equations-2var.two-var-word-problems",
+      "parent": "g9.alg.linear-equations-2var",
+      "title": "Modelling with Two-Variable Equations",
+      "description": "Translate real situations — taxi fares, costs of pens and pencils, temperature conversion F = (9/5)C + 32 — into linear equations, graph them, and interpret points on the graph in context.",
+      "outcomes": [
+        "Can set up a linear equation in two variables from a word problem",
+        "Can interpret a specific point on the graph in the problem's real terms"
+      ],
+      "prereqs": [
+        "g9.alg.linear-equations-2var.graph-of-linear-equation"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g9.geo.coordinate-geometry.axes-quadrants-setup",
+      "parent": "g9.geo.coordinate-geometry",
+      "title": "The Cartesian Plane: Axes, Origin, Quadrants",
+      "description": "Set up the plane properly: two perpendicular number lines meeting at the origin, the x-axis and y-axis, and the four quadrants numbered anticlockwise starting from the top right.",
+      "outcomes": [
+        "Can label the axes, origin and quadrants I–IV correctly",
+        "Can explain the anticlockwise numbering of quadrants"
+      ],
+      "prereqs": [
+        "g8.alg.graphs-intro"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g9.geo.coordinate-geometry.plotting-points",
+      "parent": "g9.geo.coordinate-geometry",
+      "title": "Plotting Points: x Along, Then y Up",
+      "description": "Read and plot points (x, y): the first coordinate is ALWAYS the horizontal move, the second the vertical — so (3, 4) and (4, 3) are different addresses.",
+      "outcomes": [
+        "Can plot any point with integer coordinates accurately",
+        "Can state the abscissa and ordinate of a point and demonstrate that (a, b) ≠ (b, a)"
+      ],
+      "prereqs": [
+        "g9.geo.coordinate-geometry.axes-quadrants-setup"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Starting at the origin, you move 3 units along the positive x-axis and then 4 units straight up. Which point are you at?",
+        "options": [
+          {
+            "text": "(3, 4)",
+            "correct": true
+          },
+          {
+            "text": "(4, 3)",
+            "misconception": "m1"
+          },
+          {
+            "text": "(−3, 4)",
+            "diagnosis": "Attached a minus sign to the horizontal move even though it was along the POSITIVE x-axis."
+          },
+          {
+            "text": "(3, −4)",
+            "diagnosis": "Attached a minus sign to the upward move — up is the positive y-direction."
+          }
+        ],
+        "explanation": "Coordinates are written (x, y): horizontal move first, vertical second. Moving 3 right and 4 up lands at (3, 4). The point (4, 3) is a genuinely different location — 4 right, 3 up."
+      }
+    },
+    {
+      "id": "g9.geo.coordinate-geometry.quadrant-signs",
+      "parent": "g9.geo.coordinate-geometry",
+      "title": "Sign Patterns of the Four Quadrants",
+      "description": "Link each quadrant to its sign pair — I (+,+), II (−,+), III (−,−), IV (+,−) — so any point's quadrant can be read straight from its signs, and vice versa.",
+      "outcomes": [
+        "Can name the quadrant of any point from the signs of its coordinates",
+        "Can produce an example point for each quadrant on demand"
+      ],
+      "prereqs": [
+        "g9.geo.coordinate-geometry.plotting-points"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "In which quadrant does the point (−3, 5) lie?",
+        "options": [
+          {
+            "text": "Quadrant II",
+            "correct": true
+          },
+          {
+            "text": "Quadrant III",
+            "misconception": "m2"
+          },
+          {
+            "text": "Quadrant IV",
+            "diagnosis": "Swapped the sign roles: (+, −) is quadrant IV; here it is x that is negative, not y."
+          },
+          {
+            "text": "Quadrant I",
+            "diagnosis": "Ignored the minus sign entirely and placed (3, 5)."
+          }
+        ],
+        "explanation": "x = −3 means left of the y-axis; y = 5 means above the x-axis. Left-and-up is quadrant II, sign pattern (−, +). One negative coordinate does not send a point to quadrant III — that needs BOTH coordinates negative."
+      }
+    },
+    {
+      "id": "g9.geo.coordinate-geometry.points-on-axes",
+      "parent": "g9.geo.coordinate-geometry",
+      "title": "Points on the Axes and the Origin",
+      "description": "Handle the edge cases: points with a zero coordinate sit ON an axis (x = 0 puts you on the y-axis, y = 0 on the x-axis) and belong to no quadrant; (0, 0) is the origin.",
+      "outcomes": [
+        "Can place points like (0, −4) and (5, 0) on the correct axis",
+        "Can explain why axis points belong to no quadrant"
+      ],
+      "prereqs": [
+        "g9.geo.coordinate-geometry.plotting-points"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3",
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Where does the point (0, −4) lie?",
+        "options": [
+          {
+            "text": "On the y-axis, below the origin",
+            "correct": true
+          },
+          {
+            "text": "On the x-axis",
+            "misconception": "m3"
+          },
+          {
+            "text": "In quadrant III",
+            "misconception": "m4"
+          },
+          {
+            "text": "At the origin",
+            "diagnosis": "Only (0, 0) is the origin — a zero in ONE coordinate is not enough."
+          }
+        ],
+        "explanation": "x = 0 means no horizontal displacement, so the point sits on the vertical (y) axis, 4 units down. A zero x-coordinate places you on the y-axis, not the x-axis — and axis points belong to no quadrant at all."
+      }
+    },
+    {
+      "id": "g9.geo.coordinate-geometry.coordinate-applications",
+      "parent": "g9.geo.coordinate-geometry",
+      "title": "Using Coordinates: Shapes and Mirror Images",
+      "description": "Put the plane to work: plot vertices to identify shapes, find missing vertices of rectangles and squares, and reflect points across the axes by flipping the right sign.",
+      "outcomes": [
+        "Can find the fourth vertex of a rectangle from three given vertices",
+        "Can write the mirror image of a point in the x-axis or y-axis"
+      ],
+      "prereqs": [
+        "g9.geo.coordinate-geometry.quadrant-signs",
+        "g9.geo.coordinate-geometry.points-on-axes"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g9.geo.euclid.undefined-terms-definitions",
+      "parent": "g9.geo.euclid",
+      "title": "Points, Lines, Planes: Definitions and Undefined Terms",
+      "description": "See why every definition chain must bottom out somewhere: point, line and plane are taken as undefined terms, and a line — unlike a segment — extends endlessly in both directions.",
+      "outcomes": [
+        "Can distinguish a line, a line segment and a ray precisely",
+        "Can explain why point, line and plane are left undefined in Euclid's system"
+      ],
+      "prereqs": [
+        "g6.geo.basic-ideas"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "In Euclid's geometry, a line:",
+        "options": [
+          {
+            "text": "Extends without end in both directions",
+            "correct": true
+          },
+          {
+            "text": "Has two endpoints",
+            "misconception": "m2"
+          },
+          {
+            "text": "Has exactly one endpoint",
+            "diagnosis": "That describes a ray — a line has no endpoints at all."
+          },
+          {
+            "text": "Has a definite length that can be measured",
+            "misconception": "m2"
+          }
+        ],
+        "explanation": "A line is unbounded in both directions and has no measurable length. The object with two endpoints and a finite length is a line SEGMENT; with one endpoint, a ray."
+      }
+    },
+    {
+      "id": "g9.geo.euclid.axioms-vs-theorems",
+      "parent": "g9.geo.euclid",
+      "title": "Axioms, Postulates and Theorems",
+      "description": "Sort mathematical statements into starting assumptions (axioms for all mathematics, postulates for geometry) and theorems, which must be PROVED from those assumptions.",
+      "outcomes": [
+        "Can state the difference between an axiom and a theorem",
+        "Can classify statements like 'the whole is greater than the part' as axioms",
+        "Can list Euclid's axioms about equality (equals added to equals, etc.)"
+      ],
+      "prereqs": [
+        "g9.geo.euclid.undefined-terms-definitions"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "In Euclid's system, an axiom is:",
+        "options": [
+          {
+            "text": "A self-evident assumption accepted without proof, used as a starting point",
+            "correct": true
+          },
+          {
+            "text": "A statement that has been proved from earlier results",
+            "misconception": "m1"
+          },
+          {
+            "text": "A statement that is currently unproved but must eventually be proved",
+            "misconception": "m1"
+          },
+          {
+            "text": "An educated guess that may turn out to be false",
+            "diagnosis": "That describes a conjecture — axioms are assumed true by agreement, not held in doubt."
+          }
+        ],
+        "explanation": "Axioms are the agreed starting points of the whole system; proofs BEGIN from them, so they cannot themselves be proved within the system. Statements proved from axioms are theorems."
+      }
+    },
+    {
+      "id": "g9.geo.euclid.euclids-five-postulates",
+      "parent": "g9.geo.euclid",
+      "title": "Euclid's Five Postulates",
+      "description": "Meet the five geometric postulates — from 'a straight line may be drawn between any two points' to the famously long-winded fifth — and use the first four in small arguments.",
+      "outcomes": [
+        "Can state all five postulates in their own words",
+        "Can identify which postulate justifies a given elementary step"
+      ],
+      "prereqs": [
+        "g9.geo.euclid.axioms-vs-theorems"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g9.geo.euclid.fifth-postulate-parallels",
+      "parent": "g9.geo.euclid",
+      "title": "The Fifth Postulate and Parallel Lines",
+      "description": "Unpack the fifth postulate — when interior angles on one side of a transversal sum to less than two right angles, the lines meet on that side — and see its equivalence to Playfair's axiom about unique parallels.",
+      "outcomes": [
+        "Can state the fifth postulate and Playfair's version and connect the two",
+        "Can explain that the postulate guarantees parallels EXIST when the angle sum is exactly 180°"
+      ],
+      "prereqs": [
+        "g9.geo.euclid.euclids-five-postulates"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A transversal falls on two straight lines so that the interior angles on the left side add to less than 180°. According to Euclid's fifth postulate, the two lines:",
+        "options": [
+          {
+            "text": "Meet on the left side, if extended far enough",
+            "correct": true
+          },
+          {
+            "text": "Never meet, because straight lines can always be made parallel",
+            "misconception": "m3"
+          },
+          {
+            "text": "Meet on the right side, away from the smaller angles",
+            "diagnosis": "The lines lean towards each other on the side where the angles fall short of 180° — they meet on THAT side."
+          },
+          {
+            "text": "Must be perpendicular to the transversal",
+            "diagnosis": "Perpendicularity would make both interior angles exactly 90°, summing to exactly 180° — the one case where the lines never meet."
+          }
+        ],
+        "explanation": "The fifth postulate says: interior angles on one side summing to LESS than two right angles forces the lines to meet on that side. Only when the sum is exactly 180° do the lines stay parallel — the postulate does not deny that parallels exist."
+      }
+    },
+    {
+      "id": "g9.geo.euclid.deductive-proof-with-axioms",
+      "parent": "g9.geo.euclid",
+      "title": "First Deductive Proofs from Axioms",
+      "description": "Write tiny two-to-three step proofs citing axioms by name — e.g. given AC = BD with C between A and B-style configurations, prove AB = CD using 'equals subtracted from equals'.",
+      "outcomes": [
+        "Can justify each step of a short proof with a named axiom",
+        "Can prove statements like 'if AC = BD then AB = CD' on a line figure"
+      ],
+      "prereqs": [
+        "g9.geo.euclid.axioms-vs-theorems"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g9.geo.lines-angles.angle-pairs-recap",
+      "parent": "g9.geo.lines-angles",
+      "title": "Complementary and Supplementary Pairs",
+      "description": "Nail the vocabulary before proving anything: complementary angles sum to 90°, supplementary to 180°, adjacent angles share an arm — with drills to keep 90 and 180 firmly apart.",
+      "outcomes": [
+        "Can find complements and supplements of given angles",
+        "Can identify adjacent angle pairs in a figure"
+      ],
+      "prereqs": [
+        "g7.geo.lines-angles"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "What is the complement of 35°?",
+        "options": [
+          {
+            "text": "55°",
+            "correct": true
+          },
+          {
+            "text": "145°",
+            "misconception": "m1"
+          },
+          {
+            "text": "65°",
+            "diagnosis": "Subtracted from 100° — degrees are not a decimal system; the complement uses 90°."
+          },
+          {
+            "text": "35°",
+            "diagnosis": "Treated 'complement' as 'an equal angle' — it means the partner that completes 90°."
+          }
+        ],
+        "explanation": "Complementary angles sum to 90°, so the complement of 35° is 90° − 35° = 55°. Summing to 180° is the SUPPLEMENT (145° here) — 'C comes before S, 90 comes before 180'."
+      }
+    },
+    {
+      "id": "g9.geo.lines-angles.linear-pair-axiom",
+      "parent": "g9.geo.lines-angles",
+      "title": "The Linear Pair Axiom",
+      "description": "Formalise 'angles on a straight line': if a ray stands on a line, the two adjacent angles sum to 180°, and conversely, if adjacent angles sum to 180° their outer arms form a line.",
+      "outcomes": [
+        "Can apply the linear pair axiom to find unknown angles at a point on a line",
+        "Can use the converse to prove three points are collinear"
+      ],
+      "prereqs": [
+        "g9.geo.lines-angles.angle-pairs-recap"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g9.geo.lines-angles.vertically-opposite-proof",
+      "parent": "g9.geo.lines-angles",
+      "title": "Vertically Opposite Angles: The Proof",
+      "description": "Prove — not just observe — that vertically opposite angles are EQUAL, by writing two linear-pair equations that share an angle and subtracting.",
+      "outcomes": [
+        "Can reproduce the proof that vertically opposite angles are equal",
+        "Can compute all four angles at an intersection from any one of them"
+      ],
+      "prereqs": [
+        "g9.geo.lines-angles.linear-pair-axiom"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Lines AB and CD intersect at O, and ∠AOC = 50°. What is the vertically opposite angle ∠BOD?",
+        "options": [
+          {
+            "text": "50°",
+            "correct": true
+          },
+          {
+            "text": "130°",
+            "misconception": "m2"
+          },
+          {
+            "text": "40°",
+            "diagnosis": "Computed the complement (90° − 50°) — right angles play no role at a general intersection."
+          },
+          {
+            "text": "310°",
+            "diagnosis": "Computed the reflex angle 360° − 50° — the question asks for the ordinary vertically opposite angle."
+          }
+        ],
+        "explanation": "Vertically opposite angles are EQUAL, so ∠BOD = 50°. It is the ADJACENT angles at O, like ∠AOC and ∠AOD, that are supplementary (50° + 130° = 180°)."
+      }
+    },
+    {
+      "id": "g9.geo.lines-angles.parallel-lines-transversal",
+      "parent": "g9.geo.lines-angles",
+      "title": "Parallel Lines and a Transversal",
+      "description": "Organise the eight angles a transversal creates: corresponding and alternate pairs are EQUAL, but co-interior (allied) pairs are SUPPLEMENTARY — the one relationship students flatten into 'all equal'.",
+      "outcomes": [
+        "Can name every angle pair (corresponding, alternate, co-interior) in a transversal figure",
+        "Can compute unknown angles using the correct equal-or-supplementary rule for each pair"
+      ],
+      "prereqs": [
+        "g9.geo.lines-angles.vertically-opposite-proof",
+        "g7.geo.lines-angles"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Lines l and m are parallel, cut by a transversal. One angle of a co-interior (allied) pair measures 70°. The other angle of the pair measures:",
+        "options": [
+          {
+            "text": "110°",
+            "correct": true
+          },
+          {
+            "text": "70°",
+            "misconception": "m3"
+          },
+          {
+            "text": "20°",
+            "diagnosis": "Subtracted from 90° — co-interior angles are supplementary (180°), not complementary."
+          },
+          {
+            "text": "140°",
+            "diagnosis": "Doubled the given angle — there is no doubling rule for any transversal pair."
+          }
+        ],
+        "explanation": "Co-interior angles between parallel lines sum to 180°, so the partner is 180° − 70° = 110°. Corresponding and alternate pairs are equal, but co-interior pairs are the exception — supplementary, not equal."
+      }
+    },
+    {
+      "id": "g9.geo.lines-angles.converse-tests-parallelism",
+      "parent": "g9.geo.lines-angles",
+      "title": "Proving Lines Parallel: The Converses",
+      "description": "Run the transversal facts backwards: equal corresponding or alternate angles — or supplementary co-interior angles — PROVE two lines parallel, and lines parallel to the same line are parallel to each other.",
+      "outcomes": [
+        "Can decide from given angle data whether two lines must be parallel",
+        "Can chain parallelism: if l ∥ m and m ∥ n then l ∥ n"
+      ],
+      "prereqs": [
+        "g9.geo.lines-angles.parallel-lines-transversal"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g9.geo.lines-angles.triangle-angle-sum-proof",
+      "parent": "g9.geo.lines-angles",
+      "title": "Angle Sum and Exterior Angle: Proved",
+      "description": "Use a line through a vertex parallel to the opposite side to PROVE the angle sum of a triangle is 180°, and derive the exterior angle theorem: exterior angle = sum of the two interior opposite angles.",
+      "outcomes": [
+        "Can reproduce the parallel-line proof of the 180° angle sum",
+        "Can apply the exterior angle theorem in multi-step angle chases"
+      ],
+      "prereqs": [
+        "g9.geo.lines-angles.parallel-lines-transversal",
+        "g7.geo.triangle-properties"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "In ΔABC, the exterior angle at C measures 115° and ∠A = 60°. What is ∠B?",
+        "options": [
+          {
+            "text": "55°",
+            "correct": true
+          },
+          {
+            "text": "65°",
+            "diagnosis": "Found the interior angle at C (180° − 115°) and stopped — the question asks for ∠B."
+          },
+          {
+            "text": "5°",
+            "diagnosis": "Computed 180° − 115° − 60° — this subtracts ∠A from the INTERIOR angle at C; the exterior angle already excludes C's interior angle."
+          },
+          {
+            "text": "60°",
+            "diagnosis": "Assumed ∠B = ∠A — nothing in the data makes the triangle isosceles."
+          }
+        ],
+        "explanation": "The exterior angle equals the sum of the two interior OPPOSITE angles: 115° = ∠A + ∠B = 60° + ∠B, so ∠B = 55°. (Check via the interior angle at C: 65° + 60° + 55° = 180° ✓.)"
+      }
+    },
+    {
+      "id": "g9.geo.triangles.congruence-cpct",
+      "parent": "g9.geo.triangles",
+      "title": "Congruence Statements and CPCT",
+      "description": "Read ΔABC ≅ ΔPQR as a letter-by-letter correspondence — A↔P, B↔Q, C↔R — so CPCT hands you exactly which sides and angles match, and reordering the letters changes the claim.",
+      "outcomes": [
+        "Can extract all six equal parts from a congruence statement using the vertex order",
+        "Can explain why ΔABC ≅ ΔPQR and ΔABC ≅ ΔQRP are different claims"
+      ],
+      "prereqs": [
+        "g7.geo.congruence"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Given ΔABC ≅ ΔPQR, which side must be equal to AB?",
+        "options": [
+          {
+            "text": "PQ",
+            "correct": true
+          },
+          {
+            "text": "QR",
+            "misconception": "m2"
+          },
+          {
+            "text": "PR",
+            "misconception": "m2"
+          },
+          {
+            "text": "Cannot be determined from the statement alone",
+            "diagnosis": "The vertex order encodes everything: the statement is precisely designed to determine all matching parts."
+          }
+        ],
+        "explanation": "The letters correspond in order: A↔P, B↔Q, C↔R. So AB (first two letters) matches PQ (first two letters). The order is a contract, not decoration — ΔABC ≅ ΔQRP would pair AB with QR instead."
+      }
+    },
+    {
+      "id": "g9.geo.triangles.sas-asa-aas",
+      "parent": "g9.geo.triangles",
+      "title": "SAS, ASA and AAS Criteria",
+      "description": "Prove triangles congruent from three well-chosen parts: SAS (the angle INCLUDED between the sides), ASA, and AAS via the angle-sum property — and practise naming the criterion actually used.",
+      "outcomes": [
+        "Can select and justify the correct criterion for a given data set",
+        "Can check that the angle in SAS is genuinely the included angle",
+        "Can write a two-column congruence proof"
+      ],
+      "prereqs": [
+        "g9.geo.triangles.congruence-cpct"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "In ΔABC and ΔDEF: AB = DE, ∠B = ∠E, and BC = EF. By which criterion are the triangles congruent?",
+        "options": [
+          {
+            "text": "SAS — the equal angle is included between the two equal sides",
+            "correct": true
+          },
+          {
+            "text": "ASA",
+            "diagnosis": "ASA needs TWO angles with the side included between them; here we have two sides and one angle."
+          },
+          {
+            "text": "SSA, taking the parts in the order given",
+            "misconception": "m1"
+          },
+          {
+            "text": "SSS",
+            "diagnosis": "Only two pairs of sides are given equal — nothing is known about AC and DF until AFTER congruence is proved."
+          }
+        ],
+        "explanation": "∠B sits between sides AB and BC (and ∠E between DE and EF), so the data is exactly Side-Angle-Side with the included angle: SAS. Note SSA — where the angle is NOT included — is not a valid criterion at all."
+      }
+    },
+    {
+      "id": "g9.geo.triangles.sss-rhs",
+      "parent": "g9.geo.triangles",
+      "title": "SSS and RHS Criteria",
+      "description": "Complete the toolkit: three equal sides force congruence (SSS), and for right triangles, the hypotenuse plus one side suffices (RHS) — the one legitimate two-sides-and-a-non-included-angle case.",
+      "outcomes": [
+        "Can apply SSS and RHS in proofs, stating hypotenuse and right angle explicitly for RHS",
+        "Can explain why RHS works even though the right angle is not included"
+      ],
+      "prereqs": [
+        "g9.geo.triangles.sas-asa-aas"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g9.geo.triangles.why-aaa-ssa-fail",
+      "parent": "g9.geo.triangles",
+      "title": "Why AAA and SSA Are Not Criteria",
+      "description": "Build counterexamples: two triangles with identical angles but different sizes (AAA gives similarity, not congruence), and the SSA 'swinging arm' that produces two different triangles from the same data.",
+      "outcomes": [
+        "Can produce a counterexample showing AAA does not force congruence",
+        "Can explain the SSA ambiguity with the swinging-side picture"
+      ],
+      "prereqs": [
+        "g9.geo.triangles.sss-rhs"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Two triangles have all three pairs of corresponding angles equal (AAA). Must they be congruent?",
+        "options": [
+          {
+            "text": "No — they have the same shape but can be different sizes",
+            "correct": true
+          },
+          {
+            "text": "Yes — AAA is a congruence criterion like SAS",
+            "misconception": "m1"
+          },
+          {
+            "text": "Yes — equal angles force equal sides by the angle sum property",
+            "misconception": "m1"
+          },
+          {
+            "text": "No — two triangles with equal angles can never be congruent",
+            "diagnosis": "Overcorrection: they CAN be congruent (if a pair of sides also matches); AAA just doesn't guarantee it."
+          }
+        ],
+        "explanation": "An equilateral triangle of side 2 cm and one of side 10 cm both have three 60° angles — same shape, wildly different sizes. AAA guarantees similarity only; congruence needs at least one pair of equal sides in the right position."
+      }
+    },
+    {
+      "id": "g9.geo.triangles.isosceles-theorems",
+      "parent": "g9.geo.triangles",
+      "title": "Isosceles Triangle Theorems",
+      "description": "Prove that angles opposite equal sides are equal (and the converse) using a well-chosen congruence, then deploy both directions in angle chases.",
+      "outcomes": [
+        "Can prove the base angles of an isosceles triangle are equal",
+        "Can find all angles of an isosceles triangle from one given angle"
+      ],
+      "prereqs": [
+        "g9.geo.triangles.sas-asa-aas"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In ΔABC, AB = AC and the vertex angle ∠A = 40°. What is ∠B?",
+        "options": [
+          {
+            "text": "70°",
+            "correct": true
+          },
+          {
+            "text": "140°",
+            "diagnosis": "Found 180° − 40° = 140° but forgot to split it between the TWO equal base angles."
+          },
+          {
+            "text": "40°",
+            "diagnosis": "Made ∠B equal to the vertex angle — the equal angles are the ones OPPOSITE the equal sides, i.e. ∠B and ∠C."
+          },
+          {
+            "text": "100°",
+            "diagnosis": "Paired the wrong angles as equal (treated ∠A and ∠C as the equal pair, leaving 180° − 40° − 40° for ∠B)."
+          }
+        ],
+        "explanation": "AB = AC makes the angles opposite them equal: ∠C = ∠B. So ∠B + ∠C = 180° − 40° = 140°, giving ∠B = 70°."
+      }
+    },
+    {
+      "id": "g9.geo.triangles.inequalities-side-angle",
+      "parent": "g9.geo.triangles",
+      "title": "Bigger Side, Bigger Opposite Angle",
+      "description": "Prove the ordering theorems: in any triangle the larger side faces the larger angle and vice versa — where 'faces' means OPPOSITE, not sharing a letter.",
+      "outcomes": [
+        "Can rank the angles of a triangle given its three sides (and vice versa)",
+        "Can identify which angle is opposite which side without letter-matching errors"
+      ],
+      "prereqs": [
+        "g9.geo.triangles.isosceles-theorems"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "In ΔABC, AB = 5 cm, BC = 7 cm and CA = 8 cm. Which angle is the largest?",
+        "options": [
+          {
+            "text": "∠B",
+            "correct": true
+          },
+          {
+            "text": "∠C",
+            "misconception": "m4"
+          },
+          {
+            "text": "∠A",
+            "misconception": "m4"
+          },
+          {
+            "text": "All three angles are equal",
+            "diagnosis": "Equal angles need equal sides — these sides are all different, so the angles must all differ too."
+          }
+        ],
+        "explanation": "The largest angle faces the largest side. CA = 8 is the longest, and the angle OPPOSITE side CA is the one at the vertex not on it: ∠B. Picking ∠C or ∠A comes from matching the letters in 'CA' — but those vertices lie ON the side, they don't face it."
+      }
+    },
+    {
+      "id": "g9.geo.triangles.triangle-inequality",
+      "parent": "g9.geo.triangles",
+      "title": "The Triangle Inequality",
+      "description": "Establish that any two sides of a triangle must together exceed the third, use it to reject impossible triples, and bound the third side between the difference and sum of the other two.",
+      "outcomes": [
+        "Can test whether three lengths can form a triangle",
+        "Can state the allowed range for the third side given two sides"
+      ],
+      "prereqs": [
+        "g9.geo.triangles.inequalities-side-angle"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Two sides of a triangle measure 5 cm and 9 cm. The third side must be:",
+        "options": [
+          {
+            "text": "Strictly between 4 cm and 14 cm",
+            "correct": true
+          },
+          {
+            "text": "Any positive length",
+            "misconception": "m3"
+          },
+          {
+            "text": "Exactly 14 cm",
+            "diagnosis": "Took the sum 5 + 9 as THE answer — but at exactly 14 the 'triangle' collapses flat; the sum is an excluded upper bound."
+          },
+          {
+            "text": "Exactly 4 cm",
+            "diagnosis": "Took the difference 9 − 5 as THE answer — at exactly 4 the triangle also degenerates; the difference is an excluded lower bound."
+          }
+        ],
+        "explanation": "Each pair of sides must exceed the third: third side < 5 + 9 = 14 and third side > 9 − 5 = 4. Any length strictly between 4 and 14 works; the endpoints give a flat, degenerate 'triangle'."
+      }
+    },
+    {
+      "id": "g9.geo.quadrilaterals.angle-sum-quadrilateral",
+      "parent": "g9.geo.quadrilaterals",
+      "title": "Angle Sum of a Quadrilateral",
+      "description": "Split any quadrilateral into two triangles along a diagonal to prove its angles sum to 360°, and use the result to find unknown angles, including ratio-style board questions.",
+      "outcomes": [
+        "Can prove the 360° angle sum using a diagonal",
+        "Can find missing quadrilateral angles, including angles given in ratio"
+      ],
+      "prereqs": [
+        "g8.geo.quadrilaterals",
+        "g9.geo.lines-angles.triangle-angle-sum-proof"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g9.geo.quadrilaterals.parallelogram-properties",
+      "parent": "g9.geo.quadrilaterals",
+      "title": "Parallelogram Properties: Sides and Angles",
+      "description": "Prove via a diagonal and ASA that a parallelogram's opposite sides are equal and opposite angles are equal — while adjacent angles are supplementary, not equal.",
+      "outcomes": [
+        "Can prove opposite sides/angles of a parallelogram are equal",
+        "Can compute all four angles of a parallelogram from one angle"
+      ],
+      "prereqs": [
+        "g9.geo.quadrilaterals.angle-sum-quadrilateral",
+        "g9.geo.triangles.sas-asa-aas"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In parallelogram ABCD, ∠A = 70°. What is the adjacent angle ∠B?",
+        "options": [
+          {
+            "text": "110°",
+            "correct": true
+          },
+          {
+            "text": "70°",
+            "misconception": "m4"
+          },
+          {
+            "text": "20°",
+            "diagnosis": "Used 90° − 70° — adjacent angles of a parallelogram are supplementary (sum 180°), not complementary."
+          },
+          {
+            "text": "140°",
+            "diagnosis": "Doubled ∠A — there is no doubling relationship between adjacent angles."
+          }
+        ],
+        "explanation": "AD ∥ BC with AB as transversal makes ∠A and ∠B co-interior: ∠B = 180° − 70° = 110°. It is the OPPOSITE angle ∠C that equals 70° — adjacent angles are equal only in a rectangle."
+      }
+    },
+    {
+      "id": "g9.geo.quadrilaterals.diagonals-bisect",
+      "parent": "g9.geo.quadrilaterals",
+      "title": "Diagonals of a Parallelogram",
+      "description": "Prove that the diagonals of a parallelogram bisect each other — and sort out which special quadrilaterals add equal diagonals (rectangle), perpendicular diagonals (rhombus), or both (square).",
+      "outcomes": [
+        "Can prove the diagonals of a parallelogram bisect each other",
+        "Can match diagonal properties (equal, perpendicular, bisecting) to the right quadrilaterals"
+      ],
+      "prereqs": [
+        "g9.geo.quadrilaterals.parallelogram-properties"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which statement is true for the diagonals of EVERY parallelogram?",
+        "options": [
+          {
+            "text": "They bisect each other",
+            "correct": true
+          },
+          {
+            "text": "They are equal in length",
+            "misconception": "m1"
+          },
+          {
+            "text": "They are perpendicular to each other",
+            "diagnosis": "Perpendicular diagonals are special to the rhombus (and square) — a generic parallelogram's diagonals cross at a slant."
+          },
+          {
+            "text": "They bisect the angles of the parallelogram",
+            "diagnosis": "Angle-bisecting diagonals are again a rhombus/square property, not a general parallelogram one."
+          }
+        ],
+        "explanation": "In any parallelogram the diagonals cut each other exactly in half at their crossing point. Equal diagonals require a RECTANGLE; perpendicular or angle-bisecting diagonals require a RHOMBUS. A long thin parallelogram makes the inequality of diagonals obvious."
+      }
+    },
+    {
+      "id": "g9.geo.quadrilaterals.tests-for-parallelogram",
+      "parent": "g9.geo.quadrilaterals",
+      "title": "Tests for a Parallelogram (The Converses)",
+      "description": "Reverse each property into a test: both pairs of opposite sides equal, both pairs of opposite angles equal, diagonals bisecting each other, or ONE pair of opposite sides both equal AND parallel.",
+      "outcomes": [
+        "Can list the four valid tests for a parallelogram",
+        "Can explain with a counterexample why one pair of equal opposite sides alone is not enough"
+      ],
+      "prereqs": [
+        "g9.geo.quadrilaterals.diagonals-bisect"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which condition GUARANTEES that a quadrilateral is a parallelogram?",
+        "options": [
+          {
+            "text": "One pair of opposite sides is both equal and parallel",
+            "correct": true
+          },
+          {
+            "text": "One pair of opposite sides is equal (nothing else known)",
+            "misconception": "m2"
+          },
+          {
+            "text": "The two diagonals are equal",
+            "diagnosis": "An isosceles trapezium also has equal diagonals without being a parallelogram — equal diagonals test for rectangles only AFTER a parallelogram is established."
+          },
+          {
+            "text": "One pair of opposite angles is equal",
+            "diagnosis": "A kite can have one pair of equal opposite angles without being a parallelogram — the test needs BOTH pairs."
+          }
+        ],
+        "explanation": "Equal AND parallel for the same pair of opposite sides forces the other pair to match too (join a diagonal and use SAS + alternate angles). Equal alone fails: an isosceles trapezium has one pair of equal opposite (non-parallel) sides and is not a parallelogram."
+      }
+    },
+    {
+      "id": "g9.geo.quadrilaterals.midpoint-theorem",
+      "parent": "g9.geo.quadrilaterals",
+      "title": "The Midpoint Theorem",
+      "description": "Prove that the segment joining the midpoints of two sides of a triangle is parallel to the third side and HALF its length — the ½ being precisely what students drop under exam pressure.",
+      "outcomes": [
+        "Can state and prove the midpoint theorem",
+        "Can compute lengths using the half relationship in triangle figures"
+      ],
+      "prereqs": [
+        "g9.geo.quadrilaterals.tests-for-parallelogram"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In ΔABC, D and E are the midpoints of AB and AC, and BC = 9 cm. What is DE?",
+        "options": [
+          {
+            "text": "4.5 cm",
+            "correct": true
+          },
+          {
+            "text": "9 cm",
+            "misconception": "m3"
+          },
+          {
+            "text": "18 cm",
+            "diagnosis": "Doubled instead of halving — inverted the ½ factor of the theorem."
+          },
+          {
+            "text": "3 cm",
+            "diagnosis": "Took one third of BC — the midpoint segment is half the third side, not a third."
+          }
+        ],
+        "explanation": "The midpoint theorem: DE ∥ BC and DE = ½ · BC = 4.5 cm. The midpoint segment is always the SHORTER one — it spans a scaled-down triangle half the size."
+      }
+    },
+    {
+      "id": "g9.geo.quadrilaterals.midpoint-converse-applications",
+      "parent": "g9.geo.quadrilaterals",
+      "title": "Midpoint Converse and the Hidden Parallelogram",
+      "description": "Use the converse (a line through one midpoint parallel to another side bisects the third side) and the classic application: joining the midpoints of any quadrilateral's sides always forms a parallelogram.",
+      "outcomes": [
+        "Can apply the converse of the midpoint theorem in proofs",
+        "Can prove the midpoints of any quadrilateral's sides form a parallelogram"
+      ],
+      "prereqs": [
+        "g9.geo.quadrilaterals.midpoint-theorem"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g9.geo.circles.circle-vocabulary",
+      "parent": "g9.geo.circles",
+      "title": "Circle Vocabulary: Chords, Arcs, Segments, Sectors",
+      "description": "Fix the language before the theorems: radius, diameter, chord, minor/major arc, segment vs sector, semicircle, and congruent circles — each with a labelled sketch.",
+      "outcomes": [
+        "Can label chord, arc, segment and sector correctly on a figure",
+        "Can distinguish a segment (chord-bounded) from a sector (radius-bounded)"
+      ],
+      "prereqs": [
+        "g6.geo.basic-ideas"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g9.geo.circles.chord-perpendicular-centre",
+      "parent": "g9.geo.circles",
+      "title": "Perpendicular from the Centre to a Chord",
+      "description": "Prove with RHS congruence that the perpendicular from the centre bisects a chord (and its converse) — stressing that perpendicularity is the non-negotiable hypothesis.",
+      "outcomes": [
+        "Can prove the perpendicular from the centre bisects the chord",
+        "Can state why a non-perpendicular line from the centre need not bisect the chord"
+      ],
+      "prereqs": [
+        "g9.geo.circles.circle-vocabulary",
+        "g9.geo.triangles.sss-rhs"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g9.geo.circles.chords-distance-centre",
+      "parent": "g9.geo.circles",
+      "title": "Chord Length and Distance from the Centre",
+      "description": "Combine the bisected chord with Pythagoras: radius² = (half-chord)² + distance², so equal chords lie at equal distances from the centre, and longer chords lie closer.",
+      "outcomes": [
+        "Can compute chord length, radius or distance given the other two",
+        "Can prove equal chords are equidistant from the centre",
+        "Can rank chords by length from their distances"
+      ],
+      "prereqs": [
+        "g9.geo.circles.chord-perpendicular-centre",
+        "g7.geo.triangle-properties"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A chord of length 12 cm is drawn in a circle of radius 10 cm. How far is the chord from the centre?",
+        "options": [
+          {
+            "text": "8 cm",
+            "correct": true
+          },
+          {
+            "text": "√44 cm",
+            "misconception": "m3"
+          },
+          {
+            "text": "4 cm",
+            "misconception": "m4"
+          },
+          {
+            "text": "16 cm",
+            "diagnosis": "Added 10 + 6 — the distance is a LEG of the right triangle, found by subtracting squares, and can never exceed the radius."
+          }
+        ],
+        "explanation": "The perpendicular from the centre bisects the chord into 6 + 6. In the right triangle: distance = √(10² − 6²) = √64 = 8 cm. Using the whole chord 12 gives √(144 − 100) = √44 — wrong triangle; and 10 − 6 = 4 treats a squared relationship as linear."
+      }
+    },
+    {
+      "id": "g9.geo.circles.angle-centre-circumference",
+      "parent": "g9.geo.circles",
+      "title": "Angle at the Centre Is Twice the Angle at the Circumference",
+      "description": "Prove the central angle theorem — the angle an arc subtends at the centre is double the angle it subtends anywhere on the remaining circle — across all three figure cases.",
+      "outcomes": [
+        "Can state and apply the 2:1 relationship in the correct direction",
+        "Can handle the reflex-centre case for angles in the major segment"
+      ],
+      "prereqs": [
+        "g9.geo.circles.chords-distance-centre",
+        "g9.geo.triangles.isosceles-theorems"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "An arc subtends an angle of 80° at the centre O. What angle does it subtend at a point on the remaining part of the circle?",
+        "options": [
+          {
+            "text": "40°",
+            "correct": true
+          },
+          {
+            "text": "80°",
+            "misconception": "m1"
+          },
+          {
+            "text": "160°",
+            "misconception": "m1"
+          },
+          {
+            "text": "100°",
+            "diagnosis": "Computed 180° − 80° — supplements belong to cyclic quadrilaterals and linear pairs, not to the centre–circumference relationship."
+          }
+        ],
+        "explanation": "The angle at the centre is TWICE the angle at the circumference for the same arc, so the circumference angle is 80° ÷ 2 = 40°. Choosing 160° doubles in the wrong direction; the centre, being closest to the arc, always holds the bigger angle."
+      }
+    },
+    {
+      "id": "g9.geo.circles.angles-same-segment",
+      "parent": "g9.geo.circles",
+      "title": "Angles in the Same Segment",
+      "description": "Derive from the central angle theorem that all angles subtended by a chord in the same segment are equal — and use the converse to prove four points are concyclic.",
+      "outcomes": [
+        "Can find equal angles in circle figures using the same-segment theorem",
+        "Can apply the converse to show points lie on one circle"
+      ],
+      "prereqs": [
+        "g9.geo.circles.angle-centre-circumference"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g9.geo.circles.semicircle-right-angle",
+      "parent": "g9.geo.circles",
+      "title": "The Angle in a Semicircle",
+      "description": "Specialise the central angle theorem to a diameter: the 180° centre angle halves to 90°, so every angle in a semicircle is right — with the converse locating circle centres on hypotenuses.",
+      "outcomes": [
+        "Can apply the 90°-in-a-semicircle fact in angle chases",
+        "Can use the converse: a right angle subtending a segment means that segment is a diameter of the circumcircle"
+      ],
+      "prereqs": [
+        "g9.geo.circles.angle-centre-circumference"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g9.geo.circles.cyclic-quadrilaterals",
+      "parent": "g9.geo.circles",
+      "title": "Cyclic Quadrilaterals",
+      "description": "Prove that opposite angles of a cyclic quadrilateral are SUPPLEMENTARY (sum 180°, not equal) using the two arcs a diagonal pair of vertices creates, plus the exterior angle corollary and the converse test.",
+      "outcomes": [
+        "Can compute angles of cyclic quadrilaterals using the 180° opposite-angle rule",
+        "Can apply the converse to prove four points are concyclic"
+      ],
+      "prereqs": [
+        "g9.geo.circles.angles-same-segment",
+        "g9.geo.quadrilaterals.angle-sum-quadrilateral"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "ABCD is a cyclic quadrilateral with ∠A = 80°. What is the opposite angle ∠C?",
+        "options": [
+          {
+            "text": "100°",
+            "correct": true
+          },
+          {
+            "text": "80°",
+            "misconception": "m2"
+          },
+          {
+            "text": "40°",
+            "diagnosis": "Halved ∠A — the 'half' rule belongs to the centre–circumference theorem, not to cyclic quadrilaterals."
+          },
+          {
+            "text": "280°",
+            "diagnosis": "Computed the reflex 360° − 80° — the quadrilateral's interior angle is wanted, and opposite angles use 180°, not 360°."
+          }
+        ],
+        "explanation": "Opposite angles of a cyclic quadrilateral are supplementary: ∠A + ∠C = 180°, so ∠C = 100°. It is a PARALLELOGRAM whose opposite angles are equal — and a parallelogram is only cyclic when it is a rectangle (80° ≠ 90° rules that out here)."
+      }
+    },
+    {
+      "id": "g9.geo.constructions.rules-of-the-game",
+      "parent": "g9.geo.constructions",
+      "title": "Rules of the Game: Straightedge and Compass Only",
+      "description": "Set the ground rules: constructions use an UNMARKED straightedge and a compass — no protractor, no measuring — and every construction must come with a congruence-based justification.",
+      "outcomes": [
+        "Can state which tools and moves are legal in a construction",
+        "Can explain why a protractor measurement is not a construction"
+      ],
+      "prereqs": [
+        "g6.geo.constructions-intro"
+      ],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Which of the following is a legal step in a ruler-and-compass construction of a 60° angle?",
+        "options": [
+          {
+            "text": "Drawing two arcs of the same compass width and joining the intersection to the vertex",
+            "correct": true
+          },
+          {
+            "text": "Measuring 60° with a protractor and marking it",
+            "misconception": "m1"
+          },
+          {
+            "text": "Using the ruler's centimetre markings to lay off equal lengths",
+            "misconception": "m1"
+          },
+          {
+            "text": "Tracing along the 60° edge of a set square",
+            "diagnosis": "A set square is a pre-made angle template — construction must CREATE the angle from arcs and lines alone."
+          }
+        ],
+        "explanation": "Constructions allow only an unmarked straightedge (draw lines) and a compass (draw arcs, transfer distances). Equal compass arcs create the equilateral-triangle configuration whose angle is exactly 60° — measured instruments merely approximate it."
+      }
+    },
+    {
+      "id": "g9.geo.constructions.bisect-angle",
+      "parent": "g9.geo.constructions",
+      "title": "Bisecting an Angle",
+      "description": "Construct the bisector of any angle with two matched arcs, and justify it: the two arc intersections and the vertex build congruent triangles by SSS.",
+      "outcomes": [
+        "Can bisect any given angle with straightedge and compass",
+        "Can justify the construction with an SSS congruence argument"
+      ],
+      "prereqs": [
+        "g9.geo.constructions.rules-of-the-game"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g9.geo.constructions.perpendicular-bisector",
+      "parent": "g9.geo.constructions",
+      "title": "Perpendicular Bisector of a Segment",
+      "description": "Construct the perpendicular bisector with arcs of EQUAL radius (more than half the segment) from both endpoints, and prove every point of it is equidistant from the two endpoints.",
+      "outcomes": [
+        "Can construct a perpendicular bisector that actually intersects twice",
+        "Can explain both radius conditions: equal at both ends, and more than half the segment"
+      ],
+      "prereqs": [
+        "g9.geo.constructions.rules-of-the-game"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "To construct the perpendicular bisector of AB, you draw arcs from A and from B. The compass radius must be:",
+        "options": [
+          {
+            "text": "More than half of AB, and the SAME for both arcs",
+            "correct": true
+          },
+          {
+            "text": "Any convenient radius, possibly different at A and at B",
+            "misconception": "m2"
+          },
+          {
+            "text": "Exactly half of AB",
+            "diagnosis": "At exactly half, the arcs only touch at the midpoint — you get one point, not the two needed to draw the bisector line."
+          },
+          {
+            "text": "Less than half of AB, the same for both arcs",
+            "diagnosis": "Arcs of radius less than half AB never reach each other — no intersection points at all."
+          }
+        ],
+        "explanation": "Equal radii make the intersection points equidistant from A and B — that is the whole reason the line through them is the perpendicular bisector. More than half of AB guarantees the arcs cross in TWO points, one on each side of the segment."
+      }
+    },
+    {
+      "id": "g9.geo.constructions.standard-angles",
+      "parent": "g9.geo.constructions",
+      "title": "Constructing 60°, 30°, 90°, 45°",
+      "description": "Build the standard angles from scratch: 60° from the equilateral arc, 30° by bisecting it, 90° from adjacent arcs (or bisecting a straight angle), 45° by bisecting again.",
+      "outcomes": [
+        "Can construct 60°, 30°, 90° and 45° with justification",
+        "Can plan a construction route to composite angles like 75° or 105°"
+      ],
+      "prereqs": [
+        "g9.geo.constructions.bisect-angle",
+        "g9.geo.constructions.perpendicular-bisector"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g9.geo.constructions.triangle-constructions-indirect",
+      "parent": "g9.geo.constructions",
+      "title": "Triangles from Indirect Data",
+      "description": "Construct triangles given base, a base angle and the SUM or DIFFERENCE of the other two sides, or the perimeter with two base angles — first checking the data is feasible at all.",
+      "outcomes": [
+        "Can execute the sum-of-sides and difference-of-sides constructions",
+        "Can check feasibility (e.g. AB + AC > BC) before starting",
+        "Can justify the key isosceles/perpendicular-bisector step in each construction"
+      ],
+      "prereqs": [
+        "g9.geo.constructions.standard-angles",
+        "g7.geo.practical-geometry",
+        "g9.geo.triangles.triangle-inequality"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "You are asked to construct ΔABC with base BC = 7 cm, ∠B = 60°, and AB + AC = 6 cm. What happens?",
+        "options": [
+          {
+            "text": "The construction is impossible — AB + AC must be greater than BC",
+            "correct": true
+          },
+          {
+            "text": "It works — every set of given measurements produces some triangle",
+            "misconception": "m3"
+          },
+          {
+            "text": "It works, as long as ∠B is drawn accurately enough",
+            "misconception": "m3"
+          },
+          {
+            "text": "It is impossible because AB + AC must EQUAL BC",
+            "diagnosis": "Backwards — equality is the degenerate flat case; the sum of two sides must strictly EXCEED the third, not match it."
+          }
+        ],
+        "explanation": "By the triangle inequality, AB + AC > BC in any triangle. Here 6 < 7, so no such triangle exists and the construction's arc never intersects the ray. Feasibility must be checked before drawing — given data can simply be contradictory."
+      }
+    },
+    {
+      "id": "g9.mea.herons-formula.area-formula-limits",
+      "parent": "g9.mea.herons-formula",
+      "title": "When ½ × base × height Fails",
+      "description": "Revise ½ × base × height and hit its wall: with three sides given and no height, the old formula is unusable — motivating a side-only formula and burying the myth that ½ × (side × side) is an area.",
+      "outcomes": [
+        "Can compute triangle areas when a height IS available",
+        "Can explain why ½ × product of two sides is not the area without the height between them"
+      ],
+      "prereqs": [
+        "g7.mea.perimeter-area"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g9.mea.herons-formula.semi-perimeter",
+      "parent": "g9.mea.herons-formula",
+      "title": "The Semi-Perimeter s",
+      "description": "Define s = (a + b + c)/2 — HALF the perimeter — and drill computing s, s − a, s − b, s − c cleanly, since every Heron's calculation lives or dies on this step.",
+      "outcomes": [
+        "Can compute s and the three differences s − a, s − b, s − c for any triangle",
+        "Can sanity-check that s − a, s − b, s − c are all positive for a valid triangle"
+      ],
+      "prereqs": [
+        "g9.mea.herons-formula.area-formula-limits"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "A triangle has sides 7 cm, 8 cm and 9 cm. What is s in Heron's formula?",
+        "options": [
+          {
+            "text": "12 cm",
+            "correct": true
+          },
+          {
+            "text": "24 cm",
+            "misconception": "m1"
+          },
+          {
+            "text": "8 cm",
+            "diagnosis": "Divided the perimeter by 3 (averaged the sides) — s is half the perimeter, so divide by 2."
+          },
+          {
+            "text": "504 cm",
+            "diagnosis": "Multiplied the sides instead of adding them."
+          }
+        ],
+        "explanation": "s is the SEMI-perimeter: s = (7 + 8 + 9)/2 = 24/2 = 12 cm. Using the full perimeter 24 makes every factor in Heron's formula wrong, so this halving must be automatic."
+      }
+    },
+    {
+      "id": "g9.mea.herons-formula.apply-herons-formula",
+      "parent": "g9.mea.herons-formula",
+      "title": "Applying Heron's Formula",
+      "description": "Compute areas as √(s(s−a)(s−b)(s−c)) end-to-end: find s, form the four factors, multiply, and take the square root — the step exam scripts most often skip.",
+      "outcomes": [
+        "Can compute the area of any triangle from its three sides",
+        "Can verify Heron's answer against ½ × base × height on a right triangle",
+        "Can carry units correctly (cm² for area)"
+      ],
+      "prereqs": [
+        "g9.mea.herons-formula.semi-perimeter",
+        "g9.num.number-systems.surds-operations"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Using Heron's formula, find the area of a triangle with sides 5 cm, 12 cm and 13 cm.",
+        "options": [
+          {
+            "text": "30 cm²",
+            "correct": true
+          },
+          {
+            "text": "900 cm²",
+            "misconception": "m2"
+          },
+          {
+            "text": "32.5 cm²",
+            "misconception": "m3"
+          },
+          {
+            "text": "60 cm²",
+            "diagnosis": "Multiplied the two shorter sides (5 × 12) without the ½ — even for this right triangle, the area is HALF the product of the legs."
+          }
+        ],
+        "explanation": "s = (5 + 12 + 13)/2 = 15, so area = √(15 × 10 × 3 × 2) = √900 = 30 cm². Stopping at 900 forgets the square root; 32.5 = ½ × 5 × 13 uses two sides with no height between them. Check: 5-12-13 is right-angled, and ½ × 5 × 12 = 30 ✓."
+      }
+    },
+    {
+      "id": "g9.mea.herons-formula.equilateral-isosceles-shortcuts",
+      "parent": "g9.mea.herons-formula",
+      "title": "Equilateral and Isosceles Special Cases",
+      "description": "Run Heron's formula symbolically on special triangles: derive (√3/4)a² for the equilateral case and clean surd forms for isosceles triangles, keeping the surd arithmetic honest.",
+      "outcomes": [
+        "Can derive and use the (√3/4)a² formula for equilateral triangles",
+        "Can compute isosceles triangle areas leaving answers in surd form"
+      ],
+      "prereqs": [
+        "g9.mea.herons-formula.apply-herons-formula"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is the area of an equilateral triangle of side 6 cm?",
+        "options": [
+          {
+            "text": "9√3 cm²",
+            "correct": true
+          },
+          {
+            "text": "36√3 cm²",
+            "diagnosis": "Used √3 × a² and forgot to divide by 4."
+          },
+          {
+            "text": "18 cm²",
+            "diagnosis": "Computed ½ × 6 × 6 — the height of this triangle is 3√3, not 6, so ½ × side × side overestimates."
+          },
+          {
+            "text": "3√3 cm²",
+            "diagnosis": "Found the half-height or slipped a factor: the height is 3√3 cm; the area is ½ × 6 × 3√3 = 9√3."
+          }
+        ],
+        "explanation": "Area = (√3/4)a² = (√3/4) × 36 = 9√3 cm² ≈ 15.6 cm². Heron's check: s = 9, area = √(9 × 3 × 3 × 3) = √243 = 9√3 ✓."
+      }
+    },
+    {
+      "id": "g9.mea.herons-formula.quadrilateral-split-applications",
+      "parent": "g9.mea.herons-formula",
+      "title": "Quadrilateral Areas by Triangulation",
+      "description": "Split quadrilaterals (fields, park plots, rhombus-shaped tiles) along a diagonal into two triangles and apply Heron's formula to each — the classic board application question.",
+      "outcomes": [
+        "Can find a quadrilateral's area by splitting along a diagonal",
+        "Can solve mixed word problems (cost of levelling, paint per m²) built on Heron's formula"
+      ],
+      "prereqs": [
+        "g9.mea.herons-formula.apply-herons-formula"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4
+    },
+    {
+      "id": "g9.mea.surface-volume.cylinder-csa-tsa",
+      "parent": "g9.mea.surface-volume",
+      "title": "Cylinder: Curved vs Total Surface Area",
+      "description": "Unroll a cylinder's label into a rectangle to get CSA = 2πrh, then add the two circular lids for TSA = 2πr(r + h) — and decide from context (pipe? closed tank?) which one a problem wants.",
+      "outcomes": [
+        "Can compute CSA and TSA of a cylinder",
+        "Can choose CSA or TSA correctly from the real-world context"
+      ],
+      "prereqs": [
+        "g8.mea.mensuration"
+      ],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A closed cylindrical tank has radius 7 m and height 10 m. Taking π = 22/7, its TOTAL surface area is:",
+        "options": [
+          {
+            "text": "748 m²",
+            "correct": true
+          },
+          {
+            "text": "440 m²",
+            "misconception": "m1"
+          },
+          {
+            "text": "594 m²",
+            "diagnosis": "Added only ONE circular end (440 + 154) — a closed tank has two."
+          },
+          {
+            "text": "1540 m²",
+            "diagnosis": "Computed πr²h — that is the VOLUME (in m³), not a surface area."
+          }
+        ],
+        "explanation": "TSA = 2πr(r + h) = 2 × (22/7) × 7 × 17 = 44 × 17 = 748 m². The curved surface alone is 2πrh = 440 m²; a CLOSED tank needs both lids added: 440 + 2 × 154 = 748."
+      }
+    },
+    {
+      "id": "g9.mea.surface-volume.cylinder-volume",
+      "parent": "g9.mea.surface-volume",
+      "title": "Cylinder Volume",
+      "description": "Stack circular cross-sections to get V = πr²h, practise unit conversions (1 L = 1000 cm³), and solve inverse problems finding r or h from a given capacity.",
+      "outcomes": [
+        "Can compute cylinder volumes and convert between cm³, m³ and litres",
+        "Can find a missing dimension from a given volume"
+      ],
+      "prereqs": [
+        "g9.mea.surface-volume.cylinder-csa-tsa"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g9.mea.surface-volume.cone-slant-height",
+      "parent": "g9.mea.surface-volume",
+      "title": "The Cone and Its Slant Height",
+      "description": "Distinguish a cone's vertical height h from its slant height l once and for all, linked by l² = r² + h² — the right triangle hiding inside every cone.",
+      "outcomes": [
+        "Can compute l from r and h (and any one from the other two)",
+        "Can point to h and l correctly on a cone diagram"
+      ],
+      "prereqs": [
+        "g9.mea.surface-volume.cylinder-csa-tsa",
+        "g7.geo.triangle-properties"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A cone has base radius 3 cm and vertical height 4 cm. Its slant height is:",
+        "options": [
+          {
+            "text": "5 cm",
+            "correct": true
+          },
+          {
+            "text": "4 cm",
+            "misconception": "m2"
+          },
+          {
+            "text": "7 cm",
+            "diagnosis": "Added r + h directly — the slant is the hypotenuse of a right triangle, so squares must be added, not lengths."
+          },
+          {
+            "text": "√7 cm",
+            "diagnosis": "Subtracted the squares (√(16 − 9)) — subtraction applies when the SLANT is given and h is wanted, not here."
+          }
+        ],
+        "explanation": "The radius, height and slant form a right triangle: l = √(r² + h²) = √(9 + 16) = 5 cm. The slant is always LONGER than the vertical height — if your l ≤ h, something is wrong."
+      }
+    },
+    {
+      "id": "g9.mea.surface-volume.cone-csa-volume",
+      "parent": "g9.mea.surface-volume",
+      "title": "Cone: Surface Area and Volume",
+      "description": "Apply CSA = πrl, TSA = πr(l + r) and V = (1/3)πr²h — keeping the rule straight: l for surfaces, h for volume, and the 1/3 that makes a cone one third of its cylinder.",
+      "outcomes": [
+        "Can compute a cone's CSA, TSA and volume choosing l and h correctly",
+        "Can explain the 1/3 factor via the three-cones-fill-a-cylinder experiment"
+      ],
+      "prereqs": [
+        "g9.mea.surface-volume.cone-slant-height",
+        "g9.mea.surface-volume.cylinder-volume"
+      ],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A cone has radius 3 cm and vertical height 4 cm (so slant height 5 cm). Its volume is:",
+        "options": [
+          {
+            "text": "12π cm³",
+            "correct": true
+          },
+          {
+            "text": "15π cm³",
+            "misconception": "m2"
+          },
+          {
+            "text": "36π cm³",
+            "diagnosis": "Computed πr²h without the 1/3 — that is the surrounding CYLINDER's volume; a cone fills only a third of it."
+          },
+          {
+            "text": "4π cm³",
+            "diagnosis": "Used (1/3)πrh without squaring the radius."
+          }
+        ],
+        "explanation": "V = (1/3)πr²h = (1/3) × π × 9 × 4 = 12π cm³. Volume uses the VERTICAL height 4; the slant height 5 belongs in surface-area formulas like CSA = πrl."
+      }
+    },
+    {
+      "id": "g9.mea.surface-volume.sphere-hemisphere-surface",
+      "parent": "g9.mea.surface-volume",
+      "title": "Sphere and Hemisphere: Surface Areas",
+      "description": "Learn the striking fact that a sphere's surface is 4πr² — exactly four great circles — and assemble hemisphere areas: curved 2πr², total 3πr² with the flat face included.",
+      "outcomes": [
+        "Can compute surface areas of spheres and solid hemispheres",
+        "Can decide when the hemisphere's flat circular face must be counted"
+      ],
+      "prereqs": [
+        "g9.mea.surface-volume.cylinder-csa-tsa"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The surface area of a sphere of radius 2 cm is:",
+        "options": [
+          {
+            "text": "16π cm²",
+            "correct": true
+          },
+          {
+            "text": "32π/3 cm²",
+            "misconception": "m4"
+          },
+          {
+            "text": "4π cm²",
+            "diagnosis": "Used πr² — that is the area of one flat circle; the sphere's curved surface is exactly FOUR times that."
+          },
+          {
+            "text": "8π cm²",
+            "diagnosis": "Used 2πr² — that is only a hemisphere's curved surface, half the sphere."
+          }
+        ],
+        "explanation": "Surface area of a sphere = 4πr² = 4 × π × 4 = 16π cm². The formula with r³ and the 4/3 factor — (4/3)πr³ = 32π/3 here — is the VOLUME: cubed power goes with volume, squared with area."
+      }
+    },
+    {
+      "id": "g9.mea.surface-volume.sphere-hemisphere-volume",
+      "parent": "g9.mea.surface-volume",
+      "title": "Sphere and Hemisphere: Volumes",
+      "description": "Use V = (4/3)πr³ for the sphere and (2/3)πr³ for the hemisphere in board-style problems — dome capacities, metal spheres melted and recast — keeping the volume and surface formulas unswapped.",
+      "outcomes": [
+        "Can compute volumes of spheres and hemispheres",
+        "Can solve melt-and-recast problems by equating volumes"
+      ],
+      "prereqs": [
+        "g9.mea.surface-volume.sphere-hemisphere-surface"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ]
+    },
+    {
+      "id": "g9.mea.surface-volume.scaling-and-comparison",
+      "parent": "g9.mea.surface-volume",
+      "title": "How Scaling Really Works: r → 2r",
+      "description": "Confront the linear-scaling instinct: doubling the radius multiplies surface areas by 4 and volumes by 8, because area is r² and volume is r³ — explored through ratio and percentage questions.",
+      "outcomes": [
+        "Can compute the effect on area and volume of scaling a dimension",
+        "Can solve ratio problems comparing solids of different sizes"
+      ],
+      "prereqs": [
+        "g9.mea.surface-volume.sphere-hemisphere-volume",
+        "g9.mea.surface-volume.cone-csa-volume"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The radius of a sphere is doubled. Its volume becomes:",
+        "options": [
+          {
+            "text": "8 times the original",
+            "correct": true
+          },
+          {
+            "text": "2 times the original",
+            "misconception": "m3"
+          },
+          {
+            "text": "4 times the original",
+            "diagnosis": "Squared the scale factor — 4× is what happens to the SURFACE AREA; volume scales with the cube."
+          },
+          {
+            "text": "6 times the original",
+            "diagnosis": "Possibly tripled-and-doubled the factor or mixed 2³ with 2 × 3 — scaling multiplies as 2 × 2 × 2 = 8."
+          }
+        ],
+        "explanation": "V = (4/3)πr³, so replacing r by 2r gives (4/3)π(2r)³ = 8 × (4/3)πr³. Every one of the three length dimensions doubles, so volume gains a factor 2 × 2 × 2 = 8 — never just 2."
+      }
+    },
+    {
+      "id": "g9.dat.statistics.data-types-collection",
+      "parent": "g9.dat.statistics",
+      "title": "Raw Data: Collection and Types",
+      "description": "Distinguish primary from secondary data, handle raw ungrouped data, and compute the range — establishing why a crowd of numbers needs organising before it says anything.",
+      "outcomes": [
+        "Can classify data as primary or secondary",
+        "Can find the range and organise raw data in order"
+      ],
+      "prereqs": [
+        "g8.dat.data-handling"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g9.dat.statistics.frequency-distributions",
+      "parent": "g9.dat.statistics",
+      "title": "Frequency Distributions and Class Marks",
+      "description": "Build ungrouped and grouped frequency tables: choose classes, apply the lower-limit-included convention for continuous classes, and compute each class mark as the MIDPOINT of its class.",
+      "outcomes": [
+        "Can construct a grouped frequency table from raw data",
+        "Can state which class a boundary value like 30 belongs to",
+        "Can compute class marks and class widths"
+      ],
+      "prereqs": [
+        "g9.dat.statistics.data-types-collection"
+      ],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "What is the class mark of the class interval 20–30?",
+        "options": [
+          {
+            "text": "25",
+            "correct": true
+          },
+          {
+            "text": "30",
+            "misconception": "m3"
+          },
+          {
+            "text": "20",
+            "misconception": "m3"
+          },
+          {
+            "text": "10",
+            "diagnosis": "Computed the class WIDTH (30 − 20) — the class mark is the midpoint, not the size of the interval."
+          }
+        ],
+        "explanation": "Class mark = (lower limit + upper limit)/2 = (20 + 30)/2 = 25. It is the representative CENTRE of the class — neither endpoint, and not the width."
+      }
+    },
+    {
+      "id": "g9.dat.statistics.bar-graphs-revisit",
+      "parent": "g9.dat.statistics",
+      "title": "Bar Graphs, Done Properly",
+      "description": "Draw and read bar graphs for categorical data with exam-grade discipline: equal bar widths, equal gaps, a labelled frequency axis starting at zero.",
+      "outcomes": [
+        "Can draw a correctly scaled and labelled bar graph",
+        "Can extract and compare values from a given bar graph"
+      ],
+      "prereqs": [
+        "g9.dat.statistics.frequency-distributions"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g9.dat.statistics.histograms-equal-widths",
+      "parent": "g9.dat.statistics",
+      "title": "Histograms with Equal Class Widths",
+      "description": "Draw histograms for continuous grouped data — bars touching, x-axis a real number line of class boundaries — and contrast point-by-point with the gapped, categorical bar graph.",
+      "outcomes": [
+        "Can draw a histogram from a grouped frequency table",
+        "Can list the differences between a histogram and a bar graph and say WHY the bars touch"
+      ],
+      "prereqs": [
+        "g9.dat.statistics.frequency-distributions",
+        "g9.dat.statistics.bar-graphs-revisit"
+      ],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "What distinguishes a histogram from a bar graph?",
+        "options": [
+          {
+            "text": "A histogram shows continuous numerical classes, so its bars share boundaries with no gaps",
+            "correct": true
+          },
+          {
+            "text": "Nothing essential — a histogram is a bar graph drawn without gaps for style",
+            "misconception": "m2"
+          },
+          {
+            "text": "A histogram can be drawn for categories like favourite colours, as long as the bars touch",
+            "misconception": "m2"
+          },
+          {
+            "text": "A bar graph shows continuous data and a histogram shows categories",
+            "diagnosis": "Reversed the two — it is the HISTOGRAM that requires a continuous numerical axis."
+          }
+        ],
+        "explanation": "A histogram's x-axis is a genuine number line divided into class intervals; adjacent classes share a boundary, so the bars must touch. A bar graph's categories have no numerical order or boundaries — the gaps signal exactly that. The touching bars are meaning, not style."
+      }
+    },
+    {
+      "id": "g9.dat.statistics.histograms-unequal-widths",
+      "parent": "g9.dat.statistics",
+      "title": "Histograms with Unequal Class Widths",
+      "description": "Handle the trap classes: when widths differ, bar AREA must represent frequency, so heights are adjusted to frequency density — (frequency/class width) × smallest width.",
+      "outcomes": [
+        "Can compute adjusted heights (proportional frequencies) for unequal classes",
+        "Can explain why plotting raw frequency as height misleads when widths differ"
+      ],
+      "prereqs": [
+        "g9.dat.statistics.histograms-equal-widths"
+      ],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 4,
+        "prompt": "A histogram uses classes 0–10 (frequency 5), 10–20 (frequency 10) and 20–40 (frequency 12). Taking 10 as the standard width, what should the HEIGHT of the 20–40 bar be?",
+        "options": [
+          {
+            "text": "6",
+            "correct": true
+          },
+          {
+            "text": "12",
+            "misconception": "m1"
+          },
+          {
+            "text": "24",
+            "diagnosis": "Multiplied by the width ratio instead of dividing — that inflates the wide class even further."
+          },
+          {
+            "text": "3",
+            "diagnosis": "Divided by 4 — the class is twice the standard width (20 ÷ 10 = 2), so divide the frequency by 2, not 4."
+          }
+        ],
+        "explanation": "The class 20–40 is twice the standard width, so its height must be 12 × (10/20) = 6: then its AREA (6 × 2 width-units) still represents 12 observations. Plotting height 12 across a double-width bar would visually double the class's share."
+      }
+    },
+    {
+      "id": "g9.dat.statistics.frequency-polygons",
+      "parent": "g9.dat.statistics",
+      "title": "Frequency Polygons",
+      "description": "Turn histograms into frequency polygons by joining the midpoints of bar tops — or draw them directly from class marks — closing the figure with imagined zero-frequency classes at both ends.",
+      "outcomes": [
+        "Can draw a frequency polygon with or without its histogram",
+        "Can compare two distributions by drawing their polygons on one grid"
+      ],
+      "prereqs": [
+        "g9.dat.statistics.histograms-equal-widths"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g9.dat.probability-empirical.experiments-trials-outcomes",
+      "parent": "g9.dat.probability-empirical",
+      "title": "Experiments, Trials, Events",
+      "description": "Fix the vocabulary of chance: an experiment (toss a coin), a trial (one toss), an outcome (heads), an event (getting heads) — and gather real class data to work with next.",
+      "outcomes": [
+        "Can identify experiment, trial, outcome and event in a described situation",
+        "Can record trial data in a frequency table ready for probability estimates"
+      ],
+      "prereqs": [
+        "g8.dat.data-handling"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g9.dat.probability-empirical.empirical-probability-formula",
+      "parent": "g9.dat.probability-empirical",
+      "title": "The Empirical Probability Formula",
+      "description": "Define P(E) = (number of trials where E happened)/(total number of trials): a FRACTION of trials, computed from actual data — never a raw count.",
+      "outcomes": [
+        "Can compute empirical probabilities from frequency data",
+        "Can express the result as a fraction, decimal or percentage correctly"
+      ],
+      "prereqs": [
+        "g9.dat.probability-empirical.experiments-trials-outcomes"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A coin is tossed 500 times and heads appears 240 times. The empirical probability of getting a head is:",
+        "options": [
+          {
+            "text": "0.48",
+            "correct": true
+          },
+          {
+            "text": "240",
+            "misconception": "m2"
+          },
+          {
+            "text": "0.5",
+            "misconception": "m4"
+          },
+          {
+            "text": "0.52",
+            "diagnosis": "Computed the probability of TAILS (260/500) — read which event the question asks about."
+          }
+        ],
+        "explanation": "P(head) = 240/500 = 0.48 — the observed fraction of trials. The raw count 240 is not a probability, and 'correcting' to the theoretical 0.5 misses the point: empirical probability reports what actually happened."
+      }
+    },
+    {
+      "id": "g9.dat.probability-empirical.probability-as-number-0-1",
+      "parent": "g9.dat.probability-empirical",
+      "title": "Probability Lives Between 0 and 1",
+      "description": "Establish the hard boundaries: every probability is between 0 (never happened in the trials) and 1 (happened every time), and the probabilities of all outcomes of an experiment sum to 1.",
+      "outcomes": [
+        "Can reject impossible probability values like 1.4 or −0.2 on sight",
+        "Can use the sum-to-1 property to find a missing probability"
+      ],
+      "prereqs": [
+        "g9.dat.probability-empirical.empirical-probability-formula"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following CANNOT be the probability of an event?",
+        "options": [
+          {
+            "text": "7/6",
+            "correct": true
+          },
+          {
+            "text": "0",
+            "diagnosis": "0 is a perfectly valid probability — it belongs to an event that never occurred in the trials."
+          },
+          {
+            "text": "1",
+            "diagnosis": "1 is valid — an event that occurred in every single trial has probability exactly 1."
+          },
+          {
+            "text": "0.999",
+            "diagnosis": "Any value between 0 and 1 is allowed, however close to the boundary."
+          }
+        ],
+        "explanation": "A probability is a fraction (favourable trials)/(total trials), so it can never exceed 1 — an event cannot happen in MORE trials than there were. 7/6 > 1 is impossible; 0, 1 and 0.999 are all legal values."
+      }
+    },
+    {
+      "id": "g9.dat.probability-empirical.long-run-interpretation",
+      "parent": "g9.dat.probability-empirical",
+      "title": "What a Probability Actually Promises",
+      "description": "Interpret P = 1/6 honestly: a long-run fraction that experimental results approach as trials grow — not a short-run guarantee, and not something real data must match exactly.",
+      "outcomes": [
+        "Can explain P(six) = 1/6 as a long-run statement, with counterexamples to the every-6-rolls reading",
+        "Can explain why 240 heads in 500 tosses does not contradict a fair coin"
+      ],
+      "prereqs": [
+        "g9.dat.probability-empirical.empirical-probability-formula"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The probability of rolling a six with a fair die is 1/6. What does this actually mean?",
+        "options": [
+          {
+            "text": "Over a very large number of rolls, the fraction of sixes gets close to 1/6",
+            "correct": true
+          },
+          {
+            "text": "In every 6 rolls, exactly one six will appear",
+            "misconception": "m1"
+          },
+          {
+            "text": "If 600 rolls give 90 sixes, the die's probability 'should be corrected' — real results must match 1/6 exactly",
+            "misconception": "m4"
+          },
+          {
+            "text": "A six is guaranteed to appear by the sixth roll",
+            "misconception": "m1"
+          }
+        ],
+        "explanation": "Probability describes the long-run fraction, not a short-run schedule: 6 rolls can easily contain zero sixes or three. And 90/600 = 0.15 sitting near 1/6 ≈ 0.167 is exactly the approach-in-the-long-run behaviour — real data hovers around the value without matching it exactly."
+      }
+    },
+    {
+      "id": "g9.dat.probability-empirical.independence-fallacy",
+      "parent": "g9.dat.probability-empirical",
+      "title": "Independent Trials and the Gambler's Fallacy",
+      "description": "Confront the 'due' instinct: a fair coin has no memory, so after five heads the next toss is still 50–50 — past outcomes cannot lean on future ones.",
+      "outcomes": [
+        "Can state that successive trials of a fair coin or die are independent",
+        "Can debunk a gambler's-fallacy argument in a given scenario"
+      ],
+      "prereqs": [
+        "g9.dat.probability-empirical.long-run-interpretation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A fair coin has just landed heads 5 times in a row. What is the probability that the next toss is a head?",
+        "options": [
+          {
+            "text": "Exactly 1/2 — the coin has no memory of previous tosses",
+            "correct": true
+          },
+          {
+            "text": "Less than 1/2, because tails is now 'due'",
+            "misconception": "m3"
+          },
+          {
+            "text": "More than 1/2, because the coin is on a heads streak",
+            "diagnosis": "The hot-hand reading — for a FAIR coin, past results neither continue nor reverse a streak; each toss is fresh."
+          },
+          {
+            "text": "1/64, the probability of six heads in a row",
+            "diagnosis": "1/64 is the chance of the whole six-toss sequence BEFORE any tossing began — five of those tosses have already happened."
+          }
+        ],
+        "explanation": "Each toss of a fair coin is independent: P(head) = 1/2 regardless of history. The 'law of averages' works by future results diluting the past in the long-run fraction — not by the coin compensating."
+      }
+    }
+  ]
+}
