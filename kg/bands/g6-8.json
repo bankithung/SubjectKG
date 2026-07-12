@@ -1975,7 +1975,7 @@
       "strand": "dat",
       "description": "Data becomes useful when organised: you will record data with tally marks, and read and draw pictographs and bar graphs — including ones where a symbol or one unit of height stands for many items. Reading scales correctly is the key skill; it protects you from misleading graphs forever after.",
       "prerequisites": [
-        "g4.dat.bar-charts"
+        "g5.dat.data-interpretation"
       ],
       "ncert": {
         "class": 6,
@@ -3454,7 +3454,7 @@
             },
             {
               "text": "140°",
-              "diagnosis": "Added the adjacent interior angle into the sum as well."
+              "diagnosis": "Computed 180 − 40: treated the exterior angle as the supplement of ONE remote interior angle instead of the sum of both remote angles."
             },
             {
               "text": "20°",
@@ -4102,7 +4102,8 @@
       "description": "You will extend area from rectangles to parallelograms (base × height) and triangles (half of that), and meet the circle's two famous formulas: circumference 2πr and area πr². Choosing the RIGHT base–height pair, and the right formula, is the heart of this chapter.",
       "prerequisites": [
         "g6.mea.mensuration-perimeter-area",
-        "g7.num.fractions-decimals-ops"
+        "g7.num.fractions-decimals-ops",
+        "g4.geo.circle-intro"
       ],
       "ncert": {
         "class": 7,
@@ -4256,7 +4257,8 @@
       "description": "One number can represent a whole data set: the mean (fair share), median (middle of the sorted list) and mode (most frequent value) — each useful in different situations, with range measuring spread. You will also take your first formal steps into probability as a number between 0 and 1.",
       "prerequisites": [
         "g6.dat.data-handling",
-        "g6.num.decimals-ops"
+        "g6.num.decimals-ops",
+        "g7.num.fractions-decimals-ops"
       ],
       "ncert": {
         "class": 7,
@@ -6761,15 +6763,15 @@
               "diagnosis": "'It happens or it doesn't' treated as two equally likely outcomes — but the six faces are the equally likely ones."
             },
             {
-              "text": "3/6",
-              "diagnosis": "Used the face VALUE 3 as the count of favourable outcomes; only one face shows a 3."
+              "text": "5/6",
+              "diagnosis": "Counted the five faces that are NOT 3 as the favourable outcomes — computed the probability of the complementary event instead."
             },
             {
               "text": "1/5",
               "misconception": "m4"
             }
           ],
-          "explanation": "Six equally likely faces, one favourable: P(3) = 1/6. The denominator counts ALL outcomes (6), not the unfavourable ones (5) — and the number printed on the face has nothing to do with how many faces are favourable."
+          "explanation": "Six equally likely faces, one favourable: P(3) = 1/6. The denominator counts ALL outcomes (6), not the unfavourable ones (5) — and 5/6 is the probability of NOT rolling a 3 (the complement), not of rolling one."
         },
         {
           "id": "q2",
