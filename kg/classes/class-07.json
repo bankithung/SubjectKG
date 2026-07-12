@@ -1,0 +1,3001 @@
+{
+  "class": 7,
+  "micros": [
+    {
+      "id": "g7.num.integers-ops.add-sub-revision",
+      "parent": "g7.num.integers-ops",
+      "title": "Warm-up: Adding and Subtracting Integers",
+      "description": "Revise integer addition and subtraction with the number line and debt model, firmly separating them from the multiplication sign rules to come.",
+      "outcomes": [
+        "Can add and subtract any two integers fluently",
+        "Can explain why (−3) + (−5) = −8 using the debt model"
+      ],
+      "prereqs": [
+        "g6.num.integers-intro"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Compute: (−3) + (−5)",
+        "options": [
+          {
+            "text": "−8",
+            "correct": true
+          },
+          {
+            "text": "8",
+            "misconception": "m2"
+          },
+          {
+            "text": "−2",
+            "diagnosis": "Subtracted the magnitudes (5 − 3) and kept a minus sign."
+          },
+          {
+            "text": "2",
+            "diagnosis": "Subtracted the magnitudes and dropped the sign entirely."
+          }
+        ],
+        "explanation": "Owing ₹3 and then owing ₹5 more means owing ₹8: (−3) + (−5) = −8. 'Minus and minus make plus' belongs to MULTIPLICATION, not addition — two debts never add up to a gain."
+      }
+    },
+    {
+      "id": "g7.num.integers-ops.mult-pos-neg",
+      "parent": "g7.num.integers-ops",
+      "title": "Multiplying a Positive by a Negative",
+      "description": "Build 4 × (−3) as repeated addition of debts, and (−3) × 4 via commutativity, establishing that unlike signs give a negative product.",
+      "outcomes": [
+        "Can compute products of one positive and one negative integer",
+        "Can justify the negative sign using repeated addition or a real context"
+      ],
+      "prereqs": [
+        "g7.num.integers-ops.add-sub-revision",
+        "g3.num.mult-tables"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g7.num.integers-ops.mult-neg-neg",
+      "parent": "g7.num.integers-ops",
+      "title": "Why Negative × Negative Is Positive",
+      "description": "Use the descending pattern 3×(−6), 2×(−6), 1×(−6), 0×(−6), ... to force (−1)×(−6) = +6, and frame negative × negative as reversing a reversal.",
+      "outcomes": [
+        "Can multiply two negative integers correctly",
+        "Can justify the sign of the product with the pattern argument"
+      ],
+      "prereqs": [
+        "g7.num.integers-ops.mult-pos-neg"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Compute: (−7) × (−3)",
+        "options": [
+          {
+            "text": "21",
+            "correct": true
+          },
+          {
+            "text": "−21",
+            "misconception": "m1"
+          },
+          {
+            "text": "−10",
+            "diagnosis": "Added the magnitudes and kept a minus — treated × as +."
+          },
+          {
+            "text": "10",
+            "diagnosis": "Added the magnitudes, then applied the sign rule — right rule, wrong operation."
+          }
+        ],
+        "explanation": "Negative × negative = positive: (−7) × (−3) is the opposite of 7 × (−3) = −21, so it is +21. The pattern 3×(−3)=−9, 2×(−3)=−6, 1×(−3)=−3, 0×(−3)=0 keeps adding 3, so negative multipliers must continue into positives."
+      }
+    },
+    {
+      "id": "g7.num.integers-ops.divide-integers",
+      "parent": "g7.num.integers-ops",
+      "title": "Dividing Integers with Sign Rules",
+      "description": "Connect every division to its multiplication check — (−36) ÷ 4 = q means q × 4 = −36 — so the same sign rules govern quotients.",
+      "outcomes": [
+        "Can divide integers with any combination of signs",
+        "Can verify a quotient's sign via the multiplication check"
+      ],
+      "prereqs": [
+        "g7.num.integers-ops.mult-neg-neg"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Compute: (−48) ÷ (−6)",
+        "options": [
+          {
+            "text": "8",
+            "correct": true
+          },
+          {
+            "text": "−8",
+            "misconception": "m4"
+          },
+          {
+            "text": "−42",
+            "diagnosis": "Subtracted 6 from 48 instead of dividing, and kept a minus."
+          },
+          {
+            "text": "288",
+            "diagnosis": "Multiplied instead of dividing."
+          }
+        ],
+        "explanation": "Check by multiplication: what times (−6) gives −48? Since 8 × (−6) = −48, the quotient is +8. Like signs (negative ÷ negative) always give a positive result — the same rule as multiplication."
+      }
+    },
+    {
+      "id": "g7.num.integers-ops.properties-and-brackets",
+      "parent": "g7.num.integers-ops",
+      "title": "Properties of Operations and Opening Brackets",
+      "description": "Use commutativity, associativity and distributivity with negatives, reading −(a + b) as (−1) × (a + b) so the minus reaches EVERY term inside.",
+      "outcomes": [
+        "Can use distributivity to simplify computations like (−4) × 103",
+        "Can expand −(a + b) correctly to −a − b and check numerically"
+      ],
+      "prereqs": [
+        "g7.num.integers-ops.mult-neg-neg"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Simplify: −(9 + 4)",
+        "options": [
+          {
+            "text": "−13",
+            "correct": true
+          },
+          {
+            "text": "−5",
+            "misconception": "m3"
+          },
+          {
+            "text": "13",
+            "diagnosis": "Dropped the leading minus after adding."
+          },
+          {
+            "text": "5",
+            "diagnosis": "Changed only the second term's sign, computing 9 − 4."
+          }
+        ],
+        "explanation": "Read −(9 + 4) as (−1) × (9 + 4) and distribute to BOTH terms: −9 − 4 = −13. Check directly: the bracket is 13, and the opposite of 13 is −13 — so −5 (minus reaching only the 9) cannot be right."
+      }
+    },
+    {
+      "id": "g7.num.integers-ops.mixed-ops-problems",
+      "parent": "g7.num.integers-ops",
+      "title": "Multi-step Problems with All Four Operations",
+      "description": "Solve real contexts — quiz scoring, draining tanks, falling temperatures — that mix addition, subtraction, multiplication and division of integers.",
+      "outcomes": [
+        "Can translate a signed real-world situation into an integer expression",
+        "Can evaluate multi-step integer expressions respecting order of operations"
+      ],
+      "prereqs": [
+        "g7.num.integers-ops.divide-integers",
+        "g7.num.integers-ops.properties-and-brackets"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2",
+        "m4"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "At 10 pm the temperature is 4°C and it falls 2°C every hour. What is the temperature 6 hours later?",
+        "options": [
+          {
+            "text": "−8°C",
+            "correct": true
+          },
+          {
+            "text": "16°C",
+            "misconception": "m4"
+          },
+          {
+            "text": "−12°C",
+            "diagnosis": "Computed the total drop 6 × (−2) but forgot the starting 4°C."
+          },
+          {
+            "text": "−2°C",
+            "diagnosis": "Subtracted the 6 hours instead of the 12-degree total drop."
+          }
+        ],
+        "explanation": "Final = 4 + 6 × (−2) = 4 − 12 = −8°C. Dropping the sign turns the fall into a rise and gives 4 + 12 = 16°C — a warm night instead of a freezing one."
+      }
+    },
+    {
+      "id": "g7.num.fractions-decimals-ops.fraction-of-quantity",
+      "parent": "g7.num.fractions-decimals-ops",
+      "title": "'Of' Means Multiply: Fraction of a Quantity",
+      "description": "Interpret 3/4 of 20 as 3/4 × 20 with pictures and sharing, meeting the first surprise: taking a fraction OF something makes it smaller.",
+      "outcomes": [
+        "Can find a fraction of a whole-number quantity",
+        "Can explain why multiplying by a fraction less than 1 shrinks the result"
+      ],
+      "prereqs": [
+        "g6.num.fractions-ops"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g7.num.fractions-decimals-ops.multiply-fractions",
+      "parent": "g7.num.fractions-decimals-ops",
+      "title": "Multiplying Fractions with the Area Model",
+      "description": "Multiply fractions 'tops times tops, bottoms times bottoms', backed by the shaded-rectangle area model so the rule has an image behind it.",
+      "outcomes": [
+        "Can multiply two fractions and simplify the product",
+        "Can draw an area model showing why 2/3 × 4/5 = 8/15"
+      ],
+      "prereqs": [
+        "g7.num.fractions-decimals-ops.fraction-of-quantity"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Compute: 3/5 × 2/7",
+        "options": [
+          {
+            "text": "6/35",
+            "correct": true
+          },
+          {
+            "text": "21/10",
+            "misconception": "m3"
+          },
+          {
+            "text": "31/35",
+            "diagnosis": "Added the fractions (21/35 + 10/35) instead of multiplying."
+          },
+          {
+            "text": "5/12",
+            "diagnosis": "Added numerators and added denominators — a rule that fits neither operation."
+          }
+        ],
+        "explanation": "Multiply straight across: (3 × 2)/(5 × 7) = 6/35. Cross-multiplying (3 × 7 over 5 × 2 = 21/10) belongs to comparing fractions, not multiplying — and 21/10 is bigger than 1, impossible for a product of two fractions below 1."
+      }
+    },
+    {
+      "id": "g7.num.fractions-decimals-ops.multiply-mixed-numbers",
+      "parent": "g7.num.fractions-decimals-ops",
+      "title": "Multiplying Mixed Numbers",
+      "description": "Convert mixed numbers to improper fractions before multiplying, and see with numbers why multiplying whole and fraction parts separately undercounts.",
+      "outcomes": [
+        "Can multiply mixed numbers via improper fractions",
+        "Can estimate the product first to catch conversion errors"
+      ],
+      "prereqs": [
+        "g7.num.fractions-decimals-ops.multiply-fractions"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.num.fractions-decimals-ops.divide-by-fraction",
+      "parent": "g7.num.fractions-decimals-ops",
+      "title": "Dividing by a Fraction: Keep–Change–Flip and Why",
+      "description": "Anchor a ÷ (1/2) in 'how many halves fit in a?', then formalise: keep the dividend, change ÷ to ×, flip the DIVISOR — and verify by multiplying back.",
+      "outcomes": [
+        "Can divide fractions by inverting the divisor only",
+        "Can explain the reciprocal rule with a fitting-in picture and check answers by multiplication"
+      ],
+      "prereqs": [
+        "g7.num.fractions-decimals-ops.multiply-fractions"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Compute: 5/6 ÷ 2/3",
+        "options": [
+          {
+            "text": "5/4",
+            "correct": true
+          },
+          {
+            "text": "4/5",
+            "misconception": "m1"
+          },
+          {
+            "text": "5/9",
+            "diagnosis": "Multiplied by 2/3 without flipping anything."
+          },
+          {
+            "text": "9/5",
+            "diagnosis": "Inverted BOTH fractions before multiplying."
+          }
+        ],
+        "explanation": "Keep–change–flip: 5/6 ÷ 2/3 = 5/6 × 3/2 = 15/12 = 5/4. Only the DIVISOR is inverted. Check: 5/4 × 2/3 = 10/12 = 5/6 ✓. Flipping the dividend instead gives 6/5 × 2/3 = 4/5, which fails the check."
+      }
+    },
+    {
+      "id": "g7.num.fractions-decimals-ops.multiply-decimals",
+      "parent": "g7.num.fractions-decimals-ops",
+      "title": "Multiplying Decimals: Counting Decimal Places",
+      "description": "Route decimal products through fractions (0.3 × 0.2 = 3/10 × 2/10 = 6/100), then formalise: the product carries as many decimal places as both factors combined.",
+      "outcomes": [
+        "Can multiply decimals and place the point by counting places",
+        "Can catch place-value errors with an estimation check"
+      ],
+      "prereqs": [
+        "g7.num.fractions-decimals-ops.multiply-fractions",
+        "g6.num.decimals-ops"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Compute: 0.4 × 0.6",
+        "options": [
+          {
+            "text": "0.24",
+            "correct": true
+          },
+          {
+            "text": "2.4",
+            "misconception": "m4"
+          },
+          {
+            "text": "24",
+            "diagnosis": "Multiplied 4 × 6 and ignored both decimal points."
+          },
+          {
+            "text": "1.0",
+            "diagnosis": "Added the decimals instead of multiplying."
+          }
+        ],
+        "explanation": "4 × 6 = 24, and the factors have 1 + 1 = 2 decimal places between them, so the product has two: 0.24. Fraction check: 4/10 × 6/10 = 24/100. Sense check: 0.4 of 0.6 must be SMALLER than 0.6, ruling out 2.4."
+      }
+    },
+    {
+      "id": "g7.num.fractions-decimals-ops.divide-decimals",
+      "parent": "g7.num.fractions-decimals-ops",
+      "title": "Dividing Decimals",
+      "description": "Divide decimals by whole numbers, then by decimals by scaling both numbers by the same power of 10 until the divisor is whole.",
+      "outcomes": [
+        "Can divide a decimal by a whole number keeping the point aligned",
+        "Can divide by a decimal by shifting both points equally (3.6 ÷ 0.4 = 36 ÷ 4)"
+      ],
+      "prereqs": [
+        "g7.num.fractions-decimals-ops.multiply-decimals"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ]
+    },
+    {
+      "id": "g7.num.fractions-decimals-ops.predict-size",
+      "parent": "g7.num.fractions-decimals-ops",
+      "title": "Will the Answer Be Bigger or Smaller?",
+      "description": "Build the prediction habit: multiplying by a number less than 1 shrinks, dividing by a number less than 1 enlarges — overturning the primary-school instinct.",
+      "outcomes": [
+        "Can predict whether a product or quotient exceeds the starting number before computing",
+        "Can state the boundary role of 1 in both operations"
+      ],
+      "prereqs": [
+        "g7.num.fractions-decimals-ops.divide-by-fraction",
+        "g7.num.fractions-decimals-ops.multiply-decimals"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "WITHOUT computing exactly, which expression has a value GREATER than 60?",
+        "options": [
+          {
+            "text": "60 ÷ 0.9",
+            "correct": true
+          },
+          {
+            "text": "60 × 0.9",
+            "misconception": "m2"
+          },
+          {
+            "text": "60 × 0.75",
+            "diagnosis": "Multiplying by a number below 1 shrinks: this is 45."
+          },
+          {
+            "text": "60 ÷ 1.2",
+            "diagnosis": "Dividing by a number above 1 shrinks: this is 50."
+          }
+        ],
+        "explanation": "Dividing by 0.9 asks how many 0.9s fit in 60 — more than 60 of them (≈66.7). Multiplying by 0.9 takes nine-tenths OF 60, which is less (54). The instinct 'multiplication enlarges, division shrinks' only holds for numbers greater than 1."
+      }
+    },
+    {
+      "id": "g7.num.rational-numbers-intro.what-is-rational",
+      "parent": "g7.num.rational-numbers-intro",
+      "title": "What Counts as a Rational Number",
+      "description": "Define rationals as p/q with integers p, q and q ≠ 0, and show integers and terminating decimals joining the family via 5 = 5/1 and 0.7 = 7/10.",
+      "outcomes": [
+        "Can decide whether a given number is rational and write it as p/q",
+        "Can draw the nested-sets picture: integers inside rationals"
+      ],
+      "prereqs": [
+        "g6.num.fractions-ops",
+        "g6.num.integers-intro"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Which statement about the number 5 is true?",
+        "options": [
+          {
+            "text": "It is a rational number, because 5 = 5/1",
+            "correct": true
+          },
+          {
+            "text": "It is not rational, because it is not written as a fraction",
+            "misconception": "m3"
+          },
+          {
+            "text": "It is an integer, so it cannot also be rational",
+            "misconception": "m3"
+          },
+          {
+            "text": "It is rational only when written as 5.0",
+            "diagnosis": "How a number is WRITTEN doesn't change what it is; 5, 5.0 and 5/1 are the same number."
+          }
+        ],
+        "explanation": "A rational number is any number expressible as p/q with integers p, q and q ≠ 0. Since 5 = 5/1, it qualifies. Every integer is rational — the integers sit INSIDE the rational family, they are not excluded from it."
+      }
+    },
+    {
+      "id": "g7.num.rational-numbers-intro.standard-form",
+      "parent": "g7.num.rational-numbers-intro",
+      "title": "Standard Form: Where the Sign Lives",
+      "description": "Establish that −5/8, 5/−8 and −(5/8) are one number, and write rationals in standard form: sign in the numerator, positive denominator, lowest terms.",
+      "outcomes": [
+        "Can rewrite any rational with a positive denominator in lowest terms",
+        "Can recognise equivalent forms of the same negative rational"
+      ],
+      "prereqs": [
+        "g7.num.rational-numbers-intro.what-is-rational"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Write −8/−12 in standard form.",
+        "options": [
+          {
+            "text": "2/3",
+            "correct": true
+          },
+          {
+            "text": "−2/3",
+            "misconception": "m4"
+          },
+          {
+            "text": "4/−6",
+            "diagnosis": "Left a negative denominator and stopped short of lowest terms."
+          },
+          {
+            "text": "3/2",
+            "diagnosis": "Inverted the fraction while simplifying."
+          }
+        ],
+        "explanation": "Two negative signs cancel: −8/−12 = 8/12. Divide top and bottom by the HCF 4: 2/3. The number is POSITIVE — a negative over a negative is like (−8) ÷ (−12), and like signs give a positive quotient."
+      }
+    },
+    {
+      "id": "g7.num.rational-numbers-intro.number-line",
+      "parent": "g7.num.rational-numbers-intro",
+      "title": "Rationals on the Number Line",
+      "description": "Place positive and negative rationals by subdividing the gaps between integers, locating numbers like −3/4 between −1 and 0.",
+      "outcomes": [
+        "Can plot any rational number by subdividing unit intervals",
+        "Can read off the rational represented by a marked point"
+      ],
+      "prereqs": [
+        "g7.num.rational-numbers-intro.standard-form"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g7.num.rational-numbers-intro.compare-order",
+      "parent": "g7.num.rational-numbers-intro",
+      "title": "Comparing and Ordering Rationals",
+      "description": "Compare rationals via common denominators and the number line, mastering the reflection principle: comparing negatives reverses the comparison of their positives.",
+      "outcomes": [
+        "Can order a mixed list of positive and negative rationals",
+        "Can explain why −3/4 < −1/2 although 3/4 > 1/2"
+      ],
+      "prereqs": [
+        "g7.num.rational-numbers-intro.number-line"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which number is SMALLER: −2/3 or −1/3?",
+        "options": [
+          {
+            "text": "−2/3",
+            "correct": true
+          },
+          {
+            "text": "−1/3",
+            "misconception": "m1"
+          },
+          {
+            "text": "They are equal",
+            "diagnosis": "Different numerators over the same denominator are different numbers."
+          },
+          {
+            "text": "Negative fractions cannot be compared",
+            "diagnosis": "Every pair of rationals can be compared — the number line orders them all."
+          }
+        ],
+        "explanation": "On the number line −2/3 sits further LEFT than −1/3, so it is smaller. For negatives, bigger magnitude means a smaller number — the comparison of 2/3 > 1/3 gets REVERSED by the minus signs."
+      }
+    },
+    {
+      "id": "g7.num.rational-numbers-intro.between-rationals",
+      "parent": "g7.num.rational-numbers-intro",
+      "title": "Finding Rationals Between Rationals",
+      "description": "Use averaging and denominator enlargement (1/3 = 10/30, 1/2 = 15/30) to exhibit rationals between any two given ones — and see the supply never ends.",
+      "outcomes": [
+        "Can find several rationals between two given rationals",
+        "Can argue that infinitely many rationals lie between any two distinct rationals"
+      ],
+      "prereqs": [
+        "g7.num.rational-numbers-intro.compare-order"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "How many rational numbers lie between 1/4 and 1/2?",
+        "options": [
+          {
+            "text": "Infinitely many",
+            "correct": true
+          },
+          {
+            "text": "None — they are next to each other",
+            "misconception": "m2"
+          },
+          {
+            "text": "Exactly one — their average 3/8",
+            "misconception": "m2"
+          },
+          {
+            "text": "Only the ones with denominator up to 8",
+            "diagnosis": "Denominators can be as large as you like — 9/32, 100/399, ... keep appearing forever."
+          }
+        ],
+        "explanation": "The average 3/8 lies between them; then the average of 1/4 and 3/8 lies between THOSE; and so on without end. Rewriting as 8/32 and 16/32 already shows seven thirty-secondths strictly between — and finer denominators reveal ever more."
+      }
+    },
+    {
+      "id": "g7.num.comparing-quantities.fdp-conversions",
+      "parent": "g7.num.comparing-quantities",
+      "title": "Fractions, Decimals and Percents: One Family",
+      "description": "Convert fluently between the three notations — 3/5 = 0.6 = 60% — reading percent as 'per hundred' throughout.",
+      "outcomes": [
+        "Can convert any of fraction, decimal, percent into the other two",
+        "Can recall benchmark equivalents (1/2, 1/4, 3/4, 1/5, 1/10)"
+      ],
+      "prereqs": [
+        "g6.num.ratio-proportion",
+        "g6.num.decimals-ops"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.num.comparing-quantities.percent-of-quantity",
+      "parent": "g7.num.comparing-quantities",
+      "title": "Finding a Percent of a Quantity",
+      "description": "Compute p% of a quantity by translating the percent into a fraction EVERY time: 15% of 400 = 15/100 × 400 — the rate must act on the base.",
+      "outcomes": [
+        "Can find a given percent of a quantity",
+        "Can keep the rate (%) and the result (units) clearly separate"
+      ],
+      "prereqs": [
+        "g7.num.comparing-quantities.fdp-conversions",
+        "g7.num.fractions-decimals-ops.fraction-of-quantity"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Find 15% of 400.",
+        "options": [
+          {
+            "text": "60",
+            "correct": true
+          },
+          {
+            "text": "15",
+            "misconception": "m3"
+          },
+          {
+            "text": "6000",
+            "misconception": "m3"
+          },
+          {
+            "text": "385",
+            "diagnosis": "Subtracted 15 from 400 — treated the percent as an amount to remove."
+          }
+        ],
+        "explanation": "15% = 15/100, so 15% of 400 = (15 × 400)/100 = 60. Answering '15' repeats the rate without applying it; 6000 comes from 15 × 400 with the /100 dropped — off by exactly a factor of 100."
+      }
+    },
+    {
+      "id": "g7.num.comparing-quantities.express-as-percent",
+      "parent": "g7.num.comparing-quantities",
+      "title": "Expressing One Quantity as a Percent of Another",
+      "description": "Turn part/whole comparisons into percents to compare unlike bases fairly — 18 out of 25 versus 68 out of 100 — always asking 'percent OF WHAT?'.",
+      "outcomes": [
+        "Can express one quantity as a percentage of another",
+        "Can compare quantities with different bases by converting both to percents"
+      ],
+      "prereqs": [
+        "g7.num.comparing-quantities.percent-of-quantity"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "Ria scored 18 out of 25 in one test; Sam scored 68 out of 100 in another. Who did better?",
+        "options": [
+          {
+            "text": "Ria — her 18/25 is 72%, beating Sam's 68%",
+            "correct": true
+          },
+          {
+            "text": "Sam — 68 marks is more than 18 marks",
+            "misconception": "m1"
+          },
+          {
+            "text": "They did equally well",
+            "diagnosis": "72% ≠ 68%; equal raw gaps do not mean equal shares of different totals."
+          },
+          {
+            "text": "Scores from different tests can never be compared",
+            "diagnosis": "That is exactly what percentages are FOR — converting to the common base 100."
+          }
+        ],
+        "explanation": "Convert both to the base 100: 18/25 = 72/100 = 72%, while Sam has 68%. Comparing the raw marks 68 vs 18 ignores that the totals differ — percent-of-different-bases must be converted before comparing."
+      }
+    },
+    {
+      "id": "g7.num.comparing-quantities.percent-change",
+      "parent": "g7.num.comparing-quantities",
+      "title": "Percentage Increase and Decrease",
+      "description": "Compute percent change on the ORIGINAL value, and discover with ₹100 → ₹110 → ₹99 why an x% rise followed by an x% cut does not return home.",
+      "outcomes": [
+        "Can compute percentage increase or decrease of a quantity",
+        "Can explain why successive +10% and −10% changes do not cancel"
+      ],
+      "prereqs": [
+        "g7.num.comparing-quantities.express-as-percent"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m4"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A price of ₹200 is raised by 10%, and the new price is then reduced by 10%. What is the final price?",
+        "options": [
+          {
+            "text": "₹198",
+            "correct": true
+          },
+          {
+            "text": "₹200",
+            "misconception": "m4"
+          },
+          {
+            "text": "₹220",
+            "diagnosis": "Applied only the increase and stopped."
+          },
+          {
+            "text": "₹180",
+            "diagnosis": "Took both 10% amounts from the ORIGINAL ₹200; the cut acts on ₹220."
+          }
+        ],
+        "explanation": "₹200 + 10% = ₹220; then ₹220 − 10% of 220 = 220 − 22 = ₹198. The rise and cut use DIFFERENT bases (200, then 220), so they cannot cancel — you end ₹2 below the start."
+      }
+    },
+    {
+      "id": "g7.num.comparing-quantities.profit-loss",
+      "parent": "g7.num.comparing-quantities",
+      "title": "Profit and Loss Percent on the Cost Price",
+      "description": "Compute profit or loss in rupees and as a percent whose base is always the COST price — the money originally invested.",
+      "outcomes": [
+        "Can compute profit/loss and profit/loss percent from CP and SP",
+        "Can find SP given CP and a profit percent (and vice versa in simple cases)"
+      ],
+      "prereqs": [
+        "g7.num.comparing-quantities.percent-of-quantity"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A shopkeeper buys a lamp for ₹250 (CP) and sells it for ₹300 (SP). What is the profit percent?",
+        "options": [
+          {
+            "text": "20%",
+            "correct": true
+          },
+          {
+            "text": "About 16.7%",
+            "misconception": "m2"
+          },
+          {
+            "text": "50%",
+            "diagnosis": "Reported the rupee profit (₹50) with a percent sign attached."
+          },
+          {
+            "text": "120%",
+            "diagnosis": "Computed SP as a percent of CP but forgot to subtract the original 100%."
+          }
+        ],
+        "explanation": "Profit = 300 − 250 = ₹50. Profit% = 50/250 × 100 = 20%. Dividing by the selling price (50/300 ≈ 16.7%) uses the wrong base — profit percent measures how much the money INVESTED grew, so the base is CP."
+      }
+    },
+    {
+      "id": "g7.num.comparing-quantities.simple-interest",
+      "parent": "g7.num.comparing-quantities",
+      "title": "Simple Interest and the Amount",
+      "description": "Use SI = P × R × T / 100 for deposits and loans, keeping interest and the final amount (principal + interest) clearly distinct.",
+      "outcomes": [
+        "Can compute simple interest given principal, rate and time",
+        "Can find the amount and solve for one missing quantity in the formula"
+      ],
+      "prereqs": [
+        "g7.num.comparing-quantities.percent-of-quantity"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.num.exponents-intro.power-notation",
+      "parent": "g7.num.exponents-intro",
+      "title": "Reading and Writing Powers",
+      "description": "Read a^n as 'a used as a factor n times', evaluating small powers and contrasting 2³ = 8 with 2 × 3 = 6 until the two never blur.",
+      "outcomes": [
+        "Can evaluate powers with whole-number bases and exponents",
+        "Can express a repeated product in exponential form and identify base and exponent"
+      ],
+      "prereqs": [
+        "g6.num.whole-numbers"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "What is 3⁴?",
+        "options": [
+          {
+            "text": "81",
+            "correct": true
+          },
+          {
+            "text": "12",
+            "misconception": "m2"
+          },
+          {
+            "text": "64",
+            "diagnosis": "Swapped base and exponent: computed 4³."
+          },
+          {
+            "text": "7",
+            "diagnosis": "Added base and exponent."
+          }
+        ],
+        "explanation": "3⁴ means 3 × 3 × 3 × 3 = 81 — the base 3 used as a factor four times. It is NOT 3 × 4 = 12; compare 10² = 100 with 10 × 2 = 20 to feel how different the two are."
+      }
+    },
+    {
+      "id": "g7.num.exponents-intro.negative-base-powers",
+      "parent": "g7.num.exponents-intro",
+      "title": "Powers of Negative Bases",
+      "description": "Track the sign of (−a)^n through the sign rules: even exponents give positive results, odd exponents keep the minus — and (−2)⁴ differs from −2⁴.",
+      "outcomes": [
+        "Can evaluate powers of negative integers",
+        "Can predict the sign of (−a)^n from the parity of n"
+      ],
+      "prereqs": [
+        "g7.num.exponents-intro.power-notation",
+        "g7.num.integers-ops.mult-neg-neg"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g7.num.exponents-intro.product-law",
+      "parent": "g7.num.exponents-intro",
+      "title": "Product Law: Add the Exponents",
+      "description": "Derive a^m × a^n = a^(m+n) by expanding both powers into factors at least once, so the shortcut is earned rather than memorised.",
+      "outcomes": [
+        "Can simplify products of same-base powers by adding exponents",
+        "Can justify the law by expansion and spot when it does NOT apply (different bases)"
+      ],
+      "prereqs": [
+        "g7.num.exponents-intro.power-notation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Simplify: 5³ × 5⁴",
+        "options": [
+          {
+            "text": "5⁷",
+            "correct": true
+          },
+          {
+            "text": "5¹²",
+            "misconception": "m1"
+          },
+          {
+            "text": "25⁷",
+            "diagnosis": "Multiplied the bases as well; with the same base, the base stays put."
+          },
+          {
+            "text": "25¹²",
+            "misconception": "m1"
+          }
+        ],
+        "explanation": "5³ × 5⁴ = (5·5·5) × (5·5·5·5) = seven 5s multiplied = 5⁷. Multiplying same-base powers ADDS the exponents (3 + 4 = 7); multiplying them (3 × 4 = 12) counts factors that are not there."
+      }
+    },
+    {
+      "id": "g7.num.exponents-intro.quotient-law-zero-exponent",
+      "parent": "g7.num.exponents-intro",
+      "title": "Quotient Law and Why a⁰ = 1",
+      "description": "Derive a^m ÷ a^n = a^(m−n) by cancelling factors, then walk the ladder 7³, 7², 7¹, 7⁰ — each step divides by 7 — to land on a⁰ = 1.",
+      "outcomes": [
+        "Can simplify quotients of same-base powers by subtracting exponents",
+        "Can explain via the ladder or quotient law why a⁰ = 1 for a ≠ 0"
+      ],
+      "prereqs": [
+        "g7.num.exponents-intro.product-law"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "What is 9⁰?",
+        "options": [
+          {
+            "text": "1",
+            "correct": true
+          },
+          {
+            "text": "0",
+            "misconception": "m3"
+          },
+          {
+            "text": "9",
+            "misconception": "m3"
+          },
+          {
+            "text": "90",
+            "diagnosis": "Glued the digits together — the exponent is not a digit to append."
+          }
+        ],
+        "explanation": "Walk down: 9² = 81, 9¹ = 9, and each step divides by 9 — so 9⁰ = 9/9 = 1. Or use the quotient law: 9² ÷ 9² = 9⁰, and any number divided by itself is 1."
+      }
+    },
+    {
+      "id": "g7.num.exponents-intro.power-of-a-power",
+      "parent": "g7.num.exponents-intro",
+      "title": "Power of a Power and Power of a Product",
+      "description": "Establish (a^m)^n = a^(mn) and (ab)^m = a^m b^m by expansion, completing the toolkit of exponent laws.",
+      "outcomes": [
+        "Can simplify expressions like (2³)² and (3 × 5)²",
+        "Can choose the correct law when several could apply"
+      ],
+      "prereqs": [
+        "g7.num.exponents-intro.product-law"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g7.num.exponents-intro.standard-form-large",
+      "parent": "g7.num.exponents-intro",
+      "title": "Standard Form for Large Numbers",
+      "description": "Write large numbers as k × 10^n with 1 ≤ k < 10, choosing the power by counting DECIMAL SHIFTS from after the leading digit — not by counting zeros.",
+      "outcomes": [
+        "Can express large numbers in standard form and convert back",
+        "Can compare magnitudes of numbers given in standard form"
+      ],
+      "prereqs": [
+        "g7.num.exponents-intro.power-notation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Write 5,600,000 in standard form.",
+        "options": [
+          {
+            "text": "5.6 × 10⁶",
+            "correct": true
+          },
+          {
+            "text": "5.6 × 10⁵",
+            "misconception": "m4"
+          },
+          {
+            "text": "56 × 10⁵",
+            "diagnosis": "Equal in value, but standard form needs the first factor at least 1 and less than 10."
+          },
+          {
+            "text": "5.6 × 10⁷",
+            "diagnosis": "Off by one: counted all seven digits instead of the six decimal shifts."
+          }
+        ],
+        "explanation": "Place the point after the leading digit: 5.6. The point must move 6 places to restore 5,600,000, so the power is 10⁶. Counting only the five zeros undercounts — the 6 after the 5 also gets crossed by the moving point."
+      }
+    },
+    {
+      "id": "g7.alg.simple-equations.what-an-equation-says",
+      "parent": "g7.alg.simple-equations",
+      "title": "What an Equation Says",
+      "description": "Read '=' as 'both sides weigh the same' — a statement, not an instruction to compute — using equations written in every orientation, including 12 = x + 5.",
+      "outcomes": [
+        "Can state what an equation claims and identify its two sides",
+        "Can decide whether a given value makes an equation true or false"
+      ],
+      "prereqs": [
+        "g6.alg.intro-algebra"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "What does the equation 12 = x + 5 tell us?",
+        "options": [
+          {
+            "text": "That x + 5 and 12 are the same value — so x must be 7",
+            "correct": true
+          },
+          {
+            "text": "That x is 12, since 12 is the answer written first",
+            "misconception": "m3"
+          },
+          {
+            "text": "That the equation is written backwards and has no solution",
+            "misconception": "m3"
+          },
+          {
+            "text": "That x is 17",
+            "diagnosis": "Added 5 to 12 instead of asking what plus 5 gives 12."
+          }
+        ],
+        "explanation": "'=' declares that the two sides balance; it does not announce a result. 12 = x + 5 and x + 5 = 12 say exactly the same thing, and the value keeping the balance is x = 7 (since 7 + 5 = 12)."
+      }
+    },
+    {
+      "id": "g7.alg.simple-equations.balance-model",
+      "parent": "g7.alg.simple-equations",
+      "title": "The Balance Model: Same Move on Both Sides",
+      "description": "Use a pan balance (drawn or physical) to see that adding, subtracting, multiplying or dividing must hit BOTH sides, or the equation tips into falsehood.",
+      "outcomes": [
+        "Can perform the same operation on both sides and keep the equation true",
+        "Can spot and explain the error when an operation touches only one side"
+      ],
+      "prereqs": [
+        "g7.alg.simple-equations.what-an-equation-says"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "To solve x/4 = 3, which move is correct?",
+        "options": [
+          {
+            "text": "Multiply BOTH sides by 4, giving x = 12",
+            "correct": true
+          },
+          {
+            "text": "Multiply only the left side by 4, giving x = 3",
+            "misconception": "m2"
+          },
+          {
+            "text": "Divide both sides by 4, giving x = 3/4",
+            "diagnosis": "Chose the SAME operation instead of the inverse — dividing again buries x deeper."
+          },
+          {
+            "text": "Subtract 4 from both sides, giving x = −1",
+            "diagnosis": "Treated the ÷4 as a +4; the inverse of dividing is multiplying."
+          }
+        ],
+        "explanation": "x is divided by 4, so undo it by multiplying — but on BOTH sides: x/4 × 4 = 3 × 4 gives x = 12. Check: 12/4 = 3 ✓. Multiplying one side only changes what the equation says and breaks the balance."
+      }
+    },
+    {
+      "id": "g7.alg.simple-equations.solve-by-inverse-ops",
+      "parent": "g7.alg.simple-equations",
+      "title": "Solving by Inverse Operations",
+      "description": "Solve one- and two-step equations like 3x + 4 = 19 by peeling operations off in reverse order, deriving 'transposition' honestly from both-sides moves.",
+      "outcomes": [
+        "Can solve two-step linear equations including negative solutions",
+        "Can narrate each transposition as its underlying both-sides operation"
+      ],
+      "prereqs": [
+        "g7.alg.simple-equations.balance-model",
+        "g6.num.integers-intro"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Solve: 3x + 4 = 19",
+        "options": [
+          {
+            "text": "x = 5",
+            "correct": true
+          },
+          {
+            "text": "x = 23/3",
+            "misconception": "m1"
+          },
+          {
+            "text": "x = 45",
+            "diagnosis": "Reached 3x = 15 but then multiplied by 3 instead of dividing."
+          },
+          {
+            "text": "x = 15",
+            "diagnosis": "Stopped at 3x = 15 and reported it as x."
+          }
+        ],
+        "explanation": "Subtract 4 from both sides: 3x = 15. Divide both sides by 3: x = 5. Check: 3(5) + 4 = 19 ✓. Moving the +4 across WITHOUT flipping it to −4 gives 3x = 23 and the wrong x = 23/3 — the check exposes it."
+      }
+    },
+    {
+      "id": "g7.alg.simple-equations.check-your-solution",
+      "parent": "g7.alg.simple-equations",
+      "title": "Check Your Solution by Substitution",
+      "description": "Make substitution the mandatory last step of every solve: put the value back into the ORIGINAL equation and record a ✓ or ✗ — a failed check locates the wrong move.",
+      "outcomes": [
+        "Can verify a proposed solution by substituting into the original equation",
+        "Can use a failed check to hunt down the erroneous step"
+      ],
+      "prereqs": [
+        "g7.alg.simple-equations.solve-by-inverse-ops"
+      ],
+      "est_minutes": 10,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A student claims x = 4 solves 5x − 3 = 12. Is the claim right?",
+        "options": [
+          {
+            "text": "No — substituting gives 5(4) − 3 = 17 ≠ 12; the real solution is x = 3",
+            "correct": true
+          },
+          {
+            "text": "Yes — the working looked correct, so there is no need to check",
+            "misconception": "m4"
+          },
+          {
+            "text": "No — because 5(4) = 9, so the left side is 6",
+            "diagnosis": "Added 5 and 4 instead of multiplying; the check itself must be computed correctly."
+          },
+          {
+            "text": "It cannot be judged without re-solving the whole equation",
+            "diagnosis": "Substitution alone settles it — that is the power of checking."
+          }
+        ],
+        "explanation": "Substitute: 5(4) − 3 = 20 − 3 = 17, not 12, so x = 4 fails. Solving properly: 5x = 15, x = 3, and 5(3) − 3 = 12 ✓. A ten-second substitution catches errors that neat-looking working hides."
+      }
+    },
+    {
+      "id": "g7.alg.simple-equations.variable-both-sides-intro",
+      "parent": "g7.alg.simple-equations",
+      "title": "First Steps with the Variable on Both Sides",
+      "description": "Solve equations like 5x = 2x + 9 by collecting the variable terms on one side with balance moves — a gentle preview of the Class 8 staple.",
+      "outcomes": [
+        "Can solve simple equations with the variable appearing on both sides",
+        "Can decide which side to collect variable terms on and why"
+      ],
+      "prereqs": [
+        "g7.alg.simple-equations.solve-by-inverse-ops"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "id": "g7.alg.simple-equations.from-words-to-equations",
+      "parent": "g7.alg.simple-equations",
+      "title": "From Words to Equations",
+      "description": "Translate word problems — fares, recharges, consecutive numbers — into equations: name the unknown, encode the relationships, solve, and answer the question actually asked.",
+      "outcomes": [
+        "Can set up a linear equation from a word problem",
+        "Can solve it and interpret the solution back in context"
+      ],
+      "prereqs": [
+        "g7.alg.simple-equations.check-your-solution"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "When 7 is added to twice a number, the result is 25. What is the number?",
+        "options": [
+          {
+            "text": "9",
+            "correct": true
+          },
+          {
+            "text": "16",
+            "misconception": "m1"
+          },
+          {
+            "text": "18",
+            "diagnosis": "Stopped at 2x = 18 without dividing by 2."
+          },
+          {
+            "text": "12.5",
+            "diagnosis": "Divided 25 by 2 before subtracting the 7 — inverse operations applied in the wrong order."
+          }
+        ],
+        "explanation": "The equation is 2x + 7 = 25. Subtract 7: 2x = 18; divide by 2: x = 9. Check: 2(9) + 7 = 25 ✓. Transposing +7 without flipping gives 2x = 32 and x = 16 — but 2(16) + 7 = 39, so the check rejects it."
+      }
+    },
+    {
+      "id": "g7.alg.expressions.terms-factors-coefficients",
+      "parent": "g7.alg.expressions",
+      "title": "Terms, Factors and Coefficients",
+      "description": "Take expressions apart with tree diagrams: terms are joined by + and −, each term is a product of factors, and the numerical factor is the coefficient — including the invisible 1 in x and −1 in −x.",
+      "outcomes": [
+        "Can list the terms and factors of an expression",
+        "Can state the coefficient of any term, including lone and negated variables"
+      ],
+      "prereqs": [
+        "g6.alg.intro-algebra"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "What is the coefficient of x in the expression x + 5?",
+        "options": [
+          {
+            "text": "1",
+            "correct": true
+          },
+          {
+            "text": "0",
+            "misconception": "m4"
+          },
+          {
+            "text": "5",
+            "diagnosis": "Picked the constant term; the coefficient multiplies the variable."
+          },
+          {
+            "text": "x has no coefficient",
+            "misconception": "m4"
+          }
+        ],
+        "explanation": "x means 1·x, so its coefficient is 1 — invisible but present. Writing the hidden 1 (and the hidden −1 in −x) explicitly is what makes combining like terms reliable later."
+      }
+    },
+    {
+      "id": "g7.alg.expressions.classify-expressions",
+      "parent": "g7.alg.expressions",
+      "title": "Monomials, Binomials, Trinomials",
+      "description": "Classify expressions by their number of (unlike) terms, first simplifying so that disguised like terms don't inflate the count.",
+      "outcomes": [
+        "Can classify expressions as monomial, binomial or trinomial",
+        "Can explain why 3x + 2x is a monomial in disguise"
+      ],
+      "prereqs": [
+        "g7.alg.expressions.terms-factors-coefficients"
+      ],
+      "est_minutes": 10,
+      "difficulty": 1
+    },
+    {
+      "id": "g7.alg.expressions.like-terms",
+      "parent": "g7.alg.expressions",
+      "title": "Like Terms and How to Combine Them",
+      "description": "Sort terms into bins by their EXACT variable part and add coefficients within a bin — verifying with number substitution that unlike terms refuse to merge.",
+      "outcomes": [
+        "Can identify like terms among terms with several variables and powers",
+        "Can combine like terms and leave unlike terms alone"
+      ],
+      "prereqs": [
+        "g7.alg.expressions.terms-factors-coefficients"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Simplify: 4x + 3y",
+        "options": [
+          {
+            "text": "It cannot be simplified further",
+            "correct": true
+          },
+          {
+            "text": "7xy",
+            "misconception": "m1"
+          },
+          {
+            "text": "7x",
+            "diagnosis": "Added the coefficients and dropped the y — the terms have different variables."
+          },
+          {
+            "text": "12xy",
+            "diagnosis": "Multiplied the coefficients as well as gluing the variables."
+          }
+        ],
+        "explanation": "4x and 3y are UNLIKE terms — different variable parts — so they cannot merge. Test with x = 2, y = 3: 4x + 3y = 17 but 7xy = 42. Like '4 samosas + 3 teas', the sum stays as two separate counts."
+      }
+    },
+    {
+      "id": "g7.alg.expressions.add-expressions",
+      "parent": "g7.alg.expressions",
+      "title": "Adding Algebraic Expressions",
+      "description": "Add whole expressions by regrouping like terms, horizontally and in columns, keeping every sign attached to its term.",
+      "outcomes": [
+        "Can add two or three expressions and simplify the result",
+        "Can verify an addition by substituting a test value"
+      ],
+      "prereqs": [
+        "g7.alg.expressions.like-terms"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g7.alg.expressions.subtract-expressions",
+      "parent": "g7.alg.expressions",
+      "title": "Subtracting Expressions: The Minus Reaches Every Term",
+      "description": "Rewrite subtraction as adding (−1) × (bracket) and distribute the −1 to EVERY term with drawn arrows, then combine like terms.",
+      "outcomes": [
+        "Can subtract one expression from another, flipping every sign in the subtrahend",
+        "Can check the result numerically"
+      ],
+      "prereqs": [
+        "g7.alg.expressions.add-expressions"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Simplify: (5x + 2y) − (3x − 4y)",
+        "options": [
+          {
+            "text": "2x + 6y",
+            "correct": true
+          },
+          {
+            "text": "2x − 2y",
+            "misconception": "m2"
+          },
+          {
+            "text": "−2x − 6y",
+            "diagnosis": "Subtracted the first expression from the second — order reversed."
+          },
+          {
+            "text": "8x − 2y",
+            "diagnosis": "Added the two brackets instead of subtracting."
+          }
+        ],
+        "explanation": "Distribute the minus over BOTH terms of the second bracket: 5x + 2y − 3x + 4y. Combine: (5x − 3x) + (2y + 4y) = 2x + 6y. Leaving −4y unflipped gives 2x − 2y — the classic first-term-only slip."
+      }
+    },
+    {
+      "id": "g7.alg.expressions.evaluate-expressions",
+      "parent": "g7.alg.expressions",
+      "title": "Evaluating Expressions, Including Negative Values",
+      "description": "Substitute values with bracket discipline — always (−2)², never bare −2² — and evaluate expressions used in perimeter and pattern formulas.",
+      "outcomes": [
+        "Can evaluate an expression at given positive and negative values",
+        "Can distinguish (−2)² from −(2²) and compute each correctly"
+      ],
+      "prereqs": [
+        "g7.alg.expressions.like-terms",
+        "g7.num.integers-ops.mult-neg-neg"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Evaluate x² − 3x when x = −2.",
+        "options": [
+          {
+            "text": "10",
+            "correct": true
+          },
+          {
+            "text": "2",
+            "misconception": "m3"
+          },
+          {
+            "text": "−2",
+            "diagnosis": "Computed −3 × (−2) as −6 instead of +6 — a sign slip in the second term."
+          },
+          {
+            "text": "−10",
+            "misconception": "m3"
+          }
+        ],
+        "explanation": "Substitute with brackets: (−2)² − 3(−2) = 4 + 6 = 10. The trap is (−2)² = +4: squaring a negative gives a positive. Treating it as −4 yields 2 (or −10 with a second slip) — bracket discipline prevents both."
+      }
+    },
+    {
+      "id": "g7.geo.lines-angles.complementary-supplementary",
+      "parent": "g7.geo.lines-angles",
+      "title": "Complementary and Supplementary Angles",
+      "description": "Find partners to 90° (Corner) and 180° (Straight), anchoring which word goes with which number so the two never swap.",
+      "outcomes": [
+        "Can compute the complement and supplement of a given angle",
+        "Can classify a pair of angles as complementary, supplementary or neither"
+      ],
+      "prereqs": [
+        "g5.geo.angles-intro",
+        "g6.geo.elementary-shapes"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "What is the supplement of 60°?",
+        "options": [
+          {
+            "text": "120°",
+            "correct": true
+          },
+          {
+            "text": "30°",
+            "misconception": "m1"
+          },
+          {
+            "text": "300°",
+            "diagnosis": "Subtracted from 360° — a full turn, not a straight line."
+          },
+          {
+            "text": "60°",
+            "diagnosis": "Thought 'supplement' means an equal partner angle."
+          }
+        ],
+        "explanation": "Supplementary angles sum to 180° (Straight line): 180 − 60 = 120°. The 30° answer is the COMPLEMENT (to 90°, a Corner) — C before S, just as 90 comes before 180."
+      }
+    },
+    {
+      "id": "g7.geo.lines-angles.adjacent-linear-pair",
+      "parent": "g7.geo.lines-angles",
+      "title": "Adjacent Angles and Linear Pairs",
+      "description": "Identify adjacent angles (common arm, common vertex, no overlap) and see that a linear pair — adjacent angles on a straight line — always totals 180°.",
+      "outcomes": [
+        "Can identify adjacent angles and linear pairs in a figure",
+        "Can find the missing angle of a linear pair"
+      ],
+      "prereqs": [
+        "g7.geo.lines-angles.complementary-supplementary"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g7.geo.lines-angles.vertically-opposite",
+      "parent": "g7.geo.lines-angles",
+      "title": "Vertically Opposite Angles Are Equal",
+      "description": "At any crossing of two lines, rotate a traced copy 180° to see opposite angles coincide — EQUAL, while the adjacent pairs are the ones summing to 180°.",
+      "outcomes": [
+        "Can find all four angles at a crossing from any one of them",
+        "Can justify why vertically opposite angles are equal using linear pairs"
+      ],
+      "prereqs": [
+        "g7.geo.lines-angles.adjacent-linear-pair"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Two lines intersect and one of the angles formed is 40°. What is the angle vertically opposite to it?",
+        "options": [
+          {
+            "text": "40°",
+            "correct": true
+          },
+          {
+            "text": "140°",
+            "misconception": "m2"
+          },
+          {
+            "text": "50°",
+            "misconception": "m1"
+          },
+          {
+            "text": "320°",
+            "diagnosis": "Subtracted from 360° — the four angles together make 360°, but the opposite one alone doesn't."
+          }
+        ],
+        "explanation": "Vertically opposite angles are always EQUAL: 40°. The two angles ADJACENT to it are its supplements, 140° each — that is where the 140° answer belongs. (And 50° is the complement, a 90° idea that has no role at a plain crossing.)"
+      }
+    },
+    {
+      "id": "g7.geo.lines-angles.transversal-angle-pairs",
+      "parent": "g7.geo.lines-angles",
+      "title": "Naming Angle Pairs at a Transversal",
+      "description": "When a transversal cuts two lines, learn to NAME the eight angles' relationships — corresponding (F), alternate (Z), co-interior (C/U) — before any equality rules are invoked.",
+      "outcomes": [
+        "Can identify corresponding, alternate interior/exterior and co-interior pairs",
+        "Can locate a named pair in any orientation of the figure"
+      ],
+      "prereqs": [
+        "g7.geo.lines-angles.vertically-opposite"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.geo.lines-angles.parallel-angle-rules",
+      "parent": "g7.geo.lines-angles",
+      "title": "Angle Rules for Parallel Lines",
+      "description": "With parallel lines, corresponding and alternate angles are EQUAL while co-interior angles are SUPPLEMENTARY — sorted physically with tracing-paper slides and half-turns.",
+      "outcomes": [
+        "Can compute every angle at a transversal of parallel lines from one given angle",
+        "Can justify each step by naming the pair and its rule"
+      ],
+      "prereqs": [
+        "g7.geo.lines-angles.transversal-angle-pairs"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A transversal cuts two parallel lines. One of a pair of CO-INTERIOR angles is 40°. What is the other?",
+        "options": [
+          {
+            "text": "140°",
+            "correct": true
+          },
+          {
+            "text": "40°",
+            "misconception": "m3"
+          },
+          {
+            "text": "50°",
+            "misconception": "m1"
+          },
+          {
+            "text": "320°",
+            "diagnosis": "Subtracted from 360°; co-interior angles complete a straight 180°, not a full turn."
+          }
+        ],
+        "explanation": "Co-interior (allied) angles between parallel lines are SUPPLEMENTARY: 180 − 40 = 140°. It is the corresponding and alternate pairs that are equal — the co-interior pair instead forms the 'C/U' shape summing to 180°."
+      }
+    },
+    {
+      "id": "g7.geo.lines-angles.are-lines-parallel",
+      "parent": "g7.geo.lines-angles",
+      "title": "Are These Lines Parallel? Rules Need a Licence",
+      "description": "Use the converses — equal corresponding/alternate angles, or supplementary co-interior angles, certify parallelism — and never apply parallel-line rules without first stating which lines are parallel and why.",
+      "outcomes": [
+        "Can test whether two lines are parallel from measured transversal angles",
+        "Can reject a rule application when the parallel condition is unverified"
+      ],
+      "prereqs": [
+        "g7.geo.lines-angles.parallel-angle-rules"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A transversal makes alternate angles of 60° and 70° with lines l and m. What can you conclude?",
+        "options": [
+          {
+            "text": "l and m are NOT parallel — alternate angles of parallel lines would be equal",
+            "correct": true
+          },
+          {
+            "text": "l and m are parallel, because alternate angles are always equal",
+            "misconception": "m4"
+          },
+          {
+            "text": "l and m are parallel, because 60 + 70 is less than 180",
+            "diagnosis": "Garbled test: co-interior angles must sum to EXACTLY 180°, and these aren't co-interior anyway."
+          },
+          {
+            "text": "Nothing can be concluded from just two angles",
+            "diagnosis": "Unequal alternate angles DO settle it — the equality test fails, so the lines are not parallel."
+          }
+        ],
+        "explanation": "The rule 'alternate angles are equal' holds ONLY for parallel lines — it is a property with a licence condition. Since 60° ≠ 70°, the licence is refused: these lines must meet somewhere. The rules never apply to arbitrary crossing lines."
+      }
+    },
+    {
+      "id": "g7.geo.triangle-properties.medians-altitudes",
+      "parent": "g7.geo.triangle-properties",
+      "title": "Medians and Altitudes of a Triangle",
+      "description": "Meet the triangle's internal lines: a median joins a vertex to the midpoint of the opposite side; an altitude drops perpendicularly from a vertex — sometimes landing outside the triangle.",
+      "outcomes": [
+        "Can draw the three medians and three altitudes of a triangle",
+        "Can explain when an altitude falls outside the triangle"
+      ],
+      "prereqs": [
+        "g6.geo.elementary-shapes"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g7.geo.triangle-properties.angle-sum",
+      "parent": "g7.geo.triangle-properties",
+      "title": "The Angle Sum Is 180°",
+      "description": "Tear the corners off paper triangles and line them up along a ruler edge — a straight 180°, never a full turn — then compute unknown angles with the property.",
+      "outcomes": [
+        "Can find the third angle of a triangle from the other two",
+        "Can solve angle problems combining the angle sum with linear pairs"
+      ],
+      "prereqs": [
+        "g7.geo.triangle-properties.medians-altitudes",
+        "g7.geo.lines-angles.parallel-angle-rules"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Two angles of a triangle are 55° and 65°. What is the third angle?",
+        "options": [
+          {
+            "text": "60°",
+            "correct": true
+          },
+          {
+            "text": "240°",
+            "misconception": "m1"
+          },
+          {
+            "text": "120°",
+            "diagnosis": "Added the two given angles but never subtracted from 180°."
+          },
+          {
+            "text": "90°",
+            "diagnosis": "Assumed the triangle must be right-angled — nothing in the data says so."
+          }
+        ],
+        "explanation": "Angles of a triangle sum to 180°: 180 − (55 + 65) = 60°. Using 360° gives the impossible 240° — 360° belongs to quadrilaterals and full turns, not triangles."
+      }
+    },
+    {
+      "id": "g7.geo.triangle-properties.exterior-angle",
+      "parent": "g7.geo.triangle-properties",
+      "title": "The Exterior Angle Property",
+      "description": "Extend one side and colour-code the two REMOTE interior angles: the exterior angle equals their sum, provable two ways via the angle sum and the straight line.",
+      "outcomes": [
+        "Can compute an exterior angle from the two remote interior angles",
+        "Can find a remote interior angle given the exterior angle"
+      ],
+      "prereqs": [
+        "g7.geo.triangle-properties.angle-sum"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In a triangle, the two interior angles remote from an exterior angle measure 35° and 45°. What is the exterior angle?",
+        "options": [
+          {
+            "text": "80°",
+            "correct": true
+          },
+          {
+            "text": "100°",
+            "misconception": "m2"
+          },
+          {
+            "text": "10°",
+            "diagnosis": "Subtracted the remote angles instead of adding them."
+          },
+          {
+            "text": "145°",
+            "diagnosis": "Subtracted only 35° from 180° — used one remote angle as if it were the adjacent one."
+          }
+        ],
+        "explanation": "Exterior angle = sum of the two REMOTE interior angles = 35 + 45 = 80°. The angle of 100° is the ADJACENT interior angle (180 − 80) — the neighbour on the straight line, not the exterior angle's value."
+      }
+    },
+    {
+      "id": "g7.geo.triangle-properties.isosceles-equilateral",
+      "parent": "g7.geo.triangle-properties",
+      "title": "Isosceles and Equilateral Triangle Angles",
+      "description": "Use 'angles opposite equal sides are equal' to solve isosceles and equilateral angle problems, combining it with the angle-sum property.",
+      "outcomes": [
+        "Can find base angles of an isosceles triangle from the apex angle and vice versa",
+        "Can justify why every equilateral triangle has three 60° angles"
+      ],
+      "prereqs": [
+        "g7.geo.triangle-properties.angle-sum"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g7.geo.triangle-properties.triangle-inequality",
+      "parent": "g7.geo.triangle-properties",
+      "title": "The Triangle Inequality",
+      "description": "Fail to close a triangle with sticks of lengths 3, 4 and 8, then formulate the rule from the experience: each side must be less than the sum of the other two.",
+      "outcomes": [
+        "Can test whether three lengths can form a triangle",
+        "Can find the possible range for a third side given two sides"
+      ],
+      "prereqs": [
+        "g7.geo.triangle-properties.medians-altitudes"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Can the lengths 5 cm, 6 cm and 12 cm form a triangle?",
+        "options": [
+          {
+            "text": "No — 5 + 6 = 11 < 12, so the two shorter sides cannot reach across the longest",
+            "correct": true
+          },
+          {
+            "text": "Yes — any three lengths can form a triangle",
+            "misconception": "m4"
+          },
+          {
+            "text": "Yes — because 5 + 6 + 12 = 23 is bigger than 12",
+            "diagnosis": "Garbled test: compare the sum of TWO sides with the third, not the total with one side."
+          },
+          {
+            "text": "No — because a triangle's sides must all be within 3 cm of each other",
+            "diagnosis": "Invented rule; the real test is the triangle inequality."
+          }
+        ],
+        "explanation": "Each side must be shorter than the sum of the other two. Here 5 + 6 = 11 < 12, so the sides cannot close — sticks of these lengths physically fail to make a triangle."
+      }
+    },
+    {
+      "id": "g7.geo.triangle-properties.pythagoras-intro",
+      "parent": "g7.geo.triangle-properties",
+      "title": "The Pythagoras Property of Right Triangles",
+      "description": "In RIGHT triangles only, the square on the hypotenuse equals the sum of the squares on the legs — used to find missing sides and to test for right angles.",
+      "outcomes": [
+        "Can find a missing side of a right triangle in simple whole-number cases",
+        "Can use the converse to check whether a triangle is right-angled"
+      ],
+      "prereqs": [
+        "g7.geo.triangle-properties.angle-sum",
+        "g7.geo.triangle-properties.triangle-inequality"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A triangle has sides 5, 12 and 13. Is it right-angled?",
+        "options": [
+          {
+            "text": "Yes — 5² + 12² = 25 + 144 = 169 = 13², so the angle opposite the 13-side is right",
+            "correct": true
+          },
+          {
+            "text": "Every triangle satisfies a² + b² = c², so the check proves nothing",
+            "misconception": "m3"
+          },
+          {
+            "text": "No — Pythagoras only relates lengths and can say nothing about angles",
+            "diagnosis": "The CONVERSE of Pythagoras is exactly an angle test: if the squares balance, the angle is right."
+          },
+          {
+            "text": "It cannot be decided without measuring an angle with a protractor",
+            "diagnosis": "The numerical check settles it — that is the power of the converse."
+          }
+        ],
+        "explanation": "Since 5² + 12² = 169 = 13², the converse of the Pythagoras property guarantees a right angle opposite the longest side. The relation is special to right triangles — acute and obtuse triangles fail it in opposite directions."
+      }
+    },
+    {
+      "id": "g7.geo.congruence.congruence-meaning",
+      "parent": "g7.geo.congruence",
+      "title": "What Congruence Means",
+      "description": "Two figures are congruent when one superposes exactly on the other — same shape AND size — which is stronger than merely having equal areas or looking alike.",
+      "outcomes": [
+        "Can decide congruence of simple figures by superposition reasoning",
+        "Can give examples of equal-area figures that are not congruent"
+      ],
+      "prereqs": [
+        "g6.geo.elementary-shapes"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A 2 cm × 6 cm rectangle and a 3 cm × 4 cm rectangle both have area 12 cm². Are they congruent?",
+        "options": [
+          {
+            "text": "No — laid on top of each other they do not coincide",
+            "correct": true
+          },
+          {
+            "text": "Yes — equal areas make figures congruent",
+            "misconception": "m3"
+          },
+          {
+            "text": "Yes — both are rectangles, so they have the same shape",
+            "diagnosis": "'Rectangle' is a family, not a single shape; their proportions differ."
+          },
+          {
+            "text": "No — two rectangles can never be congruent to each other",
+            "diagnosis": "Over-correction: two rectangles with the SAME length and breadth are congruent."
+          }
+        ],
+        "explanation": "Congruence demands exact superposition — every side and angle matching. The 2×6 and 3×4 rectangles share an area but no placement makes them coincide. Equal area is necessary for congruence, never sufficient."
+      }
+    },
+    {
+      "id": "g7.geo.congruence.correspondence-cpct",
+      "parent": "g7.geo.congruence",
+      "title": "Correspondence and Reading Off Equal Parts",
+      "description": "In ΔABC ≅ ΔPQR the letter positions ARE the matching: A↔P, B↔Q, C↔R. Read all six equal parts from the statement alone — that is CPCT.",
+      "outcomes": [
+        "Can write a congruence statement in the correct vertex order",
+        "Can extract all corresponding equal sides and angles from a stated congruence"
+      ],
+      "prereqs": [
+        "g7.geo.congruence.congruence-meaning"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Given ΔPQR ≅ ΔXYZ, which side must be equal to PQ?",
+        "options": [
+          {
+            "text": "XY",
+            "correct": true
+          },
+          {
+            "text": "YZ",
+            "misconception": "m4"
+          },
+          {
+            "text": "XZ",
+            "misconception": "m4"
+          },
+          {
+            "text": "It cannot be determined from the statement",
+            "diagnosis": "The letter order IS the correspondence — it fully determines every matching part."
+          }
+        ],
+        "explanation": "Vertices correspond by position: P↔X, Q↔Y, R↔Z. So side PQ (1st–2nd letters) matches side XY (1st–2nd letters). Reading pairs by position is exactly what 'corresponding parts of congruent triangles' means."
+      }
+    },
+    {
+      "id": "g7.geo.congruence.sss-criterion",
+      "parent": "g7.geo.congruence",
+      "title": "The SSS Criterion",
+      "description": "Three matched sides force congruence: a triangle with fixed side lengths is rigid — the reason trusses and brackets are triangular.",
+      "outcomes": [
+        "Can apply SSS to justify congruence of two triangles",
+        "Can connect SSS to the rigidity of triangles in structures"
+      ],
+      "prereqs": [
+        "g7.geo.congruence.congruence-meaning",
+        "g7.geo.triangle-properties.triangle-inequality"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g7.geo.congruence.sas-included-angle",
+      "parent": "g7.geo.congruence",
+      "title": "SAS: The Angle Must Be Included",
+      "description": "Two sides with the angle BETWEEN them determine a triangle; the same data with a non-included angle (SSA) can produce two different triangles.",
+      "outcomes": [
+        "Can apply SAS with the included angle correctly identified",
+        "Can reject an SAS claim when the given angle is not between the given sides"
+      ],
+      "prereqs": [
+        "g7.geo.congruence.sss-criterion"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "In ΔABC and ΔDEF we know AB = DE, BC = EF and ∠A = ∠D. Can we conclude congruence by SAS?",
+        "options": [
+          {
+            "text": "No — the equal angle must lie BETWEEN the equal sides, which here would be ∠B and ∠E",
+            "correct": true
+          },
+          {
+            "text": "Yes — two sides and any equal angle is exactly what SAS needs",
+            "misconception": "m2"
+          },
+          {
+            "text": "Yes — by ASA instead",
+            "diagnosis": "ASA needs TWO angles with the included side; only one angle pair is known here."
+          },
+          {
+            "text": "No — congruence always requires all six parts to be checked",
+            "diagnosis": "Three well-chosen parts suffice; the issue here is the arrangement, not the count."
+          }
+        ],
+        "explanation": "∠A is not between AB and BC — the included angle for those sides is ∠B. With a non-included angle (SSA) the compass arc can cross the ray twice, giving two different triangles, so no conclusion follows."
+      }
+    },
+    {
+      "id": "g7.geo.congruence.asa-rhs-criteria",
+      "parent": "g7.geo.congruence",
+      "title": "ASA and RHS Criteria",
+      "description": "Two angles with the included side (ASA) pin a triangle down; for right triangles, the hypotenuse and one side (RHS) suffice — completing the toolkit of four criteria.",
+      "outcomes": [
+        "Can apply ASA and RHS to justify congruence",
+        "Can select the appropriate criterion from the data given"
+      ],
+      "prereqs": [
+        "g7.geo.congruence.sas-included-angle"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g7.geo.congruence.why-not-aaa-ssa",
+      "parent": "g7.geo.congruence",
+      "title": "Why AAA and SSA Fail",
+      "description": "Nested equilateral triangles kill AAA (same angles, different sizes); the double-crossing compass arc kills SSA — sharpening what a criterion must guarantee.",
+      "outcomes": [
+        "Can produce a counterexample showing AAA does not force congruence",
+        "Can explain the ambiguous case that defeats SSA"
+      ],
+      "prereqs": [
+        "g7.geo.congruence.asa-rhs-criteria"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Two triangles have all three pairs of corresponding angles equal. Must they be congruent?",
+        "options": [
+          {
+            "text": "Not necessarily — one may be an enlargement of the other",
+            "correct": true
+          },
+          {
+            "text": "Yes, by the AAA criterion",
+            "misconception": "m1"
+          },
+          {
+            "text": "Yes, as long as they are drawn the same way up",
+            "misconception": "m3"
+          },
+          {
+            "text": "No — equal angles tell us nothing about the triangles",
+            "diagnosis": "Over-correction: equal angles DO fix the shape (similarity); they just leave the size free."
+          }
+        ],
+        "explanation": "Equal angles make triangles SIMILAR, not necessarily congruent: a small and a large equilateral triangle share all angles. Fixing the size needs at least one side — which is why every genuine criterion contains an S."
+      }
+    },
+    {
+      "id": "g7.geo.symmetry-rotational.line-symmetry-review",
+      "parent": "g7.geo.symmetry-rotational",
+      "title": "Line Symmetry Revisited — Fold Tests, Not Guesses",
+      "description": "Re-establish mirror lines by folding, including the surprise that a generic parallelogram has NONE — its diagonal fold leaves flipped, non-matching halves.",
+      "outcomes": [
+        "Can count the lines of symmetry of standard polygons by fold reasoning",
+        "Can explain why a parallelogram's diagonals are not mirror lines"
+      ],
+      "prereqs": [
+        "g6.geo.symmetry"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "How many lines of symmetry does a generic parallelogram (not a rectangle or rhombus) have?",
+        "options": [
+          {
+            "text": "0",
+            "correct": true
+          },
+          {
+            "text": "2 — its diagonals",
+            "misconception": "m4"
+          },
+          {
+            "text": "1 — a vertical line through the middle",
+            "diagnosis": "That fold matches a rectangle, not a slanted parallelogram."
+          },
+          {
+            "text": "4",
+            "diagnosis": "Copied the square's count; the parallelogram loses every one of those folds."
+          }
+        ],
+        "explanation": "Fold a paper parallelogram along a diagonal: the two halves are congruent but flipped the wrong way, so they do NOT coincide. No fold works at all — the parallelogram's symmetry is rotational (a half-turn), not mirror."
+      }
+    },
+    {
+      "id": "g7.geo.symmetry-rotational.rotational-symmetry-order",
+      "parent": "g7.geo.symmetry-rotational",
+      "title": "Rotational Symmetry and Its Order",
+      "description": "Rotate a marked cut-out through a full turn and tally every position where the outline matches — the order counts ALL matches in 360°, including the return home.",
+      "outcomes": [
+        "Can find the order of rotational symmetry of a figure by rotation-tallying",
+        "Can explain why every figure has order at least 1"
+      ],
+      "prereqs": [
+        "g7.geo.symmetry-rotational.line-symmetry-review"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is the order of rotational symmetry of an equilateral triangle?",
+        "options": [
+          {
+            "text": "3",
+            "correct": true
+          },
+          {
+            "text": "2",
+            "misconception": "m1"
+          },
+          {
+            "text": "120",
+            "misconception": "m3"
+          },
+          {
+            "text": "6",
+            "diagnosis": "Added the 3 mirror lines to the 3 rotations — mixing the two kinds of symmetry."
+          }
+        ],
+        "explanation": "Rotating about the centre, the outline matches at 120°, 240° and 360° — three positions in one full turn, so order 3. The 120° is the ANGLE of rotation; the order is the COUNT of matches, including the final return."
+      }
+    },
+    {
+      "id": "g7.geo.symmetry-rotational.angle-of-rotation",
+      "parent": "g7.geo.symmetry-rotational",
+      "title": "Angle of Rotation and the Centre",
+      "description": "Pin down angle = 360° ÷ order with a table (order 2 ↔ 180°, order 3 ↔ 120°, order 4 ↔ 90°) and locate the centre of rotation of symmetric figures.",
+      "outcomes": [
+        "Can compute the smallest angle of rotation from the order and vice versa",
+        "Can locate the centre of rotation of a figure"
+      ],
+      "prereqs": [
+        "g7.geo.symmetry-rotational.rotational-symmetry-order"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.geo.symmetry-rotational.line-vs-rotational",
+      "parent": "g7.geo.symmetry-rotational",
+      "title": "Line and Rotational Symmetry Are Independent",
+      "description": "Fill a 2×2 sorting grid with counterexamples in every cell — square (both), isosceles trapezium (line only), parallelogram and letter S (rotation only), scalene triangle (neither).",
+      "outcomes": [
+        "Can give an example shape for each combination of line/rotational symmetry",
+        "Can classify a given figure into the correct cell of the grid"
+      ],
+      "prereqs": [
+        "g7.geo.symmetry-rotational.angle-of-rotation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2",
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which shape has rotational symmetry but NO line of symmetry?",
+        "options": [
+          {
+            "text": "A generic parallelogram",
+            "correct": true
+          },
+          {
+            "text": "No such shape can exist — the two symmetries always come together",
+            "misconception": "m2"
+          },
+          {
+            "text": "A square",
+            "diagnosis": "A square has BOTH: four mirror lines and rotational order 4."
+          },
+          {
+            "text": "An isosceles triangle",
+            "diagnosis": "The opposite cell: one mirror line but only trivial rotational symmetry (order 1)."
+          }
+        ],
+        "explanation": "A half-turn about the diagonals' intersection maps a parallelogram onto itself (order 2), yet no fold ever works. The letter S is another such shape. Line and rotational symmetry are independent properties — every combination occurs."
+      }
+    },
+    {
+      "id": "g7.geo.visualising-solids.faces-edges-vertices",
+      "parent": "g7.geo.visualising-solids",
+      "title": "Faces, Edges and Vertices",
+      "description": "Attach each word to a gesture on a real solid — palm on a FACE, finger along an EDGE, fingertip on a VERTEX — and tabulate F, E, V for cubes, cuboids, prisms and pyramids.",
+      "outcomes": [
+        "Can count faces, edges and vertices of common solids",
+        "Can keep the three words attached to the right parts, counting hidden ones from a sketch"
+      ],
+      "prereqs": [
+        "g5.geo.nets-3d",
+        "g6.geo.elementary-shapes"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m3",
+        "m4"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "How many edges does a cube have?",
+        "options": [
+          {
+            "text": "12",
+            "correct": true
+          },
+          {
+            "text": "6",
+            "misconception": "m4"
+          },
+          {
+            "text": "8",
+            "misconception": "m4"
+          },
+          {
+            "text": "9",
+            "misconception": "m3"
+          }
+        ],
+        "explanation": "A cube has 12 edges — 4 around the top, 4 around the bottom, 4 vertical. The counts 6 and 8 belong to its faces and vertices; and 9 is what you get counting only the edges VISIBLE in a sketch, forgetting the hidden three."
+      }
+    },
+    {
+      "id": "g7.geo.visualising-solids.nets-of-solids",
+      "parent": "g7.geo.visualising-solids",
+      "title": "Nets That Fold — and Nets That Don't",
+      "description": "Fold printed 6-square arrangements to discover which become cubes, building checking strategies (no 2×2 block, at most four in a row) from real failures; extend to cuboid, cylinder and cone nets.",
+      "outcomes": [
+        "Can decide whether a given net folds into a given solid",
+        "Can draw at least two distinct valid nets of a cube"
+      ],
+      "prereqs": [
+        "g7.geo.visualising-solids.faces-edges-vertices"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these arrangements of six squares folds into a cube?",
+        "options": [
+          {
+            "text": "A cross: four squares in a column with one square attached on each side of the second square",
+            "correct": true
+          },
+          {
+            "text": "A 2 × 3 rectangular block of six squares",
+            "misconception": "m1"
+          },
+          {
+            "text": "A straight strip of six squares in a row",
+            "misconception": "m1"
+          },
+          {
+            "text": "A plus sign made of five squares",
+            "diagnosis": "A cube has six faces; five squares can never close it."
+          }
+        ],
+        "explanation": "The cross folds up cleanly: the four column squares wrap around, the two side squares cap the ends. The 2×3 block and the straight strip both overlap some faces and leave others open — having six squares is necessary but far from sufficient."
+      }
+    },
+    {
+      "id": "g7.geo.visualising-solids.oblique-isometric-sketches",
+      "parent": "g7.geo.visualising-solids",
+      "title": "Oblique and Isometric Sketches",
+      "description": "Draw solids two ways — oblique sketches on plain paper and isometric sketches on dot paper — marking hidden edges dashed and keeping a real cube in hand while drawing.",
+      "outcomes": [
+        "Can make an oblique sketch of a cube or cuboid with hidden edges dashed",
+        "Can draw a cuboid of given dimensions on isometric dot paper"
+      ],
+      "prereqs": [
+        "g7.geo.visualising-solids.faces-edges-vertices"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.geo.visualising-solids.cross-sections",
+      "parent": "g7.geo.visualising-solids",
+      "title": "Cross-sections: The Cut's Direction Decides",
+      "description": "Slice solids (clay, cucumber) horizontally AND vertically and trace the exposed faces — a cylinder yields a circle one way and a rectangle the other; the direction of cut is part of every answer.",
+      "outcomes": [
+        "Can name the cross-section from a described horizontal or vertical cut",
+        "Can explain why one solid can produce different cross-sections"
+      ],
+      "prereqs": [
+        "g7.geo.visualising-solids.oblique-isometric-sketches"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A cone is cut VERTICALLY, straight down through its apex. What is the shape of the cut face?",
+        "options": [
+          {
+            "text": "A triangle",
+            "correct": true
+          },
+          {
+            "text": "A circle",
+            "misconception": "m2"
+          },
+          {
+            "text": "An oval (ellipse)",
+            "diagnosis": "That comes from a SLANTED cut, not a vertical one through the apex."
+          },
+          {
+            "text": "A rectangle",
+            "diagnosis": "A vertical cut gives a rectangle for a CYLINDER; the cone tapers to its apex."
+          }
+        ],
+        "explanation": "Cutting through the apex and straight down exposes a triangle — the two slant sides meet at the tip. Circles come only from HORIZONTAL cuts of the cone. The cross-section's shape depends on the cut's direction, not just the solid."
+      }
+    },
+    {
+      "id": "g7.geo.visualising-solids.views-and-shadows",
+      "parent": "g7.geo.visualising-solids",
+      "title": "Top, Front and Side Views; Shadows",
+      "description": "Read and draw the three standard views of cube arrangements and everyday objects, and reason about the shadows solids cast — different 2D pictures of one 3D reality.",
+      "outcomes": [
+        "Can draw top, front and side views of a simple solid arrangement",
+        "Can match a solid to its set of three views"
+      ],
+      "prereqs": [
+        "g7.geo.visualising-solids.oblique-isometric-sketches"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.geo.practical-geometry.parallel-through-point",
+      "parent": "g7.geo.practical-geometry",
+      "title": "Constructing a Parallel Line Through a Point",
+      "description": "Draw a transversal through the external point, then copy its angle with compass arcs at the new point — equal alternate/corresponding angles GUARANTEE parallelism, no eyeballing.",
+      "outcomes": [
+        "Can construct a line through a given point parallel to a given line",
+        "Can justify the construction via the equal-angles condition for parallel lines"
+      ],
+      "prereqs": [
+        "g6.geo.constructions-intro",
+        "g7.geo.lines-angles.parallel-angle-rules"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3",
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Why does copying the transversal's angle at point P produce a line through P parallel to l?",
+        "options": [
+          {
+            "text": "Because equal corresponding (or alternate) angles are exactly the condition that makes two lines parallel",
+            "correct": true
+          },
+          {
+            "text": "Because sliding the ruler carefully keeps the new line looking parallel",
+            "misconception": "m3"
+          },
+          {
+            "text": "Because the compass keeps the same radius, so the lines stay the same distance apart",
+            "diagnosis": "Equal arc radii copy an ANGLE; the constant-distance property is a consequence, not the mechanism."
+          },
+          {
+            "text": "Because any line through P that misses l on the page is parallel to it",
+            "diagnosis": "Lines extend beyond the page — not meeting in the drawing is not the same as never meeting."
+          }
+        ],
+        "explanation": "The construction builds the parallel CONDITION directly into the figure: the copied angle forces equal corresponding/alternate angles with the transversal, and lines making equal such angles can never meet. That is why no visual judgement is needed."
+      }
+    },
+    {
+      "id": "g7.geo.practical-geometry.construct-sss",
+      "parent": "g7.geo.practical-geometry",
+      "title": "Constructing a Triangle from Three Sides (SSS)",
+      "description": "Lay the base, then swing arcs of the other two lengths from its ends — after FIRST checking the triangle inequality, so doomed data is caught before the compass moves.",
+      "outcomes": [
+        "Can construct a triangle from three given side lengths",
+        "Can predict from the triangle inequality when the arcs will fail to meet"
+      ],
+      "prereqs": [
+        "g6.geo.constructions-intro",
+        "g7.geo.triangle-properties.triangle-inequality",
+        "g7.geo.congruence.sss-criterion"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2",
+        "m4"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "You try to construct a triangle with sides 6 cm, 7 cm and 14 cm. What happens?",
+        "options": [
+          {
+            "text": "It is impossible — the arcs of radius 6 and 7 can never meet, since 6 + 7 < 14",
+            "correct": true
+          },
+          {
+            "text": "It works if you draw bigger, more careful arcs",
+            "misconception": "m2"
+          },
+          {
+            "text": "It works — any three lengths give a triangle",
+            "misconception": "m2"
+          },
+          {
+            "text": "It is impossible because two of the sides ought to be equal",
+            "diagnosis": "Scalene triangles are perfectly constructible; the real obstacle is the triangle inequality."
+          }
+        ],
+        "explanation": "From the ends of the 14 cm base, arcs of radii 6 and 7 reach a combined 13 cm at full stretch — they can never intersect. No compass technique fixes data that violates the triangle inequality; check it BEFORE constructing."
+      }
+    },
+    {
+      "id": "g7.geo.practical-geometry.construct-sas",
+      "parent": "g7.geo.practical-geometry",
+      "title": "Constructing a Triangle from SAS",
+      "description": "Draw one side, copy the given angle AT ITS END, and mark the second side along the new ray — the angle must sit BETWEEN the two given sides for the triangle to be unique.",
+      "outcomes": [
+        "Can construct a triangle from two sides and the included angle",
+        "Can explain why placing the angle elsewhere can yield two different triangles"
+      ],
+      "prereqs": [
+        "g7.geo.practical-geometry.construct-sss",
+        "g7.geo.congruence.sas-included-angle"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Given sides of 5 cm and 7 cm and an angle of 40°, when is the constructed triangle guaranteed to be unique?",
+        "options": [
+          {
+            "text": "When the 40° angle is placed BETWEEN the 5 cm and 7 cm sides",
+            "correct": true
+          },
+          {
+            "text": "Wherever the angle is placed — two sides and an angle always fix the triangle",
+            "misconception": "m1"
+          },
+          {
+            "text": "Only when the angle is placed opposite the 7 cm side",
+            "diagnosis": "A non-included angle is exactly the ambiguous SSA case — the arc can cross the ray twice."
+          },
+          {
+            "text": "Only if the angle is at least 60°",
+            "diagnosis": "Invented threshold; uniqueness depends on the angle's POSITION, not its size."
+          }
+        ],
+        "explanation": "With the angle included, the two sides and the opening between them leave exactly one way to finish — the SAS criterion. With a non-included angle, the closing arc can meet the ray in two places, producing two genuinely different triangles."
+      }
+    },
+    {
+      "id": "g7.geo.practical-geometry.construct-asa",
+      "parent": "g7.geo.practical-geometry",
+      "title": "Constructing a Triangle from ASA",
+      "description": "Draw the given side and copy the two given angles at its ends; when the data gives a NON-included side, first find the third angle via the 180° sum, justifying each step aloud.",
+      "outcomes": [
+        "Can construct a triangle from two angles and the included side",
+        "Can convert AAS data to ASA using the angle-sum property"
+      ],
+      "prereqs": [
+        "g7.geo.practical-geometry.construct-sas"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ]
+    },
+    {
+      "id": "g7.geo.practical-geometry.construct-rhs",
+      "parent": "g7.geo.practical-geometry",
+      "title": "Constructing a Right Triangle from RHS",
+      "description": "Erect a perpendicular at one end of a leg, then cut the hypotenuse arc from the other end — with a one-line justification for every arc, so the steps are reasons, not ritual.",
+      "outcomes": [
+        "Can construct a right triangle given the hypotenuse and one side",
+        "Can justify each construction step and connect it to the RHS criterion"
+      ],
+      "prereqs": [
+        "g7.geo.practical-geometry.construct-asa"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ]
+    },
+    {
+      "id": "g7.mea.perimeter-area.perimeter-vs-area",
+      "parent": "g7.mea.perimeter-area",
+      "title": "Perimeter or Area? Choosing the Right Measure",
+      "description": "Re-anchor the two measures with actions — WALK the boundary (perimeter) vs COVER the surface (area) — and sort mixed word problems into P-questions and A-questions before solving any.",
+      "outcomes": [
+        "Can decide whether a context calls for perimeter or area",
+        "Can compute both for rectangles and squares as revision"
+      ],
+      "prereqs": [
+        "g6.mea.mensuration-perimeter-area"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 1,
+        "prompt": "A rectangular plot is 20 m by 30 m. How much fencing is needed to enclose it?",
+        "options": [
+          {
+            "text": "100 m",
+            "correct": true
+          },
+          {
+            "text": "600 m",
+            "misconception": "m1"
+          },
+          {
+            "text": "50 m",
+            "diagnosis": "Added one length and one breadth but forgot the other two sides."
+          },
+          {
+            "text": "60 m",
+            "diagnosis": "Doubled only the 30 m sides, ignoring the two 20 m sides."
+          }
+        ],
+        "explanation": "Fencing runs along the BOUNDARY, so it is a perimeter question: 2 × (20 + 30) = 100 m. The number 600 is 20 × 30 — the AREA in square metres, which measures the surface inside, not the fence around it."
+      }
+    },
+    {
+      "id": "g7.mea.perimeter-area.area-parallelogram",
+      "parent": "g7.mea.perimeter-area",
+      "title": "Area of a Parallelogram: Base × Perpendicular Height",
+      "description": "Slice the slanted end off a paper parallelogram and slide it across to make a rectangle — area = base × height, where the height is the measurement carrying the right-angle mark, never the slant side.",
+      "outcomes": [
+        "Can compute a parallelogram's area choosing the correct base–height pair",
+        "Can reject a slant side offered as a 'height'"
+      ],
+      "prereqs": [
+        "g7.mea.perimeter-area.perimeter-vs-area"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A parallelogram has base 10 cm, slant side 6 cm, and perpendicular height 4 cm on that base. What is its area?",
+        "options": [
+          {
+            "text": "40 cm²",
+            "correct": true
+          },
+          {
+            "text": "60 cm²",
+            "misconception": "m4"
+          },
+          {
+            "text": "24 cm²",
+            "diagnosis": "Multiplied the slant side by the height — neither a valid base–height pair."
+          },
+          {
+            "text": "20 cm²",
+            "misconception": "m2"
+          }
+        ],
+        "explanation": "Area = base × perpendicular height = 10 × 4 = 40 cm². The 6 cm slant side is a distractor: the height must meet the base at 90°. Halving to 20 borrows the triangle's ½, which the parallelogram formula does not have."
+      }
+    },
+    {
+      "id": "g7.mea.perimeter-area.area-triangle",
+      "parent": "g7.mea.perimeter-area",
+      "title": "Area of a Triangle: Half a Parallelogram",
+      "description": "Cut a parallelogram along a diagonal into two identical triangles — so triangle area = ½ × base × perpendicular height, with the ½ earned, not memorised.",
+      "outcomes": [
+        "Can compute triangle areas with the correct base–height pair",
+        "Can explain where the ½ comes from"
+      ],
+      "prereqs": [
+        "g7.mea.perimeter-area.area-parallelogram"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Find the area of a triangle with base 12 cm and height 5 cm.",
+        "options": [
+          {
+            "text": "30 cm²",
+            "correct": true
+          },
+          {
+            "text": "60 cm²",
+            "misconception": "m2"
+          },
+          {
+            "text": "17 cm²",
+            "diagnosis": "Added base and height instead of multiplying."
+          },
+          {
+            "text": "8.5 cm²",
+            "diagnosis": "Halved the SUM of base and height — the ½ applies to the product."
+          }
+        ],
+        "explanation": "Area = ½ × 12 × 5 = 30 cm². Without the ½ you get 60 — the area of the parallelogram that TWO copies of this triangle would tile, which is exactly why the half is there."
+      }
+    },
+    {
+      "id": "g7.mea.perimeter-area.circle-circumference",
+      "parent": "g7.mea.perimeter-area",
+      "title": "Circumference of a Circle",
+      "description": "Wrap a string around a tin — about 3 diameters and a bit — to meet π, then use C = 2πr (or πd) with π ≈ 22/7 or 3.14 for wheels, tracks and trundle problems.",
+      "outcomes": [
+        "Can compute circumference from radius or diameter",
+        "Can solve rotation-distance problems (how far one wheel turn travels)"
+      ],
+      "prereqs": [
+        "g7.mea.perimeter-area.perimeter-vs-area",
+        "g7.num.fractions-decimals-ops.multiply-decimals"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Taking π = 22/7, find the circumference of a circle with radius 14 cm.",
+        "options": [
+          {
+            "text": "88 cm",
+            "correct": true
+          },
+          {
+            "text": "616 cm",
+            "misconception": "m3"
+          },
+          {
+            "text": "44 cm",
+            "diagnosis": "Computed πr, forgetting the factor 2 — only half the boundary."
+          },
+          {
+            "text": "28 cm",
+            "diagnosis": "Computed 2r (the diameter) and never multiplied by π."
+          }
+        ],
+        "explanation": "C = 2πr = 2 × (22/7) × 14 = 88 cm. The value 616 is πr² — the AREA formula applied by mistake. Dimension check: circumference is a length, so r appears once, never squared."
+      }
+    },
+    {
+      "id": "g7.mea.perimeter-area.circle-area",
+      "parent": "g7.mea.perimeter-area",
+      "title": "Area of a Circle",
+      "description": "Cut a circle into thin sectors and rearrange them into a near-rectangle of width r and length πr — so area = πr², with careful radius-vs-diameter reading in every problem.",
+      "outcomes": [
+        "Can compute a circle's area from its radius or diameter",
+        "Can keep 2πr and πr² apart using dimension sense"
+      ],
+      "prereqs": [
+        "g7.mea.perimeter-area.circle-circumference"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Taking π = 22/7, find the AREA of a circle whose DIAMETER is 14 cm.",
+        "options": [
+          {
+            "text": "154 cm²",
+            "correct": true
+          },
+          {
+            "text": "616 cm²",
+            "diagnosis": "Squared the diameter instead of the radius — using d in place of r quadruples the area."
+          },
+          {
+            "text": "44 cm²",
+            "misconception": "m3"
+          },
+          {
+            "text": "49 cm²",
+            "diagnosis": "Computed r² = 49 but forgot to multiply by π."
+          }
+        ],
+        "explanation": "Radius = 14 ÷ 2 = 7 cm, so area = πr² = (22/7) × 49 = 154 cm². Using 14 directly gives 616 — four times too big. And 44 is the circumference 2πr, a LENGTH answering a different question."
+      }
+    },
+    {
+      "id": "g7.mea.perimeter-area.paths-combined-figures",
+      "parent": "g7.mea.perimeter-area",
+      "title": "Paths, Borders and Combined Figures",
+      "description": "Find areas of paths around or across parks by subtracting rectangles, handle figures built from rectangles, triangles and semicircles, and convert between cm² and m² where needed.",
+      "outcomes": [
+        "Can compute the area of a uniform path around or through a rectangle",
+        "Can decompose a combined figure into standard shapes and convert area units"
+      ],
+      "prereqs": [
+        "g7.mea.perimeter-area.area-triangle",
+        "g7.mea.perimeter-area.circle-area"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g7.dat.data-handling-averages.organise-data",
+      "parent": "g7.dat.data-handling-averages",
+      "title": "Collecting and Organising Data",
+      "description": "Move from raw lists to frequency tables with tally marks, and pose the chapter's driving question: what ONE number could speak for this whole data set?",
+      "outcomes": [
+        "Can build a frequency table from raw data",
+        "Can read simple summaries (largest, smallest, most common) from the table"
+      ],
+      "prereqs": [
+        "g6.dat.data-handling"
+      ],
+      "est_minutes": 10,
+      "difficulty": 1
+    },
+    {
+      "id": "g7.dat.data-handling-averages.mean",
+      "parent": "g7.dat.data-handling-averages",
+      "title": "The Mean as Equal Sharing",
+      "description": "Level cube towers to see the mean as the equal-share value — total ÷ count — which may be a decimal and need not appear anywhere in the data.",
+      "outcomes": [
+        "Can compute the mean of a data set",
+        "Can explain why the mean can be a value not in the list"
+      ],
+      "prereqs": [
+        "g7.dat.data-handling-averages.organise-data",
+        "g6.num.decimals-ops"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Find the mean of 1, 4, 6 and 9.",
+        "options": [
+          {
+            "text": "5",
+            "correct": true
+          },
+          {
+            "text": "6",
+            "misconception": "m1"
+          },
+          {
+            "text": "20",
+            "diagnosis": "Found the total but forgot to divide by the number of values."
+          },
+          {
+            "text": "4",
+            "diagnosis": "Divided the total 20 by 5 — miscounted the number of values."
+          }
+        ],
+        "explanation": "Mean = (1 + 4 + 6 + 9) ÷ 4 = 20 ÷ 4 = 5. Note that 5 is not one of the data values — perfectly fine. Picking 6 'because the mean should be in the list' forces the answer into the data, which the mean never promises."
+      }
+    },
+    {
+      "id": "g7.dat.data-handling-averages.median",
+      "parent": "g7.dat.data-handling-averages",
+      "title": "The Median: Sort First, Then Find the Middle",
+      "description": "Line the data up in order — a non-negotiable first step — then take the middle value (or the mean of the middle two) as the median.",
+      "outcomes": [
+        "Can find the median of odd- and even-sized data sets after sorting",
+        "Can show how skipping the sort produces a wrong median"
+      ],
+      "prereqs": [
+        "g7.dat.data-handling-averages.mean"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Find the median of 11, 2, 9, 4, 7.",
+        "options": [
+          {
+            "text": "7",
+            "correct": true
+          },
+          {
+            "text": "9",
+            "misconception": "m2"
+          },
+          {
+            "text": "6.6",
+            "diagnosis": "Computed the mean (33 ÷ 5) instead of the median."
+          },
+          {
+            "text": "11",
+            "misconception": "m3"
+          }
+        ],
+        "explanation": "Sort first: 2, 4, 7, 9, 11. With five values the middle (third) is 7. Taking the middle of the UNSORTED list gives 9 — sorting is precisely what makes the median a genuine 'middle of the data'."
+      }
+    },
+    {
+      "id": "g7.dat.data-handling-averages.mode-range",
+      "parent": "g7.dat.data-handling-averages",
+      "title": "Mode and Range",
+      "description": "MOde = MOst often — the most frequent value, found easily from a frequency table — and range = largest minus smallest, a first measure of spread.",
+      "outcomes": [
+        "Can find the mode(s) and range of a data set",
+        "Can keep mode, maximum and mean verbally and computationally distinct"
+      ],
+      "prereqs": [
+        "g7.dat.data-handling-averages.median"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.dat.data-handling-averages.choose-average",
+      "parent": "g7.dat.data-handling-averages",
+      "title": "Which Average Represents the Data Best?",
+      "description": "Pit the three averages against each other on skewed data — one luxury flat among modest rents — and choose the representative that honestly answers the question asked.",
+      "outcomes": [
+        "Can choose an appropriate average for a context and justify the choice",
+        "Can explain how an outlier drags the mean but not the median"
+      ],
+      "prereqs": [
+        "g7.dat.data-handling-averages.mode-range"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ]
+    },
+    {
+      "id": "g7.dat.data-handling-averages.double-bar-graphs",
+      "parent": "g7.dat.data-handling-averages",
+      "title": "Bar Graphs and Double Bar Graphs",
+      "description": "Choose a sensible scale, draw bar graphs, and use DOUBLE bars to compare two data sets side by side — this year's marks against last year's.",
+      "outcomes": [
+        "Can draw a bar graph with an appropriate scale",
+        "Can read and compare paired categories from a double bar graph"
+      ],
+      "prereqs": [
+        "g7.dat.data-handling-averages.organise-data"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g7.dat.data-handling-averages.chance-probability",
+      "parent": "g7.dat.data-handling-averages",
+      "title": "First Steps in Probability",
+      "description": "Assign probabilities as favourable outcomes over total EQUALLY LIKELY outcomes, placing events on the 0-to-1 scale — and testing by experiment that 'it happens or it doesn't' is not 50-50.",
+      "outcomes": [
+        "Can list equally likely outcomes and compute simple probabilities",
+        "Can place impossible, unlikely, even, likely and certain events on the 0–1 scale"
+      ],
+      "prereqs": [
+        "g7.dat.data-handling-averages.organise-data"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A fair die is rolled once. What is the probability of getting a number greater than 4?",
+        "options": [
+          {
+            "text": "1/3",
+            "correct": true
+          },
+          {
+            "text": "1/2",
+            "misconception": "m4"
+          },
+          {
+            "text": "2/4",
+            "diagnosis": "Compared favourable with UNfavourable outcomes (2 against 4) — part-to-part odds, not probability."
+          },
+          {
+            "text": "1/6",
+            "diagnosis": "Counted only the 6, forgetting that 5 is also greater than 4."
+          }
+        ],
+        "explanation": "The favourable outcomes are 5 and 6 — two of six equally likely faces — so P = 2/6 = 1/3. 'Greater than 4 or not' are two DESCRIPTIONS, not two equally likely outcomes, so the 50-50 instinct fails."
+      }
+    }
+  ]
+}

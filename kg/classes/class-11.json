@@ -1,0 +1,1960 @@
+{
+  "class": 11,
+  "micros": [
+    {
+      "id": "g11.alg.sets.set-notation",
+      "parent": "g11.alg.sets",
+      "title": "Roster and Set-Builder Notation",
+      "description": "What makes a collection a set (well-definedness), and how to write the same set in roster form and set-builder form, translating fluently in both directions.",
+      "outcomes": [
+        "Can decide whether a described collection is well-defined enough to be a set",
+        "Can convert between roster form and set-builder form for number sets like {x : x is an even natural number less than 10}"
+      ],
+      "prereqs": ["g9.num.number-systems"],
+      "est_minutes": 20,
+      "difficulty": 1
+    },
+    {
+      "id": "g11.alg.sets.types-of-sets",
+      "parent": "g11.alg.sets",
+      "title": "Empty, Finite, Infinite and Equal Sets",
+      "description": "Classifying sets: the empty set (and why it is not {0}), singleton, finite vs infinite, and equality of sets independent of listing order or repetition.",
+      "outcomes": [
+        "Can identify whether a set is empty, singleton, finite or infinite and state n(A) for finite sets",
+        "Can distinguish ∅, {0} and {∅} and explain why they are all different"
+      ],
+      "prereqs": ["g11.alg.sets.set-notation"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following is the empty set?",
+        "options": [
+          { "text": "{x : x is a real number and x² + 1 = 0}", "correct": true },
+          { "text": "{0}", "misconception": "m2" },
+          { "text": "{x : x is a real number and x² = 0}", "diagnosis": "This set equals {0} — it has one element. Solving x² = 0 does give a solution, x = 0." },
+          { "text": "{∅}", "diagnosis": "A set containing the empty set has exactly one element (the empty set itself), so it is not empty." }
+        ],
+        "explanation": "x² + 1 = 0 has no real solution, so that set has no elements — it is ∅. {0} contains the element 0, and {∅} contains one element (the empty set), so n({0}) = n({∅}) = 1 while n(∅) = 0."
+      }
+    },
+    {
+      "id": "g11.alg.sets.subsets-power-set",
+      "parent": "g11.alg.sets",
+      "title": "Subsets, Power Set and Intervals",
+      "description": "Element membership (∈) versus subset inclusion (⊂), listing all subsets of a small set, the power set with its 2ⁿ count, and intervals as subsets of R.",
+      "outcomes": [
+        "Can correctly use ∈ vs ⊂ in statements like 2 ∈ A and {2} ⊂ A",
+        "Can list all subsets of a set with up to 3 elements and compute n(P(A)) = 2ⁿ",
+        "Can write intervals like [2, 5) as sets and mark them on the number line"
+      ],
+      "prereqs": ["g11.alg.sets.types-of-sets"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "How many subsets does the set {1, 2, 3} have?",
+        "options": [
+          { "text": "8", "correct": true },
+          { "text": "7", "misconception": "m2" },
+          { "text": "6", "diagnosis": "Counted the 3! = 6 orderings of the elements; subsets are unordered selections, not arrangements." },
+          { "text": "3", "diagnosis": "Counted only the singleton subsets; forgot ∅, the two-element subsets and the set itself." }
+        ],
+        "explanation": "A set with n elements has 2ⁿ subsets: here 2³ = 8, namely ∅, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}. Answering 7 usually means the empty set was not accepted as a genuine subset — but ∅ ⊂ A for every set A."
+      }
+    },
+    {
+      "id": "g11.alg.sets.venn-union-intersection",
+      "parent": "g11.alg.sets",
+      "title": "Union, Intersection and Venn Diagrams",
+      "description": "Computing A∪B and A∩B for given sets, representing them on Venn diagrams, and using the basic laws (commutative, associative, A∩A = A, A∪∅ = A).",
+      "outcomes": [
+        "Can compute unions and intersections of given sets, including intervals",
+        "Can shade the region for a set expression like A∩B or (A∪B) on a two-set Venn diagram"
+      ],
+      "prereqs": ["g11.alg.sets.subsets-power-set"],
+      "est_minutes": 25,
+      "difficulty": 2
+    },
+    {
+      "id": "g11.alg.sets.difference-complement",
+      "parent": "g11.alg.sets",
+      "title": "Set Difference and Complement",
+      "description": "A − B as 'in A but not in B' (and why A − B ≠ B − A), complements within a universal set, and De Morgan's laws seen on Venn diagrams.",
+      "outcomes": [
+        "Can compute A − B, B − A and A′ for given finite sets and intervals",
+        "Can verify De Morgan's laws (A∪B)′ = A′∩B′ on a Venn diagram and with concrete sets"
+      ],
+      "prereqs": ["g11.alg.sets.venn-union-intersection"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Let A = {1, 2, 3, 4} and B = {3, 4, 5}. Then A − B equals:",
+        "options": [
+          { "text": "{1, 2}", "correct": true },
+          { "text": "{5}", "misconception": "m4" },
+          { "text": "{1, 2, 5}", "diagnosis": "Computed the symmetric difference (elements in exactly one set); A − B keeps only A's side." },
+          { "text": "{3, 4}", "diagnosis": "Reported A∩B — the elements REMOVED — instead of what remains of A." }
+        ],
+        "explanation": "A − B keeps the elements of A that are not in B: remove 3 and 4 from A, leaving {1, 2}. Note B − A = {5} — set difference is not commutative, just like subtraction of numbers."
+      }
+    },
+    {
+      "id": "g11.alg.sets.counting-union",
+      "parent": "g11.alg.sets",
+      "title": "Counting with n(A∪B): Survey Problems",
+      "description": "The inclusion-exclusion rule n(A∪B) = n(A) + n(B) − n(A∩B), applied to survey-style problems including 'neither' counts via the complement.",
+      "outcomes": [
+        "Can solve two-set survey problems for 'at least one', 'both' and 'neither' counts",
+        "Can sanity-check answers against the total population (union cannot exceed it)"
+      ],
+      "prereqs": ["g11.alg.sets.venn-union-intersection", "g11.alg.sets.difference-complement"],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "In a colony of 50 families, 28 read a Hindi newspaper, 23 read an English newspaper, and 8 read both. How many families read NEITHER?",
+        "options": [
+          { "text": "7", "correct": true },
+          { "text": "−1", "misconception": "m3" },
+          { "text": "8", "diagnosis": "Reported the 'both' count; the question asks for families outside the union." },
+          { "text": "43", "diagnosis": "Computed n(H∪E) correctly but stopped — 'neither' is the complement, 50 − 43." }
+        ],
+        "explanation": "n(H∪E) = 28 + 23 − 8 = 43, so neither = 50 − 43 = 7. Adding 28 + 23 = 51 without subtracting the overlap exceeds the 50 families that exist — the impossible '−1' is the built-in alarm for a forgotten intersection."
+      }
+    },
+
+    {
+      "id": "g11.alg.relations-functions.cartesian-product",
+      "parent": "g11.alg.relations-functions",
+      "title": "Ordered Pairs and Cartesian Products",
+      "description": "Ordered pairs where (a, b) ≠ (b, a), the Cartesian product A × B, and counting n(A × B) = n(A) × n(B).",
+      "outcomes": [
+        "Can list A × B for small sets and locate it as a grid of points",
+        "Can use n(A × B) = n(A)·n(B) and equality of ordered pairs to find unknowns"
+      ],
+      "prereqs": ["g11.alg.sets.set-notation", "g9.geo.coordinate-geometry"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g11.alg.relations-functions.relations-arrow-diagrams",
+      "parent": "g11.alg.relations-functions",
+      "title": "Relations as Subsets of A × B",
+      "description": "A relation from A to B as any subset of A × B, pictured with arrow diagrams; domain, codomain and range of a relation; counting relations as 2^(mn).",
+      "outcomes": [
+        "Can write a relation in roster and set-builder form and draw its arrow diagram",
+        "Can read off the domain and range of a relation and count all relations from A to B"
+      ],
+      "prereqs": ["g11.alg.relations-functions.cartesian-product"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g11.alg.relations-functions.function-definition",
+      "parent": "g11.alg.relations-functions",
+      "title": "When Is a Relation a Function?",
+      "description": "The defining test: every input has exactly one output. Applying it to sets of pairs, arrow diagrams and graphs (vertical line test), while allowing many-to-one.",
+      "outcomes": [
+        "Can decide whether a relation given as pairs, arrows or a graph is a function, citing the definition",
+        "Can explain why many-to-one is allowed but one-to-many is not"
+      ],
+      "prereqs": ["g11.alg.relations-functions.relations-arrow-diagrams"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The graph of x = y² (a sideways parabola) is NOT the graph of a function y = f(x) because:",
+        "options": [
+          { "text": "Some inputs x > 0 correspond to two different y-values", "correct": true },
+          { "text": "It actually is a function — every relation between x and y is", "misconception": "m1" },
+          { "text": "Its graph is not a straight line", "diagnosis": "Curved graphs can be perfectly good functions (y = x² is one); straightness is irrelevant." },
+          { "text": "It fails the horizontal line test", "diagnosis": "Mixed up the tests: horizontal lines diagnose one-one-ness; VERTICAL lines diagnose function-ness." }
+        ],
+        "explanation": "For x = 4 both y = 2 and y = −2 satisfy x = y², so the input 4 has two outputs — a vertical line at x = 4 cuts the graph twice. A function must give each input exactly ONE output."
+      }
+    },
+    {
+      "id": "g11.alg.relations-functions.domain-range",
+      "parent": "g11.alg.relations-functions",
+      "title": "Domain and Range of Algebraic Functions",
+      "description": "Finding natural domains via the danger scan (denominators ≠ 0, radicands ≥ 0) and ranges of simple rational and root functions; codomain vs range.",
+      "outcomes": [
+        "Can find the domain of functions like 1/(x²−9) and √(x−2) by excluding danger points",
+        "Can find ranges of shifted squares and roots and distinguish range from codomain"
+      ],
+      "prereqs": ["g11.alg.relations-functions.function-definition", "g9.num.number-systems"],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m4", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The domain of f(x) = √(x − 2) is:",
+        "options": [
+          { "text": "[2, ∞)", "correct": true },
+          { "text": "R", "misconception": "m4" },
+          { "text": "(2, ∞)", "diagnosis": "Excluded the boundary, but √0 = 0 is perfectly defined — x = 2 belongs to the domain." },
+          { "text": "(−∞, 2]", "diagnosis": "Reversed the inequality: the radicand needs x − 2 ≥ 0, i.e. x ≥ 2, not x ≤ 2." }
+        ],
+        "explanation": "The square root needs x − 2 ≥ 0, so x ≥ 2 — domain [2, ∞), including 2 itself since √0 = 0. Claiming 'all reals' skips the danger scan: at x = 0 we would need √(−2), which is not real."
+      }
+    },
+    {
+      "id": "g11.alg.relations-functions.standard-graphs",
+      "parent": "g11.alg.relations-functions",
+      "title": "Standard Functions and Their Graphs",
+      "description": "The graph gallery: identity, constant, polynomial, rational 1/x, modulus |x|, signum and greatest-integer functions, with their domains, ranges and shapes.",
+      "outcomes": [
+        "Can sketch and label the graphs of |x|, sgn(x), [x] and 1/x",
+        "Can read domain and range off each standard graph, including the jumps of [x]"
+      ],
+      "prereqs": ["g11.alg.relations-functions.function-definition", "g8.alg.graphs-intro"],
+      "est_minutes": 30,
+      "difficulty": 3
+    },
+    {
+      "id": "g11.alg.relations-functions.function-algebra",
+      "parent": "g11.alg.relations-functions",
+      "title": "Algebra of Real Functions",
+      "description": "Building f + g, f − g, fg and f/g with correct (intersected, and quotient-restricted) domains — and why f(a + b) is generally NOT f(a) + f(b).",
+      "outcomes": [
+        "Can form sums, products and quotients of functions and state their domains",
+        "Can evaluate expressions like f(x + h) correctly for f(x) = x² without illegal distribution"
+      ],
+      "prereqs": ["g11.alg.relations-functions.domain-range"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "If f(x) = x², then f(a + b) equals:",
+        "options": [
+          { "text": "a² + 2ab + b²", "correct": true },
+          { "text": "a² + b²", "misconception": "m3" },
+          { "text": "2ab", "diagnosis": "Kept only the cross term and dropped the two squares; the whole expansion (a+b)² has three terms." },
+          { "text": "a²b²", "diagnosis": "Turned the sum into a product before squaring — f(a+b) squares the SUM a + b, not the product ab." }
+        ],
+        "explanation": "f(a + b) means 'square the whole input': (a + b)² = a² + 2ab + b². Writing a² + b² is the distribution error f(a+b) = f(a) + f(b); test it with a = b = 1: f(2) = 4 but f(1) + f(1) = 2."
+      }
+    },
+
+    {
+      "id": "g11.tri.functions.radian-measure",
+      "parent": "g11.tri.functions",
+      "title": "Radian Measure and Degree Conversion",
+      "description": "Radian as arc length over radius, the anchor π radians = 180°, converting both ways, and the arc-length formula l = rθ.",
+      "outcomes": [
+        "Can convert any angle between degrees and radians using π = 180°",
+        "Can apply l = rθ (θ in radians) to arc-length problems"
+      ],
+      "prereqs": ["g10.tri.intro"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Convert 240° to radians.",
+        "options": [
+          { "text": "4π/3", "correct": true },
+          { "text": "2π/3", "misconception": "m2" },
+          { "text": "3π/4", "diagnosis": "Inverted the conversion fraction — multiplied by 180/π-style reasoning instead of π/180." },
+          { "text": "240π", "misconception": "m2" }
+        ],
+        "explanation": "Radians = degrees × π/180, so 240° = 240π/180 = 4π/3. Using π = 360° halves the answer to 2π/3, and merely appending π gives 240π — both misuse the anchor π radians = 180° (a half turn)."
+      }
+    },
+    {
+      "id": "g11.tri.functions.unit-circle-values",
+      "parent": "g11.tri.functions",
+      "title": "The Unit Circle and Standard Values",
+      "description": "Redefining cos θ and sin θ as the (x, y) coordinates of a point on the unit circle, extending all six trigonometric functions to any real angle, with values at 0, π/6, π/4, π/3, π/2.",
+      "outcomes": [
+        "Can read sin and cos as coordinates on the unit circle for any rotation, including negative angles",
+        "Can recall exact values of all six functions at the standard first-quadrant angles"
+      ],
+      "prereqs": ["g11.tri.functions.radian-measure", "g10.tri.intro"],
+      "est_minutes": 30,
+      "difficulty": 3
+    },
+    {
+      "id": "g11.tri.functions.quadrant-signs",
+      "parent": "g11.tri.functions",
+      "title": "Signs in the Four Quadrants",
+      "description": "Deriving the sign of each trig function in each quadrant from unit-circle coordinates, then compressing with ASTC; evaluating functions of angles like 150°, 210°, 300°.",
+      "outcomes": [
+        "Can state the sign of any trig function in any quadrant from the (x, y) picture",
+        "Can evaluate trig functions at non-first-quadrant standard angles using a reference angle plus a sign"
+      ],
+      "prereqs": ["g11.tri.functions.unit-circle-values"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The value of sin 210° is:",
+        "options": [
+          { "text": "−1/2", "correct": true },
+          { "text": "1/2", "misconception": "m4" },
+          { "text": "−√3/2", "diagnosis": "Right sign, wrong ratio — used the cosine reference value √3/2 instead of sine's 1/2." },
+          { "text": "√3/2", "diagnosis": "Both the quadrant sign and the reference ratio slipped; rebuild from the unit-circle point at 210°." }
+        ],
+        "explanation": "210° = 180° + 30° lies in the third quadrant, where sine (the y-coordinate) is negative, and the reference angle is 30°: sin 210° = −sin 30° = −1/2."
+      }
+    },
+    {
+      "id": "g11.tri.functions.allied-angles",
+      "parent": "g11.tri.functions",
+      "title": "Allied Angles and Reduction Formulas",
+      "description": "Expressing trig functions of π ± x, π/2 ± x, 2π − x and −x in terms of functions of x, seen as reflections and rotations of the unit-circle point.",
+      "outcomes": [
+        "Can reduce expressions like cos(π − x) and sin(π/2 + x) to ± a function of x",
+        "Can use even-odd properties: cos(−x) = cos x, sin(−x) = −sin x"
+      ],
+      "prereqs": ["g11.tri.functions.quadrant-signs"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"]
+    },
+    {
+      "id": "g11.tri.functions.graphs-periodicity",
+      "parent": "g11.tri.functions",
+      "title": "Graphs of sin, cos and tan; Period and Amplitude",
+      "description": "Sketching the wave graphs of sine and cosine (period 2π, amplitude 1) and the branch-and-asymptote graph of tan (period π), and reading periodicity from them.",
+      "outcomes": [
+        "Can sketch sin, cos and tan over at least two periods with correct zeros, extremes and asymptotes",
+        "Can determine the period and amplitude of variants like 3 sin 2x"
+      ],
+      "prereqs": ["g11.tri.functions.unit-circle-values", "g11.alg.relations-functions.standard-graphs"],
+      "est_minutes": 30,
+      "difficulty": 3
+    },
+    {
+      "id": "g11.tri.functions.compound-angles",
+      "parent": "g11.tri.functions",
+      "title": "Compound-Angle Identities",
+      "description": "The identities for sin(A ± B), cos(A ± B) and tan(A ± B): why sin does NOT distribute over +, and using the formulas to evaluate angles like 15° and 75°.",
+      "outcomes": [
+        "Can expand sin(A ± B) and cos(A ± B) correctly, with the right sign structure",
+        "Can compute exact values such as cos 75° and tan 15° from standard angles"
+      ],
+      "prereqs": ["g11.tri.functions.allied-angles"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Using 75° = 45° + 30°, the exact value of cos 75° is:",
+        "options": [
+          { "text": "(√6 − √2)/4", "correct": true },
+          { "text": "(√2 + √3)/2", "misconception": "m1" },
+          { "text": "(√6 + √2)/4", "diagnosis": "Used the cos(A − B) sign: cos A cos B + sin A sin B gives cos 15°, not cos 75°." },
+          { "text": "√6/4", "diagnosis": "Kept only cos 45° cos 30° and dropped the sin 45° sin 30° term entirely." }
+        ],
+        "explanation": "cos(45° + 30°) = cos 45° cos 30° − sin 45° sin 30° = (√2/2)(√3/2) − (√2/2)(1/2) = (√6 − √2)/4. Simply adding cos 45° + cos 30° = (√2 + √3)/2 ≈ 1.57 even exceeds 1 — impossible for a cosine."
+      }
+    },
+    {
+      "id": "g11.tri.functions.multiple-angles",
+      "parent": "g11.tri.functions",
+      "title": "Double and Multiple Angle Identities",
+      "description": "Deriving sin 2x, the three forms of cos 2x, tan 2x and sin 3x/cos 3x from the compound-angle identities, and choosing the convenient cos 2x form for a given problem.",
+      "outcomes": [
+        "Can derive and apply sin 2x = 2 sin x cos x and all three forms of cos 2x",
+        "Can evaluate expressions like cos 2x from a given sin x without finding x"
+      ],
+      "prereqs": ["g11.tri.functions.compound-angles"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "If cos x = 1/3, the value of cos 2x is:",
+        "options": [
+          { "text": "−7/9", "correct": true },
+          { "text": "2/3", "misconception": "m1" },
+          { "text": "7/9", "diagnosis": "Used 1 − 2cos²x; the cosine form is cos 2x = 2cos²x − 1 — the sign structure flipped." },
+          { "text": "2/9", "diagnosis": "Computed 2cos²x and stopped; the '−1' of the double-angle formula went missing." }
+        ],
+        "explanation": "cos 2x = 2cos²x − 1 = 2(1/9) − 1 = 2/9 − 1 = −7/9. Doubling the angle is not doubling the cosine: 'cos 2x = 2 cos x' would give 2/3, which fails immediately at x = 0 (cos 0 = 1 but 2 cos 0 = 2)."
+      }
+    },
+    {
+      "id": "g11.tri.functions.general-solutions",
+      "parent": "g11.tri.functions",
+      "title": "General Solutions of Trigonometric Equations",
+      "description": "Solving sin x = k, cos x = k and tan x = k in full generality: principal solutions first, then the periodic families nπ + (−1)ⁿα, 2nπ ± α and nπ + α.",
+      "outcomes": [
+        "Can find all principal solutions of a basic trig equation in [0, 2π)",
+        "Can write and justify the correct general-solution pattern for sin, cos and tan equations"
+      ],
+      "prereqs": ["g11.tri.functions.graphs-periodicity", "g11.tri.functions.allied-angles"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 4,
+        "prompt": "The general solution of tan x = √3 is:",
+        "options": [
+          { "text": "x = nπ + π/3, n ∈ Z", "correct": true },
+          { "text": "x = π/3 only", "misconception": "m3" },
+          { "text": "x = 2nπ ± π/3, n ∈ Z", "diagnosis": "Applied the cosine pattern 2nπ ± α; tan repeats every π, not every 2π, and ±α fails at 2π − π/3." },
+          { "text": "x = nπ + (−1)ⁿ π/3, n ∈ Z", "diagnosis": "Applied the sine pattern; check n = 1: π − π/3 = 2π/3 gives tan = −√3, not √3." }
+        ],
+        "explanation": "tan has period π, so every solution is exactly one period-shift of the principal solution π/3: x = nπ + π/3. A quick check of x = 4π/3 (n = 1) confirms tan(4π/3) = √3, while the sine/cosine patterns produce angles whose tangent is −√3."
+      }
+    },
+
+    {
+      "id": "g11.num.complex-quadratic.iota-powers",
+      "parent": "g11.num.complex-quadratic",
+      "title": "The Imaginary Unit and Powers of i",
+      "description": "Why i is introduced (solving x² + 1 = 0), the definition i² = −1, and the four-cycle i, −1, −i, 1 for reducing any power of i modulo 4.",
+      "outcomes": [
+        "Can state i² = −1 and evaluate i³, i⁴ and negative powers of i",
+        "Can reduce iⁿ for large n by dividing the exponent by 4 and using the remainder"
+      ],
+      "prereqs": ["g8.num.exponents-powers", "g10.alg.quadratic-equations"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The value of i¹⁰³ is:",
+        "options": [
+          { "text": "−i", "correct": true },
+          { "text": "−1", "misconception": "m3" },
+          { "text": "i", "diagnosis": "Off-by-one in the four-cycle: used remainder 1 instead of 3 when dividing 103 by 4." },
+          { "text": "1", "diagnosis": "Assumed all large powers of i collapse to 1; only exponents divisible by 4 do." }
+        ],
+        "explanation": "103 = 4 × 25 + 3, so i¹⁰³ = (i⁴)²⁵ · i³ = 1 · i³ = −i. Powers of i cycle with period 4 (i, −1, −i, 1) — treating them as period-2 ('odd power → −1') is the classic slip."
+      }
+    },
+    {
+      "id": "g11.num.complex-quadratic.arithmetic",
+      "parent": "g11.num.complex-quadratic",
+      "title": "Adding, Subtracting and Multiplying Complex Numbers",
+      "description": "Arithmetic with a + bi: combining real and imaginary parts, expanding products like binomials, and substituting i² = −1 explicitly in every expansion.",
+      "outcomes": [
+        "Can add, subtract and multiply complex numbers, simplifying every i² to −1",
+        "Can equate real and imaginary parts to solve for unknowns"
+      ],
+      "prereqs": ["g11.num.complex-quadratic.iota-powers", "g8.alg.expressions-identities"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Compute (2 + 3i)(3 − 2i).",
+        "options": [
+          { "text": "12 + 5i", "correct": true },
+          { "text": "6 − 6i", "diagnosis": "Multiplied only the two real parts and the two imaginary parts; FOIL needs all four products." },
+          { "text": "0 + 5i", "misconception": "m3" },
+          { "text": "12 − 5i", "diagnosis": "Sign slip combining the middle terms −4i + 9i; the i² handling was fine." }
+        ],
+        "explanation": "(2 + 3i)(3 − 2i) = 6 − 4i + 9i − 6i² = 6 + 5i − 6(−1) = 6 + 5i + 6 = 12 + 5i. Treating −6i² as −6 (i.e. i² = +1) loses the +6 and gives 0 + 5i."
+      }
+    },
+    {
+      "id": "g11.num.complex-quadratic.conjugate-division",
+      "parent": "g11.num.complex-quadratic",
+      "title": "Conjugates and Division",
+      "description": "The conjugate a − bi, the key identity z·z̄ = a² + b², and dividing complex numbers by multiplying numerator and denominator by the conjugate.",
+      "outcomes": [
+        "Can find the conjugate of any complex number and compute z·z̄",
+        "Can express a quotient of complex numbers in the standard form a + bi"
+      ],
+      "prereqs": ["g11.num.complex-quadratic.arithmetic", "g9.num.number-systems"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Express (1 + i)/(1 − i) in the form a + bi.",
+        "options": [
+          { "text": "i", "correct": true },
+          { "text": "1", "diagnosis": "Cancelled the (1 + i) against (1 − i) as if they were equal; they are conjugates, not identical factors." },
+          { "text": "−i", "diagnosis": "Multiplied by (1 − i)/(1 − i) instead of the conjugate (1 + i)/(1 + i), then mis-simplified the sign." },
+          { "text": "1 + i", "diagnosis": "Divided only the real part by the denominator's real part; division needs the conjugate method, not termwise division." }
+        ],
+        "explanation": "Multiply top and bottom by the conjugate of the denominator: (1 + i)²/((1 − i)(1 + i)) = (1 + 2i + i²)/(1 + 1) = 2i/2 = i. Check: i(1 − i) = i − i² = 1 + i ✓."
+      }
+    },
+    {
+      "id": "g11.num.complex-quadratic.modulus-argand",
+      "parent": "g11.num.complex-quadratic",
+      "title": "Modulus and the Argand Plane",
+      "description": "Plotting a + bi as the point (a, b), modulus |z| = √(a² + b²) as distance from the origin via Pythagoras, and why complex numbers themselves cannot be ordered.",
+      "outcomes": [
+        "Can plot complex numbers, their conjugates and negatives in the Argand plane",
+        "Can compute |z| and explain why |z| values compare even though complex numbers do not"
+      ],
+      "prereqs": ["g11.num.complex-quadratic.conjugate-division", "g9.geo.coordinate-geometry"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The modulus of 5 − 12i is:",
+        "options": [
+          { "text": "13", "correct": true },
+          { "text": "−7", "misconception": "m4" },
+          { "text": "169", "misconception": "m4" },
+          { "text": "17", "diagnosis": "Added |5| + |−12|; the modulus is the hypotenuse √(a² + b²), not the sum of the legs." }
+        ],
+        "explanation": "|5 − 12i| = √(5² + (−12)²) = √(25 + 144) = √169 = 13 — the distance from the origin to the point (5, −12). A modulus can never be negative, and 169 is the SQUARE of the modulus."
+      }
+    },
+    {
+      "id": "g11.num.complex-quadratic.sqrt-negatives",
+      "parent": "g11.num.complex-quadratic",
+      "title": "Square Roots of Negative Numbers",
+      "description": "Writing √(−a) = i√a for a > 0, and the discipline of converting to i-form BEFORE multiplying — because √a·√b = √(ab) fails when both radicands are negative.",
+      "outcomes": [
+        "Can simplify expressions like √(−49) and √(−8) into i-form",
+        "Can compute products of square roots of negatives correctly and explain the failing rule"
+      ],
+      "prereqs": ["g11.num.complex-quadratic.iota-powers"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The value of √(−9) × √(−16) is:",
+        "options": [
+          { "text": "−12", "correct": true },
+          { "text": "12", "misconception": "m1" },
+          { "text": "12i", "diagnosis": "Converted only one radical to i-form before multiplying; both must become 3i and 4i first." },
+          { "text": "−12i", "diagnosis": "Reached 3i × 4i = 12i² but then simplified i² to i instead of −1." }
+        ],
+        "explanation": "Convert first: √(−9) = 3i and √(−16) = 4i, so the product is 12i² = −12. The shortcut √(−9)·√(−16) = √144 = 12 is invalid: √a·√b = √(ab) is only guaranteed when at least one radicand is non-negative."
+      }
+    },
+    {
+      "id": "g11.num.complex-quadratic.quadratic-complex-roots",
+      "parent": "g11.num.complex-quadratic",
+      "title": "Quadratics with Negative Discriminant",
+      "description": "Solving ax² + bx + c = 0 when b² − 4ac < 0: the two roots are complex conjugates (−b ± i√(4ac − b²))/2a, and every quadratic now has exactly two roots.",
+      "outcomes": [
+        "Can solve quadratics with negative discriminant and present roots in a + bi form",
+        "Can verify that the two roots are conjugates and check them by substitution"
+      ],
+      "prereqs": ["g11.num.complex-quadratic.sqrt-negatives", "g10.alg.quadratic-equations"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The roots of x² + x + 1 = 0 are:",
+        "options": [
+          { "text": "(−1 ± i√3)/2", "correct": true },
+          { "text": "(−1 ± √3)/2", "diagnosis": "Treated the discriminant −3 as +3; a negative discriminant forces an i in the roots." },
+          { "text": "(1 ± i√3)/2", "diagnosis": "Dropped the minus of −b in the quadratic formula; the real part must be −b/2a = −1/2." },
+          { "text": "No roots exist", "diagnosis": "True over the reals only — in the complex numbers every quadratic has exactly two roots." }
+        ],
+        "explanation": "Discriminant = 1 − 4 = −3, so x = (−1 ± √(−3))/2 = (−1 ± i√3)/2 — a conjugate pair. Complex numbers exist precisely so that this equation, unsolvable in R, gains its two roots."
+      }
+    },
+
+    {
+      "id": "g11.alg.linear-inequalities.sign-flip-rules",
+      "parent": "g11.alg.linear-inequalities",
+      "title": "Operations on Inequalities and the Sign Flip",
+      "description": "Which moves preserve an inequality (adding/subtracting anything, multiplying/dividing by positives) and the one that reverses it: multiplying or dividing by a negative.",
+      "outcomes": [
+        "Can solve one-step inequalities, reversing the sign exactly when multiplying/dividing by a negative",
+        "Can verify a solution set by substituting a test value"
+      ],
+      "prereqs": ["g8.alg.linear-equations-1var"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Solve for x: −2x < 8.",
+        "options": [
+          { "text": "x > −4", "correct": true },
+          { "text": "x < −4", "misconception": "m1" },
+          { "text": "x < 4", "diagnosis": "Dropped the negative sign on the coefficient and never flipped; two errors that half-cancel." },
+          { "text": "x > 4", "diagnosis": "Flipped correctly but lost the minus on 8/(−2) = −4; arithmetic slip, concept intact." }
+        ],
+        "explanation": "Dividing both sides by −2 reverses the inequality: x > 8/(−2) = −4. Test x = 0: −2(0) = 0 < 8 ✓, and 0 > −4 ✓ — the test value confirms the flip."
+      }
+    },
+    {
+      "id": "g11.alg.linear-inequalities.interval-notation",
+      "parent": "g11.alg.linear-inequalities",
+      "title": "Interval Notation and Number-Line Graphs",
+      "description": "Writing solution sets three synchronized ways — inequality, interval, shaded number line — with open/closed brackets matched to strict/non-strict signs.",
+      "outcomes": [
+        "Can convert among inequality form, interval notation and number-line shading",
+        "Can choose open vs closed endpoints by testing whether the boundary value satisfies the inequality"
+      ],
+      "prereqs": ["g11.alg.sets.set-notation", "g9.num.number-systems"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m4", "m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "The solution set x ≥ −3 written in interval notation is:",
+        "options": [
+          { "text": "[−3, ∞)", "correct": true },
+          { "text": "(−3, ∞)", "misconception": "m4" },
+          { "text": "(−∞, −3]", "diagnosis": "Interval points the wrong way — this is x ≤ −3; 'greater than or equal' extends to the right." },
+          { "text": "[−3, ∞]", "diagnosis": "∞ is not a number that can be reached, so its bracket is always round, never square." }
+        ],
+        "explanation": "x ≥ −3 includes the boundary −3 (square bracket) and everything to its right, unbounded above: [−3, ∞). The ∞ side always gets a round bracket."
+      }
+    },
+    {
+      "id": "g11.alg.linear-inequalities.solve-linear-1var",
+      "parent": "g11.alg.linear-inequalities",
+      "title": "Solving Linear Inequalities in One Variable",
+      "description": "Multi-step inequalities with brackets and fractions, reported as full interval solution sets — an inequality's answer is a set of many values, not one boundary number.",
+      "outcomes": [
+        "Can solve inequalities like 3(x − 1) ≤ 2(x + 3) and present the answer as an interval and number line",
+        "Can state whether specific values belong to the solution set"
+      ],
+      "prereqs": ["g11.alg.linear-inequalities.sign-flip-rules", "g11.alg.linear-inequalities.interval-notation"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"]
+    },
+    {
+      "id": "g11.alg.linear-inequalities.simultaneous-systems",
+      "parent": "g11.alg.linear-inequalities",
+      "title": "Simultaneous Inequalities: Intersecting Solutions",
+      "description": "Solving two inequalities that must hold together: solve each, then take the INTERSECTION of the solution sets by overlaying number lines.",
+      "outcomes": [
+        "Can solve 'and'-joined systems and give the combined solution as a single interval",
+        "Can explain why 'and' means intersection while 'or' would mean union"
+      ],
+      "prereqs": ["g11.alg.linear-inequalities.solve-linear-1var", "g11.alg.sets.venn-union-intersection"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The values of x satisfying BOTH x + 2 > 3 AND 2x ≤ 10 form the set:",
+        "options": [
+          { "text": "(1, 5]", "correct": true },
+          { "text": "All real numbers", "misconception": "m3" },
+          { "text": "(1, 5)", "misconception": "m4" },
+          { "text": "[1, 5]", "diagnosis": "Both endpoints included, but x + 2 > 3 is strict at 1: x = 1 gives 3 > 3, false." }
+        ],
+        "explanation": "x + 2 > 3 gives x > 1; 2x ≤ 10 gives x ≤ 5. Both must hold, so intersect: 1 < x ≤ 5 = (1, 5]. Taking the union of the two half-lines would cover every real number — the classic 'and'/'or' mix-up."
+      }
+    },
+    {
+      "id": "g11.alg.linear-inequalities.word-problems",
+      "parent": "g11.alg.linear-inequalities",
+      "title": "Modelling with Inequalities",
+      "description": "Translating phrases — 'at least', 'at most', 'between', 'not more than' — into inequalities for marks, budgets and measurement ranges, then interpreting the solution in context.",
+      "outcomes": [
+        "Can set up and solve an inequality from a word problem, choosing strict vs non-strict correctly",
+        "Can state the practical meaning of the boundary value"
+      ],
+      "prereqs": ["g11.alg.linear-inequalities.solve-linear-1var"],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Meena scored 72 and 78 in two tests. What must she score in the third test (x, out of 100) so that her average is MORE than 80?",
+        "options": [
+          { "text": "x > 90", "correct": true },
+          { "text": "x ≥ 90", "misconception": "m4" },
+          { "text": "x > 80", "diagnosis": "Reasoned 'average above 80 needs each score above 80'; the average inequality was never set up." },
+          { "text": "x > 85", "diagnosis": "Addition slip: 72 + 78 taken as 155, giving 240 − 155 = 85; method right, arithmetic wrong." }
+        ],
+        "explanation": "(72 + 78 + x)/3 > 80 ⟹ 150 + x > 240 ⟹ x > 90. 'More than 80' is strict, so x = 90 (average exactly 80) does NOT qualify — the boundary stays excluded."
+      }
+    },
+
+    {
+      "id": "g11.alg.permutations-combinations.counting-principle",
+      "parent": "g11.alg.permutations-combinations",
+      "title": "The Fundamental Principle of Counting",
+      "description": "Multiplying choices made in sequence (each stage's options available for every earlier choice) versus adding counts of mutually exclusive cases, seen through tree diagrams.",
+      "outcomes": [
+        "Can apply the multiplication principle to multi-stage problems like codes and outfits",
+        "Can recognise when cases are exclusive and must be added instead"
+      ],
+      "prereqs": ["g5.num.mult-div-large"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A password has 3 characters, each chosen from 5 possible symbols, with repetition allowed. How many passwords are possible?",
+        "options": [
+          { "text": "125", "correct": true },
+          { "text": "15", "misconception": "m2" },
+          { "text": "60", "diagnosis": "Computed 5 × 4 × 3, imposing 'no repetition' that the problem does not ask for." },
+          { "text": "243", "diagnosis": "Computed 3⁵ — swapped the base and exponent: each of the 3 slots has 5 choices, not the reverse." }
+        ],
+        "explanation": "Each of the 3 positions independently offers 5 symbols: 5 × 5 × 5 = 125. Adding 5 + 5 + 5 = 15 confuses sequential stages (multiply) with exclusive cases (add)."
+      }
+    },
+    {
+      "id": "g11.alg.permutations-combinations.factorial-notation",
+      "parent": "g11.alg.permutations-combinations",
+      "title": "Factorials and Their Algebra",
+      "description": "n! as the count of arrangements of n distinct objects, the convention 0! = 1, and simplifying factorial quotients like 8!/6! without full expansion.",
+      "outcomes": [
+        "Can evaluate and simplify expressions like 8!/6! and n!/(n−2)!",
+        "Can justify 0! = 1 via the pattern n! = n·(n−1)!"
+      ],
+      "prereqs": ["g11.alg.permutations-combinations.counting-principle", "g7.alg.expressions"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g11.alg.permutations-combinations.permutations-npr",
+      "parent": "g11.alg.permutations-combinations",
+      "title": "Permutations: nPr",
+      "description": "Counting ordered arrangements of r objects from n distinct objects: nPr = n!/(n−r)! derived slot-by-slot from the multiplication principle.",
+      "outcomes": [
+        "Can compute nPr directly and via the slot method for codes, rankings and line-ups",
+        "Can solve simple equations involving nPr"
+      ],
+      "prereqs": ["g11.alg.permutations-combinations.factorial-notation"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g11.alg.permutations-combinations.repeated-objects",
+      "parent": "g11.alg.permutations-combinations",
+      "title": "Arrangements with Repeated Objects",
+      "description": "Why identical objects shrink the count: n!/(p!·q!·...) for words like BANANA, dividing out the internal reorderings of each repeated letter.",
+      "outcomes": [
+        "Can count distinct arrangements of words with repeated letters",
+        "Can explain the division by each repeat's factorial via the labelling argument"
+      ],
+      "prereqs": ["g11.alg.permutations-combinations.permutations-npr"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "How many distinct arrangements are there of the letters of the word BANANA?",
+        "options": [
+          { "text": "60", "correct": true },
+          { "text": "720", "misconception": "m4" },
+          { "text": "120", "diagnosis": "Divided by 3! for the A's but ignored the two N's; every repeated letter contributes its own factorial." },
+          { "text": "360", "diagnosis": "Divided by 2! only — corrected for the N's but not the three A's." }
+        ],
+        "explanation": "BANANA has 6 letters with A repeated 3 times and N repeated 2 times: 6!/(3!·2!) = 720/12 = 60. Treating all six letters as distinct overcounts each genuine word 3!·2! = 12 times."
+      }
+    },
+    {
+      "id": "g11.alg.permutations-combinations.combinations-ncr",
+      "parent": "g11.alg.permutations-combinations",
+      "title": "Combinations: nCr",
+      "description": "Counting unordered selections: nCr = n!/(r!(n−r)!), built from nPr by dividing out the r! orderings of the chosen group, with the symmetry nCr = nC(n−r).",
+      "outcomes": [
+        "Can compute nCr efficiently, using symmetry to shrink the arithmetic",
+        "Can derive nCr = nPr/r! and explain each factor's role"
+      ],
+      "prereqs": ["g11.alg.permutations-combinations.permutations-npr"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A doubles badminton pair is to be chosen from 12 players. The number of possible pairs is:",
+        "options": [
+          { "text": "66", "correct": true },
+          { "text": "132", "misconception": "m1" },
+          { "text": "239500800", "misconception": "m3" },
+          { "text": "24", "misconception": "m2" }
+        ],
+        "explanation": "A pair is an unordered selection: 12C2 = (12 × 11)/2 = 66. 132 = 12P2 counts each pair twice (order imposed); 12!/2! = 239500800 forgets the (n−r)! factor entirely; 24 = 12 × 2 is not a counting principle."
+      }
+    },
+    {
+      "id": "g11.alg.permutations-combinations.order-or-not",
+      "parent": "g11.alg.permutations-combinations",
+      "title": "Deciding: Permutation or Combination?",
+      "description": "The load-bearing skill: interrogating a context — arranging (line, code, ranking → P) versus choosing a group (committee, team, handshake → C) — including mixed problems with restrictions.",
+      "outcomes": [
+        "Can classify a word problem as permutation, combination or multi-stage mix before touching formulas",
+        "Can solve selection-then-arrangement problems by chaining C and P steps"
+      ],
+      "prereqs": ["g11.alg.permutations-combinations.combinations-ncr"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "From 8 players, a captain and a vice-captain (two different people, distinct roles) are to be chosen. In how many ways can this be done?",
+        "options": [
+          { "text": "56", "correct": true },
+          { "text": "28", "misconception": "m1" },
+          { "text": "64", "diagnosis": "Computed 8², letting the same person hold both roles; the two picks are without replacement." },
+          { "text": "15", "misconception": "m2" }
+        ],
+        "explanation": "The roles differ, so order matters: 8 choices for captain × 7 for vice-captain = 8P2 = 56. 28 = 8C2 would count unlabelled pairs — right answer for 'choose 2 team members', wrong here."
+      }
+    },
+
+    {
+      "id": "g11.alg.binomial-theorem.pascal-coefficients",
+      "parent": "g11.alg.binomial-theorem",
+      "title": "Pascal's Triangle and Binomial Coefficients",
+      "description": "Expanding (a+b)², (a+b)³ by hand to watch cross terms appear, reading coefficients from Pascal's triangle, and identifying each row entry as nCr.",
+      "outcomes": [
+        "Can build Pascal's triangle and match row n to the coefficients of (a+b)ⁿ",
+        "Can explain via small cases why (a+b)ⁿ ≠ aⁿ + bⁿ"
+      ],
+      "prereqs": ["g11.alg.permutations-combinations.combinations-ncr", "g8.alg.expressions-identities"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g11.alg.binomial-theorem.theorem-expansion",
+      "parent": "g11.alg.binomial-theorem",
+      "title": "The Binomial Theorem for Positive Integral n",
+      "description": "The full statement (a+b)ⁿ = Σ nCr a^(n−r) b^r and writing complete expansions, tracking how powers of a fall while powers of b rise, always summing to n.",
+      "outcomes": [
+        "Can write the complete expansion of (a+b)ⁿ for small n with correct coefficients and exponents",
+        "Can verify an expansion numerically, e.g. sum of coefficients = 2ⁿ at a = b = 1"
+      ],
+      "prereqs": ["g11.alg.binomial-theorem.pascal-coefficients"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "Which of the following equals (x + y)³?",
+        "options": [
+          { "text": "x³ + 3x²y + 3xy² + y³", "correct": true },
+          { "text": "x³ + y³", "misconception": "m1" },
+          { "text": "x³ + 3xy + y³", "diagnosis": "Middle terms have the wrong degree — every term of (x+y)³ must have total degree 3, but 3xy has degree 2." },
+          { "text": "x³ + x²y + xy² + y³", "diagnosis": "Term pattern right, coefficients missing — the middle coefficients 3, 3 come from Pascal's row 1 3 3 1." }
+        ],
+        "explanation": "(x + y)³ = x³ + 3x²y + 3xy² + y³, coefficients 1 3 3 1 from Pascal's triangle. Dropping the cross terms (x³ + y³) fails instantly at x = y = 1: (1+1)³ = 8, but 1 + 1 = 2."
+      }
+    },
+    {
+      "id": "g11.alg.binomial-theorem.general-term",
+      "parent": "g11.alg.binomial-theorem",
+      "title": "The General Term T(r+1)",
+      "description": "Using T(r+1) = nCr a^(n−r) b^r to reach any term directly: the k-th term corresponds to r = k − 1, since the first term has r = 0.",
+      "outcomes": [
+        "Can find a specified term of an expansion via the general term without expanding everything",
+        "Can find the term containing a given power of x by solving for r"
+      ],
+      "prereqs": ["g11.alg.binomial-theorem.theorem-expansion"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The 5th term in the expansion of (x + y)⁷ is:",
+        "options": [
+          { "text": "35x³y⁴", "correct": true },
+          { "text": "35x⁴y³", "misconception": "m2" },
+          { "text": "21x²y⁵", "diagnosis": "Used r = 5, reading 'the 5th term' as 'r = 5'; T₅ needs r = 4 because counting starts at r = 0." },
+          { "text": "21x⁵y²", "diagnosis": "Doubly off: r = 2 was used; T₃ = 21x⁵y², two positions before the required term." }
+        ],
+        "explanation": "T(r+1) with r = 4: T₅ = 7C4 x^(7−4) y⁴ = 35x³y⁴. The first term is r = 0, so the 5th term takes r = 4 — off-by-one is the standard trap (r = 3 gives T₄ = 35x⁴y³)."
+      }
+    },
+    {
+      "id": "g11.alg.binomial-theorem.sign-and-coefficient-terms",
+      "parent": "g11.alg.binomial-theorem",
+      "title": "Expansions with Signs and Coefficients",
+      "description": "Handling (x − 2y)ⁿ and (2x + 3)ⁿ: carrying (−b)^r as a unit so signs alternate as (−1)^r, and raising the WHOLE bracket (2x)^k, not just the variable.",
+      "outcomes": [
+        "Can compute any term of expansions like (x − 2y)⁷ with the correct sign",
+        "Can find coefficients in expansions like (2x − 1)⁵, applying the power to the full 2x"
+      ],
+      "prereqs": ["g11.alg.binomial-theorem.general-term"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3", "m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 4,
+        "prompt": "The coefficient of x³ in the expansion of (2x − 1)⁵ is:",
+        "options": [
+          { "text": "80", "correct": true },
+          { "text": "−80", "misconception": "m3" },
+          { "text": "20", "misconception": "m4" },
+          { "text": "40", "diagnosis": "Used 2² instead of 2³ — the exponent on the bracket (2x) slipped by one." }
+        ],
+        "explanation": "General term: 5Cr (2x)^(5−r) (−1)^r. For x³, 5 − r = 3 so r = 2: 5C2 · 2³ · (−1)² = 10 × 8 × 1 = 80. The sign is (+) because r is even, and the 2 is cubed along with x — writing (2x)³ as 2x³ gives the wrong 20."
+      }
+    },
+    {
+      "id": "g11.alg.binomial-theorem.term-count-middle",
+      "parent": "g11.alg.binomial-theorem",
+      "title": "Counting Terms and Middle Terms",
+      "description": "An expansion of (a+b)ⁿ has n + 1 terms; locating the single middle term for even n and the two middle terms for odd n, including expansions like (x + 1/x)ⁿ.",
+      "outcomes": [
+        "Can state the number of terms and identify which position(s) are middle",
+        "Can compute middle terms, simplifying powers when the terms involve 1/x"
+      ],
+      "prereqs": ["g11.alg.binomial-theorem.general-term"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 4,
+        "prompt": "The middle term in the expansion of (x + 1/x)⁶ is:",
+        "options": [
+          { "text": "20", "correct": true },
+          { "text": "15x²", "misconception": "m2" },
+          { "text": "20x⁶", "diagnosis": "Multiplied the powers as x³·x³ = x⁶; the 1/x contributes x⁻³, so exponents ADD to 3 + (−3) = 0." },
+          { "text": "40", "diagnosis": "Doubled the coefficient believing there are two middle terms to combine; even n = 6 has exactly one middle term." }
+        ],
+        "explanation": "(x + 1/x)⁶ has 7 terms, so the middle is the 4th: T₄ = 6C3 x³ (1/x)³ = 20 · x³ · x⁻³ = 20 — a constant. Thinking the expansion has 6 terms leads to taking the 3rd term, 6C2 x⁴ x⁻² = 15x²."
+      }
+    },
+
+    {
+      "id": "g11.alg.sequences-series.ap-recap",
+      "parent": "g11.alg.sequences-series",
+      "title": "Arithmetic Progressions: Recap and Sigma View",
+      "description": "Consolidating a + (n−1)d and Sₙ = (n/2)[2a + (n−1)d], testing every formula at n = 1, and meeting Σ notation for writing series compactly.",
+      "outcomes": [
+        "Can find the nth term and sum of an AP and check formulas at n = 1",
+        "Can expand and evaluate simple sigma expressions like Σ(2k + 1)"
+      ],
+      "prereqs": ["g10.alg.arithmetic-progressions"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g11.alg.sequences-series.gp-nth-term",
+      "parent": "g11.alg.sequences-series",
+      "title": "Geometric Progressions and the nth Term",
+      "description": "Recognising constant-ratio sequences via the difference-vs-ratio test, and the nth term arⁿ⁻¹ where the exponent counts jumps from the first term.",
+      "outcomes": [
+        "Can decide whether a sequence is an AP, a GP or neither by testing differences and ratios",
+        "Can compute any term of a GP with arⁿ⁻¹, verifying the formula returns a at n = 1"
+      ],
+      "prereqs": ["g11.alg.sequences-series.ap-recap", "g7.num.exponents-intro"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The 8th term of the GP 2, 6, 18, 54, ... is:",
+        "options": [
+          { "text": "4374", "correct": true },
+          { "text": "13122", "misconception": "m2" },
+          { "text": "23", "misconception": "m1" },
+          { "text": "2187", "diagnosis": "Computed 3⁷ but forgot to multiply by the first term a = 2." }
+        ],
+        "explanation": "a = 2, r = 3, so T₈ = ar⁷ = 2 × 3⁷ = 2 × 2187 = 4374. Using r⁸ gives 13122 (off-by-one in jumps); treating the ratio 3 as a common difference gives 2 + 7×3 = 23."
+      }
+    },
+    {
+      "id": "g11.alg.sequences-series.gp-sum",
+      "parent": "g11.alg.sequences-series",
+      "title": "Sum of n Terms of a GP",
+      "description": "Deriving Sₙ = a(rⁿ − 1)/(r − 1) by the multiply-and-subtract trick, applying it to doubling stories like the chessboard legend, and the special case r = 1.",
+      "outcomes": [
+        "Can compute finite GP sums and reproduce the multiply-by-r derivation",
+        "Can handle the r = 1 case, where Sₙ = na"
+      ],
+      "prereqs": ["g11.alg.sequences-series.gp-nth-term"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g11.alg.sequences-series.geometric-mean",
+      "parent": "g11.alg.sequences-series",
+      "title": "Geometric Means",
+      "description": "The geometric mean √(ab) of two positive numbers, inserting k geometric means between two numbers, and GM as the middle term of a three-term GP.",
+      "outcomes": [
+        "Can compute the GM of two positive numbers and insert geometric means between them",
+        "Can use the three-term GP trick a/r, a, ar in problems"
+      ],
+      "prereqs": ["g11.alg.sequences-series.gp-nth-term", "g8.num.squares-roots"],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g11.alg.sequences-series.infinite-gp",
+      "parent": "g11.alg.sequences-series",
+      "title": "Infinite GP: Convergence and S∞",
+      "description": "Watching partial sums settle when |r| < 1 versus explode when |r| ≥ 1; the formula S∞ = a/(1 − r) and its mandatory pre-flight check |r| < 1.",
+      "outcomes": [
+        "Can decide whether an infinite GP has a finite sum before computing anything",
+        "Can compute S∞ = a/(1 − r) for convergent GPs, including bouncing-ball style applications"
+      ],
+      "prereqs": ["g11.alg.sequences-series.gp-sum"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 4,
+        "prompt": "The sum to infinity of the series 2 + 4 + 8 + 16 + ... is:",
+        "options": [
+          { "text": "It does not exist — the series diverges", "correct": true },
+          { "text": "−2", "misconception": "m3" },
+          { "text": "30", "diagnosis": "Added only the four displayed terms — a partial sum, not the infinite sum." },
+          { "text": "2", "diagnosis": "Assumed later terms 'don't matter' and kept the first term; here the terms GROW, so they matter more and more." }
+        ],
+        "explanation": "Here r = 2 with |r| ≥ 1: partial sums 2, 6, 14, 30, ... explode without bound, so no finite sum exists. Blindly applying a/(1 − r) = 2/(1 − 2) = −2 produces a negative 'sum' of positive terms — the formula's absurd output when its |r| < 1 condition is ignored."
+      }
+    },
+    {
+      "id": "g11.alg.sequences-series.am-gm",
+      "parent": "g11.alg.sequences-series",
+      "title": "The AM–GM Inequality",
+      "description": "For positive numbers, (a + b)/2 ≥ √(ab) with equality only when a = b; proving it from (√a − √b)² ≥ 0 and using it for quick min-max facts.",
+      "outcomes": [
+        "Can compute AM and GM of a positive pair and verify AM ≥ GM",
+        "Can state the positivity requirement and the exact equality condition"
+      ],
+      "prereqs": ["g11.alg.sequences-series.geometric-mean"],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The AM and GM of the numbers 4 and 16 are, respectively:",
+        "options": [
+          { "text": "10 and 8", "correct": true },
+          { "text": "10 and 10", "misconception": "m4" },
+          { "text": "8 and 10", "diagnosis": "Computed both means correctly but swapped their names; the AM of unequal numbers is always the LARGER of the two." },
+          { "text": "6 and 8", "diagnosis": "Took half the difference (16 − 4)/2 = 6 for the AM; the arithmetic mean averages the SUM." }
+        ],
+        "explanation": "AM = (4 + 16)/2 = 10; GM = √(4 × 16) = √64 = 8. As guaranteed by AM ≥ GM, 10 > 8 — equality would need the two numbers to be equal."
+      }
+    },
+    {
+      "id": "g11.alg.sequences-series.special-sums",
+      "parent": "g11.alg.sequences-series",
+      "title": "Special Sums: Σn, Σn², Σn³",
+      "description": "The closed forms n(n+1)/2, n(n+1)(2n+1)/6 and [n(n+1)/2]², and combining them with sigma algebra to sum series like Σ k(k + 2).",
+      "outcomes": [
+        "Can evaluate Σn, Σn² and Σn³ for a given n",
+        "Can split a polynomial summand with sigma linearity and evaluate the pieces"
+      ],
+      "prereqs": ["g11.alg.sequences-series.ap-recap"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The value of 1² + 2² + 3² + ... + 10² is:",
+        "options": [
+          { "text": "385", "correct": true },
+          { "text": "3025", "diagnosis": "Computed (1 + 2 + ... + 10)² = 55² — that is Σn³'s formula shape, not Σn²." },
+          { "text": "55", "diagnosis": "Summed the numbers themselves (Σn), never squaring them." },
+          { "text": "770", "diagnosis": "Used n(n+1)(2n+1)/3 — divided by 3 instead of 6, exactly double the true sum." }
+        ],
+        "explanation": "Σn² = n(n+1)(2n+1)/6 = 10 × 11 × 21/6 = 2310/6 = 385. Note 55² = 3025 is Σn³ for n = 10 — the 'square of the sum', a different beast from the 'sum of the squares'."
+      }
+    },
+
+    {
+      "id": "g11.geo.straight-lines.slope-two-points",
+      "parent": "g11.geo.straight-lines",
+      "title": "Slope from Two Points and Inclination",
+      "description": "Slope as rise over run, m = (y₂ − y₁)/(x₂ − x₁), tied to the inclination by m = tan θ — how much y changes per unit of x, like speed is distance per time.",
+      "outcomes": [
+        "Can compute the slope through two points with consistent coordinate order",
+        "Can relate slope to inclination via m = tan θ and to steepness intuition"
+      ],
+      "prereqs": ["g10.geo.coordinate-geometry", "g10.tri.intro"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The slope of the line through (2, 3) and (6, 11) is:",
+        "options": [
+          { "text": "2", "correct": true },
+          { "text": "1/2", "misconception": "m3" },
+          { "text": "8", "diagnosis": "Computed the rise 11 − 3 but never divided by the run; the formula is a ratio." },
+          { "text": "−2", "diagnosis": "Mixed subtraction order between numerator and denominator — (11 − 3)/(2 − 6); order must match." }
+        ],
+        "explanation": "m = (11 − 3)/(6 − 2) = 8/4 = 2. Slope is rise over run — Δy per unit Δx; inverting it to run/rise makes steep lines look shallow."
+      }
+    },
+    {
+      "id": "g11.geo.straight-lines.horizontal-vertical",
+      "parent": "g11.geo.straight-lines",
+      "title": "Horizontal and Vertical Lines",
+      "description": "y = c has slope 0 (flat road); x = k has UNDEFINED slope (rise/run divides by zero) and cannot be written as y = mx + c at all.",
+      "outcomes": [
+        "Can write equations of horizontal and vertical lines through a given point",
+        "Can explain the difference between zero slope and undefined slope from rise/run"
+      ],
+      "prereqs": ["g11.geo.straight-lines.slope-two-points"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "The slope of the vertical line x = 4 is:",
+        "options": [
+          { "text": "Undefined", "correct": true },
+          { "text": "0", "misconception": "m1" },
+          { "text": "4", "diagnosis": "Read the constant in the equation as the slope; 4 is where the line crosses the x-axis." },
+          { "text": "1", "diagnosis": "Guessed a 'neutral' slope; compute rise/run from two actual points like (4, 0) and (4, 5) to see the zero denominator." }
+        ],
+        "explanation": "Two points on x = 4, say (4, 0) and (4, 5), give slope (5 − 0)/(4 − 4) = 5/0 — division by zero, so the slope is undefined. Zero slope belongs to the flat HORIZONTAL lines y = c."
+      }
+    },
+    {
+      "id": "g11.geo.straight-lines.parallel-perpendicular",
+      "parent": "g11.geo.straight-lines",
+      "title": "Parallel and Perpendicular Slope Conditions",
+      "description": "Parallel lines share slopes; perpendicular lines have slopes multiplying to −1 (negative reciprocals), verified numerically before being used abstractly.",
+      "outcomes": [
+        "Can test parallelism and perpendicularity from slopes",
+        "Can find the slope of a line perpendicular to a given line and verify m₁m₂ = −1"
+      ],
+      "prereqs": ["g11.geo.straight-lines.slope-two-points"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A line is perpendicular to y = 4x − 1. Its slope is:",
+        "options": [
+          { "text": "−1/4", "correct": true },
+          { "text": "4", "misconception": "m2" },
+          { "text": "1/4", "misconception": "m2" },
+          { "text": "−4", "diagnosis": "Negated without taking the reciprocal; check: 4 × (−4) = −16 ≠ −1." }
+        ],
+        "explanation": "Perpendicular slopes satisfy m₁m₂ = −1, so m₂ = −1/4 (negative reciprocal of 4). Check: 4 × (−1/4) = −1 ✓. Equal slopes (4) would make the lines parallel, and 1/4 forgets the sign flip: 4 × 1/4 = +1."
+      }
+    },
+    {
+      "id": "g11.geo.straight-lines.point-slope-forms",
+      "parent": "g11.geo.straight-lines",
+      "title": "Point-Slope, Two-Point and Slope-Intercept Forms",
+      "description": "Writing a line's equation from a point and slope (y − y₁ = m(x − x₁)), from two points, or from slope and y-intercept, and moving fluidly between these forms.",
+      "outcomes": [
+        "Can write the equation of a line from point + slope or from two points",
+        "Can convert any of these forms into y = mx + c and read off m and c"
+      ],
+      "prereqs": ["g11.geo.straight-lines.slope-two-points", "g9.alg.linear-equations-2var"],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g11.geo.straight-lines.general-form-slope",
+      "parent": "g11.geo.straight-lines",
+      "title": "General Form and Intercepts",
+      "description": "The general form ax + by + c = 0: extracting slope m = −a/b by solving for y (never by grabbing a coefficient), and the intercept form x/a + y/b = 1.",
+      "outcomes": [
+        "Can rearrange ax + by + c = 0 to find its slope and intercepts",
+        "Can write a line from given x- and y-intercepts using the intercept form"
+      ],
+      "prereqs": ["g11.geo.straight-lines.point-slope-forms"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The slope of the line 3x + 6y = 12 is:",
+        "options": [
+          { "text": "−1/2", "correct": true },
+          { "text": "3", "misconception": "m4" },
+          { "text": "−3", "diagnosis": "Took −a alone, forgetting to divide by b; the shortcut is m = −a/b, a ratio." },
+          { "text": "1/2", "diagnosis": "Ratio right, sign lost while moving 3x across; rearrange fully: y = −x/2 + 2." }
+        ],
+        "explanation": "Solve for y: 6y = −3x + 12, so y = −(1/2)x + 2 — slope −1/2. Reading the x-coefficient (3) straight off the unsolved form skips the rearrangement that the slope definition demands."
+      }
+    },
+    {
+      "id": "g11.geo.straight-lines.point-line-distance",
+      "parent": "g11.geo.straight-lines",
+      "title": "Distance from a Point to a Line",
+      "description": "The formula d = |ax₁ + by₁ + c|/√(a² + b²), plus the distance between parallel lines — the absolute value and the √(a² + b²) denominator are both non-negotiable.",
+      "outcomes": [
+        "Can compute the perpendicular distance from a point to a line in general form",
+        "Can compute the distance between two parallel lines"
+      ],
+      "prereqs": ["g11.geo.straight-lines.general-form-slope"],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The distance of the origin from the line 3x + 4y − 10 = 0 is:",
+        "options": [
+          { "text": "2", "correct": true },
+          { "text": "10", "diagnosis": "Used only the numerator |3(0) + 4(0) − 10|; the denominator √(a² + b²) = 5 was skipped." },
+          { "text": "−2", "diagnosis": "Kept the sign of −10 through to the answer; the absolute value makes every distance non-negative." },
+          { "text": "10/7", "diagnosis": "Divided by a + b = 7 instead of √(a² + b²) = √25 = 5." }
+        ],
+        "explanation": "d = |3(0) + 4(0) − 10|/√(3² + 4²) = 10/5 = 2. Both guards matter: the absolute value keeps distance positive, and the denominator is the square ROOT of a² + b², not a + b."
+      }
+    },
+
+    {
+      "id": "g11.geo.conic-sections.circle-standard",
+      "parent": "g11.geo.conic-sections",
+      "title": "Circle: Centre-Radius Form",
+      "description": "The equation (x − h)² + (y − k)² = r² from the distance definition of a circle; writing equations from centre and radius and reading them back, minding the sign of h, k.",
+      "outcomes": [
+        "Can write the equation of a circle from its centre and radius",
+        "Can read centre and radius from centre-radius form, handling signs like (x + 2)²"
+      ],
+      "prereqs": ["g10.geo.coordinate-geometry"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g11.geo.conic-sections.circle-general",
+      "parent": "g11.geo.conic-sections",
+      "title": "Circle: General Form and Completing the Square",
+      "description": "Converting x² + y² + 2gx + 2fy + c = 0 to centre-radius form by completing the square, finding centre (−g, −f) and radius √(g² + f² − c).",
+      "outcomes": [
+        "Can complete the square to find the centre and radius from a general-form circle",
+        "Can determine when a general second-degree equation fails to be a real circle (g² + f² − c < 0)"
+      ],
+      "prereqs": ["g11.geo.conic-sections.circle-standard", "g10.alg.quadratic-equations"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The centre and radius of the circle x² + y² − 4x + 6y − 12 = 0 are:",
+        "options": [
+          { "text": "Centre (2, −3), radius 5", "correct": true },
+          { "text": "Centre (−2, 3), radius 5", "diagnosis": "Sign flip on the centre: completing the square gives (x − 2)² and (y + 3)², so the centre is (2, −3)." },
+          { "text": "Centre (−4, 6), radius 5", "diagnosis": "Used the full coefficients instead of halving them; the centre is (−g, −f) with 2g = −4, 2f = 6." },
+          { "text": "Centre (2, −3), radius 1", "diagnosis": "Subtracted 12 instead of adding when moving it across: r² = 4 + 9 + 12 = 25, not 4 + 9 − 12." }
+        ],
+        "explanation": "Complete the square: (x − 2)² + (y + 3)² = 12 + 4 + 9 = 25, so centre (2, −3) and radius 5. Each bracket's sign is opposite to the centre coordinate, and the constant moves to the right side with its sign reversed."
+      }
+    },
+    {
+      "id": "g11.geo.conic-sections.parabola-standard",
+      "parent": "g11.geo.conic-sections",
+      "title": "Parabola: Focus, Directrix and Latus Rectum",
+      "description": "The four standard parabolas y² = ±4ax, x² = ±4ay: solving 4a = coefficient as an explicit step, then locating the focus, directrix, axis and latus rectum (length 4a).",
+      "outcomes": [
+        "Can identify orientation, focus and directrix for any of the four standard parabolas",
+        "Can use the latus rectum to sanity-check the focus position"
+      ],
+      "prereqs": ["g11.geo.conic-sections.circle-standard", "g11.geo.straight-lines.horizontal-vertical"],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The focus of the parabola y² = 16x is at:",
+        "options": [
+          { "text": "(4, 0)", "correct": true },
+          { "text": "(16, 0)", "misconception": "m2" },
+          { "text": "(0, 4)", "diagnosis": "Right a, wrong axis — y² = 4ax opens along the x-axis; x² = 4ay is the one with focus on the y-axis." },
+          { "text": "(−4, 0)", "diagnosis": "Direction slip: the positive coefficient means the parabola opens right, so the focus sits on the positive x-axis." }
+        ],
+        "explanation": "Compare with y² = 4ax: 4a = 16 gives a = 4, so the focus is (4, 0) and the directrix x = −4. Reading the coefficient 16 as a itself misplaces the focus by a factor of 4."
+      }
+    },
+    {
+      "id": "g11.geo.conic-sections.ellipse-standard",
+      "parent": "g11.geo.conic-sections",
+      "title": "Ellipse: Standard Form and Foci",
+      "description": "x²/a² + y²/b² = 1 with a > b: vertices, major/minor axes, and the focal relation c² = a² − b² (subtract, because the foci sit INSIDE, c < a); eccentricity e = c/a.",
+      "outcomes": [
+        "Can extract vertices, foci, axis lengths and eccentricity from a standard ellipse",
+        "Can determine the major axis direction from which denominator is larger"
+      ],
+      "prereqs": ["g11.geo.conic-sections.parabola-standard"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The foci of the ellipse x²/16 + y²/9 = 1 are:",
+        "options": [
+          { "text": "(±√7, 0)", "correct": true },
+          { "text": "(±5, 0)", "misconception": "m1" },
+          { "text": "(±4, 0)", "diagnosis": "Gave the vertices (±a, 0); the foci lie strictly between centre and vertices, at distance c = √7." },
+          { "text": "(0, ±√7)", "diagnosis": "Correct c but wrong axis — the major axis follows the LARGER denominator, here under x²." }
+        ],
+        "explanation": "a² = 16, b² = 9; for an ellipse c² = a² − b² = 7, so foci (±√7, 0) on the major (x) axis. Adding to get c = 5 > a = 4 would put the foci OUTSIDE the ellipse — geometrically impossible."
+      }
+    },
+    {
+      "id": "g11.geo.conic-sections.hyperbola-standard",
+      "parent": "g11.geo.conic-sections",
+      "title": "Hyperbola: Standard Form and Foci",
+      "description": "x²/a² − y²/b² = 1: two branches, vertices (±a, 0), and the focal relation c² = a² + b² (add, because the foci lie BEYOND the vertices, c > a); eccentricity e = c/a > 1.",
+      "outcomes": [
+        "Can extract vertices, foci, transverse axis and eccentricity from a standard hyperbola",
+        "Can justify c² = a² + b² geometrically (foci beyond vertices) and contrast it with the ellipse"
+      ],
+      "prereqs": ["g11.geo.conic-sections.ellipse-standard"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The foci of the hyperbola x²/9 − y²/16 = 1 are:",
+        "options": [
+          { "text": "(±5, 0)", "correct": true },
+          { "text": "(±√7, 0)", "misconception": "m1" },
+          { "text": "(±3, 0)", "diagnosis": "Gave the vertices (±a, 0); a hyperbola's foci lie BEYOND its vertices, at c = 5 > 3." },
+          { "text": "(0, ±5)", "diagnosis": "Correct c, wrong axis — the transverse axis follows the POSITIVE squared term, here x²." }
+        ],
+        "explanation": "a² = 9, b² = 16; for a hyperbola c² = a² + b² = 25, so c = 5 and the foci are (±5, 0). Subtracting (ellipse habit) gives √7 < a, which would wrongly pull the foci inside the vertices."
+      }
+    },
+    {
+      "id": "g11.geo.conic-sections.eccentricity-dial",
+      "parent": "g11.geo.conic-sections",
+      "title": "Eccentricity: One Dial for All Conics",
+      "description": "Eccentricity as 'distance from circular': e = 0 circle, 0 < e < 1 ellipse, e = 1 parabola, e > 1 hyperbola — one parameter morphing the whole conic family.",
+      "outcomes": [
+        "Can compute e = c/a for ellipses and hyperbolas and check it lands in the right range",
+        "Can name the conic from its eccentricity alone"
+      ],
+      "prereqs": ["g11.geo.conic-sections.ellipse-standard", "g11.geo.conic-sections.hyperbola-standard"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A conic section has eccentricity e = 0.5. It must be:",
+        "options": [
+          { "text": "An ellipse", "correct": true },
+          { "text": "A hyperbola", "misconception": "m4" },
+          { "text": "A parabola", "misconception": "m4" },
+          { "text": "A circle", "diagnosis": "A circle is the special case e = 0 exactly; any 0 < e < 1 has already stretched into a proper ellipse." }
+        ],
+        "explanation": "The eccentricity dial reads: e = 0 circle → 0 < e < 1 ellipse → e = 1 parabola → e > 1 hyperbola. With e = 0.5 strictly between 0 and 1, the conic is an ellipse — hyperbolas require e > 1, never less."
+      }
+    },
+    {
+      "id": "g11.geo.conic-sections.classify-conic",
+      "parent": "g11.geo.conic-sections",
+      "title": "Classifying a Conic from Its Equation",
+      "description": "The checklist for second-degree equations: equal positive squared coefficients → circle; unequal, both positive → ellipse; opposite signs → hyperbola; one squared variable → parabola.",
+      "outcomes": [
+        "Can classify equations like x² + 2y² = 4, x² − 4y² = 4 and y² = 6x at sight",
+        "Can normalise an equation (divide by the constant) into a standard form before extracting parameters"
+      ],
+      "prereqs": ["g11.geo.conic-sections.eccentricity-dial"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m3", "m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "The equation x² − 4y² = 4 represents:",
+        "options": [
+          { "text": "A hyperbola", "correct": true },
+          { "text": "A circle", "misconception": "m3" },
+          { "text": "An ellipse", "diagnosis": "Ignored the minus sign — an ellipse needs BOTH squared terms positive; the minus is the hyperbola's signature." },
+          { "text": "A parabola", "diagnosis": "A parabola has exactly ONE squared variable; this equation squares both x and y." }
+        ],
+        "explanation": "Divide by 4: x²/4 − y²/1 = 1 — a difference of squared terms, the standard hyperbola. Containing both x² and y² does not make an equation a circle; the signs and coefficients decide."
+      }
+    },
+
+    {
+      "id": "g11.vec.intro-3d.axes-octants",
+      "parent": "g11.vec.intro-3d",
+      "title": "Coordinate Axes and Octants",
+      "description": "Adding the z-axis: the room-corner model with three mutually perpendicular axes, ordered triples (x, y, z), and the eight octants determined by sign patterns.",
+      "outcomes": [
+        "Can locate a point (x, y, z) relative to the room-corner model",
+        "Can name the octant of a point from the signs of its coordinates"
+      ],
+      "prereqs": ["g10.geo.coordinate-geometry"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g11.vec.intro-3d.coordinate-planes",
+      "parent": "g11.vec.intro-3d",
+      "title": "Points on Coordinate Planes and Axes",
+      "description": "Which coordinates vanish where: on the xy-plane z = 0, on an axis TWO coordinates vanish — the missing coordinate measures how far you have left that plane.",
+      "outcomes": [
+        "Can state the zero-coordinate conditions for each coordinate plane and axis",
+        "Can find the foot of the perpendicular from a point to a coordinate plane or axis"
+      ],
+      "prereqs": ["g11.vec.intro-3d.axes-octants"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "The point (4, 0, 5) lies on:",
+        "options": [
+          { "text": "The xz-plane", "correct": true },
+          { "text": "The xy-plane", "misconception": "m2" },
+          { "text": "The y-axis", "misconception": "m2" },
+          { "text": "The z-axis", "diagnosis": "An axis needs TWO zero coordinates; only y is zero here, which pins the point to a plane, not an axis." }
+        ],
+        "explanation": "y = 0 means the point has not left the xz-plane — the plane spanned by the x- and z-axes. The vanishing coordinate is the one NOT named in the plane; points on the y-axis would instead need x = z = 0."
+      }
+    },
+    {
+      "id": "g11.vec.intro-3d.distance-formula",
+      "parent": "g11.vec.intro-3d",
+      "title": "Distance Between Two Points in Space",
+      "description": "Deriving √(Δx² + Δy² + Δz²) as Pythagoras applied twice — the box diagonal: floor diagonal first, then up the wall — and computing distances between points.",
+      "outcomes": [
+        "Can compute the distance between two points in 3D including the z-term",
+        "Can reproduce the double-Pythagoras derivation with a room/box picture"
+      ],
+      "prereqs": ["g11.vec.intro-3d.coordinate-planes", "g10.geo.coordinate-geometry"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The distance between the points (2, 3, 5) and (4, 3, 1) is:",
+        "options": [
+          { "text": "2√5", "correct": true },
+          { "text": "2", "misconception": "m1" },
+          { "text": "20", "diagnosis": "Summed the squared differences but forgot the final square root." },
+          { "text": "6", "diagnosis": "Added the absolute coordinate differences 2 + 0 + 4; distance squares each difference before summing." }
+        ],
+        "explanation": "d = √((4−2)² + (3−3)² + (1−5)²) = √(4 + 0 + 16) = √20 = 2√5. Dropping the z-term (Δz = −4) leaves only √4 = 2 — the flat 2D shadow of the true 3D distance."
+      }
+    },
+    {
+      "id": "g11.vec.intro-3d.distance-applications",
+      "parent": "g11.vec.intro-3d",
+      "title": "Applications of the 3D Distance Formula",
+      "description": "Using distances to classify triangles (isosceles, equilateral, right-angled via Pythagoras), verify collinearity, and find points equidistant from given points.",
+      "outcomes": [
+        "Can classify a triangle in space from its three side lengths",
+        "Can test collinearity by checking whether one distance equals the sum of the other two"
+      ],
+      "prereqs": ["g11.vec.intro-3d.distance-formula"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g11.vec.intro-3d.section-formula",
+      "parent": "g11.vec.intro-3d",
+      "title": "Section and Midpoint Formulas in 3D",
+      "description": "Internal division in ratio m:n gives ((mx₂ + nx₁)/(m+n), ...) — the ratio parts attach to the OPPOSITE endpoints — with the midpoint as the 1:1 special case.",
+      "outcomes": [
+        "Can find the point dividing a segment internally in a given ratio and the midpoint",
+        "Can estimate the answer's position first (e.g. 2:1 lands two-thirds along) to catch swapped ratios"
+      ],
+      "prereqs": ["g11.vec.intro-3d.distance-formula"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The point dividing the segment from A(1, 2, 3) to B(4, 5, 6) internally in the ratio 1 : 2 is:",
+        "options": [
+          { "text": "(2, 3, 4)", "correct": true },
+          { "text": "(3, 4, 5)", "misconception": "m3" },
+          { "text": "(2.5, 3.5, 4.5)", "diagnosis": "Computed the midpoint, ignoring the 1:2 ratio; the required point is only one-third of the way to B." },
+          { "text": "(−2, −1, 0)", "diagnosis": "Used the EXTERNAL division formula (mB − nA)/(m − n) for an internal division." }
+        ],
+        "explanation": "P = ((1·4 + 2·1)/3, (1·5 + 2·2)/3, (1·6 + 2·3)/3) = (2, 3, 4) — one-third of the way from A to B, as a 1:2 split demands. (3, 4, 5) is the 2:1 point: the ratio parts got attached to the wrong endpoints."
+      }
+    },
+
+    {
+      "id": "g11.cal.limits-derivatives.limit-intuition-tables",
+      "parent": "g11.cal.limits-derivatives",
+      "title": "Limit Intuition via Tables",
+      "description": "The limit as the value a function approaches: tabulating f(x) on both sides of a point and watching values crowd a target — which can exist even where f itself is undefined.",
+      "outcomes": [
+        "Can estimate a limit numerically from two-sided tables",
+        "Can give an example where lim x→a f(x) exists although f(a) is undefined"
+      ],
+      "prereqs": ["g11.alg.relations-functions.domain-range"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Evaluate lim x→3 (x² − 9)/(x − 3).",
+        "options": [
+          { "text": "6", "correct": true },
+          { "text": "It does not exist, because f(3) is undefined", "misconception": "m1" },
+          { "text": "0", "misconception": "m2" },
+          { "text": "3", "diagnosis": "Cancelled (x² − 9)/(x − 3) down to x instead of x + 3; refactor: x² − 9 = (x − 3)(x + 3)." }
+        ],
+        "explanation": "For x ≠ 3, (x² − 9)/(x − 3) = x + 3, which approaches 6. The function has a hole AT x = 3, but the limit is about the approach, not the destination: values at 2.999 and 3.001 crowd 6."
+      }
+    },
+    {
+      "id": "g11.cal.limits-derivatives.limit-laws",
+      "parent": "g11.cal.limits-derivatives",
+      "title": "Limit Laws and Algebraic Evaluation",
+      "description": "Sum, product and quotient laws for limits; direct substitution for polynomials; and resolving 0/0 forms by factoring or rationalising — 0/0 means 'investigate', never a verdict.",
+      "outcomes": [
+        "Can evaluate limits of polynomial and rational functions by substitution where valid",
+        "Can resolve 0/0 limits by factoring or by rationalising with a conjugate"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives.limit-intuition-tables"],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g11.cal.limits-derivatives.one-sided-limits",
+      "parent": "g11.cal.limits-derivatives",
+      "title": "One-Sided Limits and Existence",
+      "description": "Left-hand and right-hand limits, and the existence criterion: the limit exists iff both one-sided limits exist and agree — tested on step-like functions such as |x|/x and [x].",
+      "outcomes": [
+        "Can compute LHL and RHL at a point from a formula or graph",
+        "Can decide whether a two-sided limit exists and justify with both one-sided values"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives.limit-intuition-tables", "g11.alg.relations-functions.standard-graphs"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 4,
+        "prompt": "For f(x) = |x|/x (x ≠ 0), the limit lim x→0 f(x):",
+        "options": [
+          { "text": "Does not exist, because LHL = −1 but RHL = +1", "correct": true },
+          { "text": "Equals 1", "diagnosis": "Checked only the right-hand side; for x < 0, |x|/x = −x/x = −1, so the two sides disagree." },
+          { "text": "Equals 0", "diagnosis": "Averaged the two one-sided values (−1 and 1); a limit must be a value BOTH sides approach, not a compromise." },
+          { "text": "Equals −1", "diagnosis": "Checked only the left-hand side; approach from the right gives +1." }
+        ],
+        "explanation": "For x > 0, f(x) = 1; for x < 0, f(x) = −1. The one-sided limits are +1 and −1 — they disagree, so the two-sided limit does not exist. Existence requires both sides to agree on ONE value."
+      }
+    },
+    {
+      "id": "g11.cal.limits-derivatives.standard-limits-sinx-over-x",
+      "parent": "g11.cal.limits-derivatives",
+      "title": "Standard Limits: sin x/x and (xⁿ − aⁿ)/(x − a)",
+      "description": "The two workhorse limits — sin x/x → 1 as x → 0 (x in radians) and (xⁿ − aⁿ)/(x − a) → naⁿ⁻¹ — and the rescaling discipline: sin kx must sit over kx before the limit applies.",
+      "outcomes": [
+        "Can evaluate limits like sin 3x/2x and tan x/x by rescaling to the standard form",
+        "Can apply (xⁿ − aⁿ)/(x − a) → naⁿ⁻¹ including fractional n"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives.limit-laws", "g11.tri.functions.radian-measure"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 4,
+        "prompt": "Evaluate lim x→0 sin 3x / 2x.",
+        "options": [
+          { "text": "3/2", "correct": true },
+          { "text": "1", "diagnosis": "Pattern-matched 'sin(anything)/x → 1'; the standard limit needs the SAME expression inside sin and underneath." },
+          { "text": "2/3", "diagnosis": "Rescaled in the wrong direction — the factor 3 from sin 3x multiplies, the 2 below divides." },
+          { "text": "0", "misconception": "m2" }
+        ],
+        "explanation": "sin 3x/2x = (3/2)·sin 3x/(3x). As x→0, sin 3x/(3x) → 1, so the limit is 3/2. Substituting x = 0 gives the indeterminate 0/0 — a signal to investigate, never the answer 0."
+      }
+    },
+    {
+      "id": "g11.cal.limits-derivatives.derivative-as-slope",
+      "parent": "g11.cal.limits-derivatives",
+      "title": "The Derivative as Slope and Instantaneous Rate",
+      "description": "Secant slopes over shrinking intervals rotating into the tangent: the derivative as the slope of the tangent line and the speedometer-reading instantaneous rate, versus the trip-average rate.",
+      "outcomes": [
+        "Can distinguish average rate (secant slope) from instantaneous rate (tangent slope) in context",
+        "Can interpret f'(a) graphically as tangent slope and physically as a rate at one instant"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives.limit-intuition-tables", "g11.geo.straight-lines.slope-two-points"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A particle's position is s(t) = t² metres after t seconds. Its INSTANTANEOUS velocity at t = 3 is:",
+        "options": [
+          { "text": "6 m/s", "correct": true },
+          { "text": "3 m/s", "misconception": "m4" },
+          { "text": "9 m/s", "diagnosis": "Reported the position s(3) = 9, not a rate; velocity asks how fast position is CHANGING." },
+          { "text": "2 m/s", "diagnosis": "Differentiated to 2t but then dropped the t; evaluate the derivative AT t = 3." }
+        ],
+        "explanation": "v(t) = s'(t) = 2t, so v(3) = 6 m/s — the speedometer reading at that instant. Dividing s(3)/3 = 3 gives the AVERAGE velocity over [0, 3], the secant slope from the origin, not the tangent slope at t = 3."
+      }
+    },
+    {
+      "id": "g11.cal.limits-derivatives.first-principles",
+      "parent": "g11.cal.limits-derivatives",
+      "title": "Derivative from First Principles",
+      "description": "Computing f'(x) = lim h→0 [f(x+h) − f(x)]/h for polynomials and simple roots: expand carefully, cancel the h, THEN take the limit.",
+      "outcomes": [
+        "Can differentiate x², x³ and 1/x from first principles, showing every step",
+        "Can explain why the h must be cancelled before letting h → 0"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives.derivative-as-slope", "g11.cal.limits-derivatives.limit-laws"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Using first principles, the derivative of f(x) = x² is lim h→0 [(x+h)² − x²]/h, which equals:",
+        "options": [
+          { "text": "2x", "correct": true },
+          { "text": "2x + h", "diagnosis": "Simplified correctly but stopped before the final step — the limit h → 0 kills the +h." },
+          { "text": "0", "diagnosis": "Expanded (x+h)² as x² + h², leaving h²/h = h → 0; the cross term 2xh carries the whole derivative." },
+          { "text": "x", "diagnosis": "Halved somewhere in the algebra; expanding gives 2xh + h², and dividing by h leaves 2x + h → 2x." }
+        ],
+        "explanation": "(x+h)² − x² = 2xh + h², so the quotient is 2x + h, and the limit as h → 0 is 2x. Expanding (x+h)² as x² + h² (the distribution error) would leave only h²/h = h → 0 — a wrong derivative of 0."
+      }
+    },
+    {
+      "id": "g11.cal.limits-derivatives.derivative-rules-power-sum",
+      "parent": "g11.cal.limits-derivatives",
+      "title": "Power, Constant and Sum Rules",
+      "description": "The power rule d/dx xⁿ = nxⁿ⁻¹, constants passing through, derivatives of sums and differences — differentiating any polynomial term by term.",
+      "outcomes": [
+        "Can differentiate polynomials like 3x⁴ − 2x + 7 fluently",
+        "Can differentiate sin x and cos x and combine them linearly with polynomials"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives.first-principles"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "The derivative of f(x) = 3x⁴ − 2x + 7 is:",
+        "options": [
+          { "text": "12x³ − 2", "correct": true },
+          { "text": "12x³ − 2 + 7", "diagnosis": "The constant 7 survived differentiation; constants have zero rate of change." },
+          { "text": "3x³ − 2", "diagnosis": "Brought the exponent down without multiplying: d/dx x⁴ = 4x³, so the coefficient becomes 3 × 4 = 12." },
+          { "text": "12x⁴ − 2", "diagnosis": "Multiplied by the old exponent but forgot to reduce it by one; the power rule does both." }
+        ],
+        "explanation": "Term by term: d/dx 3x⁴ = 12x³, d/dx (−2x) = −2, d/dx 7 = 0. The power rule multiplies by the exponent AND lowers it: nxⁿ⁻¹."
+      }
+    },
+    {
+      "id": "g11.cal.limits-derivatives.product-quotient-rules",
+      "parent": "g11.cal.limits-derivatives",
+      "title": "Product and Quotient Rules",
+      "description": "(fg)' = f'g + fg' — each factor takes a turn — and the quotient rule with its order-sensitive numerator; why (fg)' = f'g' fails even for x·x.",
+      "outcomes": [
+        "Can differentiate products like x cos x and quotients like sin x/x correctly",
+        "Can produce the counterexample showing (fg)' ≠ f'g'"
+      ],
+      "prereqs": ["g11.cal.limits-derivatives.derivative-rules-power-sum", "g11.tri.functions.graphs-periodicity"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The derivative of x cos x is:",
+        "options": [
+          { "text": "cos x − x sin x", "correct": true },
+          { "text": "−sin x", "misconception": "m3" },
+          { "text": "−x sin x", "diagnosis": "Differentiated only the cos factor, treating x as a constant passenger; both factors take a turn." },
+          { "text": "cos x + x sin x", "diagnosis": "Product structure right, but d/dx cos x = −sin x — the minus went missing." }
+        ],
+        "explanation": "Product rule with f = x, g = cos x: (1)(cos x) + (x)(−sin x) = cos x − x sin x. Multiplying the separate derivatives (1)·(−sin x) = −sin x is the classic trap — it already fails for x·x, where it predicts 1 instead of 2x."
+      }
+    },
+
+    {
+      "id": "g11.dat.statistics.dispersion-range",
+      "parent": "g11.dat.statistics",
+      "title": "Why Dispersion? Range as a First Measure",
+      "description": "Two datasets with the same mean can behave completely differently — motivating spread measures, starting with range = max − min and its sensitivity to outliers.",
+      "outcomes": [
+        "Can compute the range and explain what it does and does not capture",
+        "Can give two datasets with equal means but visibly different spreads"
+      ],
+      "prereqs": ["g10.dat.statistics"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g11.dat.statistics.mean-deviation",
+      "parent": "g11.dat.statistics",
+      "title": "Mean Deviation about Mean and Median",
+      "description": "Why raw deviations from the mean always sum to zero (the balance point), and fixing it with absolute values: mean deviation for ungrouped and grouped data.",
+      "outcomes": [
+        "Can show Σ(xᵢ − x̄) = 0 for a dataset and explain the see-saw picture",
+        "Can compute mean deviation about the mean or median for small datasets"
+      ],
+      "prereqs": ["g11.dat.statistics.dispersion-range"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g11.dat.statistics.variance-sd-ungrouped",
+      "parent": "g11.dat.statistics",
+      "title": "Variance and Standard Deviation (Ungrouped)",
+      "description": "Squaring as the other fix for cancelling deviations: variance σ² as mean squared deviation, and SD σ = √variance so the units return to the data's own units.",
+      "outcomes": [
+        "Can compute variance and SD for ungrouped data via deviations from the mean",
+        "Can state the unit of each (data in cm → variance in cm², SD in cm) and why SD is never negative"
+      ],
+      "prereqs": ["g11.dat.statistics.mean-deviation", "g8.num.squares-roots"],
+      "est_minutes": 30,
+      "difficulty": 3,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "The standard deviation of the data 1, 2, 3, 4, 5 is:",
+        "options": [
+          { "text": "√2", "correct": true },
+          { "text": "2", "misconception": "m1" },
+          { "text": "0", "misconception": "m2" },
+          { "text": "10", "diagnosis": "Summed the squared deviations (4+1+0+1+4) but neither divided by n = 5 nor took the square root." }
+        ],
+        "explanation": "Mean = 3; squared deviations 4, 1, 0, 1, 4 sum to 10, so variance = 10/5 = 2 and SD = √2. Reporting 2 confuses variance with SD, and 0 comes from averaging the SIGNED deviations, which always cancel."
+      }
+    },
+    {
+      "id": "g11.dat.statistics.sd-grouped-data",
+      "parent": "g11.dat.statistics",
+      "title": "Variance and SD of Grouped Data",
+      "description": "Extending to frequency distributions: σ² = (1/N)Σfᵢ(xᵢ − x̄)² with class midpoints, and the computational shortcut formula to tame the arithmetic.",
+      "outcomes": [
+        "Can compute variance and SD for a frequency distribution using midpoints",
+        "Can apply the shortcut σ² = (1/N)Σfᵢxᵢ² − x̄² and know when it saves work"
+      ],
+      "prereqs": ["g11.dat.statistics.variance-sd-ungrouped", "g10.dat.statistics"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g11.dat.statistics.transformation-effects",
+      "parent": "g11.dat.statistics",
+      "title": "Effect of Shifting and Scaling on Mean and SD",
+      "description": "Adding a constant slides the whole dot-plot — mean shifts, gaps (and SD) untouched; multiplying by k stretches gaps — mean scales by k, SD by |k|, variance by k².",
+      "outcomes": [
+        "Can predict the new mean, variance and SD after x → x + c or x → kx without recomputing",
+        "Can explain with the dot-plot picture why shifts leave SD alone"
+      ],
+      "prereqs": ["g11.dat.statistics.variance-sd-ungrouped"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A dataset has standard deviation 4. If every observation is multiplied by 3, the new standard deviation is:",
+        "options": [
+          { "text": "12", "correct": true },
+          { "text": "4", "diagnosis": "Applied the SHIFT rule to a scaling: multiplying stretches every gap threefold, so SD triples." },
+          { "text": "36", "diagnosis": "Applied k² — that is the VARIANCE factor; SD scales by |k| = 3, giving 4 × 3 = 12." },
+          { "text": "7", "misconception": "m4" }
+        ],
+        "explanation": "Scaling by k = 3 stretches every deviation threefold: SD becomes 3 × 4 = 12 (variance goes 16 → 144, a factor of 9). Only ADDING a constant leaves the SD unchanged — and adding 3 to the SD (7) mixes the two rules."
+      }
+    },
+    {
+      "id": "g11.dat.statistics.coefficient-of-variation",
+      "parent": "g11.dat.statistics",
+      "title": "Coefficient of Variation and Consistency",
+      "description": "Comparing spread across datasets with different scales: CV = (σ/x̄) × 100 divides out the mean, making 'more consistent' a fair, unit-free comparison.",
+      "outcomes": [
+        "Can compute CV and use it to rank datasets by consistency",
+        "Can explain why raw SD comparisons mislead when means differ widely"
+      ],
+      "prereqs": ["g11.dat.statistics.variance-sd-ungrouped"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 4,
+        "prompt": "Factory A produces a mean of 250 units/day with SD 25; Factory B produces a mean of 50 units/day with SD 10. Which factory is more consistent?",
+        "options": [
+          { "text": "A, since its CV (10%) is lower than B's (20%)", "correct": true },
+          { "text": "B, since its SD (10) is smaller than A's (25)", "misconception": "m3" },
+          { "text": "B, because smaller outputs naturally fluctuate less", "diagnosis": "Judged by the size of the mean itself; neither mean nor SD alone measures RELATIVE spread." },
+          { "text": "Cannot be compared, since the means differ", "diagnosis": "They CAN be compared — that is exactly what the coefficient of variation is built for." }
+        ],
+        "explanation": "CV(A) = 25/250 × 100 = 10%; CV(B) = 10/50 × 100 = 20%. A's output wobbles only 10% of its average against B's 20%, so A is more consistent despite the larger raw SD — different scales demand the normalised comparison."
+      }
+    },
+
+    {
+      "id": "g11.dat.probability.sample-spaces",
+      "parent": "g11.dat.probability",
+      "title": "Random Experiments and Sample Spaces",
+      "description": "Describing the full outcome set of an experiment — coins, dice, draws — as a set S, and events as subsets, with careful listing before any probability is computed.",
+      "outcomes": [
+        "Can list sample spaces for multi-stage experiments (three coins, two dice) systematically",
+        "Can express events like 'sum is 7' as explicit subsets and count them"
+      ],
+      "prereqs": ["g10.dat.probability", "g11.alg.sets.set-notation"],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g11.dat.probability.event-algebra",
+      "parent": "g11.dat.probability",
+      "title": "Types of Events and Event Algebra",
+      "description": "Complementary events, 'A or B' as union, 'A and B' as intersection, and the precise meanings of mutually exclusive (disjoint) versus exhaustive (covering S).",
+      "outcomes": [
+        "Can build compound events with union, intersection and complement",
+        "Can classify event pairs as mutually exclusive and/or exhaustive with justification"
+      ],
+      "prereqs": ["g11.dat.probability.sample-spaces", "g11.alg.sets.difference-complement"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m4"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "A die is rolled once. The events A = {1, 2} and B = {5, 6} are:",
+        "options": [
+          { "text": "Mutually exclusive but not exhaustive", "correct": true },
+          { "text": "Mutually exclusive and exhaustive", "misconception": "m4" },
+          { "text": "Exhaustive but not mutually exclusive", "diagnosis": "Definitions swapped: A∩B = ∅ makes them EXCLUSIVE; covering all of S is what exhaustive means." },
+          { "text": "Neither mutually exclusive nor exhaustive", "diagnosis": "A and B share no outcomes, so they are certainly mutually exclusive; check A∩B first." }
+        ],
+        "explanation": "A∩B = ∅, so they cannot happen together — mutually exclusive. But A∪B = {1, 2, 5, 6} misses 3 and 4, so they are NOT exhaustive: disjoint events need not cover everything, and P(A) + P(B) = 2/3 ≠ 1."
+      }
+    },
+    {
+      "id": "g11.dat.probability.axioms",
+      "parent": "g11.dat.probability",
+      "title": "The Axioms of Probability",
+      "description": "Probability as a function on events obeying three axioms — P(E) ≥ 0, P(S) = 1, additivity for disjoint events — and range-checking every answer against [0, 1].",
+      "outcomes": [
+        "Can state the three axioms and check whether a proposed assignment of probabilities is valid",
+        "Can reject impossible values (negative or above 1) on sight"
+      ],
+      "prereqs": ["g11.dat.probability.event-algebra"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of the following CANNOT be the probability of an event?",
+        "options": [
+          { "text": "1.2", "correct": true },
+          { "text": "0", "misconception": "m3" },
+          { "text": "0.99", "diagnosis": "Perfectly valid — very likely, still within [0, 1]." },
+          { "text": "3/4", "diagnosis": "Any fraction between 0 and 1 is a legitimate probability." }
+        ],
+        "explanation": "The axioms confine every probability to [0, 1]: 1.2 would be 'more certain than certain'. Note 0 IS allowed — it is the probability of an impossible event — so ruling it out misreads the axioms' range."
+      }
+    },
+    {
+      "id": "g11.dat.probability.complement-rule",
+      "parent": "g11.dat.probability",
+      "title": "The Complement Rule and 'At Least One'",
+      "description": "P(not A) = 1 − P(A) derived from the axioms, and the workhorse pattern: P(at least one ...) = 1 − P(none) — finishing the subtraction every time.",
+      "outcomes": [
+        "Can compute probabilities of complements and 'at least one' events efficiently",
+        "Can decide when the complement shortcut beats direct enumeration"
+      ],
+      "prereqs": ["g11.dat.probability.axioms"],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g11.dat.probability.addition-rule",
+      "parent": "g11.dat.probability",
+      "title": "The Addition Rule",
+      "description": "P(A∪B) = P(A) + P(B) − P(A∩B), inherited straight from n(A∪B) in Sets; the first written line of every solution is 'are the events mutually exclusive?'.",
+      "outcomes": [
+        "Can apply the addition rule with and without overlap, e.g. 'king or heart' from a deck",
+        "Can detect the double-count error when an answer exceeds 1"
+      ],
+      "prereqs": ["g11.dat.probability.axioms", "g11.alg.sets.counting-union"],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "One card is drawn from a well-shuffled deck of 52. The probability that it is a king OR a heart is:",
+        "options": [
+          { "text": "4/13", "correct": true },
+          { "text": "17/52", "misconception": "m2" },
+          { "text": "1/52", "diagnosis": "Reported P(king AND heart) — the intersection — instead of the union." },
+          { "text": "1/4", "diagnosis": "Counted only the 13 hearts, forgetting the three kings outside hearts." }
+        ],
+        "explanation": "P(K∪H) = 4/52 + 13/52 − 1/52 = 16/52 = 4/13; the king of hearts sits in both events and must be subtracted once. Adding to 17/52 counts that card twice."
+      }
+    },
+    {
+      "id": "g11.dat.probability.counting-probability",
+      "parent": "g11.dat.probability",
+      "title": "Probability via Counting Techniques",
+      "description": "Combining nCr counting with equally likely outcomes: P(E) = favourable/total for draws and selections — after verifying the outcomes really are equally likely.",
+      "outcomes": [
+        "Can compute probabilities of card and committee selections using combinations",
+        "Can spot and reject bogus 50-50 reasoning by listing or counting the true sample space"
+      ],
+      "prereqs": ["g11.dat.probability.axioms", "g11.alg.permutations-combinations.combinations-ncr"],
+      "est_minutes": 30,
+      "difficulty": 4,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "application",
+        "difficulty": 4,
+        "prompt": "Two cards are drawn together from a deck of 52. The probability that BOTH are aces is:",
+        "options": [
+          { "text": "1/221", "correct": true },
+          { "text": "1/2", "misconception": "m1" },
+          { "text": "1/169", "diagnosis": "Computed (4/52)² — with replacement; drawing together means the second ace comes from 3 of 51 remaining." },
+          { "text": "1/13", "diagnosis": "Found P(first card is an ace) = 4/52 and stopped; the second card must also be an ace." }
+        ],
+        "explanation": "P = 4C2/52C2 = 6/1326 = 1/221 (equivalently 4/52 × 3/51). 'Either both are aces or not' does NOT make it 50-50 — the two descriptions are wildly unequal in outcome count."
+      }
+    }
+  ]
+}
