@@ -1,0 +1,1056 @@
+{
+  "class": 2,
+  "micros": [
+    {
+      "id": "g2.num.place-value-2digit.expanded-form",
+      "parent": "g2.num.place-value-2digit",
+      "title": "Pulling Numbers Apart: Tens and Ones",
+      "description": "See any 2-digit number as tens plus ones: 47 is 4 tens and 7 ones, so 47 = 40 + 7. Compose numbers from 'so many tens and so many ones' and decompose them back.",
+      "outcomes": [
+        "Can write any 2-digit number in expanded form (47 = 40 + 7)",
+        "Can write the number for a given count of tens and ones (6 tens 2 ones = 62)"
+      ],
+      "prereqs": ["g1.num.numbers-to-99"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Which of these shows 47 pulled apart into tens and ones?",
+        "options": [
+          { "text": "40 + 7", "correct": true },
+          { "text": "70 + 4", "misconception": "m3", "diagnosis": "Swapped the tens and the ones." },
+          { "text": "4 + 7", "misconception": "m2", "diagnosis": "Read the digits at face value instead of their place value." },
+          { "text": "47 + 0", "diagnosis": "Did not split the number into tens and ones at all." }
+        ],
+        "explanation": "In 47 the 4 sits in the tens place, so it means 40. The 7 sits in the ones place, so it means 7. Together: 40 + 7."
+      }
+    },
+    {
+      "id": "g2.num.place-value-2digit.compare-two-numbers",
+      "parent": "g2.num.place-value-2digit",
+      "title": "Which Number Is Bigger? Tens First",
+      "description": "Compare two 2-digit numbers by checking the tens digit first; only if the tens match do we look at the ones. Same digits in different places make different numbers.",
+      "outcomes": [
+        "Can compare two 2-digit numbers by checking tens first, then ones",
+        "Can explain why 47 and 74 are different numbers"
+      ],
+      "prereqs": ["g2.num.place-value-2digit.expanded-form"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Which number is bigger: 38 or 83?",
+        "options": [
+          { "text": "83", "correct": true },
+          { "text": "38", "misconception": "m1", "diagnosis": "Compared the ones digits (8 > 3) instead of checking the tens first." },
+          { "text": "They are equal — same digits", "misconception": "m2" },
+          { "text": "You cannot tell", "diagnosis": "Every pair of numbers can be compared — check the tens digit first." }
+        ],
+        "explanation": "Check the tens first: 83 has 8 tens (80) but 38 has only 3 tens (30). So 83 is bigger, even though both use the digits 3 and 8."
+      }
+    },
+    {
+      "id": "g2.num.place-value-2digit.order-numbers",
+      "parent": "g2.num.place-value-2digit",
+      "title": "Lining Numbers Up in Order",
+      "description": "Order three or more 2-digit numbers from smallest to greatest and greatest to smallest by comparing tens first, then ones, and reading the asked direction carefully.",
+      "outcomes": [
+        "Can order three or more numbers from smallest to greatest and greatest to smallest",
+        "Can place a given number between its neighbours on a number line or 100-chart"
+      ],
+      "prereqs": ["g2.num.place-value-2digit.compare-two-numbers"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Put these in order from SMALLEST to BIGGEST: 41, 27, 38.",
+        "options": [
+          { "text": "27, 38, 41", "correct": true },
+          { "text": "41, 27, 38", "misconception": "m1", "diagnosis": "Ordered by the ones digits (1, 7, 8) instead of comparing the tens first." },
+          { "text": "41, 38, 27", "diagnosis": "Ordered correctly but from biggest to smallest — read the direction again." },
+          { "text": "27, 41, 38", "diagnosis": "Started right but did not compare the last two numbers — likely guessed." }
+        ],
+        "explanation": "Compare tens: 27 has 2 tens, 38 has 3 tens, 41 has 4 tens. So smallest to biggest is 27, 38, 41."
+      }
+    },
+    {
+      "id": "g2.num.place-value-2digit.ten-more-ten-less",
+      "parent": "g2.num.place-value-2digit",
+      "title": "1 More, 1 Less, 10 More, 10 Less",
+      "description": "Jump around the 100-chart: adding or taking 1 changes the ones digit, while adding or taking 10 changes only the tens digit. This builds fast mental moves for later addition.",
+      "outcomes": [
+        "Can say the number that is 1 more, 1 less, 10 more or 10 less than any 2-digit number",
+        "Can explain which digit changes when we add ten and why"
+      ],
+      "prereqs": ["g2.num.place-value-2digit.expanded-form"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "What is 10 more than 46?",
+        "options": [
+          { "text": "56", "correct": true },
+          { "text": "47", "diagnosis": "Added 1 instead of 10 — only the ones digit moved." },
+          { "text": "36", "diagnosis": "Went 10 LESS instead of 10 more." },
+          { "text": "460", "diagnosis": "Stuck a zero on the end instead of adding a ten." }
+        ],
+        "explanation": "Adding 10 gives one more ten: 4 tens become 5 tens, and the ones stay the same. 46 + 10 = 56."
+      }
+    },
+
+    {
+      "id": "g2.num.numbers-to-999.ten-tens-make-hundred",
+      "parent": "g2.num.numbers-to-999",
+      "title": "Ten Tens Make One Hundred",
+      "description": "Bundle ten tens-rods into one hundred-square and count in hundreds: 100, 200, 300 ... 900. The hundred is a new, bigger bundle that sits to the left of the tens.",
+      "outcomes": [
+        "Can explain that 10 tens make 1 hundred",
+        "Can count forwards and backwards in hundreds up to 900"
+      ],
+      "prereqs": ["g2.num.place-value-2digit.expanded-form"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g2.num.numbers-to-999.read-write-3digit",
+      "parent": "g2.num.numbers-to-999",
+      "title": "Reading and Writing 3-digit Numbers",
+      "description": "Turn number words like 'two hundred sixty-three' into figures and back, using a hundreds-tens-ones mat. Three places means exactly three digits — never more.",
+      "outcomes": [
+        "Can read and write 3-digit numbers from words and from hundreds-tens-ones",
+        "Can build a 3-digit number on a place-value mat with arrow cards"
+      ],
+      "prereqs": ["g2.num.numbers-to-999.ten-tens-make-hundred"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Write 'three hundred forty-five' in figures.",
+        "options": [
+          { "text": "345", "correct": true },
+          { "text": "300405", "misconception": "m1", "diagnosis": "Wrote each word piece (300, 40, 5) side by side." },
+          { "text": "30045", "misconception": "m1", "diagnosis": "Wrote 300 and then 45 next to it instead of stacking the places." },
+          { "text": "354", "diagnosis": "Swapped the tens and ones digits." }
+        ],
+        "explanation": "Three hundred forty-five = 300 + 40 + 5. The parts slide on top of each other into three places: 3 hundreds, 4 tens, 5 ones — 345."
+      }
+    },
+    {
+      "id": "g2.num.numbers-to-999.zero-placeholder",
+      "parent": "g2.num.numbers-to-999",
+      "title": "Zero Holds the Place",
+      "description": "Numbers like 407 or 630 have an empty place — no tens, or no ones. The zero sits in that place to hold it, so the other digits keep their true values.",
+      "outcomes": [
+        "Can write numbers with an empty tens or ones place using a placeholder zero",
+        "Can read numbers like 407 and 630 correctly aloud"
+      ],
+      "prereqs": ["g2.num.numbers-to-999.read-write-3digit", "g1.num.zero"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these is 'six hundred five'?",
+        "options": [
+          { "text": "605", "correct": true },
+          { "text": "65", "misconception": "m2", "diagnosis": "Dropped the zero that holds the empty tens place." },
+          { "text": "6005", "misconception": "m2", "diagnosis": "Added extra zeros instead of one placeholder zero." },
+          { "text": "650", "diagnosis": "Put the 5 in the tens place instead of the ones place." }
+        ],
+        "explanation": "Six hundred five has 6 hundreds, NO tens and 5 ones. The zero holds the empty tens place: 605."
+      }
+    },
+    {
+      "id": "g2.num.numbers-to-999.expanded-form-3digit",
+      "parent": "g2.num.numbers-to-999",
+      "title": "Expanded Form with Hundreds",
+      "description": "Stretch a 3-digit number into hundreds, tens and ones: 263 = 200 + 60 + 3. Snap the parts back together to rebuild the number.",
+      "outcomes": [
+        "Can write a 3-digit number in expanded form (263 = 200 + 60 + 3)",
+        "Can rebuild a number from its expanded parts"
+      ],
+      "prereqs": ["g2.num.numbers-to-999.read-write-3digit", "g2.num.place-value-2digit.expanded-form"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g2.num.numbers-to-999.compare-order-3digit",
+      "parent": "g2.num.numbers-to-999",
+      "title": "Comparing 3-digit Numbers: Hundreds First",
+      "description": "Compare and order numbers up to 999 by checking hundreds first, then tens, then ones. Four flat hundreds beat three flat hundreds no matter what loose pieces come after.",
+      "outcomes": [
+        "Can compare and order 3-digit numbers by checking hundreds first",
+        "Can explain why 400 is greater than 389 even though 8 and 9 look big"
+      ],
+      "prereqs": ["g2.num.numbers-to-999.expanded-form-3digit", "g2.num.place-value-2digit.compare-two-numbers"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which is the GREATEST: 275, 300 or 289?",
+        "options": [
+          { "text": "300", "correct": true },
+          { "text": "289", "misconception": "m3", "diagnosis": "Picked the number with the biggest-looking digits (8 and 9)." },
+          { "text": "275", "misconception": "m3", "diagnosis": "Picked big-looking later digits instead of comparing hundreds." },
+          { "text": "All equal — each has 3 digits", "diagnosis": "Compared only how many digits there are, not their values." }
+        ],
+        "explanation": "Compare hundreds first: 300 has 3 hundreds and the others only 2. So 300 is greatest, even though its tens and ones are zeros."
+      }
+    },
+
+    {
+      "id": "g2.num.add-sub-2digit.add-no-regroup",
+      "parent": "g2.num.add-sub-2digit",
+      "title": "Adding 2-digit Numbers without Carrying",
+      "description": "Add numbers like 23 + 45 by adding ones with ones and tens with tens, when the ones do not spill over ten. Line the columns up and add each place.",
+      "outcomes": [
+        "Can add two 2-digit numbers when no carrying is needed",
+        "Can explain that ones add with ones and tens add with tens"
+      ],
+      "prereqs": ["g1.num.add-sub-within-20", "g2.num.place-value-2digit.expanded-form"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g2.num.add-sub-2digit.add-with-carry",
+      "parent": "g2.num.add-sub-2digit",
+      "title": "Adding with Carrying",
+      "description": "When the ones add up to ten or more, bundle ten of them into a new ten and carry it to the tens column. Ten ones can never stay in the ones place.",
+      "outcomes": [
+        "Can add two 2-digit numbers that need carrying",
+        "Can show the carry with base-ten blocks: ten ones swap for one ten-rod"
+      ],
+      "prereqs": ["g2.num.add-sub-2digit.add-no-regroup"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is 48 + 34?",
+        "options": [
+          { "text": "82", "correct": true },
+          { "text": "712", "misconception": "m1", "diagnosis": "Wrote all the digits: 7 tens and 12 ones, without bundling the ten." },
+          { "text": "72", "misconception": "m3", "diagnosis": "Wrote 2 from 8 + 4 = 12 but forgot to add the carried ten." },
+          { "text": "81", "diagnosis": "Small counting slip in the ones; the method is likely fine." }
+        ],
+        "explanation": "Ones: 8 + 4 = 12 — write 2, carry 1 ten. Tens: 4 + 3 + 1 (carried) = 8. Answer: 82."
+      }
+    },
+    {
+      "id": "g2.num.add-sub-2digit.sub-no-regroup",
+      "parent": "g2.num.add-sub-2digit",
+      "title": "Subtracting without Borrowing",
+      "description": "Subtract numbers like 57 - 24 by taking ones from ones and tens from tens, when the top ones digit is big enough. Always start from the ones column.",
+      "outcomes": [
+        "Can subtract 2-digit numbers when no borrowing is needed",
+        "Can check a subtraction by adding the answer back"
+      ],
+      "prereqs": ["g2.num.add-sub-2digit.add-no-regroup"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g2.num.add-sub-2digit.sub-with-borrow",
+      "parent": "g2.num.add-sub-2digit",
+      "title": "Subtracting with Borrowing",
+      "description": "When the ones are not enough, open up a ten: one ten-rod breaks into ten ones, the tens go down by one, and now we can subtract. Estimation helps check the answer makes sense.",
+      "outcomes": [
+        "Can subtract 2-digit numbers that need borrowing",
+        "Can show borrowing with blocks: break one ten into ten ones",
+        "Can use estimation to spot an impossible answer"
+      ],
+      "prereqs": ["g2.num.add-sub-2digit.sub-no-regroup", "g2.num.add-sub-2digit.add-with-carry"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "What is 62 − 38?",
+        "options": [
+          { "text": "24", "correct": true },
+          { "text": "36", "misconception": "m2", "diagnosis": "In each column subtracted the smaller digit from the larger: 8 − 2 = 6 and 6 − 3 = 3." },
+          { "text": "34", "diagnosis": "Borrowed to get 12 − 8 = 4 but forgot to make the 6 tens into 5." },
+          { "text": "14", "diagnosis": "Took away one ten too many after borrowing." }
+        ],
+        "explanation": "The ones are not enough (2 < 8), so open a ten: 12 − 8 = 4. The 6 tens become 5, and 5 − 3 = 2 tens. Answer: 24. Check: about 60 − 40 = 20, so 24 makes sense."
+      }
+    },
+    {
+      "id": "g2.num.add-sub-2digit.word-problems-choose-operation",
+      "parent": "g2.num.add-sub-2digit",
+      "title": "Story Problems: Add or Subtract?",
+      "description": "Read a one-step story, decide whether it asks for joining (add) or taking away or comparing (subtract), then solve and check that the answer fits the story.",
+      "outcomes": [
+        "Can choose the right operation for a one-step story problem",
+        "Can solve 2-digit story problems and check the answer against the story"
+      ],
+      "prereqs": ["g2.num.add-sub-2digit.add-with-carry", "g2.num.add-sub-2digit.sub-with-borrow"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Ravi had 45 marbles. He gave 18 to his friend. How many marbles does Ravi have left?",
+        "options": [
+          { "text": "27", "correct": true },
+          { "text": "63", "diagnosis": "Added instead of subtracting — 'gave away' means take away." },
+          { "text": "33", "misconception": "m2", "diagnosis": "Subtracted the smaller digit from the larger in each column: 8 − 5 = 3 and 4 − 1 = 3." },
+          { "text": "37", "diagnosis": "Borrowed for 15 − 8 = 7 but forgot to make the 4 tens into 3." }
+        ],
+        "explanation": "Giving away means subtract: 45 − 18. Open a ten: 15 − 8 = 7, and 3 − 1 = 2 tens. Ravi has 27 marbles left."
+      }
+    },
+
+    {
+      "id": "g2.num.mult-intro.equal-groups",
+      "parent": "g2.num.mult-intro",
+      "title": "Equal Groups: 3 Plates of 4",
+      "description": "Multiplication starts with groups that are all the SAME size: 3 plates with 4 laddoos each is '3 groups of 4', written 3 × 4. Unequal groups cannot be multiplied.",
+      "outcomes": [
+        "Can describe a multiplication like 3 × 4 as '3 groups of 4'",
+        "Can spot whether groups are equal and so can be multiplied"
+      ],
+      "prereqs": ["g1.num.add-sub-within-20"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Which of these can we write as 2 × 5?",
+        "options": [
+          { "text": "2 bags with 5 marbles in EACH bag", "correct": true },
+          { "text": "One bag with 2 marbles and one bag with 5 marbles", "misconception": "m2", "diagnosis": "The groups must be EQUAL to multiply." },
+          { "text": "One bag with 7 marbles", "misconception": "m1", "diagnosis": "Treated × like +: 2 + 5 = 7 is not 2 × 5." },
+          { "text": "5 bags with 5 marbles each", "diagnosis": "That is 5 groups of 5, which is 5 × 5." }
+        ],
+        "explanation": "2 × 5 means 2 equal groups of 5. Only the bags with 5 marbles in EACH bag show that."
+      }
+    },
+    {
+      "id": "g2.num.mult-intro.repeated-addition",
+      "parent": "g2.num.mult-intro",
+      "title": "Multiplication as Repeated Addition",
+      "description": "3 × 5 is a shortcut for 5 + 5 + 5. Turn repeated additions into multiplications and back, and find the totals by adding.",
+      "outcomes": [
+        "Can write repeated addition (5 + 5 + 5) as multiplication (3 × 5) and back",
+        "Can find the total of a small multiplication by repeated adding"
+      ],
+      "prereqs": ["g2.num.mult-intro.equal-groups"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is 2 × 6?",
+        "options": [
+          { "text": "12", "correct": true },
+          { "text": "8", "misconception": "m1", "diagnosis": "Treated × like +: added 2 + 6 instead of making 2 groups of 6." },
+          { "text": "26", "diagnosis": "Wrote the two digits side by side." },
+          { "text": "4", "diagnosis": "Subtracted 6 − 2 instead of multiplying." }
+        ],
+        "explanation": "2 × 6 means 2 groups of 6: 6 + 6 = 12."
+      }
+    },
+    {
+      "id": "g2.num.mult-intro.skip-counting",
+      "parent": "g2.num.mult-intro",
+      "title": "Skip Counting to Find Totals",
+      "description": "Count equal groups the fast way by skipping: 2, 4, 6, 8 or 5, 10, 15, 20. Each skip lands on the total of one more group.",
+      "outcomes": [
+        "Can skip count in 2s, 5s and 10s to find totals of equal groups",
+        "Can match each skip to one more group added"
+      ],
+      "prereqs": ["g2.num.mult-intro.repeated-addition"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g2.num.mult-intro.arrays-two-ways",
+      "parent": "g2.num.mult-intro",
+      "title": "Arrays: Rows and Columns, Two Ways",
+      "description": "Arrange objects in neat rows and columns and count them two ways: 3 rows of 4 or 4 columns of 3. The same array shows why 3 × 4 and 4 × 3 give the same total.",
+      "outcomes": [
+        "Can arrange objects in rows and columns (arrays) and count them two ways",
+        "Can explain with an array why 3 × 4 = 4 × 3"
+      ],
+      "prereqs": ["g2.num.mult-intro.skip-counting"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Asha counts an array of dots as 4 rows of 6 and gets 24. Ben counts the SAME array as 6 columns of 4. What will Ben get?",
+        "options": [
+          { "text": "24 — the same total", "correct": true },
+          { "text": "A different total — 6 × 4 is a different problem", "misconception": "m3" },
+          { "text": "10", "misconception": "m1", "diagnosis": "Added 6 + 4 instead of counting the array." },
+          { "text": "You cannot know without counting again", "misconception": "m3", "diagnosis": "It is the same dots — turning the array does not change how many there are." }
+        ],
+        "explanation": "The dots do not change when you count by rows or by columns. 4 × 6 and 6 × 4 are two ways of counting the same 24 dots."
+      }
+    },
+
+    {
+      "id": "g2.num.money-transactions.count-coin-values",
+      "parent": "g2.num.money-transactions",
+      "title": "Counting Money by Value, Not Pieces",
+      "description": "Three ten-rupee notes are thirty rupees, not three. Count money by adding the VALUE printed on each coin or note, skip counting in 10s and 5s where it helps.",
+      "outcomes": [
+        "Can find the total value of a handful of coins and notes",
+        "Can explain why 3 notes is not the same as ₹3"
+      ],
+      "prereqs": ["g1.num.money-intro", "g2.num.place-value-2digit.ten-more-ten-less"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "You have three ₹10 notes. How much money do you have?",
+        "options": [
+          { "text": "₹30", "correct": true },
+          { "text": "₹3", "misconception": "m1", "diagnosis": "Counted the pieces of paper, not their values." },
+          { "text": "₹10", "diagnosis": "Counted only one note." },
+          { "text": "₹13", "diagnosis": "Added the number of notes (3) to ten." }
+        ],
+        "explanation": "Each note is worth ₹10. Skip count: 10, 20, 30. Three ₹10 notes make ₹30."
+      }
+    },
+    {
+      "id": "g2.num.money-transactions.make-amounts-many-ways",
+      "parent": "g2.num.money-transactions",
+      "title": "Making the Same Amount in Different Ways",
+      "description": "₹20 can be one ₹20 note, two ₹10 notes, or four ₹5 coins. Build a given amount in several ways and check each way really adds to the same total.",
+      "outcomes": [
+        "Can make a given amount using different combinations of coins and notes",
+        "Can check that two different combinations are worth the same amount"
+      ],
+      "prereqs": ["g2.num.money-transactions.count-coin-values"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "Sita wants to pay ₹20 for a toy but has no ₹20 note. She has two ₹10 notes. Can she pay?",
+        "options": [
+          { "text": "Yes — two ₹10 notes make exactly ₹20", "correct": true },
+          { "text": "No — she needs the exact ₹20 note", "misconception": "m3" },
+          { "text": "No — two notes are only ₹2", "misconception": "m1", "diagnosis": "Counted the pieces, not their values." },
+          { "text": "Yes — any two notes always make ₹20", "diagnosis": "Only notes whose VALUES add to 20 work; two ₹5 coins would not be enough." }
+        ],
+        "explanation": "10 + 10 = 20, so two ₹10 notes are worth exactly ₹20. The same amount can be made in many different ways."
+      }
+    },
+    {
+      "id": "g2.num.money-transactions.add-prices-total",
+      "parent": "g2.num.money-transactions",
+      "title": "Adding Prices to Find the Total",
+      "description": "Add two or three prices to find what the shopping costs altogether, up to ₹99, and check whether the money in hand is enough to pay.",
+      "outcomes": [
+        "Can add two or three prices to find a total up to ₹99",
+        "Can check whether the money offered is enough to buy something"
+      ],
+      "prereqs": ["g2.num.money-transactions.count-coin-values", "g2.num.add-sub-2digit.add-with-carry"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A pencil costs ₹12 and an eraser costs ₹5. How much do they cost together?",
+        "options": [
+          { "text": "₹17", "correct": true },
+          { "text": "₹7", "diagnosis": "Subtracted instead of adding — 'together' means add." },
+          { "text": "₹125", "diagnosis": "Wrote the prices side by side instead of adding them." },
+          { "text": "₹2", "misconception": "m1", "diagnosis": "Counted 2 things instead of adding their prices." }
+        ],
+        "explanation": "Add the prices: 12 + 5 = 17. Together they cost ₹17."
+      }
+    },
+    {
+      "id": "g2.num.money-transactions.change-by-subtracting",
+      "parent": "g2.num.money-transactions",
+      "title": "Working Out the Change",
+      "description": "When you pay with a bigger note, the change is the DIFFERENCE: what you gave minus what it cost. Find change from ₹10, ₹20 and ₹50 by subtracting or counting up.",
+      "outcomes": [
+        "Can work out the change from ₹10, ₹20 or ₹50",
+        "Can find change by counting up from the price to the payment"
+      ],
+      "prereqs": ["g2.num.money-transactions.add-prices-total", "g2.num.add-sub-2digit.sub-with-borrow"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A toy costs ₹35. You pay with a ₹50 note. How much change should you get back?",
+        "options": [
+          { "text": "₹15", "correct": true },
+          { "text": "₹85", "misconception": "m2", "diagnosis": "ADDED the price and the payment instead of finding the difference." },
+          { "text": "₹25", "diagnosis": "Subtracted the smaller ones digit from the larger (5 − 0) instead of borrowing." },
+          { "text": "₹50", "diagnosis": "Gave back the whole payment — then the toy would be free!" }
+        ],
+        "explanation": "Change = what you gave − what it cost: 50 − 35 = 15. Or count up: 35 + 5 = 40, 40 + 10 = 50, so ₹15 change."
+      }
+    },
+
+    {
+      "id": "g2.geo.2d-3d-shapes.name-solids",
+      "parent": "g2.geo.2d-3d-shapes",
+      "title": "Naming Solid Shapes Around Us",
+      "description": "Spot cubes, cuboids, cylinders, cones and spheres in real objects — dice, bricks, tins, ice-cream cones and balls. Solids are the shapes you can hold; flat shapes live on their faces.",
+      "outcomes": [
+        "Can name cube, cuboid, cylinder, cone and sphere from real objects",
+        "Can tell a solid shape's name apart from the flat shape on its face"
+      ],
+      "prereqs": ["g1.geo.shapes-around-us"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "A dice is which shape?",
+        "options": [
+          { "text": "A cube", "correct": true },
+          { "text": "A square", "misconception": "m2", "diagnosis": "A square is flat; a dice is a solid you can hold — its FACES are squares." },
+          { "text": "A sphere", "diagnosis": "A sphere rolls everywhere like a ball; a dice has flat faces and sits still." },
+          { "text": "A cylinder", "diagnosis": "A cylinder has two circle faces, like a tin." }
+        ],
+        "explanation": "A dice is a cube — a solid with 6 square faces. The square is only the flat shape on each face."
+      }
+    },
+    {
+      "id": "g2.geo.2d-3d-shapes.faces-edges-corners",
+      "parent": "g2.geo.2d-3d-shapes",
+      "title": "Counting Faces, Edges and Corners",
+      "description": "Touch a face, run a finger along an edge, feel a corner poke. Count all of them on a cube and cuboid — including the hidden ones a picture does not show.",
+      "outcomes": [
+        "Can count the faces, edges and corners of a cube or cuboid",
+        "Can point to and tell apart a face, an edge and a corner"
+      ],
+      "prereqs": ["g2.geo.2d-3d-shapes.name-solids"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "How many faces does a cube have?",
+        "options": [
+          { "text": "6", "correct": true },
+          { "text": "3", "misconception": "m1", "diagnosis": "Counted only the faces visible in a picture — turn a real cube to find the hidden ones." },
+          { "text": "8", "misconception": "m3", "diagnosis": "Counted the corners instead of the faces." },
+          { "text": "12", "misconception": "m3", "diagnosis": "Counted the edges instead of the faces." }
+        ],
+        "explanation": "A cube has 6 flat faces: top, bottom, front, back, left and right. A picture shows only 3, but the hidden ones are still there."
+      }
+    },
+    {
+      "id": "g2.geo.2d-3d-shapes.face-prints",
+      "parent": "g2.geo.2d-3d-shapes",
+      "title": "What Shape Does a Face Print?",
+      "description": "Dip a solid's face in paint and press it on paper: a cube prints squares, a cylinder's end prints a circle. Predicting the print connects solids to the flat shapes on their faces.",
+      "outcomes": [
+        "Can predict the flat shape a solid's face will print or trace",
+        "Can match solids to the flat shapes found on their faces"
+      ],
+      "prereqs": ["g2.geo.2d-3d-shapes.faces-edges-corners"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "You dip the flat end of a tin (a cylinder) in paint and press it on paper. What shape prints?",
+        "options": [
+          { "text": "A circle", "correct": true },
+          { "text": "A cylinder", "misconception": "m2", "diagnosis": "The print is flat — only the face's flat shape appears on paper." },
+          { "text": "A square", "diagnosis": "A cylinder's flat end is round, not square." },
+          { "text": "A rectangle", "diagnosis": "The rectangle comes from rolling the curved side, not pressing the flat end." }
+        ],
+        "explanation": "The flat end of a cylinder is a circle, so pressing it prints a circle on the paper."
+      }
+    },
+    {
+      "id": "g2.geo.2d-3d-shapes.straight-curved-lines",
+      "parent": "g2.geo.2d-3d-shapes",
+      "title": "Straight Lines and Curved Lines",
+      "description": "Tell straight lines from curves, find both on shapes and objects, and draw them — straight lines with a ruler's edge, curves freehand.",
+      "outcomes": [
+        "Can tell straight lines from curved lines and draw both",
+        "Can count the straight sides and curved sides of a flat shape"
+      ],
+      "prereqs": ["g2.geo.2d-3d-shapes.name-solids"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+
+    {
+      "id": "g2.mea.length-units-intro.repeat-units-no-gaps",
+      "parent": "g2.mea.length-units-intro",
+      "title": "Measuring by Repeating a Unit",
+      "description": "Measure a length by laying one unit — a pencil, a handspan — end to end again and again, with no gaps and no overlaps, then counting the units.",
+      "outcomes": [
+        "Can measure a length by repeating a unit end to end with no gaps or overlaps",
+        "Can explain why gaps or overlaps spoil the count"
+      ],
+      "prereqs": ["g1.mea.compare-lengths"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Ria measures her table with pencils, but she leaves gaps between the pencils. She counts 5 pencils. What is wrong?",
+        "options": [
+          { "text": "The gaps hide some of the length — the pencils must touch end to end", "correct": true },
+          { "text": "Nothing — 5 pencils is the table's length", "misconception": "m2" },
+          { "text": "She should overlap the pencils instead", "misconception": "m2", "diagnosis": "Overlaps spoil the count too — units must touch exactly, not pile up." },
+          { "text": "Pencils can never be used for measuring", "diagnosis": "Pencils work fine as units if they are laid carefully." }
+        ],
+        "explanation": "The bits of table hiding in the gaps never get counted. Units must touch end to end, with no gaps and no overlaps, for the count to tell the true length."
+      }
+    },
+    {
+      "id": "g2.mea.length-units-intro.why-standard-units",
+      "parent": "g2.mea.length-units-intro",
+      "title": "Why the World Needs Standard Units",
+      "description": "Different people get different handspan counts for the same table because their hands differ — the table never changes. Smaller units give bigger counts. That is why everyone agreed on the centimetre and metre.",
+      "outcomes": [
+        "Can explain why different people get different handspan counts for the same object",
+        "Can say why standard units like centimetre and metre are needed",
+        "Can predict that a smaller unit gives a bigger count for the same length"
+      ],
+      "prereqs": ["g2.mea.length-units-intro.repeat-units-no-gaps"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Amma measures the table with her big handspans and counts 8. Anu measures the SAME table with her small handspans and counts 10. Why are the counts different?",
+        "options": [
+          { "text": "Their hands are different sizes — smaller hands need more spans", "correct": true },
+          { "text": "The table changed size between the two measurements", "misconception": "m1" },
+          { "text": "Bigger hands always give a bigger count", "misconception": "m3", "diagnosis": "It is the other way round — the bigger the unit, the FEWER you need." },
+          { "text": "Anu must have counted wrong", "diagnosis": "Both counts can be right — different units simply give different counts." }
+        ],
+        "explanation": "The table stayed the same. Anu's hands are smaller, so more of them fit along the table. Different units give different counts — which is exactly why we need standard units like the centimetre."
+      }
+    },
+    {
+      "id": "g2.mea.length-units-intro.ruler-centimetres",
+      "parent": "g2.mea.length-units-intro",
+      "title": "Measuring in Centimetres with a Ruler",
+      "description": "A ruler is centimetres already laid end to end for us. Line the object's end up with the 0 mark and read the number at the other end.",
+      "outcomes": [
+        "Can measure short lengths in centimetres with a ruler",
+        "Can start measuring from the 0 mark, not the ruler's edge"
+      ],
+      "prereqs": ["g2.mea.length-units-intro.why-standard-units"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g2.mea.length-units-intro.choose-cm-or-m",
+      "parent": "g2.mea.length-units-intro",
+      "title": "Centimetre or Metre? Choosing the Unit",
+      "description": "Small things like a crayon are measured in centimetres; big things like a door or the classroom are measured in metres. Choose the unit that fits the job.",
+      "outcomes": [
+        "Can choose centimetres or metres as the sensible unit for an object",
+        "Can name objects around them that are about 1 cm and about 1 m"
+      ],
+      "prereqs": ["g2.mea.length-units-intro.ruler-centimetres"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+
+    {
+      "id": "g2.mea.weight-capacity-intro.compare-weights-hands",
+      "parent": "g2.mea.weight-capacity-intro",
+      "title": "Heavier or Lighter? Hands First",
+      "description": "Hold one object in each hand and feel which pulls down more. Discover that looks can trick us: a big balloon is lighter than a small stone.",
+      "outcomes": [
+        "Can compare two objects' weights using hands",
+        "Can give an example where the bigger-looking object is lighter"
+      ],
+      "prereqs": ["g1.mea.compare-lengths"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Which is heavier: a big balloon or a small stone?",
+        "options": [
+          { "text": "The small stone", "correct": true },
+          { "text": "The big balloon — it is bigger", "misconception": "m1" },
+          { "text": "They weigh the same", "diagnosis": "Size and weight are different things — hold one in each hand and feel." },
+          { "text": "You cannot tell without a ruler", "diagnosis": "A ruler measures length; for weight we use our hands or a balance." }
+        ],
+        "explanation": "A balloon is mostly air, so even a small stone pulls your hand down more. Bigger does not always mean heavier."
+      }
+    },
+    {
+      "id": "g2.mea.weight-capacity-intro.read-pan-balance",
+      "parent": "g2.mea.weight-capacity-intro",
+      "title": "Reading a Pan Balance",
+      "description": "On a balance, the heavier side goes DOWN and the lighter side goes up; level pans mean equal weights. Use the balance to settle comparisons hands cannot feel.",
+      "outcomes": [
+        "Can read a pan balance: the heavier side goes down",
+        "Can use a balance to compare two objects whose weights feel similar"
+      ],
+      "prereqs": ["g2.mea.weight-capacity-intro.compare-weights-hands"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "On a pan balance, the mango's side goes DOWN and the apple's side goes UP. Which fruit is heavier?",
+        "options": [
+          { "text": "The mango", "correct": true },
+          { "text": "The apple — its side went up", "misconception": "m3" },
+          { "text": "They are equal", "diagnosis": "Equal weights keep the pans level; these pans are tilted." },
+          { "text": "The balance must be broken", "diagnosis": "Tilting is exactly how a balance shows which side is heavier." }
+        ],
+        "explanation": "The heavier side pushes its pan down, like the heavier child on a see-saw. The mango's side went down, so the mango is heavier."
+      }
+    },
+    {
+      "id": "g2.mea.weight-capacity-intro.compare-capacity-cups",
+      "parent": "g2.mea.weight-capacity-intro",
+      "title": "Which Holds More? Filling with Cups",
+      "description": "Compare containers fairly by filling each with the SAME cup and counting the cupfuls. Tall thin containers can hold less than short wide ones.",
+      "outcomes": [
+        "Can compare two containers' capacities by filling with a common cup and counting",
+        "Can explain why a taller container does not always hold more"
+      ],
+      "prereqs": ["g2.mea.weight-capacity-intro.compare-weights-hands"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A tall thin glass fills up with 4 cups of water. A short wide bowl fills up with 6 cups. Which holds more?",
+        "options": [
+          { "text": "The short wide bowl", "correct": true },
+          { "text": "The tall glass — taller always holds more", "misconception": "m2" },
+          { "text": "They hold the same", "diagnosis": "The counts are different (4 and 6), so the capacities are different." },
+          { "text": "You cannot compare a glass and a bowl", "diagnosis": "You can — the same cup was used for both, so the counts compare fairly." }
+        ],
+        "explanation": "The same cup was used, so we can trust the counts: 6 cupfuls is more than 4. The short wide bowl holds more, even though the glass is taller."
+      }
+    },
+    {
+      "id": "g2.mea.weight-capacity-intro.order-three-things",
+      "parent": "g2.mea.weight-capacity-intro",
+      "title": "Ordering by Weight and by Capacity",
+      "description": "Put three objects in order from lightest to heaviest using pairwise balance checks, and three containers in order by counting cupfuls of each.",
+      "outcomes": [
+        "Can order three objects by weight or three containers by capacity",
+        "Can use two comparisons to work out the order of three things"
+      ],
+      "prereqs": ["g2.mea.weight-capacity-intro.read-pan-balance", "g2.mea.weight-capacity-intro.compare-capacity-cups"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+
+    {
+      "id": "g2.mea.time-days-calendar.days-of-week",
+      "parent": "g2.mea.time-days-calendar",
+      "title": "The Wheel of Seven Days",
+      "description": "Say the 7 days in order and see that they go round like a wheel: after Sunday comes Monday again. Name yesterday and tomorrow for any day.",
+      "outcomes": [
+        "Can say the days of the week in order and name yesterday/tomorrow for any day",
+        "Can explain that the week loops — it never runs out of days"
+      ],
+      "prereqs": ["g1.mea.time-day-events"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "Today is Sunday. What day will tomorrow be?",
+        "options": [
+          { "text": "Monday", "correct": true },
+          { "text": "No day — the week is finished", "misconception": "m3" },
+          { "text": "Saturday", "diagnosis": "Went backwards — Saturday was yesterday." },
+          { "text": "Sunday again", "diagnosis": "The wheel turns one day forward each night; the same day comes back only after a whole week." }
+        ],
+        "explanation": "The days go round like a wheel: ... Saturday, Sunday, Monday, Tuesday ... After Sunday the wheel simply turns to Monday."
+      }
+    },
+    {
+      "id": "g2.mea.time-days-calendar.months-and-calendar",
+      "parent": "g2.mea.time-days-calendar",
+      "title": "Twelve Months and the Calendar",
+      "description": "Name the 12 months in order, find today's date on a calendar page, and keep weeks, months and years apart: 7 days make a week, and about 30 days make a month.",
+      "outcomes": [
+        "Can name the 12 months in order and find dates on a calendar",
+        "Can say how many days are in a week and how many months in a year"
+      ],
+      "prereqs": ["g2.mea.time-days-calendar.days-of-week"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "How many months are there in one year?",
+        "options": [
+          { "text": "12", "correct": true },
+          { "text": "7", "misconception": "m1", "diagnosis": "Mixed up months with the 7 days of the week." },
+          { "text": "30", "misconception": "m1", "diagnosis": "Mixed up months in a year with days in a month." },
+          { "text": "52", "diagnosis": "That is about how many WEEKS are in a year." }
+        ],
+        "explanation": "A year has 12 months, from January to December. A week has 7 days, and a month has about 30 days — three different things!"
+      }
+    },
+    {
+      "id": "g2.mea.time-days-calendar.clock-two-hands",
+      "parent": "g2.mea.time-days-calendar",
+      "title": "The Clock's Two Hands",
+      "description": "A clock has a SHORT hand for hours and a LONG hand for minutes. Watch how the short hand creeps from number to number while the long hand races around.",
+      "outcomes": [
+        "Can tell which hand of a clock shows hours and which shows minutes",
+        "Can point to the hour hand and minute hand on any clock face"
+      ],
+      "prereqs": ["g2.mea.time-days-calendar.days-of-week"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g2.mea.time-days-calendar.read-oclock",
+      "parent": "g2.mea.time-days-calendar",
+      "title": "Reading O'Clock Times",
+      "description": "When the long hand points straight up at 12, it is exactly o'clock — and the short hand tells WHICH o'clock. Read and set o'clock times on a clock with hands.",
+      "outcomes": [
+        "Can read o'clock times on a clock with hands",
+        "Can set a toy clock to a given o'clock time"
+      ],
+      "prereqs": ["g2.mea.time-days-calendar.clock-two-hands"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "On a clock, the SHORT hand points to 3 and the LONG hand points to 12. What time is it?",
+        "options": [
+          { "text": "3 o'clock", "correct": true },
+          { "text": "12 o'clock", "misconception": "m2", "diagnosis": "Read the long hand as the hour — the SHORT hand tells the hour." },
+          { "text": "Half past 3", "diagnosis": "The long hand on 12 means exactly o'clock, not half past." },
+          { "text": "15 o'clock", "diagnosis": "Multiplied the numbers — just read the short hand for the hour." }
+        ],
+        "explanation": "The long hand on 12 says 'it is exactly o'clock'. The short hand points to 3, so it is 3 o'clock."
+      }
+    },
+
+    {
+      "id": "g2.alg.patterns-grow.spot-growing-patterns",
+      "parent": "g2.alg.patterns-grow",
+      "title": "Repeating or Growing?",
+      "description": "Some patterns repeat the same chunk (red, blue, red, blue) and some GROW (2, 4, 6, 8). Sort patterns into repeating and growing, and say what a growing pattern does at each step.",
+      "outcomes": [
+        "Can tell a growing pattern apart from a repeating one",
+        "Can say what changes at each step of a growing pattern"
+      ],
+      "prereqs": ["g1.alg.patterns-repeat", "g1.num.add-sub-within-20"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Look at this pattern: 2, 4, 6, 8, ... What comes next?",
+        "options": [
+          { "text": "10", "correct": true },
+          { "text": "2", "misconception": "m1", "diagnosis": "Started the pattern over as if it repeats — but this pattern GROWS." },
+          { "text": "9", "misconception": "m2", "diagnosis": "Guessed the next number instead of using the jump of 2." },
+          { "text": "80", "diagnosis": "Stuck a zero on instead of adding the jump." }
+        ],
+        "explanation": "Each number jumps up by 2: 2, 4, 6, 8 ... so next comes 8 + 2 = 10. Growing patterns keep climbing — they do not start over."
+      }
+    },
+    {
+      "id": "g2.alg.patterns-grow.continue-number-patterns",
+      "parent": "g2.alg.patterns-grow",
+      "title": "Continuing Number Patterns",
+      "description": "Find the constant jump in a number pattern by checking the gap between neighbours, then use it to write the next few terms.",
+      "outcomes": [
+        "Can continue a number pattern that grows by the same amount each time",
+        "Can find the jump by subtracting a term from the next one"
+      ],
+      "prereqs": ["g2.alg.patterns-grow.spot-growing-patterns"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What number comes next: 5, 10, 15, 20, ...?",
+        "options": [
+          { "text": "25", "correct": true },
+          { "text": "21", "misconception": "m2", "diagnosis": "Added just 1 instead of finding the jump of 5." },
+          { "text": "30", "diagnosis": "Jumped 10 instead of the pattern's jump of 5." },
+          { "text": "5", "misconception": "m1", "diagnosis": "Started the pattern over instead of growing it." }
+        ],
+        "explanation": "Check the gaps: 10 − 5 = 5, 15 − 10 = 5, 20 − 15 = 5. The jump is 5 every time, so next is 20 + 5 = 25."
+      }
+    },
+    {
+      "id": "g2.alg.patterns-grow.build-shape-staircases",
+      "parent": "g2.alg.patterns-grow",
+      "title": "Building Staircases and Dot Triangles",
+      "description": "Build growing shape patterns with blocks or dots — a staircase that gains a step each time — and count how many pieces each new step needs.",
+      "outcomes": [
+        "Can build and extend growing shape patterns (staircases, triangles of dots)",
+        "Can count and record how many pieces each stage of the pattern uses"
+      ],
+      "prereqs": ["g2.alg.patterns-grow.spot-growing-patterns"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g2.alg.patterns-grow.state-and-check-rule",
+      "parent": "g2.alg.patterns-grow",
+      "title": "Saying the Rule and Checking Every Step",
+      "description": "Put a growing pattern's rule into words — 'add 3 each time' — and test it on EVERY step. A real rule never changes halfway through.",
+      "outcomes": [
+        "Can state the rule of a growing pattern in words ('add 5 each time')",
+        "Can check whether a claimed rule works for EVERY step of a pattern"
+      ],
+      "prereqs": ["g2.alg.patterns-grow.continue-number-patterns", "g2.alg.patterns-grow.build-shape-staircases"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "The pattern is 3, 6, 9, 12. Meera says the rule is 'add 3 each time'. Is she right?",
+        "options": [
+          { "text": "Yes — every jump in the pattern is exactly 3", "correct": true },
+          { "text": "No — a rule is allowed to change at any step", "misconception": "m3" },
+          { "text": "Yes — because the pattern starts with a 3", "diagnosis": "The rule is about the JUMPS between numbers, not the starting number." },
+          { "text": "You cannot have one rule for so many numbers", "diagnosis": "One rule must work for every step — that is what makes it a rule." }
+        ],
+        "explanation": "Check every jump: 3 to 6 is +3, 6 to 9 is +3, 9 to 12 is +3. The rule 'add 3' works at EVERY step, so Meera is right."
+      }
+    },
+
+    {
+      "id": "g2.dat.pictographs-intro.collect-and-tally",
+      "parent": "g2.dat.pictographs-intro",
+      "title": "Collecting Data with Tallies and Pictures",
+      "description": "Count things around us — favourite fruits, birds spotted — and record each one with a tally mark or a small picture so nothing gets counted twice or missed.",
+      "outcomes": [
+        "Can collect simple data by counting and record it with tally marks or pictures",
+        "Can turn a tally count into a neat row of pictures"
+      ],
+      "prereqs": ["g1.dat.sort-classify", "g1.num.numbers-to-20"],
+      "est_minutes": 20,
+      "difficulty": 1
+    },
+    {
+      "id": "g2.dat.pictographs-intro.read-counts",
+      "parent": "g2.dat.pictographs-intro",
+      "title": "Reading How Many from a Pictograph",
+      "description": "Read a simple pictograph where one picture means one thing: count the symbols in a row to answer 'how many?'. The chart — not our memory or taste — gives the answer.",
+      "outcomes": [
+        "Can read how many each row of a pictograph shows",
+        "Can answer questions from the chart rather than from personal preference"
+      ],
+      "prereqs": ["g2.dat.pictographs-intro.collect-and-tally"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "A pictograph shows 5 apple pictures in the row for Monday. How many apples were eaten on Monday?",
+        "options": [
+          { "text": "5", "correct": true },
+          { "text": "It depends on how much you like apples", "misconception": "m3" },
+          { "text": "4", "diagnosis": "Miscounted the symbols — point and count each picture once." },
+          { "text": "You cannot tell from pictures", "diagnosis": "You can — each picture stands for one apple, so count the pictures." }
+        ],
+        "explanation": "Each apple picture stands for one apple eaten. Count them: 5 pictures means 5 apples. The chart gives the answer, not our own liking."
+      }
+    },
+    {
+      "id": "g2.dat.pictographs-intro.compare-most-least",
+      "parent": "g2.dat.pictographs-intro",
+      "title": "Most, Least and How Many More",
+      "description": "Compare rows of a pictograph by COUNTING symbols, not by how long a row looks — big pictures can make a short count look long. Answer most/least and how-many-more questions.",
+      "outcomes": [
+        "Can answer most/least and how-many-more questions from a pictograph",
+        "Can explain why rows are compared by counting symbols, not by their length"
+      ],
+      "prereqs": ["g2.dat.pictographs-intro.read-counts", "g2.num.add-sub-2digit.sub-no-regroup"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "In a pictograph, Row A has 4 BIG pictures and Row B has 6 SMALL pictures. Which row shows more things?",
+        "options": [
+          { "text": "Row B — count the pictures: 6 is more than 4", "correct": true },
+          { "text": "Row A — it looks longer", "misconception": "m1" },
+          { "text": "They show the same amount", "diagnosis": "6 pictures and 4 pictures are different counts — count, don't compare looks." },
+          { "text": "You cannot compare big and small pictures", "diagnosis": "You can — each picture counts as one, whatever its size." }
+        ],
+        "explanation": "Each picture stands for one thing, big or small. Count them: Row B has 6 and Row A has 4, so Row B shows more — even if Row A looks longer."
+      }
+    },
+    {
+      "id": "g2.dat.pictographs-intro.use-a-key",
+      "parent": "g2.dat.pictographs-intro",
+      "title": "When One Picture Means More Than One",
+      "description": "Sometimes a key says one symbol stands for 2 or 5 things. Read the key first, then skip count the symbols to find the real total.",
+      "outcomes": [
+        "Can use a key where one symbol stands for more than one object",
+        "Can skip count symbols using the key to find totals"
+      ],
+      "prereqs": ["g2.dat.pictographs-intro.compare-most-least", "g2.num.mult-intro.skip-counting"],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "The key says: 1 ball picture = 2 balls. A row shows 3 ball pictures. How many balls is that?",
+        "options": [
+          { "text": "6", "correct": true },
+          { "text": "3", "misconception": "m2", "diagnosis": "Ignored the key and counted each picture as one ball." },
+          { "text": "5", "diagnosis": "Added 3 + 2 instead of counting 2 for each picture." },
+          { "text": "32", "diagnosis": "Wrote the numbers 3 and 2 side by side." }
+        ],
+        "explanation": "The key says every picture is worth 2 balls. Skip count in 2s: 2, 4, 6. Three pictures mean 6 balls."
+      }
+    }
+  ]
+}
