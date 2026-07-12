@@ -24,7 +24,11 @@ three things: how it's going, what changed this week, and one thing THEY can do.
    - **Your 10 minutes this week** — ONE concrete home activity tied to the current
      node and the child's interests, doable at a kitchen table with household objects
      ("while serving dinner, cut one roti in halves and one in quarters and ask which
-     piece is bigger — let her convince YOU").
+     piece is bigger — let her convince YOU"). Start from the current node's
+     `parent_check` prompt in the KG when it has one; personalize it to this family.
+   - When introducing a NEW strand, borrow its one-paragraph plain-language summary
+     from `kg/spine.json` `strand_summaries` so parents know what this part of maths
+     is FOR.
    - **Next up** — one sentence from the learning plan.
 3. **Rules**: plain language (match the family's `language.explanation` register);
    never grades/percentages/peer comparison — describe growth in behaviors; never

@@ -32,6 +32,22 @@ def err(msg: str) -> None:
     errors.append(msg)
 
 
+def pid(p) -> str:
+    """Prerequisite entries are bare id strings or {id, strength, reason} objects."""
+    return p if isinstance(p, str) else p.get("id", "")
+
+
+def check_edge_shape(owner: str, p) -> None:
+    if isinstance(p, dict):
+        if p.get("strength") not in ("hard", "soft"):
+            err(f"{owner}: prereq '{p.get('id')}' bad strength '{p.get('strength')}'")
+        if not p.get("reason", "").strip():
+            err(f"{owner}: prereq '{p.get('id')}' missing reason")
+        extra = set(p) - {"id", "strength", "reason"}
+        if extra:
+            err(f"{owner}: prereq '{p.get('id')}' unknown keys {sorted(extra)}")
+
+
 def warn(msg: str) -> None:
     warnings.append(msg)
 
@@ -46,9 +62,10 @@ def check_node(n: dict, spine_ids: set) -> None:
         if not n.get(field) and n.get(field) != 0:
             err(f"{nid}: missing {field}")
     for p in n.get("prerequisites", []):
-        if p not in spine_ids:
-            err(f"{nid}: prerequisite '{p}' not in spine")
-        if p == nid:
+        check_edge_shape(nid, p)
+        if pid(p) not in spine_ids:
+            err(f"{nid}: prerequisite '{pid(p)}' not in spine")
+        if pid(p) == nid:
             err(f"{nid}: self-prerequisite")
     if len(n.get("learning_outcomes", [])) < 2:
         err(f"{nid}: needs >=2 learning_outcomes")
@@ -104,7 +121,7 @@ def check_node(n: dict, spine_ids: set) -> None:
 
 
 def check_dag(nodes: list) -> None:
-    graph = {n["id"]: [p for p in n.get("prerequisites", [])] for n in nodes}
+    graph = {n["id"]: [pid(p) for p in n.get("prerequisites", [])] for n in nodes}
     WHITE, GREY, BLACK = 0, 1, 2
     color = {k: WHITE for k in graph}
     def dfs(u: str, stack: list) -> None:
@@ -122,8 +139,8 @@ def check_dag(nodes: list) -> None:
     grade = {n["id"]: n["grade"] for n in nodes}
     for n in nodes:
         for p in n.get("prerequisites", []):
-            if p in grade and grade[p] > n["grade"]:
-                warn(f"{n['id']} (g{n['grade']}) depends on higher-grade {p} (g{grade[p]})")
+            if pid(p) in grade and grade[pid(p)] > n["grade"]:
+                warn(f"{n['id']} (g{n['grade']}) depends on higher-grade {pid(p)} (g{grade[pid(p)]})")
 
 
 def check_micros(nodes: list, spine_ids: set) -> None:
@@ -152,9 +169,10 @@ def check_micros(nodes: list, spine_ids: set) -> None:
             if not m.get("outcomes"):
                 err(f"{mid}: needs >=1 outcome")
             for p in m.get("prereqs", []):
-                if p not in all_micro_ids and p not in spine_ids:
-                    err(f"{mid}: prereq '{p}' is neither a micro nor a spine id")
-                if p == mid:
+                check_edge_shape(mid, p)
+                if pid(p) not in all_micro_ids and pid(p) not in spine_ids:
+                    err(f"{mid}: prereq '{pid(p)}' is neither a micro nor a spine id")
+                if pid(p) == mid:
                     err(f"{mid}: self-prereq")
             for r in m.get("misconception_refs", []):
                 if r not in mis_by_node.get(n["id"], set()):
@@ -179,7 +197,7 @@ def check_micros(nodes: list, spine_ids: set) -> None:
     graph = {}
     for n in nodes:
         for m in n.get("micros", []):
-            graph[m["id"]] = [p for p in m.get("prereqs", []) if p in all_micro_ids]
+            graph[m["id"]] = [pid(p) for p in m.get("prereqs", []) if pid(p) in all_micro_ids]
     WHITE, GREY, BLACK = 0, 1, 2
     color = {k: WHITE for k in graph}
     def dfs(u, stack):

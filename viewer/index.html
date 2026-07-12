@@ -120,6 +120,11 @@
       selected = null, pathSet = null, query = '',
       view = 'map', viewClass = 0; // 'map' | 'class'
 
+  // prereq entries are bare id strings (hard) or {id, strength, reason} objects
+  const pid = p => typeof p === 'string' ? p : p.id;
+  const psoft = p => typeof p === 'object' && p.strength === 'soft';
+  const preason = p => (typeof p === 'object' && p.reason) ? p.reason : '';
+
   function statusOf(id) {
     return (window.STUDENT_DATA && window.STUDENT_DATA.status[id]) || null;
   }
@@ -211,7 +216,7 @@
       d.onclick = () => select(n.id);
       board.appendChild(d);
     });
-    drawEdges(nodes.flatMap(n => n.prereqs.map(p => [p, n.id, 24])));
+    drawEdges(nodes.flatMap(n => n.prereqs.map(p => [pid(p), n.id, 24, psoft(p)])));
   }
 
   function drawClass() {
@@ -241,7 +246,7 @@
     // intra-class micro->micro edges
     const edges = [];
     topics.forEach(t => (t.micros || []).forEach(m =>
-      (m.prereqs || []).forEach(p => { if (pos[p] && microById[p]) edges.push([p, m.id, 20]); })));
+      (m.prereqs || []).forEach(p => { if (pos[pid(p)] && microById[pid(p)]) edges.push([pid(p), m.id, 20, psoft(p)]); })));
     drawEdges(edges);
   }
 
@@ -250,7 +255,7 @@
     const board = document.getElementById('board');
     svg.setAttribute('width', parseInt(board.style.width)); svg.setAttribute('height', parseInt(board.style.height));
     let html = '';
-    list.forEach(([from, to, yoff]) => {
+    list.forEach(([from, to, yoff, soft]) => {
       if (!pos[from] || !pos[to]) return;
       const a = pos[from], b = pos[to];
       const w = view === 'class' ? 200 : NODEW;
@@ -260,7 +265,8 @@
       const c = Math.max(30, (x2 - x1) / 2);
       html += `<path d="M${x1},${y1} C${x1 + c},${y1} ${x2 - c},${y2} ${x2},${y2}"
         fill="none" stroke="${onPath ? 'var(--edge-hi)' : 'var(--edge)'}"
-        stroke-width="${onPath ? 2 : 1.2}" opacity="${dimmed ? 0.12 : 1}"/>`;
+        stroke-width="${onPath ? 2 : 1.2}" opacity="${dimmed ? 0.12 : 1}"
+        ${soft ? 'stroke-dasharray="5,4"' : ''}/>`;
     });
     svg.innerHTML = html;
   }
@@ -269,7 +275,7 @@
     const seen = new Set([id]), stack = [id];
     while (stack.length) {
       const prs = getPrereqs(stack.pop()) || [];
-      prs.forEach(p => { if (!seen.has(p)) { seen.add(p); stack.push(p); } });
+      prs.forEach(p => { const i = pid(p); if (!seen.has(i)) { seen.add(i); stack.push(i); } });
     }
     return seen;
   }
@@ -291,9 +297,9 @@
         <ol>${n.micros.map(m => `<li><span class="plink" onclick="openMicro('${m.id}')">${m.title}</span> <small>~${m.est_minutes}m</small></li>`).join('')}</ol>` : ''}
       ${n.outcomes && n.outcomes.length ? `<h3>You'll be able to…</h3><ul>${n.outcomes.map(o => `<li>${o}</li>`).join('')}</ul>` : ''}
       <h3>Learn these first</h3>
-      ${n.prereqs.length ? `<ul>${n.prereqs.map(p => `<li><span class="plink" onclick="select('${p}')">${byId[p] ? byId[p].title : p}</span>${statusOf(p) === 'mastered' ? ' ✓' : ''}</li>`).join('')}</ul>` : '<p>Nothing — this is a starting point!</p>'}
+      ${n.prereqs.length ? `<ul>${n.prereqs.map(p => `<li><span class="plink" onclick="select('${pid(p)}')">${byId[pid(p)] ? byId[pid(p)].title : pid(p)}</span>${psoft(p) ? ' <small>(recommended)</small>' : ''}${statusOf(pid(p)) === 'mastered' ? ' ✓' : ''}${preason(p) ? `<br><small>${preason(p)}</small>` : ''}</li>`).join('')}</ul>` : '<p>Nothing — this is a starting point!</p>'}
       <h3>Unlocks next</h3>
-      ${(() => { const deps = nodes.filter(x => x.prereqs.includes(id)); return deps.length ? `<ul>${deps.map(x => `<li><span class="plink" onclick="select('${x.id}')">${x.title}</span></li>`).join('')}</ul>` : '<p>—</p>'; })()}
+      ${(() => { const deps = nodes.filter(x => x.prereqs.some(p => pid(p) === id)); return deps.length ? `<ul>${deps.map(x => `<li><span class="plink" onclick="select('${x.id}')">${x.title}</span></li>`).join('')}</ul>` : '<p>—</p>'; })()}
       <button class="plain" id="pathBtn">Show full learning path</button>`;
     document.getElementById('pathBtn').onclick = () => {
       if (view === 'class') { view = 'map'; }
@@ -314,9 +320,10 @@
       ${m.outcomes.length ? `<h3>You'll be able to…</h3><ul>${m.outcomes.map(o => `<li>${o}</li>`).join('')}</ul>` : ''}
       <h3>Learn these first</h3>
       ${m.prereqs.length ? `<ul>${m.prereqs.map(p => {
-        const t = microById[p] ? microById[p].title : (byId[p] ? byId[p].title + ' (Class ' + byId[p].grade + ')' : p);
-        const fn = microById[p] ? `openMicro('${p}')` : `select('${p}')`;
-        return `<li><span class="plink" onclick="${fn}">${t}</span></li>`;
+        const i = pid(p);
+        const t = microById[i] ? microById[i].title : (byId[i] ? byId[i].title + ' (Class ' + byId[i].grade + ')' : i);
+        const fn = microById[i] ? `openMicro('${i}')` : `select('${i}')`;
+        return `<li><span class="plink" onclick="${fn}">${t}</span>${psoft(p) ? ' <small>(recommended)</small>' : ''}${preason(p) ? `<br><small>${preason(p)}</small>` : ''}</li>`;
       }).join('')}</ul>` : '<p>Just start here!</p>'}
       <button class="plain" id="pathBtn">Highlight path within this class</button>`;
     document.getElementById('pathBtn').onclick = () => {
@@ -344,6 +351,7 @@
     STRAND_ORDER.forEach(s => {
       const c = document.createElement('span');
       c.className = 'chip';
+      c.title = (window.KG_DATA.strand_summaries || {})[s] || '';
       c.innerHTML = `<span class="dot" style="background:var(--s-${s})"></span>${window.KG_DATA.strands[s]}`;
       c.onclick = () => {
         if (activeStrands.has(s)) activeStrands.delete(s); else activeStrands.add(s);

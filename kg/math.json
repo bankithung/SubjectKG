@@ -326,7 +326,8 @@
           "est_minutes": 20,
           "difficulty": 1
         }
-      ]
+      ],
+      "centrality": 123
     },
     {
       "id": "g1.num.zero",
@@ -617,7 +618,8 @@
             "explanation": "Adding 0 means adding nothing. You had 6, you added nothing, so you still have 6."
           }
         }
-      ]
+      ],
+      "centrality": 122
     },
     {
       "id": "g1.num.numbers-to-20",
@@ -938,7 +940,8 @@
           "est_minutes": 10,
           "difficulty": 1
         }
-      ]
+      ],
+      "centrality": 121
     },
     {
       "id": "g1.num.add-sub-within-20",
@@ -1300,7 +1303,8 @@
             "explanation": "Both sides of = must be the same amount. Count up from 5 to 9: 6, 7, 8, 9 — that is 4 jumps. So 5 + 4 = 9."
           }
         }
-      ]
+      ],
+      "centrality": 110
     },
     {
       "id": "g1.num.numbers-to-99",
@@ -1613,7 +1617,8 @@
           "est_minutes": 10,
           "difficulty": 1
         }
-      ]
+      ],
+      "centrality": 95
     },
     {
       "id": "g1.num.money-intro",
@@ -1913,7 +1918,8 @@
             "explanation": "Five ₹2 coins make 2 + 2 + 2 + 2 + 2 = 10, the same as the ₹10 note. The other choices total ₹7, ₹6 and ₹5."
           }
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g1.geo.shapes-around-us",
@@ -2221,7 +2227,8 @@
             "m2"
           ]
         }
-      ]
+      ],
+      "centrality": 56
     },
     {
       "id": "g1.mea.compare-lengths",
@@ -2539,7 +2546,8 @@
             "explanation": "Pour and count! If the pot takes 6 cups and the bottle takes 4, the pot holds more — even though the bottle is taller."
           }
         }
-      ]
+      ],
+      "centrality": 52
     },
     {
       "id": "g1.mea.time-day-events",
@@ -2829,7 +2837,8 @@
             "explanation": "A school day lasts many hours; washing hands takes less time than one song. We compare how long things really take, not how they feel."
           }
         }
-      ]
+      ],
+      "centrality": 3
     },
     {
       "id": "g1.alg.patterns-repeat",
@@ -3116,7 +3125,8 @@
           "est_minutes": 15,
           "difficulty": 2
         }
-      ]
+      ],
+      "centrality": 45
     },
     {
       "id": "g1.dat.sort-classify",
@@ -3408,7 +3418,8 @@
           "est_minutes": 10,
           "difficulty": 1
         }
-      ]
+      ],
+      "centrality": 14
     },
     {
       "id": "g2.num.place-value-2digit",
@@ -3730,7 +3741,8 @@
             "explanation": "Adding 10 gives one more ten: 4 tens become 5 tens, and the ones stay the same. 46 + 10 = 56."
           }
         }
-      ]
+      ],
+      "centrality": 94
     },
     {
       "id": "g2.num.numbers-to-999",
@@ -4047,7 +4059,8 @@
             "explanation": "Compare hundreds first: 300 has 3 hundreds and the others only 2. So 300 is greatest, even though its tens and ones are zeros."
           }
         }
-      ]
+      ],
+      "centrality": 85
     },
     {
       "id": "g2.num.add-sub-2digit",
@@ -4367,7 +4380,8 @@
             "explanation": "Giving away means subtract: 45 − 18. Open a ten: 15 − 8 = 7, and 3 − 1 = 2 tens. Ravi has 27 marbles left."
           }
         }
-      ]
+      ],
+      "centrality": 67
     },
     {
       "id": "g2.num.mult-intro",
@@ -4664,7 +4678,8 @@
             "explanation": "The dots do not change when you count by rows or by columns. 4 × 6 and 6 × 4 are two ways of counting the same 24 dots."
           }
         }
-      ]
+      ],
+      "centrality": 102
     },
     {
       "id": "g2.num.money-transactions",
@@ -4986,7 +5001,8 @@
             "explanation": "Change = what you gave − what it cost: 50 − 35 = 15. Or count up: 35 + 5 = 40, 40 + 10 = 50, so ₹15 change."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g2.geo.2d-3d-shapes",
@@ -5287,7 +5303,8 @@
           "est_minutes": 15,
           "difficulty": 1
         }
-      ]
+      ],
+      "centrality": 55
     },
     {
       "id": "g2.mea.length-units-intro",
@@ -5556,7 +5573,8 @@
           "est_minutes": 15,
           "difficulty": 2
         }
-      ]
+      ],
+      "centrality": 49
     },
     {
       "id": "g2.mea.weight-capacity-intro",
@@ -5846,7 +5864,8 @@
           "est_minutes": 15,
           "difficulty": 2
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g2.mea.time-days-calendar",
@@ -6143,7 +6162,8 @@
             "explanation": "The long hand on 12 says 'it is exactly o'clock'. The short hand points to 3, so it is 3 o'clock."
           }
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g2.alg.patterns-grow",
@@ -6440,7 +6460,8 @@
             "explanation": "Check every jump: 3 to 6 is +3, 6 to 9 is +3, 9 to 12 is +3. The rule 'add 3' works at EVERY step, so Meera is right."
           }
         }
-      ]
+      ],
+      "centrality": 44
     },
     {
       "id": "g2.dat.pictographs-intro",
@@ -6735,7 +6756,8 @@
             "explanation": "The key says every picture is worth 2 balls. Skip count in 2s: 2, 4, 6. Three pictures mean 6 balls."
           }
         }
-      ]
+      ],
+      "centrality": 13
     },
     {
       "id": "g3.num.numbers-to-9999",
@@ -7074,7 +7096,8 @@
             "explanation": "3950 + 100: the 9 hundreds become 10 hundreds, which roll over into a new thousand — 4050."
           }
         }
-      ]
+      ],
+      "centrality": 79
     },
     {
       "id": "g3.num.add-sub-3digit",
@@ -7457,7 +7480,8 @@
           "est_minutes": 20,
           "difficulty": 3
         }
-      ]
+      ],
+      "centrality": 65
     },
     {
       "id": "g3.num.mult-tables",
@@ -7830,7 +7854,8 @@
             "explanation": "An 8-row, 3-column array turned sideways becomes 3 rows of 8 — same dots, same total. So 3 × 8 = 8 × 3 = 24."
           }
         }
-      ]
+      ],
+      "centrality": 98
     },
     {
       "id": "g3.num.mult-2digit-by-1digit",
@@ -8204,7 +8229,8 @@
             "explanation": "24 × 3 = (20 × 3) + (4 × 3) = 60 + 12 = 72 pencils. Estimate check: about 20 × 3 = 60, so 72 is sensible."
           }
         }
-      ]
+      ],
+      "centrality": 71
     },
     {
       "id": "g3.num.division-intro",
@@ -8544,7 +8570,8 @@
             "explanation": "5 children × 3 pencils = 15 used, and 17 − 15 = 2 remain. We say 17 ÷ 5 = 3 remainder 2. The leftover must always be reported!"
           }
         }
-      ]
+      ],
+      "centrality": 89
     },
     {
       "id": "g3.num.fractions-intro",
@@ -8881,7 +8908,8 @@
             "explanation": "Split 8 mangoes into 2 equal piles: 4 and 4. Half of 8 is 4."
           }
         }
-      ]
+      ],
+      "centrality": 72
     },
     {
       "id": "g3.num.money-add-sub",
@@ -9246,7 +9274,8 @@
             "explanation": "You gave ₹100, so at most ₹100 can come back — ₹167 is impossible. (The real change is 100 − 67 = ₹33.)"
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g3.geo.lines-shapes",
@@ -9536,7 +9565,8 @@
             "explanation": "Join the two longest edges to get the rectangle back; join two matching short edges to get a bigger triangle. Same pieces, different joins, different shapes!"
           }
         }
-      ]
+      ],
+      "centrality": 54
     },
     {
       "id": "g3.mea.length-std-units",
@@ -9834,7 +9864,8 @@
             "explanation": "A maths book is about 25 fingernail-widths long — 25 cm. Benchmarks (fingernail ≈ 1 cm, giant step ≈ 1 m) keep estimates sensible."
           }
         }
-      ]
+      ],
+      "centrality": 48
     },
     {
       "id": "g3.mea.weight-capacity",
@@ -10179,7 +10210,8 @@
             "m2"
           ]
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g3.mea.time-clock",
@@ -10551,7 +10583,8 @@
             "explanation": "Count from tomorrow: 15, 16, 17, 18, 19, 20, 21 — that is 7 days. Or subtract: 21 − 14 = 7."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g3.alg.patterns-number",
@@ -10861,7 +10894,8 @@
           "est_minutes": 15,
           "difficulty": 2
         }
-      ]
+      ],
+      "centrality": 43
     },
     {
       "id": "g3.dat.tables-bar-charts-intro",
@@ -11176,7 +11210,8 @@
             "m1"
           ]
         }
-      ]
+      ],
+      "centrality": 12
     },
     {
       "id": "g4.num.numbers-to-100000",
@@ -11508,7 +11543,8 @@
             "m1"
           ]
         }
-      ]
+      ],
+      "centrality": 78
     },
     {
       "id": "g4.num.add-sub-large",
@@ -11870,7 +11906,8 @@
             "explanation": "Step 1: 23,450 + 18,600 = 42,050 collected. Step 2: 50,000 − 42,050 = 7,950. Estimate check: about 42,000 collected of 50,000, so roughly 8,000 short — 7,950 fits."
           }
         }
-      ]
+      ],
+      "centrality": 60
     },
     {
       "id": "g4.num.mult-multi-digit",
@@ -12231,7 +12268,8 @@
             "explanation": "32 × 25 = 32 × 20 + 32 × 5 = 640 + 160 = 800 pens. Estimate check: 30 × 25 = 750, so 800 is sensible while 224 is far too small."
           }
         }
-      ]
+      ],
+      "centrality": 70
     },
     {
       "id": "g4.num.division-long-intro",
@@ -12587,7 +12625,8 @@
             "explanation": "75 ÷ 6 = 12 remainder 3. Twelve trays are completely full (72 eggs) and 3 eggs stay loose. The question asks for full trays, so the remainder is dropped: 12."
           }
         }
-      ]
+      ],
+      "centrality": 64
     },
     {
       "id": "g4.num.fractions-equal-parts",
@@ -12930,7 +12969,8 @@
             "explanation": "Cut each half into 3 smaller pieces: 6 pieces in all, and the 1 shaded half becomes 3 shaded pieces. So 1/2 = 3/6 — both numbers are multiplied by 3 together."
           }
         }
-      ]
+      ],
+      "centrality": 71
     },
     {
       "id": "g4.geo.circle-intro",
@@ -13285,7 +13325,8 @@
             "m1"
           ]
         }
-      ]
+      ],
+      "centrality": 43
     },
     {
       "id": "g4.geo.symmetry-reflection",
@@ -13626,7 +13667,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 3
     },
     {
       "id": "g4.mea.perimeter-intro",
@@ -14013,7 +14055,8 @@
             "explanation": "Count outside edges: the 1 × 6 row has 6 + 1 + 6 + 1 = 14 edge-metres; the 2 × 3 block has 2 + 3 + 2 + 3 = 10. Same six patches, different fences."
           }
         }
-      ]
+      ],
+      "centrality": 8
     },
     {
       "id": "g4.mea.area-intro",
@@ -14356,7 +14399,8 @@
             "explanation": "Both have perimeter 20 cm, but 5 × 5 = 25 square cm while 1 × 9 = 9 square cm. The same boundary can hold very different areas — compact shapes hold more."
           }
         }
-      ]
+      ],
+      "centrality": 9
     },
     {
       "id": "g4.mea.time-duration",
@@ -14713,7 +14757,8 @@
             "explanation": "Hop on a time line: 11:30 → 12:00 is 30 min, 12:00 → 14:00 is 2 h, 14:00 → 14:15 is 15 min. Total: 2 h 45 min. An answer with 85 minutes is impossible — minutes roll over at 60."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g4.mea.unit-conversions",
@@ -15098,7 +15143,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g4.alg.patterns-rules",
@@ -15456,7 +15502,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 42
     },
     {
       "id": "g4.dat.bar-charts",
@@ -15839,7 +15886,8 @@
             "explanation": "Add the three values: 20 + 35 + 15 = 70 books. Adding raw divisions gives 14 — that number still needs the ×5 scale."
           }
         }
-      ]
+      ],
+      "centrality": 11
     },
     {
       "id": "g5.num.large-numbers",
@@ -16174,7 +16222,8 @@
             "m1"
           ]
         }
-      ]
+      ],
+      "centrality": 58
     },
     {
       "id": "g5.num.mult-div-large",
@@ -16512,7 +16561,8 @@
             "explanation": "25 x 33 = 825, leaving 25 — but 25 fills one more whole group. So 850 / 25 = 34 exactly (25 x 34 = 850). A remainder must always be SMALLER than the divisor."
           }
         }
-      ]
+      ],
+      "centrality": 63
     },
     {
       "id": "g5.num.factors-multiples",
@@ -16872,7 +16922,8 @@
             "explanation": "List them: 12 has 1, 2, 3, 4, 6, 12 — six factors. 25 has only 1, 5, 25 — three. How many factors a number has depends on how it is built, not on how big it is."
           }
         }
-      ]
+      ],
+      "centrality": 64
     },
     {
       "id": "g5.num.fractions-equivalent-compare",
@@ -17233,7 +17284,8 @@
             "explanation": "7/8 = 1 - 1/8 and 9/10 = 1 - 1/10. Since 1/10 < 1/8, 9/10 is closer to the whole, so 9/10 > 7/8. Check: 7/8 = 35/40 and 9/10 = 36/40."
           }
         }
-      ]
+      ],
+      "centrality": 65
     },
     {
       "id": "g5.num.fractions-add-sub",
@@ -17572,7 +17624,8 @@
             "explanation": "Re-cut the half into quarters: 1/2 = 2/4. Then 2/4 + 1/4 = 3/4 cup. Adding tops and bottoms (2/6) gives less than the 1/2 cup you started with — impossible when you are adding more."
           }
         }
-      ]
+      ],
+      "centrality": 59
     },
     {
       "id": "g5.num.decimals-intro",
@@ -17933,7 +17986,8 @@
             "explanation": "Two places after the point means hundredths: 0.25 = 25/100, which simplifies to 1/4. Writing 25/10 would be 25 tenths = 2.5 — the point's position matters."
           }
         }
-      ]
+      ],
+      "centrality": 60
     },
     {
       "id": "g5.num.decimals-add-sub",
@@ -18270,7 +18324,8 @@
             "m1"
           ]
         }
-      ]
+      ],
+      "centrality": 59
     },
     {
       "id": "g5.geo.angles-intro",
@@ -18629,7 +18684,8 @@
             "explanation": "At 3:00 the hands point to 12 and 3 — a quarter of the way around the face. A quarter of the full 360 is 90 degrees, a perfect right angle. (6:00 gives the straight 180.)"
           }
         }
-      ]
+      ],
+      "centrality": 38
     },
     {
       "id": "g5.geo.nets-3d",
@@ -18965,7 +19021,8 @@
             "explanation": "A closed box has 6 faces, so its net needs all 6 rectangles — including the bottom and back you cannot see in a sketch. An open box would need only 5."
           }
         }
-      ]
+      ],
+      "centrality": 6
     },
     {
       "id": "g5.geo.patterns-symmetry-turns",
@@ -19264,7 +19321,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g5.mea.area-perimeter-rect",
@@ -19631,7 +19689,8 @@
             "explanation": "Both perimeters are 20 m (2 x (2+8) = 20 and 4 x 5 = 20), but the areas are 16 and 25 square metres. Same fence, different fields — the squarer plot is roomier."
           }
         }
-      ]
+      ],
+      "centrality": 7
     },
     {
       "id": "g5.mea.volume-intuition",
@@ -19946,7 +20005,8 @@
             "m2"
           ]
         }
-      ]
+      ],
+      "centrality": 3
     },
     {
       "id": "g5.dat.data-interpretation",
@@ -20285,7 +20345,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 10
     },
     {
       "id": "g6.num.knowing-numbers",
@@ -20639,7 +20700,8 @@
             "explanation": "4,317 rounds to 4,000 (hundreds digit 3 < 5) and 2,896 rounds to 3,000 (hundreds digit 8 >= 5). Estimated sum: 4,000 + 3,000 = 7,000. The exact sum 7,213 confirms the estimate is close."
           }
         }
-      ]
+      ],
+      "centrality": 57
     },
     {
       "id": "g6.num.whole-numbers",
@@ -20979,7 +21041,8 @@
           "est_minutes": 20,
           "difficulty": 3
         }
-      ]
+      ],
+      "centrality": 56
     },
     {
       "id": "g6.num.playing-with-numbers",
@@ -21410,7 +21473,8 @@
             "explanation": "The bells coincide at common multiples of 4 and 6. The first (lowest) common multiple is 12, so they next ring together after 12 minutes. They do also coincide at 24, but that is not the NEXT time."
           }
         }
-      ]
+      ],
+      "centrality": 63
     },
     {
       "id": "g6.num.integers-intro",
@@ -21786,7 +21850,8 @@
             "explanation": "Subtracting a number means adding its opposite. The opposite of -2 is +2, so 5 - (-2) = 5 + 2 = 7. Removing a debt of 2 rupees makes you 2 rupees richer."
           }
         }
-      ]
+      ],
+      "centrality": 54
     },
     {
       "id": "g6.num.fractions-ops",
@@ -22167,7 +22232,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 58
     },
     {
       "id": "g6.num.decimals-ops",
@@ -22524,7 +22590,8 @@
             "explanation": "1 m = 100 cm, so 45 cm = 45/100 m = 0.45 m. Dividing by 100 moves the decimal point two places left. Sanity check: 45 cm is under half a metre, and 0.45 is under 0.5."
           }
         }
-      ]
+      ],
+      "centrality": 58
     },
     {
       "id": "g6.num.ratio-proportion",
@@ -22923,7 +22990,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 23
     },
     {
       "id": "g6.alg.intro-algebra",
@@ -23261,7 +23329,8 @@
             "m2"
           ]
         }
-      ]
+      ],
+      "centrality": 40
     },
     {
       "id": "g6.geo.basic-ideas",
@@ -23618,7 +23687,8 @@
             "explanation": "The radius runs from the centre to the circle (5 cm); the diameter runs all the way across through the centre, which is two radii: 2 x 5 = 10 cm."
           }
         }
-      ]
+      ],
+      "centrality": 39
     },
     {
       "id": "g6.geo.elementary-shapes",
@@ -24009,7 +24079,8 @@
           "est_minutes": 20,
           "difficulty": 2
         }
-      ]
+      ],
+      "centrality": 36
     },
     {
       "id": "g6.geo.symmetry",
@@ -24326,7 +24397,8 @@
           "est_minutes": 20,
           "difficulty": 3
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g6.geo.constructions-intro",
@@ -24680,7 +24752,8 @@
             "explanation": "The construction relies only on the arcs being EQUAL to each other, not on their particular size. Different radii produce crossing points at different distances, but all those crossing points lie on the same bisector ray."
           }
         }
-      ]
+      ],
+      "centrality": 4
     },
     {
       "id": "g6.mea.mensuration-perimeter-area",
@@ -25048,7 +25121,8 @@
             "explanation": "Fencing runs along the boundary, so we need the perimeter: 4 x 50 = 200 m. The area (2,500 m2) tells how much ground the park covers - useful for laying grass, irrelevant for fencing."
           }
         }
-      ]
+      ],
+      "centrality": 6
     },
     {
       "id": "g6.dat.data-handling",
@@ -25410,7 +25484,8 @@
             "explanation": "'How many more' means find the difference: 40 - 25 = 15. Fifteen more students chose cricket than football. Naming the winning category answers 'which is more', a different question."
           }
         }
-      ]
+      ],
+      "centrality": 9
     },
     {
       "id": "g7.num.integers-ops",
@@ -25792,7 +25867,8 @@
             "explanation": "Final = 4 + 6 × (−2) = 4 − 12 = −8°C. Dropping the sign turns the fall into a rise and gives 4 + 12 = 16°C — a warm night instead of a freezing one."
           }
         }
-      ]
+      ],
+      "centrality": 42
     },
     {
       "id": "g7.num.fractions-decimals-ops",
@@ -26173,7 +26249,8 @@
             "explanation": "Dividing by 0.9 asks how many 0.9s fit in 60 — more than 60 of them (≈66.7). Multiplying by 0.9 takes nine-tenths OF 60, which is less (54). The instinct 'multiplication enlarges, division shrinks' only holds for numbers greater than 1."
           }
         }
-      ]
+      ],
+      "centrality": 55
     },
     {
       "id": "g7.num.rational-numbers-intro",
@@ -26514,7 +26591,8 @@
             "explanation": "The average 3/8 lies between them; then the average of 1/4 and 3/8 lies between THOSE; and so on without end. Rewriting as 8/32 and 16/32 already shows seven thirty-secondths strictly between — and finer denominators reveal ever more."
           }
         }
-      ]
+      ],
+      "centrality": 41
     },
     {
       "id": "g7.num.comparing-quantities",
@@ -26875,7 +26953,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g7.num.exponents-intro",
@@ -27259,7 +27338,8 @@
             "explanation": "Place the point after the leading digit: 5.6. The point must move 6 places to restore 5,600,000, so the power is 10⁶. Counting only the five zeros undercounts — the 6 after the 5 also gets crossed by the moving point."
           }
         }
-      ]
+      ],
+      "centrality": 37
     },
     {
       "id": "g7.alg.simple-equations",
@@ -27644,7 +27724,8 @@
             "explanation": "The equation is 2x + 7 = 25. Subtract 7: 2x = 18; divide by 2: x = 9. Check: 2(9) + 7 = 25 ✓. Transposing +7 without flipping gives 2x = 32 and x = 16 — but 2(16) + 7 = 39, so the check rejects it."
           }
         }
-      ]
+      ],
+      "centrality": 31
     },
     {
       "id": "g7.alg.expressions",
@@ -28026,7 +28107,8 @@
             "explanation": "Substitute with brackets: (−2)² − 3(−2) = 4 + 6 = 10. The trap is (−2)² = +4: squaring a negative gives a positive. Treating it as −4 yields 2 (or −10 with a second slip) — bracket discipline prevents both."
           }
         }
-      ]
+      ],
+      "centrality": 22
     },
     {
       "id": "g7.geo.lines-angles",
@@ -28384,7 +28466,8 @@
             "explanation": "The rule 'alternate angles are equal' holds ONLY for parallel lines — it is a property with a licence condition. Since 60° ≠ 70°, the licence is refused: these lines must meet somewhere. The rules never apply to arbitrary crossing lines."
           }
         }
-      ]
+      ],
+      "centrality": 33
     },
     {
       "id": "g7.geo.triangle-properties",
@@ -28741,7 +28824,8 @@
             "explanation": "Since 5² + 12² = 169 = 13², the converse of the Pythagoras property guarantees a right angle opposite the longest side. The relation is special to right triangles — acute and obtuse triangles fail it in opposite directions."
           }
         }
-      ]
+      ],
+      "centrality": 31
     },
     {
       "id": "g7.geo.congruence",
@@ -29093,7 +29177,8 @@
             "explanation": "Equal angles make triangles SIMILAR, not necessarily congruent: a small and a large equilateral triangle share all angles. Fixing the size needs at least one side — which is why every genuine criterion contains an S."
           }
         }
-      ]
+      ],
+      "centrality": 27
     },
     {
       "id": "g7.geo.symmetry-rotational",
@@ -29391,7 +29476,8 @@
             "explanation": "A half-turn about the diagonals' intersection maps a parallelogram onto itself (order 2), yet no fold ever works. The letter S is another such shape. Line and rotational symmetry are independent properties — every combination occurs."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g7.geo.visualising-solids",
@@ -29709,7 +29795,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g7.geo.practical-geometry",
@@ -30031,7 +30118,8 @@
             "m4"
           ]
         }
-      ]
+      ],
+      "centrality": 3
     },
     {
       "id": "g7.mea.perimeter-area",
@@ -30444,7 +30532,8 @@
             "m1"
           ]
         }
-      ]
+      ],
+      "centrality": 5
     },
     {
       "id": "g7.dat.data-handling-averages",
@@ -30796,7 +30885,8 @@
             "explanation": "The favourable outcomes are 5 and 6 — two of six equally likely faces — so P = 2/6 = 1/3. 'Greater than 4 or not' are two DESCRIPTIONS, not two equally likely outcomes, so the 50-50 instinct fails."
           }
         }
-      ]
+      ],
+      "centrality": 8
     },
     {
       "id": "g8.num.rational-numbers",
@@ -31121,7 +31211,8 @@
             "explanation": "The average of two distinct rationals is a new rational strictly between them, and you can average again forever: 1/4 < 3/8 < 1/2, then 1/4 < 5/16 < 3/8, ... Rationals are dense."
           }
         }
-      ]
+      ],
+      "centrality": 39
     },
     {
       "id": "g8.num.squares-roots",
@@ -31451,7 +31542,8 @@
             "explanation": "Add first: 9 + 16 = 25, and √25 = 5. Splitting gives √9 + √16 = 3 + 4 = 7 — a different, wrong number. The root distributes over × (√(9×16) = 3×4 = 12 ✓) but never over + or −."
           }
         }
-      ]
+      ],
+      "centrality": 27
     },
     {
       "id": "g8.num.cubes-roots",
@@ -31747,7 +31839,8 @@
           "est_minutes": 15,
           "difficulty": 2
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g8.num.comparing-quantities",
@@ -32075,7 +32168,8 @@
             "m2"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g8.num.exponents-powers",
@@ -32419,7 +32513,8 @@
             "explanation": "Move the decimal point until one nonzero digit leads: 0.00052 → 5.2 needs 4 shifts right, so the exponent is −4 (small number ⇒ negative power). Counting the three zeros gives −3, one off: count SHIFTS of the point, not zeros. Check: 5.2 × 10⁻⁴ = 5.2 ÷ 10000 = 0.00052."
           }
         }
-      ]
+      ],
+      "centrality": 24
     },
     {
       "id": "g8.num.direct-inverse-proportion",
@@ -32721,7 +32816,8 @@
             "m1"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g8.num.playing-numbers",
@@ -33015,7 +33111,8 @@
             "explanation": "Test with digit sums: 3+4+3+8 = 18, a multiple of 9, so 3438 works (3438 = 9 × 382). 1279 contains a 9 but its digit sum is 19 — a 9 'anywhere' proves nothing. 1236 has digit sum 12: divisible by 3, NOT by 9 — the 3-test passing never guarantees the 9-test."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g8.alg.linear-equations-1var",
@@ -33347,7 +33444,8 @@
             "explanation": "2x + 15 = 95 ⇒ 2x = 80 ⇒ x = 40, and x was DEFINED as the smaller number. 55 is the larger one — a correct solve answering the wrong question. And '2x = 80' is a checkpoint, not an answer: always finish, then reread what was asked."
           }
         }
-      ]
+      ],
+      "centrality": 30
     },
     {
       "id": "g8.alg.expressions-identities",
@@ -33731,7 +33829,8 @@
             "explanation": "51 × 49 = (50 + 1)(50 − 1) = 50² − 1² = 2500 − 1 = 2499. The cross terms ±50 cancel — that cancellation is the whole trick."
           }
         }
-      ]
+      ],
+      "centrality": 15
     },
     {
       "id": "g8.alg.factorisation",
@@ -34070,7 +34169,8 @@
             "explanation": "Factor first: 5x + 10 = 5(x + 2), so dividing by 5 leaves x + 2. Cancelling the 5 against only ONE term (giving x + 10 or 5x + 2) breaks the value — test x = 1: (15) ÷ 5 = 3 = 1 + 2 ✓, but 1 + 10 = 11 ✗."
           }
         }
-      ]
+      ],
+      "centrality": 11
     },
     {
       "id": "g8.alg.graphs-intro",
@@ -34390,7 +34490,8 @@
             "explanation": "The line IS the set of all (x, y) with y = 2x — infinitely many points. The table just gave three anchors to draw it. Since 2 × 2.5 = 5, the point (2.5, 5) lies on the graph, along with every other satisfying pair."
           }
         }
-      ]
+      ],
+      "centrality": 23
     },
     {
       "id": "g8.geo.quadrilaterals",
@@ -34745,7 +34846,8 @@
             "explanation": "A rhombus needs four equal sides; a square has them (plus right angles), so every square is a rhombus. Going the other way fails: a 2×5 rectangle is no square, a tilted rhombus is no square. Definitions include — extra properties narrow, never exclude."
           }
         }
-      ]
+      ],
+      "centrality": 5
     },
     {
       "id": "g8.geo.practical-geometry-quads",
@@ -35039,7 +35141,8 @@
             "m2"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g8.geo.visualising-solids",
@@ -35310,7 +35413,8 @@
             "explanation": "F + V − E = 2 gives 8 + 6 − E = 2, so E = 12 (this is the regular octahedron). Using F + V = E (i.e. = 0 form) yields 14 — one constant wrong flips the answer. Verify on a cube: 6 + 8 − 12 = 2. ✓"
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g8.mea.mensuration",
@@ -35671,7 +35775,8 @@
             "explanation": "V = a³, so (2a)³ = 8a³: doubling acts once per dimension — length ×2, area ×4, volume ×8. Check concretely: a 1-cube holds 1 unit cube, a 2-cube holds 8. Lengths scale by k, areas by k², volumes by k³."
           }
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g8.dat.data-handling",
@@ -36010,7 +36115,8 @@
             "explanation": "Total outcomes = 3 + 7 = 10 marbles, favourable = 3, so P(red) = 3/10. 3/7 compares red to blue — that is ODDS (part-to-part); probability always divides by the WHOLE. Check: P(red) + P(blue) = 3/10 + 7/10 = 1."
           }
         }
-      ]
+      ],
+      "centrality": 7
     },
     {
       "id": "g9.num.number-systems",
@@ -36363,7 +36469,8 @@
             "explanation": "Multiply top and bottom by the conjugate √5 + 2: the denominator becomes (√5)² − 2² = 5 − 4 = 1, so the answer is (√5 + 2)/1 = √5 + 2."
           }
         }
-      ]
+      ],
+      "centrality": 23
     },
     {
       "id": "g9.alg.polynomials",
@@ -36816,7 +36923,8 @@
             "explanation": "a³ + b³ = (a + b)(a² − ab + b²): expanding gives a³ − a²b + ab² + a²b − ab² + b³ = a³ + b³. Note (a + b)³ is different — it equals a³ + b³ + 3ab(a + b), so cubing does not distribute over addition."
           }
         }
-      ]
+      ],
+      "centrality": 10
     },
     {
       "id": "g9.alg.linear-equations-2var",
@@ -37133,7 +37241,8 @@
           "est_minutes": 25,
           "difficulty": 3
         }
-      ]
+      ],
+      "centrality": 13
     },
     {
       "id": "g9.geo.coordinate-geometry",
@@ -37445,7 +37554,8 @@
           "est_minutes": 20,
           "difficulty": 2
         }
-      ]
+      ],
+      "centrality": 22
     },
     {
       "id": "g9.geo.euclid",
@@ -37748,7 +37858,8 @@
           "est_minutes": 25,
           "difficulty": 3
         }
-      ]
+      ],
+      "centrality": 26
     },
     {
       "id": "g9.geo.lines-angles",
@@ -38097,7 +38208,8 @@
             "explanation": "The exterior angle equals the sum of the two interior OPPOSITE angles: 115° = ∠A + ∠B = 60° + ∠B, so ∠B = 55°. (Check via the interior angle at C: 65° + 60° + 55° = 180° ✓.)"
           }
         }
-      ]
+      ],
+      "centrality": 25
     },
     {
       "id": "g9.geo.triangles",
@@ -38519,7 +38631,8 @@
             "explanation": "Each pair of sides must exceed the third: third side < 5 + 9 = 14 and third side > 9 − 5 = 4. Any length strictly between 4 and 14 works; the endpoints give a flat, degenerate 'triangle'."
           }
         }
-      ]
+      ],
+      "centrality": 24
     },
     {
       "id": "g9.geo.quadrilaterals",
@@ -38875,7 +38988,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 3
     },
     {
       "id": "g9.geo.circles",
@@ -39226,7 +39340,8 @@
             "explanation": "Opposite angles of a cyclic quadrilateral are supplementary: ∠A + ∠C = 180°, so ∠C = 100°. It is a PARALLELOGRAM whose opposite angles are equal — and a parallelogram is only cyclic when it is a rectangle (80° ≠ 90° rules that out here)."
           }
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g9.geo.constructions",
@@ -39537,7 +39652,8 @@
             "explanation": "By the triangle inequality, AB + AC > BC in any triangle. Here 6 < 7, so no such triangle exists and the construction's arc never intersects the ray. Feasibility must be checked before drawing — given data can simply be contradictory."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g9.mea.herons-formula",
@@ -39842,7 +39958,8 @@
           "est_minutes": 30,
           "difficulty": 4
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g9.mea.surface-volume",
@@ -40246,7 +40363,8 @@
             "explanation": "V = (4/3)πr³, so replacing r by 2r gives (4/3)π(2r)³ = 8 × (4/3)πr³. Every one of the three length dimensions doubles, so volume gains a factor 2 × 2 × 2 = 8 — never just 2."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g9.dat.statistics",
@@ -40569,7 +40687,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g9.dat.probability-empirical",
@@ -40909,7 +41028,8 @@
             "explanation": "Each toss of a fair coin is independent: P(head) = 1/2 regardless of history. The 'law of averages' works by future results diluting the past in the long-run fraction — not by the coin compensating."
           }
         }
-      ]
+      ],
+      "centrality": 3
     },
     {
       "id": "g10.num.real-numbers",
@@ -41270,7 +41390,8 @@
             "explanation": "Suppose 7 − 2√2 = r with r rational. Then √2 = (7 − r)/2. Since rationals are closed under subtraction and division by nonzero numbers, (7 − r)/2 would be rational, contradicting the irrationality of √2. Hence 7 − 2√2 is irrational."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g10.alg.polynomials",
@@ -41609,7 +41730,8 @@
             "explanation": "α + β = 4 and αβ = 3, so α² + β² = (α + β)² − 2αβ = 16 − 6 = 10. Cross-check: the zeroes are 1 and 3, and 1² + 3² = 10 ✓. The identity lets you skip finding the zeroes entirely — essential when they are irrational."
           }
         }
-      ]
+      ],
+      "centrality": 9
     },
     {
       "id": "g10.alg.linear-pair-2var",
@@ -41964,7 +42086,8 @@
             "explanation": "Let present ages be f and s. Five years hence: f + 5 = 3(s + 5). Five years ago: f − 5 = 7(s − 5). The first gives f = 3s + 10; substituting: 3s + 10 − 5 = 7s − 35, so 4s = 40, s = 10 and f = 40. Check: 45 = 3 × 15 ✓ and 35 = 7 × 5 ✓."
           }
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g10.alg.quadratic-equations",
@@ -42353,7 +42476,8 @@
             "explanation": "Time difference: 360/x − 360/(x + 5) = 4/5 (since 48 min = 4/5 h). So 360·5/(x(x + 5)) = 4/5, giving 9000 = 4x² + 20x, i.e. x² + 5x − 2250 = 0. Then x = (−5 ± √(25 + 9000))/2 = (−5 ± 95)/2 = 45 or −50. Rejecting the negative speed, x = 45. Check: 360/45 = 8 h, 360/50 = 7.2 h, difference 0.8 h = 48 min ✓."
           }
         }
-      ]
+      ],
+      "centrality": 8
     },
     {
       "id": "g10.alg.arithmetic-progressions",
@@ -42692,7 +42816,8 @@
             "m2"
           ]
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g10.geo.triangles-similarity",
@@ -43084,7 +43209,8 @@
             "explanation": "The wall, ground and ladder form a right triangle with hypotenuse 13: h² = 13² − 5² = 169 − 25 = 144, so h = 12 m (the classic 5-12-13 triple). Note 12 ≠ 13 − 5: square-root of a difference of squares is not the difference of the numbers."
           }
         }
-      ]
+      ],
+      "centrality": 19
     },
     {
       "id": "g10.geo.coordinate-geometry",
@@ -43418,7 +43544,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 12
     },
     {
       "id": "g10.geo.circles-tangents",
@@ -43733,7 +43860,8 @@
             "explanation": "Label the tangent lengths from A, B, C, D as p, q, r, s. Then AB = p + q, BC = q + r, CD = r + s, DA = s + p, so AB + CD = p + q + r + s = BC + DA. Hence 6 + 4 = 7 + AD, giving AD = 3 cm. The equal-tangents theorem makes the answer forced, not indeterminate."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g10.geo.constructions",
@@ -44028,7 +44156,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g10.tri.intro",
@@ -44435,7 +44564,8 @@
             "explanation": "From 1 + tan²A = sec²A we get sec²A − tan²A = 1, so 9 sec²A − 9 tan²A = 9(sec²A − tan²A) = 9 × 1 = 9, for every angle A where the ratios are defined. Recognising identity-shaped pairs like sec² − tan² saves all computation."
           }
         }
-      ]
+      ],
+      "centrality": 15
     },
     {
       "id": "g10.tri.applications",
@@ -44752,7 +44882,8 @@
             "explanation": "Depression 45° (nearer ship): distance = 75/tan 45° = 75 m. Depression 30° (farther ship): distance = 75/tan 30° = 75√3 m. Same side, so the gap = 75√3 − 75 = 75(√3 − 1) ≈ 54.9 m. The steeper depression always belongs to the nearer ship."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g10.mea.areas-circles",
@@ -45104,7 +45235,8 @@
           "est_minutes": 30,
           "difficulty": 4
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g10.mea.surface-volume",
@@ -45440,7 +45572,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g10.dat.statistics",
@@ -45791,7 +45924,8 @@
             "explanation": "The median is the value with half the observations below it, so enter the graph at cf = n/2 = 40, not at n = 80 (every observation is below the top of the curve). Cross to the ogive, drop down, and the foot is the median."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g10.dat.probability",
@@ -46201,7 +46335,8 @@
             "explanation": "Favourable cells: (2,6), (3,5), (4,4), (5,3), (6,2) — five of the 36 equally likely ordered pairs, so P = 5/36. The eleven possible sums 2–12 are NOT equally likely: sum 8 has five ways while sum 2 has one."
           }
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g11.alg.sets",
@@ -46556,7 +46691,8 @@
             "explanation": "n(H∪E) = 28 + 23 − 8 = 43, so neither = 50 − 43 = 7. Adding 28 + 23 = 51 without subtracting the overlap exceeds the 50 families that exist — the impossible '−1' is the built-in alarm for a forgotten intersection."
           }
         }
-      ]
+      ],
+      "centrality": 14
     },
     {
       "id": "g11.alg.relations-functions",
@@ -46889,7 +47025,8 @@
             "explanation": "f(a + b) means 'square the whole input': (a + b)² = a² + 2ab + b². Writing a² + b² is the distribution error f(a+b) = f(a) + f(b); test it with a = b = 1: f(2) = 4 but f(1) + f(1) = 2."
           }
         }
-      ]
+      ],
+      "centrality": 11
     },
     {
       "id": "g11.tri.functions",
@@ -47310,7 +47447,8 @@
             "explanation": "tan has period π, so every solution is exactly one period-shift of the principal solution π/3: x = nπ + π/3. A quick check of x = 4π/3 (n = 1) confirms tan(4π/3) = √3, while the sine/cosine patterns produce angles whose tangent is −√3."
           }
         }
-      ]
+      ],
+      "centrality": 9
     },
     {
       "id": "g11.num.complex-quadratic",
@@ -47719,7 +47857,8 @@
             "explanation": "Discriminant = 1 − 4 = −3, so x = (−1 ± √(−3))/2 = (−1 ± i√3)/2 — a conjugate pair. Complex numbers exist precisely so that this equation, unsolvable in R, gains its two roots."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g11.alg.linear-inequalities",
@@ -48065,7 +48204,8 @@
             "explanation": "(72 + 78 + x)/3 > 80 ⟹ 150 + x > 240 ⟹ x > 90. 'More than 80' is strict, so x = 90 (average exactly 80) does NOT qualify — the boundary stays excluded."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g11.alg.permutations-combinations",
@@ -48423,7 +48563,8 @@
             "explanation": "The roles differ, so order matters: 8 choices for captain × 7 for vice-captain = 8P2 = 56. 28 = 8C2 would count unlabelled pairs — right answer for 'choose 2 team members', wrong here."
           }
         }
-      ]
+      ],
+      "centrality": 3
     },
     {
       "id": "g11.alg.binomial-theorem",
@@ -48790,7 +48931,8 @@
             "explanation": "(x + 1/x)⁶ has 7 terms, so the middle is the 4th: T₄ = 6C3 x³ (1/x)³ = 20 · x³ · x⁻³ = 20 — a constant. Thinking the expansion has 6 terms leads to taking the 3rd term, 6C2 x⁴ x⁻² = 15x²."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g11.alg.sequences-series",
@@ -49167,7 +49309,8 @@
             "explanation": "Σn² = n(n+1)(2n+1)/6 = 10 × 11 × 21/6 = 2310/6 = 385. Note 55² = 3025 is Σn³ for n = 10 — the 'square of the sum', a different beast from the 'sum of the squares'."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g11.geo.straight-lines",
@@ -49547,7 +49690,8 @@
             "explanation": "d = |3(0) + 4(0) − 10|/√(3² + 4²) = 10/5 = 2. Both guards matter: the absolute value keeps distance positive, and the denominator is the square ROOT of a² + b², not a + b."
           }
         }
-      ]
+      ],
+      "centrality": 8
     },
     {
       "id": "g11.geo.conic-sections",
@@ -49973,7 +50117,8 @@
             "explanation": "Divide by 4: x²/4 − y²/1 = 1 — a difference of squared terms, the standard hyperbola. Containing both x² and y² does not make an equation a circle; the signs and coefficients decide."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g11.vec.intro-3d",
@@ -50303,7 +50448,8 @@
             "explanation": "P = ((1·4 + 2·1)/3, (1·5 + 2·2)/3, (1·6 + 2·3)/3) = (2, 3, 4) — one-third of the way from A to B, as a 1:2 split demands. (3, 4, 5) is the 2:1 point: the ratio parts got attached to the wrong endpoints."
           }
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g11.cal.limits-derivatives",
@@ -50771,7 +50917,8 @@
             "explanation": "Product rule with f = x, g = cos x: (1)(cos x) + (x)(−sin x) = cos x − x sin x. Multiplying the separate derivatives (1)·(−sin x) = −sin x is the classic trap — it already fails for x·x, where it predicts 1 instead of 2x."
           }
         }
-      ]
+      ],
+      "centrality": 5
     },
     {
       "id": "g11.dat.statistics",
@@ -51107,7 +51254,8 @@
             "explanation": "CV(A) = 25/250 × 100 = 10%; CV(B) = 10/50 × 100 = 20%. A's output wobbles only 10% of its average against B's 20%, so A is more consistent despite the larger raw SD — different scales demand the normalised comparison."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g11.dat.probability",
@@ -51471,7 +51619,8 @@
             "explanation": "P = 4C2/52C2 = 6/1326 = 1/221 (equivalently 4/52 × 3/51). 'Either both are aces or not' does NOT make it 50-50 — the two descriptions are wildly unequal in outcome count."
           }
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g12.alg.relations-functions",
@@ -51823,7 +51972,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 6
     },
     {
       "id": "g12.tri.inverse-functions",
@@ -52132,7 +52282,8 @@
           "est_minutes": 25,
           "difficulty": 3
         }
-      ]
+      ],
+      "centrality": 5
     },
     {
       "id": "g12.alg.matrices",
@@ -52479,7 +52630,8 @@
           "est_minutes": 25,
           "difficulty": 3
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g12.alg.determinants",
@@ -52812,7 +52964,8 @@
             "m4"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g12.cal.continuity-differentiability",
@@ -53182,7 +53335,8 @@
           "est_minutes": 30,
           "difficulty": 4
         }
-      ]
+      ],
+      "centrality": 4
     },
     {
       "id": "g12.cal.applications-derivatives",
@@ -53560,7 +53714,8 @@
             "m4"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g12.cal.integrals",
@@ -53981,7 +54136,8 @@
             "m4"
           ]
         }
-      ]
+      ],
+      "centrality": 2
     },
     {
       "id": "g12.cal.applications-integrals",
@@ -54262,7 +54418,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g12.cal.differential-equations",
@@ -54622,7 +54779,8 @@
             "m2"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g12.vec.algebra",
@@ -55000,7 +55158,8 @@
             "m3"
           ]
         }
-      ]
+      ],
+      "centrality": 1
     },
     {
       "id": "g12.vec.3d-geometry",
@@ -55371,7 +55530,8 @@
             "explanation": "Numerator: |1 + 2(1) + 2(1) − 3| = |2| = 2. Normal magnitude: √(1² + 2² + 2²) = √9 = 3. Distance = 2/3. Skipping the division by |n| leaves the un-normalised value 2, which has no geometric meaning as a length."
           }
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g12.alg.linear-programming",
@@ -55691,7 +55851,8 @@
             "m4"
           ]
         }
-      ]
+      ],
+      "centrality": 0
     },
     {
       "id": "g12.dat.probability",
@@ -56089,7 +56250,8 @@
             "explanation": "E(X) = Σxᵢpᵢ = 0(0.3) + 1(0.5) + 2(0.2) = 0 + 0.5 + 0.4 = 0.9. Each value is weighted by how often it occurs; the unweighted average (0+1+2)/3 = 1 would only be right if all three values were equally likely."
           }
         }
-      ]
+      ],
+      "centrality": 0
     }
   ]
 }

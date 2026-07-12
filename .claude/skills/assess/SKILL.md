@@ -13,7 +13,8 @@ Load the student profile (`students/<id>/profile.json`) and `kg/math.json`.
 ### `entry` (new or returning-after-long-gap student)
 Adaptive placement, binary-search style:
 1. Start at the key nodes of the student's nominal grade (pick 2-3 high-centrality nodes —
-   ones many others depend on).
+   the `centrality` field in kg/math.json counts transitive dependents; probe the
+   highest first, since each answer there prunes the most of the graph).
 2. Correct → step UP the graph (dependents); wrong → step DOWN the prerequisite chain
    until items land correct.
 3. 10-15 items TOTAL, max. Mix strands. Stop early if the frontier is clear.

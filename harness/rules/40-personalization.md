@@ -35,11 +35,15 @@ During every session, notice and record (in the session log, rolled up to the pr
 
 ## Decision rules
 
-1. **Gate on prerequisites**: target node teachable iff all prereqs are MASTERED, which
-   everywhere in this harness means **score ≥ 0.8 AND `conceptual_ok` true** (at least one
-   conceptual/application item answered correctly — same definition as rules/30 and the
-   viewer overlay). Otherwise the session plan is the shortest prerequisite repair path
-   (the KG gives it).
+1. **Gate on prerequisites**: target node teachable iff all **hard** prereqs are
+   MASTERED, which everywhere in this harness means **score ≥ 0.8 AND `conceptual_ok`
+   true** (same definition as rules/30 and the viewer overlay). Edge types: `hard`
+   edges gate; `soft` edges are strongly recommended — teach or verify them
+   opportunistically but they never block (bare-string edges count as hard). Every
+   typed edge carries a student-readable `reason`; USE it when explaining a detour —
+   "we need place value first because you can't compare decimals without it" beats
+   "the graph says so". Otherwise the session plan is the shortest hard-prerequisite
+   repair path (the KG gives it).
 2. **Difficulty ramp**: keep observed success ~70-85%. Two consecutive too-easy correct
    answers → step difficulty up; success rate < 60% in a set → step down and switch
    modality (don't just repeat louder).

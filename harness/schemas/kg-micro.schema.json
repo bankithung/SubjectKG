@@ -14,8 +14,26 @@
     "outcomes": { "type": "array", "minItems": 1, "maxItems": 3, "items": { "type": "string" }, "description": "Observable can-do statements, finer-grained than the parent's." },
     "prereqs": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "Micro ids (usually earlier micros of the same or sibling topics) and/or macro ids from other grades. The parent's own prerequisites need not be repeated."
+      "items": {
+        "oneOf": [
+          { "type": "string", "description": "Bare id (treated as strength: hard)." },
+          {
+            "type": "object",
+            "required": ["id", "strength", "reason"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string" },
+              "strength": { "enum": ["hard", "soft"] },
+              "reason": { "type": "string" }
+            }
+          }
+        ]
+      },
+      "description": "Micro ids (usually earlier micros of the same or sibling topics) and/or macro ids from other grades. The parent's own prerequisites need not be repeated. Typed form optional (see kg-node schema)."
+    },
+    "type": {
+      "enum": ["conceptual", "procedural", "representational", "language", "meta"],
+      "description": "Optional micro-skill kind: conceptual = why it works, procedural = how to do it, representational = reading/making a representation (number line, graph), language = vocabulary/notation, meta = strategy/habits. Informs modality choice."
     },
     "est_minutes": { "type": "integer", "minimum": 5, "maximum": 60 },
     "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },

@@ -80,8 +80,21 @@ full nodes per `harness/schemas/kg-node.schema.json`. Per node:
   from `harness/rules/20-thinking-routines.md`, real-world hooks (Indian-context
   friendly AND universal), a `video_search` query (never hardcoded URLs).
 
-Prerequisite edges: only true conceptual prerequisites; cross-band edges are expected
-and are where different authors' seams show — see Step 5.
+Prerequisite edges: only true conceptual prerequisites, in the TYPED form
+`{id, strength: hard|soft, reason}` — hard edges gate unlocking, soft edges recommend,
+and the reason is one student-readable line ("You can't compare decimals until place
+value is solid."). Cross-band edges are expected and are where different authors' seams
+show — see Step 5. Also give every node a `parent_check`: one 2-minute home activity a
+parent with no subject background can run to sense whether the child owns the concept.
+Classify micros with `type` (conceptual/procedural/representational/language/meta) —
+it sharpens modality choice.
+
+Note on external taxonomies (e.g. Marble's os-taxonomy, ODbL + CC BY-SA): they can be
+consulted as a coverage CHECKLIST, but author every edge, description, and reason
+independently in this repo's own words — bulk-importing share-alike data makes kg/ a
+derivative database with license obligations. For subjects they cover (their science,
+~ages 4-15), a consciously-licensed import is a legitimate scaffold — decide explicitly
+and record the decision in the manifest.
 
 ## Step 4 — Per-class micro graphs
 

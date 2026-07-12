@@ -14,8 +14,26 @@
     "description": { "type": "string", "description": "2-4 sentences: what the concept is and why it matters, student-readable." },
     "prerequisites": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "Node IDs from kg/spine.json that should be mastered first. Only list true conceptual prerequisites, not everything earlier."
+      "items": {
+        "oneOf": [
+          { "type": "string", "description": "Legacy bare id (treated as strength: hard)." },
+          {
+            "type": "object",
+            "required": ["id", "strength", "reason"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string", "description": "Node id from kg/spine.json." },
+              "strength": { "enum": ["hard", "soft"], "description": "hard = gates unlocking (mastery required first); soft = strongly recommended, helps but does not block." },
+              "reason": { "type": "string", "description": "One plain-language line a student can read: WHY this comes first, e.g. 'You can't compare decimals until place value is solid.'" }
+            }
+          }
+        ]
+      },
+      "description": "Node IDs from kg/spine.json that should be mastered first. Only true conceptual prerequisites. Typed form preferred: hard edges gate, soft edges recommend, and every edge carries a student-readable reason."
+    },
+    "parent_check": {
+      "type": "string",
+      "description": "One question/activity a parent (no maths background) can run at home in 2 minutes to sense whether the child owns this concept. Written to the parent, warm, concrete. Feeds /digest."
     },
     "ncert": {
       "type": "object",

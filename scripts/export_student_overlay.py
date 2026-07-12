@@ -34,16 +34,23 @@ def main() -> int:
         m = mastery.get(nid)
         return bool(m and m.get("score", 0) >= 0.8 and m.get("conceptual_ok", False))
 
+    def pid(p):
+        return p if isinstance(p, str) else p["id"]
+
+    def hard_prereqs(n):
+        # bare-string edges are hard by definition; typed soft edges recommend, not gate
+        return [pid(p) for p in n.get("prerequisites", [])
+                if isinstance(p, str) or p.get("strength", "hard") == "hard"]
+
     status = {}
     for n in graph["nodes"]:
         nid = n["id"]
+        hard = hard_prereqs(n)
         if mastered(nid):
             status[nid] = "mastered"
         elif nid in mastery:
             status[nid] = "in-progress"
-        elif all(mastered(p) for p in n.get("prerequisites", [])) and n.get("prerequisites"):
-            status[nid] = "frontier"
-        elif not n.get("prerequisites"):
+        elif all(mastered(p) for p in hard):
             status[nid] = "frontier"
         else:
             status[nid] = "locked"

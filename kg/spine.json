@@ -13,6 +13,16 @@
     "cal": "Calculus",
     "vec": "Vectors & 3D Geometry"
   },
+  "strand_summaries": {
+    "num": "How numbers work and how to calculate with them — counting, place value, the four operations, fractions, decimals, percentages. This is the backbone: almost everything else in maths stands on it, which is why gaps here show up everywhere else.",
+    "alg": "The art of working with unknowns. It starts as spotting patterns, becomes 'let x stand for the mystery number', and grows into equations, functions and the language used by every science. Algebra is how maths stops being about particular numbers and starts being about ALL numbers.",
+    "geo": "The maths of shape and space — from recognising circles and triangles to proving why angles behave the way they do. Geometry is where children first meet real mathematical PROOF: not 'it looks true' but 'it must be true'.",
+    "mea": "Putting numbers on the real world: length, weight, time, money, area, volume. This is the most hands-on strand — cooking, shopping, building and travelling all live here — and it's where number skills first prove their everyday worth.",
+    "dat": "Making sense of information: collecting it, picturing it in charts, summarising it with averages, and reasoning about chance. In a world of statistics and claims, this strand is as much about healthy scepticism as about maths.",
+    "tri": "The surprising bridge between triangles and circles that lets us measure what we cannot reach — the height of a mountain, the distance of a ship. Starts in Class 10 and becomes a key tool for physics and engineering.",
+    "cal": "The mathematics of change — how fast things grow, shrink and move, and how tiny pieces add up to wholes. The capstone of school maths (Classes 11-12) and the language of physics, economics and machine learning.",
+    "vec": "Quantities that have both size AND direction — forces, velocities, positions in 3D space. Where algebra and geometry finally merge, and the doorway to how games, graphics and rockets are built."
+  },
   "nodes": [
     { "id": "g1.num.counting-to-9", "title": "Counting and Numbers 1–9", "grade": 1, "strand": "num" },
     { "id": "g1.num.zero", "title": "Zero and Its Meaning", "grade": 1, "strand": "num" },
