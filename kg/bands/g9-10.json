@@ -428,7 +428,7 @@
             },
             {
               "text": "The single point (3, 0)",
-              "misconception": "m2"
+              "misconception": "m1"
             },
             {
               "text": "A line through the origin with slope 3",
@@ -1251,7 +1251,7 @@
           "id": "m2",
           "description": "Opposite angles of a cyclic quadrilateral are equal (instead of supplementary).",
           "signal": "Given ∠A = 75° in cyclic ABCD, answers ∠C = 75°.",
-          "remedy": "Derive it from the centre-angle theorem: the two opposite inscribed angles stand on complementary arcs whose central angles sum to 360°, so the inscribed angles sum to 180°. Check with a drawn example: measure all four angles of a cyclic quadrilateral and add opposite pairs."
+          "remedy": "Derive it from the centre-angle theorem: the two opposite inscribed angles stand on the two arcs that together make up the whole circle, whose central angles sum to 360°, so the inscribed angles sum to 180°. Check with a drawn example: measure all four angles of a cyclic quadrilateral and add opposite pairs."
         },
         {
           "id": "m3",
@@ -1310,7 +1310,7 @@
             },
             {
               "text": "100°",
-              "misconception": "m2"
+              "diagnosis": "Treated the central and inscribed angles as supplementary (180° − 80° = 100°), importing the cyclic-quadrilateral rule into the wrong configuration."
             }
           ],
           "explanation": "The angle subtended by an arc at the centre is TWICE the angle subtended at the circumference: 80° = 2 × angle at circumference, so the answer is 40°. Choosing 100° treats the two angles as supplementary — that rule belongs to cyclic quadrilaterals, not to the centre-circumference relationship."
@@ -1352,7 +1352,7 @@
             },
             {
               "text": "√39 cm",
-              "misconception": "m3"
+              "diagnosis": "Used the whole chord instead of the half-chord and, when 5² − 8² went negative, flipped the roles — computing √(8² − 5²) with the chord as hypotenuse and the radius as a leg."
             },
             {
               "text": "4 cm",
@@ -2201,7 +2201,7 @@
             },
             {
               "text": "It cannot be found without prime-factorising both numbers",
-              "misconception": "m4"
+              "diagnosis": "Unaware of the identity HCF × LCM = product of the two numbers, which makes fresh factorisation unnecessary here."
             }
           ],
           "explanation": "For two numbers, HCF × LCM = product of the numbers. So LCM = (306 × 657)/9 = 306 × 73 = 22338. No fresh factorisation is needed — that is the point of the identity (valid for exactly two numbers)."
@@ -2978,7 +2978,7 @@
             },
             {
               "text": "8 cm",
-              "diagnosis": "Set up AD/AB = AE/EC, mixing a part-to-whole ratio with a part-to-part ratio; BPT compares like with like."
+              "diagnosis": "Found the whole side AC = 10 via AD/AB = AE/AC, then subtracted AD (2) instead of AE (4) to get EC = 8; the piece removed must come from the SAME side."
             }
           ],
           "explanation": "By the Basic Proportionality Theorem, AD/DB = AE/EC: 2/3 = 4/EC ⟹ EC = 4 × 3/2 = 6 cm. The additive trap answers 5 (AD grew by 2 to give AE = 4, so DB 'should' grow by 2 to 5) — but proportionality multiplies (AE = 2 × AD, so EC = 2 × DB = 6)."
@@ -4012,7 +4012,7 @@
               "misconception": "m3"
             }
           ],
-          "explanation": "Melting conserves volume: (4/3)π(6)³ = π(6)²h ⟹ (4/3)(216) = 36h ⟹ 288 = 36h ⟹ h = 8 cm. Equating surface areas instead (4πr² = 2πrh type reasoning) gives h = 4 — but surfaces are not conserved when reshaping; only the metal's volume is."
+          "explanation": "Melting conserves volume: (4/3)π(6)³ = π(6)²h ⟹ (4/3)(216) = 36h ⟹ 288 = 36h ⟹ h = 8 cm. Using the sphere's surface area 4πr² in place of its volume (4π(36) = π(36)h) gives h = 4 — an area equated to a volume; surfaces are not conserved when reshaping, only the metal's volume is."
         },
         {
           "id": "q3",
@@ -4308,8 +4308,8 @@
               "diagnosis": "Used the single-coin probability without combining the two coins; the second coin halves it again: ½ × ½ = ¼."
             },
             {
-              "text": "2/4",
-              "diagnosis": "Counted the two Hs in HH as two favourable OUTCOMES; HH is one outcome of the four, however many heads it contains."
+              "text": "3/4",
+              "diagnosis": "Counted HH, HT and TH all as favourable — reading the question as 'at least one head' instead of 'two heads'; only HH qualifies."
             }
           ],
           "explanation": "The equally likely outcomes are HH, HT, TH, TT — four of them, one favourable, so P = 1/4. The popular 1/3 comes from listing '0 heads, 1 head, 2 heads' as three outcomes: but 'one head' happens TWO ways (HT and TH), so those three labels are not equally likely."
