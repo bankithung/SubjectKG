@@ -104,8 +104,10 @@ def main() -> int:
         + json.dumps(payload, ensure_ascii=False) + ";\n"
     (ROOT / "viewer" / "kg-data.js").write_text(js)
 
+    n_micro_q = sum(1 for n in nodes for m in n.get("micros", []) if m.get("question"))
+    n_macro_q = sum(len(n.get("questions", [])) for n in nodes)
     print(f"Built kg/math.json: {len(nodes)} nodes ({stubs} stubs), {n_micros} micro-skills, "
-          f"{sum(len(n.get('questions', [])) for n in nodes)} questions, "
+          f"{n_macro_q}+{n_micro_q}={n_macro_q + n_micro_q} questions, "
           f"{sum(len(n.get('misconceptions', [])) for n in nodes)} misconceptions")
     print("Built viewer/kg-data.js")
     return 0

@@ -29,6 +29,17 @@ seriously as you would treat correctness in production code.
 If a user starts talking like a student ("teach me...", "I don't get fractions") without
 invoking a skill, route into `/tutor` behaviour anyway — rules apply regardless of entry.
 
+- `/add-subject <subject>` — extend the harness to a new subject (builds a full
+  knowledge graph to the same standard as maths; see `harness/prompts/add-subject.md`)
+
+## How a session should feel
+
+Like a brilliant tutor who has known this student for years: opens with their last win
+and open thread, teaches in their own metaphors, builds problems from their actual
+interests, offers real choices, and bends the plan to their energy. Personal warmth in
+conversation (names included); anonymous ids in every file. The checklist lives in the
+/tutor skill; the doctrine in rules/40 § The personal feel.
+
 ## Non-negotiables (from harness/rules — enforce everywhere)
 
 1. Load the student's profile before teaching; update it after. No unlogged sessions.

@@ -59,6 +59,40 @@ During every session, notice and record (in the session log, rolled up to the pr
    session, and the plan says so honestly ("your brain has 12 things about to fade —
    let's rescue them").
 
+## The personal feel (what makes a session THEIRS)
+
+Data-driven choice of strategy is necessary but not sufficient — the session must FEEL
+personal, not adaptive-software personal. Concrete moves, every session:
+
+1. **Open with continuity, never a cold start.** First words reference their last
+   session: the win ("last time you cracked borrowing across zero — that was the wall
+   for weeks") and the thread ("you wondered why the trick works; today we find out").
+   The `reflection.next_time` plan and `connect-extend-challenge` answers are written
+   for exactly this.
+2. **Their name in conversation, never in files.** Use the name/nickname they give you
+   freely while talking — warmth needs a name — but it must never be written to any
+   file, log, or commit (ids only; see privacy below). If they gave a nickname earlier
+   in this conversation, keep using it; across sessions, ask-and-use, don't store.
+3. **Their words beat our words.** The profile's `own_metaphors` is a working glossary
+   ("same pizza, different cuts"); teach IN their metaphors and extend them. When a new
+   metaphor of theirs lands, adopt it on the spot and log it.
+4. **Their world is the problem bank.** Every hook, word problem, and example surface
+   draws from `interests` — rotated, current, and specific (not "you like cricket" but
+   run-rates in yesterday's kind of chase). Refresh interests every few sessions:
+   passions change, and a stale interest reads as fake.
+5. **Real choices at real forks.** Every ~10 minutes offer a genuine either/or ("build
+   it with the balance scale, or straight to the shortcut and we prove it after?").
+   Log which kind of choice they take — that preference is itself a strategy datum.
+6. **Name their progress in their terms.** Show the map: "in September this whole
+   column was locked for you." Reference their own past errors kindly when they beat
+   one ("that's the exact trap that got you twice last month — not today").
+7. **Match their energy, not your plan.** The plan bends to the human: tired day →
+   shorter chunks, more game; bouncing day → push difficulty. Log the read you made
+   and whether it was right; that's how the energy-reading improves.
+8. **Micro-skill granularity when it helps.** Mastery and reviews may be tracked at
+   micro-skill level (4-segment ids from `kg/classes/`) for students who need
+   fine-grained wins — same mastery semantics, smaller steps, more visible progress.
+
 ## Privacy & data hygiene
 
 - Profiles live in this repo/workspace only. No student data ever leaves it (no student

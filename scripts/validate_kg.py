@@ -10,8 +10,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ID_RE = re.compile(r"^g([1-9]|1[0-2])\.(num|alg|geo|mea|dat|tri|cal|vec)\.[a-z0-9-]+$")
-MICRO_ID_RE = re.compile(r"^g([1-9]|1[0-2])\.(num|alg|geo|mea|dat|tri|cal|vec)\.[a-z0-9-]+\.[a-z0-9-]+$")
+
+# Strands are defined by the spine, not hardcoded, so the same tooling can validate
+# any subject's graph (see harness/prompts/add-subject.md).
+_SPINE = json.loads((ROOT / "kg" / "spine.json").read_text())
+_STRANDS = "|".join(re.escape(s) for s in _SPINE["strands"])
+ID_RE = re.compile(rf"^g([1-9]|1[0-2])\.({_STRANDS})\.[a-z0-9-]+$")
+MICRO_ID_RE = re.compile(rf"^g([1-9]|1[0-2])\.({_STRANDS})\.[a-z0-9-]+\.[a-z0-9-]+$")
 MODALITIES = {"visual", "verbal", "worked-example", "manipulative", "interactive-html",
               "video", "story", "game", "practice-drill", "socratic"}
 ROUTINES = {"see-think-wonder", "notice-wonder", "think-pair-share", "claim-support-question",

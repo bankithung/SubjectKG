@@ -110,7 +110,10 @@
   document.head.appendChild(sd);
   let booted = false;
 
-  const STRAND_ORDER = ['num','alg','geo','mea','dat','tri','cal','vec'];
+  // Strand order comes from the data (spine.json key order). For a new subject,
+  // also define one --s-<strand> CSS variable per strand code above (reuse the 8
+  // validated categorical colors in slot order). Falls back to maths pre-boot.
+  let STRAND_ORDER = ['num','alg','geo','mea','dat','tri','cal','vec'];
   const COLW = 240, NODEW = 210, ROWH = 62, TOP = 34, PAD = 16;
   const MROWH = 56, MTOPICW = 220;
   let nodes = [], byId = {}, microById = {}, pos = {}, activeStrands = new Set(STRAND_ORDER),
@@ -362,6 +365,7 @@
   function init() {
     if (booted) { buildStudentLegend(); draw(); return; }
     booted = true;
+    STRAND_ORDER = Object.keys(window.KG_DATA.strands);
     nodes = window.KG_DATA.nodes;
     nodes.forEach(n => {
       byId[n.id] = n;
