@@ -1300,6 +1300,1442 @@
         ],
         "explanation": "2x + 15 = 95 ⇒ 2x = 80 ⇒ x = 40, and x was DEFINED as the smaller number. 55 is the larger one — a correct solve answering the wrong question. And '2x = 80' is a checkpoint, not an answer: always finish, then reread what was asked."
       }
+    },
+    {
+      "id": "g8.alg.expressions-identities.multiply-monomials",
+      "parent": "g8.alg.expressions-identities",
+      "title": "Multiplying Monomials",
+      "description": "Multiply coefficients and ADD exponents of like bases: 3x × 4x = 12x², handling several variables at once.",
+      "outcomes": [
+        "Can multiply two or three monomials correctly",
+        "Can track coefficients and exponents separately"
+      ],
+      "prereqs": [
+        "g7.alg.expressions",
+        "g7.num.exponents-intro"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Multiply: 3x × 4x",
+        "options": [
+          {
+            "text": "12x²",
+            "correct": true
+          },
+          {
+            "text": "12x",
+            "misconception": "m4"
+          },
+          {
+            "text": "7x²",
+            "misconception": "m4"
+          },
+          {
+            "text": "7x",
+            "diagnosis": "Added the coefficients AND lost the x·x — treated × as + throughout."
+          }
+        ],
+        "explanation": "3x × 4x = (3 × 4)(x × x) = 12x². Coefficients MULTIPLY (3×4=12) and x·x = x² — dropping either piece gives 12x or 7x²."
+      }
+    },
+    {
+      "id": "g8.alg.expressions-identities.multiply-binomials",
+      "parent": "g8.alg.expressions-identities",
+      "title": "Multiplying Binomials: Every Term Meets Every Term",
+      "description": "Expand (x + 2)(x + 3) by distributing each term of the first bracket over ALL of the second — four products, then collect.",
+      "outcomes": [
+        "Can expand a binomial × binomial fully",
+        "Can verify an expansion numerically with a test value"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities.multiply-monomials"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Expand: (x + 2)(x + 3)",
+        "options": [
+          {
+            "text": "x² + 5x + 6",
+            "correct": true
+          },
+          {
+            "text": "x² + 6",
+            "misconception": "m3"
+          },
+          {
+            "text": "x² + 5x + 5",
+            "diagnosis": "Added 2 + 3 for the constant term instead of multiplying."
+          },
+          {
+            "text": "x² + 6x + 6",
+            "diagnosis": "Used the product 2×3 for BOTH the middle and last terms."
+          }
+        ],
+        "explanation": "Four products: x·x + x·3 + 2·x + 2·3 = x² + 3x + 2x + 6 = x² + 5x + 6. Pairing only firsts and lasts (x² + 6) skips the two cross terms. Check with x = 1: (3)(4) = 12 = 1 + 5 + 6. ✓"
+      }
+    },
+    {
+      "id": "g8.alg.expressions-identities.identity-a-plus-b-squared",
+      "parent": "g8.alg.expressions-identities",
+      "title": "The Identity (a + b)² = a² + 2ab + b²",
+      "description": "Derive the square-of-a-sum identity by multiplication and by area picture — the middle term 2ab is the two rectangles a term-by-term squaring forgets.",
+      "outcomes": [
+        "Can expand (a + b)² for numeric and algebraic a, b",
+        "Can point to 2ab in the area model"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities.multiply-binomials"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Expand: (x + 5)²",
+        "options": [
+          {
+            "text": "x² + 10x + 25",
+            "correct": true
+          },
+          {
+            "text": "x² + 25",
+            "misconception": "m1"
+          },
+          {
+            "text": "x² + 5x + 25",
+            "diagnosis": "Included only ONE of the two cross rectangles — the middle term is 2·x·5, not x·5."
+          },
+          {
+            "text": "x² + 10x + 10",
+            "diagnosis": "Doubled 5 for the last term too — only the middle term carries the factor 2; the last is 5²."
+          }
+        ],
+        "explanation": "(x+5)² = (x+5)(x+5) = x² + 5x + 5x + 25 = x² + 10x + 25. Test x = 1: (6)² = 36 = 1 + 10 + 25 ✓, while x² + 25 gives 26 ✗ — squaring term by term drops the two 5x rectangles."
+      }
+    },
+    {
+      "id": "g8.alg.expressions-identities.identity-a-minus-b-squared",
+      "parent": "g8.alg.expressions-identities",
+      "title": "The Identity (a − b)² = a² − 2ab + b²",
+      "description": "Adapt the sum identity to differences, nailing the signs: middle term negative, last term still POSITIVE.",
+      "outcomes": [
+        "Can expand (a − b)² with correct signs",
+        "Can explain why b² keeps a plus sign"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities.identity-a-plus-b-squared"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Expand: (x − 4)²",
+        "options": [
+          {
+            "text": "x² − 8x + 16",
+            "correct": true
+          },
+          {
+            "text": "x² − 16",
+            "misconception": "m2"
+          },
+          {
+            "text": "x² − 8x − 16",
+            "misconception": "m2"
+          },
+          {
+            "text": "x² + 8x + 16",
+            "diagnosis": "Expanded (x + 4)² — the sign of the middle term must follow the sign inside the bracket."
+          }
+        ],
+        "explanation": "(x−4)(x−4) = x² − 4x − 4x + 16 = x² − 8x + 16. The last term is (−4)(−4) = +16 — negative × negative. Check x = 5: (1)² = 1 = 25 − 40 + 16 ✓; x² − 16 gives 9 ✗."
+      }
+    },
+    {
+      "id": "g8.alg.expressions-identities.identity-difference-of-squares",
+      "parent": "g8.alg.expressions-identities",
+      "title": "The Identity (a + b)(a − b) = a² − b²",
+      "description": "See the cross terms cancel in (a + b)(a − b), leaving a difference of squares — and distinguish it firmly from (a − b)².",
+      "outcomes": [
+        "Can expand (a + b)(a − b) instantly",
+        "Can say which of a² − b² and (a − b)² goes with which expression"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities.identity-a-minus-b-squared"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "id": "g8.alg.expressions-identities.apply-identities-mental-math",
+      "parent": "g8.alg.expressions-identities",
+      "title": "Identities as Mental-Math Weapons",
+      "description": "Compute 103², 98², 51 × 49 and similar in the head by choosing the right identity around a round number.",
+      "outcomes": [
+        "Can pick and apply the right identity for a numeric shortcut",
+        "Can compute products like 51 × 49 mentally"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities.identity-difference-of-squares"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Use an identity to compute 51 × 49 mentally.",
+        "options": [
+          {
+            "text": "2499",
+            "correct": true
+          },
+          {
+            "text": "2500",
+            "diagnosis": "Computed 50² but forgot to subtract the b² = 1 that the identity requires."
+          },
+          {
+            "text": "2401",
+            "diagnosis": "Computed 49² — squared one factor instead of using (50+1)(50−1)."
+          },
+          {
+            "text": "2509",
+            "diagnosis": "Added instead of subtracting: a² − b² needs 2500 − 1, not 2500 + 9 or any sum."
+          }
+        ],
+        "explanation": "51 × 49 = (50 + 1)(50 − 1) = 50² − 1² = 2500 − 1 = 2499. The cross terms ±50 cancel — that cancellation is the whole trick."
+      }
+    },
+    {
+      "id": "g8.alg.factorisation.common-factors",
+      "parent": "g8.alg.factorisation",
+      "title": "Taking Out Common Factors",
+      "description": "Factor the HCF out of every term — 6x + 9 = 3(2x + 3) — and check by expanding back.",
+      "outcomes": [
+        "Can factor out the greatest common monomial factor",
+        "Can verify a factorisation by re-expanding"
+      ],
+      "prereqs": [
+        "g8.alg.expressions-identities.multiply-monomials",
+        "g6.num.playing-with-numbers"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Factorise: 6x + 9",
+        "options": [
+          {
+            "text": "3(2x + 3)",
+            "correct": true
+          },
+          {
+            "text": "3(2x + 9)",
+            "misconception": "m3"
+          },
+          {
+            "text": "3(2x + 6)",
+            "diagnosis": "Divided 9 by... something else — 9 ÷ 3 = 3; expand to check: 3(2x+6) = 6x + 18 ✗."
+          },
+          {
+            "text": "6(x + 3)",
+            "diagnosis": "6 is not a factor of 9 — the common factor of 6 and 9 is 3."
+          }
+        ],
+        "explanation": "HCF of 6x and 9 is 3: 6x + 9 = 3·2x + 3·3 = 3(2x + 3). EVERY term must be divided by the factor taken out — expanding 3(2x + 9) = 6x + 27 exposes the un-divided 9."
+      }
+    },
+    {
+      "id": "g8.alg.factorisation.regrouping",
+      "parent": "g8.alg.factorisation",
+      "title": "Factorisation by Regrouping",
+      "description": "Group four-term expressions like ax + bx + ay + by into pairs sharing a factor, then pull out the common bracket.",
+      "outcomes": [
+        "Can factor four-term expressions by grouping",
+        "Can re-group when the first pairing fails"
+      ],
+      "prereqs": [
+        "g8.alg.factorisation.common-factors"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g8.alg.factorisation.factor-identities",
+      "parent": "g8.alg.factorisation",
+      "title": "Factoring with the Identities",
+      "description": "Run the three identities backwards: spot a² + 2ab + b², a² − 2ab + b², and especially a² − b² = (a+b)(a−b) — which is NOT (a − b)².",
+      "outcomes": [
+        "Can recognise and factor perfect-square trinomials",
+        "Can factor any difference of squares"
+      ],
+      "prereqs": [
+        "g8.alg.factorisation.common-factors",
+        "g8.alg.expressions-identities.identity-difference-of-squares"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Factorise: x² − 16",
+        "options": [
+          {
+            "text": "(x + 4)(x − 4)",
+            "correct": true
+          },
+          {
+            "text": "(x − 4)²",
+            "misconception": "m1"
+          },
+          {
+            "text": "(x − 8)(x + 2)",
+            "diagnosis": "Expanding gives x² − 6x − 16 — the middle term must vanish, so the two numbers must be opposites."
+          },
+          {
+            "text": "x(x − 16)",
+            "diagnosis": "That expands to x² − 16x — you factored out x from a term that has none."
+          }
+        ],
+        "explanation": "x² − 16 = x² − 4² = (x + 4)(x − 4): the +4x and −4x cross terms cancel. (x − 4)² = x² − 8x + 16 is a different beast — a difference OF squares is not the square OF a difference. Check x = 5: 25 − 16 = 9 = 9 × 1. ✓"
+      }
+    },
+    {
+      "id": "g8.alg.factorisation.split-middle-term",
+      "parent": "g8.alg.factorisation",
+      "title": "Factorising x² + bx + c by Splitting the Middle Term",
+      "description": "Hunt for two numbers whose SUM is the middle coefficient b and whose PRODUCT is the constant c, then split and group.",
+      "outcomes": [
+        "Can factor monic quadratics by splitting the middle term",
+        "Can state which target is the sum and which the product"
+      ],
+      "prereqs": [
+        "g8.alg.factorisation.regrouping",
+        "g8.alg.factorisation.factor-identities"
+      ],
+      "est_minutes": 25,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Factorise: x² + 5x + 6",
+        "options": [
+          {
+            "text": "(x + 2)(x + 3)",
+            "correct": true
+          },
+          {
+            "text": "(x + 1)(x + 5)",
+            "misconception": "m4"
+          },
+          {
+            "text": "(x − 2)(x − 3)",
+            "diagnosis": "Right numbers, wrong signs — expanding gives x² − 5x + 6."
+          },
+          {
+            "text": "(x + 6)(x − 1)",
+            "diagnosis": "6 and −1 have product −6 and sum 5 — the product must be +6 AND the sum +5 simultaneously."
+          }
+        ],
+        "explanation": "Need two numbers with sum 5 (the x-coefficient) and product 6 (the constant): 2 and 3. So x² + 5x + 6 = (x+2)(x+3). Swapping the roles — sum 6, product 5 — yields 1 and 5, which fails the expansion check: (x+1)(x+5) = x² + 6x + 5."
+      }
+    },
+    {
+      "id": "g8.alg.factorisation.divide-expressions",
+      "parent": "g8.alg.factorisation",
+      "title": "Dividing Algebraic Expressions",
+      "description": "Divide polynomials by monomials by factoring first — the divisor must cancel from EVERY term, or from a common FACTOR, never from a single term of a sum.",
+      "outcomes": [
+        "Can divide a polynomial by a monomial via factorisation",
+        "Can spot and refute illegal single-term cancellation"
+      ],
+      "prereqs": [
+        "g8.alg.factorisation.split-middle-term"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Simplify: (5x + 10) ÷ 5",
+        "options": [
+          {
+            "text": "x + 2",
+            "correct": true
+          },
+          {
+            "text": "x + 10",
+            "misconception": "m2"
+          },
+          {
+            "text": "5x + 2",
+            "misconception": "m2"
+          },
+          {
+            "text": "x + 5",
+            "diagnosis": "Divided 10 by 2 instead of 5 — arithmetic slip in the second term."
+          }
+        ],
+        "explanation": "Factor first: 5x + 10 = 5(x + 2), so dividing by 5 leaves x + 2. Cancelling the 5 against only ONE term (giving x + 10 or 5x + 2) breaks the value — test x = 1: (15) ÷ 5 = 3 = 1 + 2 ✓, but 1 + 10 = 11 ✗."
+      }
+    },
+    {
+      "id": "g8.alg.graphs-intro.plot-points",
+      "parent": "g8.alg.graphs-intro",
+      "title": "The Coordinate Plane: Plotting Points",
+      "description": "Set up x- and y-axes and plot ordered pairs, establishing that ORDER matters: (3, 5) and (5, 3) are different points.",
+      "outcomes": [
+        "Can plot and read off points in the first quadrant",
+        "Can explain why coordinate order matters"
+      ],
+      "prereqs": [
+        "g6.dat.data-handling",
+        "g6.geo.basic-ideas"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Which statement about the points (3, 5) and (5, 3) is correct?",
+        "options": [
+          {
+            "text": "They are two different points",
+            "correct": true
+          },
+          {
+            "text": "They are the same point",
+            "misconception": "m1"
+          },
+          {
+            "text": "They are the same point only if the axes use the same scale",
+            "diagnosis": "Scale changes where a point is DRAWN, never which point it is — coordinates are scale-independent addresses."
+          },
+          {
+            "text": "(3, 5) lies on the x-axis and (5, 3) on the y-axis",
+            "diagnosis": "Neither has a zero coordinate, so neither lies on an axis."
+          }
+        ],
+        "explanation": "An ordered pair reads (x, y): (3, 5) is 3 across and 5 up; (5, 3) is 5 across and 3 up — different addresses. Order is the whole point of ORDERED pairs."
+      }
+    },
+    {
+      "id": "g8.alg.graphs-intro.points-on-axes",
+      "parent": "g8.alg.graphs-intro",
+      "title": "Points on the Axes and the Origin",
+      "description": "Pin down where (0, y) and (x, 0) live: a zero x-coordinate means NO horizontal movement — the point sits on the y-axis.",
+      "outcomes": [
+        "Can place points with a zero coordinate correctly",
+        "Can characterise the axes as 'y = 0' and 'x = 0' point sets"
+      ],
+      "prereqs": [
+        "g8.alg.graphs-intro.plot-points"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Where does the point (0, 4) lie?",
+        "options": [
+          {
+            "text": "On the y-axis, 4 units up",
+            "correct": true
+          },
+          {
+            "text": "On the x-axis, 4 units across",
+            "misconception": "m2"
+          },
+          {
+            "text": "At the origin",
+            "diagnosis": "Only (0, 0) is the origin — one zero coordinate is not enough."
+          },
+          {
+            "text": "4 units along both axes",
+            "diagnosis": "That would be (4, 4); the first coordinate here is 0, so there is no horizontal move."
+          }
+        ],
+        "explanation": "(0, 4) says: move 0 across, then 4 up — you never leave the vertical axis. The '0 goes with x' pairing tempts you toward the x-axis, but a zero x-coordinate KEEPS you on the y-axis."
+      }
+    },
+    {
+      "id": "g8.alg.graphs-intro.read-graphs",
+      "parent": "g8.alg.graphs-intro",
+      "title": "Reading Line Graphs and Scales",
+      "description": "Extract information from time-series line graphs, always reading axis labels, units and scales before comparing anything.",
+      "outcomes": [
+        "Can read values and trends off a line graph",
+        "Can explain how a changed scale changes apparent steepness"
+      ],
+      "prereqs": [
+        "g8.alg.graphs-intro.plot-points",
+        "g6.dat.data-handling"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ]
+    },
+    {
+      "id": "g8.alg.graphs-intro.draw-linear-graphs",
+      "parent": "g8.alg.graphs-intro",
+      "title": "Drawing Graphs of Linear Relationships",
+      "description": "Tabulate values for relationships like y = 2x + 1 or simple-interest-vs-time, plot, and draw the line through them.",
+      "outcomes": [
+        "Can build a table and draw a straight-line graph",
+        "Can use the graph to read off unplotted values"
+      ],
+      "prereqs": [
+        "g8.alg.graphs-intro.points-on-axes",
+        "g8.alg.graphs-intro.read-graphs",
+        "g8.alg.linear-equations-1var.variables-both-sides"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g8.alg.graphs-intro.between-the-points",
+      "parent": "g8.alg.graphs-intro",
+      "title": "Every Point on the Line Counts",
+      "description": "Establish that a linear graph is a continuum: any point on the line — plotted or not — satisfies the relationship, and coordinates can be read at ANY x.",
+      "outcomes": [
+        "Can decide whether a given point lies on a drawn line",
+        "Can interpolate values between tabled points"
+      ],
+      "prereqs": [
+        "g8.alg.graphs-intro.draw-linear-graphs"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "You plotted y = 2x for x = 1, 2, 3 and joined the points with a line. Is (2.5, 5) on the graph?",
+        "options": [
+          {
+            "text": "Yes — every point of the line satisfies y = 2x, and 5 = 2 × 2.5",
+            "correct": true
+          },
+          {
+            "text": "No — only the three plotted points belong to the graph",
+            "misconception": "m3"
+          },
+          {
+            "text": "No — x = 2.5 is not a whole number, so it is not allowed",
+            "misconception": "m3"
+          },
+          {
+            "text": "Yes, but only because it is halfway between two plotted points",
+            "diagnosis": "Midpoint luck is not the reason — (2.5, 5) qualifies because it SATISFIES the equation; so does (2.7, 5.4)."
+          }
+        ],
+        "explanation": "The line IS the set of all (x, y) with y = 2x — infinitely many points. The table just gave three anchors to draw it. Since 2 × 2.5 = 5, the point (2.5, 5) lies on the graph, along with every other satisfying pair."
+      }
+    },
+    {
+      "id": "g8.geo.quadrilaterals.polygon-classification",
+      "parent": "g8.geo.quadrilaterals",
+      "title": "Polygons: Convex, Concave, Regular",
+      "description": "Classify polygons by number of sides, convexity, and regularity, revising the vocabulary of diagonals and interior angles.",
+      "outcomes": [
+        "Can classify a polygon as convex/concave and regular/irregular",
+        "Can count the diagonals of small polygons"
+      ],
+      "prereqs": [
+        "g6.geo.elementary-shapes",
+        "g7.geo.lines-angles"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g8.geo.quadrilaterals.angle-sum-polygons",
+      "parent": "g8.geo.quadrilaterals",
+      "title": "Interior Angle Sums of Polygons",
+      "description": "Triangulate an n-gon into (n − 2) triangles to get the angle-sum formula — 360° belongs to quadrilaterals ONLY.",
+      "outcomes": [
+        "Can compute the interior angle sum of any polygon",
+        "Can find one interior angle of a regular n-gon"
+      ],
+      "prereqs": [
+        "g8.geo.quadrilaterals.polygon-classification",
+        "g7.geo.triangle-properties"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is the sum of the interior angles of a pentagon?",
+        "options": [
+          {
+            "text": "540°",
+            "correct": true
+          },
+          {
+            "text": "360°",
+            "misconception": "m1"
+          },
+          {
+            "text": "500°",
+            "diagnosis": "Used 100° per triangle or an arithmetic slip — each of the 3 triangles contributes 180°."
+          },
+          {
+            "text": "720°",
+            "diagnosis": "Used n − 1 = 4 triangles — a pentagon triangulates into n − 2 = 3."
+          }
+        ],
+        "explanation": "From one vertex a pentagon splits into 3 triangles: (5 − 2) × 180° = 540°. The 360° figure is the QUADRILATERAL's sum (2 triangles) — every extra side adds another 180°."
+      }
+    },
+    {
+      "id": "g8.geo.quadrilaterals.exterior-angles",
+      "parent": "g8.geo.quadrilaterals",
+      "title": "Exterior Angles Always Total 360°",
+      "description": "Walk around any convex polygon to see the exterior angles complete one full turn — a constant 360° regardless of n.",
+      "outcomes": [
+        "Can use the exterior-angle sum to find unknown angles",
+        "Can find the number of sides of a regular polygon from one exterior angle"
+      ],
+      "prereqs": [
+        "g8.geo.quadrilaterals.angle-sum-polygons"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g8.geo.quadrilaterals.parallelogram-angles",
+      "parent": "g8.geo.quadrilaterals",
+      "title": "Parallelogram Properties: Sides and Angles",
+      "description": "Derive from parallel sides that opposite sides and opposite angles are EQUAL while adjacent angles are SUPPLEMENTARY.",
+      "outcomes": [
+        "Can find all angles of a parallelogram from one",
+        "Can justify each property via parallel lines and transversals"
+      ],
+      "prereqs": [
+        "g8.geo.quadrilaterals.polygon-classification",
+        "g7.geo.lines-angles"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "In parallelogram ABCD, ∠A = 70°. What is ∠B (adjacent to A)?",
+        "options": [
+          {
+            "text": "110°",
+            "correct": true
+          },
+          {
+            "text": "70°",
+            "misconception": "m3"
+          },
+          {
+            "text": "290°",
+            "diagnosis": "Subtracted from 360° — the whole quadrilateral's sum, not the co-interior pair's 180°."
+          },
+          {
+            "text": "20°",
+            "diagnosis": "Made the pair complementary (90°) instead of supplementary (180°)."
+          }
+        ],
+        "explanation": "AD ∥ BC with AB as transversal makes ∠A and ∠B co-interior: ∠B = 180° − 70° = 110°. EQUAL is the privilege of OPPOSITE angles (∠C = 70°); neighbours must add to 180°."
+      }
+    },
+    {
+      "id": "g8.geo.quadrilaterals.parallelogram-diagonals",
+      "parent": "g8.geo.quadrilaterals",
+      "title": "Diagonals of a Parallelogram",
+      "description": "Show the diagonals BISECT each other — but are equal only in rectangles, and perpendicular only in rhombuses.",
+      "outcomes": [
+        "Can use diagonal bisection to find lengths",
+        "Can state which special quadrilaterals have equal or perpendicular diagonals"
+      ],
+      "prereqs": [
+        "g8.geo.quadrilaterals.parallelogram-angles"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which property do the diagonals of EVERY parallelogram have?",
+        "options": [
+          {
+            "text": "They bisect each other",
+            "correct": true
+          },
+          {
+            "text": "They are equal in length",
+            "misconception": "m2"
+          },
+          {
+            "text": "They are perpendicular",
+            "diagnosis": "That is the rhombus's special property — a generic parallelogram's diagonals cross at other angles."
+          },
+          {
+            "text": "They bisect the vertex angles",
+            "diagnosis": "Again special to the rhombus (and square) — draw a long thin parallelogram to see it fail."
+          }
+        ],
+        "explanation": "In any parallelogram the diagonals cut each other exactly in half. EQUAL diagonals are the rectangle's upgrade; a slanted parallelogram visibly has one long and one short diagonal."
+      }
+    },
+    {
+      "id": "g8.geo.quadrilaterals.quad-hierarchy",
+      "parent": "g8.geo.quadrilaterals",
+      "title": "The Quadrilateral Family Tree",
+      "description": "Order trapezium, kite, parallelogram, rectangle, rhombus, square by inclusion: every square IS a rhombus IS a parallelogram — the arrows never reverse.",
+      "outcomes": [
+        "Can decide the truth of 'every X is a Y' claims for special quadrilaterals",
+        "Can draw the inclusion diagram from memory"
+      ],
+      "prereqs": [
+        "g8.geo.quadrilaterals.parallelogram-diagonals"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Which statement is TRUE?",
+        "options": [
+          {
+            "text": "Every square is a rhombus",
+            "correct": true
+          },
+          {
+            "text": "Every rectangle is a square",
+            "misconception": "m4"
+          },
+          {
+            "text": "Every rhombus is a square",
+            "misconception": "m4"
+          },
+          {
+            "text": "No parallelogram is a rectangle",
+            "diagnosis": "Rectangles ARE parallelograms — the special cases sit INSIDE the general class, not beside it."
+          }
+        ],
+        "explanation": "A rhombus needs four equal sides; a square has them (plus right angles), so every square is a rhombus. Going the other way fails: a 2×5 rectangle is no square, a tilted rhombus is no square. Definitions include — extra properties narrow, never exclude."
+      }
+    },
+    {
+      "id": "g8.geo.practical-geometry-quads.why-five-parts",
+      "parent": "g8.geo.practical-geometry-quads",
+      "title": "Why Five Measurements?",
+      "description": "Discover with cut-out strips that four given sides leave a quadrilateral FLOPPY — unlike a triangle — and that five well-chosen parts pin it down.",
+      "outcomes": [
+        "Can demonstrate that four sides do not fix a quadrilateral",
+        "Can list the five standard measurement combinations that do"
+      ],
+      "prereqs": [
+        "g7.geo.congruence",
+        "g8.geo.quadrilaterals.polygon-classification"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "You are given all four side lengths of a quadrilateral, and nothing else. Can you construct it uniquely?",
+        "options": [
+          {
+            "text": "No — the shape can still flex; a fifth measurement is needed",
+            "correct": true
+          },
+          {
+            "text": "Yes — four sides fix a quadrilateral just as three sides fix a triangle",
+            "misconception": "m1"
+          },
+          {
+            "text": "Yes, provided the four sides are all different",
+            "diagnosis": "Distinct side lengths don't stop the flexing — the angles are still free."
+          },
+          {
+            "text": "No — you would need all eight measurements (4 sides + 4 angles)",
+            "misconception": "m2"
+          }
+        ],
+        "explanation": "A four-sided frame with hinged corners flexes into infinitely many quadrilaterals (push a square into ever-flatter rhombuses). A diagonal braces it — that is the fifth measurement. Triangles alone are rigid; and five SUITABLE parts suffice, you never need all eight."
+      }
+    },
+    {
+      "id": "g8.geo.practical-geometry-quads.construct-4sides-diagonal",
+      "parent": "g8.geo.practical-geometry-quads",
+      "title": "Constructing with Four Sides and a Diagonal",
+      "description": "Split the target into two triangles along the given diagonal, build each with compass arcs, and check feasibility with the triangle inequality first.",
+      "outcomes": [
+        "Can construct a quadrilateral from 4 sides + 1 diagonal",
+        "Can reject infeasible data before drawing"
+      ],
+      "prereqs": [
+        "g8.geo.practical-geometry-quads.why-five-parts",
+        "g7.geo.practical-geometry"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3",
+        "m4"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "You must construct quadrilateral PQRS with PQ = 4 cm, QR = 3 cm and diagonal PR = 8 cm (plus two more sides). What do you notice BEFORE drawing?",
+        "options": [
+          {
+            "text": "Triangle PQR is impossible: 4 + 3 < 8 violates the triangle inequality",
+            "correct": true
+          },
+          {
+            "text": "Nothing — start drawing and adjust the vertices until it looks right",
+            "misconception": "m4"
+          },
+          {
+            "text": "Nothing is wrong; any five measurements give a constructible quadrilateral",
+            "misconception": "m2"
+          },
+          {
+            "text": "PR must equal PQ + QR exactly, so change PR to 7 cm",
+            "diagnosis": "Equality gives a DEGENERATE (flat) triangle — the inequality must be strict, but any PR < 7 works, not only 7."
+          }
+        ],
+        "explanation": "The diagonal PR closes triangle PQR, so its sides must satisfy PQ + QR > PR. Here 4 + 3 = 7 < 8: the arcs will never intersect. Feasibility is checked in each half-triangle BEFORE touching the compass — construction is deduction, not adjustment."
+      }
+    },
+    {
+      "id": "g8.geo.practical-geometry-quads.construct-diagonals",
+      "parent": "g8.geo.practical-geometry-quads",
+      "title": "Constructing with Two Diagonals and Three Sides",
+      "description": "Locate vertices as intersections of compass arcs when both diagonals and three sides are given.",
+      "outcomes": [
+        "Can construct a quadrilateral from 2 diagonals + 3 sides",
+        "Can identify which triangle to draw first"
+      ],
+      "prereqs": [
+        "g8.geo.practical-geometry-quads.construct-4sides-diagonal"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ]
+    },
+    {
+      "id": "g8.geo.practical-geometry-quads.construct-angles",
+      "parent": "g8.geo.practical-geometry-quads",
+      "title": "Constructing with Sides and Angles",
+      "description": "Construct quadrilaterals from two adjacent sides + three angles, or three sides + two included angles, using protractor-and-ruler sequences.",
+      "outcomes": [
+        "Can carry out both angle-based construction recipes",
+        "Can check the given angles are consistent (sum 360°)"
+      ],
+      "prereqs": [
+        "g8.geo.practical-geometry-quads.construct-diagonals",
+        "g8.geo.quadrilaterals.angle-sum-polygons"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g8.geo.practical-geometry-quads.construct-special",
+      "parent": "g8.geo.practical-geometry-quads",
+      "title": "Special Cases Need Fewer Measurements",
+      "description": "Exploit known properties: a square from one side, a rhombus from its diagonals — properties substitute for measurements.",
+      "outcomes": [
+        "Can construct squares, rectangles and rhombuses from reduced data",
+        "Can say which property replaces which measurement"
+      ],
+      "prereqs": [
+        "g8.geo.practical-geometry-quads.construct-angles",
+        "g8.geo.quadrilaterals.parallelogram-diagonals"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g8.geo.visualising-solids.views-of-solids",
+      "parent": "g8.geo.visualising-solids",
+      "title": "Front, Side and Top Views",
+      "description": "Draw and match the three standard views of everyday solids and cube stacks — the top view of a cylinder is a CIRCLE.",
+      "outcomes": [
+        "Can draw front/side/top views of a given solid",
+        "Can identify a solid from its three views"
+      ],
+      "prereqs": [
+        "g7.geo.visualising-solids"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "What is the TOP view of an upright cylinder (like a tin can on a table)?",
+        "options": [
+          {
+            "text": "A circle",
+            "correct": true
+          },
+          {
+            "text": "A rectangle",
+            "misconception": "m2"
+          },
+          {
+            "text": "An oval that is wider than it is tall",
+            "diagnosis": "Perspective drawings show ellipses, but the true top view looks straight down — a perfect circle."
+          },
+          {
+            "text": "A circle with a rectangle around it",
+            "diagnosis": "Mixed two views into one — each view is drawn separately."
+          }
+        ],
+        "explanation": "Looking straight down at a can you see only its circular lid. The rectangle is the FRONT view (the curved wall flattened). Naming the viewpoint before drawing prevents the swap."
+      }
+    },
+    {
+      "id": "g8.geo.visualising-solids.mapping-space",
+      "parent": "g8.geo.visualising-solids",
+      "title": "Maps, Scale and Location",
+      "description": "Read and draw simple maps with a scale, contrasting a map's proportional layout with a picture's perspective.",
+      "outcomes": [
+        "Can interpret distances on a scaled map",
+        "Can draw a simple scaled map of a familiar space"
+      ],
+      "prereqs": [
+        "g8.geo.visualising-solids.views-of-solids",
+        "g6.num.ratio-proportion"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g8.geo.visualising-solids.faces-edges-vertices",
+      "parent": "g8.geo.visualising-solids",
+      "title": "Counting Faces, Edges and Vertices",
+      "description": "Count F, E, V systematically on prisms and pyramids from nets and sketches — flat faces only — including the hidden ones.",
+      "outcomes": [
+        "Can count F, E, V for prisms and pyramids of any base",
+        "Can organise counts from the base polygon (e.g. n-prism: F = n+2)"
+      ],
+      "prereqs": [
+        "g8.geo.visualising-solids.views-of-solids",
+        "g5.geo.nets-3d"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4",
+        "m3"
+      ]
+    },
+    {
+      "id": "g8.geo.visualising-solids.euler-relation",
+      "parent": "g8.geo.visualising-solids",
+      "title": "Euler's Relation: F + V − E = 2",
+      "description": "Verify F + V − E = 2 across polyhedra, use it to find a missing count, and mark its boundary: polyhedra only — no cylinders, cones or spheres.",
+      "outcomes": [
+        "Can apply F + V − E = 2 to find an unknown count",
+        "Can state why the relation excludes curved solids"
+      ],
+      "prereqs": [
+        "g8.geo.visualising-solids.faces-edges-vertices"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "A polyhedron has 8 faces and 6 vertices. How many edges does it have?",
+        "options": [
+          {
+            "text": "12",
+            "correct": true
+          },
+          {
+            "text": "14",
+            "misconception": "m1"
+          },
+          {
+            "text": "10",
+            "diagnosis": "Used F + V − E = 4 or subtracted the wrong way — the relation is F + V − E = 2."
+          },
+          {
+            "text": "2",
+            "diagnosis": "Solved F − V = E instead — keep all three letters in the formula."
+          }
+        ],
+        "explanation": "F + V − E = 2 gives 8 + 6 − E = 2, so E = 12 (this is the regular octahedron). Using F + V = E (i.e. = 0 form) yields 14 — one constant wrong flips the answer. Verify on a cube: 6 + 8 − 12 = 2. ✓"
+      }
+    },
+    {
+      "id": "g8.mea.mensuration.area-trapezium",
+      "parent": "g8.mea.mensuration",
+      "title": "Area of a Trapezium",
+      "description": "Derive A = ½(a + b)h by splitting or doubling into a parallelogram: average the parallel sides FIRST, then multiply by the height.",
+      "outcomes": [
+        "Can compute trapezium areas from parallel sides and height",
+        "Can recover a missing side or height from the area"
+      ],
+      "prereqs": [
+        "g7.mea.perimeter-area"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A trapezium has parallel sides 10 cm and 6 cm, and height 4 cm. Its area is:",
+        "options": [
+          {
+            "text": "32 cm²",
+            "correct": true
+          },
+          {
+            "text": "64 cm²",
+            "misconception": "m1"
+          },
+          {
+            "text": "20 cm²",
+            "misconception": "m1"
+          },
+          {
+            "text": "120 cm²",
+            "diagnosis": "Multiplied all three numbers 10 × 6 × ... — the two parallel sides are ADDED, never multiplied."
+          }
+        ],
+        "explanation": "A = ½(a + b)h = ½ × (10 + 6) × 4 = ½ × 64 = 32 cm². Two copies of the trapezium tile a parallelogram of base 16 and height 4 (area 64) — hence the ½. Dropping it gives 64; using only one parallel side (½ × 10 × 4) gives 20."
+      }
+    },
+    {
+      "id": "g8.mea.mensuration.area-general-quad",
+      "parent": "g8.mea.mensuration",
+      "title": "Areas of General Quadrilaterals and Polygons",
+      "description": "Split any quadrilateral or polygon into triangles/trapeziums using diagonals and perpendicular offsets, then add the pieces.",
+      "outcomes": [
+        "Can compute the area of a quadrilateral as ½ d(h₁ + h₂)",
+        "Can decompose a field-book style polygon and total its parts"
+      ],
+      "prereqs": [
+        "g8.mea.mensuration.area-trapezium"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g8.mea.mensuration.surface-area-cube-cuboid",
+      "parent": "g8.mea.mensuration",
+      "title": "Surface Area of Cubes and Cuboids",
+      "description": "Unfold cuboids into nets to build TSA = 2(lb + bh + hl) — surface area answers 'how much covering?', a square-unit question.",
+      "outcomes": [
+        "Can compute total and lateral surface area of cuboids",
+        "Can choose surface area (not volume) for covering/painting contexts"
+      ],
+      "prereqs": [
+        "g8.mea.mensuration.area-general-quad",
+        "g5.geo.nets-3d"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A box measures 4 cm × 3 cm × 2 cm. How much wrapping paper (minimum) covers it completely?",
+        "options": [
+          {
+            "text": "52 cm²",
+            "correct": true
+          },
+          {
+            "text": "24 cm³",
+            "misconception": "m2"
+          },
+          {
+            "text": "26 cm²",
+            "diagnosis": "Computed lb + bh + hl but forgot the factor 2 — every face has a matching opposite face."
+          },
+          {
+            "text": "36 cm²",
+            "diagnosis": "Summed some faces twice and missed others — list all six faces systematically: two 4×3, two 3×2, two 2×4."
+          }
+        ],
+        "explanation": "Covering is a SURFACE question: TSA = 2(lb + bh + hl) = 2(12 + 6 + 8) = 52 cm². 24 cm³ is the VOLUME — how much the box holds, in cubic units; the cm³ unit itself signals the wrong quantity for paper."
+      }
+    },
+    {
+      "id": "g8.mea.mensuration.cylinder-surface",
+      "parent": "g8.mea.mensuration",
+      "title": "Surface Area of a Cylinder",
+      "description": "Unroll the curved surface into a rectangle of width 2πr to get CSA = 2πrh and TSA = 2πr(r + h).",
+      "outcomes": [
+        "Can compute CSA and TSA of a cylinder",
+        "Can explain the 2πr × h rectangle behind the formula"
+      ],
+      "prereqs": [
+        "g8.mea.mensuration.surface-area-cube-cuboid",
+        "g7.mea.perimeter-area"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "How much metal sheet is needed for the CURVED surface of a cylindrical tank with radius 7 m and height 10 m? (Use π = 22/7)",
+        "options": [
+          {
+            "text": "440 m²",
+            "correct": true
+          },
+          {
+            "text": "1540 m²",
+            "misconception": "m3"
+          },
+          {
+            "text": "220 m²",
+            "diagnosis": "Used πrh — forgot the 2: the unrolled rectangle's width is the FULL circumference 2πr."
+          },
+          {
+            "text": "154 m²",
+            "diagnosis": "Computed πr², the area of one circular END, not the curved wall."
+          }
+        ],
+        "explanation": "CSA = 2πrh = 2 × (22/7) × 7 × 10 = 440 m². The formula πr²h = 1540 measures VOLUME (m³, not m²) — r² is the giveaway: squared radius belongs to circle area and volume, single r × circumference to the curved wall."
+      }
+    },
+    {
+      "id": "g8.mea.mensuration.volume-solids",
+      "parent": "g8.mea.mensuration",
+      "title": "Volume of Cubes, Cuboids and Cylinders",
+      "description": "Build volume as layers of unit cubes — base area × height — for cuboids and cylinders, and keep the units cubic.",
+      "outcomes": [
+        "Can compute volumes of cuboids and cylinders",
+        "Can select volume (not surface area) for filling/capacity contexts"
+      ],
+      "prereqs": [
+        "g8.mea.mensuration.cylinder-surface",
+        "g5.mea.volume-intuition"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ]
+    },
+    {
+      "id": "g8.mea.mensuration.units-and-scaling",
+      "parent": "g8.mea.mensuration",
+      "title": "Capacity Units and How Measures Scale",
+      "description": "Relate cm³, m³, mL and L, and confront non-linear scaling: doubling every edge quadruples surface area and multiplies volume by EIGHT.",
+      "outcomes": [
+        "Can convert between volume and capacity units",
+        "Can state the effect of scaling lengths by k on area (k²) and volume (k³)"
+      ],
+      "prereqs": [
+        "g8.mea.mensuration.volume-solids"
+      ],
+      "est_minutes": 20,
+      "difficulty": 4,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 4,
+        "prompt": "Every edge of a cube is doubled. What happens to its volume?",
+        "options": [
+          {
+            "text": "It becomes 8 times as large",
+            "correct": true
+          },
+          {
+            "text": "It doubles",
+            "misconception": "m4"
+          },
+          {
+            "text": "It becomes 4 times as large",
+            "diagnosis": "That is the SURFACE AREA factor (2²) — volume picks up the doubling three times: 2³."
+          },
+          {
+            "text": "It becomes 6 times as large",
+            "diagnosis": "6 counts the faces of a cube — not a scaling factor."
+          }
+        ],
+        "explanation": "V = a³, so (2a)³ = 8a³: doubling acts once per dimension — length ×2, area ×4, volume ×8. Check concretely: a 1-cube holds 1 unit cube, a 2-cube holds 8. Lengths scale by k, areas by k², volumes by k³."
+      }
+    },
+    {
+      "id": "g8.dat.data-handling.grouping-data",
+      "parent": "g8.dat.data-handling",
+      "title": "Grouping Data into Class Intervals",
+      "description": "Organise raw data into frequency tables with equal class intervals, fixing the lower-inclusive convention for boundary values.",
+      "outcomes": [
+        "Can build a grouped frequency table from raw data",
+        "Can place a boundary value in the correct class"
+      ],
+      "prereqs": [
+        "g7.dat.data-handling-averages"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g8.dat.data-handling.histograms",
+      "parent": "g8.dat.data-handling",
+      "title": "Histograms for Grouped Data",
+      "description": "Draw and read histograms — bars on a CONTINUOUS numerical axis, touching because each class hands over to the next, unlike category bar graphs.",
+      "outcomes": [
+        "Can draw a histogram from a grouped frequency table",
+        "Can articulate the histogram/bar-graph distinction"
+      ],
+      "prereqs": [
+        "g8.dat.data-handling.grouping-data",
+        "g6.dat.data-handling"
+      ],
+      "est_minutes": 25,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Why do the bars of a histogram touch, while the bars of a bar graph have gaps?",
+        "options": [
+          {
+            "text": "The histogram's x-axis is a continuous number line — each class interval ends exactly where the next begins",
+            "correct": true
+          },
+          {
+            "text": "They don't have to touch; the gaps are just a styling choice",
+            "misconception": "m1"
+          },
+          {
+            "text": "Because histogram bars are always wider than bar-graph bars",
+            "diagnosis": "Bar width follows the class width — it is a consequence, not the reason."
+          },
+          {
+            "text": "Because histograms always show data in increasing order",
+            "misconception": "m1"
+          }
+        ],
+        "explanation": "A bar graph counts separate CATEGORIES (colours, teams) — gaps mark their separateness. A histogram covers a continuous measurement axis: the 10-20 class ends exactly where 20-30 begins, so the bars must share edges. Gapped histogram bars silently drop parts of the axis."
+      }
+    },
+    {
+      "id": "g8.dat.data-handling.pie-charts",
+      "parent": "g8.dat.data-handling",
+      "title": "Pie Charts: From Shares to Angles",
+      "description": "Convert each category's FRACTION of the whole into a central angle — fraction × 360° — since the circle's 360° represents 100%.",
+      "outcomes": [
+        "Can compute central angles from fractions or percentages",
+        "Can read shares back off a pie chart"
+      ],
+      "prereqs": [
+        "g8.dat.data-handling.grouping-data",
+        "g6.num.ratio-proportion"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A category takes 25% of the total. What central angle shows it on a pie chart?",
+        "options": [
+          {
+            "text": "90°",
+            "correct": true
+          },
+          {
+            "text": "25°",
+            "misconception": "m2"
+          },
+          {
+            "text": "75°",
+            "diagnosis": "Computed 100 − 25 — the remaining share's percentage, and still not converted to degrees."
+          },
+          {
+            "text": "120°",
+            "diagnosis": "Used a third of the circle — 25% is a QUARTER: check 90/360 = 25%."
+          }
+        ],
+        "explanation": "The whole circle (360°) stands for 100%, so 25% gets 25/100 × 360° = 90°. Per cents and degrees are different scales — a 25° slice is only about 7% of the pie. Sanity check: all computed angles must total 360°."
+      }
+    },
+    {
+      "id": "g8.dat.data-handling.chance-randomness",
+      "parent": "g8.dat.data-handling",
+      "title": "Chance, Randomness and Independent Trials",
+      "description": "Explore random experiments and equally likely outcomes, and confront the gambler's fallacy: a fair coin has no memory.",
+      "outcomes": [
+        "Can list equally likely outcomes of coin/die/spinner experiments",
+        "Can explain why past outcomes don't shift the next trial's chances"
+      ],
+      "prereqs": [
+        "g8.dat.data-handling.grouping-data"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A fair coin has landed heads 4 times in a row. What is the probability the next toss is heads?",
+        "options": [
+          {
+            "text": "1/2",
+            "correct": true
+          },
+          {
+            "text": "Less than 1/2 — tails is now 'due'",
+            "misconception": "m3"
+          },
+          {
+            "text": "More than 1/2 — heads is on a streak",
+            "misconception": "m3"
+          },
+          {
+            "text": "1/32",
+            "diagnosis": "That is the chance of FIVE heads in a row computed before any tossing — the first four are already done and cost nothing now."
+          }
+        ],
+        "explanation": "Each toss is independent: the coin has no memory of a streak, so P(heads) stays 1/2. 'Due for tails' and 'hot streak' are the same fallacy in opposite directions. (1/32 answers a different question — the advance probability of HHHHH.)"
+      }
+    },
+    {
+      "id": "g8.dat.data-handling.probability-as-fraction",
+      "parent": "g8.dat.data-handling",
+      "title": "Probability = Favourable / Total",
+      "description": "Compute probabilities as favourable outcomes over ALL outcomes — part-to-WHOLE — and locate them on the 0-to-1 scale.",
+      "outcomes": [
+        "Can compute event probabilities for marbles, dice and spinners",
+        "Can distinguish probability (part:whole) from odds (part:part)"
+      ],
+      "prereqs": [
+        "g8.dat.data-handling.chance-randomness",
+        "g6.num.fractions-ops"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A bag holds 3 red and 7 blue marbles. One is drawn at random. P(red) = ?",
+        "options": [
+          {
+            "text": "3/10",
+            "correct": true
+          },
+          {
+            "text": "3/7",
+            "misconception": "m4"
+          },
+          {
+            "text": "7/10",
+            "diagnosis": "Computed P(blue) — the complementary event."
+          },
+          {
+            "text": "1/3",
+            "diagnosis": "Used 'one of three reds' or 'red is one of the... ' — the outcomes are the 10 marbles, not the colours or the red count."
+          }
+        ],
+        "explanation": "Total outcomes = 3 + 7 = 10 marbles, favourable = 3, so P(red) = 3/10. 3/7 compares red to blue — that is ODDS (part-to-part); probability always divides by the WHOLE. Check: P(red) + P(blue) = 3/10 + 7/10 = 1."
+      }
     }
   ]
 }
