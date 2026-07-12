@@ -289,7 +289,7 @@
             {
               "text": "10",
               "misconception": "m2",
-              "diagnosis": "Placed zero after the other numbers, like on a phone keypad."
+              "diagnosis": "Doesn't know zero's home just before 1, so jumped to ten instead."
             }
           ],
           "explanation": "Counting down goes 3, 2, 1, 0. Zero sits just before 1 — it is the number that means 'none left'. Blast off!"
@@ -387,8 +387,7 @@
             },
             {
               "text": "50",
-              "misconception": "m1",
-              "diagnosis": "Confused 'fifteen' with 'fifty'."
+              "diagnosis": "Confused 'fifteen' with 'fifty' — the -teen and -ty endings sound alike."
             }
           ],
           "explanation": "Fifteen is ten and five. We write the ten part first: 15. Be careful — 51 is fifty-one, a much bigger number!"
@@ -814,7 +813,7 @@
           "id": "q1",
           "skill": "recall",
           "difficulty": 1,
-          "prompt": "Which of these coins has the MOST value: ₹1, ₹2 or ₹5?",
+          "prompt": "Three coins are on the table: a BIG ₹1 coin, a middle-sized ₹2 coin and a small ₹5 coin. Which coin has the MOST value?",
           "options": [
             {
               "text": "The ₹5 coin",
@@ -823,11 +822,12 @@
             {
               "text": "The ₹1 coin",
               "misconception": "m2",
-              "diagnosis": "May have picked the coin that looks biggest."
+              "diagnosis": "Picked the biggest coin — but size does not decide value."
             },
             {
               "text": "The ₹2 coin",
-              "misconception": "m2"
+              "misconception": "m2",
+              "diagnosis": "Picked a coin bigger than the ₹5 — but the printed number, not the size, tells the value."
             },
             {
               "text": "They are all worth the same",
@@ -884,11 +884,11 @@
               "diagnosis": "Five coins feel like a lot, but they total only ₹5."
             },
             {
-              "text": "One ₹5 coin",
-              "diagnosis": "Picked the single biggest coin without checking the total."
+              "text": "One ₹5 coin and one ₹2 coin",
+              "diagnosis": "Did not add the values to check: 5 + 2 makes only ₹7, not ₹10."
             }
           ],
-          "explanation": "Two ₹5 coins make 5 + 5 = 10, the same value as one ₹10 coin. The other choices total ₹4, ₹5 and ₹5 — all less than ₹10."
+          "explanation": "Two ₹5 coins make 5 + 5 = 10, the same value as one ₹10 coin. The other choices total ₹4, ₹5 and ₹7 — all less than ₹10."
         }
       ]
     },
@@ -1079,6 +1079,12 @@
           "description": "The bigger-looking object is always heavier.",
           "signal": "Shocked that a small stone outweighs a big sponge or a bag of puffed rice.",
           "remedy": "Compare tricky pairs on a simple pan balance or in two hands: cotton pillow vs steel spoon. Predict first, test, then talk about the surprise."
+        },
+        {
+          "id": "m4",
+          "description": "Length changes when an object is moved, rolled or bent — a rolled-up ribbon is thought to have become shorter.",
+          "signal": "Says a ribbon 'got shorter' after being rolled into a ball, or that a bent wire is 'less long' than before.",
+          "remedy": "Roll and unroll the same ribbon, checking it against a mark on the table each time. It always reaches the same mark — moving, rolling or bending never changes how long something really is."
         }
       ],
       "difficulty": 1,
@@ -1141,11 +1147,12 @@
             },
             {
               "text": "Yes — the straight ribbon always is longer",
-              "misconception": "m1"
+              "misconception": "m4",
+              "diagnosis": "Judged by how the ribbons look right now, believing the rolled one must have become shorter."
             },
             {
               "text": "Yes — rolling up a ribbon makes it shorter",
-              "misconception": "m1",
+              "misconception": "m4",
               "diagnosis": "Thinks changing the ribbon's position changes its length."
             },
             {
@@ -2404,9 +2411,9 @@
         },
         {
           "id": "m3",
-          "description": "Edges and corners are the same thing — counting one when asked for the other.",
-          "signal": "Answers 8 when asked how many edges a cube has (counted corners), or vice versa.",
-          "remedy": "Give each its own action: RUN a finger along an edge ('a road'), PINCH a corner ('a point that pokes'). Do the actions while counting so the words attach to different experiences."
+          "description": "Faces, edges and corners are confused with one another — counting one when asked for another.",
+          "signal": "Answers 8 when asked how many faces or edges a cube has (counted corners), or points to an edge when asked for a corner.",
+          "remedy": "Give each its own action: PAT a face with a flat palm ('a wall'), RUN a finger along an edge ('a road'), PINCH a corner ('a point that pokes'). Do the actions while counting so the words attach to different experiences."
         }
       ],
       "difficulty": 1,
@@ -3542,9 +3549,8 @@
               "misconception": "m1"
             },
             {
-              "text": "567",
-              "misconception": "m2",
-              "diagnosis": "Borrowed for the tens but forgot to reduce the hundreds."
+              "text": "557",
+              "diagnosis": "Borrowed correctly in the ones and tens (15 − 8 = 7, 11 − 6 = 5) but forgot to reduce the hundreds from 7 to 6, so got 7 − 2 = 5."
             },
             {
               "text": "993",
@@ -3674,7 +3680,7 @@
             },
             {
               "text": "It cannot be worked out",
-              "misconception": "m1"
+              "diagnosis": "Thinks zero cannot take part in multiplication — but 9 groups of nothing is a perfectly good question, and its answer is 0."
             }
           ],
           "explanation": "9 × 0 means 9 groups with NOTHING in each — 0 + 0 + ... + 0 = 0. Any number times zero is zero."
@@ -3788,8 +3794,7 @@
             },
             {
               "text": "18",
-              "misconception": "m1",
-              "diagnosis": "Multiplied only the ones (2 × 4 = 8) and copied the tens digit unchanged."
+              "diagnosis": "Multiplied only the ones (2 × 4 = 8) and copied the tens digit unchanged — the 10 in 12 must be multiplied too."
             },
             {
               "text": "58",
@@ -3973,8 +3978,8 @@
               "misconception": "m1"
             },
             {
-              "text": "No — because 3 ÷ 12 is 4",
-              "diagnosis": "Right answer, wrong reason: computed 12 ÷ 3 anyway, ignoring the order."
+              "text": "No — because 3 ÷ 12 makes 4 and 12 ÷ 3 makes 3",
+              "diagnosis": "Right verdict, but the answers are swapped — it is 12 ÷ 3 that makes 4."
             }
           ],
           "explanation": "12 ÷ 3 = 4: three children get 4 laddoos each. But 3 ÷ 12 asks to share just 3 laddoos among 12 children — each gets only a small piece! Order matters in division."
@@ -3996,8 +4001,8 @@
             },
             {
               "text": "Each gets 4 balloons",
-              "misconception": "m1",
-              "diagnosis": "Divided by 3 instead of 4 — swapped the numbers."
+              "misconception": "m2",
+              "diagnosis": "Echoed the number of friends as each child's share instead of dividing."
             },
             {
               "text": "It cannot be shared at all",
