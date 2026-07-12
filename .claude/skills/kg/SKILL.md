@@ -21,9 +21,10 @@ and one-line description. Use this to map a student's informal topic ("fractions
 
 ### `path <node-id>`
 Print the full prerequisite tree for the node (topologically ordered, deduplicated),
-formatted as a learning path with grades. If a student id is also given, annotate each
-node with their mastery and highlight the actual gaps — the personalised path is just
-the unmastered prefix.
+formatted as a learning path with grades. Mark soft edges "(recommended)" and print each
+edge's `reason` line — the path should read as an argument, not a list. If a student id
+is also given, annotate each node with their mastery and highlight the actual gaps — the
+personalised path is just the unmastered prefix of hard edges.
 
 ### `show [student-id]`
 Regenerate viewer data and tell the user to open the viewer:

@@ -71,6 +71,105 @@ viewer of the whole graph: search, filter by strand, click any topic to see what
 learn first and what it unlocks, and (after `/kg show <student-id>`) their personal
 overlay: mastered ✓ / in progress ◐ / ready now ★ / locked 🔒.
 
+## How to use it — complete walkthrough
+
+### 0. Setup (once)
+
+```bash
+git clone <this-repo> && cd SubjectKG
+python3 scripts/build_kg.py        # build the graph (plain python3, no dependencies)
+python3 scripts/validate_kg.py    # should end: 0 errors
+claude                             # start Claude Code in the repo - the agent reads
+                                   # CLAUDE.md and becomes the tutor automatically
+```
+
+Requirements: the [Claude Code CLI](https://claude.com/claude-code) and Python 3.10+.
+Nothing else — no packages, no database, no server. Everything lives in this folder,
+so back it up like you'd back up marksheets.
+
+### 1. Enrol a student (first session, ~15 min)
+
+```
+> /tutor S001
+```
+
+No profile exists yet, so the tutor runs the **intake**: a 5-minute friendly interview
+(interests, motivation, language preference, goals — never a form), then a short
+adaptive **entry diagnostic** (10-15 questions, binary-searching down prerequisite
+chains to find their true level, which is usually NOT their school grade). It ends by
+showing them their **frontier** — everything they're ready to learn right now — framed
+as territory owned, not deficit. Pick any anonymous id (S001, S002...); the real name
+never enters a file. Write it in `students/S001/private-notes.md` if you need a
+reminder — that file is gitignored.
+
+### 2. Daily: run sessions
+
+```
+> /tutor S001                      # continue from the plan / last session
+> /tutor S001 fractions            # or steer to a topic
+```
+
+One session ≈ their attention span (the profile learns it). The tutor opens with due
+reviews (≤5 min), teaches the frontier node in the modality that works for THIS student,
+tests with ≥3 diagnostic questions, diagnoses every wrong answer (each distractor maps
+to a specific misconception), and closes with a win. Everything is logged and the
+profile, analytics page, and plan update automatically via the end-of-session /reflect.
+
+Useful variants:
+```
+> /assess S001 review              # just clear due reviews (10 min on a busy day)
+> /assess S001 topic g6.num.ratio-proportion   # re-test one topic
+> /kg path g10.tri.intro           # "what do I need before trigonometry?" with reasons
+> /kg find decimals                # map informal topic names to graph nodes
+```
+
+### 3. Weekly rhythm
+
+```
+> /plan S001 exam 2026-09-15       # create/revise the rolling learning plan
+> /digest S001                     # parent digest (auto-triggered weekly by /reflect)
+> /reflect all                     # cross-student mining: what teaching works, which
+                                   # questions underperform, KG fixes (run fortnightly)
+```
+
+### 4. What to open in a browser
+
+| Page | For | How |
+|---|---|---|
+| `viewer/index.html` | Student/parent: the full 1-12 map, what unlocks what, why | `> /kg show S001` first (adds their green/amber/star/lock overlay), then open the file |
+| Class drill-down | The in-depth per-class graph, micro-skill by micro-skill | click any CLASS label inside the viewer |
+| `students/S001/report.html` | Teacher: full analytics - mastery, misconception tracker, every Q&A, what works | regenerated every session, or `python3 scripts/build_student_page.py S001` |
+| `students/S001/plan.md` | The student's own journey plan | any editor; embedded in report.html too |
+| `students/S001/digests/` | Weekly parent digests | any editor |
+
+### 5. Maintenance & growth
+
+```bash
+python3 scripts/validate_kg.py            # after ANY graph edit; must be 0 errors
+python3 scripts/build_kg.py               # rebuild math.json + viewer data
+python3 scripts/ingest_ncert.py download  # (network-unrestricted machine) pull all
+                                          # NCERT PDFs, then let the agent refine the
+                                          # graph against the real texts
+```
+
+```
+> /add-subject science 1-10        # extend to a new subject at the same quality bar
+                                   # (full playbook: harness/prompts/add-subject.md)
+```
+
+The harness improves itself as it runs: `harness/insights.md` accumulates evidenced
+teaching lessons, question banks grow from good generated items, prerequisite edges are
+corrected by observation, and rule changes are auditable as `harness-learning:` commits.
+
+### If something looks wrong
+
+- **"Node not ready" but you disagree** → `> /kg path <node-id> S001` shows exactly which
+  hard prerequisite is unmet and why it matters; override consciously by teaching the
+  prerequisite first (recommended) or record the evidence and fix the edge (rules/50).
+- **Validation errors after an edit** → the message names the node/question; fix and re-run.
+- **Student data feels stale** → profiles only update through sessions; there is no sync
+  to fix. If a session ended abruptly, run `/reflect S001` to complete the logging.
+
 ## Repo layout
 
 | Path | What |

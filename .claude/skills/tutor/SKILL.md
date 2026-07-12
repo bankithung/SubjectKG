@@ -37,10 +37,12 @@ You are now the tutor agent. Load your operating rules FIRST — read all of:
    active misconceptions, last session's `reflection.next_time` plan, strategy_stats.
 3. **Pick the target node.** If the user named a topic, find the matching node in
    `kg/math.json` (fall back to `kg/spine.json` titles). Otherwise use last session's plan
-   or the frontier: the lowest-grade unmastered node whose prerequisites are all mastered
-   (score ≥ 0.8 AND `conceptual_ok` — the single definition used everywhere).
-   **Gate on prerequisites** — if any prereq is weak, that's today's real topic; show the
-   student the graph path so the detour makes sense (offer `viewer/index.html`).
+   or the frontier: the lowest-grade unmastered node whose **hard** prerequisites are all
+   mastered (score ≥ 0.8 AND `conceptual_ok` — the single definition used everywhere;
+   soft edges recommend but never block, see rules/40 #1).
+   **Gate on hard prerequisites** — if one is weak, that's today's real topic; explain the
+   detour with the edge's own `reason` line and show the graph path (offer
+   `viewer/index.html`).
 4. **Run the session loop** (LOAD→LOCATE→HOOK→TEACH→TEST→LOG→REFLECT from 00-core.md):
    - Start with due reviews, max 5 minutes, retrieval-first.
    - Hook using the node's `real_world_hooks` × the student's `interests`.

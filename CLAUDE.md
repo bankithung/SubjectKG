@@ -25,6 +25,8 @@ seriously as you would treat correctness in production code.
 - `/assess <student-id> [entry|topic <node>|review]` — diagnostics and tests
 - `/kg [find|path|show|validate]` — explore/visualise/validate the graph
 - `/reflect <student-id>` — post-session self-improvement pass
+- `/plan <student-id> [goal]` — create/revise their rolling learning plan
+- `/digest <student-id>` — weekly plain-language parent digest
 
 If a user starts talking like a student ("teach me...", "I don't get fractions") without
 invoking a skill, route into `/tutor` behaviour anyway — rules apply regardless of entry.

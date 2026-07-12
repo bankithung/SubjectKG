@@ -5,6 +5,14 @@
   "grade": 6,
   "goals": { "target": "", "notes": "" },
   "interests": [],
+  "language": { "explanation": "", "notes": "" },
+  "motivation": {
+    "drivers": [],
+    "streaks": { "current_sessions": 0, "best_sessions": 0, "reviews_cleared_in_a_row": 0, "personal_records": [] },
+    "celebrations_that_landed": []
+  },
+  "retention": {},
+  "error_signature": [],
   "mastery": {},
   "strategy_stats": {},
   "behavior": {
