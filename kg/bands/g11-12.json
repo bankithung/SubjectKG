@@ -402,11 +402,11 @@
             },
             {
               "text": "6π/5",
-              "diagnosis": "Inverted the conversion fraction; multiplied by 180/π instead of π/180."
+              "diagnosis": "Inverted the degrees fraction: used (180/150)π = 6π/5 instead of (150/180)π = 5π/6."
             },
             {
               "text": "5π/12",
-              "misconception": "m2"
+              "diagnosis": "Used π = 360° as the conversion anchor: 150π/360 = 5π/12, exactly half the correct answer."
             },
             {
               "text": "150π",
@@ -557,7 +557,7 @@
             },
             {
               "text": "1",
-              "misconception": "m3"
+              "diagnosis": "Wrote 45 = 4×11 + 1 and computed (i⁴)¹¹ = 1 but dropped the leftover factor i — treated the remainder-1 case as if the remainder were 0."
             },
             {
               "text": "−i",
@@ -739,7 +739,7 @@
             },
             {
               "text": "(2, ∞)",
-              "misconception": "m1"
+              "diagnosis": "Reversed the inequality despite dividing by the POSITIVE number 2; misapplies the flip rule, which triggers only for negative multipliers or divisors."
             },
             {
               "text": "(−∞, 2]",
@@ -782,7 +782,7 @@
       "strand": "alg",
       "description": "Counting without listing: the fundamental principle of counting multiplies choices made in sequence, factorials count arrangements, and the twin tools nPr and nCr count ordered selections versus unordered ones. The single most important skill is deciding whether order matters. These techniques power probability, the binomial theorem, and real questions from passwords to tournament fixtures.",
       "prerequisites": [
-        "g5.num.mult-div-large",
+        "g7.num.fractions-decimals-ops",
         "g7.alg.expressions"
       ],
       "ncert": {
@@ -1384,7 +1384,7 @@
             },
             {
               "text": "11",
-              "diagnosis": "Dropped the minus on 26 (used +26) and skipped the denominator; formula recalled only in fragments."
+              "diagnosis": "Used +26 instead of −26 in the numerator: |9 + 20 + 26|/5 = 55/5 = 11. The sign of the constant term slipped, but the division by √(a² + b²) was done correctly."
             }
           ],
           "explanation": "d = |3(3) − 4(−5) − 26| / √(3² + (−4)²) = |9 + 20 − 26| / 5 = 3/5. Watch the double negative: −4 × (−5) = +20, and always divide by √(a² + b²)."
@@ -2095,7 +2095,7 @@
             },
             {
               "text": "2/3",
-              "diagnosis": "Counted 'greater than or equal to 4' — boundary slip including 4 itself... and then miscounted; {4,5,6} would give 1/2, {5,6} gives 1/3. Re-examine which outcomes qualify."
+              "diagnosis": "Counted the four outcomes {1, 2, 3, 4} — the complement of the target event (or misread the cutoff as 'greater than 2') — giving 4/6 = 2/3."
             },
             {
               "text": "1/6",
@@ -2918,7 +2918,7 @@
             },
             {
               "text": "k = 14/5",
-              "diagnosis": "Evaluated the right piece as 3(5) + 5 = 20... or 15; substitution slip in 3x − 5 at x = 5."
+              "diagnosis": "Evaluated the right piece as 3(5) = 15, dropping the −5; solving 5k + 1 = 15 gives k = 14/5."
             }
           ],
           "explanation": "Continuity at 5 needs left value = right limit: 5k + 1 = 3(5) − 5 = 10, so 5k = 9 and k = 9/5. Matching coefficients of x (k = 3) would be aiming at equal slopes — a different, stronger condition that this function cannot satisfy simultaneously."
@@ -3496,7 +3496,7 @@
             },
             {
               "text": "xy = C",
-              "misconception": "m4"
+              "diagnosis": "Sign slip while separating: wrote dy/y = −dx/x, giving ln y = −ln x + C₁, i.e. xy = C."
             }
           ],
           "explanation": "Separate: dy/y = dx/x. Integrate: ln y = ln x + C₁, so y = e^{C₁}x = Cx — a one-parameter family of lines through the origin. Cancelling the constants to get y = x keeps only ONE member of the family; a sign slip (dy/y = −dx/x) would give the hyperbolas xy = C instead."
@@ -3628,7 +3628,7 @@
             },
             {
               "text": "3",
-              "diagnosis": "Took absolute values of the component products (2 + 3 − 2 → all positive); signs of components ignored."
+              "diagnosis": "Sign slip on the j-term: took (3)(−1) as +3, giving 2 + 3 − 2 = 3; the k-term's sign was handled correctly."
             }
           ],
           "explanation": "a·b = (2)(1) + (3)(−1) + (−1)(2) = 2 − 3 − 2 = −3. The dot product is a SCALAR — a single signed number measuring alignment — never a vector of component products."
@@ -3674,7 +3674,7 @@
             },
             {
               "text": "0",
-              "misconception": "m3"
+              "diagnosis": "Computed the dot product instead: a·b = (1)(1) + (1)(−1) = 0 — or assumed that perpendicular vectors make the cross product vanish too; the zero conditions of the two products are swapped."
             },
             {
               "text": "−2",
