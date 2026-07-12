@@ -8,9 +8,21 @@
       "strand": "num",
       "description": "Not every number can be written as a fraction: numbers like √2 and π have decimal expansions that never end and never repeat. This node extends the number line to all real numbers, teaches you to spot rational versus irrational numbers from their decimal expansions, to locate irrationals like √2 on the number line, and to simplify expressions with surds by rationalising denominators. It is the foundation for all later algebra, since from now on 'number' means 'real number'.",
       "prerequisites": [
-        "g8.num.rational-numbers",
-        "g8.num.squares-roots",
-        "g8.num.exponents-powers"
+        {
+          "id": "g8.num.rational-numbers",
+          "strength": "hard",
+          "reason": "Spotting irrationals is defined by contrast with rationals — you must know p/q numbers and their decimal expansions cold."
+        },
+        {
+          "id": "g8.num.squares-roots",
+          "strength": "hard",
+          "reason": "√2, √3 and every surd here IS a square root; locating and simplifying them assumes root fluency."
+        },
+        {
+          "id": "g8.num.exponents-powers",
+          "strength": "soft",
+          "reason": "Exponent laws streamline surd simplification, but the core rational-vs-irrational ideas don't wait on them."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -23,6 +35,7 @@
         "8.NS.A.2",
         "HSN-RN.B.3"
       ],
+      "parent_check": "Ask them why the diagonal of a square field can be measured with a tape but never written down exactly as a fraction. If they talk about decimals that go on forever without ever repeating, the idea has landed. If they say 'some numbers are just weird', ask what makes 1/3 = 0.333... different — that one DOES repeat, and they should be able to say why that matters.",
       "learning_outcomes": [
         "Can classify a given number as natural, whole, integer, rational or irrational with justification",
         "Can decide from a decimal expansion (terminating, recurring, non-recurring) whether a number is rational or irrational",
@@ -163,9 +176,21 @@
       "strand": "alg",
       "description": "A polynomial is an expression built from a variable using only addition, subtraction and whole-number powers — the workhorse of algebra. Here you learn to evaluate polynomials, find their zeroes, use the Remainder and Factor Theorems to divide and factorise without long division, and wield algebraic identities like (a+b)², a³+b³ and (a+b+c)² to compute and factorise at speed. Everything from quadratic equations to calculus stands on this node.",
       "prerequisites": [
-        "g8.alg.expressions-identities",
-        "g8.alg.factorisation",
-        "g8.alg.linear-equations-1var"
+        {
+          "id": "g8.alg.expressions-identities",
+          "strength": "hard",
+          "reason": "Polynomials are algebraic expressions grown up — terms, coefficients and the (a±b)² identities carry straight over."
+        },
+        {
+          "id": "g8.alg.factorisation",
+          "strength": "hard",
+          "reason": "The Factor Theorem is factorisation with a new engine; splitting terms and taking common factors must already be reflex."
+        },
+        {
+          "id": "g8.alg.linear-equations-1var",
+          "strength": "hard",
+          "reason": "Finding a zero means solving p(x) = 0, and each linear factor hands you a one-variable equation to solve."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -178,6 +203,7 @@
         "HSA-APR.A.1",
         "HSA-APR.B.2"
       ],
+      "parent_check": "Ask them to show you the trick for multiplying 103 × 97 in their head (the answer is 9991). If they can do it AND explain why it works — 'it's (100 + 3)(100 − 3), and the +3 and −3 parts cancel in a special way' — the identities have landed. If they reach for long multiplication, ask them what (a + b)(a − b) is for.",
       "learning_outcomes": [
         "Can identify polynomials, state their degree, and classify them as linear, quadratic or cubic",
         "Can evaluate p(x) at a given value and verify whether a given number is a zero of p(x)",
@@ -318,9 +344,21 @@
       "strand": "alg",
       "description": "An equation like 2x + y = 7 does not have one answer — it has infinitely many solutions, each an ordered pair (x, y), and together they draw a straight line in the Cartesian plane. This node connects algebra to geometry: every solution is a point on the line, and every point on the line is a solution. Mastering this picture prepares you for solving pairs of such equations in Class 10 and for functions and graphs beyond.",
       "prerequisites": [
-        "g8.alg.linear-equations-1var",
-        "g8.alg.graphs-intro",
-        "g9.geo.coordinate-geometry"
+        {
+          "id": "g8.alg.linear-equations-1var",
+          "strength": "hard",
+          "reason": "Every solution pair comes from fixing one variable and solving a one-variable equation for the other."
+        },
+        {
+          "id": "g8.alg.graphs-intro",
+          "strength": "soft",
+          "reason": "Earlier informal graph-reading eases the 'equation as picture' jump, but everything needed is rebuilt here."
+        },
+        {
+          "id": "g9.geo.coordinate-geometry",
+          "strength": "hard",
+          "reason": "The solutions live as points (x, y) — without the Cartesian plane there is nowhere to draw the line."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -333,6 +371,7 @@
         "HSA-CED.A.2",
         "HSA-REI.D.10"
       ],
+      "parent_check": "Say: an auto charges ₹30 plus ₹15 per kilometre — ask how many different fare-and-distance combinations are possible. The right instinct is 'infinitely many, one for each distance, and on a graph they line up as a straight line'. If they hunt for THE single answer, the key idea — two unknowns, a whole line of solutions — hasn't landed yet.",
       "learning_outcomes": [
         "Can write a linear equation in two variables in the standard form ax + by + c = 0 and identify a, b, c",
         "Can find several solutions of a given equation and verify whether a given ordered pair is a solution",
@@ -472,8 +511,16 @@
       "strand": "geo",
       "description": "René Descartes' big idea: describe every point in the plane with a pair of numbers. This node sets up the Cartesian plane — two perpendicular axes, four quadrants, and the (x, y) address system — and teaches you to plot points, read coordinates, and reason about signs, axes and distances from the axes. It is the bridge on which algebra and geometry meet, and every graph you ever draw lives here.",
       "prerequisites": [
-        "g8.alg.graphs-intro",
-        "g6.num.integers-intro"
+        {
+          "id": "g8.alg.graphs-intro",
+          "strength": "soft",
+          "reason": "Having read simple graphs before makes the plane feel familiar, but axes and quadrants are built from scratch here."
+        },
+        {
+          "id": "g6.num.integers-intro",
+          "strength": "hard",
+          "reason": "Negative coordinates like (−3, 5) make no sense without the number line extended below zero."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -485,6 +532,7 @@
         "6.NS.C.6",
         "6.NS.C.8"
       ],
+      "parent_check": "Ask them to explain how a cinema ticket saying 'row H, seat 12' finds exactly one seat, and what would go wrong if you read it as row 12, seat H. If they connect it to graph points — two numbers, order matters, each pair names one exact spot — the Cartesian idea has landed. If order 'doesn't really matter' to them, it hasn't.",
       "learning_outcomes": [
         "Can name the axes, origin, quadrants, abscissa and ordinate, and plot any point (x, y) accurately",
         "Can determine the quadrant or axis on which a point lies from the signs of its coordinates",
@@ -624,7 +672,11 @@
       "strand": "geo",
       "description": "Around 300 BCE, Euclid organised all known geometry into a single logical structure: start from a handful of self-evident statements (axioms and postulates) and derive everything else by pure reasoning. This node introduces that deductive game — definitions, axioms, postulates, theorems — and the famous fifth postulate whose questioning eventually gave birth to entirely new geometries. It teaches you what 'proof' means, which is the operating system for the rest of school geometry.",
       "prerequisites": [
-        "g6.geo.basic-ideas"
+        {
+          "id": "g6.geo.basic-ideas",
+          "strength": "hard",
+          "reason": "Points, lines and planes are the objects Euclid's axioms talk about — the vocabulary must exist before the rules."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -635,6 +687,7 @@
       "ccss": [
         "HSG-CO.A.1"
       ],
+      "parent_check": "Ask them: in maths, how do we KNOW something is true — did somebody measure it? Listen for the game being described: you agree on a few obvious starting rules (axioms) and everything else must be argued step by step from those. If they compare it to cricket — nobody proves the LBW rule, you agree on it, then umpires deduce decisions — even better.",
       "learning_outcomes": [
         "Can distinguish between definitions, axioms/postulates (assumed) and theorems (proved)",
         "Can state and apply Euclid's axioms (e.g. things equal to the same thing are equal to one another) in simple deductions",
@@ -768,8 +821,16 @@
       "strand": "geo",
       "description": "You have measured angles before; now you prove things about them. Starting from axioms about linear pairs and vertically opposite angles, this node builds formal arguments about intersecting lines, parallel lines cut by a transversal (corresponding, alternate and co-interior angles), and the angle sum of a triangle. The skill being trained is writing a chain of statements, each justified by a reason — the grammar of all future proofs.",
       "prerequisites": [
-        "g7.geo.lines-angles",
-        "g9.geo.euclid"
+        {
+          "id": "g7.geo.lines-angles",
+          "strength": "hard",
+          "reason": "The angle pairs proved here — linear pairs, vertically opposite, transversal angles — were all met informally in Class 7."
+        },
+        {
+          "id": "g9.geo.euclid",
+          "strength": "soft",
+          "reason": "Knowing what axioms are makes the proofs feel principled, but you can angle-chase correctly without the full axiomatic story."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -781,6 +842,7 @@
         "8.G.A.5",
         "HSG-CO.C.9"
       ],
+      "parent_check": "Draw an X on paper and ask what they can say about the four angles without measuring any of them. Good answer: the opposite pair are equal, neighbours add up to 180° — and they should be able to convince you WHY, not just state it. If they reach for a protractor to check, the proof habit hasn't taken hold yet.",
       "learning_outcomes": [
         "Can apply the linear pair axiom and prove that vertically opposite angles are equal",
         "Can identify corresponding, alternate interior and co-interior angle pairs and state their properties for parallel lines",
@@ -915,9 +977,21 @@
       "strand": "geo",
       "description": "Two triangles are congruent when one fits exactly on the other — and remarkably, you never need to check all six parts. This node proves and applies the congruence criteria (SAS, ASA, AAS, SSS, RHS), uses them to establish properties like 'angles opposite equal sides are equal', and explores triangle inequalities: bigger sides face bigger angles, and any two sides together must out-length the third. These tools power almost every geometry proof that follows.",
       "prerequisites": [
-        "g7.geo.congruence",
-        "g7.geo.triangle-properties",
-        "g9.geo.lines-angles"
+        {
+          "id": "g7.geo.congruence",
+          "strength": "hard",
+          "reason": "Class 7's 'fits exactly on top' intuition is what SAS, ASA and SSS turn into precise, provable criteria."
+        },
+        {
+          "id": "g7.geo.triangle-properties",
+          "strength": "hard",
+          "reason": "Angle sums, exterior angles and side–vertex naming are used inside nearly every congruence proof here."
+        },
+        {
+          "id": "g9.geo.lines-angles",
+          "strength": "hard",
+          "reason": "Congruence proofs justify their steps with linear-pair and parallel-line angle facts — the reasons column comes from that node."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -930,6 +1004,7 @@
         "HSG-CO.B.8",
         "HSG-CO.C.10"
       ],
+      "parent_check": "Ask them why electricity pylons and bridges are full of triangles rather than squares. Listen for: a triangle with fixed side lengths cannot change shape, while a square can lean over into a diamond. Then ask how a carpenter checks a door frame is truly rectangular by measuring its two diagonals — if 'matching triangles' comes up, congruence has landed.",
       "learning_outcomes": [
         "Can select and apply the appropriate congruence criterion (SAS, ASA, AAS, SSS, RHS) with correct correspondence of vertices",
         "Can prove that angles opposite equal sides of a triangle are equal, and use the converse",
@@ -1070,8 +1145,16 @@
       "strand": "geo",
       "description": "Parallelograms hide a bundle of always-true facts: opposite sides and angles are equal, diagonals bisect each other — and each fact, remarkably, also works in reverse as a test. This node proves the parallelogram theorems using triangle congruence, learns which conditions guarantee a parallelogram (and which don't), and crowns it with the Midpoint Theorem: the segment joining midpoints of two sides of a triangle is parallel to the third side and half its length.",
       "prerequisites": [
-        "g8.geo.quadrilaterals",
-        "g9.geo.triangles"
+        {
+          "id": "g8.geo.quadrilaterals",
+          "strength": "hard",
+          "reason": "You must know the parallelogram family — rhombus, rectangle, trapezium — before proving theorems about it."
+        },
+        {
+          "id": "g9.geo.triangles",
+          "strength": "hard",
+          "reason": "Every parallelogram theorem is proved by splitting the figure with a diagonal into two congruent triangles."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -1082,6 +1165,7 @@
       "ccss": [
         "HSG-CO.C.11"
       ],
+      "parent_check": "Ask them to explain why a scissor lift or folding metro gate keeps working as it stretches and folds. Listen for 'it's parallelograms — opposite sides stay equal and parallel while it moves'. Then ask: are the two diagonals of a leaning parallelogram equal? The right answer is no — they only cut each other in half; 'always equal' means they are confusing it with a rectangle.",
       "learning_outcomes": [
         "Can prove and apply properties of a parallelogram: opposite sides equal, opposite angles equal, diagonals bisect each other",
         "Can decide whether a given condition is sufficient to guarantee that a quadrilateral is a parallelogram",
@@ -1221,9 +1305,21 @@
       "strand": "geo",
       "description": "A circle is perfectly symmetric, and that symmetry generates powerful theorems: the perpendicular from the centre bisects a chord, equal chords sit at equal distances from the centre, the angle an arc subtends at the centre is double the angle at the circumference, angles in the same segment are equal, and opposite angles of a cyclic quadrilateral are supplementary. This node proves these results and uses them to crack angle-chasing problems.",
       "prerequisites": [
-        "g9.geo.triangles",
-        "g9.geo.quadrilaterals",
-        "g6.geo.basic-ideas"
+        {
+          "id": "g9.geo.triangles",
+          "strength": "hard",
+          "reason": "The chord theorems — equal chords, perpendicular from the centre — are all proved with congruent triangles."
+        },
+        {
+          "id": "g9.geo.quadrilaterals",
+          "strength": "soft",
+          "reason": "The cyclic-quadrilateral results only need the 360° angle sum; the parallelogram theorems enrich but don't gate."
+        },
+        {
+          "id": "g6.geo.basic-ideas",
+          "strength": "hard",
+          "reason": "Radius, chord, arc, sector — the circle vocabulary from Class 6 appears in every statement here."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -1235,6 +1331,7 @@
         "HSG-C.A.2",
         "HSG-C.A.3"
       ],
+      "parent_check": "Ask them: if you had to find the exact centre of a round steel plate with no markings, how would you do it? Listen for something like 'draw two chords, take the perpendicular bisector of each — the bisectors cross at the centre'. If the plan is 'guess by eye', the chord theorems haven't become usable tools yet.",
       "learning_outcomes": [
         "Can apply chord properties: perpendicular from the centre bisects a chord, and equal chords are equidistant from the centre",
         "Can use the theorem 'angle at the centre is twice the angle at the circumference subtended by the same arc'",
@@ -1375,9 +1472,21 @@
       "strand": "geo",
       "description": "With only an ungraduated ruler and a compass — no protractor — you can bisect any angle, erect perpendicular bisectors, build 60°, 30°, 90° and 45° exactly, and construct triangles from indirect data such as base, base angle and the sum or difference of the other two sides. Each construction comes with a proof of WHY it works, turning drawing into applied congruence.",
       "prerequisites": [
-        "g6.geo.constructions-intro",
-        "g7.geo.practical-geometry",
-        "g9.geo.triangles"
+        {
+          "id": "g6.geo.constructions-intro",
+          "strength": "hard",
+          "reason": "Handling compass and straightedge — copying lengths, drawing arcs — is the physical skill everything here runs on."
+        },
+        {
+          "id": "g7.geo.practical-geometry",
+          "strength": "hard",
+          "reason": "Constructing triangles from given parts in Class 7 is exactly what gets extended to the harder Class 9 builds."
+        },
+        {
+          "id": "g9.geo.triangles",
+          "strength": "soft",
+          "reason": "Congruence explains WHY each construction works; you can perform and trust the steps before mastering those proofs."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -1388,6 +1497,7 @@
       "ccss": [
         "HSG-CO.D.12"
       ],
+      "parent_check": "Ask them to show you, with only a ruler and compass — no protractor — how to cut an angle exactly in half, then ask the one question that matters: how do you KNOW the two halves are equal? A confident 'the compass arcs create matching triangles', however roughly put, means it landed; 'these are the steps the teacher gave' means it didn't.",
       "learning_outcomes": [
         "Can bisect a given angle and construct the perpendicular bisector of a segment, and justify both constructions using congruence",
         "Can construct angles of 60°, 30°, 90°, 45° and their combinations with ruler and compass only",
@@ -1521,8 +1631,16 @@
       "strand": "mea",
       "description": "Area = ½ × base × height is useless when you know all three sides but no height. Heron's formula rescues you: with semi-perimeter s = (a+b+c)/2, the area is √(s(s−a)(s−b)(s−c)) — no heights, no angles, just the sides. This node applies it to triangles and to quadrilaterals that can be split into triangles, a genuinely practical tool for surveyors and anyone measuring land.",
       "prerequisites": [
-        "g7.mea.perimeter-area",
-        "g8.num.squares-roots"
+        {
+          "id": "g7.mea.perimeter-area",
+          "strength": "hard",
+          "reason": "Heron's formula answers a question — triangle area — that only makes sense once area and ½ × base × height are solid."
+        },
+        {
+          "id": "g8.num.squares-roots",
+          "strength": "hard",
+          "reason": "The formula ends in a square root every single time; evaluating √(s(s−a)(s−b)(s−c)) needs root fluency."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -1531,6 +1649,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Say: a triangular plot has sides 30 m, 40 m and 50 m — ask how they would find its area without knowing any heights. Listen for a formula that works from the three sides alone (half the perimeter goes in, and a square root comes out at the end). Bonus if they notice this triangle happens to be right-angled, so the answer (600 m²) can be checked another way.",
       "learning_outcomes": [
         "Can compute the semi-perimeter and apply Heron's formula to find the area of a triangle from its three sides",
         "Can simplify the resulting square roots, leaving answers in exact surd form where appropriate",
@@ -1664,9 +1783,21 @@
       "strand": "mea",
       "description": "Cylinders, cones and spheres are the curved solids of daily life — pipes, ice-cream cones, footballs. This node derives and applies their surface areas (curved and total) and volumes: cylinder (2πrh, πr²h), cone (πrl, ⅓πr²h) and sphere (4πr², 4/3πr³), including the beautiful facts that a cone is one-third of its cylinder and a sphere is two-thirds of its enclosing cylinder. You also learn to keep slant height l and vertical height h firmly apart.",
       "prerequisites": [
-        "g8.mea.mensuration",
-        "g7.mea.perimeter-area",
-        "g7.geo.triangle-properties"
+        {
+          "id": "g8.mea.mensuration",
+          "strength": "hard",
+          "reason": "Cylinder and cuboid surface areas and volumes from Class 8 are the pattern that cones and spheres extend."
+        },
+        {
+          "id": "g7.mea.perimeter-area",
+          "strength": "soft",
+          "reason": "Circle area and circumference feed every curved-surface formula, but Class 8 mensuration has largely consolidated them."
+        },
+        {
+          "id": "g7.geo.triangle-properties",
+          "strength": "hard",
+          "reason": "A cone's slant height comes from l² = r² + h² — the Pythagoras property from Class 7 triangles is used constantly."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -1678,6 +1809,7 @@
         "8.G.C.9",
         "HSG-GMD.A.3"
       ],
+      "parent_check": "Hold up a food can and ask: if the label is peeled off and flattened, what shape is it and why? (A rectangle — one side is the can's height, the other is the distance around it.) Then ask which holds more ice cream: one big scoop, or two scoops half as wide? If they say the big one — because doubling the width multiplies volume by 8, not 2 — volume has properly landed.",
       "learning_outcomes": [
         "Can compute curved and total surface areas of cylinders, cones and spheres, choosing the right one for the context",
         "Can compute volumes of cylinders, cones, spheres and hemispheres",
@@ -1818,7 +1950,11 @@
       "strand": "dat",
       "description": "Raw data is a crowd; statistics gives it a face. This node organises data into ungrouped and grouped frequency distributions, draws and reads bar graphs, histograms (including the subtle case of unequal class widths, where bar AREA carries the frequency) and frequency polygons, and computes class marks. It builds the visual literacy needed to spot the story — and the lie — in a chart.",
       "prerequisites": [
-        "g8.dat.data-handling"
+        {
+          "id": "g8.dat.data-handling",
+          "strength": "hard",
+          "reason": "Frequency tables and simple bar charts from Class 8 are what grouped data, histograms and polygons build on directly."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -1830,6 +1966,7 @@
         "6.SP.B.4",
         "HSS-ID.A.1"
       ],
+      "parent_check": "Show them any bar-style chart from a newspaper and ask what makes a proper histogram different from an ordinary bar chart. Listen for: a histogram shows COUNTS falling in RANGES (like marks 60–70), the bars touch because the ranges join up, and it's the area of the bar that carries the message. If they can point at one bar and say exactly what it claims, the idea has landed.",
       "learning_outcomes": [
         "Can construct grouped frequency distributions, identifying class limits, class width and class marks",
         "Can draw and interpret histograms, adjusting bar heights (frequency density) when class widths are unequal",
@@ -1963,8 +2100,16 @@
       "strand": "dat",
       "description": "Before theory, there is experiment: toss a coin 500 times, count heads, and the fraction of heads is the empirical (experimental) probability. This node defines P(event) = (trials where the event happened)/(total trials), explores how this settles down as trials grow, and establishes the ground rules — probabilities live between 0 and 1, and the probabilities of an event and its complement sum to 1. It is the honest, data-first doorway to the classical probability of Class 10.",
       "prerequisites": [
-        "g8.dat.data-handling",
-        "g7.dat.data-handling-averages"
+        {
+          "id": "g8.dat.data-handling",
+          "strength": "hard",
+          "reason": "Empirical probability IS a relative frequency — you must be able to build and read frequency tables first."
+        },
+        {
+          "id": "g7.dat.data-handling-averages",
+          "strength": "soft",
+          "reason": "Comfort turning counts into fractions of a total helps interpretation, though the key habits are re-taught here."
+        }
       ],
       "ncert": {
         "class": 9,
@@ -1976,6 +2121,7 @@
         "7.SP.C.6",
         "7.SP.C.7"
       ],
+      "parent_check": "Ask them: a batter has hit a six on 23 of her last 200 balls — what's the chance the next ball goes for six, and how sure can we be? Listen for '23 out of 200, based on what actually happened — and it's an estimate that gets better with more data'. If they insist there must be one 'true' fixed answer that ignores the record, the empirical idea hasn't landed.",
       "learning_outcomes": [
         "Can compute empirical probabilities from frequency data (coin tosses, dice records, survey tables)",
         "Can explain why every probability lies between 0 and 1, and use P(not E) = 1 − P(E)",
@@ -2116,8 +2262,16 @@
       "strand": "num",
       "description": "Every integer greater than 1 factors into primes in exactly one way — the Fundamental Theorem of Arithmetic. From this single fact flow practical tools (HCF and LCM via prime factorisation, and the relation HCF × LCM = product of the two numbers), a crisp test for which fractions have terminating decimals, and elegant proofs by contradiction that numbers like √2, √3 and √5 are irrational. This node upgrades your Class 9 acquaintance with irrationals into actual proof.",
       "prerequisites": [
-        "g9.num.number-systems",
-        "g6.num.playing-with-numbers"
+        {
+          "id": "g9.num.number-systems",
+          "strength": "hard",
+          "reason": "Proving √2 irrational requires already knowing exactly what rational and irrational mean."
+        },
+        {
+          "id": "g6.num.playing-with-numbers",
+          "strength": "hard",
+          "reason": "Primes, factors, HCF and LCM are the raw material of the Fundamental Theorem of Arithmetic."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -2128,6 +2282,7 @@
       "ccss": [
         "HSN-RN.B.3"
       ],
+      "parent_check": "Ask them to convince you that √2 cannot be written as a fraction — the famous proof is only a few lines. You don't need to follow every step: you're checking whether they can tell the story ('suppose it WERE a fraction in lowest terms — then the top and bottom both turn out even, which is a contradiction'). Just reciting 'it's irrational' with no story means it hasn't landed.",
       "learning_outcomes": [
         "Can find HCF and LCM of two numbers by prime factorisation and verify HCF × LCM = product of the numbers",
         "Can prove the irrationality of numbers like √2, √5, and combinations like 3 + 2√5, by contradiction",
@@ -2267,7 +2422,11 @@
       "strand": "alg",
       "description": "A quadratic's zeroes are not random: their sum is −b/a and their product is c/a, straight from the coefficients. This node connects the geometry (zeroes are where the graph crosses the x-axis) with the algebra (factoring, and building a quadratic back from its zeroes), so you can read a polynomial's roots from its graph and its graph from its roots. It is the launchpad for quadratic equations.",
       "prerequisites": [
-        "g9.alg.polynomials"
+        {
+          "id": "g9.alg.polynomials",
+          "strength": "hard",
+          "reason": "Zeroes, degree and factorisation from Class 9 are assumed on line one; this node only adds the zero–coefficient link."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -2280,6 +2439,7 @@
         "HSA-SSE.B.3",
         "HSF-IF.C.7"
       ],
+      "parent_check": "Tell them you heard they can solve something like x² − 5x + 6 and then CHECK the answer without re-solving — ask how. Listen for: the two answers must ADD to 5 and MULTIPLY to 6 (so 2 and 3), and those check-numbers are read straight off the equation itself. If they can explain that built-in checking trick, the zero–coefficient link has landed.",
       "learning_outcomes": [
         "Can find the zeroes of a quadratic polynomial by factorisation and verify the relationships sum = −b/a, product = c/a",
         "Can read the number of zeroes of a polynomial from the number of times its graph meets the x-axis",
@@ -2413,8 +2573,16 @@
       "strand": "alg",
       "description": "Two conditions, two unknowns: a pair of linear equations is two lines on the same plane, and everything depends on how those lines relate — crossing (one solution), parallel (none), or coincident (infinitely many), which the coefficient ratios a₁/a₂, b₁/b₂, c₁/c₂ diagnose without drawing. You will solve systems by substitution and elimination and use them to crack age, cost, speed and fraction word problems — the single most examined chapter of Class 10 algebra.",
       "prerequisites": [
-        "g9.alg.linear-equations-2var",
-        "g8.alg.linear-equations-1var"
+        {
+          "id": "g9.alg.linear-equations-2var",
+          "strength": "hard",
+          "reason": "A pair of lines can only cross, run parallel or coincide for someone who already sees one equation AS a line."
+        },
+        {
+          "id": "g8.alg.linear-equations-1var",
+          "strength": "hard",
+          "reason": "Substitution and elimination both end by reducing the pair to a single one-variable equation you must solve cleanly."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -2427,6 +2595,7 @@
         "HSA-REI.C.6",
         "HSA-CED.A.3"
       ],
+      "parent_check": "Try this: 2 samosas and 1 chai cost ₹40; 1 samosa and 1 chai cost ₹30 — ask what each costs (₹10 and ₹20), then ask how such a puzzle could ever have NO answer, or endless answers. Listen for the picture: two lines that cross once (one answer), run parallel (no answer), or lie on top of each other (endless). The picture matters more than the arithmetic.",
       "learning_outcomes": [
         "Can classify a pair of linear equations as consistent (unique or infinite solutions) or inconsistent using coefficient ratios",
         "Can solve a pair of linear equations by substitution and by elimination, choosing the more efficient method",
@@ -2561,9 +2730,21 @@
       "strand": "alg",
       "description": "When a problem multiplies an unknown by itself — areas, projectiles, speed-time — you get a quadratic equation ax² + bx + c = 0. This node solves them three ways (factorisation, completing the square, and the quadratic formula) and reads the discriminant D = b² − 4ac as a forecast: D > 0 two distinct real roots, D = 0 two equal roots, D < 0 no real roots. It is the first equation family where 'how many solutions?' becomes a serious question.",
       "prerequisites": [
-        "g10.alg.polynomials",
-        "g8.alg.factorisation",
-        "g8.num.squares-roots"
+        {
+          "id": "g10.alg.polynomials",
+          "strength": "hard",
+          "reason": "The quadratic formula is built by completing the square on a general quadratic polynomial — you need polynomial algebra cold."
+        },
+        {
+          "id": "g8.alg.factorisation",
+          "strength": "hard",
+          "reason": "Solving by splitting the middle term is Class 8 factorisation, now with an '= 0' attached."
+        },
+        {
+          "id": "g8.num.squares-roots",
+          "strength": "hard",
+          "reason": "The ±√ in the formula and the sign of the discriminant both demand fast, accurate square-root work."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -2576,6 +2757,7 @@
         "HSA-SSE.B.3",
         "HSF-IF.C.8"
       ],
+      "parent_check": "Ask them how many answers an equation with an x² in it can have, and how they can tell in advance — before solving — whether it's two, one or none. Listen for a quick check-number computed from the equation (the discriminant) whose sign gives the verdict. If they can add a story for 'no answers' — like a thrown ball that never reaches a certain height — it has landed.",
       "learning_outcomes": [
         "Can solve quadratic equations by factorisation using the zero-product principle",
         "Can apply the quadratic formula accurately, including sign handling for negative b and c",
@@ -2716,8 +2898,16 @@
       "strand": "alg",
       "description": "Add the same amount each step — salaries with fixed annual raises, theatre rows growing seat by seat, EMI schedules — and you get an arithmetic progression. This node nails the two master formulas: the nth term aₙ = a + (n−1)d and the sum Sₙ = n/2[2a + (n−1)d] = n/2(first + last), plus the art of recognising when a situation IS an AP and when it merely looks like one.",
       "prerequisites": [
-        "g8.alg.linear-equations-1var",
-        "g7.alg.expressions"
+        {
+          "id": "g8.alg.linear-equations-1var",
+          "strength": "hard",
+          "reason": "Finding n, a or d means solving a linear equation extracted from aₙ = a + (n−1)d."
+        },
+        {
+          "id": "g7.alg.expressions",
+          "strength": "soft",
+          "reason": "Early practice building expressions like a + (n−1)d helps, but Class 8 algebra mostly covers what's needed."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -2729,6 +2919,7 @@
         "HSF-BF.A.2",
         "HSF-LE.A.2"
       ],
+      "parent_check": "Ask: a taxi meter starts at ₹50 and adds ₹12 every kilometre — what does it read after 30 km, and how do they get that WITHOUT adding 12 thirty times? Listen for a shortcut like 50 + 30 × 12. Then the deeper one: ask how young Gauss added 1 + 2 + ... + 100 in seconds (pair the ends: 1+100, 2+99, ...). If they can tell that pairing story, sums have landed.",
       "learning_outcomes": [
         "Can identify whether a sequence is an AP by checking for a constant common difference",
         "Can compute any term of an AP using aₙ = a + (n−1)d, and solve for a, d or n given the others",
@@ -2863,9 +3054,21 @@
       "strand": "geo",
       "description": "Similar figures have the same shape at different sizes: angles match, and corresponding sides scale by one common ratio. This node proves the Basic Proportionality (Thales) Theorem — a line parallel to one side of a triangle divides the other two sides proportionally — establishes the AA, SSS and SAS similarity criteria, and puts them to work, including in proofs and applications of the Pythagoras theorem. Similarity is the mathematics of maps, models, shadows and zoom.",
       "prerequisites": [
-        "g9.geo.triangles",
-        "g7.geo.triangle-properties",
-        "g6.num.ratio-proportion"
+        {
+          "id": "g9.geo.triangles",
+          "strength": "hard",
+          "reason": "Similarity proofs reuse the whole congruence toolkit — criteria, vertex correspondence, CPCT-style reasoning."
+        },
+        {
+          "id": "g7.geo.triangle-properties",
+          "strength": "soft",
+          "reason": "Angle sums and side–angle facts help, but they are already folded into the Class 9 triangles node."
+        },
+        {
+          "id": "g6.num.ratio-proportion",
+          "strength": "hard",
+          "reason": "Similar means 'sides in the same ratio' — proportional reasoning is the beating heart of this chapter."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -2879,6 +3082,7 @@
         "HSG-SRT.B.5",
         "8.G.B.7"
       ],
+      "parent_check": "Ask them how to measure the height of a coconut tree using only its shadow and a metre stick. Listen for: measure both shadows at the same time of day — the tree's height compares to its shadow exactly as the stick's does, because the two triangles are the same shape, just scaled. If 'same shape, different size, same ratios' language appears, similarity has landed.",
       "learning_outcomes": [
         "Can state and apply the Basic Proportionality Theorem and its converse to compute segment lengths",
         "Can prove triangles similar using AA, SSS or SAS similarity criteria with correct correspondence",
@@ -3019,8 +3223,16 @@
       "strand": "geo",
       "description": "Once points have coordinates, geometry becomes computation. The distance formula (Pythagoras in disguise) measures lengths, the section formula finds the point dividing a segment in a given ratio (midpoint as the friendly special case), and a determinant-style formula computes triangle areas — including the test for three points lying on one line. This node turns classification problems ('is this a rhombus?') into arithmetic.",
       "prerequisites": [
-        "g9.geo.coordinate-geometry",
-        "g10.geo.triangles-similarity"
+        {
+          "id": "g9.geo.coordinate-geometry",
+          "strength": "hard",
+          "reason": "Distance and section formulas live on the Cartesian plane; plotting and reading (x, y) must be automatic."
+        },
+        {
+          "id": "g10.geo.triangles-similarity",
+          "strength": "soft",
+          "reason": "The section formula is derived through similar triangles — the 'why' lives there, but the formulas can be used without it."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -3033,6 +3245,7 @@
         "HSG-GPE.B.4",
         "HSG-GPE.B.7"
       ],
+      "parent_check": "Ask them how a map app knows the straight-line distance between two pinned places when all it stores is two pairs of numbers. Listen for: the two points make a right-angled triangle with the grid lines, and the distance comes from Pythagoras on that triangle. A rough sketch of the little triangle is the real test — the formula recited without the picture means it hasn't landed.",
       "learning_outcomes": [
         "Can compute the distance between two points and use it to classify triangles and quadrilaterals",
         "Can apply the section formula to find a point dividing a segment in ratio m:n, and the midpoint as a special case",
@@ -3166,8 +3379,16 @@
       "strand": "geo",
       "description": "A tangent kisses a circle at exactly one point — and at that point it stands perfectly perpendicular to the radius. From this single fact plus congruence comes the second gem: the two tangents drawn from an external point are equal in length. This short, elegant node proves both theorems and applies them to compute lengths and angles in tangent configurations, from bicycle chains to belt drives.",
       "prerequisites": [
-        "g9.geo.circles",
-        "g9.geo.triangles"
+        {
+          "id": "g9.geo.circles",
+          "strength": "hard",
+          "reason": "Tangents are defined against chords and radii; the Class 9 circle facts are cited inside every proof here."
+        },
+        {
+          "id": "g9.geo.triangles",
+          "strength": "hard",
+          "reason": "Both tangent theorems are proved with congruent right triangles (RHS) — congruence must be ready to deploy."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -3179,6 +3400,7 @@
         "HSG-C.A.2",
         "HSG-C.A.4"
       ],
+      "parent_check": "Ask them: when a spinning bike wheel flings off mud, in which direction does it fly, and what has that to do with maths? Listen for: it leaves along the tangent — the line that just grazes the circle — and that line always makes a perfect right angle with the spoke at that point. Then ask why your two sight-lines that just graze a round fountain are equal in length; a shrug there means half the chapter is missing.",
       "learning_outcomes": [
         "Can define a tangent and distinguish it from a secant and a chord",
         "Can apply the theorem 'the tangent at any point is perpendicular to the radius through that point' in computations",
@@ -3312,9 +3534,21 @@
       "strand": "geo",
       "description": "Class 10 constructions are applied similarity and circle theory: divide a segment in any given ratio m:n, construct a triangle similar to a given one with a given scale factor, and draw the pair of tangents to a circle from an external point. Each construction must be justified — the parallel-line division leans on the Basic Proportionality Theorem, and the tangent construction leans on the angle in a semicircle being 90°.",
       "prerequisites": [
-        "g9.geo.constructions",
-        "g10.geo.triangles-similarity",
-        "g10.geo.circles-tangents"
+        {
+          "id": "g9.geo.constructions",
+          "strength": "hard",
+          "reason": "Bisectors, perpendiculars and arc technique from Class 9 are the hand skills every construction here starts from."
+        },
+        {
+          "id": "g10.geo.triangles-similarity",
+          "strength": "hard",
+          "reason": "Dividing a segment in a given ratio and scaling a triangle are the Basic Proportionality Theorem made physical."
+        },
+        {
+          "id": "g10.geo.circles-tangents",
+          "strength": "hard",
+          "reason": "You cannot construct a tangent without knowing it must meet the radius at a right angle."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -3326,6 +3560,7 @@
         "HSG-CO.D.12",
         "HSG-C.A.4"
       ],
+      "parent_check": "Ask them to explain how they would split a 7 cm line into pieces in the exact ratio 3 : 2 using only compass and ruler — no measuring and dividing. Listen for the idea, not the recipe: draw a slanted helper line, step off 3 + 2 equal compass steps along it, then use parallel lines to carry the split back. Steps recited with no idea why parallels make it work means it's memorised, not understood.",
       "learning_outcomes": [
         "Can divide a line segment internally in a given ratio m:n and justify the construction using the Basic Proportionality Theorem",
         "Can construct a triangle similar to a given triangle with a given scale factor (both smaller and larger than 1)",
@@ -3459,10 +3694,26 @@
       "strand": "tri",
       "description": "Trigonometry begins with a right triangle and one acute angle: the ratios of its sides — sine, cosine, tangent and their reciprocals — depend only on the angle, not on the triangle's size. This node defines the six ratios, computes exact values at 0°, 30°, 45°, 60° and 90°, and proves and applies the fundamental identity sin²θ + cos²θ = 1 and its companions. These ratios are how astronomers measured the unreachable — and how you will, too.",
       "prerequisites": [
-        "g10.geo.triangles-similarity",
-        "g7.geo.triangle-properties",
-        "g6.num.ratio-proportion",
-        "g9.num.number-systems"
+        {
+          "id": "g10.geo.triangles-similarity",
+          "strength": "hard",
+          "reason": "sin 30° is the SAME in every right triangle only because similar triangles keep ratios fixed — that fact makes trig well-defined."
+        },
+        {
+          "id": "g7.geo.triangle-properties",
+          "strength": "soft",
+          "reason": "Right-triangle basics and angle sums help, but the Class 10 similarity node already consolidates them."
+        },
+        {
+          "id": "g6.num.ratio-proportion",
+          "strength": "hard",
+          "reason": "Sine, cosine and tangent ARE ratios; without ratio fluency the definitions are just chants."
+        },
+        {
+          "id": "g9.num.number-systems",
+          "strength": "soft",
+          "reason": "Exact values like √3/2 are surds — rationalisation keeps the arithmetic clean, though the ideas land without it."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -3475,6 +3726,7 @@
         "HSG-SRT.C.7",
         "HSG-SRT.C.8"
       ],
+      "parent_check": "Ask them what sin 30° actually IS — not its value, its meaning. Listen for: in ANY right triangle with a 30° corner, the side facing that corner is always half the longest side — no matter how big the triangle — and that fixed ratio is what 'sin 30° = 1/2' says. If all you get is the SOH-CAH-TOA chant, ask them to draw one triangle and point at the two sides being compared.",
       "learning_outcomes": [
         "Can define sin, cos, tan (and their reciprocals) for an acute angle of a right triangle and compute them from given sides",
         "Can recall and use the exact values of the trigonometric ratios at 0°, 30°, 45°, 60° and 90°",
@@ -3615,7 +3867,11 @@
       "strand": "tri",
       "description": "How tall is the tower you cannot climb, how far the ship you cannot reach? Stand somewhere, measure an angle of elevation or depression, and let trigonometry do the climbing. This node turns word descriptions into right-triangle diagrams, chooses the ratio that links the known and unknown sides (usually tan), and solves single- and double-triangle problems — the survey engineer's daily bread since long before lasers.",
       "prerequisites": [
-        "g10.tri.intro"
+        {
+          "id": "g10.tri.intro",
+          "strength": "hard",
+          "reason": "Heights-and-distances problems are the trig ratios pointed at the real world; without them there is nothing to apply."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -3626,6 +3882,7 @@
       "ccss": [
         "HSG-SRT.C.8"
       ],
+      "parent_check": "Ask them to explain how a surveyor finds the height of a mobile tower nobody can climb. If 'stand back a known distance, measure the angle you look up at, then a triangle gives the height' comes out with a rough sketch, it has landed. Push once more: what happens to that angle as you walk closer to the tower? (It grows.) Hesitation there means the picture isn't solid yet.",
       "learning_outcomes": [
         "Can define and correctly place angles of elevation and depression in a diagram, both measured from the HORIZONTAL",
         "Can draw a correct right-triangle model from a verbal description, including observer height when given",
@@ -3760,9 +4017,21 @@
       "strand": "mea",
       "description": "A sector is a pizza slice, a segment is what a chord cuts off. This node computes arc lengths and sector areas as fractions (θ/360) of the whole circle's circumference and area, finds segment areas by subtracting the triangle from its sector, and handles combinations — flower beds on square lawns, wiper sweeps, and designs of overlapping circles. One idea powers it all: an angle's share of 360° is its share of the circle.",
       "prerequisites": [
-        "g7.mea.perimeter-area",
-        "g6.num.ratio-proportion",
-        "g10.tri.intro"
+        {
+          "id": "g7.mea.perimeter-area",
+          "strength": "hard",
+          "reason": "πr² and 2πr are the whole-circle facts that every sector and segment calculation slices up."
+        },
+        {
+          "id": "g6.num.ratio-proportion",
+          "strength": "hard",
+          "reason": "A sector is θ/360 of its circle — the entire method is one proportional-share argument."
+        },
+        {
+          "id": "g10.tri.intro",
+          "strength": "soft",
+          "reason": "Segment areas sometimes need trig to find the triangle being subtracted; only the toughest problems require it."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -3774,6 +4043,7 @@
         "HSG-C.B.5",
         "7.G.B.4"
       ],
+      "parent_check": "Ask: a pizza is cut into 8 equal slices — what fraction of the pizza is 3 slices, and how would they find the area of ONE slice of a 30 cm pizza? Listen for 'a slice is just a fraction of the circle, and the angle out of 360 tells you the fraction'. If they can carry the same idea to a car's wiper sweeping the windscreen, the sector idea has landed.",
       "learning_outcomes": [
         "Can compute the arc length of a sector as (θ/360) × 2πr and its area as (θ/360) × πr²",
         "Can compute the perimeter of a sector (arc + two radii), distinguishing it from the arc length",
@@ -3907,7 +4177,11 @@
       "strand": "mea",
       "description": "Real objects are combinations: a capsule is a cylinder with hemispherical ends, an ice-cream cone is a cone crowned by a hemisphere, a tent is a cylinder wearing a conical hat. This node computes surface areas of such composites (counting only the surfaces that actually show — glued faces vanish) and their volumes (which simply add), including melt-and-recast problems where one shape's volume becomes another's. It is Class 9 mensuration graduating into engineering.",
       "prerequisites": [
-        "g9.mea.surface-volume"
+        {
+          "id": "g9.mea.surface-volume",
+          "strength": "hard",
+          "reason": "Combined solids just add and subtract the cone, sphere and cylinder formulas — those must be instant recall."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -3919,6 +4193,7 @@
         "HSG-GMD.A.3",
         "HSG-MG.A.3"
       ],
+      "parent_check": "Ask them how they'd work out how much ice cream fits in a cone topped with a half-ball scoop. Listen for 'break it into shapes we know — a cone plus half a sphere — and ADD the volumes'. Then the catch question: when two shapes are glued together, why is the total outside surface LESS than the two surfaces added up? (The glued faces vanish inside.) That catch is the whole chapter.",
       "learning_outcomes": [
         "Can compute the surface area of a combined solid by summing only the EXPOSED surfaces of each component",
         "Can compute the volume of a combined solid by adding component volumes",
@@ -4052,8 +4327,16 @@
       "strand": "dat",
       "description": "When data arrives pre-grouped into classes, the exact values are gone — so mean, median and mode must be estimated from the group structure: mean via class marks weighted by frequencies, median via the cumulative-frequency formula (or read off an ogive), and mode via the modal-class formula. This node teaches all three, the empirical bridge mode ≈ 3(median) − 2(mean), and when each measure is the right summary to report.",
       "prerequisites": [
-        "g9.dat.statistics",
-        "g7.dat.data-handling-averages"
+        {
+          "id": "g9.dat.statistics",
+          "strength": "hard",
+          "reason": "Class intervals, frequencies and histograms from Class 9 are the table format every method here operates on."
+        },
+        {
+          "id": "g7.dat.data-handling-averages",
+          "strength": "soft",
+          "reason": "Mean, median and mode were first met here; the Class 9 statistics work has mostly kept them warm already."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -4065,6 +4348,7 @@
         "HSS-ID.A.2",
         "HSS-ID.A.3"
       ],
+      "parent_check": "Ask them: your class's marks are reported only in bands (0–10, 10–20, ...) and nobody knows individual scores — how can anyone still quote an 'average'? Listen for: assume everyone in a band sits at its middle, then average those middles — so the answer is an estimate, not exact. If they know WHY it's only an estimate, the grouped-data idea has landed.",
       "learning_outcomes": [
         "Can compute the mean of grouped data by the direct and assumed-mean methods using class marks and frequencies",
         "Can identify the modal class and median class of a grouped distribution",
@@ -4198,7 +4482,11 @@
       "strand": "dat",
       "description": "When all outcomes are equally likely — a fair coin, an unloaded die, a well-shuffled deck — probability needs no experiment: P(E) = (favourable outcomes)/(total outcomes). This node counts outcomes carefully (including for two dice and two coins, where 'equally likely' takes real thought), uses complements, and locks in the boundaries: probabilities live in [0, 1], with 0 for impossible and 1 for certain events. It is the theoretical twin of Class 9's empirical approach.",
       "prerequisites": [
-        "g9.dat.probability-empirical"
+        {
+          "id": "g9.dat.probability-empirical",
+          "strength": "soft",
+          "reason": "The experimental view motivates the classical one by contrast, but counting equally likely outcomes stands on its own."
+        }
       ],
       "ncert": {
         "class": 10,
@@ -4211,6 +4499,7 @@
         "7.SP.C.8",
         "HSS-CP.A.1"
       ],
+      "parent_check": "Ask them: what's the chance of drawing a red card from a well-shuffled pack, and how do they know without drawing hundreds of cards? Listen for 'count the equally likely cases — 26 red out of 52, so one half — no experiment needed'. Then set the trap: is a lottery ticket a 50-50 chance, since you either win or you don't? Laughing that off — the two outcomes are NOT equally likely — means it has landed.",
       "learning_outcomes": [
         "Can compute classical probabilities by counting equally likely outcomes (coins, dice, cards, balls in bags)",
         "Can construct the full outcome set for compound experiments (two coins, two dice) and count favourable cases correctly",
