@@ -20,6 +20,7 @@
         "K.CC.B.4",
         "K.CC.B.5"
       ],
+      "parent_check": "Put 7 spoons in a messy pile and ask her to count them. Then ask 'so how many spoons are there?' — if she has to recount, the big idea (the last number IS the answer) hasn't clicked yet. Bonus: spread the same spoons far apart and ask again. A confident 'still 7!' without recounting means she really owns it.",
       "learning_outcomes": [
         "Can count up to 9 objects, touching each object exactly once",
         "Can say how many objects there are after counting, without recounting",
@@ -158,7 +159,11 @@
       "strand": "num",
       "description": "Zero is the number that tells us there is nothing to count. It is a real number with its own symbol, 0, and its own place on the number line just before 1. Understanding zero prepares us for place value and for adding and subtracting.",
       "prerequisites": [
-        "g1.num.counting-to-9"
+        {
+          "id": "g1.num.counting-to-9",
+          "strength": "hard",
+          "reason": "Zero only makes sense as 'none left to count' — she first needs to know what counting a group means."
+        }
       ],
       "ncert": {
         "class": 1,
@@ -170,6 +175,7 @@
         "K.CC.A.3",
         "K.CC.B.4"
       ],
+      "parent_check": "Put 3 biscuits on a plate and eat them together one by one, asking 'how many now?' after each bite: 2... 1... and then the empty plate. You want a happy 'zero!' at the end. Then ask him to write the number for the empty plate — a child who owns zero writes 0 without fuss; one who says 'there's no number for nothing' hasn't met zero as a real number yet.",
       "learning_outcomes": [
         "Can say that zero means 'none' and write the numeral 0",
         "Can place 0 correctly before 1 when ordering numbers",
@@ -303,8 +309,16 @@
       "strand": "num",
       "description": "The numbers 10 to 20 are our first step beyond one hand and one foot of counting! Each 'teen' number is really a ten and some more — 14 is 10 and 4. Seeing this hidden ten is the first big idea of place value.",
       "prerequisites": [
-        "g1.num.counting-to-9",
-        "g1.num.zero"
+        {
+          "id": "g1.num.counting-to-9",
+          "strength": "hard",
+          "reason": "The teens are built by counting on past 9 — without solid counting to 9 there is nothing for the sequence to grow from."
+        },
+        {
+          "id": "g1.num.zero",
+          "strength": "soft",
+          "reason": "Knowing the symbol 0 helps when writing 10 and 20, but a child can start on the teens while zero is still settling in."
+        }
       ],
       "ncert": {
         "class": 1,
@@ -318,6 +332,7 @@
         "K.NBT.A.1",
         "1.NBT.B.2"
       ],
+      "parent_check": "Tie 10 matchsticks (or straws) into a bundle with a rubber band and put 4 loose ones beside it. Ask 'how many sticks in all?' A child who owns the teens says 'ten... eleven, twelve, thirteen, fourteen!' If she pulls the bundle apart and counts all from 1, the 'ten and some more' idea hasn't landed. Also ask her to write fourteen — watch out for 41.",
       "learning_outcomes": [
         "Can count objects up to 20 accurately",
         "Can read and write numerals 10 to 20 and say them in order",
@@ -453,7 +468,11 @@
       "strand": "num",
       "description": "Adding means putting groups together; subtracting means taking away or finding how many more. With numbers up to 20 we learn smart moves like counting on from the bigger number and making a ten. These small facts become the building blocks for all bigger sums.",
       "prerequisites": [
-        "g1.num.numbers-to-20"
+        {
+          "id": "g1.num.numbers-to-20",
+          "strength": "hard",
+          "reason": "You can't add teen numbers until you know what the teens are and the order they come in."
+        }
       ],
       "ncert": {
         "class": 1,
@@ -467,6 +486,7 @@
         "1.OA.C.6",
         "1.OA.B.4"
       ],
+      "parent_check": "Give him 8 peanuts, then hand over 5 more and ask 'how many now?' Watch HOW he works it out: counting everything from 1 is still early days; saying 'eight... 9, 10, 11, 12, 13' on his fingers means counting on has clicked. Then eat 5 and ask 'how many left?' — taking away should not cause panic.",
       "learning_outcomes": [
         "Can add two numbers with a total up to 20 using objects, fingers or counting on",
         "Can subtract within 20 by taking away or counting back",
@@ -603,7 +623,11 @@
       "strand": "num",
       "description": "Big numbers are built from groups of ten. In the number 47, the 4 stands for 4 tens (forty) and the 7 stands for 7 ones. Once you can see tens and ones inside a number, you can read, write and compare any number up to 99.",
       "prerequisites": [
-        "g1.num.numbers-to-20"
+        {
+          "id": "g1.num.numbers-to-20",
+          "strength": "hard",
+          "reason": "Seeing 14 as 'ten and four' is the exact idea that unlocks 47 as 'four tens and seven'."
+        }
       ],
       "ncert": {
         "class": 1,
@@ -615,6 +639,7 @@
         "1.NBT.A.1",
         "1.NBT.B.2"
       ],
+      "parent_check": "Say 'sixty-three' out loud and ask her to write it. If 603 appears, she is writing the words, not the number. Then ask 'what comes just after 39?' — a confident 'forty' means the decades are solid; a long stall or a jump to some other number shows exactly where counting still wobbles.",
       "learning_outcomes": [
         "Can count to 99 including across decade numbers (39 to 40, 59 to 60)",
         "Can say how many tens and ones are in any 2-digit number",
@@ -750,7 +775,11 @@
       "strand": "num",
       "description": "Money comes as coins and notes, and each one has a value printed on it — ₹1, ₹2, ₹5, ₹10 and more. The value is what matters, not the size or the number of pieces. Knowing coins and notes lets us buy things and count small amounts.",
       "prerequisites": [
-        "g1.num.numbers-to-20"
+        {
+          "id": "g1.num.numbers-to-20",
+          "strength": "hard",
+          "reason": "A coin's value is the number printed on it — she must read numbers like 2, 5, 10 and 20 before money can mean anything."
+        }
       ],
       "ncert": {
         "class": 1,
@@ -761,6 +790,7 @@
       "ccss": [
         "2.MD.C.8"
       ],
+      "parent_check": "Put one ₹10 coin in one pile and five ₹1 coins in another, and ask which pile he'd take to the shop to buy a ₹10 pencil. If he grabs the five coins 'because five is more than one', he is counting pieces, not value. A child who owns this says the single ₹10 coin buys just as much — or happily takes either after checking the printed numbers.",
       "learning_outcomes": [
         "Can name the common coins (₹1, ₹2, ₹5, ₹10) and notes (₹10, ₹20, ₹50)",
         "Can compare two coins or notes by value using the printed number",
@@ -909,6 +939,7 @@
         "K.G.A.2",
         "K.G.B.4"
       ],
+      "parent_check": "Hand her a biscuit box and ask her to trace one face on paper and name what she drew. 'A box' means solid and flat shapes are still mixed up; 'a rectangle' is what you want. Then turn a square piece of paper to stand on its corner and ask 'is it still a square?' — a firm yes means she is looking at sides and corners, not just the pose.",
       "learning_outcomes": [
         "Can name circle, triangle, square and rectangle in any size or turn",
         "Can sort everyday objects by whether they roll, slide or stack",
@@ -1055,6 +1086,7 @@
         "K.MD.A.2",
         "1.MD.A.1"
       ],
+      "parent_check": "Take two spoons of different lengths and place the SHORTER one a little ahead, so it sticks out farther. Ask 'which spoon is longer?' A child who owns this slides them together so they start from the same end before answering. One who points at the spoon sticking out has been fooled by the trick — the fair-start idea hasn't landed yet.",
       "learning_outcomes": [
         "Can use the words longer/shorter, taller/shorter, heavier/lighter, holds more/holds less correctly",
         "Can compare two lengths by lining objects up from the same end",
@@ -1204,6 +1236,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "At bedtime, ask three quick questions: 'What did we do this morning? What came first today — breakfast or school? What will we do tomorrow?' Listen for the words: if 'tomorrow' gets used for things that already happened, or breakfast comes after school in his story, the order of time is still jumbled — no clocks needed to work on this, just daily chat.",
       "learning_outcomes": [
         "Can name the parts of the day (morning, afternoon, evening, night) and match activities to them",
         "Can put 3-4 daily events in the right order using before and after",
@@ -1345,6 +1378,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Lay out spoon, fork, fork, spoon, fork, fork and ask 'what comes next?' Then the real test: 'which little group keeps repeating?' A child who owns patterns points to spoon-fork-fork as one chunk. One who just copies the last thing she sees (adding fork after fork after fork) is following her eye, not the rule.",
       "learning_outcomes": [
         "Can copy and extend a repeating pattern of colours, shapes, sounds or actions",
         "Can point out the unit that repeats in a pattern",
@@ -1490,6 +1524,7 @@
       "ccss": [
         "K.MD.B.3"
       ],
+      "parent_check": "Tip out a mixed pile — spoons, bottle caps, clothes pegs — and ask him to put them into groups, then ask 'why does this one go here?' Listen for a rule ('these are all caps'), not a story ('these are my favourites'). Then sneak a peg into the caps pile and see if he catches it — a child who owns sorting spots the intruder straight away.",
       "learning_outcomes": [
         "Can sort a set of objects by a given rule (colour, shape, size, use)",
         "Can state the rule used to sort a given group of objects",
@@ -1626,7 +1661,11 @@
       "strand": "num",
       "description": "A digit's value depends on WHERE it sits: in 47, the 4 means forty. To compare two numbers we look at the tens first, and only if the tens match do we check the ones. This lets us order any set of numbers up to 99 with certainty.",
       "prerequisites": [
-        "g1.num.numbers-to-99"
+        {
+          "id": "g1.num.numbers-to-99",
+          "strength": "hard",
+          "reason": "Comparing 47 and 74 only works if he already knows the 4 in 47 stands for forty, not four."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -1640,6 +1679,7 @@
         "1.NBT.B.3",
         "2.NBT.A.4"
       ],
+      "parent_check": "Write 47 and 74 on a slip of paper and ask 'which is bigger, and how do you know?' You want something like '74, because 7 tens beat 4 tens' — not 'because 7 comes later'. Then point at the 4 in 47 and ask what it stands for. 'Just four' means place value hasn't clicked; 'forty' means it has.",
       "learning_outcomes": [
         "Can write any 2-digit number in expanded form (47 = 40 + 7)",
         "Can compare two 2-digit numbers by checking tens first, then ones",
@@ -1776,7 +1816,11 @@
       "strand": "num",
       "description": "After tens come hundreds: ten tens bundle into one hundred. A 3-digit number like 407 has hundreds, tens and ones — and a zero can hold a place to show 'no tens'. With hundreds we can count, read and compare numbers all the way to 999.",
       "prerequisites": [
-        "g2.num.place-value-2digit"
+        {
+          "id": "g2.num.place-value-2digit",
+          "strength": "hard",
+          "reason": "A hundred is just ten tens bundled again — the tens-and-ones idea must be solid before we bundle one more time."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -1790,6 +1834,7 @@
         "2.NBT.A.3",
         "2.NBT.A.4"
       ],
+      "parent_check": "Say 'four hundred and seven' and ask her to write it. If 4007 or 47 appears, the zero-holds-a-place idea is missing — that's the whole game at this stage. Then ask 'which is more: 89 rupees or 102 rupees?' A child who says 89 'because 8 and 9 are big digits' is still comparing digits, not values.",
       "learning_outcomes": [
         "Can explain that 10 tens make 1 hundred",
         "Can read and write 3-digit numbers from words and from hundreds-tens-ones",
@@ -1926,8 +1971,16 @@
       "strand": "num",
       "description": "When we add and the ones spill over ten, we bundle them into a new ten — that is carrying. When we subtract and the ones are not enough, we open up a ten — that is borrowing. Regrouping lets us add and subtract any numbers up to 99 quickly and correctly.",
       "prerequisites": [
-        "g1.num.add-sub-within-20",
-        "g2.num.place-value-2digit"
+        {
+          "id": "g1.num.add-sub-within-20",
+          "strength": "hard",
+          "reason": "Every column in a big sum is a small fact like 7 + 5 — those facts must come easily before column work can."
+        },
+        {
+          "id": "g2.num.place-value-2digit",
+          "strength": "hard",
+          "reason": "Carrying and borrowing are moves between the tens and the ones — meaningless until tens and ones themselves make sense."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -1941,6 +1994,7 @@
         "1.NBT.C.4",
         "2.NBT.B.9"
       ],
+      "parent_check": "Ask him to work out 36 + 27 on paper (call it rupees to make it fun). Watch the ones column: 513 means the carry was written instead of carried; 53 means it was dropped. Then try 52 − 27 — if the answer is 35, he flipped the ones column to 'big minus small', the classic borrowing dodge. Right answers with a tiny pause for the carry are exactly what you want.",
       "learning_outcomes": [
         "Can add two 2-digit numbers with and without carrying",
         "Can subtract 2-digit numbers with and without borrowing",
@@ -2079,7 +2133,11 @@
       "strand": "num",
       "description": "Multiplication is a shortcut for adding the same number again and again. '3 × 4' means 3 equal groups of 4 — like 3 plates with 4 laddoos each — and equals 4 + 4 + 4. Arrays of rows and columns show why 3 × 4 and 4 × 3 give the same total.",
       "prerequisites": [
-        "g1.num.add-sub-within-20"
+        {
+          "id": "g1.num.add-sub-within-20",
+          "strength": "hard",
+          "reason": "Multiplication is repeated addition — 4 + 4 + 4 has to feel easy before 3 × 4 can mean anything."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -2092,6 +2150,7 @@
         "2.OA.C.4",
         "3.OA.A.1"
       ],
+      "parent_check": "Set out 3 plates with 4 peanuts on each and ask 'how many peanuts altogether — and can you say it as a times sentence?' Counting one by one is fine to start, but you're hoping for '4 + 4 + 4' or '3 times 4'. Then flip it: say '2 × 6' and ask her to SHOW you with the peanuts. If she can't build it as groups, the × sign is still just a squiggle.",
       "learning_outcomes": [
         "Can describe a multiplication like 3 × 4 as '3 groups of 4'",
         "Can write repeated addition (5 + 5 + 5) as multiplication (3 × 5) and back",
@@ -2228,8 +2287,16 @@
       "strand": "num",
       "description": "Shopping is maths in action: we add prices to find the total, and when we pay with a bigger note, we get change — the difference between what we gave and what it cost. We can also make the same amount in many ways using different coins and notes.",
       "prerequisites": [
-        "g1.num.money-intro",
-        "g2.num.add-sub-2digit"
+        {
+          "id": "g1.num.money-intro",
+          "strength": "hard",
+          "reason": "You can't total a shopping bill before you can name each coin and note and say what it is worth."
+        },
+        {
+          "id": "g2.num.add-sub-2digit",
+          "strength": "hard",
+          "reason": "Working out the change from a ₹50 note is a 2-digit subtraction — that skill has to be in place first."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -2241,6 +2308,7 @@
       "ccss": [
         "2.MD.C.8"
       ],
+      "parent_check": "Play shop for two minutes: price a biscuit packet at ₹12 and a soap at ₹15, hand over a ₹50 note and ask 'what's the total, and how much change do I get?' Total ₹27 and change ₹23 means it's working. Change BIGGER than ₹50, or counting the coins as pieces instead of values, shows where the gap is.",
       "learning_outcomes": [
         "Can add two or three prices to find a total up to ₹99",
         "Can work out the change from ₹10, ₹20 or ₹50",
@@ -2376,7 +2444,11 @@
       "strand": "geo",
       "description": "Solid shapes like cubes, cuboids, cylinders and spheres have faces you can touch, edges you can run a finger along, and corners that poke. Flat shapes live on the faces of solids. Learning to count faces, edges and corners — and to tell straight lines from curves — makes us precise about shapes.",
       "prerequisites": [
-        "g1.geo.shapes-around-us"
+        {
+          "id": "g1.geo.shapes-around-us",
+          "strength": "hard",
+          "reason": "Counting a box's faces and corners only works if he can already name basic shapes and tell flat from solid."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -2390,6 +2462,7 @@
         "2.G.A.1",
         "K.G.B.4"
       ],
+      "parent_check": "Hand him a matchbox or a dice and ask him to count its faces, running his finger over each one (there are 6). Then point to one face and ask 'what shape is this face?' Calling the whole matchbox 'a rectangle' means flat and solid are still blurred; 'the box is a cuboid, this face is a rectangle' — even in his own words — means the idea has landed.",
       "learning_outcomes": [
         "Can name cube, cuboid, cylinder, cone and sphere from real objects",
         "Can count the faces, edges and corners of a cube or cuboid",
@@ -2528,7 +2601,11 @@
       "strand": "mea",
       "description": "We can measure length with handspans, footsteps or pencils — but everyone's hands and feet are different, so the counts don't match. That is why the world agreed on standard units like the centimetre and metre. Measuring means laying units end to end with no gaps and no overlaps, then counting them.",
       "prerequisites": [
-        "g1.mea.compare-lengths"
+        {
+          "id": "g1.mea.compare-lengths",
+          "strength": "hard",
+          "reason": "Measuring with units only makes sense to a child who can already compare two lengths fairly from the same starting end."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -2542,6 +2619,7 @@
         "2.MD.A.1",
         "2.MD.A.3"
       ],
+      "parent_check": "Measure the kitchen table in handspans together — first her hands, then yours. The counts will differ. Ask 'why did we get different numbers? Whose answer is right?' A child who owns this says both are right but hands are different sizes, so we need same-size units (like a scale) to agree. A child who insists one of you 'counted wrong' hasn't got the big idea yet.",
       "learning_outcomes": [
         "Can measure a length by repeating a unit end to end with no gaps or overlaps",
         "Can explain why different people get different handspan counts for the same object",
@@ -2677,7 +2755,11 @@
       "strand": "mea",
       "description": "Weight tells how heavy something is; capacity tells how much a container can hold. A balance shows which of two things is heavier — the heavier side goes down. To compare containers fairly, we fill them using the same cup and count. Looks can trick us: big things can be light, and tall containers can hold less.",
       "prerequisites": [
-        "g1.mea.compare-lengths"
+        {
+          "id": "g1.mea.compare-lengths",
+          "strength": "hard",
+          "reason": "This topic puts tools behind 'heavier' and 'holds more' — those comparing words and ideas must come first."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -2690,6 +2772,7 @@
         "K.MD.A.1",
         "K.MD.A.2"
       ],
+      "parent_check": "Stand a tall thin water bottle next to a short wide dabba and ask 'which holds more?' Then check together by filling each with the same cup and counting. Watch two things: does he predict tall = more (fooled by looks), and does he think of pouring with the same cup to check? Suggesting the cup test himself is the surest sign this idea is his.",
       "learning_outcomes": [
         "Can compare two objects' weights using hands or a simple balance",
         "Can read a pan balance: the heavier side goes down",
@@ -2823,7 +2906,11 @@
       "strand": "mea",
       "description": "The 7 days of the week go round and round like a wheel, and the 12 months fill a year on the calendar. A clock has two hands: the short hand tells the hour, and when the long hand points to 12, it is exactly o'clock. Reading calendars and clocks helps us plan our days.",
       "prerequisites": [
-        "g1.mea.time-day-events"
+        {
+          "id": "g1.mea.time-day-events",
+          "strength": "hard",
+          "reason": "Days and calendars are events in order — before/after and yesterday/today/tomorrow must be steady first."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -2834,6 +2921,7 @@
       "ccss": [
         "1.MD.B.3"
       ],
+      "parent_check": "Ask three rapid-fire questions: 'Today is (say) Tuesday — what was yesterday? What day comes after Saturday?' The wrap-around (Saturday to Sunday) is the real test — the week is a wheel, not a line. Then at an exact hour, show her the clock and ask the time. Reading '4 o'clock' when the long hand is on 12 is all you need at this stage.",
       "learning_outcomes": [
         "Can say the days of the week in order and name yesterday/tomorrow for any day",
         "Can name the 12 months in order and find dates on a calendar",
@@ -2971,8 +3059,16 @@
       "strand": "alg",
       "description": "Some patterns don't repeat — they GROW. A staircase gains a step each time; the numbers 2, 4, 6, 8 climb by 2 at every jump. To continue a growing pattern you must find its rule: what changes from one step to the next, and by how much?",
       "prerequisites": [
-        "g1.alg.patterns-repeat",
-        "g1.num.add-sub-within-20"
+        {
+          "id": "g1.alg.patterns-repeat",
+          "strength": "hard",
+          "reason": "Hunting for a growing rule only works if she already knows that a pattern follows a rule you can find."
+        },
+        {
+          "id": "g1.num.add-sub-within-20",
+          "strength": "hard",
+          "reason": "Spotting 'it grows by 2 each time' in 2, 4, 6, 8 needs quick adding and taking away of small numbers."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -2981,6 +3077,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Build coin towers together: 1 coin, then 2, then 3. Ask 'how tall is the next tower — and how do you know?' You want the RULE ('it grows by one each time'), not just a lucky guess. Then say the numbers 3, 6, 9 and ask what comes next and what the rule is. 'Add 3 every time' means growing patterns have clicked.",
       "learning_outcomes": [
         "Can continue a number pattern that grows by the same amount each time",
         "Can build and extend growing shape patterns (staircases, triangles of dots)",
@@ -3119,8 +3216,16 @@
       "strand": "dat",
       "description": "A pictograph shows information using little pictures — one picture for each thing counted (or sometimes for two or more). Lining the pictures up in neat rows lets us see at a glance which group has most and how many more. Pictographs turn messy counts into a story our eyes can read.",
       "prerequisites": [
-        "g1.dat.sort-classify",
-        "g1.num.numbers-to-20"
+        {
+          "id": "g1.dat.sort-classify",
+          "strength": "hard",
+          "reason": "Data must first be sorted into groups before a picture can be drawn for each thing in a group."
+        },
+        {
+          "id": "g1.num.numbers-to-20",
+          "strength": "hard",
+          "reason": "Reading a pictograph means counting rows of pictures and saying how many more — counting to 20 comes first."
+        }
       ],
       "ncert": {
         "class": 2,
@@ -3132,6 +3237,7 @@
         "2.MD.D.10",
         "1.MD.C.4"
       ],
+      "parent_check": "Ask everyone at home their favourite fruit, and have him draw one small circle per person under each fruit's name, lined up in neat rows from the same starting line. Then ask 'which fruit won? By how many?' If the circles are scattered instead of lined up, or he can't answer 'how many more' from the picture, the point of a pictograph hasn't landed yet.",
       "learning_outcomes": [
         "Can collect simple data by counting and record it with tally marks or pictures",
         "Can read how many each row of a pictograph shows",
@@ -3267,7 +3373,11 @@
       "strand": "num",
       "description": "With four places — thousands, hundreds, tens and ones — we can name every number up to 9999. Each step left multiplies a digit's value by ten, and a zero holds any empty place. Reading, writing, expanding and comparing 4-digit numbers makes big numbers as friendly as small ones.",
       "prerequisites": [
-        "g2.num.numbers-to-999"
+        {
+          "id": "g2.num.numbers-to-999",
+          "strength": "hard",
+          "reason": "A thousand is just the next bundle after hundreds — 999 must make sense before 9999 can."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -3280,6 +3390,7 @@
         "2.NBT.A.4",
         "4.NBT.A.2"
       ],
+      "parent_check": "Say 'three thousand and forty' and ask her to write it. Watch for 300040 or 3004 — both mean the place-holding zeros are shaky. Then ask 'which is more: 989 or 1020?' A child who picks 989 'because 9s are bigger' is comparing digits; one who says 1020 'because it has thousands' owns four-digit place value.",
       "learning_outcomes": [
         "Can read and write 4-digit numbers from words and figures",
         "Can give the place value of any digit in a 4-digit number",
@@ -3418,8 +3529,16 @@
       "strand": "num",
       "description": "Adding and subtracting 3-digit numbers uses the same regrouping ideas as 2-digit work — just with a hundreds column too. Carries can travel from ones to tens to hundreds, and borrowing can even cross a zero. Estimating first tells us roughly what to expect, so wild answers get caught.",
       "prerequisites": [
-        "g2.num.add-sub-2digit",
-        "g2.num.numbers-to-999"
+        {
+          "id": "g2.num.add-sub-2digit",
+          "strength": "hard",
+          "reason": "The carrying and borrowing moves are the same, just with one more column — they must already work with two digits."
+        },
+        {
+          "id": "g2.num.numbers-to-999",
+          "strength": "hard",
+          "reason": "You can't line up hundreds, tens and ones in columns without knowing what each place in a 3-digit number means."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -3432,6 +3551,7 @@
         "3.NBT.A.2",
         "2.NBT.B.7"
       ],
+      "parent_check": "Before he touches a pencil, ask 'ABOUT how much is 398 + 205 — just roughly?' Something near 600 means he can estimate. Then let him work it exactly (603). The gold is in the checking: if his exact answer lands miles from his own estimate and he doesn't even flinch, teach him to compare the two — that habit catches almost every slip.",
       "learning_outcomes": [
         "Can add two 3-digit numbers with one or more carries",
         "Can subtract 3-digit numbers with borrowing, including across a zero",
@@ -3568,7 +3688,11 @@
       "strand": "num",
       "description": "The multiplication tables from 2 to 10 are the fact family of arithmetic — knowing them by heart makes every later calculation faster. But tables are more than a chant: each fact is an array you can picture, facts connect (7 × 6 is 7 × 5 and 7 more), and order never matters. Special rules for 0 and 1 complete the set.",
       "prerequisites": [
-        "g2.num.mult-intro"
+        {
+          "id": "g2.num.mult-intro",
+          "strength": "hard",
+          "reason": "Without 'three groups of four' behind it, a table is an empty chant that falls apart under pressure."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -3581,6 +3705,7 @@
         "3.OA.A.4",
         "3.OA.B.5"
       ],
+      "parent_check": "Fire three facts OUT of order while making chai: 7 × 6, 9 × 4, 6 × 8. A child who must chant the whole table from the start to reach each answer knows the song, not the facts. Then ask: 'if 7 × 5 is 35, what is 7 × 6?' Using the connection — 'just add one more 7, so 42' — is the surest sign the tables are understood, not just memorised.",
       "learning_outcomes": [
         "Can recall multiplication facts for tables 2 to 10",
         "Can use a known fact to derive a nearby one (7 × 6 = 7 × 5 + 7)",
@@ -3720,8 +3845,16 @@
       "strand": "num",
       "description": "To multiply a number like 47 by 3, we split it by place value: 3 × 40 and 3 × 7, then add the parts. Written short, this becomes the column method with carrying. BOTH parts of the number must be multiplied — that is the heart of the method.",
       "prerequisites": [
-        "g3.num.mult-tables",
-        "g2.num.place-value-2digit"
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "hard",
+          "reason": "Every step of 47 × 3 is a table fact — if the tables are slow, the whole method collapses."
+        },
+        {
+          "id": "g2.num.place-value-2digit",
+          "strength": "hard",
+          "reason": "The method splits 47 into 40 and 7 — impossible if she can't see the tens and ones inside a number."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -3733,6 +3866,7 @@
         "3.NBT.A.3",
         "4.NBT.B.5"
       ],
+      "parent_check": "Ask her to work out 23 × 3 on paper (three packets of 23 biscuits). The right answer is 69. If she writes 29, she multiplied only the 3 ones and forgot the 20 — the most common slip at this stage. Ask her to talk you through it: you want to hear 'three twenties are sixty, three threes are nine' in some form, not just digit-shuffling.",
       "learning_outcomes": [
         "Can multiply a 2-digit number by a 1-digit number using expanded form (area model)",
         "Can use the column method with carrying",
@@ -3870,7 +4004,11 @@
       "strand": "num",
       "description": "Division answers two kinds of questions: sharing (12 laddoos among 3 children — how many each?) and grouping (12 laddoos, 3 per bag — how many bags?). It is multiplication run backwards: 12 ÷ 3 = 4 because 3 × 4 = 12. Sometimes things don't share out evenly, and what's left over is the remainder.",
       "prerequisites": [
-        "g3.num.mult-tables"
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "hard",
+          "reason": "12 ÷ 3 is answered by asking '3 times what makes 12?' — division leans on the tables at every step."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -3883,6 +4021,7 @@
         "3.OA.B.6",
         "3.OA.A.3"
       ],
+      "parent_check": "Give him 13 peanuts and 3 bowls: 'share them equally — how many in each bowl?' Four each is the easy part; the leftover peanut is the real test. A child who owns division says calmly 'four each, and one left over.' One who forces the extra peanut into a bowl, or gets stuck, hasn't yet met the remainder as a normal, friendly thing.",
       "learning_outcomes": [
         "Can solve sharing and grouping problems by acting them out or drawing",
         "Can write and read division sentences (12 ÷ 3 = 4)",
@@ -4020,7 +4159,11 @@
       "strand": "num",
       "description": "A fraction names a fair share: a half is one of 2 EQUAL parts, a third is one of 3, a quarter is one of 4. The parts must be equal — a big piece and a small piece are not halves! Because quarters are smaller than halves, the more parts we cut, the smaller each part becomes.",
       "prerequisites": [
-        "g3.num.division-intro"
+        {
+          "id": "g3.num.division-intro",
+          "strength": "soft",
+          "reason": "The fair-sharing idea from division makes 'one of 4 equal parts' feel natural, but folding halves and quarters can be learned alongside it."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -4033,6 +4176,7 @@
         "3.G.A.2",
         "2.G.A.3"
       ],
+      "parent_check": "Tear a roti into two clearly UNEQUAL pieces, hand over the small one and say cheerfully 'here's your half!' A child who owns fractions protests: 'that's not half — halves must be equal!' If she accepts any two pieces as halves, the equal-parts idea is missing. Then ask: 'would you rather have half or a quarter of the roti — and why?'",
       "learning_outcomes": [
         "Can fold or cut a shape into halves, thirds and quarters — with EQUAL parts",
         "Can name and write 1/2, 1/3, 1/4 for one part of an equally divided whole",
@@ -4168,8 +4312,16 @@
       "strand": "num",
       "description": "Real shopping needs real arithmetic: adding up a bill with several items, multiplying when we buy more than one of something, and working out change from ₹50 or ₹100. Remember that 100 paise make ₹1, and always check: change must be less than what you handed over!",
       "prerequisites": [
-        "g2.num.money-transactions",
-        "g3.num.add-sub-3digit"
+        {
+          "id": "g2.num.money-transactions",
+          "strength": "hard",
+          "reason": "Making full bills builds straight on totalling two prices and giving simple change from class 2."
+        },
+        {
+          "id": "g3.num.add-sub-3digit",
+          "strength": "hard",
+          "reason": "Change from ₹100 and multi-item bills are 3-digit additions and subtractions in disguise."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -4180,6 +4332,7 @@
       "ccss": [
         "2.MD.C.8"
       ],
+      "parent_check": "Run a two-minute shop: soap ₹35, biscuits ₹48, and pay with a ₹100 note. Ask for the total (₹83) and the change (₹17). Then teach the shopkeeper's check and see if he applies it: change must always be LESS than the note you handed over. A child who catches a silly change amount (like ₹117) by himself has this topic in his pocket.",
       "learning_outcomes": [
         "Can add amounts of money to make a simple bill",
         "Can find the change from ₹50 or ₹100",
@@ -4316,7 +4469,11 @@
       "strand": "geo",
       "description": "Shapes are built from lines and corners: straight lines, curved lines, sides that meet at corners. A shape keeps its name however it is turned — a tilted square is still a square. And shapes combine: two equal triangles can join to make a square, tangram pieces build pictures. Composing and decomposing shapes is geometry's version of adding and subtracting.",
       "prerequisites": [
-        "g2.geo.2d-3d-shapes"
+        {
+          "id": "g2.geo.2d-3d-shapes",
+          "strength": "hard",
+          "reason": "Joining and splitting shapes needs the class 2 language of sides, corners, faces and edges already in place."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -4329,6 +4486,7 @@
         "1.G.A.2",
         "2.G.A.1"
       ],
+      "parent_check": "Cut a square of paper corner-to-corner and ask 'what shapes did we make?' (two triangles). Then challenge her to put them back together as the square, and to find one OTHER shape the two triangles can make. Also tilt the square on its corner and ask if it is still a square — a firm yes, 'same sides, same corners', shows she reasons from properties, not looks.",
       "learning_outcomes": [
         "Can identify straight and curved lines in drawings and objects, in any direction",
         "Can count sides and corners of polygons and use them to name shapes",
@@ -4462,7 +4620,11 @@
       "strand": "mea",
       "description": "Centimetres measure small things (your finger is about 1 cm wide) and metres measure big things (a big step is about 1 m). There are 100 centimetres in 1 metre. Reading a ruler from the 0 mark, choosing the right unit and estimating before measuring make us smart measurers.",
       "prerequisites": [
-        "g2.mea.length-units-intro"
+        {
+          "id": "g2.mea.length-units-intro",
+          "strength": "hard",
+          "reason": "A ruler's centimetres only make sense to a child who has already measured by laying units end to end."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -4475,6 +4637,7 @@
         "2.MD.A.3",
         "3.MD.B.4"
       ],
+      "parent_check": "Hand him a ruler and a spoon and ask him to measure it. Quietly watch one thing: does the spoon's end start at the 0 mark, or at the ruler's edge or the 1? Starting anywhere but 0 gives answers one off — the most common ruler slip there is. Then ask: 'would you measure our room in centimetres or metres — and why?'",
       "learning_outcomes": [
         "Can measure lengths in cm with a ruler, starting from the 0 mark",
         "Can state that 1 m = 100 cm and pick cm or m sensibly for an object",
@@ -4611,7 +4774,11 @@
       "strand": "mea",
       "description": "We weigh things in grams and kilograms (1 kg = 1000 g) and measure liquids in millilitres and litres (1 L = 1000 mL). Choosing the right unit matters: a pencil in grams, a rice sack in kilograms; a spoon of medicine in mL, a bucket in litres. Balances and measuring jars turn 'heavier' and 'holds more' into exact numbers.",
       "prerequisites": [
-        "g2.mea.weight-capacity-intro"
+        {
+          "id": "g2.mea.weight-capacity-intro",
+          "strength": "hard",
+          "reason": "Grams and litres put numbers on 'heavier' and 'holds more' — those comparing ideas must be secure first."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -4623,6 +4790,7 @@
       "ccss": [
         "3.MD.A.2"
       ],
+      "parent_check": "A quick unit quiz at the kitchen shelf: 'Should we weigh this potato in grams or kilograms? And the big rice sack? A spoon of cough syrup — millilitres or litres? And a bucket of water?' Then the key fact: 'how many grams make 1 kg?' (1000). A child who picks sensible units AND knows the 1000 link owns this; guessing units means it's still fuzzy.",
       "learning_outcomes": [
         "Can state 1 kg = 1000 g and 1 L = 1000 mL",
         "Can choose sensible units (g/kg, mL/L) for everyday objects and containers",
@@ -4760,7 +4928,11 @@
       "strand": "mea",
       "description": "The clock's long hand counts minutes in fives — pointing at 3 means 15 minutes past. The short hour hand creeps between numbers: at half past 4 it sits halfway from 4 to 5, but the hour is still 4. Together with the calendar's dates, days and months, clocks let us plan and keep our promises on time.",
       "prerequisites": [
-        "g2.mea.time-days-calendar"
+        {
+          "id": "g2.mea.time-days-calendar",
+          "strength": "hard",
+          "reason": "Reading minutes builds on already knowing o'clock times, the two hands, and how days sit on a calendar."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -4772,6 +4944,7 @@
         "3.MD.A.1",
         "2.MD.C.7"
       ],
+      "parent_check": "At half past the hour, point at the clock and ask the time. At half past 4 the hour hand sits BETWEEN 4 and 5 — a child who says 'half past 4' reads it truly; 'half past 5' means she is grabbing the nearest number. Then ask 'the long hand is on the 3 — how many minutes past?' Counting in fives to 15 shows the minute idea has landed.",
       "learning_outcomes": [
         "Can read times to the half and quarter hour, and to 5 minutes",
         "Can explain what each hand shows, including the hour hand between numbers",
@@ -4909,8 +5082,16 @@
       "strand": "alg",
       "description": "Numbers make patterns of their own: skip counting by 2s, 5s and 10s from any starting point, and the even-odd rhythm that alternates forever. A number is even if it splits into pairs with none left over — and you can tell just by looking at its ones digit. Spotting these patterns builds the number sense that powers multiplication and algebra.",
       "prerequisites": [
-        "g2.alg.patterns-grow",
-        "g2.num.mult-intro"
+        {
+          "id": "g2.alg.patterns-grow",
+          "strength": "soft",
+          "reason": "Growing patterns make 'same-size jumps' familiar, but skip counting can also be picked up by rhythm and practice alone."
+        },
+        {
+          "id": "g2.num.mult-intro",
+          "strength": "soft",
+          "reason": "Equal groups help her see why skip counts land where they do, though counting by 2s and 5s can start without it."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -4924,6 +5105,7 @@
         "3.OA.D.9",
         "2.NBT.A.2"
       ],
+      "parent_check": "Ask him to count by 5s starting from 40 — easy. Now the twist: count by 2s starting from 3 (3, 5, 7, 9...). A child who owns skip counting handles the odd start; one who slides back to 2, 4, 6 is reciting, not counting. Then ask 'is 14 even or odd — how can you tell without counting anything?' You want the pairs idea or the ones-digit trick, in his own words.",
       "learning_outcomes": [
         "Can skip count by 2s, 5s and 10s starting from any number",
         "Can say whether a number is even or odd using the ones digit",
@@ -5057,7 +5239,11 @@
       "strand": "dat",
       "description": "A table lines data up in rows and columns; a bar chart turns those numbers into bars whose heights we can compare at a glance. To read a bar we follow its top across to the scale — and when one step of the scale stands for 2 or more, we must multiply, not just count steps. Charts help us answer questions with evidence.",
       "prerequisites": [
-        "g2.dat.pictographs-intro"
+        {
+          "id": "g2.dat.pictographs-intro",
+          "strength": "soft",
+          "reason": "Bars are pictographs grown up — one-picture-per-item prepares the eye for bars and scales, though a confident counter could meet bar charts directly."
+        }
       ],
       "ncert": {
         "class": 3,
@@ -5069,6 +5255,7 @@
         "3.MD.B.3",
         "2.MD.D.10"
       ],
+      "parent_check": "Sketch a quick bar chart of the family's chai cups this week — but make one square stand for 2 cups, and say so. Point to a bar that is 3 squares tall and ask 'how many cups is that?' An answer of 3 means she is counting squares; 6 means she is reading the scale. That one question separates seeing the picture from truly reading the chart.",
       "learning_outcomes": [
         "Can record counts in a table using tally marks",
         "Can read values from a simple bar chart using its scale",
