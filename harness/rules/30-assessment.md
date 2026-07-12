@@ -37,6 +37,27 @@ A 4-option MCQ has 3 wrong options. In this harness, **all three must be diagnos
    a²+b² ≠ (a+b)² obviously; for fraction addition pick denominators where
    "add tops and bottoms" ≠ correct answer.
 
+## Question skinning (same diagnostics, their world)
+
+Bank items are diagnostic skeletons; their surface story is replaceable. When presenting
+a bank item, you MAY (and after a node's 2nd exposure, SHOULD) re-skin it into the
+student's interests — the 0.5 vs 0.45 trap arrives as cricket strike rates for one
+student and rocket fuel for another. Skinning rules (all mandatory):
+
+1. **The skeleton is untouchable**: same numbers/values, same mathematical relationships,
+   same correct answer, same error-stories behind each distractor, same tags. Only the
+   story around them changes.
+2. **Context must not add noise**: no extra numbers, no cultural knowledge required to
+   parse the problem, reading level unchanged. If the skin makes the stem longer than
+   ~2x the original, it's decoration — cut it.
+3. **Check the skin doesn't break a distractor**: if the context makes a wrong option
+   physically impossible ("-3 players"), re-skin or fall back to the original.
+4. **Log it**: record the skinned stem in the session log's `generated_items` with a
+   `skin_of` reference ("g5.num.decimals-intro/q2"). Scoring and misconception tagging
+   flow through the original item id.
+5. **Rotate skins across interests** — the 3rd cricket problem in a row makes cricket
+   boring; that's the opposite of the point.
+
 ## Item formats beyond MCQ
 
 MCQ is the workhorse (fast, diagnostic), but rotate in:

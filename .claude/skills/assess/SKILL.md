@@ -44,8 +44,11 @@ Adaptive placement, binary-search style:
 
 ### `review` (spaced repetition)
 1. Collect nodes with `next_review` ≤ today, order by (lapses desc, interval asc), cap at 6.
-2. One retrieval item each (prefer an item format different from last exposure).
-3. Correct → advance to the next step of the ladder in rules/10 (1→3→7→16→35→monthly);
+2. One retrieval item each (prefer an item format different from last exposure; re-skin
+   into a fresh interest context per rules/30 § Question skinning).
+3. Correct → advance to the next step of the ladder in rules/10 (1→3→7→16→35→monthly),
+   then scale by the strand's `retention` multiplier from the profile (personal
+   forgetting curve, rules/40 #7; default 1.0);
    wrong → interval reset to 1 day, lapse++, mastery decremented per the rules/30 scoring
    formula (a failed review IS evidence), and a 2-minute repair using the node's
    misconception remedies.

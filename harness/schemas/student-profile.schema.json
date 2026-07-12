@@ -17,7 +17,56 @@
         "notes": { "type": "string" }
       }
     },
-    "interests": { "type": "array", "items": { "type": "string" }, "description": "Used for problem contexts and hooks: cricket, drawing, space, Minecraft..." },
+    "interests": { "type": "array", "items": { "type": "string" }, "description": "Used for problem contexts and hooks: cricket, drawing, space, Minecraft... Refresh every few sessions; each entry may carry specifics, e.g. 'cricket (bats left-handed, follows RCB)'." },
+    "language": {
+      "type": "object",
+      "description": "How this student prefers to be TALKED to. Notation stays standard; explanations flex.",
+      "properties": {
+        "explanation": { "type": "string", "description": "Preferred language/register for explanations, e.g. 'english', 'hinglish', 'hindi', 'tamil-english mix'. Honor it in every session." },
+        "notes": { "type": "string", "description": "e.g. 'switches to Hindi when a concept is hard - follow her there, return to English for the summary'." }
+      }
+    },
+    "motivation": {
+      "type": "object",
+      "description": "What actually drives this student. Chosen rewards/celebrations must match drivers (rules/40). Never peer comparison.",
+      "properties": {
+        "drivers": {
+          "type": "array",
+          "items": { "enum": ["mastery-pride", "streaks", "personal-record", "story-completion", "show-family", "curiosity", "autonomy", "helping-others"] },
+          "description": "Ranked, strongest first. From the intake interview + observed reactions."
+        },
+        "streaks": {
+          "type": "object",
+          "properties": {
+            "current_sessions": { "type": "integer", "description": "Consecutive sessions attended." },
+            "best_sessions": { "type": "integer" },
+            "reviews_cleared_in_a_row": { "type": "integer" },
+            "personal_records": { "type": "array", "items": { "type": "string" }, "description": "e.g. 'first 3/3 topic test (2026-07-02, mult-tables)'. Reference these; beating your own record is the only competition allowed." }
+          }
+        },
+        "celebrations_that_landed": { "type": "array", "items": { "type": "string" }, "description": "Observed: what genuinely delighted them vs. what fell flat." }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "description": "Personal forgetting curve, per strand. Multiplier scales the review ladder in rules/10 (1.0 = standard). Tuned by /reflect from lapse data: strand lapse rate < 10% over >= 5 reviews -> nudge up (max 1.5); > 30% -> nudge down (min 0.6). Move in 0.1 steps, never on fewer than 5 observations.",
+      "additionalProperties": { "type": "number", "minimum": 0.5, "maximum": 1.6 }
+    },
+    "error_signature": {
+      "type": "array",
+      "description": "Cross-topic error habits - about the STUDENT, not any one node. Mined by /reflect (all) from question history. Coach the habit explicitly; a repaired habit pays off everywhere.",
+      "items": {
+        "type": "object",
+        "required": ["pattern", "evidence_count"],
+        "properties": {
+          "pattern": { "type": "string", "description": "e.g. 'drops negative signs when working fast', 'reads OF as addition in word problems', 'answers before reading the full question'." },
+          "evidence_count": { "type": "integer" },
+          "first_seen": { "type": "string", "format": "date" },
+          "status": { "enum": ["active", "improving", "beaten"] },
+          "coaching": { "type": "string", "description": "The move that helps, e.g. 'ritual: circle every minus sign before starting'." }
+        }
+      }
+    },
     "mastery": {
       "type": "object",
       "description": "Keyed by KG node id.",

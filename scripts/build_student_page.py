@@ -175,8 +175,48 @@ def main() -> int:
     b = profile.get("behavior", {})
     beh = "".join(f'<tr><td>{esc(k.replace("_"," "))}</td><td>{esc(", ".join(v) if isinstance(v, list) else v)}</td></tr>'
                   for k, v in b.items() if v)
+    lang = profile.get("language", {})
+    if lang.get("explanation"):
+        beh += (f'<tr><td>explanation language</td><td><b>{esc(lang["explanation"])}</b>'
+                f' <small>{esc(lang.get("notes",""))}</small></td></tr>')
     cal = profile.get("calibration", {})
     acc = round(n_correct / n_items * 100) if n_items else 0
+
+    # ---- motivation & streaks ----
+    mot = profile.get("motivation", {})
+    streaks = mot.get("streaks", {})
+    mot_html = ""
+    if mot:
+        drivers = " → ".join(mot.get("drivers", [])) or "not yet known"
+        recs = "".join(f'<li>{esc(r)}</li>' for r in streaks.get("personal_records", []))
+        cels = "".join(f'<li>{esc(c)}</li>' for c in mot.get("celebrations_that_landed", []))
+        mot_html = f"""<h2>What drives them (never peer comparison — only them vs. their past self)</h2>
+<div class="card"><b>Drivers:</b> {esc(drivers)}
+<div class="cols">
+<div><small>STREAKS</small><p>sessions: {streaks.get('current_sessions','—')} (best {streaks.get('best_sessions','—')}) ·
+reviews cleared in a row: {streaks.get('reviews_cleared_in_a_row','—')}</p></div>
+<div><small>PERSONAL RECORDS</small><ul>{recs or '<li>none named yet</li>'}</ul></div>
+<div><small>CELEBRATIONS THAT LANDED</small><ul>{cels or '<li>still learning</li>'}</ul></div>
+</div></div>"""
+
+    # ---- error signature ----
+    sig_rows = "".join(
+        f'<tr><td><b>{esc(s.get("pattern",""))}</b></td><td>{esc(s.get("status","active"))}</td>'
+        f'<td>{s.get("evidence_count",0)}× since {esc(s.get("first_seen",""))}</td>'
+        f'<td>{esc(s.get("coaching",""))}</td></tr>'
+        for s in profile.get("error_signature", []))
+
+    # ---- retention multipliers ----
+    ret = profile.get("retention", {})
+    ret_note = (" · personal forgetting curve: " +
+                ", ".join(f'{esc(strands.get(k,k))} ×{v}' for k, v in ret.items())) if ret else ""
+
+    # ---- learning plan ----
+    plan_html = ""
+    plan_file = sdir / "plan.md"
+    if plan_file.exists():
+        plan_html = (f'<h2>Personal learning plan</h2><div class="card">'
+                     f'<pre class="plan">{esc(plan_file.read_text().strip())}</pre></div>')
 
     page = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
@@ -224,6 +264,8 @@ tr.bad td:first-child {{ border-left:3px solid var(--hot); }}
 ul {{ padding-left:18px; }} p {{ color:var(--ink2); }}
 .note {{ color:var(--mut); font-size:12px; margin-top:6px; }}
 .scroll {{ overflow-x:auto; }}
+pre.plan {{ white-space:pre-wrap; font:13px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); }}
 </style></head><body>
 <h1>Student {esc(sid)} — Analytics</h1>
 <p class="note">Generated {today} · Class {esc(profile.get('grade'))} ·
@@ -252,6 +294,11 @@ anonymous id (names never stored — see harness/rules/40)</p>
 <div class="scroll"><table><tr><th>Date</th><th>Topic</th><th>Question</th><th>Their answer</th><th>Result</th><th>What the answer revealed</th><th>Conf.</th></tr>{q_rows or '<tr><td colspan=7>no assessment items logged yet</td></tr>'}</table></div>
 <p class="note">⚠ confident error = wrong with self-rated confidence ≥4/5 — a genuinely held misconception, not a guess. Address these first.</p>
 
+{mot_html}
+
+<h2>Cross-topic error signature (coach the habit, not just the topic)</h2>
+<div class="scroll"><table><tr><th>Habit</th><th>Status</th><th>Evidence</th><th>Coaching ritual</th></tr>{sig_rows or '<tr><td colspan=4>no cross-topic habits identified yet</td></tr>'}</table></div>
+
 <h2>What teaching actually works for this student</h2>
 <div class="scroll"><table><tr><th>Strategy</th><th>Worked / tried</th><th>Success rate</th><th>Notes</th></tr>{st_rows or '<tr><td colspan=4>no strategy data yet</td></tr>'}</table></div>
 
@@ -260,6 +307,9 @@ anonymous id (names never stored — see harness/rules/40)</p>
 
 <h2>Review schedule (spaced repetition)</h2>
 <div class="scroll"><table><tr><th>Topic</th><th>Next review</th><th>Interval</th><th>Lapses</th></tr>{sr_rows or '<tr><td colspan=4>nothing scheduled</td></tr>'}</table></div>
+<p class="note">Ladder 1→3→7→16→35 days{ret_note}</p>
+
+{plan_html}
 
 <h2>Session timeline (newest first)</h2>
 {sess_rows or '<p class="note">no sessions logged yet</p>'}

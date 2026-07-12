@@ -44,6 +44,8 @@ tr.bad td:first-child { border-left:3px solid var(--hot); }
 ul { padding-left:18px; } p { color:var(--ink2); }
 .note { color:var(--mut); font-size:12px; margin-top:6px; }
 .scroll { overflow-x:auto; }
+pre.plan { white-space:pre-wrap; font:13px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); }
 </style></head><body>
 <h1>Student S999 — Analytics</h1>
 <p class="note">Generated 2026-07-12 · Class 6 ·
@@ -72,14 +74,59 @@ anonymous id (names never stored — see harness/rules/40)</p>
 <div class="scroll"><table><tr><th>Date</th><th>Topic</th><th>Question</th><th>Their answer</th><th>Result</th><th>What the answer revealed</th><th>Conf.</th></tr><tr class="good"><td>2026-07-10</td><td>Decimals: Tenths and Hundredths</td><td>Which decimal shows the fraction 7/10?</td><td>B</td><td>✓</td><td>—</td><td>—</td></tr><tr class="bad"><td>2026-07-10</td><td>Decimals: Tenths and Hundredths</td><td>Which is greater: 0.5 or 0.25?</td><td>C <b class="hot">⚠ confident error</b></td><td>✗ (key: 0.5 — it equals 0.50, and 50 hundredths is more than 25 hundredths)</td><td>m1 — Longer decimal means larger number: 0.25 &gt; 0.5 because 25 &gt; 5. <small>(confirmed: misconception)</small></td><td>5</td></tr><tr class="good"><td>2026-07-10</td><td>Decimals: Tenths and Hundredths</td><td>Which number is exactly the same as 0.30?</td><td>A</td><td>✓</td><td>—</td><td>—</td></tr></table></div>
 <p class="note">⚠ confident error = wrong with self-rated confidence ≥4/5 — a genuinely held misconception, not a guess. Address these first.</p>
 
+<h2>What drives them (never peer comparison — only them vs. their past self)</h2>
+<div class="card"><b>Drivers:</b> personal-record → curiosity → show-family
+<div class="cols">
+<div><small>STREAKS</small><p>sessions: 3 (best 4) ·
+reviews cleared in a row: 5</p></div>
+<div><small>PERSONAL RECORDS</small><ul><li>first 3/3 topic test (2026-07-02, mult-tables)</li><li>fastest review clear: 4 min (2026-07-08)</li></ul></div>
+<div><small>CELEBRATIONS THAT LANDED</small><ul><li>&#x27;you beat your own record&#x27; visibly delighted her</li><li>sticker-style praise fell flat - too young for her</li></ul></div>
+</div></div>
+
+<h2>Cross-topic error signature (coach the habit, not just the topic)</h2>
+<div class="scroll"><table><tr><th>Habit</th><th>Status</th><th>Evidence</th><th>Coaching ritual</th></tr><tr><td><b>compares multi-digit parts as whole numbers (45 &gt; 5, so 0.45 &gt; 0.5)</b></td><td>active</td><td>3× since 2026-07-08</td><td>ritual: line up place values before ANY comparison - &#x27;same cuts first&#x27;</td></tr></table></div>
+
 <h2>What teaching actually works for this student</h2>
 <div class="scroll"><table><tr><th>Strategy</th><th>Worked / tried</th><th>Success rate</th><th>Notes</th></tr><tr><td>visual:num</td><td>4/4</td><td><div class="bar"><div style="width:100%;background:var(--acc)"></div><span>100%</span></div></td><td></td></tr><tr><td>see-think-wonder</td><td>2/2</td><td><div class="bar"><div style="width:100%;background:var(--acc)"></div><span>100%</span></div></td><td></td></tr><tr><td>worked-example</td><td>2/3</td><td><div class="bar"><div style="width:67%;background:var(--acc)"></div><span>67%</span></div></td><td></td></tr><tr><td>socratic</td><td>0/2</td><td><div class="bar"><div style="width:0%;background:var(--acc)"></div><span>0%</span></div></td><td>shuts down under pure questioning; needs scaffolding first</td></tr></table></div>
 
 <h2>Behavior profile</h2>
-<div class="scroll"><table><tr><td>attention span min</td><td>18</td></tr><tr><td>session sweet spot min</td><td>30</td></tr><tr><td>best time of day</td><td>evening</td></tr><tr><td>hint appetite</td><td>asks-immediately</td></tr><tr><td>frustration signals</td><td>one-word answers, asks &#x27;is this almost done?&#x27;</td></tr><tr><td>reengagement moves</td><td>cricket-context problem, switch to drawing the problem</td></tr><tr><td>impulsivity</td><td>impulsive</td></tr><tr><td>own metaphors</td><td>calls equivalent fractions &#x27;same pizza, different cuts&#x27;</td></tr></table></div>
+<div class="scroll"><table><tr><td>attention span min</td><td>18</td></tr><tr><td>session sweet spot min</td><td>30</td></tr><tr><td>best time of day</td><td>evening</td></tr><tr><td>hint appetite</td><td>asks-immediately</td></tr><tr><td>frustration signals</td><td>one-word answers, asks &#x27;is this almost done?&#x27;</td></tr><tr><td>reengagement moves</td><td>cricket-context problem, switch to drawing the problem</td></tr><tr><td>impulsivity</td><td>impulsive</td></tr><tr><td>own metaphors</td><td>calls equivalent fractions &#x27;same pizza, different cuts&#x27;</td></tr><tr><td>explanation language</td><td><b>hinglish</b> <small>switches to Hindi when a concept is hard - follow her there, return to English for the summary</small></td></tr></table></div>
 
 <h2>Review schedule (spaced repetition)</h2>
 <div class="scroll"><table><tr><th>Topic</th><th>Next review</th><th>Interval</th><th>Lapses</th></tr><tr class="bad"><td>Equivalent Fractions and Comparison</td><td>2026-07-12 · <b>due</b></td><td>1d</td><td>2</td></tr><tr class=""><td>Fractions: Equal Parts, Comparing and Equivalence Intro</td><td>2026-07-14</td><td>7d</td><td>0</td></tr><tr class=""><td>Long Division with 1-digit Divisors and Remainders</td><td>2026-07-20</td><td>16d</td><td>1</td></tr></table></div>
+<p class="note">Ladder 1→3→7→16→35 days · personal forgetting curve: Numbers &amp; Operations ×0.9, Geometry ×1.2</p>
+
+<h2>Personal learning plan</h2><div class="card"><pre class="plan"># S999 — Learning Plan (demo fixture)
+
+## Where you&#x27;re headed
+Comfortable and confident with Class 6 maths by end of September — enjoying it again,
+not just surviving it.
+
+## Where you are
+Conquered: multiplication tables, multi-digit multiplication, long division, and
+fraction basics. That&#x27;s the entire foundation floor — it&#x27;s yours.
+
+## The path (revised 2026-07-12)
+- **Week of Jul 14** — beat the decimal-comparison trap for good (retest, then hundredths);
+  finish equivalent fractions. *Milestone: all of Class 5 numbers behind you.*
+- **Week of Jul 21** — decimals add/subtract; large numbers (Class 6 style estimation).
+- **Week of Jul 28** — factors, multiples, HCF/LCM (your tables superpower pays off here).
+- **Week of Aug 4** — integers: numbers below zero (temperature, cricket net run rate).
+- **Weeks of Aug 11–25** — fractions ops, decimals ops, ratio &amp; proportion.
+- **September** — algebra begins (the fun one), geometry basics, data handling. Buffer
+  week included for wobbles.
+
+## This week
+1. One fresh decimal-comparison question (beat &quot;45 &gt; 5&quot; once and it&#x27;s `improving`)
+2. Decimals: tenths ↔ hundredths with money
+3. Equivalent fractions retest (the pizza-cuts one)
+
+## Watch-outs
+- &quot;Longer decimal looks bigger&quot; — active; ritual: *line up place values first*.
+- Confidence dips fast after two misses in a row — plan wins after hard items.
+
+## Revision log
+- 2026-07-12: plan created (demo fixture).</pre></div>
 
 <h2>Session timeline (newest first)</h2>
 <div class="card">

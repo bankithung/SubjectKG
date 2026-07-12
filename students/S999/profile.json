@@ -5,7 +5,20 @@
   "created": "2026-07-12",
   "grade": 6,
   "goals": { "target": "comfortable with Class 6 maths, enjoys it again", "notes": "demo fixture" },
-  "interests": ["cricket", "drawing", "space"],
+  "interests": ["cricket (follows RCB, loves strike-rate maths)", "drawing (rangoli patterns)", "space (ISRO launches)"],
+  "language": { "explanation": "hinglish", "notes": "switches to Hindi when a concept is hard - follow her there, return to English for the summary" },
+  "motivation": {
+    "drivers": ["personal-record", "curiosity", "show-family"],
+    "streaks": {
+      "current_sessions": 3, "best_sessions": 4, "reviews_cleared_in_a_row": 5,
+      "personal_records": ["first 3/3 topic test (2026-07-02, mult-tables)", "fastest review clear: 4 min (2026-07-08)"]
+    },
+    "celebrations_that_landed": ["'you beat your own record' visibly delighted her", "sticker-style praise fell flat - too young for her"]
+  },
+  "retention": { "num": 0.9, "geo": 1.2 },
+  "error_signature": [
+    { "pattern": "compares multi-digit parts as whole numbers (45 > 5, so 0.45 > 0.5)", "evidence_count": 3, "first_seen": "2026-07-08", "status": "active", "coaching": "ritual: line up place values before ANY comparison - 'same cuts first'" }
+  ],
   "mastery": {
     "g3.num.mult-tables": { "score": 0.92, "evidence_count": 6, "last_seen": "2026-07-01", "conceptual_ok": true },
     "g4.num.mult-multi-digit": { "score": 0.88, "evidence_count": 5, "last_seen": "2026-07-03", "conceptual_ok": true },

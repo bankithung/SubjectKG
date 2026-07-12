@@ -30,10 +30,24 @@ STUDENT). Both must happen every session.
    Then run `python3 scripts/validate_kg.py` and `python3 scripts/build_kg.py`.
 6. **Amend harness rules** only for insights about the harness itself, per the guardrails
    in 50-self-improvement.md (cite evidence; commit message prefix `harness-learning:`).
-7. **Regenerate the student's analytics page** — `python3 scripts/build_student_page.py <id>`
-   — so `students/<id>/report.html` always reflects the latest session (it is the page a
-   teacher/parent reads: mastery, misconception tracker, full Q&A history, what works).
-8. **Commit** all changes (profile, session log, report, insights, KG edits) with a message like
+7. **Tune the personal forgetting curve** (rules/40 #7): recompute per-strand lapse
+   rates from `spaced_repetition`; where a strand has ≥5 reviews, nudge its `retention`
+   multiplier ±0.1 per the thresholds. Never tune on thin evidence.
+8. **Update the error signature** when today's wrong answers rhyme with older ones
+   ACROSS topics (same slip type in different nodes ≥3 times → add/strengthen an
+   `error_signature` entry with a coaching ritual; a signature dodged twice in a row →
+   `improving`, five times → `beaten`).
+9. **Update streaks & records** in `motivation.streaks` (session streak, review streak,
+   any new personal record worth naming next session).
+10. **Refresh the learning plan** — if `students/<id>/plan.md` exists (see `/plan`),
+    update it against today's reality: tick completed steps, move dates honestly if
+    pace changed, note the change in its revision log. Never let the plan silently rot.
+11. **Weekly parent digest** — if the latest digest in `students/<id>/digests/` is >6
+    days old (or missing), run the `/digest` skill's steps for this student.
+12. **Regenerate the student's analytics page** — `python3 scripts/build_student_page.py <id>`
+    — so `students/<id>/report.html` always reflects the latest session (it is the page a
+    teacher/parent reads: mastery, misconception tracker, full Q&A history, what works).
+13. **Commit** all changes (profile, session log, report, plan, digest, insights, KG edits) with a message like
    `session: S001 2026-07-12 ratio-proportion (+kg: new misconception m5)`. Never include
    student names — ids only.
 
@@ -41,6 +55,8 @@ STUDENT). Both must happen every session.
 
 Run periodically (`/reflect all`): read ALL session logs across students, look for
 patterns single sessions can't show (strategy success rates by strand, questions with
-non-functioning distractors, nodes with unusually high lapse rates), and write the
-findings to `harness/insights.md` + fix the KG accordingly. This is the closest thing to
+non-functioning distractors, nodes with unusually high lapse rates, cross-topic
+`error_signature` habits per student, and which remedies actually repaired each
+misconception across students), and write the findings to `harness/insights.md` +
+fix the KG accordingly. This is the closest thing to
 a training run the harness has — treat it seriously.
