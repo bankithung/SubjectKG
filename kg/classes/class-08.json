@@ -1,0 +1,1305 @@
+{
+  "class": 8,
+  "micros": [
+    {
+      "id": "g8.num.rational-numbers.ops-revision",
+      "parent": "g8.num.rational-numbers",
+      "title": "Warm-up: Four Operations on Rationals",
+      "description": "Revise adding, subtracting, multiplying and dividing rational numbers in fraction form, including negatives.",
+      "outcomes": [
+        "Can compute a±b, a×b, a÷b for any two rationals",
+        "Can handle signs correctly through each operation"
+      ],
+      "prereqs": [
+        "g7.num.rational-numbers-intro",
+        "g7.num.fractions-decimals-ops"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g8.num.rational-numbers.closure-commutativity",
+      "parent": "g8.num.rational-numbers",
+      "title": "Closure, Commutativity and Associativity",
+      "description": "Test which of the four operations keep rationals closed, commutative and associative — and catch subtraction and division failing the last two.",
+      "outcomes": [
+        "Can state which properties hold for which operations",
+        "Can produce a counterexample when a property fails"
+      ],
+      "prereqs": [
+        "g8.num.rational-numbers.ops-revision"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these is TRUE for rational numbers?",
+        "options": [
+          {
+            "text": "a − b = b − a for all rationals a, b",
+            "misconception": "m4"
+          },
+          {
+            "text": "a ÷ b = b ÷ a whenever both sides are defined",
+            "misconception": "m4"
+          },
+          {
+            "text": "a × b = b × a for all rationals a, b",
+            "correct": true
+          },
+          {
+            "text": "(a − b) − c = a − (b − c) for all rationals",
+            "diagnosis": "Assumed associativity extends to subtraction; try a=5, b=3, c=1: 1 ≠ 3."
+          }
+        ],
+        "explanation": "Only addition and multiplication are commutative and associative for rationals. Check 3 − 5 = −2 but 5 − 3 = 2, and 1 ÷ 2 ≠ 2 ÷ 1. One counterexample kills a property."
+      }
+    },
+    {
+      "id": "g8.num.rational-numbers.identities-inverses",
+      "parent": "g8.num.rational-numbers",
+      "title": "Identities, Opposites and Reciprocals",
+      "description": "Fix 0 and 1 as the additive and multiplicative identities, and sharply separate the additive inverse (opposite) from the multiplicative inverse (reciprocal) — noting 0 has no reciprocal.",
+      "outcomes": [
+        "Can give the additive and multiplicative inverse of any rational",
+        "Can explain why 0 has no reciprocal"
+      ],
+      "prereqs": [
+        "g8.num.rational-numbers.ops-revision"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "What is the multiplicative inverse (reciprocal) of −5/8?",
+        "options": [
+          {
+            "text": "−8/5",
+            "correct": true
+          },
+          {
+            "text": "5/8",
+            "misconception": "m2"
+          },
+          {
+            "text": "8/5",
+            "diagnosis": "Flipped the fraction but also flipped the sign — a reciprocal keeps the sign, since the product must be +1."
+          },
+          {
+            "text": "0",
+            "misconception": "m3"
+          }
+        ],
+        "explanation": "The reciprocal r must satisfy (−5/8) × r = 1, so r = −8/5. The OPPOSITE of −5/8 is 5/8 (sums to 0) — that is the additive inverse, a different job. And 0 never works: nothing times 0 gives 1."
+      }
+    },
+    {
+      "id": "g8.num.rational-numbers.distributivity",
+      "parent": "g8.num.rational-numbers",
+      "title": "Distributivity and Smart Computation",
+      "description": "Use a(b + c) = ab + ac to reorganise messy rational calculations into easy ones.",
+      "outcomes": [
+        "Can apply distributivity to simplify computations like 3/7 × 5/6 + 3/7 × 1/6"
+      ],
+      "prereqs": [
+        "g8.num.rational-numbers.closure-commutativity"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g8.num.rational-numbers.number-line",
+      "parent": "g8.num.rational-numbers",
+      "title": "Rationals on the Number Line",
+      "description": "Locate any rational, positive or negative, on the number line by subdividing unit intervals.",
+      "outcomes": [
+        "Can mark rationals like −7/4 on a number line accurately"
+      ],
+      "prereqs": [
+        "g8.num.rational-numbers.ops-revision"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g8.num.rational-numbers.density",
+      "parent": "g8.num.rational-numbers",
+      "title": "Density: Rationals Between Rationals",
+      "description": "Discover that between ANY two rationals lie infinitely many more, using averages and common denominators.",
+      "outcomes": [
+        "Can find n rationals between two given rationals",
+        "Can argue why the process never runs out"
+      ],
+      "prereqs": [
+        "g8.num.rational-numbers.number-line"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "How many rational numbers lie between 1/4 and 1/2?",
+        "options": [
+          {
+            "text": "Infinitely many",
+            "correct": true
+          },
+          {
+            "text": "None — they are consecutive fractions",
+            "misconception": "m1"
+          },
+          {
+            "text": "Exactly one (their average, 3/8)",
+            "misconception": "m1"
+          },
+          {
+            "text": "Only those with denominator 4: none in this case",
+            "diagnosis": "Restricted attention to one denominator; rewriting as 2/8 and 4/8, then 4/16 and 8/16, keeps exposing new rationals."
+          }
+        ],
+        "explanation": "The average of two distinct rationals is a new rational strictly between them, and you can average again forever: 1/4 < 3/8 < 1/2, then 1/4 < 5/16 < 3/8, ... Rationals are dense."
+      }
+    },
+    {
+      "id": "g8.num.squares-roots.perfect-square-patterns",
+      "parent": "g8.num.squares-roots",
+      "title": "Perfect Squares and Their Fingerprints",
+      "description": "Generate squares 1–30 and read off their properties: possible unit digits, behaviour of trailing zeros, and sums of odd numbers.",
+      "outcomes": [
+        "Can list unit digits a perfect square can end in",
+        "Can reject candidates like 4058 as perfect squares by inspection"
+      ],
+      "prereqs": [
+        "g7.num.exponents-intro",
+        "g5.num.factors-multiples"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Exactly one of these numbers is a perfect square. Which one COULD it be, judging by unit digits?",
+        "options": [
+          {
+            "text": "5776",
+            "correct": true
+          },
+          {
+            "text": "4053",
+            "misconception": "m3"
+          },
+          {
+            "text": "2318",
+            "misconception": "m3"
+          },
+          {
+            "text": "1447",
+            "diagnosis": "Ends in 7 — no square ends in 2, 3, 7 or 8, so it is ruled out immediately."
+          }
+        ],
+        "explanation": "A perfect square can only end in 0, 1, 4, 5, 6 or 9. Endings 3, 8 and 7 disqualify the other three instantly; 5776 ends in 6 and is in fact 76². The unit-digit test rejects, it never confirms — but here it leaves only one candidate."
+      }
+    },
+    {
+      "id": "g8.num.squares-roots.square-decimals-fractions",
+      "parent": "g8.num.squares-roots",
+      "title": "Squaring Fractions and Decimals",
+      "description": "Square rationals like 3/4 and 0.4, tracking why squaring a number between 0 and 1 makes it SMALLER and where the decimal point lands.",
+      "outcomes": [
+        "Can square any fraction or decimal correctly",
+        "Can explain why (0.4)² < 0.4"
+      ],
+      "prereqs": [
+        "g8.num.squares-roots.perfect-square-patterns",
+        "g7.num.fractions-decimals-ops"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Compute: (0.4)²",
+        "options": [
+          {
+            "text": "0.16",
+            "correct": true
+          },
+          {
+            "text": "1.6",
+            "misconception": "m4"
+          },
+          {
+            "text": "0.8",
+            "misconception": "m2"
+          },
+          {
+            "text": "16",
+            "diagnosis": "Squared 4 but dropped the decimal point entirely."
+          }
+        ],
+        "explanation": "(0.4)² = 0.4 × 0.4 = 0.16 — two decimal places in, two + two = ... count decimal places: 1 + 1 = 2 places, giving 0.16. Squaring is NOT doubling (that would be 0.8), and 4² = 16 must keep its decimal shift."
+      }
+    },
+    {
+      "id": "g8.num.squares-roots.sqrt-prime-factorisation",
+      "parent": "g8.num.squares-roots",
+      "title": "Square Roots by Prime Factorisation",
+      "description": "Find square roots of perfect squares by pairing prime factors, and find the smallest multiplier/divisor that makes a number a perfect square.",
+      "outcomes": [
+        "Can compute √ of a perfect square via factor pairs",
+        "Can find the least number to multiply by to reach a perfect square"
+      ],
+      "prereqs": [
+        "g8.num.squares-roots.perfect-square-patterns",
+        "g6.num.playing-with-numbers"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g8.num.squares-roots.sqrt-long-division",
+      "parent": "g8.num.squares-roots",
+      "title": "Square Roots by Long Division",
+      "description": "Use the long-division algorithm for square roots of large perfect squares and decimals.",
+      "outcomes": [
+        "Can extract √ of 4-5 digit numbers by long division",
+        "Can extend the method past the decimal point"
+      ],
+      "prereqs": [
+        "g8.num.squares-roots.sqrt-prime-factorisation",
+        "g4.num.division-long-intro"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g8.num.squares-roots.estimate-roots",
+      "parent": "g8.num.squares-roots",
+      "title": "Estimating Square Roots",
+      "description": "Trap non-perfect squares between consecutive perfect squares to estimate roots like √60 ≈ 7.7.",
+      "outcomes": [
+        "Can state between which two integers √n lies",
+        "Can give a one-decimal estimate of a square root"
+      ],
+      "prereqs": [
+        "g8.num.squares-roots.sqrt-long-division"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g8.num.squares-roots.root-of-sum-trap",
+      "parent": "g8.num.squares-roots",
+      "title": "√ Does Not Split Over + and −",
+      "description": "Confront the error √(a+b) = √a + √b with numeric ambushes like √(9+16), and establish that roots split only over × and ÷.",
+      "outcomes": [
+        "Can evaluate √(a+b) correctly by adding first",
+        "Can state for which operations √ distributes"
+      ],
+      "prereqs": [
+        "g8.num.squares-roots.sqrt-prime-factorisation"
+      ],
+      "est_minutes": 15,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 3,
+        "prompt": "Evaluate: √(9 + 16)",
+        "options": [
+          {
+            "text": "5",
+            "correct": true
+          },
+          {
+            "text": "7",
+            "misconception": "m1"
+          },
+          {
+            "text": "12.5",
+            "diagnosis": "Halved 25 — treated square-rooting as halving."
+          },
+          {
+            "text": "25",
+            "diagnosis": "Added correctly but forgot to take the root at all."
+          }
+        ],
+        "explanation": "Add first: 9 + 16 = 25, and √25 = 5. Splitting gives √9 + √16 = 3 + 4 = 7 — a different, wrong number. The root distributes over × (√(9×16) = 3×4 = 12 ✓) but never over + or −."
+      }
+    },
+    {
+      "id": "g8.num.cubes-roots.cubes-patterns",
+      "parent": "g8.num.cubes-roots",
+      "title": "Cubes and Their Patterns",
+      "description": "Build cubes 1–20 as n × n × n (not n × 3), and explore unit-digit patterns — cubes, unlike squares, can end in ANY digit.",
+      "outcomes": [
+        "Can compute cubes of numbers up to 20",
+        "Can state the unit digit of a cube from the unit digit of the number"
+      ],
+      "prereqs": [
+        "g8.num.squares-roots.perfect-square-patterns",
+        "g7.num.exponents-intro"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Compute: 4³",
+        "options": [
+          {
+            "text": "64",
+            "correct": true
+          },
+          {
+            "text": "12",
+            "misconception": "m1"
+          },
+          {
+            "text": "16",
+            "diagnosis": "Squared instead of cubed — stopped one multiplication early."
+          },
+          {
+            "text": "81",
+            "diagnosis": "Computed 3⁴ (or a wrong table fact) — swapped base and exponent."
+          }
+        ],
+        "explanation": "4³ means 4 × 4 × 4 = 64. The exponent counts how many copies of 4 are multiplied — it is never a multiplier itself (that would be 4 × 3 = 12)."
+      }
+    },
+    {
+      "id": "g8.num.cubes-roots.cubes-of-negatives",
+      "parent": "g8.num.cubes-roots",
+      "title": "Cubes of Negative Numbers",
+      "description": "Establish that an odd number of negative factors leaves the product negative: cubing preserves sign.",
+      "outcomes": [
+        "Can cube negative integers and rationals correctly",
+        "Can explain the sign via counting negative factors"
+      ],
+      "prereqs": [
+        "g8.num.cubes-roots.cubes-patterns",
+        "g7.num.integers-ops"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Compute: (−5)³",
+        "options": [
+          {
+            "text": "−125",
+            "correct": true
+          },
+          {
+            "text": "125",
+            "misconception": "m2"
+          },
+          {
+            "text": "−15",
+            "misconception": "m1"
+          },
+          {
+            "text": "15",
+            "diagnosis": "Multiplied by 3 AND applied the even-power sign rule — two errors stacked."
+          }
+        ],
+        "explanation": "(−5)³ = (−5)(−5)(−5): the first pair gives +25, the third factor flips it to −125. THREE negative signs — an odd count — always leave a negative product. Even powers kill the sign; odd powers keep it."
+      }
+    },
+    {
+      "id": "g8.num.cubes-roots.cube-root-factorisation",
+      "parent": "g8.num.cubes-roots",
+      "title": "Cube Roots by Prime Factorisation",
+      "description": "Find cube roots by grouping prime factors in TRIPLES, and find the smallest multiplier that turns a number into a perfect cube.",
+      "outcomes": [
+        "Can compute ∛ of a perfect cube via factor triples",
+        "Can find the least factor needed to complete a perfect cube"
+      ],
+      "prereqs": [
+        "g8.num.cubes-roots.cubes-patterns",
+        "g8.num.squares-roots.sqrt-prime-factorisation"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Find: ∛216",
+        "options": [
+          {
+            "text": "6",
+            "correct": true
+          },
+          {
+            "text": "72",
+            "misconception": "m3"
+          },
+          {
+            "text": "108",
+            "misconception": "m3"
+          },
+          {
+            "text": "14.7 (approx.)",
+            "diagnosis": "Took the square root instead of the cube root."
+          }
+        ],
+        "explanation": "216 = 2×2×2 × 3×3×3 = (2×3)³, so ∛216 = 6. Check: 6×6×6 = 216. Dividing by 3 (216 ÷ 3 = 72) or halving are answers to different questions — a root undoes REPEATED MULTIPLICATION, not multiplication by 3."
+      }
+    },
+    {
+      "id": "g8.num.cubes-roots.estimate-cube-roots",
+      "parent": "g8.num.cubes-roots",
+      "title": "Estimating Cube Roots of Perfect Cubes",
+      "description": "Use the unit digit and thousands-grouping trick to read off cube roots of perfect cubes up to six digits.",
+      "outcomes": [
+        "Can find ∛ of a 4-6 digit perfect cube by the two-group estimation method"
+      ],
+      "prereqs": [
+        "g8.num.cubes-roots.cube-root-factorisation"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g8.num.comparing-quantities.percent-revision",
+      "parent": "g8.num.comparing-quantities",
+      "title": "Warm-up: Ratios and Percentage Change",
+      "description": "Revise converting between fractions, ratios and per cents, and computing increase/decrease as a percentage of the ORIGINAL value.",
+      "outcomes": [
+        "Can find x% of a quantity and a percentage change",
+        "Can identify the base quantity a per cent acts on"
+      ],
+      "prereqs": [
+        "g7.num.comparing-quantities"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g8.num.comparing-quantities.discount-marked-price",
+      "parent": "g8.num.comparing-quantities",
+      "title": "Discount and Marked Price",
+      "description": "Work the trio marked price, discount, sale price — the discount per cent always bites the MARKED price.",
+      "outcomes": [
+        "Can compute sale price from MP and discount %",
+        "Can recover MP or discount % from the other two"
+      ],
+      "prereqs": [
+        "g8.num.comparing-quantities.percent-revision"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A jacket is marked ₹800 and sold at a 15% discount. What is the sale price?",
+        "options": [
+          {
+            "text": "₹680",
+            "correct": true
+          },
+          {
+            "text": "₹785",
+            "diagnosis": "Subtracted ₹15 — treated the per cent as a rupee amount."
+          },
+          {
+            "text": "₹692",
+            "misconception": "m4"
+          },
+          {
+            "text": "₹120",
+            "diagnosis": "Computed the discount amount but reported it as the sale price — stopped a step early."
+          }
+        ],
+        "explanation": "Discount = 15% of the MARKED price = 0.15 × 800 = ₹120, so sale price = 800 − 120 = ₹680. (₹692 comes from discounting some other base, e.g. taking 15% off ₹800 minus tax or applying 13.5%: the discount must act on ₹800 itself.)"
+      }
+    },
+    {
+      "id": "g8.num.comparing-quantities.successive-changes",
+      "parent": "g8.num.comparing-quantities",
+      "title": "Successive Percentage Changes",
+      "description": "Chain two percentage changes multiplicatively and see why 10% off then 20% off is 28% off — never 30% — and why +10% then −10% does not restore the price.",
+      "outcomes": [
+        "Can compute the net effect of two successive % changes",
+        "Can explain why successive per cents don't add"
+      ],
+      "prereqs": [
+        "g8.num.comparing-quantities.discount-marked-price"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "A shop gives successive discounts of 10% and then 20% on a ₹1000 item. What is the final price?",
+        "options": [
+          {
+            "text": "₹720",
+            "correct": true
+          },
+          {
+            "text": "₹700",
+            "misconception": "m1"
+          },
+          {
+            "text": "₹1000 × 0.10 × 0.20 = ₹20",
+            "diagnosis": "Multiplied by the discount fractions instead of the REMAINING fractions (0.90 and 0.80)."
+          },
+          {
+            "text": "₹730",
+            "diagnosis": "Applied 10% then 20% but computed the second discount on ₹1000 again instead of on ₹900."
+          }
+        ],
+        "explanation": "After 10% off: 1000 × 0.90 = ₹900. After 20% off THAT: 900 × 0.80 = ₹720. Net effect 28% off, not 30% — the second discount acts on an already-reduced price, so successive per cents multiply (0.9 × 0.8 = 0.72), never add."
+      }
+    },
+    {
+      "id": "g8.num.comparing-quantities.tax-and-vat",
+      "parent": "g8.num.comparing-quantities",
+      "title": "Sales Tax, VAT and GST",
+      "description": "Add tax percentages onto bills and extract the pre-tax price from a tax-inclusive total.",
+      "outcomes": [
+        "Can compute a bill including tax",
+        "Can find the original price given a tax-inclusive amount"
+      ],
+      "prereqs": [
+        "g8.num.comparing-quantities.discount-marked-price"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g8.num.comparing-quantities.compound-interest",
+      "parent": "g8.num.comparing-quantities",
+      "title": "Compound Interest: Interest on Interest",
+      "description": "Contrast CI with SI year by year on the same principal, then compress the growth into A = P(1 + r/100)ⁿ.",
+      "outcomes": [
+        "Can compute CI for 2-3 years both stepwise and by formula",
+        "Can say exactly where CI and SI diverge and why"
+      ],
+      "prereqs": [
+        "g8.num.comparing-quantities.successive-changes",
+        "g7.num.exponents-intro"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "₹1000 is invested at 10% per annum, compounded annually. How much interest has it earned after 2 years?",
+        "options": [
+          {
+            "text": "₹210",
+            "correct": true
+          },
+          {
+            "text": "₹200",
+            "misconception": "m2"
+          },
+          {
+            "text": "₹100",
+            "diagnosis": "Computed only one year's interest."
+          },
+          {
+            "text": "₹1210",
+            "diagnosis": "Reported the final AMOUNT instead of the interest earned."
+          }
+        ],
+        "explanation": "Year 1: 10% of 1000 = ₹100, balance ₹1100. Year 2: 10% of 1100 = ₹110 — interest now earns interest. Total ₹210. Simple interest would pay 10% of the ORIGINAL ₹1000 both years: ₹200. The ₹10 gap is exactly the interest on year 1's interest."
+      }
+    },
+    {
+      "id": "g8.num.comparing-quantities.ci-applications",
+      "parent": "g8.num.comparing-quantities",
+      "title": "CI Applications: Growth and Depreciation",
+      "description": "Apply the compound formula to population growth, bacterial growth and depreciation (negative rate), including half-yearly compounding.",
+      "outcomes": [
+        "Can adapt A = P(1 ± r/100)ⁿ to growth and depreciation contexts",
+        "Can halve the rate and double the periods for half-yearly compounding"
+      ],
+      "prereqs": [
+        "g8.num.comparing-quantities.compound-interest"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g8.num.exponents-powers.laws-revision",
+      "parent": "g8.num.exponents-powers",
+      "title": "Warm-up: Laws of Exponents",
+      "description": "Revise aᵐ × aⁿ = aᵐ⁺ⁿ and aᵐ ÷ aⁿ = aᵐ⁻ⁿ with positive exponents — exponents ADD and SUBTRACT, they are never multiplied or divided across the laws.",
+      "outcomes": [
+        "Can apply the product and quotient laws with positive integer exponents"
+      ],
+      "prereqs": [
+        "g7.num.exponents-intro"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Simplify: a⁸ ÷ a²",
+        "options": [
+          {
+            "text": "a⁶",
+            "correct": true
+          },
+          {
+            "text": "a⁴",
+            "misconception": "m2"
+          },
+          {
+            "text": "a¹⁰",
+            "diagnosis": "Added the exponents — used the product law on a quotient."
+          },
+          {
+            "text": "1⁶ = 1",
+            "diagnosis": "Divided the bases as well as handling the exponents — the base a stays."
+          }
+        ],
+        "explanation": "a⁸ ÷ a² cancels two of the eight factors of a, leaving a⁶: exponents SUBTRACT (8 − 2 = 6). Dividing them (8 ÷ 2 = 4) answers a different question — write out the factors once and the cancellation is visible."
+      }
+    },
+    {
+      "id": "g8.num.exponents-powers.negative-exponents",
+      "parent": "g8.num.exponents-powers",
+      "title": "What a Negative Exponent Means",
+      "description": "Extend the descending pattern 2³, 2², 2¹, 2⁰, ... to force 2⁻ⁿ = 1/2ⁿ: a negative exponent flips into a reciprocal, it never makes the value negative.",
+      "outcomes": [
+        "Can evaluate powers with negative exponents",
+        "Can explain 2⁻³ = 1/8 via the halving pattern"
+      ],
+      "prereqs": [
+        "g8.num.exponents-powers.laws-revision",
+        "g8.num.rational-numbers.identities-inverses"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Evaluate: 2⁻³",
+        "options": [
+          {
+            "text": "1/8",
+            "correct": true
+          },
+          {
+            "text": "−8",
+            "misconception": "m1"
+          },
+          {
+            "text": "−6",
+            "misconception": "m1"
+          },
+          {
+            "text": "−1/8",
+            "diagnosis": "Flipped to the reciprocal AND attached a minus sign — the flip alone does the whole job."
+          }
+        ],
+        "explanation": "Follow the pattern: 2³=8, 2²=4, 2¹=2, 2⁰=1, and each step divides by 2 — so 2⁻¹ = 1/2, 2⁻² = 1/4, 2⁻³ = 1/8. The minus sign in the exponent means 'reciprocal', not 'negative': 2⁻³ = 1/2³ = 1/8, a positive number."
+      }
+    },
+    {
+      "id": "g8.num.exponents-powers.laws-with-negatives",
+      "parent": "g8.num.exponents-powers",
+      "title": "Exponent Laws with Negative Exponents",
+      "description": "Run all the laws — product, quotient, power of a power, power of a product — with integer (including negative) exponents.",
+      "outcomes": [
+        "Can simplify expressions like (2⁻³ × 2⁷) ÷ 2² fully",
+        "Can combine laws in multi-step simplifications"
+      ],
+      "prereqs": [
+        "g8.num.exponents-powers.negative-exponents"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2"
+      ]
+    },
+    {
+      "id": "g8.num.exponents-powers.scientific-notation-large",
+      "parent": "g8.num.exponents-powers",
+      "title": "Standard Form for Large Numbers",
+      "description": "Write large numbers like 149,600,000 km as a × 10ⁿ with 1 ≤ a < 10, counting decimal SHIFTS rather than zeros.",
+      "outcomes": [
+        "Can convert large numbers to standard form and back",
+        "Can compare two numbers written in standard form"
+      ],
+      "prereqs": [
+        "g8.num.exponents-powers.laws-revision",
+        "g6.num.knowing-numbers"
+      ],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m4"
+      ]
+    },
+    {
+      "id": "g8.num.exponents-powers.scientific-notation-small",
+      "parent": "g8.num.exponents-powers",
+      "title": "Standard Form for Small Numbers",
+      "description": "Use negative powers of 10 for very small measurements (0.00052 m = 5.2 × 10⁻⁴ m), pinning down the sign and size of the exponent by counting shifts.",
+      "outcomes": [
+        "Can convert small decimals to standard form with the right negative exponent"
+      ],
+      "prereqs": [
+        "g8.num.exponents-powers.scientific-notation-large",
+        "g8.num.exponents-powers.negative-exponents"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Write 0.00052 in standard form.",
+        "options": [
+          {
+            "text": "5.2 × 10⁻⁴",
+            "correct": true
+          },
+          {
+            "text": "5.2 × 10⁴",
+            "misconception": "m3"
+          },
+          {
+            "text": "5.2 × 10⁻³",
+            "misconception": "m4"
+          },
+          {
+            "text": "52 × 10⁻⁵",
+            "diagnosis": "The power is consistent, but standard form needs the leading factor between 1 and 10 — 52 is too big."
+          }
+        ],
+        "explanation": "Move the decimal point until one nonzero digit leads: 0.00052 → 5.2 needs 4 shifts right, so the exponent is −4 (small number ⇒ negative power). Counting the three zeros gives −3, one off: count SHIFTS of the point, not zeros. Check: 5.2 × 10⁻⁴ = 5.2 ÷ 10000 = 0.00052."
+      }
+    },
+    {
+      "id": "g8.num.direct-inverse-proportion.recognise-variation",
+      "parent": "g8.num.direct-inverse-proportion",
+      "title": "Direct or Inverse? Recognising the Relationship",
+      "description": "Sort real situations by asking 'when one doubles, does the other double or halve?' — and spot relationships that are NEITHER.",
+      "outcomes": [
+        "Can classify a situation as direct, inverse, or neither",
+        "Can justify the classification with a doubling test"
+      ],
+      "prereqs": [
+        "g6.num.ratio-proportion",
+        "g7.num.comparing-quantities"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1",
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which situation shows INVERSE proportion?",
+        "options": [
+          {
+            "text": "More pipes filling a tank, less time to fill it",
+            "correct": true
+          },
+          {
+            "text": "More metres of cloth, higher total cost",
+            "diagnosis": "That is DIRECT proportion — both grow together."
+          },
+          {
+            "text": "A child's age and their height",
+            "misconception": "m3"
+          },
+          {
+            "text": "More workers on a job, more days to finish",
+            "misconception": "m1"
+          }
+        ],
+        "explanation": "Inverse proportion: doubling one quantity HALVES the other, keeping the product constant — twice the pipes, half the time. Cloth/cost is direct (constant ratio). Age/height grows together but with no fixed ratio — proportional thinking doesn't apply at all there."
+      }
+    },
+    {
+      "id": "g8.num.direct-inverse-proportion.direct-solve",
+      "parent": "g8.num.direct-inverse-proportion",
+      "title": "Solving Direct Proportion Problems",
+      "description": "Set up x/y = constant (or the unitary method) for direct variation — a multiplicative relationship, not 'add the same amount'.",
+      "outcomes": [
+        "Can solve for the missing value in a direct proportion",
+        "Can verify the answer keeps the ratio constant"
+      ],
+      "prereqs": [
+        "g8.num.direct-inverse-proportion.recognise-variation"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "A car uses 6 litres of petrol for 90 km. How far can it travel on 10 litres?",
+        "options": [
+          {
+            "text": "150 km",
+            "correct": true
+          },
+          {
+            "text": "94 km",
+            "misconception": "m3"
+          },
+          {
+            "text": "54 km",
+            "diagnosis": "Multiplied 90 by 6/10 instead of 10/6 — inverted the scale factor."
+          },
+          {
+            "text": "900 km",
+            "diagnosis": "Multiplied 90 × 10 without dividing by 6 — skipped the unitary step."
+          }
+        ],
+        "explanation": "Distance per litre is constant: 90 ÷ 6 = 15 km/L, so 10 L gives 150 km. The relationship is multiplicative (×10/6), not additive — '4 more litres so 4 more km' (94) treats it as y = x + k."
+      }
+    },
+    {
+      "id": "g8.num.direct-inverse-proportion.inverse-solve",
+      "parent": "g8.num.direct-inverse-proportion",
+      "title": "Solving Inverse Proportion Problems",
+      "description": "Use x₁y₁ = x₂y₂ — the PRODUCT stays constant — for inverse variation, resisting both the additive shortcut and the direct-proportion reflex.",
+      "outcomes": [
+        "Can solve for the missing value in an inverse proportion",
+        "Can check the answer by comparing products"
+      ],
+      "prereqs": [
+        "g8.num.direct-inverse-proportion.direct-solve"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1",
+        "m2",
+        "m4"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "6 workers can build a wall in 12 days. Working at the same rate, how long would 8 workers take?",
+        "options": [
+          {
+            "text": "9 days",
+            "correct": true
+          },
+          {
+            "text": "16 days",
+            "misconception": "m1"
+          },
+          {
+            "text": "10 days",
+            "misconception": "m2"
+          },
+          {
+            "text": "14 days",
+            "diagnosis": "Adjusted additively in the wrong direction — added the 2 extra workers to the days."
+          }
+        ],
+        "explanation": "Total work = 6 × 12 = 72 worker-days; with 8 workers, 72 ÷ 8 = 9 days. The PRODUCT stays fixed, so more workers ⇒ proportionally fewer days. Scaling up (16) applies direct proportion; '2 more workers, 2 fewer days' (10) pretends the trade-off is additive."
+      }
+    },
+    {
+      "id": "g8.num.direct-inverse-proportion.mixed-applications",
+      "parent": "g8.num.direct-inverse-proportion",
+      "title": "Mixed and Multi-step Proportion Problems",
+      "description": "Tackle problems mixing both variation types (speed-time-distance, recipes scaled for more people in less time), choosing the model before computing.",
+      "outcomes": [
+        "Can solve two-step problems involving both direct and inverse variation"
+      ],
+      "prereqs": [
+        "g8.num.direct-inverse-proportion.inverse-solve"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g8.num.playing-numbers.general-form",
+      "parent": "g8.num.playing-numbers",
+      "title": "Numbers in General Form",
+      "description": "Write any two- or three-digit numeral algebraically — 'ab' means 10a + b, never a × b — and use it to explain simple number tricks.",
+      "outcomes": [
+        "Can expand a numeral into general form and back",
+        "Can express 'reverse the digits' algebraically"
+      ],
+      "prereqs": [
+        "g6.num.playing-with-numbers",
+        "g7.alg.expressions"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A two-digit number has tens digit a and units digit b. Which expression equals the number?",
+        "options": [
+          {
+            "text": "10a + b",
+            "correct": true
+          },
+          {
+            "text": "a × b",
+            "misconception": "m1"
+          },
+          {
+            "text": "a + b",
+            "diagnosis": "Summed the digits — that loses the place value entirely (72 would equal 9)."
+          },
+          {
+            "text": "10b + a",
+            "diagnosis": "Right structure, wrong places — this is the REVERSED number."
+          }
+        ],
+        "explanation": "The tens digit counts tens: 7 tens and 2 units is 10×7 + 2 = 72. Writing digits side by side is positional notation, not multiplication — a×b for 72 would give 14."
+      }
+    },
+    {
+      "id": "g8.num.playing-numbers.reversed-digit-results",
+      "parent": "g8.num.playing-numbers",
+      "title": "Adding and Subtracting Reversed Numbers",
+      "description": "Prove with general form why (10a+b) + (10b+a) is always divisible by 11, and the difference by 9 — the classic reversal results.",
+      "outcomes": [
+        "Can prove the 11 and 9 divisibility facts for reversed two-digit numbers",
+        "Can extend the argument to three-digit reversals (divisibility by 99)"
+      ],
+      "prereqs": [
+        "g8.num.playing-numbers.general-form"
+      ],
+      "est_minutes": 20,
+      "difficulty": 3
+    },
+    {
+      "id": "g8.num.playing-numbers.digit-puzzles",
+      "parent": "g8.num.playing-numbers",
+      "title": "Letters for Digits: Cryptarithm Puzzles",
+      "description": "Solve addition and multiplication puzzles where letters stand for digits, respecting the rules: one digit per letter, 0-9 only, carries tracked, no leading zeros.",
+      "outcomes": [
+        "Can solve one- and two-carry cryptarithms systematically",
+        "Can state and use the digit constraints explicitly"
+      ],
+      "prereqs": [
+        "g8.num.playing-numbers.general-form"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "In the puzzle A1 + 1B = B0 (each letter one digit, B0 a two-digit number), what is A?",
+        "options": [
+          {
+            "text": "A = 7",
+            "correct": true
+          },
+          {
+            "text": "A = 17",
+            "misconception": "m4"
+          },
+          {
+            "text": "A = 8",
+            "diagnosis": "Ignored the carry from the units column: 1 + B ends in 0 forces B = 9 WITH a carry into the tens."
+          },
+          {
+            "text": "A = 0",
+            "diagnosis": "Made the sum's tens work without carrying, but then A1 has a leading-zero problem and the units column fails."
+          }
+        ],
+        "explanation": "Units: 1 + B ends in 0, so B = 9, carry 1. Tens: A + 1 + 1(carry) = B = 9, so A = 7. Check: 71 + 19 = 90. ✓ Every letter must stay a single digit 0-9 and every carry must be honoured."
+      }
+    },
+    {
+      "id": "g8.num.playing-numbers.divisibility-justified",
+      "parent": "g8.num.playing-numbers",
+      "title": "Why the Divisibility Tests Work",
+      "description": "Use general form to justify the tests for 2, 5, 10 (last digit) and 3, 9 (digit sum) — and see why 3's test looks at ALL digits, and why divisible-by-3 does not mean divisible-by-9.",
+      "outcomes": [
+        "Can apply the tests for 2, 3, 5, 9, 10 correctly",
+        "Can explain via 10 = 9 + 1 why digit sums govern 3 and 9"
+      ],
+      "prereqs": [
+        "g8.num.playing-numbers.reversed-digit-results"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m2",
+        "m3"
+      ],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Which of these numbers is divisible by 9?",
+        "options": [
+          {
+            "text": "3438",
+            "correct": true
+          },
+          {
+            "text": "1279",
+            "misconception": "m2"
+          },
+          {
+            "text": "1236",
+            "misconception": "m3"
+          },
+          {
+            "text": "8848",
+            "diagnosis": "Ends in 8, an even digit — but evenness tests 2, not 9; digit sum 28 is not a multiple of 9."
+          }
+        ],
+        "explanation": "Test with digit sums: 3+4+3+8 = 18, a multiple of 9, so 3438 works (3438 = 9 × 382). 1279 contains a 9 but its digit sum is 19 — a 9 'anywhere' proves nothing. 1236 has digit sum 12: divisible by 3, NOT by 9 — the 3-test passing never guarantees the 9-test."
+      }
+    },
+    {
+      "id": "g8.alg.linear-equations-1var.transpose-revision",
+      "parent": "g8.alg.linear-equations-1var",
+      "title": "Warm-up: Transposing with Inverse Operations",
+      "description": "Revise solving ax + b = c by moving terms with their operations INVERTED — plus becomes minus, times becomes divide.",
+      "outcomes": [
+        "Can solve one-side linear equations fluently",
+        "Can name the inverse operation used at each step"
+      ],
+      "prereqs": [
+        "g7.alg.simple-equations"
+      ],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": [
+        "m1"
+      ]
+    },
+    {
+      "id": "g8.alg.linear-equations-1var.variables-both-sides",
+      "parent": "g8.alg.linear-equations-1var",
+      "title": "Variables on Both Sides",
+      "description": "Collect variable terms on one side and constants on the other, changing the SIGN of every term that crosses the equals sign.",
+      "outcomes": [
+        "Can solve equations like 2x + 5 = x + 9",
+        "Can verify a solution by substitution"
+      ],
+      "prereqs": [
+        "g8.alg.linear-equations-1var.transpose-revision"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m1",
+        "m2"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Solve: 2x + 5 = x + 9",
+        "options": [
+          {
+            "text": "x = 4",
+            "correct": true
+          },
+          {
+            "text": "x = 14",
+            "misconception": "m1"
+          },
+          {
+            "text": "x = 4/3",
+            "misconception": "m2"
+          },
+          {
+            "text": "x = 2",
+            "diagnosis": "Reached 2x = 4 by also moving the x with its sign unchanged, then divided — check by substituting: 9 ≠ 11."
+          }
+        ],
+        "explanation": "Move x left and 5 right, flipping signs: 2x − x = 9 − 5, so x = 4. Check: 2(4)+5 = 13 = 4+9. ✓ Every term that crosses '=' swaps sign; x = 14 keeps +5 alive as +5, and x = 4/3 comes from 2x + x = 4."
+      }
+    },
+    {
+      "id": "g8.alg.linear-equations-1var.brackets",
+      "parent": "g8.alg.linear-equations-1var",
+      "title": "Equations with Brackets",
+      "description": "Expand brackets — multiplying EVERY term inside — before collecting, as in 3(x − 2) = 2(x + 1) + 1.",
+      "outcomes": [
+        "Can solve equations with bracketed terms on either side"
+      ],
+      "prereqs": [
+        "g8.alg.linear-equations-1var.variables-both-sides",
+        "g7.alg.expressions"
+      ],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": [
+        "m3"
+      ]
+    },
+    {
+      "id": "g8.alg.linear-equations-1var.fractions-clear",
+      "parent": "g8.alg.linear-equations-1var",
+      "title": "Clearing Fractions",
+      "description": "Multiply BOTH SIDES — every single term — by the LCM of the denominators to turn fractional equations into integer ones.",
+      "outcomes": [
+        "Can clear denominators correctly and solve",
+        "Can spot the error of multiplying only the fraction term"
+      ],
+      "prereqs": [
+        "g8.alg.linear-equations-1var.brackets",
+        "g6.num.playing-with-numbers"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m3"
+      ],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 3,
+        "prompt": "Solve: x/2 + 3 = 5",
+        "options": [
+          {
+            "text": "x = 4",
+            "correct": true
+          },
+          {
+            "text": "x = 7",
+            "misconception": "m3"
+          },
+          {
+            "text": "x = 1",
+            "diagnosis": "Computed (5 − 3) ÷ 2 — divided by 2 at the end instead of multiplying."
+          },
+          {
+            "text": "x = 16",
+            "diagnosis": "Multiplied through by 2 twice — once clearing, once again at the end."
+          }
+        ],
+        "explanation": "Multiply EVERY term by 2: x + 6 = 10, so x = 4. Check: 4/2 + 3 = 5. ✓ Multiplying only the x/2 term gives x + 3 = 10 ⇒ x = 7 — but then the two sides were scaled unequally, breaking the equation."
+      }
+    },
+    {
+      "id": "g8.alg.linear-equations-1var.reduce-to-linear",
+      "parent": "g8.alg.linear-equations-1var",
+      "title": "Equations Reducible to Linear Form",
+      "description": "Solve equations like (x + 1)/(2x + 3) = 3/8 by cross-multiplication, checking the solution keeps denominators nonzero.",
+      "outcomes": [
+        "Can cross-multiply and solve rational equations that reduce to linear",
+        "Can reject values that zero a denominator"
+      ],
+      "prereqs": [
+        "g8.alg.linear-equations-1var.fractions-clear"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3
+    },
+    {
+      "id": "g8.alg.linear-equations-1var.word-problems",
+      "parent": "g8.alg.linear-equations-1var",
+      "title": "Word Problems: Set Up, Solve, ANSWER",
+      "description": "Translate age, number, perimeter and money stories into equations — then finish: solve fully and answer the question actually asked.",
+      "outcomes": [
+        "Can model a word problem as a linear equation",
+        "Can present the final answer in the problem's terms, checked against the story"
+      ],
+      "prereqs": [
+        "g8.alg.linear-equations-1var.reduce-to-linear"
+      ],
+      "est_minutes": 25,
+      "difficulty": 3,
+      "misconception_refs": [
+        "m4"
+      ],
+      "question": {
+        "skill": "application",
+        "difficulty": 3,
+        "prompt": "Sum of two numbers is 95. One exceeds the other by 15. The problem asks for the SMALLER number. You reach x + (x + 15) = 95. What is the answer?",
+        "options": [
+          {
+            "text": "40",
+            "correct": true
+          },
+          {
+            "text": "55",
+            "misconception": "m4"
+          },
+          {
+            "text": "2x = 80",
+            "misconception": "m4"
+          },
+          {
+            "text": "95",
+            "diagnosis": "Restated a given from the problem instead of solving."
+          }
+        ],
+        "explanation": "2x + 15 = 95 ⇒ 2x = 80 ⇒ x = 40, and x was DEFINED as the smaller number. 55 is the larger one — a correct solve answering the wrong question. And '2x = 80' is a checkpoint, not an answer: always finish, then reread what was asked."
+      }
+    }
+  ]
+}
