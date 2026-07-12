@@ -8,7 +8,11 @@
       "strand": "alg",
       "description": "Sets are the language in which the rest of higher mathematics is written: collections of well-defined objects, described in roster or set-builder form. You will operate on sets with union, intersection, difference and complement, picture them with Venn diagrams, and use counting rules like n(A∪B) = n(A) + n(B) − n(A∩B). Mastering this vocabulary pays off immediately in relations, functions and probability.",
       "prerequisites": [
-        "g9.num.number-systems"
+        {
+          "id": "g9.num.number-systems",
+          "strength": "soft",
+          "reason": "Intervals and complements are practised on the real number line, so knowing the types of numbers makes examples concrete — but set ideas themselves start from scratch."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -19,6 +23,7 @@
       "ccss": [
         "HSS-CP.A.1"
       ],
+      "parent_check": "Ask your child to explain, using two of your family's WhatsApp groups, what the 'union' and 'intersection' of the groups mean. If they can name someone who is in both groups and someone in neither, and explain why adding the two group sizes double-counts the people in both, the core ideas have landed.",
       "learning_outcomes": [
         "Can write a set in roster and set-builder form and decide whether a collection is well-defined",
         "Can distinguish element membership (∈) from subset inclusion (⊂) and list all subsets of a small set",
@@ -160,9 +165,21 @@
       "strand": "alg",
       "description": "A relation pairs elements of one set with another via the Cartesian product; a function is the special relation where every input gets exactly one output. You will find domains and ranges, and meet the standard function family — identity, constant, polynomial, rational, modulus, signum, greatest integer — with their graphs. Functions are the central objects of calculus, so fluency here directly powers limits and derivatives.",
       "prerequisites": [
-        "g11.alg.sets",
-        "g8.alg.graphs-intro",
-        "g9.geo.coordinate-geometry"
+        {
+          "id": "g11.alg.sets",
+          "strength": "hard",
+          "reason": "A relation is literally a set of ordered pairs, and domain and range are sets — the definitions can't even be stated without set language."
+        },
+        {
+          "id": "g8.alg.graphs-intro",
+          "strength": "soft",
+          "reason": "Having plotted simple graphs before makes function graphs feel familiar, but everything needed is rebuilt here."
+        },
+        {
+          "id": "g9.geo.coordinate-geometry",
+          "strength": "hard",
+          "reason": "Function graphs live in the coordinate plane — without plotting points there is no graph and no vertical line test."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -175,6 +192,7 @@
         "HSF-IF.A.2",
         "HSF-IF.B.5"
       ],
+      "parent_check": "Ask them to explain why 'person → Aadhaar number' is a function but 'person → phone number' might not be. If they say, in any words, that a function must give each input exactly ONE output, they own the definition. Bonus: ask what 'domain' means and listen for 'the set of inputs that are allowed'.",
       "learning_outcomes": [
         "Can form Cartesian products and count/list relations from A to B",
         "Can decide whether a given relation (as pairs, arrow diagram or graph) is a function, citing the definition",
@@ -316,8 +334,16 @@
       "strand": "tri",
       "description": "Trigonometry graduates from right-triangle ratios to genuine functions of a real number: angles in radians, the unit circle, signs in all four quadrants, and the wave-like graphs of sine and cosine. You will wield compound-angle and multiple-angle identities like sin(A±B), cos 2x, and solve trigonometric equations in full generality. These functions model every periodic phenomenon — sound, light, tides, alternating current — and their limits and derivatives are pillars of calculus.",
       "prerequisites": [
-        "g10.tri.intro",
-        "g11.alg.relations-functions"
+        {
+          "id": "g10.tri.intro",
+          "strength": "hard",
+          "reason": "sin and cos are born as right-triangle ratios; the unit circle extends exactly those ratios beyond 90°, so they must exist first."
+        },
+        {
+          "id": "g11.alg.relations-functions",
+          "strength": "hard",
+          "reason": "The whole upgrade is treating sin x as a function of a real number — with a domain, range and graph — which needs the function concept in place."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -331,6 +357,7 @@
         "HSF-TF.B.5",
         "HSF-TF.C.8"
       ],
+      "parent_check": "Ask them to explain why a Ferris-wheel rider's height keeps rising and falling in the same pattern as the wheel turns, and what that has to do with sine. If 'it repeats' (periodic) and 'the height traces a wave' both appear, they have grasped trigonometry as a function of time, not just a fact about triangles.",
       "learning_outcomes": [
         "Can convert between degrees and radians and interpret radian measure as arc length over radius",
         "Can evaluate all six trigonometric functions at standard angles in any quadrant using the unit circle and sign rules",
@@ -474,8 +501,16 @@
       "strand": "num",
       "description": "To solve x² + 1 = 0 we extend the real numbers with i, where i² = −1, obtaining complex numbers a + bi with their own arithmetic, conjugates and modulus. Quadratic equations with negative discriminant now have two (conjugate) complex roots — the number system finally makes every quadratic solvable. Complex numbers are indispensable in AC circuit analysis, signal processing and quantum physics.",
       "prerequisites": [
-        "g10.alg.quadratic-equations",
-        "g9.num.number-systems"
+        {
+          "id": "g10.alg.quadratic-equations",
+          "strength": "hard",
+          "reason": "Complex roots appear precisely where the discriminant goes negative — you need quadratics and their discriminant before extending them."
+        },
+        {
+          "id": "g9.num.number-systems",
+          "strength": "soft",
+          "reason": "Seeing the number system grow from naturals to reals makes inventing i feel like the natural next chapter, but the arithmetic here stands on its own."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -488,6 +523,7 @@
         "HSN-CN.A.2",
         "HSN-CN.C.7"
       ],
+      "parent_check": "Ask them to explain what problem the number i was invented to solve. A good answer sounds like: 'no ordinary number squared gives a negative, so mathematicians invented one — and the maths built on it actually works.' Follow up with 'isn't that cheating?' and let them defend it; the defence is where the understanding shows.",
       "learning_outcomes": [
         "Can compute powers of i by reducing exponents modulo 4",
         "Can add, subtract, multiply and divide complex numbers, using the conjugate to rationalise quotients",
@@ -629,8 +665,16 @@
       "strand": "alg",
       "description": "Inequalities describe ranges rather than single answers: solving them uses equation-like moves plus one crucial twist — multiplying or dividing by a negative number reverses the inequality sign. You will express solutions as intervals on the number line and handle systems of simultaneous inequalities. This is the toolkit behind constraints everywhere: budgets, safety limits, eligibility cut-offs, and later, linear programming.",
       "prerequisites": [
-        "g8.alg.linear-equations-1var",
-        "g9.alg.linear-equations-2var"
+        {
+          "id": "g8.alg.linear-equations-1var",
+          "strength": "hard",
+          "reason": "Solving an inequality is solving an equation plus one extra rule — the equation-solving moves must already be automatic."
+        },
+        {
+          "id": "g9.alg.linear-equations-2var",
+          "strength": "soft",
+          "reason": "Two-variable experience pays off later when inequalities become shaded regions, but the one-variable work here doesn't need it."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -643,6 +687,7 @@
         "HSA-CED.A.1",
         "HSA-CED.A.3"
       ],
+      "parent_check": "Ask them to explain the one situation where solving an inequality is different from solving an equation. You are listening for 'multiplying or dividing by a negative number flips the sign' — ideally with an everyday picture, like how −5 is colder than −2 even though 5 is bigger than 2.",
       "learning_outcomes": [
         "Can solve linear inequalities in one variable, reversing the sign when multiplying/dividing by a negative",
         "Can express solution sets in interval notation and graph them on the number line",
@@ -782,8 +827,16 @@
       "strand": "alg",
       "description": "Counting without listing: the fundamental principle of counting multiplies choices made in sequence, factorials count arrangements, and the twin tools nPr and nCr count ordered selections versus unordered ones. The single most important skill is deciding whether order matters. These techniques power probability, the binomial theorem, and real questions from passwords to tournament fixtures.",
       "prerequisites": [
-        "g7.num.fractions-decimals-ops",
-        "g7.alg.expressions"
+        {
+          "id": "g7.num.fractions-decimals-ops",
+          "strength": "hard",
+          "reason": "Every nPr and nCr is a fraction of factorials — simplifying 10!/(3!·7!) is fraction cancellation at speed."
+        },
+        {
+          "id": "g7.alg.expressions",
+          "strength": "soft",
+          "reason": "Comfort reading symbols like n and r makes the formulas friendlier, but the counting ideas themselves need no real algebra."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -794,6 +847,7 @@
       "ccss": [
         "HSS-CP.B.9"
       ],
+      "parent_check": "Ask: 'What's the difference between picking 3 friends to come on a trip, and picking 1st, 2nd and 3rd prize winners from the same friends?' If they explain that order matters in one case and not in the other — and that this changes how you count — they have the single most important idea of the chapter.",
       "learning_outcomes": [
         "Can apply the multiplication principle to multi-stage choice problems and the addition principle to exclusive cases",
         "Can compute and manipulate factorials, nPr and nCr, including simplifying quotients of factorials",
@@ -936,9 +990,21 @@
       "strand": "alg",
       "description": "The binomial theorem expands (a + b)ⁿ without multiplying it out: each term is nCr a^(n−r) b^r, with coefficients readable from Pascal's triangle. You will find general terms, middle terms and specific coefficients, and handle expansions like (x − 2y)⁷ where signs alternate. It is the bridge between combinatorics and algebra, and later feeds probability distributions and approximations.",
       "prerequisites": [
-        "g11.alg.permutations-combinations",
-        "g8.alg.expressions-identities",
-        "g7.num.exponents-intro"
+        {
+          "id": "g11.alg.permutations-combinations",
+          "strength": "hard",
+          "reason": "The binomial coefficients ARE nCr — the theorem is combinations dressed up in algebra."
+        },
+        {
+          "id": "g8.alg.expressions-identities",
+          "strength": "hard",
+          "reason": "Expanding (a+b)² and (a+b)³ by hand is where the theorem comes from; without those identities the general pattern has no anchor."
+        },
+        {
+          "id": "g7.num.exponents-intro",
+          "strength": "hard",
+          "reason": "Every term juggles powers like a^(n−r)·b^r, so the exponent laws must be automatic."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -949,6 +1015,7 @@
       "ccss": [
         "HSA-APR.C.5"
       ],
+      "parent_check": "Ask them why (a+b)² is not just a² + b² — where does the extra middle piece come from? A rectangle drawing or the phrase 'cross terms' both count as success. Then ask what Pascal's triangle has to do with it; if 'the numbers count the ways of choosing' appears, the understanding is real, not memorised.",
       "learning_outcomes": [
         "Can state and apply the binomial theorem for positive integral n, connecting coefficients to Pascal's triangle and nCr",
         "Can write the general term T(r+1) = nCr a^(n−r) b^r and use it to find any required term or coefficient",
@@ -1113,8 +1180,16 @@
       "strand": "alg",
       "description": "Sequences follow rules; series add them up. Building on arithmetic progressions, you now master geometric progressions — nth term arⁿ⁻¹, finite sums, and the beautiful infinite sum a/(1−r) when |r| < 1 — plus the AM ≥ GM inequality and formulas for Σn, Σn², Σn³. Growth by a constant ratio is the mathematics of compound interest, population growth and radioactive decay.",
       "prerequisites": [
-        "g10.alg.arithmetic-progressions",
-        "g7.num.exponents-intro"
+        {
+          "id": "g10.alg.arithmetic-progressions",
+          "strength": "hard",
+          "reason": "GPs are learned by direct analogy with APs — the nth-term and sum formulas mirror the AP ones step for step."
+        },
+        {
+          "id": "g7.num.exponents-intro",
+          "strength": "hard",
+          "reason": "The nth term arⁿ⁻¹ and every sum formula run entirely on powers — no exponent fluency, no GP."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -1127,6 +1202,7 @@
         "HSF-BF.A.2",
         "HSF-LE.A.2"
       ],
+      "parent_check": "Ask them to tell you the rice-on-a-chessboard story — one grain doubled on each square — and why the king went bankrupt. If they contrast 'adding the same amount each step' with 'multiplying by the same amount each step', and explain why multiplying explodes so fast, geometric-progression thinking has clicked.",
       "learning_outcomes": [
         "Can identify whether a sequence is an AP, a GP or neither, and find common difference/ratio",
         "Can compute the nth term and the sum of n terms of a GP, and insert geometric means",
@@ -1269,9 +1345,21 @@
       "strand": "geo",
       "description": "Coordinate geometry turns lines into equations: slope measures steepness as tan of the inclination, and a line can be written in point-slope, two-point, slope-intercept, intercept or general form. Parallel lines share slopes; perpendicular slopes multiply to −1; and the distance from a point to a line has a crisp formula. This algebra-geometry dictionary is the foundation for conic sections, calculus tangents, and linear programming.",
       "prerequisites": [
-        "g10.geo.coordinate-geometry",
-        "g9.alg.linear-equations-2var",
-        "g10.tri.intro"
+        {
+          "id": "g10.geo.coordinate-geometry",
+          "strength": "hard",
+          "reason": "Slope, distance and section formulas from coordinate geometry are the raw machinery this whole chapter runs on."
+        },
+        {
+          "id": "g9.alg.linear-equations-2var",
+          "strength": "hard",
+          "reason": "A line's equation IS a linear equation in x and y — you must already know such equations and their graphs."
+        },
+        {
+          "id": "g10.tri.intro",
+          "strength": "soft",
+          "reason": "Slope is defined as tan of the inclination angle — the tan link deepens the meaning, though most problems run on rise-over-run alone."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -1283,6 +1371,7 @@
         "HSG-GPE.B.5",
         "HSF-IF.B.6"
       ],
+      "parent_check": "Ask them to explain 'slope' as if you were climbing a hill: what does a slope of 2 mean, what does 0 mean, what does a negative slope mean? If some form of 'how much you rise for every step across' comes out, the anchor concept of this chapter — and of calculus next year — is in place.",
       "learning_outcomes": [
         "Can compute the slope of a line from two points or from its inclination, and interpret zero vs undefined slope",
         "Can write the equation of a line in point-slope, slope-intercept, two-point, intercept and general forms and convert between them",
@@ -1423,8 +1512,16 @@
       "strand": "geo",
       "description": "Slice a double cone at different angles and you get circles, parabolas, ellipses and hyperbolas — a single family of curves with standard equations: x² + y² = r², y² = 4ax, x²/a² + y²/b² = 1, x²/a² − y²/b² = 1. You will extract centres, foci, vertices, directrices, axes and eccentricity from these equations. Conics are the shapes of planetary orbits, satellite dishes, headlight reflectors and suspension-bridge cables.",
       "prerequisites": [
-        "g11.geo.straight-lines",
-        "g10.alg.quadratic-equations"
+        {
+          "id": "g11.geo.straight-lines",
+          "strength": "hard",
+          "reason": "Conics are studied with the straight-line toolkit — axes, distances and symmetry in coordinates — and their foci and directrices are located using it."
+        },
+        {
+          "id": "g10.alg.quadratic-equations",
+          "strength": "hard",
+          "reason": "Every conic is a second-degree equation; completing the square is what turns a messy conic into its standard form."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -1437,6 +1534,7 @@
         "HSG-GPE.A.2",
         "HSG-GPE.A.3"
       ],
+      "parent_check": "Ask them why a torch beam shining on a wall changes shape — circle, oval, then an open sweeping curve — as you tilt the torch. If they explain that circle, ellipse, parabola and hyperbola are all slices of the same cone of light, they have the unifying picture behind the whole chapter.",
       "learning_outcomes": [
         "Can write the equation of a circle from centre and radius, and complete the square to find them from the general form",
         "Can identify the focus, directrix, axis and latus rectum of a parabola in any of the four standard orientations",
@@ -1579,7 +1677,11 @@
       "strand": "vec",
       "description": "Adding a z-axis turns the coordinate plane into coordinate space: points become ordered triples (x, y, z), space splits into eight octants, and the familiar tools upgrade — distance becomes √(Δx² + Δy² + Δz²) and the section formula gains a third coordinate. Thinking in 3D coordinates is the gateway to vectors, planes and lines in space, and to how GPS, drones and graphics engines locate anything in the world.",
       "prerequisites": [
-        "g10.geo.coordinate-geometry"
+        {
+          "id": "g10.geo.coordinate-geometry",
+          "strength": "hard",
+          "reason": "3D coordinates add one axis to the 2D plane — the distance and section formulas here are direct extensions of the 2D ones."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -1588,6 +1690,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask: 'To tell someone exactly where a fly is hovering in this room, how many numbers would you need to give them?' If they answer three and can explain each number as a distance along a direction — along one wall, along the other, and up — three-dimensional coordinates have clicked.",
       "learning_outcomes": [
         "Can locate and interpret points (x, y, z), including which coordinate planes and octants they relate to",
         "Can state the coordinates of points on the axes and coordinate planes (which coordinates vanish where)",
@@ -1747,10 +1850,26 @@
       "strand": "cal",
       "description": "Calculus begins here: a limit captures the value a function approaches — which may exist even where the function itself is undefined, as in (x²−4)/(x−2) at x = 2. The derivative is a limit of slopes of secants, giving the exact instantaneous rate of change and the slope of the tangent line. You will evaluate algebraic and trigonometric limits (including sin x/x → 1), differentiate from first principles, and use the sum, product and quotient rules. Every 'rate' in science — velocity, current, growth — is a derivative.",
       "prerequisites": [
-        "g11.alg.relations-functions",
-        "g10.alg.quadratic-equations",
-        "g11.tri.functions",
-        "g11.geo.straight-lines"
+        {
+          "id": "g11.alg.relations-functions",
+          "strength": "hard",
+          "reason": "Limits and derivatives are statements about functions — without domains, graphs and function notation the definitions are unreadable."
+        },
+        {
+          "id": "g10.alg.quadratic-equations",
+          "strength": "hard",
+          "reason": "Cracking 0/0 limits means factorising expressions like x² − 4 — quadratic factoring does the heavy lifting in the computations."
+        },
+        {
+          "id": "g11.tri.functions",
+          "strength": "hard",
+          "reason": "The landmark limit sin x/x → 1 and the derivatives of sin and cos demand real fluency with trig as functions."
+        },
+        {
+          "id": "g11.geo.straight-lines",
+          "strength": "hard",
+          "reason": "A derivative IS the slope of a tangent line — without the slope concept the derivative has no geometric meaning."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -1759,6 +1878,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask them to explain what a car's speedometer actually shows, given that speed = distance ÷ time needs TWO moments in time, but the needle shows speed at one instant. If they describe taking the distance over a smaller and smaller time interval, closing in on a single moment, they have explained a limit and a derivative in one breath.",
       "learning_outcomes": [
         "Can explain a limit intuitively via left- and right-hand approach, and evaluate limits by substitution where valid",
         "Can resolve 0/0 forms by factoring, rationalising, or standard limits like lim (xⁿ−aⁿ)/(x−a) = naⁿ⁻¹ and lim sin x/x = 1",
@@ -1902,7 +2022,11 @@
       "strand": "dat",
       "description": "Two datasets can share a mean yet behave completely differently — dispersion measures how spread out the data is. You will compute range, mean deviation, variance and standard deviation for ungrouped and grouped data, and compare the consistency of two datasets using the coefficient of variation. Standard deviation is the workhorse of real analytics, from batting consistency to quality control and finance risk.",
       "prerequisites": [
-        "g10.dat.statistics"
+        {
+          "id": "g10.dat.statistics",
+          "strength": "hard",
+          "reason": "Dispersion measures spread AROUND the mean — computing means, medians and grouped-data tables must already be routine."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -1915,6 +2039,7 @@
         "HSS-ID.A.3",
         "HSS-ID.A.4"
       ],
+      "parent_check": "Ask: 'Two batsmen both average 40 runs — one scores between 38 and 42 every match, the other scores either 0 or a century. Who do you pick for the final, and what number would capture the difference between them?' If they explain that the average hides spread and that standard deviation measures consistency, the chapter's point has landed.",
       "learning_outcomes": [
         "Can compute range, mean deviation (about mean or median), variance and standard deviation for ungrouped and grouped data",
         "Can explain why deviations are squared (or absolute-valued) — raw deviations from the mean always sum to zero",
@@ -2056,9 +2181,21 @@
       "strand": "dat",
       "description": "Probability is rebuilt on set theory: a random experiment has a sample space, events are subsets, and probability is a function obeying three axioms — non-negativity, P(S) = 1, and additivity for mutually exclusive events. From these flow the complement rule P(not A) = 1 − P(A) and the addition rule P(A∪B) = P(A) + P(B) − P(A∩B). This foundation supports everything from weather forecasts to insurance and machine learning.",
       "prerequisites": [
-        "g10.dat.probability",
-        "g11.alg.sets",
-        "g11.alg.permutations-combinations"
+        {
+          "id": "g10.dat.probability",
+          "strength": "hard",
+          "reason": "The axioms formalise the classical 'favourable over total' probability you already know — without that experience they are empty symbols."
+        },
+        {
+          "id": "g11.alg.sets",
+          "strength": "hard",
+          "reason": "Events ARE sets: 'A or B' is union, 'A and B' is intersection, 'not A' is complement — the whole chapter speaks set language."
+        },
+        {
+          "id": "g11.alg.permutations-combinations",
+          "strength": "hard",
+          "reason": "Classical probability needs counts of favourable and total outcomes, and those counts usually take permutations or combinations."
+        }
       ],
       "ncert": {
         "class": 11,
@@ -2070,6 +2207,7 @@
         "HSS-CP.A.1",
         "HSS-CP.B.7"
       ],
+      "parent_check": "Ask them why every probability sits between 0 and 1, and what 0 and 1 mean. Then try: 'the forecast says 70% chance of rain — what's the chance of no rain, and why?' If they instantly say 30% and justify it with 'all the possibilities together must add up to 1', the axioms have become common sense.",
       "learning_outcomes": [
         "Can describe sample spaces and events as sets for experiments like coin tosses, dice and card draws",
         "Can identify mutually exclusive and exhaustive events and state the axioms of probability",
@@ -2213,8 +2351,16 @@
       "strand": "alg",
       "description": "Functions acquire structure: relations can be reflexive, symmetric, transitive (equivalence relations), and functions can be one-one (injective), onto (surjective) or both (bijective). Composition chains functions together — (g∘f)(x) = g(f(x)) — and exactly the bijective functions can be undone by an inverse. Invertibility is the deep idea behind every 'decode', 'undo' and 'solve for x' in mathematics, and behind encryption itself.",
       "prerequisites": [
-        "g11.alg.relations-functions",
-        "g11.alg.sets"
+        {
+          "id": "g11.alg.relations-functions",
+          "strength": "hard",
+          "reason": "One-one, onto and inverse refine the Class 11 function concept — without function fluency there is nothing here to classify."
+        },
+        {
+          "id": "g11.alg.sets",
+          "strength": "hard",
+          "reason": "Reflexive, symmetric and transitive are properties of sets of ordered pairs — equivalence relations are pure set language."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -2226,6 +2372,7 @@
         "HSF-BF.A.1",
         "HSF-BF.B.4"
       ],
+      "parent_check": "Ask them to explain why 'person → fingerprint' can be run backwards to identify a person, but 'person → blood group' cannot. If they explain that reversing only works when no two inputs ever share an output — the 'one-one' idea — invertibility has clicked, and that idea carries the whole chapter.",
       "learning_outcomes": [
         "Can test a relation for reflexivity, symmetry and transitivity and identify equivalence relations and their classes",
         "Can prove or disprove that a function is one-one and/or onto, with counterexamples where needed",
@@ -2369,8 +2516,16 @@
       "strand": "tri",
       "description": "Sine, cosine and tangent are periodic, so they can only be inverted after restricting to principal branches: sin⁻¹ maps [−1,1] to [−π/2, π/2], cos⁻¹ to [0, π], tan⁻¹ to (−π/2, π/2). You will evaluate principal values, simplify expressions like sin⁻¹(sin x) — which is NOT always x — and use identities such as sin⁻¹x + cos⁻¹x = π/2. These functions are how calculators, surveyors and navigation systems recover angles from ratios, and their derivatives unlock whole families of integrals.",
       "prerequisites": [
-        "g11.tri.functions",
-        "g12.alg.relations-functions"
+        {
+          "id": "g11.tri.functions",
+          "strength": "hard",
+          "reason": "You cannot run sine backwards without knowing its values, graph and periodicity forwards."
+        },
+        {
+          "id": "g12.alg.relations-functions",
+          "strength": "hard",
+          "reason": "sin⁻¹ exists only after restricting the domain to make sine one-one — that is the invertibility idea applied."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -2382,6 +2537,7 @@
         "HSF-TF.B.6",
         "HSF-TF.B.7"
       ],
+      "parent_check": "Ask: 'A ramp rises 1 metre over a 10-metre run — how would you find its angle?' You are listening for: inverse trig runs sin or tan BACKWARDS, from a ratio to an angle — the calculator's sin⁻¹ button is exactly that. Gold star if they add that many angles share the same ratio, so mathematicians agree on one standard range to answer from.",
       "learning_outcomes": [
         "Can state the principal-value branches (domain and range) of sin⁻¹, cos⁻¹ and tan⁻¹",
         "Can evaluate principal values such as sin⁻¹(1/2), cos⁻¹(−1/2), tan⁻¹(−1)",
@@ -2516,8 +2672,16 @@
       "strand": "alg",
       "description": "A matrix is a rectangular array of numbers that adds entry-wise but multiplies by a row-into-column rule — an operation that is famously NOT commutative and defined only when inner dimensions match. You will master matrix algebra, transposes, symmetric and skew-symmetric matrices, and meet invertible matrices. Matrices encode simultaneous equations, graphics transformations, network links and the entire machinery of modern machine learning.",
       "prerequisites": [
-        "g8.alg.expressions-identities",
-        "g10.alg.linear-pair-2var"
+        {
+          "id": "g8.alg.expressions-identities",
+          "strength": "soft",
+          "reason": "Comfort with symbolic manipulation makes entries like aᵢⱼ feel routine, but matrix operations are essentially fresh arithmetic."
+        },
+        {
+          "id": "g10.alg.linear-pair-2var",
+          "strength": "soft",
+          "reason": "Systems of equations are the motivation matrices were built for — useful context now, essential only when determinants arrive."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -2531,6 +2695,7 @@
         "HSN-VM.C.8",
         "HSN-VM.C.9"
       ],
+      "parent_check": "Ask them to explain what a matrix is using a league points table or the school timetable — rows, columns, and why the POSITION of a number carries meaning. Then ask why two tables can only be added if they are exactly the same size. Clear answers to both mean the object itself is understood, not just the drills.",
       "learning_outcomes": [
         "Can state the order of a matrix and decide when sums and products are defined",
         "Can add, scalar-multiply and multiply matrices using the row-by-column rule",
@@ -2673,8 +2838,16 @@
       "strand": "alg",
       "description": "The determinant condenses a square matrix into a single number that decides everything: invertibility (|A| ≠ 0), the area/volume scaling of the transformation, and solvability of linear systems. You will evaluate 2×2 and 3×3 determinants by cofactor expansion, exploit row/column properties, build inverses via the adjoint A⁻¹ = adj(A)/|A|, and solve systems by the matrix method. It is the algebraic gatekeeper between unique solutions and degeneracy.",
       "prerequisites": [
-        "g12.alg.matrices",
-        "g10.alg.linear-pair-2var"
+        {
+          "id": "g12.alg.matrices",
+          "strength": "hard",
+          "reason": "A determinant is a number computed from a square matrix — no matrix fluency, no determinants."
+        },
+        {
+          "id": "g10.alg.linear-pair-2var",
+          "strength": "hard",
+          "reason": "The pay-off is solving systems of equations, so you must already know what a solution of simultaneous equations means — and when there isn't one."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -2687,6 +2860,7 @@
         "HSA-REI.C.8",
         "HSA-REI.C.9"
       ],
+      "parent_check": "Say: 'You told me a matrix is a table of numbers — what single question does its determinant answer?' A good answer: this one number tells you whether a system of equations has exactly one solution, and determinant = 0 is the warning sign that something is degenerate. Any mention of it measuring scaling or area is a bonus.",
       "learning_outcomes": [
         "Can evaluate 2×2 and 3×3 determinants by cofactor expansion along any row or column",
         "Can apply determinant properties: effect of row swaps, common factors, identical rows, and |kA| = kⁿ|A|",
@@ -2828,9 +3002,21 @@
       "strand": "cal",
       "description": "Continuity at a point demands three things: f(a) exists, the limit exists, and they are equal — 'the pen never leaves the paper'. Differentiability is stronger: the graph must also be smooth, so |x| is continuous everywhere yet not differentiable at its corner. You will test piecewise functions, then differentiate everything in sight — composites via the chain rule, implicit relations, exponential and logarithmic functions, and parametric forms. This is the technical engine room of calculus.",
       "prerequisites": [
-        "g11.cal.limits-derivatives",
-        "g12.alg.relations-functions",
-        "g12.tri.inverse-functions"
+        {
+          "id": "g11.cal.limits-derivatives",
+          "strength": "hard",
+          "reason": "Continuity and differentiability are both DEFINED as limit statements — this chapter is unreadable without limits."
+        },
+        {
+          "id": "g12.alg.relations-functions",
+          "strength": "hard",
+          "reason": "The chain rule differentiates composite functions — composition of functions must be second nature."
+        },
+        {
+          "id": "g12.tri.inverse-functions",
+          "strength": "soft",
+          "reason": "Needed only for the section differentiating sin⁻¹x and tan⁻¹x; the core continuity and differentiability ideas don't depend on it."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -2839,6 +3025,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask them to explain, drawing with a pen on paper, the difference between a curve you can draw without lifting the pen (continuous) and one that also has no sharp corners (differentiable). Success is when they show you a corner — like the letter V — and explain that the curve is unbroken there yet has no single slope.",
       "learning_outcomes": [
         "Can test continuity at a point via left limit, right limit and function value, including for piecewise functions",
         "Can determine parameter values that make a piecewise function continuous",
@@ -2982,8 +3169,16 @@
       "strand": "cal",
       "description": "Derivatives go to work: related rates connect dA/dt to dr/dt through the chain rule; the sign of f′ tells where a function increases or decreases; and critical points, filtered through the first- or second-derivative test, locate maxima and minima. The crown jewels are optimisation problems — largest area, least cost, fastest route. This chapter is where calculus starts earning its keep in physics, economics and engineering.",
       "prerequisites": [
-        "g12.cal.continuity-differentiability",
-        "g10.alg.quadratic-equations"
+        {
+          "id": "g12.cal.continuity-differentiability",
+          "strength": "hard",
+          "reason": "You can't apply derivatives you can't compute — every technique here assumes fluent differentiation, chain rule included."
+        },
+        {
+          "id": "g10.alg.quadratic-equations",
+          "strength": "hard",
+          "reason": "Maxima and minima come from solving f′(x) = 0, and that equation is very often a quadratic."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -2992,6 +3187,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask: 'A shopkeeper keeps raising a price and sales keep dropping — how could maths find the exact price where profit peaks?' If they explain that at the very top of the profit hill the rate of change is zero — profit has stopped rising and is about to fall — they understand maxima and minima, the heart of this chapter.",
       "learning_outcomes": [
         "Can solve related-rates problems by differentiating a geometric relation with respect to time",
         "Can determine intervals of increase and decrease from the sign of f′",
@@ -3135,9 +3331,21 @@
       "strand": "cal",
       "description": "Integration reverses differentiation: an indefinite integral is a whole family of antiderivatives, differing by the constant C. You will build a toolkit — substitution, integration by parts, partial fractions, and standard forms leading to logs and inverse trig — then meet the Fundamental Theorem of Calculus, which computes definite integrals as F(b) − F(a) and welds together the tangent problem and the area problem. It is arguably the single most powerful equation in mathematics.",
       "prerequisites": [
-        "g12.cal.continuity-differentiability",
-        "g11.cal.limits-derivatives",
-        "g12.tri.inverse-functions"
+        {
+          "id": "g12.cal.continuity-differentiability",
+          "strength": "hard",
+          "reason": "Integration reverses differentiation — every antiderivative rule is a derivative rule read backwards, chain rule included (that's substitution)."
+        },
+        {
+          "id": "g11.cal.limits-derivatives",
+          "strength": "hard",
+          "reason": "The definite integral is defined as a limit of sums, and antidifferentiation undoes derivatives — both roots reach back here."
+        },
+        {
+          "id": "g12.tri.inverse-functions",
+          "strength": "hard",
+          "reason": "Standard results like ∫dx/(1+x²) = tan⁻¹x have answers that ARE inverse trig functions — the results can't even be stated without them."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -3146,6 +3354,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask her to explain, with the car's speedometer as the example, how you could work out distance travelled if you only had speed readings taken every second. If 'add up lots of tiny pieces' appears in any form — better still, 'it's the reverse of getting speed from distance' — integration has clicked conceptually.",
       "learning_outcomes": [
         "Can find antiderivatives of standard functions and always include the constant of integration",
         "Can integrate by substitution, recognising when an integrand contains a function and its derivative",
@@ -3314,8 +3523,16 @@
       "strand": "cal",
       "description": "The definite integral becomes a measuring tool: the area under a curve is ∫y dx, the area between two curves is the integral of (upper − lower), and regions bounded by parabolas, circles and lines yield to careful setup. The crucial subtlety is that a raw definite integral counts area below the x-axis as negative — geometric area requires splitting at the crossings and taking absolute values. Sketch first, integrate second.",
       "prerequisites": [
-        "g12.cal.integrals",
-        "g11.geo.conic-sections"
+        {
+          "id": "g12.cal.integrals",
+          "strength": "hard",
+          "reason": "Areas are found by evaluating definite integrals — without integration technique there is nothing to compute."
+        },
+        {
+          "id": "g11.geo.conic-sections",
+          "strength": "soft",
+          "reason": "The classic regions are bounded by circles, parabolas and ellipses — recognising their equations makes sketching quick, though simpler curves work without it."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -3324,6 +3541,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask: 'How would you find the exact area of a curvy pond from its outline on a map?' If they describe slicing it into thin strips, adding up the strip areas, and letting the strips get thinner and thinner until the answer is exact, they have explained the whole chapter in one breath.",
       "learning_outcomes": [
         "Can sketch the region described by curves and lines before setting up any integral",
         "Can compute the area under a curve between two ordinates using a definite integral",
@@ -3458,7 +3676,11 @@
       "strand": "cal",
       "description": "A differential equation relates a function to its derivatives — it describes how something changes and asks you to recover the thing itself. You will read off order and degree, solve separable equations by gathering each variable to its own side, and solve first-order linear equations dy/dx + P(x)y = Q(x) with the integrating factor e^∫P dx. General solutions carry arbitrary constants; initial conditions pin down particular solutions. This is the native language of physics, biology and economics: growth, decay, cooling, circuits, epidemics.",
       "prerequisites": [
-        "g12.cal.integrals"
+        {
+          "id": "g12.cal.integrals",
+          "strength": "hard",
+          "reason": "Solving a differential equation IS integrating — every solution method ends with an integral to evaluate."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -3467,6 +3689,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask them to explain why hot tea cools quickly at first and then more and more slowly — and how you would write that as a mathematical rule. Success sounds like: the RATE of cooling depends on how hot the tea still is, so the rule is about change itself, not about the temperature directly. That is what a differential equation is.",
       "learning_outcomes": [
         "Can determine the order and degree (when defined) of a differential equation",
         "Can verify that a given function is a solution of a differential equation",
@@ -3635,8 +3858,16 @@
       "strand": "vec",
       "description": "Vectors carry magnitude and direction, and two different 'multiplications' extract different geometry: the dot product a·b = |a||b|cos θ is a SCALAR measuring alignment (zero means perpendicular), while the cross product a×b is a VECTOR perpendicular to both, with magnitude |a||b|sin θ equal to the parallelogram's area (zero means parallel). You will compute both in component form, find projections, angles, areas and unit normals. This is the working mathematics of forces, torques and 3D graphics.",
       "prerequisites": [
-        "g11.vec.intro-3d",
-        "g11.tri.functions"
+        {
+          "id": "g11.vec.intro-3d",
+          "strength": "hard",
+          "reason": "Vector components live in the 3D coordinate system built there — no axes, no components, no computations."
+        },
+        {
+          "id": "g11.tri.functions",
+          "strength": "hard",
+          "reason": "Dot and cross products are defined through cos θ and sin θ — the products literally cannot be written down without trig."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -3650,6 +3881,7 @@
         "HSN-VM.B.4",
         "HSN-VM.B.5"
       ],
+      "parent_check": "Ask: 'What's the difference between telling me the wind is 20 km/h, and telling me it's 20 km/h from the north-west?' If they explain that some quantities need BOTH a size and a direction (wind, force, velocity) while others need only a size (temperature, cost), the vector concept is solid.",
       "learning_outcomes": [
         "Can represent vectors in component form, compute magnitudes, unit vectors and section-formula combinations",
         "Can compute dot products, use them to find angles and projections, and characterise perpendicularity by a·b = 0",
@@ -3792,8 +4024,16 @@
       "strand": "vec",
       "description": "Vectors turn spatial geometry into computation: a line is r = a + λb (a point plus a direction), specified by direction ratios or the normalized direction cosines with l² + m² + n² = 1. You will find angles between lines using their direction vectors, the shortest distance between skew lines, and work with planes through their normal vectors — including the distance from a point to a plane. This is the geometry of flight paths, laser alignment and 3D modelling.",
       "prerequisites": [
-        "g12.vec.algebra",
-        "g11.vec.intro-3d"
+        {
+          "id": "g12.vec.algebra",
+          "strength": "hard",
+          "reason": "Lines and planes are written in vector form, and dot and cross products do all the angle and distance work."
+        },
+        {
+          "id": "g11.vec.intro-3d",
+          "strength": "hard",
+          "reason": "Direction cosines and 3D coordinates from the intro are the raw material every line and plane equation is built from."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -3802,6 +4042,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Ask them how a flight controller could describe an aeroplane's straight-line path using just a starting point and a direction. After 'a point plus a direction pins down the whole line', ask what would pin down a flat surface like a tabletop instead — listen for 'a point on it, plus the direction sticking straight out of it'.",
       "learning_outcomes": [
         "Can convert direction ratios to direction cosines by dividing by the magnitude, and verify l² + m² + n² = 1",
         "Can write vector and Cartesian equations of a line through a point with a given direction, or through two points",
@@ -3944,8 +4185,16 @@
       "strand": "alg",
       "description": "Linear programming optimises a linear objective Z = ax + by subject to linear constraints: graph the inequalities, intersect them into a feasible region, and use the corner-point theorem — the optimum, if it exists, occurs at a vertex. Unbounded regions demand one extra check before declaring victory. Born from wartime logistics, LP now schedules airlines, blends diets, allocates factory time and routes deliveries.",
       "prerequisites": [
-        "g11.alg.linear-inequalities",
-        "g11.geo.straight-lines"
+        {
+          "id": "g11.alg.linear-inequalities",
+          "strength": "hard",
+          "reason": "The constraints ARE linear inequalities, and the feasible region is their common solution set."
+        },
+        {
+          "id": "g11.geo.straight-lines",
+          "strength": "soft",
+          "reason": "Fluent line-plotting speeds up drawing feasible regions and finding corner points, but basic two-variable graphing can carry you."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -3957,6 +4206,7 @@
         "HSA-CED.A.3",
         "HSA-REI.D.12"
       ],
+      "parent_check": "Ask: 'You have ₹500 and 2 hours at a food court — how do you get the best possible meal?' If they can describe the limits (money, time) as constraints, the goal as the thing to maximise, and add that the best combination always sits at a CORNER of what's allowed, the whole method of the chapter has landed.",
       "learning_outcomes": [
         "Can translate a word problem into decision variables, a linear objective function and linear constraints",
         "Can graph the constraints and identify the feasible region, including non-negativity restrictions",
@@ -4097,7 +4347,11 @@
       "strand": "dat",
       "description": "Probability learns from information: P(A|B) re-weights chances given that B occurred, the multiplication rule chains events, and independence means P(A∩B) = P(A)P(B). Bayes' theorem reverses conditionals — from P(evidence|cause) to P(cause|evidence) — the logic behind medical testing and spam filters, where base rates routinely humiliate intuition. Random variables then attach numbers to outcomes, with probability distributions and means (expected values) to summarise them.",
       "prerequisites": [
-        "g11.dat.probability"
+        {
+          "id": "g11.dat.probability",
+          "strength": "hard",
+          "reason": "Conditional probability rescales the event-and-axiom probability from Class 11 — P(A|B) is meaningless without that foundation."
+        }
       ],
       "ncert": {
         "class": 12,
@@ -4112,6 +4366,7 @@
         "HSS-MD.A.1",
         "HSS-MD.A.2"
       ],
+      "parent_check": "Ask: 'A test for a rare disease is 99% accurate. Someone tests positive — should they panic?' If they explain that the answer depends on how RARE the disease is, because new information updates a probability rather than replacing it, they have grasped conditional probability and the idea behind Bayes' theorem.",
       "learning_outcomes": [
         "Can compute conditional probabilities from the definition P(A|B) = P(A∩B)/P(B) and from two-way tables",
         "Can apply the multiplication rule and test events for independence via P(A∩B) = P(A)P(B)",
