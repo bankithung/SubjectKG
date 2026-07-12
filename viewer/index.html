@@ -64,8 +64,9 @@
   .node.spine { font-size:15px; font-weight:800; border-width:2.5px; border-radius:10px; }
   .node.sub { background:var(--card-sub); color:var(--ink); font-weight:600;
               box-shadow:2px 2px 0 rgba(0,0,0,.35); }
-  .node.dim { opacity:.18; }
+  .node.dim { opacity:.14; }
   .node.sel { outline:3px solid var(--trunk); outline-offset:2px; z-index:9; }
+  .node.onpath { outline:2.5px dashed var(--trunk); outline-offset:2px; z-index:5; }
   .node .strandDot { position:absolute; left:7px; top:7px; width:8px; height:8px;
                      border-radius:50%; }
   .node .stbadge { position:absolute; right:-9px; top:-9px; width:21px; height:21px;
@@ -115,7 +116,7 @@
   <div id="canvasWrap"><div id="board"><svg id="edges"></svg></div></div>
   <aside id="panel"></aside>
 </div>
-<div id="hint">Scroll down the journey · click a CLASS badge to open its own roadmap · click any topic for details ·
+<div id="hint">Scroll the journey · click a CLASS badge for its roadmap · click any topic → its full path lights up right here (✕ or Esc to clear) ·
   <span class="edgeLegend"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#7fa8dc" stroke-width="2.5"/></svg> path</span> ·
   <span class="edgeLegend"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#b3b3ad" stroke-width="2.5" stroke-dasharray="4,4"/></svg> recommended</span></div>
 <div id="zoom"><button class="plain" id="zOut">−</button><button class="plain" id="zIn">+</button></div>
@@ -144,7 +145,20 @@
   let nodes = [], byId = {}, microById = {}, microParent = {}, dependents = {},
       pos = {}, activeStrands = new Set(STRAND_ORDER),
       selected = null, query = '', zoom = 1,
-      view = 'map', viewClass = 0, focusRoot = null;
+      view = 'map', viewClass = 0,
+      pathSet = null;   // when set: the selected node + all its ancestors, lit up in place
+
+  function ancestorsOf(id, lookup) {
+    const seen = new Set([id]), stack = [id];
+    while (stack.length) {
+      const cur = lookup(stack.pop());
+      (cur && cur.prereqs || []).forEach(p => {
+        const q = pid(p);
+        if (!seen.has(q)) { seen.add(q); stack.push(q); }
+      });
+    }
+    return seen;
+  }
 
   function panelShow(html) {
     const panel = document.getElementById('panel');
@@ -155,6 +169,7 @@
   function closePanel() {
     document.getElementById('panel').style.display = 'none';
     selected = null;
+    pathSet = null;
     draw();
   }
 
@@ -186,6 +201,8 @@
   function dimIf(d, n, text) {
     if ((n.strand && !activeStrands.has(n.strand)) ||
         (query && !text.toLowerCase().includes(query))) d.classList.add('dim');
+    if (pathSet && !pathSet.has(n.id)) d.classList.add('dim');
+    if (pathSet && pathSet.has(n.id) && n.id !== selected) d.classList.add('onpath');
     if (n.id === selected) d.classList.add('sel');
   }
 
@@ -248,11 +265,18 @@
           dimIf(d, n, n.title + ' ' + n.id);
           d.onclick = () => select(n.id);
           board.appendChild(d);
-          edges += link(pos[spine.id], pos[n.id], false);
+          // while a path is lit, hide branch connectors of unrelated topics (less noise)
+          if (!pathSet || pathSet.has(n.id))
+            edges += link(pos[spine.id], pos[n.id], false);
         });
       });
       y += blockH + BLOCKGAP;
     }
+    // the lit path: draw the actual prerequisite edges between the cards, in place
+    if (pathSet) pathSet.forEach(id => (byId[id] && byId[id].prereqs || []).forEach(p => {
+      const q = pid(p);
+      if (pathSet.has(q) && pos[q] && pos[id]) edges += link(pos[q], pos[id], psoft(p), true);
+    }));
     sizeBoard(y + 20);
     document.getElementById('edges').innerHTML = edges;
   }
@@ -286,65 +310,17 @@
           dimIf(md, { ...m, strand: t.strand }, m.title + ' ' + m.id);
           md.onclick = () => selectMicro(m.id);
           board.appendChild(md);
-          edges += link(pos[t.id], pos[m.id], false);
+          if (!pathSet || pathSet.has(m.id) || pathSet.has(t.id))
+            edges += link(pos[t.id], pos[m.id], false);
         });
       });
       y += blockH + BLOCKGAP - 14;
     });
-    sizeBoard(y + 20);
-    document.getElementById('edges').innerHTML = edges;
-  }
-
-  // ---------- FOCUS: the learning path as a top-down roadmap ----------
-  function drawFocus() {
-    clearBoard();
-    const board = document.getElementById('board');
-    const root = byId[focusRoot];
-    const depth = { [root.id]: 0 }, inSet = new Set([root.id]);
-    let frontier = [root.id];
-    while (frontier.length) {
-      const next = [];
-      frontier.forEach(id => (byId[id].prereqs || []).forEach(p => {
-        const q = pid(p);
-        if (!byId[q]) return;
-        const d = depth[id] + 1;
-        if (!(q in depth) || d > depth[q]) { depth[q] = d; next.push(q); }
-        inSet.add(q);
-      }));
-      frontier = next;
-    }
-    const deps = (dependents[root.id] || []).slice(0, 6);
-    const maxD = Math.max(...Object.values(depth));
-    const rows = [];
-    for (let d = maxD; d >= 0; d--)
-      rows.push([...inSet].filter(id => depth[id] === d)
-        .sort((a,b) => byId[a].grade - byId[b].grade));
-    if (deps.length) rows.push(deps);
-
-    let edges = '', y = 56;
-    rows.forEach((row, ri) => {
-      const isGoal = ri === maxD, isUnlocks = deps.length && ri === rows.length - 1 && !isGoal;
-      const rowW = row.length * CARDW + (row.length - 1) * 24;
-      let x = CX - rowW / 2;
-      row.forEach(id => {
-        const n = byId[id];
-        const d = card(n, x, y, { cls: id === root.id ? 'spine' : (isUnlocks ? 'sub' : ''),
-          steps: 'Class ' + n.grade });
-        if (id === root.id) d.classList.add('sel');
-        d.onclick = () => select(id);
-        board.appendChild(d);
-        x += CARDW + 24;
-      });
-      y += CARDH + 62;
-    });
-    inSet.forEach(id => (byId[id].prereqs || []).forEach(p => {
+    // lit path between micro-skills, drawn in place
+    if (pathSet) pathSet.forEach(id => (microById[id] && microById[id].prereqs || []).forEach(p => {
       const q = pid(p);
-      if (pos[q] && pos[id]) edges += link(pos[q], pos[id], psoft(p), id === root.id);
+      if (pathSet.has(q) && pos[q] && pos[id]) edges += link(pos[q], pos[id], psoft(p), true);
     }));
-    deps.forEach(dp => {
-      const e = (byId[dp].prereqs || []).find(p => pid(p) === root.id);
-      if (pos[root.id] && pos[dp]) edges += link(pos[root.id], pos[dp], e ? psoft(e) : false, true);
-    });
     sizeBoard(y + 20);
     document.getElementById('edges').innerHTML = edges;
   }
@@ -353,8 +329,9 @@
     document.getElementById('backBtn').style.display = view === 'map' ? 'none' : 'inline-block';
     document.getElementById('title').textContent =
       view === 'class' ? `🗺️ Class ${viewClass} Roadmap` :
-      view === 'focus' ? `🌳 Path to: ${byId[focusRoot].title}` : '🗺️ Maths Roadmap';
-    if (view === 'map') drawMap(); else if (view === 'class') drawClass(); else drawFocus();
+      pathSet && selected && byId[selected] ? `🌳 Path to: ${byId[selected].title}` :
+      '🗺️ Maths Roadmap';
+    if (view === 'map') drawMap(); else drawClass();
   }
   const scrollTopLeft = () => document.getElementById('canvasWrap').scrollTo(0, 0);
 
@@ -371,7 +348,8 @@
       <p style="margin-top:8px">${esc(n.description || '')}</p>
       <div class="meta">${n.difficulty ? `difficulty ${'●'.repeat(n.difficulty)}${'○'.repeat(5-n.difficulty)}` : ''}
         ${n.est_minutes ? `~${n.est_minutes} min` : ''}</div>
-      <button class="plain" id="pathBtn" style="margin-top:14px">🌳 Show the path to here</button>
+      <p style="margin-top:10px"><small>🌳 Its path is lit up on the map — faded topics aren't needed for this.</small></p>
+      <button class="plain" id="pathBtn" style="margin-top:6px">⤴ Jump to the start of the path</button>
       ${n.micros && n.micros.length ? `<h3>Step by step (${n.micros.length})</h3>
         <ol>${n.micros.map(m => `<li><span class="plink" onclick="openMicro('${m.id}')">${esc(m.title)}</span> <small>~${m.est_minutes}m</small></li>`).join('')}</ol>` : ''}
       ${n.outcomes && n.outcomes.length ? `<h3>You'll be able to…</h3><ul>${n.outcomes.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
@@ -379,12 +357,18 @@
       ${n.prereqs.length ? `<ul>${n.prereqs.map(p => `<li><span class="plink" onclick="select('${pid(p)}')">${byId[pid(p)] ? esc(byId[pid(p)].title) : pid(p)}</span>${psoft(p) ? ' <small>(recommended)</small>' : ''}${statusOf(pid(p)) === 'mastered' ? ' ✓' : ''}${preason(p) ? `<br><small>${esc(preason(p))}</small>` : ''}</li>`).join('')}</ul>` : '<p>Nothing — this is a starting point!</p>'}
       <h3>Unlocks next</h3>
       ${(dependents[id] || []).length ? `<ul>${dependents[id].map(x => `<li><span class="plink" onclick="select('${x}')">${esc(byId[x].title)}</span></li>`).join('')}</ul>` : '<p>—</p>'}`);
+    // light the full prerequisite tree in place, right on the map
+    if (view === 'class' && byId[id].grade !== viewClass) { view = 'map'; }
+    pathSet = ancestorsOf(id, i => byId[i]);
     document.getElementById('pathBtn').onclick = () => {
-      focusRoot = id; view = 'focus'; draw(); scrollTopLeft();
+      // scroll to the earliest (lowest-grade) topic on the lit path
+      const start = [...pathSet].sort((a, b) => byId[a].grade - byId[b].grade)[0];
+      const el = document.getElementById('nd-' + start);
+      if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
     };
     draw();
     const el = document.getElementById('nd-' + id);
-    if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
   function selectMicro(id) {
@@ -403,9 +387,11 @@
         const fn = microById[i] ? `openMicro('${i}')` : `select('${i}')`;
         return `<li><span class="plink" onclick="${fn}">${esc(t)}</span>${psoft(p) ? ' <small>(recommended)</small>' : ''}${preason(p) ? `<br><small>${esc(preason(p))}</small>` : ''}</li>`;
       }).join('')}</ul>` : '<p>Just start here!</p>'}`);
+    // light this step's chain within the class roadmap
+    pathSet = ancestorsOf(id, i => microById[i]);
     draw();
     const el = document.getElementById('nd-' + id);
-    if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
   function openMicro(id) {
@@ -458,7 +444,7 @@
     document.getElementById('search').addEventListener('input', e => {
       query = e.target.value.trim().toLowerCase(); draw();
     });
-    document.getElementById('backBtn').onclick = () => { view = 'map'; draw(); };
+    document.getElementById('backBtn').onclick = () => { view = 'map'; pathSet = null; selected = null; draw(); };
     // close the drawer with Esc or by clicking empty canvas
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
     document.getElementById('canvasWrap').addEventListener('click', e => {
