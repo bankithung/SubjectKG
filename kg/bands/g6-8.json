@@ -2523,7 +2523,7 @@
               "diagnosis": "Inverted the fraction while simplifying."
             }
           ],
-          "explanation": "One negative sign makes the number negative: 12/−18 = −12/18. Divide top and bottom by HCF 6: −2/3. Standard form = negative sign (if any) on top, denominator positive, lowest terms."
+          "explanation": "One negative sign makes the number negative: 12/−18 = −12/18. Divide top and bottom by HCF 6: −2/3. Standard form = negative sign (if any) on top, denominator positive, lowest terms. Note −6/9 is the same VALUE as −2/3 — but the question asks for standard form, so the answer is matched by the exact form written: it must be in lowest terms."
         },
         {
           "id": "q2",

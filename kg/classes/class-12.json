@@ -704,7 +704,7 @@
           { "text": "(2, ∞)", "correct": true },
           { "text": "(−∞, ∞), because f(x) > 0 for all x", "misconception": "m2" },
           { "text": "(−∞, 2)", "diagnosis": "Solved f′(x) < 0 (or flipped the inequality); found the decreasing interval instead." },
-          { "text": "(4, ∞)", "diagnosis": "Set x − 4 > 0, dropping the factor 2 incorrectly when differentiating; f′(x) = 2x − 4, not x − 4... the root is x = 2." }
+          { "text": "(4, ∞)", "diagnosis": "Differentiated incorrectly to x − 4 (or solved 2x > 4 as x > 4); the correct root of f′(x) = 2x − 4 is x = 2." }
         ],
         "explanation": "f′(x) = 2x − 4 > 0 ⟺ x > 2, so f increases on (2, ∞). Note f(x) = (x−2)² + 1 is positive EVERYWHERE, yet f still decreases on (−∞, 2): positivity of f and increase of f are unrelated properties."
       }
