@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subjectkg/kg-micro",
+  "title": "Micro-skill Node (per-class in-depth graph)",
+  "description": "One micro-skill inside a macro concept node. Lives in kg/classes/class-NN.json. Micro id = parent macro id + '.' + slug. Array order within a parent = recommended teaching order.",
+  "type": "object",
+  "required": ["id", "parent", "title", "description", "outcomes", "prereqs", "est_minutes", "difficulty"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^g([1-9]|1[0-2])\\.(num|alg|geo|mea|dat|tri|cal|vec)\\.[a-z0-9-]+\\.[a-z0-9-]+$" },
+    "parent": { "type": "string", "description": "Macro node id from kg/spine.json; must be the id minus its last segment." },
+    "title": { "type": "string" },
+    "description": { "type": "string", "description": "1-2 sentences: exactly what this micro-skill is." },
+    "outcomes": { "type": "array", "minItems": 1, "maxItems": 3, "items": { "type": "string" }, "description": "Observable can-do statements, finer-grained than the parent's." },
+    "prereqs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Micro ids (usually earlier micros of the same or sibling topics) and/or macro ids from other grades. The parent's own prerequisites need not be repeated."
+    },
+    "est_minutes": { "type": "integer", "minimum": 5, "maximum": 60 },
+    "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "misconception_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Ids (m1...) of the PARENT node's misconceptions that typically surface at this micro-skill."
+    },
+    "question": {
+      "type": "object",
+      "description": "Optional single diagnostic item for tricky micros; same engineering rules as macro questions.",
+      "required": ["skill", "difficulty", "prompt", "options", "explanation"],
+      "additionalProperties": false,
+      "properties": {
+        "skill": { "enum": ["recall", "procedural", "conceptual", "application"] },
+        "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "prompt": { "type": "string" },
+        "options": {
+          "type": "array", "minItems": 4, "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["text"],
+            "additionalProperties": false,
+            "properties": {
+              "text": { "type": "string" },
+              "correct": { "type": "boolean" },
+              "misconception": { "type": "string", "description": "A PARENT-node misconception id." },
+              "diagnosis": { "type": "string" }
+            }
+          }
+        },
+        "explanation": { "type": "string" }
+      }
+    }
+  }
+}

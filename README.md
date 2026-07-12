@@ -69,8 +69,9 @@ overlay: mastered ✓ / in progress ◐ / ready now ★ / locked 🔒.
 | `harness/schemas/` | Contracts: KG node, student profile, session log |
 | `harness/insights.md` | Cross-student teaching-insights ledger (append-only, evidenced) |
 | `kg/spine.json` | Canonical node IDs, Class 1–12 (immutable) |
-| `kg/bands/*.json` | Full node content by grade band |
-| `kg/math.json` | Built graph (`python3 scripts/build_kg.py`) |
+| `kg/bands/*.json` | Full macro node content by grade band |
+| `kg/classes/class-NN.json` | Per-class in-depth graphs: each topic broken into ordered micro-skills |
+| `kg/math.json` | Built combined graph (`python3 scripts/build_kg.py`) |
 | `viewer/index.html` | Interactive graph viewer (works from `file://`) |
 | `students/` | One folder per student: profile, session logs, generated artifacts |
 | `scripts/` | build / validate / student overlay / NCERT PDF ingestion |

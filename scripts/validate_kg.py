@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ID_RE = re.compile(r"^g([1-9]|1[0-2])\.(num|alg|geo|mea|dat|tri|cal|vec)\.[a-z0-9-]+$")
+MICRO_ID_RE = re.compile(r"^g([1-9]|1[0-2])\.(num|alg|geo|mea|dat|tri|cal|vec)\.[a-z0-9-]+\.[a-z0-9-]+$")
 MODALITIES = {"visual", "verbal", "worked-example", "manipulative", "interactive-html",
               "video", "story", "game", "practice-drill", "socratic"}
 ROUTINES = {"see-think-wonder", "notice-wonder", "think-pair-share", "claim-support-question",
@@ -120,6 +121,75 @@ def check_dag(nodes: list) -> None:
                 warn(f"{n['id']} (g{n['grade']}) depends on higher-grade {p} (g{grade[p]})")
 
 
+def check_micros(nodes: list, spine_ids: set) -> None:
+    """Validate per-class micro-skill graphs attached by build_kg.py."""
+    all_micro_ids = set()
+    for n in nodes:
+        for m in n.get("micros", []):
+            mid = m.get("id", "<missing>")
+            if mid in all_micro_ids:
+                err(f"duplicate micro id {mid}")
+            all_micro_ids.add(mid)
+    mis_by_node = {n["id"]: {mm.get("id") for mm in n.get("misconceptions", [])} for n in nodes}
+
+    for n in nodes:
+        for m in n.get("micros", []):
+            mid = m.get("id", "<missing>")
+            if not MICRO_ID_RE.match(mid):
+                err(f"{mid}: bad micro id format")
+            if m.get("parent") != n["id"]:
+                err(f"{mid}: parent field '{m.get('parent')}' != attached node {n['id']}")
+            if not mid.startswith(n["id"] + "."):
+                err(f"{mid}: id is not parent id + '.slug'")
+            for field in ("title", "description"):
+                if not m.get(field):
+                    err(f"{mid}: missing {field}")
+            if not m.get("outcomes"):
+                err(f"{mid}: needs >=1 outcome")
+            for p in m.get("prereqs", []):
+                if p not in all_micro_ids and p not in spine_ids:
+                    err(f"{mid}: prereq '{p}' is neither a micro nor a spine id")
+                if p == mid:
+                    err(f"{mid}: self-prereq")
+            for r in m.get("misconception_refs", []):
+                if r not in mis_by_node.get(n["id"], set()):
+                    err(f"{mid}: misconception_ref '{r}' not on parent node")
+            q = m.get("question")
+            if q:
+                opts = q.get("options", [])
+                if len(opts) != 4:
+                    err(f"{mid}: question needs exactly 4 options")
+                correct = [o for o in opts if o.get("correct")]
+                if len(correct) != 1:
+                    err(f"{mid}: question needs exactly 1 correct option")
+                for i, o in enumerate(opts):
+                    if o.get("correct"):
+                        continue
+                    if not o.get("misconception") and not o.get("diagnosis"):
+                        err(f"{mid}: option {i} untagged distractor")
+                    if o.get("misconception") and o["misconception"] not in mis_by_node.get(n["id"], set()):
+                        err(f"{mid}: option {i} references unknown parent misconception '{o['misconception']}'")
+
+    # micro-level cycle check (micro->micro edges only)
+    graph = {}
+    for n in nodes:
+        for m in n.get("micros", []):
+            graph[m["id"]] = [p for p in m.get("prereqs", []) if p in all_micro_ids]
+    WHITE, GREY, BLACK = 0, 1, 2
+    color = {k: WHITE for k in graph}
+    def dfs(u, stack):
+        color[u] = GREY
+        for v in graph.get(u, []):
+            if color.get(v) == GREY:
+                err(f"micro prereq cycle: {' -> '.join(stack + [u, v])}")
+            elif color.get(v) == WHITE:
+                dfs(v, stack + [u])
+        color[u] = BLACK
+    for k in graph:
+        if color[k] == WHITE:
+            dfs(k, [])
+
+
 def main() -> int:
     spine = json.loads((ROOT / "kg" / "spine.json").read_text())
     spine_ids = {n["id"] for n in spine["nodes"]}
@@ -140,13 +210,16 @@ def main() -> int:
     if missing:
         err(f"spine nodes missing from build: {sorted(missing)}")
     check_dag(nodes)
+    check_micros(nodes, spine_ids)
 
     for w in warnings:
         print(f"WARN  {w}")
     for e in errors:
         print(f"ERROR {e}")
     n_stub = sum(1 for n in nodes if n.get("stub"))
-    print(f"\n{len(nodes)} nodes ({n_stub} stubs) | {len(errors)} errors | {len(warnings)} warnings")
+    n_micros = sum(len(n.get("micros", [])) for n in nodes)
+    print(f"\n{len(nodes)} nodes ({n_stub} stubs), {n_micros} micro-skills | "
+          f"{len(errors)} errors | {len(warnings)} warnings")
     return 1 if errors else 0
 
 

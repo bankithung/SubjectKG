@@ -5,8 +5,12 @@ description: Explore, visualise, validate, or edit the maths knowledge graph. Ar
 
 # /kg — Knowledge Graph Operations
 
-The graph lives at `kg/math.json` (built from `kg/spine.json` + `kg/bands/*.json` by
-`scripts/build_kg.py`). The interactive viewer is `viewer/index.html`.
+The graph lives at `kg/math.json` (built from `kg/spine.json` + `kg/bands/*.json` +
+`kg/classes/class-NN.json` by `scripts/build_kg.py`). Band files carry macro concept
+nodes; class files carry each class's in-depth micro-skill graph (attached to macro
+nodes as `micros`, schema `harness/schemas/kg-micro.schema.json`). The interactive
+viewer is `viewer/index.html` — full 1-12 map, plus click a CLASS label to open that
+class's in-depth graph.
 
 ## Subcommands
 

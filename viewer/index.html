@@ -39,17 +39,20 @@
           background: var(--surface-1); color: var(--ink-2); font-size: 12px; user-select: none; }
   .chip.off { opacity: 0.35; }
   .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
-  #themeBtn { margin-left: auto; } button.plain { border: 1px solid var(--baseline);
-          background: var(--surface-1); color: var(--ink-1); border-radius: 8px;
-          padding: 6px 10px; cursor: pointer; }
+  #themeBtn { margin-left: auto; }
+  button.plain { border: 1px solid var(--baseline); background: var(--surface-1);
+          color: var(--ink-1); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
   #legendStudent { display: none; gap: 8px; align-items: center; font-size: 12px; color: var(--ink-2); }
   #legendStudent .badge { display: inline-flex; align-items: center; gap: 4px; }
   #wrap { display: flex; }
   #canvasWrap { flex: 1; overflow: auto; position: relative; height: calc(100vh - 58px); }
   #board { position: relative; }
   #edges { position: absolute; inset: 0; pointer-events: none; }
-  .gradeLabel { position: absolute; top: 4px; font-size: 12px; font-weight: 600;
-                color: var(--ink-muted); letter-spacing: 0.04em; }
+  .gradeLabel { position: absolute; top: 4px; font-size: 12px; font-weight: 700;
+                color: var(--ink-muted); letter-spacing: 0.04em; cursor: pointer;
+                padding: 2px 8px; border: 1px solid var(--grid); border-radius: 999px;
+                background: var(--surface-1); }
+  .gradeLabel:hover { color: var(--ink-1); border-color: var(--baseline); }
   .node { position: absolute; width: 210px; background: var(--surface-1);
           border: 1px solid var(--ring); border-left: 4px solid var(--baseline);
           border-radius: 8px; padding: 7px 9px 7px 10px; cursor: pointer;
@@ -57,12 +60,16 @@
   .node:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.18); z-index: 5; }
   .node .t { font-size: 12.5px; font-weight: 600; line-height: 1.3; }
   .node .m { font-size: 11px; color: var(--ink-muted); margin-top: 2px;
-             display: flex; gap: 6px; align-items: center; }
+             display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
   .node.dim { opacity: 0.15; }
   .node.sel { outline: 2px solid var(--edge-hi); }
   .node.onpath { outline: 2px dashed var(--edge-hi); }
-  .stbadge { font-size: 10.5px; font-weight: 700; padding: 0 5px; border-radius: 4px;
-             color: #fff; }
+  .node.topicHead { border-left-width: 6px; background: var(--page); }
+  .node.micro { width: 200px; padding: 6px 8px; }
+  .node.micro .t { font-size: 12px; font-weight: 500; }
+  .stbadge { font-size: 10.5px; font-weight: 700; padding: 0 5px; border-radius: 4px; color: #fff; }
+  .qmark { font-size: 10px; color: var(--ink-muted); border: 1px solid var(--grid);
+           border-radius: 4px; padding: 0 4px; }
   #panel { width: 340px; flex: none; border-left: 1px solid var(--grid);
            background: var(--surface-1); height: calc(100vh - 58px); overflow: auto;
            padding: 16px; display: none; }
@@ -70,19 +77,20 @@
   #panel .sub { color: var(--ink-muted); font-size: 12px; margin-bottom: 10px; }
   #panel h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
               color: var(--ink-2); margin: 14px 0 6px; }
-  #panel ul { padding-left: 18px; } #panel li { margin: 3px 0; }
+  #panel ul, #panel ol { padding-left: 18px; } #panel li { margin: 3px 0; }
   #panel .plink { color: var(--st-frontier); cursor: pointer; text-decoration: underline; }
   #panel p { color: var(--ink-2); }
   .meta { display: flex; gap: 14px; margin-top: 10px; font-size: 12px; color: var(--ink-2); }
-  #pathBtn { margin-top: 12px; }
   #hint { position: fixed; bottom: 12px; left: 16px; font-size: 12px;
           color: var(--ink-muted); background: var(--page); padding: 4px 8px;
           border-radius: 6px; border: 1px solid var(--grid); }
+  #backBtn { display: none; }
 </style>
 </head>
 <body>
 <header>
-  <h1>Maths Knowledge Graph</h1>
+  <h1 id="title">Maths Knowledge Graph</h1>
+  <button class="plain" id="backBtn">← Full map</button>
   <input id="search" type="search" placeholder="Search a topic… (e.g. fractions)">
   <span id="chips"></span>
   <span id="legendStudent"></span>
@@ -92,7 +100,7 @@
   <div id="canvasWrap"><div id="board"><svg id="edges"></svg></div></div>
   <aside id="panel"></aside>
 </div>
-<div id="hint">Click a topic to see details · “Show learning path” highlights everything it builds on</div>
+<div id="hint">Click a topic for details · click a CLASS label to open that class's in-depth graph</div>
 <script src="kg-data.js"></script>
 <script>
   // student-data.js is optional (generated per student); ignore if absent
@@ -104,8 +112,10 @@
 
   const STRAND_ORDER = ['num','alg','geo','mea','dat','tri','cal','vec'];
   const COLW = 240, NODEW = 210, ROWH = 62, TOP = 34, PAD = 16;
-  let nodes = [], byId = {}, pos = {}, activeStrands = new Set(STRAND_ORDER),
-      selected = null, pathSet = null, query = '';
+  const MROWH = 56, MTOPICW = 220;
+  let nodes = [], byId = {}, microById = {}, pos = {}, activeStrands = new Set(STRAND_ORDER),
+      selected = null, pathSet = null, query = '',
+      view = 'map', viewClass = 0; // 'map' | 'class'
 
   function statusOf(id) {
     return (window.STUDENT_DATA && window.STUDENT_DATA.status[id]) || null;
@@ -115,8 +125,7 @@
                     frontier: ['★','ready now','--st-frontier'],
                     locked: ['🔒','locked','--st-locked'] };
 
-  function layout() {
-    // one column per grade; within a column, group by strand (fixed order)
+  function layoutMap() {
     const byGrade = {};
     nodes.forEach(n => (byGrade[n.grade] = byGrade[n.grade] || []).push(n));
     let maxRows = 0;
@@ -126,74 +135,138 @@
       col.forEach((n, i) => { pos[n.id] = { x: PAD + (g - 1) * COLW, y: TOP + i * ROWH }; });
       maxRows = Math.max(maxRows, col.length);
     }
-    const board = document.getElementById('board');
-    board.style.width = (PAD * 2 + 12 * COLW) + 'px';
-    board.style.height = (TOP + maxRows * ROWH + 40) + 'px';
+    sizeBoard(PAD * 2 + 12 * COLW, TOP + maxRows * ROWH + 40);
   }
 
-  function visible(n) {
-    if (!activeStrands.has(n.strand)) return false;
-    if (query && !(n.title + ' ' + n.id).toLowerCase().includes(query)) return false;
-    return true;
+  function layoutClass(g) {
+    // one column per macro topic of this class; header + its micros stacked below
+    pos = {};
+    const topics = nodes.filter(n => n.grade === g)
+      .sort((a, b) => STRAND_ORDER.indexOf(a.strand) - STRAND_ORDER.indexOf(b.strand));
+    let maxRows = 0;
+    topics.forEach((t, ti) => {
+      const x = PAD + ti * MTOPICW;
+      pos[t.id] = { x, y: TOP };
+      (t.micros || []).forEach((m, mi) => { pos[m.id] = { x, y: TOP + ROWH + mi * MROWH }; });
+      maxRows = Math.max(maxRows, (t.micros || []).length);
+    });
+    sizeBoard(PAD * 2 + topics.length * MTOPICW, TOP + ROWH + maxRows * MROWH + 40);
+    return topics;
+  }
+
+  function sizeBoard(w, h) {
+    const board = document.getElementById('board');
+    board.style.width = w + 'px'; board.style.height = h + 'px';
+  }
+
+  function matchesQuery(text) { return !query || text.toLowerCase().includes(query); }
+
+  function nodeDiv(n, cls, borderVar, metaHtml) {
+    const d = document.createElement('div');
+    d.className = 'node ' + cls; d.id = 'nd-' + n.id;
+    d.style.left = pos[n.id].x + 'px'; d.style.top = pos[n.id].y + 'px';
+    d.style.borderLeftColor = borderVar;
+    d.innerHTML = `<div class="t">${n.title}</div><div class="m">${metaHtml}</div>`;
+    return d;
   }
 
   function draw() {
     const board = document.getElementById('board');
     board.querySelectorAll('.node,.gradeLabel').forEach(e => e.remove());
+    document.getElementById('backBtn').style.display = view === 'class' ? 'inline-block' : 'none';
+    document.getElementById('title').textContent = view === 'class'
+      ? `Class ${viewClass} — In-depth Graph` : 'Maths Knowledge Graph';
+    if (view === 'map') drawMap(); else drawClass();
+  }
+
+  function drawMap() {
+    layoutMap();
+    const board = document.getElementById('board');
     for (let g = 1; g <= 12; g++) {
       const lab = document.createElement('div');
-      lab.className = 'gradeLabel'; lab.textContent = 'CLASS ' + g;
+      lab.className = 'gradeLabel'; lab.textContent = 'CLASS ' + g + ' ▸';
+      lab.title = 'Open the in-depth graph for Class ' + g;
       lab.style.left = (PAD + (g - 1) * COLW) + 'px';
+      lab.onclick = () => { view = 'class'; viewClass = g; selected = null; pathSet = null; draw(); };
       board.appendChild(lab);
     }
     nodes.forEach(n => {
-      const d = document.createElement('div');
-      d.className = 'node'; d.id = 'nd-' + n.id;
-      d.style.left = pos[n.id].x + 'px'; d.style.top = pos[n.id].y + 'px';
       const st = statusOf(n.id);
-      d.style.borderLeftColor = st ? `var(${ST_META[st][2]})` : `var(--s-${n.strand})`;
       let badge = '';
       if (st) {
         const [icon, label, cvar] = ST_META[st];
         badge = `<span class="stbadge" style="background:var(${cvar})">${icon} ${label}</span>`;
       }
-      d.innerHTML = `<div class="t">${n.title}</div>
-        <div class="m"><span class="dot" style="background:var(--s-${n.strand})"></span>
-        <span>${window.KG_DATA.strands[n.strand]}</span>${badge}</div>`;
-      if (!visible(n)) d.classList.add('dim');
+      const nm = (n.micros && n.micros.length) ? `<span class="qmark">${n.micros.length} skills</span>` : '';
+      const d = nodeDiv(n, '', st ? `var(${ST_META[st][2]})` : `var(--s-${n.strand})`,
+        `<span class="dot" style="background:var(--s-${n.strand})"></span>
+         <span>${window.KG_DATA.strands[n.strand]}</span>${nm}${badge}`);
+      if (!activeStrands.has(n.strand) || !matchesQuery(n.title + ' ' + n.id)) d.classList.add('dim');
       if (pathSet && !pathSet.has(n.id)) d.classList.add('dim');
       if (pathSet && pathSet.has(n.id) && n.id !== selected) d.classList.add('onpath');
       if (n.id === selected) d.classList.add('sel');
       d.onclick = () => select(n.id);
       board.appendChild(d);
     });
-    drawEdges();
+    drawEdges(nodes.flatMap(n => n.prereqs.map(p => [p, n.id, 24])));
   }
 
-  function drawEdges() {
+  function drawClass() {
+    const topics = layoutClass(viewClass);
+    const board = document.getElementById('board');
+    topics.forEach(t => {
+      const st = statusOf(t.id);
+      let badge = st ? `<span class="stbadge" style="background:var(${ST_META[st][2]})">${ST_META[st][0]} ${ST_META[st][1]}</span>` : '';
+      const d = nodeDiv(t, 'topicHead', `var(--s-${t.strand})`,
+        `<span class="dot" style="background:var(--s-${t.strand})"></span>${window.KG_DATA.strands[t.strand]} ${badge}`);
+      d.style.width = (MTOPICW - 20) + 'px';
+      if (!activeStrands.has(t.strand)) d.classList.add('dim');
+      if (t.id === selected) d.classList.add('sel');
+      d.onclick = () => select(t.id);
+      board.appendChild(d);
+      (t.micros || []).forEach((m, i) => {
+        const md = nodeDiv({ ...m, title: `${i + 1}. ${m.title}` }, 'micro', `var(--s-${t.strand})`,
+          `~${m.est_minutes} min ${m.question ? '<span class="qmark">check ✎</span>' : ''}`);
+        if (!activeStrands.has(t.strand) || !matchesQuery(m.title + ' ' + m.id)) md.classList.add('dim');
+        if (pathSet && !pathSet.has(m.id)) md.classList.add('dim');
+        if (pathSet && pathSet.has(m.id) && m.id !== selected) md.classList.add('onpath');
+        if (m.id === selected) md.classList.add('sel');
+        md.onclick = () => selectMicro(m.id);
+        board.appendChild(md);
+      });
+    });
+    // intra-class micro->micro edges
+    const edges = [];
+    topics.forEach(t => (t.micros || []).forEach(m =>
+      (m.prereqs || []).forEach(p => { if (pos[p] && microById[p]) edges.push([p, m.id, 20]); })));
+    drawEdges(edges);
+  }
+
+  function drawEdges(list) {
     const svg = document.getElementById('edges');
     const board = document.getElementById('board');
-    svg.setAttribute('width', board.style.width); svg.setAttribute('height', board.style.height);
+    svg.setAttribute('width', parseInt(board.style.width)); svg.setAttribute('height', parseInt(board.style.height));
     let html = '';
-    nodes.forEach(n => n.prereqs.forEach(p => {
-      if (!pos[p] || !pos[n.id]) return;
-      const a = pos[p], b = pos[n.id];
-      const x1 = a.x + NODEW, y1 = a.y + 24, x2 = b.x, y2 = b.y + 24;
-      const onPath = pathSet && pathSet.has(n.id) && pathSet.has(p);
+    list.forEach(([from, to, yoff]) => {
+      if (!pos[from] || !pos[to]) return;
+      const a = pos[from], b = pos[to];
+      const w = view === 'class' ? 200 : NODEW;
+      const x1 = a.x + w, y1 = a.y + yoff, x2 = b.x, y2 = b.y + yoff;
+      const onPath = pathSet && pathSet.has(to) && pathSet.has(from);
       const dimmed = pathSet && !onPath;
-      const c = (x2 - x1) / 2;
+      const c = Math.max(30, (x2 - x1) / 2);
       html += `<path d="M${x1},${y1} C${x1 + c},${y1} ${x2 - c},${y2} ${x2},${y2}"
         fill="none" stroke="${onPath ? 'var(--edge-hi)' : 'var(--edge)'}"
         stroke-width="${onPath ? 2 : 1.2}" opacity="${dimmed ? 0.12 : 1}"/>`;
-    }));
+    });
     svg.innerHTML = html;
   }
 
-  function ancestors(id) {
+  function ancestors(id, getPrereqs) {
     const seen = new Set([id]), stack = [id];
     while (stack.length) {
-      const cur = byId[stack.pop()];
-      (cur.prereqs || []).forEach(p => { if (!seen.has(p)) { seen.add(p); stack.push(p); } });
+      const prs = getPrereqs(stack.pop()) || [];
+      prs.forEach(p => { if (!seen.has(p)) { seen.add(p); stack.push(p); } });
     }
     return seen;
   }
@@ -211,14 +284,51 @@
       <p style="margin-top:8px">${n.description || '<i>(details being authored)</i>'}</p>
       <div class="meta">${n.difficulty ? `difficulty ${'●'.repeat(n.difficulty)}${'○'.repeat(5 - n.difficulty)}` : ''}
         ${n.est_minutes ? `~${n.est_minutes} min` : ''}</div>
+      ${n.micros && n.micros.length ? `<h3>Step by step (${n.micros.length} skills)</h3>
+        <ol>${n.micros.map(m => `<li><span class="plink" onclick="openMicro('${m.id}')">${m.title}</span> <small>~${m.est_minutes}m</small></li>`).join('')}</ol>` : ''}
       ${n.outcomes && n.outcomes.length ? `<h3>You'll be able to…</h3><ul>${n.outcomes.map(o => `<li>${o}</li>`).join('')}</ul>` : ''}
       <h3>Learn these first</h3>
       ${n.prereqs.length ? `<ul>${n.prereqs.map(p => `<li><span class="plink" onclick="select('${p}')">${byId[p] ? byId[p].title : p}</span>${statusOf(p) === 'mastered' ? ' ✓' : ''}</li>`).join('')}</ul>` : '<p>Nothing — this is a starting point!</p>'}
       <h3>Unlocks next</h3>
       ${(() => { const deps = nodes.filter(x => x.prereqs.includes(id)); return deps.length ? `<ul>${deps.map(x => `<li><span class="plink" onclick="select('${x.id}')">${x.title}</span></li>`).join('')}</ul>` : '<p>—</p>'; })()}
       <button class="plain" id="pathBtn">Show full learning path</button>`;
-    document.getElementById('pathBtn').onclick = () => { pathSet = ancestors(id); draw(); scrollToNode(id); };
+    document.getElementById('pathBtn').onclick = () => {
+      if (view === 'class') { view = 'map'; }
+      pathSet = ancestors(id, i => byId[i] && byId[i].prereqs); draw(); scrollToNode(id);
+    };
     draw();
+  }
+
+  function selectMicro(id) {
+    selected = id;
+    const m = microById[id], parent = byId[m.parent], panel = document.getElementById('panel');
+    panel.style.display = 'block';
+    panel.innerHTML = `
+      <h2>${m.title}</h2>
+      <div class="sub">micro-skill of <span class="plink" onclick="select('${parent.id}')">${parent.title}</span> · Class ${parent.grade}</div>
+      <p style="margin-top:8px">${m.description}</p>
+      <div class="meta">difficulty ${'●'.repeat(m.difficulty)}${'○'.repeat(5 - m.difficulty)} · ~${m.est_minutes} min ${m.question ? '· has a check question' : ''}</div>
+      ${m.outcomes.length ? `<h3>You'll be able to…</h3><ul>${m.outcomes.map(o => `<li>${o}</li>`).join('')}</ul>` : ''}
+      <h3>Learn these first</h3>
+      ${m.prereqs.length ? `<ul>${m.prereqs.map(p => {
+        const t = microById[p] ? microById[p].title : (byId[p] ? byId[p].title + ' (Class ' + byId[p].grade + ')' : p);
+        const fn = microById[p] ? `openMicro('${p}')` : `select('${p}')`;
+        return `<li><span class="plink" onclick="${fn}">${t}</span></li>`;
+      }).join('')}</ul>` : '<p>Just start here!</p>'}
+      <button class="plain" id="pathBtn">Highlight path within this class</button>`;
+    document.getElementById('pathBtn').onclick = () => {
+      pathSet = ancestors(id, i => microById[i] && microById[i].prereqs); draw(); scrollToNode(id);
+    };
+    draw();
+  }
+
+  // navigate to a micro: ensure we're in the right class view first
+  function openMicro(id) {
+    const m = microById[id];
+    if (!m) return;
+    const g = byId[m.parent].grade;
+    if (view !== 'class' || viewClass !== g) { view = 'class'; viewClass = g; }
+    selectMicro(id); scrollToNode(id);
   }
 
   function scrollToNode(id) {
@@ -253,11 +363,17 @@
     if (booted) { buildStudentLegend(); draw(); return; }
     booted = true;
     nodes = window.KG_DATA.nodes;
-    nodes.forEach(n => byId[n.id] = n);
-    layout(); buildChips(); buildStudentLegend(); draw();
+    nodes.forEach(n => {
+      byId[n.id] = n;
+      (n.micros || []).forEach(m => microById[m.id] = m);
+    });
+    buildChips(); buildStudentLegend(); draw();
     document.getElementById('search').addEventListener('input', e => {
       query = e.target.value.trim().toLowerCase(); pathSet = null; draw();
     });
+    document.getElementById('backBtn').onclick = () => {
+      view = 'map'; selected = null; pathSet = null; draw();
+    };
     document.getElementById('themeBtn').onclick = () => {
       const r = document.documentElement;
       r.dataset.theme = r.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -265,7 +381,6 @@
     if (matchMedia('(prefers-color-scheme: dark)').matches)
       document.documentElement.dataset.theme = 'dark';
   }
-  // boot even if student-data.js never loads
   setTimeout(() => init(false), 150);
 </script>
 </body>
