@@ -1,0 +1,1119 @@
+{
+  "class": 1,
+  "micros": [
+    {
+      "id": "g1.num.counting-to-9.one-to-one-counting",
+      "parent": "g1.num.counting-to-9",
+      "title": "Touch and Count: One Number per Object",
+      "description": "Counting a small group by touching each object exactly once while saying exactly one number name for it. Nothing gets skipped, nothing gets counted twice.",
+      "outcomes": [
+        "Can touch-count up to 9 objects, one number name per object",
+        "Can slide counted objects into a 'done' pile so none are skipped or repeated"
+      ],
+      "prereqs": [],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "Count the stars: ⭐ ⭐ ⭐ ⭐. How many stars are there?",
+        "options": [
+          { "text": "4", "correct": true },
+          { "text": "3", "misconception": "m3", "diagnosis": "Skipped one star while counting." },
+          { "text": "5", "misconception": "m3", "diagnosis": "Counted one star twice." },
+          { "text": "9", "misconception": "m1", "diagnosis": "Recited the counting rhyme to the end instead of stopping at the last star." }
+        ],
+        "explanation": "Touch each star once as you count: 1, 2, 3, 4. There are 4 stars."
+      }
+    },
+    {
+      "id": "g1.num.counting-to-9.cardinality-last-number",
+      "parent": "g1.num.counting-to-9",
+      "title": "The Last Number Tells How Many",
+      "description": "Understanding that after counting a group, the last number said is the size of the WHOLE group — you can answer 'how many?' without counting again.",
+      "outcomes": [
+        "Can answer 'how many?' with the last number counted, without recounting",
+        "Can say how many objects are hiding after they are covered"
+      ],
+      "prereqs": ["g1.num.counting-to-9.one-to-one-counting"],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Anu counts her bangles: 1, 2, 3, 4, 5, 6. How many bangles does she have in all?",
+        "options": [
+          { "text": "6", "correct": true },
+          { "text": "She must count again to find out", "misconception": "m1", "diagnosis": "Does not trust that the last number tells the size of the whole group." },
+          { "text": "Only the last bangle is called 6", "misconception": "m1" },
+          { "text": "1", "diagnosis": "Said the first number instead of the last." }
+        ],
+        "explanation": "The last number we say when counting tells how many there are altogether. Anu said 6 last, so she has 6 bangles."
+      }
+    },
+    {
+      "id": "g1.num.counting-to-9.counting-any-order",
+      "parent": "g1.num.counting-to-9",
+      "title": "Still the Same Number: Count in Any Order",
+      "description": "Discovering that a group keeps its number when the objects are moved, spread out or counted in a different order. Rearranging changes how it looks, not how many.",
+      "outcomes": [
+        "Can predict that a rearranged group still has the same count",
+        "Can count the same group starting from different objects and get the same answer"
+      ],
+      "prereqs": ["g1.num.counting-to-9.cardinality-last-number"],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "You counted 8 pebbles in a line. Then you push them all into one small heap. How many pebbles are in the heap?",
+        "options": [
+          { "text": "8", "correct": true },
+          { "text": "7", "misconception": "m2", "diagnosis": "Thinks squeezing the pebbles together makes fewer." },
+          { "text": "9", "misconception": "m2" },
+          { "text": "You cannot tell without counting again", "misconception": "m2" }
+        ],
+        "explanation": "No pebble came and no pebble went away, so there are still 8. Moving things around never changes how many there are."
+      }
+    },
+    {
+      "id": "g1.num.counting-to-9.comparing-groups",
+      "parent": "g1.num.counting-to-9",
+      "title": "More, Fewer or the Same",
+      "description": "Comparing two small groups by matching objects one-to-one or by counting both, and saying which group has more, which has fewer, or that they are the same.",
+      "outcomes": [
+        "Can match two groups object-to-object to see which has more",
+        "Can use the words more, fewer and same correctly for groups up to 9"
+      ],
+      "prereqs": ["g1.num.counting-to-9.cardinality-last-number"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g1.num.counting-to-9.writing-numerals",
+      "parent": "g1.num.counting-to-9",
+      "title": "Reading and Writing 1 to 9",
+      "description": "Recognising the numerals 1 to 9, matching each numeral to a group of that many objects, and writing the numerals with correct strokes.",
+      "outcomes": [
+        "Can point to the right numeral for a counted group",
+        "Can write the numerals 1 to 9 legibly",
+        "Can count out a requested number of objects from a bigger pile"
+      ],
+      "prereqs": ["g1.num.counting-to-9.cardinality-last-number"],
+      "est_minutes": 20,
+      "difficulty": 1
+    },
+    {
+      "id": "g1.num.zero.zero-means-none",
+      "parent": "g1.num.zero",
+      "title": "Zero Means None",
+      "description": "Meeting zero as the number for 'nothing there': an empty plate, an empty nest. Zero is a real number and a perfectly good answer to 'how many?'.",
+      "outcomes": [
+        "Can answer 'how many?' with zero when a group is empty",
+        "Can say that zero means 'none' or 'nothing to count'"
+      ],
+      "prereqs": ["g1.num.counting-to-9.cardinality-last-number"],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "A nest had 2 birds. Both birds flew away. How many birds are in the nest now?",
+        "options": [
+          { "text": "0", "correct": true },
+          { "text": "2", "diagnosis": "Answered with the starting amount instead of what is left." },
+          { "text": "1", "diagnosis": "Thinks at least one must always remain." },
+          { "text": "There is no number for an empty nest", "misconception": "m1" }
+        ],
+        "explanation": "Both birds are gone, so the nest has none. The number for 'none' is zero, written 0. Zero is a real number!"
+      }
+    },
+    {
+      "id": "g1.num.zero.writing-zero",
+      "parent": "g1.num.zero",
+      "title": "Writing the Numeral 0",
+      "description": "Writing the symbol 0 and using it as an answer: whenever a count comes out empty, we write 0 just like any other number.",
+      "outcomes": [
+        "Can write the numeral 0",
+        "Can write 0 as the answer when a group is empty"
+      ],
+      "prereqs": ["g1.num.zero.zero-means-none", "g1.num.counting-to-9.writing-numerals"],
+      "est_minutes": 10,
+      "difficulty": 1
+    },
+    {
+      "id": "g1.num.zero.zero-before-one",
+      "parent": "g1.num.zero",
+      "title": "Zero's Home: Just Before 1",
+      "description": "Placing zero in the number order — counting down 3, 2, 1, 0 and starting the number line at 0, just before 1.",
+      "outcomes": [
+        "Can count down to zero (3, 2, 1, 0)",
+        "Can place 0 before 1 when ordering number cards"
+      ],
+      "prereqs": ["g1.num.zero.zero-means-none"],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "We count down: 2, 1, ___. What number comes next?",
+        "options": [
+          { "text": "0", "correct": true },
+          { "text": "Nothing — counting stops at 1", "misconception": "m1" },
+          { "text": "3", "diagnosis": "Counted up instead of down." },
+          { "text": "10", "misconception": "m2", "diagnosis": "Placed zero after the other numbers, like on a phone keypad." }
+        ],
+        "explanation": "Counting down goes 2, 1, 0. Zero lives just before 1 — it is the number for 'none left'."
+      }
+    },
+    {
+      "id": "g1.num.zero.adding-taking-away-zero",
+      "parent": "g1.num.zero",
+      "title": "Adding and Taking Away Zero",
+      "description": "Seeing with objects that adding zero or taking away zero changes nothing: 6 + 0 = 6 and 6 − 0 = 6. An empty plate joined to your plate adds no biscuits.",
+      "outcomes": [
+        "Can answer n + 0 and n − 0 correctly for small numbers",
+        "Can explain with objects why adding zero changes nothing"
+      ],
+      "prereqs": ["g1.num.zero.zero-means-none"],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 1,
+        "prompt": "What is 6 + 0?",
+        "options": [
+          { "text": "6", "correct": true },
+          { "text": "0", "misconception": "m3", "diagnosis": "Thinks adding zero destroys the number." },
+          { "text": "7", "diagnosis": "Treated the 0 as if it were 1 and counted on." },
+          { "text": "60", "diagnosis": "Wrote the two digits side by side instead of adding." }
+        ],
+        "explanation": "Adding 0 means adding nothing. You had 6, you added nothing, so you still have 6."
+      }
+    },
+    {
+      "id": "g1.num.numbers-to-20.counting-objects-to-20",
+      "parent": "g1.num.numbers-to-20",
+      "title": "Counting On Up to 20",
+      "description": "Saying the counting sequence from 1 to 20 without gaps and counting up to 20 objects accurately, with extra care on the tricky teen words.",
+      "outcomes": [
+        "Can say the numbers 1 to 20 in order with no skips",
+        "Can count up to 20 objects accurately"
+      ],
+      "prereqs": ["g1.num.counting-to-9.one-to-one-counting", "g1.num.counting-to-9.cardinality-last-number"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "Count on: 12, 13, 14, ___. What comes next?",
+        "options": [
+          { "text": "15", "correct": true },
+          { "text": "16", "misconception": "m2", "diagnosis": "Skipped fifteen in the teen sequence." },
+          { "text": "14", "diagnosis": "Repeated the last number instead of counting on." },
+          { "text": "51", "misconception": "m1", "diagnosis": "Reversed the digits of fifteen." }
+        ],
+        "explanation": "The teen numbers go 13, 14, 15, 16, ... After 14 comes 15 — don't let fifteen hide!"
+      }
+    },
+    {
+      "id": "g1.num.numbers-to-20.teen-numbers-ten-and-more",
+      "parent": "g1.num.numbers-to-20",
+      "title": "Teen Numbers: A Ten and Some More",
+      "description": "Building every teen number as one full group of ten plus loose ones — 14 is 10 and 4. Ten-frames and bundles make the hidden ten visible.",
+      "outcomes": [
+        "Can show a teen number as one bundle of ten and loose ones",
+        "Can say how many tens and how many ones are in a teen number"
+      ],
+      "prereqs": ["g1.num.numbers-to-20.counting-objects-to-20"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "One egg tray is full with 10 eggs, and 6 more eggs sit beside it. How many eggs in all?",
+        "options": [
+          { "text": "16", "correct": true },
+          { "text": "6", "misconception": "m3", "diagnosis": "Counted only the loose eggs; did not include the full tray of ten." },
+          { "text": "106", "diagnosis": "Wrote 10 and 6 side by side instead of combining them." },
+          { "text": "61", "misconception": "m1", "diagnosis": "Reversed the tens and ones digits." }
+        ],
+        "explanation": "The tray is 10, then count on the loose eggs: 11, 12, 13, 14, 15, 16. Ten and six make sixteen."
+      }
+    },
+    {
+      "id": "g1.num.numbers-to-20.reading-writing-teens",
+      "parent": "g1.num.numbers-to-20",
+      "title": "Reading and Writing 10 to 20",
+      "description": "Reading and writing the numerals 10 to 20, writing the ten FIRST even though English says the ones first ('four-teen' is written 14, not 41).",
+      "outcomes": [
+        "Can write the numeral for any spoken teen number",
+        "Can read 10 to 20 correctly without reversing digits"
+      ],
+      "prereqs": ["g1.num.numbers-to-20.teen-numbers-ten-and-more", "g1.num.counting-to-9.writing-numerals"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "Which of these is the number fourteen?",
+        "options": [
+          { "text": "14", "correct": true },
+          { "text": "41", "misconception": "m1", "diagnosis": "Wrote the 'four' first because it is heard first." },
+          { "text": "40", "misconception": "m1", "diagnosis": "Confused fourteen with forty." },
+          { "text": "4", "diagnosis": "Heard only the 'four' part of the word." }
+        ],
+        "explanation": "Fourteen is ten and four. We write the ten part first: 14. Careful — 41 is forty-one, a much bigger number!"
+      }
+    },
+    {
+      "id": "g1.num.numbers-to-20.ordering-to-20",
+      "parent": "g1.num.numbers-to-20",
+      "title": "Before, After and Between up to 20",
+      "description": "Saying which number comes just before, just after or between given numbers up to 20, and arranging shuffled number cards in order starting from 0.",
+      "outcomes": [
+        "Can say the number just before and just after any number up to 20",
+        "Can arrange number cards 0 to 20 in order"
+      ],
+      "prereqs": ["g1.num.numbers-to-20.counting-objects-to-20", "g1.num.zero.zero-before-one"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g1.num.numbers-to-20.comparing-to-20",
+      "parent": "g1.num.numbers-to-20",
+      "title": "Which Number Is More?",
+      "description": "Comparing two numbers up to 20 using counting order and ten-frames: the number that comes later in counting is more.",
+      "outcomes": [
+        "Can say which of two numbers up to 20 is more and which is less",
+        "Can explain the answer using counting order or ten-frames"
+      ],
+      "prereqs": ["g1.num.numbers-to-20.ordering-to-20", "g1.num.counting-to-9.comparing-groups"],
+      "est_minutes": 10,
+      "difficulty": 1
+    },
+    {
+      "id": "g1.num.add-sub-within-20.addition-as-joining",
+      "parent": "g1.num.add-sub-within-20",
+      "title": "Adding Is Putting Together",
+      "description": "Joining two small groups of objects and counting all of them to find the total. Meeting the plus sign and writing simple addition sentences like 3 + 2 = 5.",
+      "outcomes": [
+        "Can join two groups of objects and count the total",
+        "Can write a matching addition sentence with + and =",
+        "Can act out simple joining stories"
+      ],
+      "prereqs": ["g1.num.counting-to-9.cardinality-last-number", "g1.num.numbers-to-20.counting-objects-to-20"],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g1.num.add-sub-within-20.counting-on-to-add",
+      "parent": "g1.num.add-sub-within-20",
+      "title": "Counting On from the Bigger Number",
+      "description": "Adding by putting the bigger number 'in your head' and counting on only the new jumps: for 9 + 4, say 9... then 10, 11, 12, 13. The start number is already done.",
+      "outcomes": [
+        "Can add within 20 by counting on from the bigger number",
+        "Can show the jumps on fingers without counting the start number"
+      ],
+      "prereqs": ["g1.num.add-sub-within-20.addition-as-joining", "g1.num.numbers-to-20.ordering-to-20"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is 9 + 4?",
+        "options": [
+          { "text": "13", "correct": true },
+          { "text": "12", "misconception": "m1", "diagnosis": "Started counting at 9 instead of after it." },
+          { "text": "14", "diagnosis": "Counted one jump too many." },
+          { "text": "5", "diagnosis": "Subtracted instead of adding." }
+        ],
+        "explanation": "Put 9 in your head, then count on 4 jumps: 10, 11, 12, 13. So 9 + 4 = 13."
+      }
+    },
+    {
+      "id": "g1.num.add-sub-within-20.subtraction-as-taking-away",
+      "parent": "g1.num.add-sub-within-20",
+      "title": "Subtracting Is Taking Away",
+      "description": "Taking objects away from a group and counting what is left. Meeting the minus sign and discovering that order matters — you cannot take away more than you have.",
+      "outcomes": [
+        "Can act out take-away stories and count what is left",
+        "Can write a matching subtraction sentence with − and =",
+        "Can explain why 4 − 9 cannot be acted out with real objects"
+      ],
+      "prereqs": ["g1.num.add-sub-within-20.addition-as-joining", "g1.num.zero.zero-means-none"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Ravi has 4 laddoos on his plate. He wants to give 9 laddoos to his friend. What happens?",
+        "options": [
+          { "text": "He cannot — he does not have 9 laddoos to give", "correct": true },
+          { "text": "He gives them, and 5 laddoos are left", "misconception": "m2", "diagnosis": "Swapped the numbers and worked out 9 − 4 instead." },
+          { "text": "He will have 13 laddoos", "diagnosis": "Added instead of taking away." },
+          { "text": "He gives them all and still has 4 left", "diagnosis": "Did not take anything away." }
+        ],
+        "explanation": "You can only take away what is there. Ravi has just 4 laddoos, so he cannot give 9. In take-away, the order of the numbers matters!"
+      }
+    },
+    {
+      "id": "g1.num.add-sub-within-20.counting-back-to-subtract",
+      "parent": "g1.num.add-sub-within-20",
+      "title": "Counting Back to Subtract",
+      "description": "Subtracting a small number by counting backwards from the start: for 11 − 2, say 11... then 10, 9. Count the jumps back, not the starting number.",
+      "outcomes": [
+        "Can subtract within 20 by counting back",
+        "Can count the jumps back without counting the start number as a jump"
+      ],
+      "prereqs": ["g1.num.add-sub-within-20.subtraction-as-taking-away", "g1.num.zero.zero-before-one"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "What is 11 − 2?",
+        "options": [
+          { "text": "9", "correct": true },
+          { "text": "10", "misconception": "m1", "diagnosis": "Counted the starting number 11 as the first step back." },
+          { "text": "13", "diagnosis": "Added instead of subtracting." },
+          { "text": "2", "diagnosis": "Answered with the number being taken away." }
+        ],
+        "explanation": "Start at 11 and take 2 jumps back: 10, 9. So 11 − 2 = 9."
+      }
+    },
+    {
+      "id": "g1.num.add-sub-within-20.make-a-ten",
+      "parent": "g1.num.add-sub-within-20",
+      "title": "The Make-a-Ten Trick",
+      "description": "Adding across ten by filling the ten first: for 8 + 5, give 2 to the 8 to make 10, then add the 3 that is left — 13. Ten-frames make the move visible.",
+      "outcomes": [
+        "Can break the smaller number to make a ten and then add the rest",
+        "Can show the make-a-ten move on a ten-frame"
+      ],
+      "prereqs": ["g1.num.add-sub-within-20.counting-on-to-add", "g1.num.numbers-to-20.teen-numbers-ten-and-more"],
+      "est_minutes": 20,
+      "difficulty": 2
+    },
+    {
+      "id": "g1.num.add-sub-within-20.missing-number-facts",
+      "parent": "g1.num.add-sub-within-20",
+      "title": "Missing Number Facts and the Balance Meaning of =",
+      "description": "Finding the missing number in facts like 5 + __ = 9, reading '=' as 'is the same as' — both sides of the equals sign must balance like a seesaw.",
+      "outcomes": [
+        "Can find the missing number in facts like 9 + __ = 15",
+        "Can say whether number sentences like 6 + 1 = 5 + 2 are true or false"
+      ],
+      "prereqs": ["g1.num.add-sub-within-20.counting-on-to-add", "g1.num.add-sub-within-20.subtraction-as-taking-away"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Find the missing number: 5 + ___ = 9",
+        "options": [
+          { "text": "4", "correct": true },
+          { "text": "14", "misconception": "m3", "diagnosis": "Added the two numbers seen instead of making both sides the same." },
+          { "text": "3", "diagnosis": "Stopped counting up one number too early." },
+          { "text": "9", "diagnosis": "Repeated the total instead of finding the missing part." }
+        ],
+        "explanation": "Both sides of = must be the same amount. Count up from 5 to 9: 6, 7, 8, 9 — that is 4 jumps. So 5 + 4 = 9."
+      }
+    },
+    {
+      "id": "g1.num.numbers-to-99.bundles-of-ten",
+      "parent": "g1.num.numbers-to-99",
+      "title": "Making Bundles of Ten",
+      "description": "Grouping loose sticks into bundles of ten and counting bundles by tens: 3 bundles means 10, 20, 30. Groups of ten are the building blocks of big numbers.",
+      "outcomes": [
+        "Can bundle loose objects into groups of ten",
+        "Can count bundles by tens: 10, 20, 30, ..."
+      ],
+      "prereqs": ["g1.num.numbers-to-20.teen-numbers-ten-and-more"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g1.num.numbers-to-99.tens-and-ones",
+      "parent": "g1.num.numbers-to-99",
+      "title": "Tens and Ones Inside a Number",
+      "description": "Seeing that a 2-digit number is made of tens and ones: 47 is 4 bundles of ten (forty) and 7 loose ones. The place of a digit tells what it is worth.",
+      "outcomes": [
+        "Can say how many tens and ones are in any 2-digit number",
+        "Can build a given 2-digit number from bundles and loose sticks"
+      ],
+      "prereqs": ["g1.num.numbers-to-99.bundles-of-ten"],
+      "est_minutes": 20,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "In the number 53, what does the digit 5 stand for?",
+        "options": [
+          { "text": "5 tens, which is 50", "correct": true },
+          { "text": "Just 5", "misconception": "m2" },
+          { "text": "5 ones", "misconception": "m2", "diagnosis": "Applied 'ones' to the tens place." },
+          { "text": "53", "diagnosis": "Thinks each digit stands for the whole number." }
+        ],
+        "explanation": "In 53 the 5 sits in the tens place, so it means 5 tens = 50. The 3 means 3 ones. Together: 50 + 3 = 53."
+      }
+    },
+    {
+      "id": "g1.num.numbers-to-99.reading-writing-2-digit",
+      "parent": "g1.num.numbers-to-99",
+      "title": "Reading and Writing 2-digit Numbers",
+      "description": "Writing 2-digit numbers from their names using place-value cards: 'sixty-three' is the 60 card with the 3 sliding over the 0 — two digits, 63, never 603.",
+      "outcomes": [
+        "Can write the numeral for a spoken 2-digit number",
+        "Can read any 2-digit number aloud correctly"
+      ],
+      "prereqs": ["g1.num.numbers-to-99.tens-and-ones", "g1.num.numbers-to-20.reading-writing-teens"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 2,
+        "prompt": "How do we write the number sixty-three?",
+        "options": [
+          { "text": "63", "correct": true },
+          { "text": "603", "misconception": "m1", "diagnosis": "Wrote 'sixty' then 'three' side by side." },
+          { "text": "36", "diagnosis": "Reversed the tens and ones digits." },
+          { "text": "60", "diagnosis": "Wrote the sixty but dropped the three ones." }
+        ],
+        "explanation": "Sixty-three is 6 tens and 3 ones. The 3 sits in the ones place of 60, so we write 63 — just two digits."
+      }
+    },
+    {
+      "id": "g1.num.numbers-to-99.crossing-decades",
+      "parent": "g1.num.numbers-to-99",
+      "title": "Counting Past 39, 49, 59...",
+      "description": "Counting smoothly across decade numbers: after 49 the ten ones bundle into a new ten, making 50. The 100-chart shows the same jump at the end of every row.",
+      "outcomes": [
+        "Can count on across any decade (39 to 40, 59 to 60) without stalling",
+        "Can explain with bundles why 49 + 1 makes 50"
+      ],
+      "prereqs": ["g1.num.numbers-to-99.tens-and-ones", "g1.num.numbers-to-20.counting-objects-to-20"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Count on: 48, 49, ___. What comes next?",
+        "options": [
+          { "text": "50", "correct": true },
+          { "text": "Forty-ten", "misconception": "m3" },
+          { "text": "60", "misconception": "m3", "diagnosis": "Jumped to the wrong decade after 49." },
+          { "text": "40", "diagnosis": "Went backwards to the start of the decade." }
+        ],
+        "explanation": "After 49, the ten loose ones make a new bundle: 4 tens and 10 ones become 5 tens. The next number is 50."
+      }
+    },
+    {
+      "id": "g1.num.numbers-to-99.skip-counting-by-tens",
+      "parent": "g1.num.numbers-to-99",
+      "title": "Skip Counting by Tens",
+      "description": "Counting by tens from 10 to 90 — forwards and backwards — and noticing that the ones digit stays 0 while the tens digit climbs.",
+      "outcomes": [
+        "Can skip count by tens: 10, 20, 30, ... 90",
+        "Can continue a tens count from any decade number"
+      ],
+      "prereqs": ["g1.num.numbers-to-99.bundles-of-ten"],
+      "est_minutes": 10,
+      "difficulty": 1
+    },
+    {
+      "id": "g1.num.money-intro.naming-coins-notes",
+      "parent": "g1.num.money-intro",
+      "title": "Naming Coins and Notes",
+      "description": "Recognising and naming the common coins (₹1, ₹2, ₹5, ₹10) and notes (₹10, ₹20, ₹50) by reading the value printed on each one.",
+      "outcomes": [
+        "Can name the common coins and notes",
+        "Can find and read the printed value on any coin or note"
+      ],
+      "prereqs": ["g1.num.numbers-to-20.reading-writing-teens"],
+      "est_minutes": 10,
+      "difficulty": 1
+    },
+    {
+      "id": "g1.num.money-intro.comparing-coin-values",
+      "parent": "g1.num.money-intro",
+      "title": "Which Is Worth More?",
+      "description": "Comparing coins and notes by the printed number, not by size or shininess. A small ₹2 coin beats a big old ₹1 coin.",
+      "outcomes": [
+        "Can compare two coins or notes by their printed values",
+        "Can explain that a coin's size does not decide its value"
+      ],
+      "prereqs": ["g1.num.money-intro.naming-coins-notes", "g1.num.numbers-to-20.comparing-to-20"],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m1", "m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "An old ₹1 coin is big. A new ₹2 coin is small. Which coin is worth more?",
+        "options": [
+          { "text": "The ₹2 coin — the printed number 2 is more than 1", "correct": true },
+          { "text": "The ₹1 coin, because it is bigger", "misconception": "m2" },
+          { "text": "They are worth the same — one coin each", "misconception": "m3", "diagnosis": "Counted pieces of money instead of reading the values." },
+          { "text": "The heavier one", "misconception": "m2", "diagnosis": "Judges value by how the coin feels, not by the printed number." }
+        ],
+        "explanation": "The number printed on a coin tells its value. 2 is more than 1, so the small ₹2 coin is worth more than the big ₹1 coin."
+      }
+    },
+    {
+      "id": "g1.num.money-intro.totalling-small-amounts",
+      "parent": "g1.num.money-intro",
+      "title": "Adding Up Coins and Notes",
+      "description": "Finding the total of two or three small coins and notes by counting on from the biggest value: a ₹10 note and a ₹2 coin make 10... 11, 12.",
+      "outcomes": [
+        "Can find the total of two or three coins and notes",
+        "Can count on by each piece's value, not by pieces"
+      ],
+      "prereqs": ["g1.num.money-intro.naming-coins-notes", "g1.num.add-sub-within-20.counting-on-to-add"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "procedural",
+        "difficulty": 2,
+        "prompt": "Meena has a ₹5 coin, a ₹2 coin and a ₹1 coin. How much money does she have?",
+        "options": [
+          { "text": "₹8", "correct": true },
+          { "text": "₹3", "misconception": "m3", "diagnosis": "Counted 3 pieces of money instead of adding the values." },
+          { "text": "₹7", "diagnosis": "Missed adding one of the coins." },
+          { "text": "₹521", "diagnosis": "Wrote the values side by side instead of adding them." }
+        ],
+        "explanation": "Add the printed values: 5, then 2 more makes 7, then 1 more makes 8. Meena has ₹8."
+      }
+    },
+    {
+      "id": "g1.num.money-intro.same-amount-different-coins",
+      "parent": "g1.num.money-intro",
+      "title": "Same Money, Different Coins",
+      "description": "Showing one amount in different ways — two ₹5 coins are worth the same as one ₹10 coin. Fewer pieces can still be more money.",
+      "outcomes": [
+        "Can show a small amount using different sets of coins",
+        "Can check whether two sets of coins are worth the same by adding values"
+      ],
+      "prereqs": ["g1.num.money-intro.totalling-small-amounts"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "Which of these is worth the SAME as one ₹10 note?",
+        "options": [
+          { "text": "Five ₹2 coins", "correct": true },
+          { "text": "Seven ₹1 coins", "misconception": "m1", "diagnosis": "Seven coins feel like a lot, but they total only ₹7." },
+          { "text": "Three ₹2 coins", "misconception": "m3", "diagnosis": "Did not add the values — three ₹2 coins make only ₹6." },
+          { "text": "One ₹5 coin", "diagnosis": "Picked the biggest single coin without checking; ₹5 is only half of ₹10." }
+        ],
+        "explanation": "Five ₹2 coins make 2 + 2 + 2 + 2 + 2 = 10, the same as the ₹10 note. The other choices total ₹7, ₹6 and ₹5."
+      }
+    },
+    {
+      "id": "g1.geo.shapes-around-us.naming-flat-shapes",
+      "parent": "g1.geo.shapes-around-us",
+      "title": "Circle, Triangle, Square, Rectangle",
+      "description": "Naming the four basic flat shapes and telling them apart by counting sides and corners: a triangle has 3, a square and rectangle have 4, a circle has none.",
+      "outcomes": [
+        "Can name circle, triangle, square and rectangle",
+        "Can count the sides and corners of a flat shape"
+      ],
+      "prereqs": [],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "How many corners does a square have?",
+        "options": [
+          { "text": "4", "correct": true },
+          { "text": "3", "diagnosis": "Confused the square with a triangle." },
+          { "text": "0", "diagnosis": "Confused the square with a circle." },
+          { "text": "It depends on how the square sits", "misconception": "m1", "diagnosis": "Thinks turning a shape changes what it is." }
+        ],
+        "explanation": "Every square has 4 straight sides and 4 corners, however it sits. Counting sides and corners is how we know a shape's name."
+      }
+    },
+    {
+      "id": "g1.geo.shapes-around-us.shapes-any-size-or-turn",
+      "parent": "g1.geo.shapes-around-us",
+      "title": "Still the Same Shape: Any Size, Any Turn",
+      "description": "Recognising shapes even when they are turned, tilted, skinny or huge. A tilted square is still a square; a long thin triangle is still a triangle — check the sides and corners, not the pose.",
+      "outcomes": [
+        "Can recognise a square, triangle or rectangle in any turn or size",
+        "Can decide 'triangle or not' by counting 3 straight sides and 3 corners"
+      ],
+      "prereqs": ["g1.geo.shapes-around-us.naming-flat-shapes"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1", "m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A shape is very long and thin. It has 3 straight sides and 3 corners. What is it?",
+        "options": [
+          { "text": "A triangle", "correct": true },
+          { "text": "Not a real triangle — it is too thin", "misconception": "m3" },
+          { "text": "A rectangle", "diagnosis": "Did not count — a rectangle has 4 sides, this shape has 3." },
+          { "text": "Just a stick", "misconception": "m3", "diagnosis": "Judged by the look instead of counting sides and corners." }
+        ],
+        "explanation": "Any shape with 3 straight sides and 3 corners is a triangle — thin, fat, upside-down or tilted. The count decides, not the look!"
+      }
+    },
+    {
+      "id": "g1.geo.shapes-around-us.roll-slide-stack",
+      "parent": "g1.geo.shapes-around-us",
+      "title": "Roll, Slide or Stack?",
+      "description": "Exploring solid objects with hands: round things like balls roll, flat-faced things like boxes slide and stack, and a can does both. Sorting solids by what they can do.",
+      "outcomes": [
+        "Can sort everyday solids by whether they roll, slide or stack",
+        "Can explain that round parts roll and flat parts slide or stack"
+      ],
+      "prereqs": [],
+      "est_minutes": 15,
+      "difficulty": 1
+    },
+    {
+      "id": "g1.geo.shapes-around-us.flat-vs-solid",
+      "parent": "g1.geo.shapes-around-us",
+      "title": "Flat Shapes and Solid Objects",
+      "description": "Telling a flat (2D) shape from a solid (3D) object: a ball is a solid, not a 'circle' — the circle is what you see when you trace or stamp a solid's face on paper.",
+      "outcomes": [
+        "Can tell whether something is a flat shape or a solid object",
+        "Can predict what flat shape a solid's face will print or trace"
+      ],
+      "prereqs": ["g1.geo.shapes-around-us.naming-flat-shapes", "g1.geo.shapes-around-us.roll-slide-stack"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Amit dips the flat end of a round can in paint and stamps it on paper. What shape does it print?",
+        "options": [
+          { "text": "A circle", "correct": true },
+          { "text": "A can", "misconception": "m2", "diagnosis": "Gave the solid's name instead of its flat face's shape." },
+          { "text": "A square", "diagnosis": "Did not picture the round end of the can." },
+          { "text": "A ball", "misconception": "m2", "diagnosis": "Mixed up solids and the flat shapes on their faces." }
+        ],
+        "explanation": "The can is a solid, but its flat end is a circle. Stamping prints that flat face — a circle — on the paper."
+      }
+    },
+    {
+      "id": "g1.geo.shapes-around-us.shapes-in-everyday-things",
+      "parent": "g1.geo.shapes-around-us",
+      "title": "Shape Hunt: Shapes Hiding Around Us",
+      "description": "Finding shapes in everyday things on a shape hunt — a roti is round like a circle, a door is a rectangle, a samosa face is a triangle — and saying which shape is seen.",
+      "outcomes": [
+        "Can find and name shapes in everyday objects",
+        "Can collect and share examples of each shape from home or class"
+      ],
+      "prereqs": ["g1.geo.shapes-around-us.flat-vs-solid"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g1.mea.compare-lengths.comparing-words",
+      "parent": "g1.mea.compare-lengths",
+      "title": "The Right Comparing Words",
+      "description": "Using the precise words of comparing: longer/shorter, taller/shorter, heavier/lighter, holds more/holds less — instead of saying 'big' for everything.",
+      "outcomes": [
+        "Can pick the right comparing word for a situation",
+        "Can say the opposite of each comparing word"
+      ],
+      "prereqs": [],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g1.mea.compare-lengths.lining-up-ends",
+      "parent": "g1.mea.compare-lengths",
+      "title": "Fair Length Tests: Same Starting Line",
+      "description": "Comparing two lengths fairly by putting both objects' starting ends on the same line before looking at which reaches farther. Catching the trick when one object is pushed ahead.",
+      "outcomes": [
+        "Can line up two objects from the same end before comparing",
+        "Can spot an unfair comparison where the starting ends are offset"
+      ],
+      "prereqs": ["g1.mea.compare-lengths.comparing-words"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "Two pencils lie on the table. The red pencil is pushed ahead, so its tip sticks out farther. Is the red pencil longer?",
+        "options": [
+          { "text": "We can't tell yet — first line up both starting ends", "correct": true },
+          { "text": "Yes — its tip sticks out farther", "misconception": "m1" },
+          { "text": "Yes — the fatter pencil is always longer", "misconception": "m2", "diagnosis": "Mixed up thick with long." },
+          { "text": "No — the blue one is longer", "diagnosis": "Guessed the opposite without doing a fair test." }
+        ],
+        "explanation": "Sticking out farther only counts if both pencils start from the same line. Line up the ends first, then see which reaches farther."
+      }
+    },
+    {
+      "id": "g1.mea.compare-lengths.ordering-three-lengths",
+      "parent": "g1.mea.compare-lengths",
+      "title": "Shortest to Longest",
+      "description": "Ordering three objects by length from shortest to longest using the same-starting-line rule, and using words like 'the longest' and 'the shortest'.",
+      "outcomes": [
+        "Can order three objects from shortest to longest",
+        "Can point out the longest and the shortest of three objects"
+      ],
+      "prereqs": ["g1.mea.compare-lengths.lining-up-ends"],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m1"]
+    },
+    {
+      "id": "g1.mea.compare-lengths.heavier-lighter",
+      "parent": "g1.mea.compare-lengths",
+      "title": "Heavier or Lighter?",
+      "description": "Comparing weights by holding one object in each hand or using a simple pan balance — and discovering that bigger does NOT always mean heavier.",
+      "outcomes": [
+        "Can guess and then check which of two objects is heavier",
+        "Can give an example where the smaller object is heavier"
+      ],
+      "prereqs": ["g1.mea.compare-lengths.comparing-words"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "A big soft pillow and a small iron lock — which is heavier?",
+        "options": [
+          { "text": "The small iron lock", "correct": true },
+          { "text": "The big pillow", "misconception": "m3" },
+          { "text": "The pillow, because it is so big and puffy", "misconception": "m3", "diagnosis": "Judges weight by size and puffiness." },
+          { "text": "Both weigh the same", "diagnosis": "Guessed equality instead of comparing in two hands." }
+        ],
+        "explanation": "Bigger does not mean heavier! The pillow is full of soft, light stuffing, but the little lock is solid iron. Hold one in each hand to feel it."
+      }
+    },
+    {
+      "id": "g1.mea.compare-lengths.holds-more-less",
+      "parent": "g1.mea.compare-lengths",
+      "title": "Which Holds More?",
+      "description": "Comparing how much two containers hold by pouring with a small cup and counting cupfuls. A tall thin bottle can hold less than a short wide pot — pouring tells the truth.",
+      "outcomes": [
+        "Can compare two containers by pouring and counting cupfuls",
+        "Can explain that taller does not always mean holds more"
+      ],
+      "prereqs": ["g1.mea.compare-lengths.comparing-words"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A tall thin bottle and a short wide pot. How can we find out which holds more water?",
+        "options": [
+          { "text": "Fill each with cupfuls of water and count the cups", "correct": true },
+          { "text": "The tall bottle holds more — tall things always hold more", "misconception": "m2" },
+          { "text": "The bigger-looking one holds more, no need to check", "misconception": "m2", "diagnosis": "Uses 'big' for everything instead of testing." },
+          { "text": "Shake them both and listen", "diagnosis": "Chose a test that does not measure how much they hold." }
+        ],
+        "explanation": "Pour and count! If the pot takes 6 cups and the bottle takes 4, the pot holds more — even though the bottle is taller."
+      }
+    },
+    {
+      "id": "g1.mea.time-day-events.day-and-night",
+      "parent": "g1.mea.time-day-events",
+      "title": "Day and Night",
+      "description": "Telling day from night by looking at the sky — sun means day, moon and stars mean night — not by what we happen to be doing. A nap in the afternoon still happens in the day.",
+      "outcomes": [
+        "Can tell whether it is day or night from the sky",
+        "Can name things that happen in the day and at night"
+      ],
+      "prereqs": [],
+      "est_minutes": 10,
+      "difficulty": 1,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "Riya takes a nap after lunch while the sun is shining outside. Is it day or night?",
+        "options": [
+          { "text": "Day — the sun is up", "correct": true },
+          { "text": "Night — because she is sleeping", "misconception": "m3" },
+          { "text": "Night — because her curtains are closed", "misconception": "m3", "diagnosis": "Thinks a dark room makes it night." },
+          { "text": "It is no time at all", "diagnosis": "Does not connect the moment to day or night." }
+        ],
+        "explanation": "Day and night depend on the sky, not on what we are doing. The sun is up, so it is day — even if Riya is asleep!"
+      }
+    },
+    {
+      "id": "g1.mea.time-day-events.parts-of-the-day",
+      "parent": "g1.mea.time-day-events",
+      "title": "Morning, Afternoon, Evening, Night",
+      "description": "Naming the four parts of the day in order and matching everyday activities to them: breakfast in the morning, play in the evening, sleep at night.",
+      "outcomes": [
+        "Can say the parts of the day in order",
+        "Can match common activities to the right part of the day"
+      ],
+      "prereqs": ["g1.mea.time-day-events.day-and-night"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"]
+    },
+    {
+      "id": "g1.mea.time-day-events.ordering-events",
+      "parent": "g1.mea.time-day-events",
+      "title": "First, Next, Last: Before and After",
+      "description": "Putting 3-4 daily events in order and using before, after, yesterday, today and tomorrow correctly, anchored to real remembered events.",
+      "outcomes": [
+        "Can put 3-4 picture cards of daily events in the right order",
+        "Can use before/after and yesterday/today/tomorrow correctly"
+      ],
+      "prereqs": ["g1.mea.time-day-events.parts-of-the-day"],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "First Anu pours milk into her glass. Then she drinks it. Which happens AFTER the pouring?",
+        "options": [
+          { "text": "Drinking the milk", "correct": true },
+          { "text": "Pouring the milk", "misconception": "m2", "diagnosis": "Swapped before and after." },
+          { "text": "Both happen at the same time", "diagnosis": "Does not yet see the two events as a sequence." },
+          { "text": "We cannot say", "misconception": "m2", "diagnosis": "Cannot order two events even when the story gives the order." }
+        ],
+        "explanation": "First pour, then drink — you cannot drink milk that is not in the glass yet! Drinking comes after pouring."
+      }
+    },
+    {
+      "id": "g1.mea.time-day-events.which-takes-longer",
+      "parent": "g1.mea.time-day-events",
+      "title": "Which Takes Longer?",
+      "description": "Comparing how long two activities take using a fair measure — claps, steps or a sand timer — because boring things only FEEL long. Feelings are not clocks.",
+      "outcomes": [
+        "Can say which of two activities takes longer",
+        "Can time short activities by counting claps or using a sand timer"
+      ],
+      "prereqs": ["g1.mea.time-day-events.ordering-events", "g1.num.counting-to-9.one-to-one-counting"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "application",
+        "difficulty": 2,
+        "prompt": "Which takes LONGER: washing your hands, or a whole day at school?",
+        "options": [
+          { "text": "A whole day at school", "correct": true },
+          { "text": "Washing your hands", "misconception": "m1", "diagnosis": "Washing feels long because it is boring, but feelings are not clocks." },
+          { "text": "Both take the same time", "diagnosis": "Compared without thinking about the real durations." },
+          { "text": "You cannot compare them", "diagnosis": "Does not yet see that any two durations can be compared." }
+        ],
+        "explanation": "A school day lasts many hours; washing hands takes less time than one song. We compare how long things really take, not how they feel."
+      }
+    },
+    {
+      "id": "g1.alg.patterns-repeat.copy-extend-patterns",
+      "parent": "g1.alg.patterns-repeat",
+      "title": "Copy It, Continue It",
+      "description": "Copying a simple repeating pattern (red-blue, red-blue) with beads, claps or drawings, and continuing it correctly by following the repeat — not by copying the last item.",
+      "outcomes": [
+        "Can copy a simple AB pattern of colours, shapes, sounds or actions",
+        "Can say and place what comes next in an AB pattern"
+      ],
+      "prereqs": [],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "recall",
+        "difficulty": 1,
+        "prompt": "The fruit line goes: banana, apple, banana, apple, banana, ___. What comes next?",
+        "options": [
+          { "text": "Apple", "correct": true },
+          { "text": "Banana", "misconception": "m1", "diagnosis": "Repeated the last fruit seen instead of following the repeat." },
+          { "text": "Mango", "misconception": "m2", "diagnosis": "Added any fruit — treats the pattern as decoration without a rule." },
+          { "text": "Two bananas", "diagnosis": "Doubled an element instead of following the banana-apple unit." }
+        ],
+        "explanation": "The chunk 'banana-apple' repeats. After banana always comes apple. So the next fruit is an apple."
+      }
+    },
+    {
+      "id": "g1.alg.patterns-repeat.find-the-unit",
+      "parent": "g1.alg.patterns-repeat",
+      "title": "Find the Chunk That Repeats",
+      "description": "Circling the whole unit that repeats in a pattern — including trickier units like clap-stomp-stomp, where the doubled element must be counted twice.",
+      "outcomes": [
+        "Can point out or circle the repeating unit of a pattern",
+        "Can extend ABB and AAB patterns one whole unit at a time"
+      ],
+      "prereqs": ["g1.alg.patterns-repeat.copy-extend-patterns"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "The pattern goes: sun, sun, moon, sun, sun, moon. Which chunk keeps repeating?",
+        "options": [
+          { "text": "sun, sun, moon", "correct": true },
+          { "text": "sun, moon", "misconception": "m3", "diagnosis": "Counted the doubled sun only once." },
+          { "text": "sun, sun", "diagnosis": "Ignored the moon; picked only part of the unit." },
+          { "text": "Just the moon", "diagnosis": "Picked the most noticeable item instead of the whole unit." }
+        ],
+        "explanation": "The whole chunk 'sun-sun-moon' comes again and again. The unit is the WHOLE group that repeats — both suns and the moon."
+      }
+    },
+    {
+      "id": "g1.alg.patterns-repeat.pattern-or-not",
+      "parent": "g1.alg.patterns-repeat",
+      "title": "Pattern or Not?",
+      "description": "Telling a true pattern from a random arrangement with one test: can you say for sure what comes next? If yes, it is a pattern; if not, it is just decoration.",
+      "outcomes": [
+        "Can decide whether an arrangement is a pattern or random",
+        "Can use the 'what comes next?' test and explain the answer"
+      ],
+      "prereqs": ["g1.alg.patterns-repeat.find-the-unit"],
+      "est_minutes": 10,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "A string of beads goes: red, green, yellow, blue, red, purple. Is it a pattern?",
+        "options": [
+          { "text": "No — no chunk repeats, so we cannot say what comes next", "correct": true },
+          { "text": "Yes — it is very colourful", "misconception": "m2" },
+          { "text": "Yes — red comes two times", "misconception": "m2", "diagnosis": "One repeated colour is not a repeating unit." },
+          { "text": "Yes — every string of beads is a pattern", "misconception": "m2" }
+        ],
+        "explanation": "In a real pattern a chunk repeats, so you always know what comes next. Here the colours come in no order — pretty, but not a pattern."
+      }
+    },
+    {
+      "id": "g1.alg.patterns-repeat.make-your-own-pattern",
+      "parent": "g1.alg.patterns-repeat",
+      "title": "Make Your Own Pattern",
+      "description": "Creating an own repeating pattern with beads, stamps, sounds or body moves, saying its rule aloud, and challenging a friend to continue it.",
+      "outcomes": [
+        "Can create a repeating pattern and say its unit aloud",
+        "Can check whether a friend continued the pattern correctly"
+      ],
+      "prereqs": ["g1.alg.patterns-repeat.find-the-unit"],
+      "est_minutes": 15,
+      "difficulty": 2
+    },
+    {
+      "id": "g1.dat.sort-classify.sort-by-one-rule",
+      "parent": "g1.dat.sort-classify",
+      "title": "Sort by One Rule",
+      "description": "Sorting objects into groups by one spoken rule (colour, shape, size or use) and sticking to that rule for every single object — no switching midway.",
+      "outcomes": [
+        "Can sort a set of objects by a given rule",
+        "Can check each object against the rule card before placing it"
+      ],
+      "prereqs": [],
+      "est_minutes": 15,
+      "difficulty": 1,
+      "misconception_refs": ["m1"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 1,
+        "prompt": "We are sorting toys by COLOUR. The red pile has a red ball, a red block and a red car. Where does a BLUE car go?",
+        "options": [
+          { "text": "Not in the red pile — it goes with the blue things", "correct": true },
+          { "text": "In the red pile, because it is a car like the red car", "misconception": "m1" },
+          { "text": "In the red pile, because it is a nice car", "misconception": "m3", "diagnosis": "Groups by liking instead of the rule." },
+          { "text": "In whichever pile has more space", "diagnosis": "Places objects without checking the rule at all." }
+        ],
+        "explanation": "Our rule is colour, so we ask only one question: is it red? The blue car is not red, so it cannot join the red pile — even though it is a car."
+      }
+    },
+    {
+      "id": "g1.dat.sort-classify.name-the-rule",
+      "parent": "g1.dat.sort-classify",
+      "title": "Guess My Rule",
+      "description": "Looking at an already-sorted group and working out the rule: asking 'what is the SAME about everything in this pile?' — a shared attribute, not a story or a favourite.",
+      "outcomes": [
+        "Can state the rule used to sort a given group",
+        "Can say what is the same about all objects in a pile"
+      ],
+      "prereqs": ["g1.dat.sort-classify.sort-by-one-rule"],
+      "est_minutes": 10,
+      "difficulty": 2,
+      "misconception_refs": ["m3"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "One pile has: a banana, a lemon, a sunflower and a yellow ball. What is the sorting rule?",
+        "options": [
+          { "text": "They are all yellow", "correct": true },
+          { "text": "They are all fruits", "diagnosis": "Checked only some objects — a sunflower and a ball are not fruits." },
+          { "text": "They are all friends", "misconception": "m3", "diagnosis": "Made up a story instead of finding what is the same." },
+          { "text": "They are all round", "diagnosis": "Did not check every object — a banana is not round." }
+        ],
+        "explanation": "A sorting rule must be true for EVERY object in the pile. The only thing all four share is the colour yellow."
+      }
+    },
+    {
+      "id": "g1.dat.sort-classify.every-object-a-home",
+      "parent": "g1.dat.sort-classify",
+      "title": "Every Object Gets a Home",
+      "description": "Finishing a sort completely: a good rule splits ALL the objects, so nothing is left over. Using an 'others' or 'not-red' group for things that don't fit the first pile.",
+      "outcomes": [
+        "Can sort every object, using a 'not-...' group when needed",
+        "Can re-sort the same objects with a different rule"
+      ],
+      "prereqs": ["g1.dat.sort-classify.sort-by-one-rule"],
+      "est_minutes": 15,
+      "difficulty": 2,
+      "misconception_refs": ["m2"],
+      "question": {
+        "skill": "conceptual",
+        "difficulty": 2,
+        "prompt": "We are sorting toys into two groups: RED and NOT RED. Where does a green spinning top go?",
+        "options": [
+          { "text": "In the NOT RED group", "correct": true },
+          { "text": "Nowhere — it does not belong anywhere", "misconception": "m2" },
+          { "text": "In the red group", "misconception": "m1", "diagnosis": "Placed it without checking the colour rule." },
+          { "text": "We keep it aside, outside the sorting", "misconception": "m2", "diagnosis": "Leaves objects out instead of using the not-red home." }
+        ],
+        "explanation": "The top is green, so it is not red — and 'not red' is a real home! A good sort finds a place for every single object."
+      }
+    },
+    {
+      "id": "g1.dat.sort-classify.count-compare-groups",
+      "parent": "g1.dat.sort-classify",
+      "title": "Count the Groups: More or Fewer?",
+      "description": "After sorting, counting how many objects landed in each group and saying which group has more, which has fewer — our very first step of reading data.",
+      "outcomes": [
+        "Can count the objects in each sorted group",
+        "Can say which group has more and which has fewer"
+      ],
+      "prereqs": ["g1.dat.sort-classify.sort-by-one-rule", "g1.num.counting-to-9.comparing-groups"],
+      "est_minutes": 10,
+      "difficulty": 1
+    }
+  ]
+}
