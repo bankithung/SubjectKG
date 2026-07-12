@@ -3,104 +3,117 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maths Knowledge Graph — SubjectKG</title>
+<title>Maths Roadmap — SubjectKG</title>
 <style>
   :root {
-    --surface-1: #fcfcfb; --page: #f9f9f7;
-    --ink-1: #0b0b0b; --ink-2: #52514e; --ink-muted: #898781;
-    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
-    /* categorical slots, fixed order (validated palette) */
-    --s-num: #2a78d6; --s-alg: #1baf7a; --s-geo: #eda100; --s-mea: #008300;
-    --s-dat: #4a3aa7; --s-tri: #e34948; --s-cal: #e87ba4; --s-vec: #eb6834;
-    /* status (student overlay) */
-    --st-mastered: #0ca30c; --st-progress: #fab219; --st-frontier: #2a78d6; --st-locked: #898781;
-    --edge: rgba(11,11,11,0.12); --edge-hi: #0b0b0b;
+    --page:#ffffff; --dotc:#e3e1da; --card:#ffe599; --card-sub:#fff9e6;
+    --border:#0b0b0b; --ink:#0b0b0b; --ink2:#52514e; --mut:#898781;
+    --line:#7fa8dc; --line-soft:#b3b3ad; --trunk:#2b78e4;
+    --panel:#ffffff; --panel-line:#e1e0d9;
+    --s-num:#2a78d6; --s-alg:#1baf7a; --s-geo:#eda100; --s-mea:#008300;
+    --s-dat:#4a3aa7; --s-tri:#e34948; --s-cal:#e87ba4; --s-vec:#eb6834;
+    --st-mastered:#0ca30c; --st-progress:#fab219; --st-frontier:#2a78d6; --st-locked:#898781;
   }
   :root[data-theme="dark"] {
-    --surface-1: #1a1a19; --page: #0d0d0d;
-    --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-muted: #898781;
-    --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
-    --s-num: #3987e5; --s-alg: #199e70; --s-geo: #c98500; --s-mea: #008300;
-    --s-dat: #9085e9; --s-tri: #e66767; --s-cal: #d55181; --s-vec: #d95926;
-    --st-mastered: #0ca30c; --st-progress: #fab219; --st-frontier: #3987e5; --st-locked: #898781;
-    --edge: rgba(255,255,255,0.14); --edge-hi: #ffffff;
+    --page:#161616; --dotc:#262626; --card:#ffd75e; --card-sub:#3a3526;
+    --border:#0b0b0b; --ink:#f4f4f0; --ink2:#c3c2b7; --mut:#898781;
+    --line:#5b83b8; --line-soft:#5c5c56; --trunk:#3987e5;
+    --panel:#1e1e1d; --panel-line:#2c2c2a;
+    --s-num:#3987e5; --s-alg:#199e70; --s-geo:#c98500;
+    --s-dat:#9085e9; --s-tri:#e66767; --s-cal:#d55181; --s-vec:#d95926;
+    --st-frontier:#3987e5;
   }
-  * { box-sizing: border-box; margin: 0; }
-  body { background: var(--page); color: var(--ink-1);
-         font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  header { position: sticky; top: 0; z-index: 30; background: var(--page);
-           border-bottom: 1px solid var(--grid); padding: 10px 16px;
-           display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-  header h1 { font-size: 16px; margin-right: 8px; }
-  #search { padding: 6px 10px; border: 1px solid var(--baseline); border-radius: 8px;
-            background: var(--surface-1); color: var(--ink-1); min-width: 220px; }
-  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;
-          border: 1px solid var(--baseline); border-radius: 999px; cursor: pointer;
-          background: var(--surface-1); color: var(--ink-2); font-size: 12px; user-select: none; }
-  .chip.off { opacity: 0.35; }
-  .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
-  #themeBtn { margin-left: auto; }
-  button.plain { border: 1px solid var(--baseline); background: var(--surface-1);
-          color: var(--ink-1); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
-  #legendStudent { display: none; gap: 8px; align-items: center; font-size: 12px; color: var(--ink-2); }
-  #legendStudent .badge { display: inline-flex; align-items: center; gap: 4px; }
-  #wrap { display: flex; }
-  #canvasWrap { flex: 1; overflow: auto; position: relative; height: calc(100vh - 58px); }
-  #board { position: relative; }
-  #edges { position: absolute; inset: 0; pointer-events: none; }
-  .gradeLabel { position: absolute; top: 4px; font-size: 12px; font-weight: 700;
-                color: var(--ink-muted); letter-spacing: 0.04em; cursor: pointer;
-                padding: 2px 8px; border: 1px solid var(--grid); border-radius: 999px;
-                background: var(--surface-1); }
-  .gradeLabel:hover { color: var(--ink-1); border-color: var(--baseline); }
-  .node { position: absolute; width: 210px; background: var(--surface-1);
-          border: 1px solid var(--ring); border-left: 4px solid var(--baseline);
-          border-radius: 8px; padding: 7px 9px 7px 10px; cursor: pointer;
-          transition: box-shadow 0.1s; }
-  .node:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.18); z-index: 5; }
-  .node .t { font-size: 12.5px; font-weight: 600; line-height: 1.3; }
-  .node .m { font-size: 11px; color: var(--ink-muted); margin-top: 2px;
-             display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-  .node.dim { opacity: 0.15; }
-  .node.sel { outline: 2px solid var(--edge-hi); }
-  .node.onpath { outline: 2px dashed var(--edge-hi); }
-  .node.topicHead { border-left-width: 6px; background: var(--page); }
-  .node.micro { width: 200px; padding: 6px 8px; }
-  .node.micro .t { font-size: 12px; font-weight: 500; }
-  .stbadge { font-size: 10.5px; font-weight: 700; padding: 0 5px; border-radius: 4px; color: #fff; }
-  .qmark { font-size: 10px; color: var(--ink-muted); border: 1px solid var(--grid);
-           border-radius: 4px; padding: 0 4px; }
-  #panel { width: 340px; flex: none; border-left: 1px solid var(--grid);
-           background: var(--surface-1); height: calc(100vh - 58px); overflow: auto;
-           padding: 16px; display: none; }
-  #panel h2 { font-size: 15px; margin-bottom: 2px; }
-  #panel .sub { color: var(--ink-muted); font-size: 12px; margin-bottom: 10px; }
-  #panel h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
-              color: var(--ink-2); margin: 14px 0 6px; }
-  #panel ul, #panel ol { padding-left: 18px; } #panel li { margin: 3px 0; }
-  #panel .plink { color: var(--st-frontier); cursor: pointer; text-decoration: underline; }
-  #panel p { color: var(--ink-2); }
-  .meta { display: flex; gap: 14px; margin-top: 10px; font-size: 12px; color: var(--ink-2); }
-  #hint { position: fixed; bottom: 12px; left: 16px; font-size: 12px;
-          color: var(--ink-muted); background: var(--page); padding: 4px 8px;
-          border-radius: 6px; border: 1px solid var(--grid); }
-  #backBtn { display: none; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--page); color:var(--ink); overflow:hidden;
+         font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  header { border-bottom:1px solid var(--panel-line); padding:10px 16px; display:flex;
+           flex-wrap:wrap; gap:8px; align-items:center; position:relative; z-index:40;
+           background:var(--page); }
+  header h1 { font-size:16px; font-weight:800; margin-right:6px; white-space:nowrap; }
+  #search { padding:6px 10px; border:2px solid var(--border); border-radius:8px;
+            background:var(--page); color:var(--ink); width:190px; font-weight:600; }
+  :root[data-theme="dark"] #search { border-color:#4a4a45; }
+  .chip { display:inline-flex; align-items:center; gap:5px; padding:3px 9px;
+          border:1.5px solid var(--mut); border-radius:999px; cursor:pointer;
+          background:var(--page); color:var(--ink2); font-size:12px; font-weight:600;
+          user-select:none; white-space:nowrap; }
+  .chip.off { opacity:.3; }
+  .dot { width:9px; height:9px; border-radius:50%; flex:none; }
+  button.plain { border:2px solid var(--border); background:var(--card); color:#0b0b0b;
+          border-radius:8px; padding:5px 12px; cursor:pointer; font-size:12.5px;
+          font-weight:700; white-space:nowrap; box-shadow:2px 2px 0 var(--border); }
+  button.plain:active { transform:translate(1px,1px); box-shadow:1px 1px 0 var(--border); }
+  :root[data-theme="dark"] button.plain { box-shadow:2px 2px 0 #000; }
+  #legendStudent { display:none; gap:6px; align-items:center; font-size:12px;
+          color:var(--ink2); flex-wrap:wrap; }
+  #legendStudent .badge { display:inline-flex; align-items:center; gap:3px; }
+  #wrap { display:flex; height:calc(100vh - 54px); }
+  #canvasWrap { flex:1; overflow:auto; position:relative;
+    background-image:radial-gradient(circle, var(--dotc) 1.5px, transparent 1.5px);
+    background-size:24px 24px; }
+  #board { position:relative; margin:0 auto; }
+  #edges { position:absolute; inset:0; pointer-events:none; z-index:1; }
+
+  /* ---- roadmap cards ---- */
+  .node { position:absolute; z-index:2; cursor:pointer; border:2px solid var(--border);
+          border-radius:8px; padding:8px 12px; display:flex; align-items:center;
+          justify-content:center; text-align:center; background:var(--card); color:#0b0b0b;
+          font-weight:700; font-size:13px; line-height:1.25;
+          box-shadow:2.5px 2.5px 0 rgba(0,0,0,.55); }
+  .node:hover { z-index:8; box-shadow:4px 4px 0 rgba(0,0,0,.55); }
+  .node.spine { font-size:15px; font-weight:800; border-width:2.5px; border-radius:10px; }
+  .node.sub { background:var(--card-sub); color:var(--ink); font-weight:600;
+              box-shadow:2px 2px 0 rgba(0,0,0,.35); }
+  .node.dim { opacity:.18; }
+  .node.sel { outline:3px solid var(--trunk); outline-offset:2px; z-index:9; }
+  .node .strandDot { position:absolute; left:7px; top:7px; width:8px; height:8px;
+                     border-radius:50%; }
+  .node .stbadge { position:absolute; right:-9px; top:-9px; width:21px; height:21px;
+          border-radius:50%; border:2px solid var(--border); font-size:11px; z-index:3;
+          display:flex; align-items:center; justify-content:center; color:#fff;
+          font-weight:800; }
+  .node .steps { position:absolute; right:7px; bottom:3px; font-size:9.5px;
+                 color:rgba(0,0,0,.55); font-weight:700; }
+  .node.sub .steps { color:var(--mut); }
+  .node.hasSteps { padding-bottom:16px; }
+
+  /* ---- right drawer ---- */
+  #panel { width:360px; flex:none; border-left:1px solid var(--panel-line);
+           background:var(--panel); overflow-y:auto; padding:18px; display:none; }
+  #panel h2 { font-size:16px; font-weight:800; margin-bottom:2px; }
+  #panel .sub { color:var(--mut); font-size:12px; margin-bottom:10px; }
+  #panel h3 { font-size:11.5px; text-transform:uppercase; letter-spacing:.06em;
+              color:var(--ink2); margin:16px 0 6px; font-weight:800; }
+  #panel ul,#panel ol { padding-left:18px; } #panel li { margin:5px 0; }
+  #panel .plink { color:var(--trunk); cursor:pointer; text-decoration:underline; font-weight:600; }
+  #panel p { color:var(--ink2); }
+  #panel small { color:var(--mut); }
+  .meta { display:flex; gap:14px; margin-top:10px; font-size:12px; color:var(--ink2); }
+  #hint { position:fixed; bottom:10px; left:14px; font-size:11.5px; z-index:30;
+          color:var(--ink2); background:var(--page); padding:5px 10px;
+          border-radius:8px; border:1.5px solid var(--panel-line); max-width:62vw; }
+  #zoom { position:fixed; bottom:10px; right:378px; z-index:30; display:flex; gap:6px; }
+  #zoom button { width:34px; }
+  .edgeLegend { display:inline-flex; align-items:center; gap:4px; }
 </style>
 </head>
 <body>
 <header>
-  <h1 id="title">Maths Knowledge Graph</h1>
-  <button class="plain" id="backBtn">← Full map</button>
-  <input id="search" type="search" placeholder="Search a topic… (e.g. fractions)">
+  <h1 id="title">🗺️ Maths Roadmap</h1>
+  <button class="plain" id="backBtn" style="display:none">← Back</button>
+  <input id="search" type="search" placeholder="Search a topic…">
   <span id="chips"></span>
   <span id="legendStudent"></span>
-  <button class="plain" id="themeBtn" title="Toggle light/dark">◐ theme</button>
+  <button class="plain" id="themeBtn" style="margin-left:auto" title="Toggle light/dark">◐</button>
 </header>
 <div id="wrap">
   <div id="canvasWrap"><div id="board"><svg id="edges"></svg></div></div>
   <aside id="panel"></aside>
 </div>
-<div id="hint">Click a topic for details · click a CLASS label for that class's in-depth graph · dashed line = recommended (doesn't lock)</div>
+<div id="hint">Scroll down the journey · click a CLASS badge to open its own roadmap · click any topic for details ·
+  <span class="edgeLegend"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#7fa8dc" stroke-width="2.5"/></svg> path</span> ·
+  <span class="edgeLegend"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#b3b3ad" stroke-width="2.5" stroke-dasharray="4,4"/></svg> recommended</span></div>
+<div id="zoom"><button class="plain" id="zOut">−</button><button class="plain" id="zIn">+</button></div>
 <script src="kg-data.js"></script>
 <script>
   // student-data.js is optional (generated per student); ignore if absent
@@ -110,240 +123,284 @@
   document.head.appendChild(sd);
   let booted = false;
 
-  // Strand order comes from the data (spine.json key order). For a new subject,
-  // also define one --s-<strand> CSS variable per strand code above (reuse the 8
-  // validated categorical colors in slot order). Falls back to maths pre-boot.
-  let STRAND_ORDER = ['num','alg','geo','mea','dat','tri','cal','vec'];
-  const COLW = 240, NODEW = 210, ROWH = 62, TOP = 34, PAD = 16;
-  const MROWH = 56, MTOPICW = 220;
-  let nodes = [], byId = {}, microById = {}, pos = {}, activeStrands = new Set(STRAND_ORDER),
-      selected = null, pathSet = null, query = '',
-      view = 'map', viewClass = 0; // 'map' | 'class'
-
-  // prereq entries are bare id strings (hard) or {id, strength, reason} objects
   const pid = p => typeof p === 'string' ? p : p.id;
   const psoft = p => typeof p === 'object' && p.strength === 'soft';
   const preason = p => (typeof p === 'object' && p.reason) ? p.reason : '';
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 
-  function statusOf(id) {
-    return (window.STUDENT_DATA && window.STUDENT_DATA.status[id]) || null;
-  }
-  const ST_META = { mastered: ['✓','mastered','--st-mastered'],
-                    'in-progress': ['◐','in progress','--st-progress'],
-                    frontier: ['★','ready now','--st-frontier'],
-                    locked: ['🔒','locked','--st-locked'] };
+  let STRAND_ORDER = ['num','alg','geo','mea','dat','tri','cal','vec'];
 
-  function layoutMap() {
-    const byGrade = {};
-    nodes.forEach(n => (byGrade[n.grade] = byGrade[n.grade] || []).push(n));
-    let maxRows = 0;
-    for (let g = 1; g <= 12; g++) {
-      const col = (byGrade[g] || []).sort((a, b) =>
-        STRAND_ORDER.indexOf(a.strand) - STRAND_ORDER.indexOf(b.strand));
-      col.forEach((n, i) => { pos[n.id] = { x: PAD + (g - 1) * COLW, y: TOP + i * ROWH }; });
-      maxRows = Math.max(maxRows, col.length);
-    }
-    sizeBoard(PAD * 2 + 12 * COLW, TOP + maxRows * ROWH + 40);
-  }
+  // roadmap geometry
+  const BW = 1240;            // board width; trunk runs down the centre
+  const CX = BW / 2;
+  const CARDW = 240, CARDH = 58, SUBW = 224, SUBH = 50, VGAP = 14, XGAP = 96;
+  const SPINEW = 170, SPINEH = 52, BLOCKGAP = 84;
 
-  function layoutClass(g) {
-    // one column per macro topic of this class; header + its micros stacked below
-    pos = {};
-    const topics = nodes.filter(n => n.grade === g)
-      .sort((a, b) => STRAND_ORDER.indexOf(a.strand) - STRAND_ORDER.indexOf(b.strand));
-    let maxRows = 0;
-    topics.forEach((t, ti) => {
-      const x = PAD + ti * MTOPICW;
-      pos[t.id] = { x, y: TOP };
-      (t.micros || []).forEach((m, mi) => { pos[m.id] = { x, y: TOP + ROWH + mi * MROWH }; });
-      maxRows = Math.max(maxRows, (t.micros || []).length);
-    });
-    sizeBoard(PAD * 2 + topics.length * MTOPICW, TOP + ROWH + maxRows * MROWH + 40);
-    return topics;
+  let nodes = [], byId = {}, microById = {}, microParent = {}, dependents = {},
+      pos = {}, activeStrands = new Set(STRAND_ORDER),
+      selected = null, query = '', zoom = 1,
+      view = 'map', viewClass = 0, focusRoot = null;
+
+  const statusOf = id => (window.STUDENT_DATA && window.STUDENT_DATA.status[id]) || null;
+  const ST_META = { mastered:['✓','done','--st-mastered'], 'in-progress':['◐','in progress','--st-progress'],
+                    frontier:['★','ready','--st-frontier'], locked:['🔒','locked','--st-locked'] };
+
+  function badge(id) {
+    const st = statusOf(id);
+    if (!st) return '';
+    const [icon,,cvar] = ST_META[st];
+    return `<span class="stbadge" style="background:var(${cvar})">${icon}</span>`;
   }
 
-  function sizeBoard(w, h) {
-    const board = document.getElementById('board');
-    board.style.width = w + 'px'; board.style.height = h + 'px';
-  }
-
-  function matchesQuery(text) { return !query || text.toLowerCase().includes(query); }
-
-  function nodeDiv(n, cls, borderVar, metaHtml) {
+  function card(n, x, y, opts = {}) {
     const d = document.createElement('div');
-    d.className = 'node ' + cls; d.id = 'nd-' + n.id;
-    d.style.left = pos[n.id].x + 'px'; d.style.top = pos[n.id].y + 'px';
-    d.style.borderLeftColor = borderVar;
-    d.innerHTML = `<div class="t">${n.title}</div><div class="m">${metaHtml}</div>`;
+    d.className = 'node' + (opts.cls ? ' ' + opts.cls : '') + (opts.steps ? ' hasSteps' : '');
+    d.id = 'nd-' + n.id;
+    const w = opts.w || CARDW, h = opts.h || CARDH;
+    Object.assign(d.style, { left: x+'px', top: y+'px', width: w+'px', height: h+'px' });
+    d.title = n.title;
+    d.innerHTML = `${n.strand ? `<span class="strandDot" style="background:var(--s-${n.strand})"></span>` : ''}
+      <span style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${esc(opts.label || n.title)}</span>
+      ${badge(n.id)}${opts.steps ? `<span class="steps">${opts.steps}</span>` : ''}`;
+    pos[n.id] = { x, y, w, h };
     return d;
   }
 
-  function draw() {
-    const board = document.getElementById('board');
-    board.querySelectorAll('.node,.gradeLabel').forEach(e => e.remove());
-    document.getElementById('backBtn').style.display = view === 'class' ? 'inline-block' : 'none';
-    document.getElementById('title').textContent = view === 'class'
-      ? `Class ${viewClass} — In-depth Graph` : 'Maths Knowledge Graph';
-    if (view === 'map') drawMap(); else drawClass();
+  function dimIf(d, n, text) {
+    if ((n.strand && !activeStrands.has(n.strand)) ||
+        (query && !text.toLowerCase().includes(query))) d.classList.add('dim');
+    if (n.id === selected) d.classList.add('sel');
   }
 
-  function drawMap() {
-    layoutMap();
-    const board = document.getElementById('board');
-    for (let g = 1; g <= 12; g++) {
-      const lab = document.createElement('div');
-      lab.className = 'gradeLabel'; lab.textContent = 'CLASS ' + g + ' ▸';
-      lab.title = 'Open the in-depth graph for Class ' + g;
-      lab.style.left = (PAD + (g - 1) * COLW) + 'px';
-      lab.onclick = () => { view = 'class'; viewClass = g; selected = null; pathSet = null; draw(); };
-      board.appendChild(lab);
-    }
-    nodes.forEach(n => {
-      const st = statusOf(n.id);
-      let badge = '';
-      if (st) {
-        const [icon, label, cvar] = ST_META[st];
-        badge = `<span class="stbadge" style="background:var(${cvar})">${icon} ${label}</span>`;
-      }
-      const nm = (n.micros && n.micros.length) ? `<span class="qmark">${n.micros.length} skills</span>` : '';
-      const d = nodeDiv(n, '', st ? `var(${ST_META[st][2]})` : `var(--s-${n.strand})`,
-        `<span class="dot" style="background:var(--s-${n.strand})"></span>
-         <span>${window.KG_DATA.strands[n.strand]}</span>${nm}${badge}`);
-      if (!activeStrands.has(n.strand) || !matchesQuery(n.title + ' ' + n.id)) d.classList.add('dim');
-      if (pathSet && !pathSet.has(n.id)) d.classList.add('dim');
-      if (pathSet && pathSet.has(n.id) && n.id !== selected) d.classList.add('onpath');
-      if (n.id === selected) d.classList.add('sel');
-      d.onclick = () => select(n.id);
-      board.appendChild(d);
-    });
-    drawEdges(nodes.flatMap(n => n.prereqs.map(p => [pid(p), n.id, 24, psoft(p)])));
+  // curved connector: from a side of A to the inner side of B (roadmap.sh style)
+  function link(a, b, soft, thick) {
+    const fromRight = b.x >= a.x + a.w;                     // B sits to the right
+    const fromLeft  = b.x + b.w <= a.x;                     // B sits to the left
+    let x1, y1, x2, y2;
+    if (fromRight)      { x1 = a.x + a.w; y1 = a.y + a.h/2; x2 = b.x;        y2 = b.y + b.h/2; }
+    else if (fromLeft)  { x1 = a.x;       y1 = a.y + a.h/2; x2 = b.x + b.w;  y2 = b.y + b.h/2; }
+    else                { x1 = a.x + a.w/2; y1 = a.y + a.h; x2 = b.x + b.w/2; y2 = b.y; } // vertical
+    const dx = (x2 - x1) / 2, dy = (y2 - y1) / 2;
+    const d = (fromRight || fromLeft)
+      ? `M${x1},${y1} C${x1+dx},${y1} ${x2-dx},${y2} ${x2},${y2}`
+      : `M${x1},${y1} C${x1},${y1+dy} ${x2},${y2-dy} ${x2},${y2}`;
+    return `<path d="${d}" fill="none" stroke="${soft ? 'var(--line-soft)' : 'var(--line)'}"
+      stroke-width="${thick ? 3.5 : 2.5}" ${soft ? 'stroke-dasharray="5,5"' : ''}
+      stroke-linecap="round"/>`;
   }
 
-  function drawClass() {
-    const topics = layoutClass(viewClass);
-    const board = document.getElementById('board');
-    topics.forEach(t => {
-      const st = statusOf(t.id);
-      let badge = st ? `<span class="stbadge" style="background:var(${ST_META[st][2]})">${ST_META[st][0]} ${ST_META[st][1]}</span>` : '';
-      const d = nodeDiv(t, 'topicHead', `var(--s-${t.strand})`,
-        `<span class="dot" style="background:var(--s-${t.strand})"></span>${window.KG_DATA.strands[t.strand]} ${badge}`);
-      d.style.width = (MTOPICW - 20) + 'px';
-      if (!activeStrands.has(t.strand)) d.classList.add('dim');
-      if (t.id === selected) d.classList.add('sel');
-      d.onclick = () => select(t.id);
-      board.appendChild(d);
-      (t.micros || []).forEach((m, i) => {
-        const md = nodeDiv({ ...m, title: `${i + 1}. ${m.title}` }, 'micro', `var(--s-${t.strand})`,
-          `~${m.est_minutes} min ${m.question ? '<span class="qmark">check ✎</span>' : ''}`);
-        if (!activeStrands.has(t.strand) || !matchesQuery(m.title + ' ' + m.id)) md.classList.add('dim');
-        if (pathSet && !pathSet.has(m.id)) md.classList.add('dim');
-        if (pathSet && pathSet.has(m.id) && m.id !== selected) md.classList.add('onpath');
-        if (m.id === selected) md.classList.add('sel');
-        md.onclick = () => selectMicro(m.id);
-        board.appendChild(md);
-      });
-    });
-    // intra-class micro->micro edges
-    const edges = [];
-    topics.forEach(t => (t.micros || []).forEach(m =>
-      (m.prereqs || []).forEach(p => { if (pos[pid(p)] && microById[pid(p)]) edges.push([pid(p), m.id, 20, psoft(p)]); })));
-    drawEdges(edges);
-  }
-
-  function drawEdges(list) {
+  function sizeBoard(h) {
+    const b = document.getElementById('board');
+    b.style.width = BW + 'px'; b.style.height = h + 'px';
     const svg = document.getElementById('edges');
+    svg.setAttribute('width', BW); svg.setAttribute('height', h);
+  }
+
+  function clearBoard() {
+    document.getElementById('board').querySelectorAll('.node').forEach(e => e.remove());
+    pos = {};
+  }
+
+  // ---------- MAP: the Class 1→12 journey ----------
+  function drawMap() {
+    clearBoard();
     const board = document.getElementById('board');
-    svg.setAttribute('width', parseInt(board.style.width)); svg.setAttribute('height', parseInt(board.style.height));
-    let html = '';
-    list.forEach(([from, to, yoff, soft]) => {
-      if (!pos[from] || !pos[to]) return;
-      const a = pos[from], b = pos[to];
-      const w = view === 'class' ? 200 : NODEW;
-      const x1 = a.x + w, y1 = a.y + yoff, x2 = b.x, y2 = b.y + yoff;
-      const onPath = pathSet && pathSet.has(to) && pathSet.has(from);
-      const dimmed = pathSet && !onPath;
-      const c = Math.max(30, (x2 - x1) / 2);
-      html += `<path d="M${x1},${y1} C${x1 + c},${y1} ${x2 - c},${y2} ${x2},${y2}"
-        fill="none" stroke="${onPath ? 'var(--edge-hi)' : 'var(--edge)'}"
-        stroke-width="${onPath ? 2 : 1.2}" opacity="${dimmed ? 0.12 : 1}"
-        ${soft ? 'stroke-dasharray="5,4"' : ''}/>`;
-    });
-    svg.innerHTML = html;
-  }
-
-  function ancestors(id, getPrereqs) {
-    const seen = new Set([id]), stack = [id];
-    while (stack.length) {
-      const prs = getPrereqs(stack.pop()) || [];
-      prs.forEach(p => { const i = pid(p); if (!seen.has(i)) { seen.add(i); stack.push(i); } });
+    let edges = '', y = 40, prevSpine = null;
+    const byGrade = {};
+    nodes.forEach(n => (byGrade[n.grade] = byGrade[n.grade] || []).push(n));
+    for (let g = 1; g <= 12; g++) {
+      const col = (byGrade[g] || []).sort((a,b) =>
+        STRAND_ORDER.indexOf(a.strand) - STRAND_ORDER.indexOf(b.strand));
+      const left = col.filter((_, i) => i % 2 === 0), right = col.filter((_, i) => i % 2 === 1);
+      const blockH = Math.max(left.length * (CARDH + VGAP), right.length * (CARDH + VGAP), SPINEH);
+      const spineY = y + blockH / 2 - SPINEH / 2;
+      // trunk line from previous class badge
+      const spine = { id: '__class' + g, title: 'CLASS ' + g };
+      const sp = card(spine, CX - SPINEW/2, spineY, { cls: 'spine', w: SPINEW, h: SPINEH,
+        label: 'CLASS ' + g, steps: col.length + ' topics' });
+      sp.onclick = () => { view = 'class'; viewClass = g; selected = null; draw(); scrollTopLeft(); };
+      board.appendChild(sp);
+      if (prevSpine) edges += `<path d="M${CX},${prevSpine.y + prevSpine.h} L${CX},${spineY}"
+        stroke="var(--trunk)" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+      prevSpine = { y: spineY, h: SPINEH };
+      // topics branch left/right of the class badge
+      [[left, CX - SPINEW/2 - XGAP - CARDW], [right, CX + SPINEW/2 + XGAP]].forEach(([side, x]) => {
+        side.forEach((n, i) => {
+          const cy = y + i * (CARDH + VGAP) + (blockH - side.length * (CARDH + VGAP) + VGAP) / 2;
+          const d = card(n, x, cy, { steps: (n.micros||[]).length ? (n.micros.length + ' steps') : '' });
+          dimIf(d, n, n.title + ' ' + n.id);
+          d.onclick = () => select(n.id);
+          board.appendChild(d);
+          edges += link(pos[spine.id], pos[n.id], false);
+        });
+      });
+      y += blockH + BLOCKGAP;
     }
-    return seen;
+    sizeBoard(y + 20);
+    document.getElementById('edges').innerHTML = edges;
   }
 
+  // ---------- CLASS: one class's own roadmap (topics on trunk, micros branch) ----------
+  function drawClass() {
+    clearBoard();
+    const board = document.getElementById('board');
+    let edges = '', y = 40, prevBottom = null;
+    const topics = nodes.filter(n => n.grade === viewClass)
+      .sort((a,b) => STRAND_ORDER.indexOf(a.strand) - STRAND_ORDER.indexOf(b.strand));
+    topics.forEach(t => {
+      const micros = t.micros || [];
+      const left = micros.filter((_, i) => i % 2 === 0), right = micros.filter((_, i) => i % 2 === 1);
+      const blockH = Math.max(left.length * (SUBH + VGAP), right.length * (SUBH + VGAP), CARDH);
+      const ty = y + blockH / 2 - CARDH / 2;
+      const td = card(t, CX - CARDW/2, ty, { cls: 'spine', h: CARDH });
+      dimIf(td, t, t.title);
+      td.onclick = () => select(t.id);
+      board.appendChild(td);
+      if (prevBottom !== null) edges += `<path d="M${CX},${prevBottom} L${CX},${ty}"
+        stroke="var(--trunk)" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+      prevBottom = ty + CARDH;
+      [[left, CX - CARDW/2 - XGAP - SUBW], [right, CX + CARDW/2 + XGAP]].forEach(([side, x], si) => {
+        side.forEach((m, i) => {
+          const idx = micros.indexOf(m) + 1;
+          const cy = y + i * (SUBH + VGAP) + (blockH - side.length * (SUBH + VGAP) + VGAP) / 2;
+          const md = card({ ...m, strand: t.strand }, x, cy,
+            { cls: 'sub', w: SUBW, h: SUBH, label: idx + '. ' + m.title,
+              steps: `~${m.est_minutes}m${m.question ? ' ✎' : ''}` });
+          dimIf(md, { ...m, strand: t.strand }, m.title + ' ' + m.id);
+          md.onclick = () => selectMicro(m.id);
+          board.appendChild(md);
+          edges += link(pos[t.id], pos[m.id], false);
+        });
+      });
+      y += blockH + BLOCKGAP - 14;
+    });
+    sizeBoard(y + 20);
+    document.getElementById('edges').innerHTML = edges;
+  }
+
+  // ---------- FOCUS: the learning path as a top-down roadmap ----------
+  function drawFocus() {
+    clearBoard();
+    const board = document.getElementById('board');
+    const root = byId[focusRoot];
+    const depth = { [root.id]: 0 }, inSet = new Set([root.id]);
+    let frontier = [root.id];
+    while (frontier.length) {
+      const next = [];
+      frontier.forEach(id => (byId[id].prereqs || []).forEach(p => {
+        const q = pid(p);
+        if (!byId[q]) return;
+        const d = depth[id] + 1;
+        if (!(q in depth) || d > depth[q]) { depth[q] = d; next.push(q); }
+        inSet.add(q);
+      }));
+      frontier = next;
+    }
+    const deps = (dependents[root.id] || []).slice(0, 6);
+    const maxD = Math.max(...Object.values(depth));
+    const rows = [];
+    for (let d = maxD; d >= 0; d--)
+      rows.push([...inSet].filter(id => depth[id] === d)
+        .sort((a,b) => byId[a].grade - byId[b].grade));
+    if (deps.length) rows.push(deps);
+
+    let edges = '', y = 56;
+    rows.forEach((row, ri) => {
+      const isGoal = ri === maxD, isUnlocks = deps.length && ri === rows.length - 1 && !isGoal;
+      const rowW = row.length * CARDW + (row.length - 1) * 24;
+      let x = CX - rowW / 2;
+      row.forEach(id => {
+        const n = byId[id];
+        const d = card(n, x, y, { cls: id === root.id ? 'spine' : (isUnlocks ? 'sub' : ''),
+          steps: 'Class ' + n.grade });
+        if (id === root.id) d.classList.add('sel');
+        d.onclick = () => select(id);
+        board.appendChild(d);
+        x += CARDW + 24;
+      });
+      y += CARDH + 62;
+    });
+    inSet.forEach(id => (byId[id].prereqs || []).forEach(p => {
+      const q = pid(p);
+      if (pos[q] && pos[id]) edges += link(pos[q], pos[id], psoft(p), id === root.id);
+    }));
+    deps.forEach(dp => {
+      const e = (byId[dp].prereqs || []).find(p => pid(p) === root.id);
+      if (pos[root.id] && pos[dp]) edges += link(pos[root.id], pos[dp], e ? psoft(e) : false, true);
+    });
+    sizeBoard(y + 20);
+    document.getElementById('edges').innerHTML = edges;
+  }
+
+  function draw() {
+    document.getElementById('backBtn').style.display = view === 'map' ? 'none' : 'inline-block';
+    document.getElementById('title').textContent =
+      view === 'class' ? `🗺️ Class ${viewClass} Roadmap` :
+      view === 'focus' ? `🌳 Path to: ${byId[focusRoot].title}` : '🗺️ Maths Roadmap';
+    if (view === 'map') drawMap(); else if (view === 'class') drawClass(); else drawFocus();
+  }
+  const scrollTopLeft = () => document.getElementById('canvasWrap').scrollTo(0, 0);
+
+  // ---------- detail drawer ----------
   function select(id) {
-    selected = id; pathSet = null;
+    selected = id;
     const n = byId[id], panel = document.getElementById('panel');
     const st = statusOf(id);
     const score = window.STUDENT_DATA && window.STUDENT_DATA.scores[id];
     panel.style.display = 'block';
     panel.innerHTML = `
-      <h2>${n.title}</h2>
-      <div class="sub">Class ${n.grade} · ${window.KG_DATA.strands[n.strand]} · ${n.id}</div>
-      ${st ? `<div><span class="stbadge" style="background:var(${ST_META[st][2]})">${ST_META[st][0]} ${ST_META[st][1]}</span>${score != null ? ` <small>mastery ${(score * 100) | 0}%</small>` : ''}</div>` : ''}
-      <p style="margin-top:8px">${n.description || '<i>(details being authored)</i>'}</p>
-      <div class="meta">${n.difficulty ? `difficulty ${'●'.repeat(n.difficulty)}${'○'.repeat(5 - n.difficulty)}` : ''}
+      <h2>${esc(n.title)}</h2>
+      <div class="sub">Class ${n.grade} · ${window.KG_DATA.strands[n.strand]}</div>
+      ${st ? `<div><b style="color:var(${ST_META[st][2]})">${ST_META[st][0]} ${ST_META[st][1]}</b>${score != null ? ` <small>· mastery ${(score*100)|0}%</small>` : ''}</div>` : ''}
+      <p style="margin-top:8px">${esc(n.description || '')}</p>
+      <div class="meta">${n.difficulty ? `difficulty ${'●'.repeat(n.difficulty)}${'○'.repeat(5-n.difficulty)}` : ''}
         ${n.est_minutes ? `~${n.est_minutes} min` : ''}</div>
-      ${n.micros && n.micros.length ? `<h3>Step by step (${n.micros.length} skills)</h3>
-        <ol>${n.micros.map(m => `<li><span class="plink" onclick="openMicro('${m.id}')">${m.title}</span> <small>~${m.est_minutes}m</small></li>`).join('')}</ol>` : ''}
-      ${n.outcomes && n.outcomes.length ? `<h3>You'll be able to…</h3><ul>${n.outcomes.map(o => `<li>${o}</li>`).join('')}</ul>` : ''}
+      <button class="plain" id="pathBtn" style="margin-top:14px">🌳 Show the path to here</button>
+      ${n.micros && n.micros.length ? `<h3>Step by step (${n.micros.length})</h3>
+        <ol>${n.micros.map(m => `<li><span class="plink" onclick="openMicro('${m.id}')">${esc(m.title)}</span> <small>~${m.est_minutes}m</small></li>`).join('')}</ol>` : ''}
+      ${n.outcomes && n.outcomes.length ? `<h3>You'll be able to…</h3><ul>${n.outcomes.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
       <h3>Learn these first</h3>
-      ${n.prereqs.length ? `<ul>${n.prereqs.map(p => `<li><span class="plink" onclick="select('${pid(p)}')">${byId[pid(p)] ? byId[pid(p)].title : pid(p)}</span>${psoft(p) ? ' <small>(recommended)</small>' : ''}${statusOf(pid(p)) === 'mastered' ? ' ✓' : ''}${preason(p) ? `<br><small>${preason(p)}</small>` : ''}</li>`).join('')}</ul>` : '<p>Nothing — this is a starting point!</p>'}
+      ${n.prereqs.length ? `<ul>${n.prereqs.map(p => `<li><span class="plink" onclick="select('${pid(p)}')">${byId[pid(p)] ? esc(byId[pid(p)].title) : pid(p)}</span>${psoft(p) ? ' <small>(recommended)</small>' : ''}${statusOf(pid(p)) === 'mastered' ? ' ✓' : ''}${preason(p) ? `<br><small>${esc(preason(p))}</small>` : ''}</li>`).join('')}</ul>` : '<p>Nothing — this is a starting point!</p>'}
       <h3>Unlocks next</h3>
-      ${(() => { const deps = nodes.filter(x => x.prereqs.some(p => pid(p) === id)); return deps.length ? `<ul>${deps.map(x => `<li><span class="plink" onclick="select('${x.id}')">${x.title}</span></li>`).join('')}</ul>` : '<p>—</p>'; })()}
-      <button class="plain" id="pathBtn">Show full learning path</button>`;
+      ${(dependents[id] || []).length ? `<ul>${dependents[id].map(x => `<li><span class="plink" onclick="select('${x}')">${esc(byId[x].title)}</span></li>`).join('')}</ul>` : '<p>—</p>'}`;
     document.getElementById('pathBtn').onclick = () => {
-      if (view === 'class') { view = 'map'; }
-      pathSet = ancestors(id, i => byId[i] && byId[i].prereqs); draw(); scrollToNode(id);
+      focusRoot = id; view = 'focus'; draw(); scrollTopLeft();
     };
     draw();
+    const el = document.getElementById('nd-' + id);
+    if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
   }
 
   function selectMicro(id) {
     selected = id;
-    const m = microById[id], parent = byId[m.parent], panel = document.getElementById('panel');
+    const m = microById[id], parent = byId[microParent[id]], panel = document.getElementById('panel');
     panel.style.display = 'block';
     panel.innerHTML = `
-      <h2>${m.title}</h2>
-      <div class="sub">micro-skill of <span class="plink" onclick="select('${parent.id}')">${parent.title}</span> · Class ${parent.grade}</div>
-      <p style="margin-top:8px">${m.description}</p>
-      <div class="meta">difficulty ${'●'.repeat(m.difficulty)}${'○'.repeat(5 - m.difficulty)} · ~${m.est_minutes} min ${m.question ? '· has a check question' : ''}</div>
-      ${m.outcomes.length ? `<h3>You'll be able to…</h3><ul>${m.outcomes.map(o => `<li>${o}</li>`).join('')}</ul>` : ''}
+      <h2>${esc(m.title)}</h2>
+      <div class="sub">step in <span class="plink" onclick="select('${parent.id}')">${esc(parent.title)}</span> · Class ${parent.grade}</div>
+      <p style="margin-top:8px">${esc(m.description)}</p>
+      <div class="meta">difficulty ${'●'.repeat(m.difficulty)}${'○'.repeat(5-m.difficulty)} · ~${m.est_minutes} min ${m.question ? '· has a check ✎' : ''}</div>
+      ${m.outcomes.length ? `<h3>You'll be able to…</h3><ul>${m.outcomes.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
       <h3>Learn these first</h3>
       ${m.prereqs.length ? `<ul>${m.prereqs.map(p => {
         const i = pid(p);
         const t = microById[i] ? microById[i].title : (byId[i] ? byId[i].title + ' (Class ' + byId[i].grade + ')' : i);
         const fn = microById[i] ? `openMicro('${i}')` : `select('${i}')`;
-        return `<li><span class="plink" onclick="${fn}">${t}</span>${psoft(p) ? ' <small>(recommended)</small>' : ''}${preason(p) ? `<br><small>${preason(p)}</small>` : ''}</li>`;
-      }).join('')}</ul>` : '<p>Just start here!</p>'}
-      <button class="plain" id="pathBtn">Highlight path within this class</button>`;
-    document.getElementById('pathBtn').onclick = () => {
-      pathSet = ancestors(id, i => microById[i] && microById[i].prereqs); draw(); scrollToNode(id);
-    };
+        return `<li><span class="plink" onclick="${fn}">${esc(t)}</span>${psoft(p) ? ' <small>(recommended)</small>' : ''}${preason(p) ? `<br><small>${esc(preason(p))}</small>` : ''}</li>`;
+      }).join('')}</ul>` : '<p>Just start here!</p>'}`;
     draw();
-  }
-
-  // navigate to a micro: ensure we're in the right class view first
-  function openMicro(id) {
-    const m = microById[id];
-    if (!m) return;
-    const g = byId[m.parent].grade;
-    if (view !== 'class' || viewClass !== g) { view = 'class'; viewClass = g; }
-    selectMicro(id); scrollToNode(id);
-  }
-
-  function scrollToNode(id) {
     const el = document.getElementById('nd-' + id);
-    if (el) el.scrollIntoView({ block: 'center', inline: 'center', behavior: 'smooth' });
+    if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+
+  function openMicro(id) {
+    const par = microParent[id];
+    if (!par) return;
+    const g = byId[par].grade;
+    if (view !== 'class' || viewClass !== g) { view = 'class'; viewClass = g; }
+    selectMicro(id);
+    const el = document.getElementById('nd-' + id);
+    if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
   function buildChips() {
@@ -355,7 +412,7 @@
       c.innerHTML = `<span class="dot" style="background:var(--s-${s})"></span>${window.KG_DATA.strands[s]}`;
       c.onclick = () => {
         if (activeStrands.has(s)) activeStrands.delete(s); else activeStrands.add(s);
-        c.classList.toggle('off'); pathSet = null; draw();
+        c.classList.toggle('off'); draw();
       };
       box.appendChild(c);
     });
@@ -367,7 +424,7 @@
     el.style.display = 'inline-flex';
     el.innerHTML = `<b>${window.STUDENT_DATA.student}</b>` + Object.entries(ST_META).map(
       ([k, [icon, label, cvar]]) =>
-        `<span class="badge"><span class="stbadge" style="background:var(${cvar})">${icon}</span>${label}</span>`).join('');
+        `<span class="badge"><b style="color:var(${cvar})">${icon}</b>${label}</span>`).join('');
   }
 
   function init() {
@@ -377,15 +434,23 @@
     nodes = window.KG_DATA.nodes;
     nodes.forEach(n => {
       byId[n.id] = n;
-      (n.micros || []).forEach(m => microById[m.id] = m);
+      (n.micros || []).forEach(m => { microById[m.id] = m; microParent[m.id] = n.id; });
     });
+    nodes.forEach(n => (n.prereqs || []).forEach(p => {
+      (dependents[pid(p)] = dependents[pid(p)] || []).push(n.id);
+    }));
     buildChips(); buildStudentLegend(); draw();
     document.getElementById('search').addEventListener('input', e => {
-      query = e.target.value.trim().toLowerCase(); pathSet = null; draw();
+      query = e.target.value.trim().toLowerCase(); draw();
     });
-    document.getElementById('backBtn').onclick = () => {
-      view = 'map'; selected = null; pathSet = null; draw();
+    document.getElementById('backBtn').onclick = () => { view = 'map'; draw(); };
+    const setZoom = z => {
+      zoom = Math.min(1.4, Math.max(0.5, z));
+      document.getElementById('board').style.transform = `scale(${zoom})`;
+      document.getElementById('board').style.transformOrigin = '50% 0';
     };
+    document.getElementById('zIn').onclick = () => setZoom(zoom + 0.1);
+    document.getElementById('zOut').onclick = () => setZoom(zoom - 0.1);
     document.getElementById('themeBtn').onclick = () => {
       const r = document.documentElement;
       r.dataset.theme = r.dataset.theme === 'dark' ? 'light' : 'dark';
