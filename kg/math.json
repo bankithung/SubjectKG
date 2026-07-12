@@ -1,0 +1,1640 @@
+{
+  "version": "1.0.0",
+  "subject": "mathematics",
+  "strands": {
+    "num": "Numbers & Operations",
+    "alg": "Algebra, Sets & Functions",
+    "geo": "Geometry",
+    "mea": "Measurement & Mensuration",
+    "dat": "Data, Statistics & Probability",
+    "tri": "Trigonometry",
+    "cal": "Calculus",
+    "vec": "Vectors & 3D Geometry"
+  },
+  "built_from": {
+    "spine": "kg/spine.json",
+    "bands": "kg/bands/*.json"
+  },
+  "nodes": [
+    {
+      "id": "g1.num.counting-to-9",
+      "title": "Counting and Numbers 1–9",
+      "grade": 1,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.num.zero",
+      "title": "Zero and Its Meaning",
+      "grade": 1,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.num.numbers-to-20",
+      "title": "Numbers up to 20",
+      "grade": 1,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.num.add-sub-within-20",
+      "title": "Addition and Subtraction within 20",
+      "grade": 1,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.num.numbers-to-99",
+      "title": "Numbers up to 99: Tens and Ones",
+      "grade": 1,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.num.money-intro",
+      "title": "Money: Recognising Coins and Notes",
+      "grade": 1,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.geo.shapes-around-us",
+      "title": "Shapes Around Us: Solids and Flat Shapes",
+      "grade": 1,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.mea.compare-lengths",
+      "title": "Comparing Length, Weight and Capacity",
+      "grade": 1,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.mea.time-day-events",
+      "title": "Time: Day, Night and Ordering Events",
+      "grade": 1,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.alg.patterns-repeat",
+      "title": "Repeating Patterns",
+      "grade": 1,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g1.dat.sort-classify",
+      "title": "Sorting and Classifying Objects",
+      "grade": 1,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.num.place-value-2digit",
+      "title": "Place Value: Comparing and Ordering to 99",
+      "grade": 2,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.num.numbers-to-999",
+      "title": "Numbers up to 999: Hundreds",
+      "grade": 2,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.num.add-sub-2digit",
+      "title": "2-digit Addition and Subtraction with Regrouping",
+      "grade": 2,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.num.mult-intro",
+      "title": "Multiplication as Equal Groups and Repeated Addition",
+      "grade": 2,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.num.money-transactions",
+      "title": "Money: Simple Totals and Change",
+      "grade": 2,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.geo.2d-3d-shapes",
+      "title": "2D and 3D Shapes: Faces, Edges, Lines",
+      "grade": 2,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.mea.length-units-intro",
+      "title": "Measuring Length: Non-standard to Standard Units",
+      "grade": 2,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.mea.weight-capacity-intro",
+      "title": "Weight and Capacity: Comparing and Measuring",
+      "grade": 2,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.mea.time-days-calendar",
+      "title": "Time: Days, Months, Calendar and O'Clock",
+      "grade": 2,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.alg.patterns-grow",
+      "title": "Growing Patterns in Numbers and Shapes",
+      "grade": 2,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g2.dat.pictographs-intro",
+      "title": "Pictographs: Recording and Reading Data",
+      "grade": 2,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.num.numbers-to-9999",
+      "title": "4-digit Numbers and Place Value",
+      "grade": 3,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.num.add-sub-3digit",
+      "title": "3-digit Addition and Subtraction",
+      "grade": 3,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.num.mult-tables",
+      "title": "Multiplication Tables and Facts (2–10)",
+      "grade": 3,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.num.mult-2digit-by-1digit",
+      "title": "Multiplying 2-digit by 1-digit Numbers",
+      "grade": 3,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.num.division-intro",
+      "title": "Division: Sharing, Grouping and Inverse of Multiplication",
+      "grade": 3,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.num.fractions-intro",
+      "title": "Fractions: Half, Quarter, Third",
+      "grade": 3,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.num.money-add-sub",
+      "title": "Money: Making Bills, Adding and Subtracting Amounts",
+      "grade": 3,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.geo.lines-shapes",
+      "title": "Lines, Corners and Shape Composition",
+      "grade": 3,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.mea.length-std-units",
+      "title": "Length in Centimetres and Metres; Estimation",
+      "grade": 3,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.mea.weight-capacity",
+      "title": "Weight (g, kg) and Capacity (mL, L)",
+      "grade": 3,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.mea.time-clock",
+      "title": "Reading the Clock and Calendar",
+      "grade": 3,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.alg.patterns-number",
+      "title": "Number Patterns: Skip Counting, Even and Odd",
+      "grade": 3,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g3.dat.tables-bar-charts-intro",
+      "title": "Tables and Simple Bar Charts",
+      "grade": 3,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.num.numbers-to-100000",
+      "title": "5-digit Numbers: Place Value and the Indian System",
+      "grade": 4,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.num.add-sub-large",
+      "title": "Addition and Subtraction of Larger Numbers",
+      "grade": 4,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.num.mult-multi-digit",
+      "title": "Multi-digit Multiplication",
+      "grade": 4,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.num.division-long-intro",
+      "title": "Long Division with 1-digit Divisors and Remainders",
+      "grade": 4,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.num.fractions-equal-parts",
+      "title": "Fractions: Equal Parts, Comparing and Equivalence Intro",
+      "grade": 4,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.geo.circle-intro",
+      "title": "The Circle: Centre and Radius",
+      "grade": 4,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.geo.symmetry-reflection",
+      "title": "Symmetry and Reflection",
+      "grade": 4,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.mea.perimeter-intro",
+      "title": "Perimeter as Boundary Length",
+      "grade": 4,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.mea.area-intro",
+      "title": "Area by Counting Squares",
+      "grade": 4,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.mea.time-duration",
+      "title": "Elapsed Time and the 24-hour Clock",
+      "grade": 4,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.mea.unit-conversions",
+      "title": "Unit Conversions: Length, Weight, Capacity",
+      "grade": 4,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.alg.patterns-rules",
+      "title": "Patterns and Rules",
+      "grade": 4,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g4.dat.bar-charts",
+      "title": "Reading and Drawing Bar Charts",
+      "grade": 4,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.num.large-numbers",
+      "title": "Large Numbers: Lakhs, Comparing, Rounding",
+      "grade": 5,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.num.mult-div-large",
+      "title": "Multiplication and Division with Larger Numbers",
+      "grade": 5,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.num.factors-multiples",
+      "title": "Factors, Multiples and Prime Numbers Intro",
+      "grade": 5,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.num.fractions-equivalent-compare",
+      "title": "Equivalent Fractions and Comparison",
+      "grade": 5,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.num.fractions-add-sub",
+      "title": "Adding and Subtracting Fractions (Like and Related Denominators)",
+      "grade": 5,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.num.decimals-intro",
+      "title": "Decimals: Tenths and Hundredths",
+      "grade": 5,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.num.decimals-add-sub",
+      "title": "Adding and Subtracting Decimals",
+      "grade": 5,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.geo.angles-intro",
+      "title": "Angles: Right Angles and Degree Intuition",
+      "grade": 5,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.geo.nets-3d",
+      "title": "3D Shapes, Boxes and Nets",
+      "grade": 5,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.geo.patterns-symmetry-turns",
+      "title": "Symmetry, Turns and Tiling Patterns",
+      "grade": 5,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.mea.area-perimeter-rect",
+      "title": "Area and Perimeter of Rectangles (Formulas)",
+      "grade": 5,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.mea.volume-intuition",
+      "title": "Volume Intuition with Unit Cubes",
+      "grade": 5,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g5.dat.data-interpretation",
+      "title": "Interpreting Tables, Bar Graphs and Simple Pie Charts",
+      "grade": 5,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.num.knowing-numbers",
+      "title": "Knowing Our Numbers: Large Numbers and Estimation",
+      "grade": 6,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.num.whole-numbers",
+      "title": "Whole Numbers and Their Properties",
+      "grade": 6,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.num.playing-with-numbers",
+      "title": "Factors, Multiples, Divisibility, HCF and LCM",
+      "grade": 6,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.num.integers-intro",
+      "title": "Integers: Negative Numbers, Ordering, Addition and Subtraction",
+      "grade": 6,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.num.fractions-ops",
+      "title": "Fractions: Proper, Improper, Mixed; Addition and Subtraction",
+      "grade": 6,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.num.decimals-ops",
+      "title": "Decimals: Comparing, Adding, Subtracting; Units",
+      "grade": 6,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.num.ratio-proportion",
+      "title": "Ratio, Proportion and the Unitary Method",
+      "grade": 6,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.alg.intro-algebra",
+      "title": "Introduction to Algebra: Variables and Expressions",
+      "grade": 6,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.geo.basic-ideas",
+      "title": "Basic Geometrical Ideas: Points, Lines, Curves, Polygons, Circles",
+      "grade": 6,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.geo.elementary-shapes",
+      "title": "Understanding Elementary Shapes: Angles, Triangles, Quadrilaterals, Solids",
+      "grade": 6,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.geo.symmetry",
+      "title": "Symmetry: Lines of Symmetry",
+      "grade": 6,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.geo.constructions-intro",
+      "title": "Constructions with Ruler and Compass",
+      "grade": 6,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.mea.mensuration-perimeter-area",
+      "title": "Mensuration: Perimeter and Area of Squares and Rectangles",
+      "grade": 6,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g6.dat.data-handling",
+      "title": "Data Handling: Tally Marks, Pictographs, Bar Graphs",
+      "grade": 6,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.num.integers-ops",
+      "title": "Integers: Multiplication, Division and Properties",
+      "grade": 7,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.num.fractions-decimals-ops",
+      "title": "Fractions and Decimals: Multiplication and Division",
+      "grade": 7,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.num.rational-numbers-intro",
+      "title": "Rational Numbers: Representation and Comparison",
+      "grade": 7,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.num.comparing-quantities",
+      "title": "Comparing Quantities: Percentage, Profit and Loss, Simple Interest",
+      "grade": 7,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.num.exponents-intro",
+      "title": "Exponents and Powers: Laws and Standard Form",
+      "grade": 7,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.alg.simple-equations",
+      "title": "Simple Equations: Solving One-variable Linear Equations",
+      "grade": 7,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.alg.expressions",
+      "title": "Algebraic Expressions: Terms, Like Terms, Evaluation",
+      "grade": 7,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.geo.lines-angles",
+      "title": "Lines and Angles: Angle Pairs, Parallel Lines and Transversals",
+      "grade": 7,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.geo.triangle-properties",
+      "title": "The Triangle and Its Properties: Angle Sum, Exterior Angle, Pythagoras Intro",
+      "grade": 7,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.geo.congruence",
+      "title": "Congruence of Triangles: SSS, SAS, ASA, RHS",
+      "grade": 7,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.geo.symmetry-rotational",
+      "title": "Symmetry: Line and Rotational",
+      "grade": 7,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.geo.visualising-solids",
+      "title": "Visualising Solid Shapes: Nets, Sketches, Cross-sections",
+      "grade": 7,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.geo.practical-geometry",
+      "title": "Practical Geometry: Parallel Lines and Triangle Constructions",
+      "grade": 7,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.mea.perimeter-area",
+      "title": "Perimeter and Area: Triangles, Parallelograms, Circles",
+      "grade": 7,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g7.dat.data-handling-averages",
+      "title": "Data Handling: Mean, Median, Mode, Range and Chance",
+      "grade": 7,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.num.rational-numbers",
+      "title": "Rational Numbers: Properties and Density",
+      "grade": 8,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.num.squares-roots",
+      "title": "Squares and Square Roots",
+      "grade": 8,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.num.cubes-roots",
+      "title": "Cubes and Cube Roots",
+      "grade": 8,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.num.comparing-quantities",
+      "title": "Comparing Quantities: Discounts, Compound Interest",
+      "grade": 8,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.num.exponents-powers",
+      "title": "Exponents and Powers: Negative Exponents, Scientific Notation",
+      "grade": 8,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.num.direct-inverse-proportion",
+      "title": "Direct and Inverse Proportion",
+      "grade": 8,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.num.playing-numbers",
+      "title": "Playing with Numbers: General Form and Divisibility",
+      "grade": 8,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.alg.linear-equations-1var",
+      "title": "Linear Equations in One Variable: Variables on Both Sides",
+      "grade": 8,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.alg.expressions-identities",
+      "title": "Algebraic Expressions and Identities",
+      "grade": 8,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.alg.factorisation",
+      "title": "Factorisation of Algebraic Expressions",
+      "grade": 8,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.alg.graphs-intro",
+      "title": "Introduction to Graphs: Coordinates and Linear Graphs",
+      "grade": 8,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.geo.quadrilaterals",
+      "title": "Understanding Quadrilaterals: Polygon Angle Sums and Parallelograms",
+      "grade": 8,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.geo.practical-geometry-quads",
+      "title": "Practical Geometry: Constructing Quadrilaterals",
+      "grade": 8,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.geo.visualising-solids",
+      "title": "Visualising Solid Shapes: Views and Euler's Relation",
+      "grade": 8,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.mea.mensuration",
+      "title": "Mensuration: Trapezium, Polygon Areas; Surface Area and Volume",
+      "grade": 8,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g8.dat.data-handling",
+      "title": "Data Handling: Histograms, Pie Charts, Probability Intro",
+      "grade": 8,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.num.number-systems",
+      "title": "Number Systems: Irrational Numbers, Real Number Line, Rationalisation",
+      "grade": 9,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.alg.polynomials",
+      "title": "Polynomials: Zeroes, Remainder and Factor Theorems, Identities",
+      "grade": 9,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.alg.linear-equations-2var",
+      "title": "Linear Equations in Two Variables",
+      "grade": 9,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.geo.coordinate-geometry",
+      "title": "Coordinate Geometry: The Cartesian Plane",
+      "grade": 9,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.geo.euclid",
+      "title": "Introduction to Euclid's Geometry",
+      "grade": 9,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.geo.lines-angles",
+      "title": "Lines and Angles: Formal Proofs",
+      "grade": 9,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.geo.triangles",
+      "title": "Triangles: Congruence Proofs and Inequalities",
+      "grade": 9,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.geo.quadrilaterals",
+      "title": "Quadrilaterals: Parallelogram Theorems and the Midpoint Theorem",
+      "grade": 9,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.geo.circles",
+      "title": "Circles: Chords, Arcs and Cyclic Quadrilaterals",
+      "grade": 9,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.geo.constructions",
+      "title": "Constructions: Bisectors and Triangles",
+      "grade": 9,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.mea.herons-formula",
+      "title": "Heron's Formula",
+      "grade": 9,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.mea.surface-volume",
+      "title": "Surface Areas and Volumes: Cone, Sphere, Cylinder",
+      "grade": 9,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.dat.statistics",
+      "title": "Statistics: Grouped Data, Histograms, Frequency Polygons",
+      "grade": 9,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g9.dat.probability-empirical",
+      "title": "Probability: The Empirical Approach",
+      "grade": 9,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.num.real-numbers",
+      "title": "Real Numbers: Fundamental Theorem of Arithmetic, Irrationality Proofs",
+      "grade": 10,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.alg.polynomials",
+      "title": "Polynomials: Zeroes and Coefficients",
+      "grade": 10,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.alg.linear-pair-2var",
+      "title": "Pair of Linear Equations in Two Variables",
+      "grade": 10,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.alg.quadratic-equations",
+      "title": "Quadratic Equations: Factoring, Formula, Discriminant",
+      "grade": 10,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.alg.arithmetic-progressions",
+      "title": "Arithmetic Progressions: nth Term and Sum",
+      "grade": 10,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.geo.triangles-similarity",
+      "title": "Triangles: Similarity, Basic Proportionality Theorem, Pythagoras",
+      "grade": 10,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.geo.coordinate-geometry",
+      "title": "Coordinate Geometry: Distance, Section Formula, Areas",
+      "grade": 10,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.geo.circles-tangents",
+      "title": "Circles: Tangents and Their Properties",
+      "grade": 10,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.geo.constructions",
+      "title": "Constructions: Dividing Segments and Drawing Tangents",
+      "grade": 10,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.tri.intro",
+      "title": "Introduction to Trigonometry: Ratios and Identities",
+      "grade": 10,
+      "strand": "tri",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.tri.applications",
+      "title": "Applications of Trigonometry: Heights and Distances",
+      "grade": 10,
+      "strand": "tri",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.mea.areas-circles",
+      "title": "Areas Related to Circles: Sectors and Segments",
+      "grade": 10,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.mea.surface-volume",
+      "title": "Surface Areas and Volumes: Combined Solids",
+      "grade": 10,
+      "strand": "mea",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.dat.statistics",
+      "title": "Statistics: Mean, Median, Mode of Grouped Data; Ogives",
+      "grade": 10,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g10.dat.probability",
+      "title": "Probability: The Classical Approach",
+      "grade": 10,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.alg.sets",
+      "title": "Sets: Representation, Operations, Venn Diagrams",
+      "grade": 11,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.alg.relations-functions",
+      "title": "Relations and Functions: Domain, Range, Standard Functions",
+      "grade": 11,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.tri.functions",
+      "title": "Trigonometric Functions: Radians, Identities, Graphs, Equations",
+      "grade": 11,
+      "strand": "tri",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.num.complex-quadratic",
+      "title": "Complex Numbers and Quadratic Equations",
+      "grade": 11,
+      "strand": "num",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.alg.linear-inequalities",
+      "title": "Linear Inequalities",
+      "grade": 11,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.alg.permutations-combinations",
+      "title": "Permutations and Combinations",
+      "grade": 11,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.alg.binomial-theorem",
+      "title": "Binomial Theorem",
+      "grade": 11,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.alg.sequences-series",
+      "title": "Sequences and Series: AP, GP, AM-GM, Special Sums",
+      "grade": 11,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.geo.straight-lines",
+      "title": "Straight Lines: Slope, Forms of Equations, Distance",
+      "grade": 11,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.geo.conic-sections",
+      "title": "Conic Sections: Circle, Parabola, Ellipse, Hyperbola",
+      "grade": 11,
+      "strand": "geo",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.vec.intro-3d",
+      "title": "Introduction to Three-Dimensional Geometry",
+      "grade": 11,
+      "strand": "vec",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.cal.limits-derivatives",
+      "title": "Limits and Derivatives",
+      "grade": 11,
+      "strand": "cal",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.dat.statistics",
+      "title": "Statistics: Measures of Dispersion, Variance, Standard Deviation",
+      "grade": 11,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g11.dat.probability",
+      "title": "Probability: Random Experiments and the Axiomatic Approach",
+      "grade": 11,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.alg.relations-functions",
+      "title": "Relations and Functions: Types, Composition, Invertibility",
+      "grade": 12,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.tri.inverse-functions",
+      "title": "Inverse Trigonometric Functions",
+      "grade": 12,
+      "strand": "tri",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.alg.matrices",
+      "title": "Matrices: Operations, Transpose, Invertibility",
+      "grade": 12,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.alg.determinants",
+      "title": "Determinants: Properties, Adjoint, Inverse, Solving Systems",
+      "grade": 12,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.cal.continuity-differentiability",
+      "title": "Continuity and Differentiability",
+      "grade": 12,
+      "strand": "cal",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.cal.applications-derivatives",
+      "title": "Applications of Derivatives: Rates, Monotonicity, Maxima and Minima",
+      "grade": 12,
+      "strand": "cal",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.cal.integrals",
+      "title": "Integrals: Techniques and the Fundamental Theorem of Calculus",
+      "grade": 12,
+      "strand": "cal",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.cal.applications-integrals",
+      "title": "Applications of Integrals: Areas Under Curves",
+      "grade": 12,
+      "strand": "cal",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.cal.differential-equations",
+      "title": "Differential Equations: Separable and First-order Linear",
+      "grade": 12,
+      "strand": "cal",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.vec.algebra",
+      "title": "Vector Algebra: Dot and Cross Products",
+      "grade": 12,
+      "strand": "vec",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.vec.3d-geometry",
+      "title": "Three-Dimensional Geometry: Lines and Planes",
+      "grade": 12,
+      "strand": "vec",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.alg.linear-programming",
+      "title": "Linear Programming",
+      "grade": 12,
+      "strand": "alg",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    },
+    {
+      "id": "g12.dat.probability",
+      "title": "Probability: Conditional Probability, Bayes' Theorem, Random Variables",
+      "grade": 12,
+      "strand": "dat",
+      "stub": true,
+      "prerequisites": [],
+      "misconceptions": [],
+      "questions": []
+    }
+  ]
+}
