@@ -8,7 +8,11 @@
       "strand": "num",
       "description": "Numbers up to 1,00,000 open the door to real-world quantities like town populations, distances between cities and prices of scooters. You will read, write, compare and order 5-digit numbers, and use the Indian system of commas (ones, tens, hundreds, thousands, ten thousands). Knowing what each digit is worth is the key skill that all later arithmetic is built on.",
       "prerequisites": [
-        "g3.num.numbers-to-9999"
+        {
+          "id": "g3.num.numbers-to-9999",
+          "strength": "hard",
+          "reason": "5-digit numbers just add one more column to 4-digit place value — if thousands, hundreds, tens and ones aren't solid, the new ten-thousands column means nothing."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -21,6 +25,7 @@
         "4.NBT.A.1",
         "4.NBT.A.2"
       ],
+      "parent_check": "Write ₹45,230 on a slip and ask which digit is the thousands digit and what it is worth. If they say the 5 is 'worth 5', ask '5 what?' — the right answer is 5,000. Then ask which is more, ₹9,875 or ₹12,340 — the trap is picking ₹9,875 'because 9 is bigger'; count the digits first.",
       "learning_outcomes": [
         "Can read and write 5-digit numbers in figures and words using Indian-system commas",
         "Can state the place value and face value of any digit in a 5-digit number",
@@ -155,8 +160,16 @@
       "strand": "num",
       "description": "Adding and subtracting 4- and 5-digit numbers lets you handle real quantities — ticket sales, populations, bank balances. The column method works exactly as it did for small numbers; the new challenges are carrying and borrowing across several places, especially across zeros. Estimation first tells you whether your exact answer is sensible.",
       "prerequisites": [
-        "g4.num.numbers-to-100000",
-        "g3.num.add-sub-3digit"
+        {
+          "id": "g4.num.numbers-to-100000",
+          "strength": "hard",
+          "reason": "Carrying and borrowing happen inside the place-value columns — you can't regroup ten thousands you don't understand."
+        },
+        {
+          "id": "g3.num.add-sub-3digit",
+          "strength": "hard",
+          "reason": "The column method with carrying and borrowing is exactly the 3-digit one, stretched to more columns — it must already work at 3 digits."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -168,6 +181,7 @@
       "ccss": [
         "4.NBT.B.4"
       ],
+      "parent_check": "Say: 'We have ₹5,000 and the school fee is ₹2,637 — how much will be left?' Let them work on paper. Answers of 3,363 or 3,637 mean the borrowing across zeros is going wrong. Whatever they get, ask them to add it back to 2,637 — it should make exactly 5,000.",
       "learning_outcomes": [
         "Can add two numbers up to 5 digits with regrouping in any column",
         "Can subtract with borrowing, including across one or more zeros",
@@ -302,8 +316,16 @@
       "strand": "num",
       "description": "Multiplying 2- and 3-digit numbers lets you scale things up fast: chairs in a hall, sticks of chalk in a delivery, rupees earned per day over a month. The big idea is breaking a number into tens and ones, multiplying each part, and adding the partial products — the written algorithm is just a tidy record of that.",
       "prerequisites": [
-        "g3.num.mult-tables",
-        "g3.num.mult-2digit-by-1digit"
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "hard",
+          "reason": "Every single step of long multiplication is a times-table fact — shaky tables make every problem a slog."
+        },
+        {
+          "id": "g3.num.mult-2digit-by-1digit",
+          "strength": "hard",
+          "reason": "27 × 34 is really two rounds of 2-digit × 1-digit plus an add — that smaller skill is the building block being repeated."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -315,6 +337,7 @@
       "ccss": [
         "4.NBT.B.5"
       ],
+      "parent_check": "Ask: 'A wedding hall has 30 rows of 20 chairs — how many chairs in all?' They should get 600 quickly (3 × 2, then put back the two zeros). If they reach for paper or answer 60, try a written one like 27 × 34 and check the second row of working starts with a zero — that's the step children drop.",
       "learning_outcomes": [
         "Can multiply a 2- or 3-digit number by a 1-digit number with carrying",
         "Can multiply two 2-digit numbers using partial products or the column method",
@@ -449,8 +472,16 @@
       "strand": "num",
       "description": "Long division shares a big number into equal groups place by place: divide, multiply, subtract, bring down. The remainder tells you what is left over when the sharing cannot be completed — and in real problems, deciding what to do with that remainder is as important as the division itself.",
       "prerequisites": [
-        "g3.num.division-intro",
-        "g3.num.mult-tables"
+        {
+          "id": "g3.num.division-intro",
+          "strength": "hard",
+          "reason": "Long division is a written recipe for equal sharing — without the sharing idea, the recipe is just mysterious steps."
+        },
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "hard",
+          "reason": "Each divide step asks 'how many 5s fit in 57?' — that is a times-table question asked backwards."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -462,6 +493,7 @@
         "4.NBT.B.6",
         "4.OA.A.3"
       ],
+      "parent_check": "Put out 17 coins or rajma beans and ask them to share equally among 3 people. Right answer: 5 each with 2 left over. Then the key question: 'Could 3 be left over instead?' — they should spot that 3 leftovers would fill one more round of sharing. The leftover must always be smaller than the number of sharers.",
       "learning_outcomes": [
         "Can divide a 2- or 3-digit number by a 1-digit number using long division",
         "Can express and check an answer as quotient × divisor + remainder = dividend",
@@ -596,7 +628,11 @@
       "strand": "num",
       "description": "A fraction names equal parts of a whole: the bottom number tells how many equal parts the whole is cut into, and the top number tells how many of them we take. You will name fractions from pictures, compare simple fractions of the same whole, and meet the surprising idea that different-looking fractions like 1/2 and 3/6 can name the same amount.",
       "prerequisites": [
-        "g3.num.fractions-intro"
+        {
+          "id": "g3.num.fractions-intro",
+          "strength": "hard",
+          "reason": "Comparing and matching fractions only makes sense once halves and quarters as fair shares are familiar."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -609,6 +645,7 @@
         "4.NF.A.2",
         "3.NF.A.1"
       ],
+      "parent_check": "Cut or draw a roti in 3 clearly unequal pieces and ask: 'Is each piece one-third?' The right answer is no — thirds must be equal, or someone gets cheated. Then ask which they'd rather have: one piece of a roti cut into 4 equal parts, or one piece of the same roti cut into 8 — the trap is choosing 8 'because 8 is bigger'.",
       "learning_outcomes": [
         "Can explain why fraction parts must be equal, and reject unequal-part 'fractions'",
         "Can name the fraction shown by a shaded region or a shared collection",
@@ -744,8 +781,16 @@
       "strand": "geo",
       "description": "A circle is the set of all points at the same distance from one special point, the centre. That fixed distance is the radius, and a line through the centre from edge to edge is the diameter — always twice the radius. This 'same distance all around' idea explains why wheels roll smoothly and why a compass draws a perfect circle.",
       "prerequisites": [
-        "g3.geo.lines-shapes",
-        "g3.mea.length-std-units"
+        {
+          "id": "g3.geo.lines-shapes",
+          "strength": "soft",
+          "reason": "Knowing points and lines helps name the radius and diameter, but the 'same distance all around' idea can be discovered with string and chalk."
+        },
+        {
+          "id": "g3.mea.length-std-units",
+          "strength": "hard",
+          "reason": "Radius and diameter are lengths in centimetres — you can't measure or draw a circle of a given radius without ruler skills."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -754,6 +799,7 @@
         ]
       },
       "ccss": [],
+      "parent_check": "Hand them a bangle or katori to trace, and ask them to mark the exact middle. Then ask: 'If an ant walks from the middle to the edge, does it matter which direction it goes?' Right answer: no, it's the same distance every way. Follow up: 'If middle-to-edge is 5 cm, how wide is the circle all the way across?' — should be 10 cm, not 5.",
       "learning_outcomes": [
         "Can identify and label the centre, radius and diameter of a circle",
         "Can explain that all radii of a circle are equal, and use diameter = 2 × radius",
@@ -888,7 +934,11 @@
       "strand": "geo",
       "description": "A shape has line symmetry when one half folds exactly onto the other — the fold line is the line of symmetry, and it acts like a mirror. You will find symmetry lines by folding and with mirrors, count them for common shapes and letters, and draw the mirror image of a simple figure.",
       "prerequisites": [
-        "g3.geo.lines-shapes"
+        {
+          "id": "g3.geo.lines-shapes",
+          "strength": "soft",
+          "reason": "Naming squares, rectangles and triangles helps talk about what is being folded, but symmetry itself is learned by folding paper."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -900,6 +950,7 @@
       "ccss": [
         "4.G.A.3"
       ],
+      "parent_check": "Give them a square of paper and ask how many ways it folds so the halves match exactly (corner-to-corner counts too — the answer is 4). Then write a small 'b' and ask what it looks like in a mirror; hold a real mirror next to it to check. The trap answer is 'b' — the mirror actually shows 'd'.",
       "learning_outcomes": [
         "Can test a proposed line of symmetry by folding or with a mirror",
         "Can find all lines of symmetry of squares, rectangles, triangles and letters",
@@ -1034,8 +1085,16 @@
       "strand": "mea",
       "description": "Perimeter is the total length of the boundary of a shape — the distance you would walk going once around it. You find it by adding all the side lengths. It answers real questions like how much fencing a field needs or how much lace goes around a tablecloth, and it is measured in units of length (cm, m).",
       "prerequisites": [
-        "g3.mea.length-std-units",
-        "g3.num.add-sub-3digit"
+        {
+          "id": "g3.mea.length-std-units",
+          "strength": "hard",
+          "reason": "Perimeter is a length in cm or m — measuring the sides in standard units comes before adding them up."
+        },
+        {
+          "id": "g3.num.add-sub-3digit",
+          "strength": "hard",
+          "reason": "Finding a perimeter IS adding the side lengths — the addition has to be reliable or every answer is wrong."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -1046,6 +1105,7 @@
       "ccss": [
         "3.MD.D.8"
       ],
+      "parent_check": "Ask: 'If we sewed lace all the way around your bedsheet, how would we know how much lace to buy?' They should say measure the sides and add ALL FOUR — both long sides and both short sides. The common miss is adding just one length and one width. Let them walk the boundary of a room counting steps to feel it.",
       "learning_outcomes": [
         "Can find the perimeter of any straight-sided shape by adding all its side lengths",
         "Can find the perimeter of rectangles and squares, using the repeated sides",
@@ -1180,8 +1240,16 @@
       "strand": "mea",
       "description": "Area measures how much surface a shape covers, and we measure it by counting unit squares that tile the shape. Full squares count as 1, two half squares make 1, and rows of squares can be counted quickly with multiplication. Area answers 'how much carpet, paint or land?' — a different question from how long the boundary is.",
       "prerequisites": [
-        "g3.geo.lines-shapes",
-        "g3.num.mult-tables"
+        {
+          "id": "g3.geo.lines-shapes",
+          "strength": "soft",
+          "reason": "Recognising rectangles and other shapes helps describe what is being covered, but counting squares works even without the names."
+        },
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "soft",
+          "reason": "Rows × columns counts squares fast, but a child can still count one by one — tables speed it up rather than gate it."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -1193,6 +1261,7 @@
         "3.MD.C.5",
         "3.MD.C.6"
       ],
+      "parent_check": "On a tiled floor or a chessboard, mark out a rectangle 3 tiles by 4 tiles and ask how many tiles are inside it. Counting one by one is fine; '3 rows of 4 makes 12' is better. The trap is counting the edges around the border (14 steps) instead of the tiles covering the inside (12).",
       "learning_outcomes": [
         "Can find the area of a shape on squared paper by counting unit squares, combining half squares",
         "Can use rows × columns to count squares in a rectangle quickly",
@@ -1327,7 +1396,11 @@
       "strand": "mea",
       "description": "Elapsed time is how long something lasts — from a movie's start to its end, or a train's departure to its arrival. Because an hour has 60 minutes (not 100), adding and subtracting times needs care at the hour boundary. The 24-hour clock, used in railway timetables, removes the confusion between morning and evening times.",
       "prerequisites": [
-        "g3.mea.time-clock"
+        {
+          "id": "g3.mea.time-clock",
+          "strength": "hard",
+          "reason": "You can't work out how long something lasts if you can't read the start and end times off a clock."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -1339,6 +1412,7 @@
         "4.MD.A.2",
         "3.MD.A.1"
       ],
+      "parent_check": "At dinner ask: 'The show starts at 8:40 and runs for 30 minutes — when does it end?' The trap answer is 8:70; the right one is 9:10, because minutes roll over at 60. If that's easy, ask what 15:00 on a railway ticket means — 3 pm is right, 5 pm means they subtracted 10 instead of 12.",
       "learning_outcomes": [
         "Can convert between 12-hour (am/pm) and 24-hour clock times",
         "Can add a duration to a start time, regrouping 60 minutes into 1 hour",
@@ -1473,9 +1547,21 @@
       "strand": "mea",
       "description": "Metres and centimetres, kilograms and grams, litres and millilitres — the metric system connects big and small units by factors of 100 and 1000. Converting between them means multiplying when going to smaller units and dividing when going to bigger ones. Mixed measures like 3 m 5 cm must be handled place by place, not glued together.",
       "prerequisites": [
-        "g3.mea.length-std-units",
-        "g3.mea.weight-capacity",
-        "g3.num.mult-tables"
+        {
+          "id": "g3.mea.length-std-units",
+          "strength": "hard",
+          "reason": "Converting metres to centimetres is impossible without first knowing what a metre and a centimetre are."
+        },
+        {
+          "id": "g3.mea.weight-capacity",
+          "strength": "hard",
+          "reason": "Kilograms, grams, litres and millilitres must already be familiar as real amounts before swapping between them."
+        },
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "soft",
+          "reason": "Multiplication fluency makes the ×100 and ×1000 steps quick, but the conversions themselves are mostly moving zeros."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -1488,6 +1574,7 @@
         "4.MD.A.1",
         "4.MD.A.2"
       ],
+      "parent_check": "In the kitchen, hold up a 1-litre bottle and a 250 ml cup and ask how many cups fill the bottle (4). Then show a 500 g packet and ask how many packets make 2 kg — the answer is 4. If they say 2, they are matching the digits instead of thinking '1 kg is 1000 g, so 2 kg is 2000 g'.",
       "learning_outcomes": [
         "Can state the key metric relations: 1 m = 100 cm, 1 km = 1000 m, 1 kg = 1000 g, 1 L = 1000 mL",
         "Can convert a measure to a smaller unit by multiplying, and to a larger unit by dividing",
@@ -1622,7 +1709,11 @@
       "strand": "alg",
       "description": "A pattern is a sequence built by a rule — add the same number, double, or repeat a block of shapes. The mathematician's job is to find the rule, check it against EVERY step given, and then use it to predict what comes next (or far ahead) without drawing everything. This is the first step toward algebra.",
       "prerequisites": [
-        "g3.alg.patterns-number"
+        {
+          "id": "g3.alg.patterns-number",
+          "strength": "hard",
+          "reason": "Finding and checking a rule builds directly on continuing simple number patterns — that's where the 'what changes each step?' habit starts."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -1633,6 +1724,7 @@
       "ccss": [
         "4.OA.C.5"
       ],
+      "parent_check": "Say the pattern 3, 6, 9, 12 aloud and ask what comes next AND why. You want 'it goes up by 3 each time' — a rule, not just the next number. Then test with 2, 4, 8: if they instantly say 'add 2', point at the jump from 4 to 8 — checking the rule against EVERY step is the whole skill.",
       "learning_outcomes": [
         "Can find and state the rule of a number pattern and extend it",
         "Can check a proposed rule against every given term, not just the first pair",
@@ -1768,8 +1860,16 @@
       "strand": "dat",
       "description": "A bar chart shows data as bars whose heights stand for amounts, read off a scaled axis. The crucial skill is using the scale: when one division stands for 5 or 10, you multiply divisions by the scale instead of counting lines. You will read values, compare categories, answer 'how many more' questions and draw your own charts from a table.",
       "prerequisites": [
-        "g3.dat.tables-bar-charts-intro",
-        "g3.num.mult-tables"
+        {
+          "id": "g3.dat.tables-bar-charts-intro",
+          "strength": "hard",
+          "reason": "Scaled bar charts assume you can already read a simple one-bar-equals-one chart — the scale is the only new idea."
+        },
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "soft",
+          "reason": "Reading a scale means multiplying divisions by 5 or 10 — tables make it quick, though skip-counting can stand in."
+        }
       ],
       "ncert": {
         "class": 4,
@@ -1780,6 +1880,7 @@
       "ccss": [
         "3.MD.B.3"
       ],
+      "parent_check": "Sketch four bars for 'cups of chai made each day' and tell them each line on the side stands for 2 cups. Point at a bar 5 lines tall and ask how many cups. The trap answer is 5 — counting the lines and ignoring the scale. The right answer is 10, because each line is worth 2.",
       "learning_outcomes": [
         "Can read a value from a bar chart whose scale is 2, 5 or 10 per division",
         "Can compare two bars and find 'how many more/less' as a difference of values",
@@ -1915,7 +2016,11 @@
       "strand": "num",
       "description": "Beyond ten thousand come lakhs (1,00,000) and ten lakhs — the numbers of city populations, fish-catch tonnages and film box-office collections. You will read and write 6- and 7-digit numbers in the Indian system, compare and order them, and round them to the nearest ten, hundred or thousand to make them easy to talk about.",
       "prerequisites": [
-        "g4.num.numbers-to-100000"
+        {
+          "id": "g4.num.numbers-to-100000",
+          "strength": "hard",
+          "reason": "Lakhs are the same Indian place-value system with two more columns — without 5-digit place value the commas are just decoration."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -1927,6 +2032,7 @@
         "4.NBT.A.2",
         "4.NBT.A.3"
       ],
+      "parent_check": "Write ₹2,50,000 (a car down-payment, say) and ask them to read it aloud — you want 'two lakh fifty thousand'. Then ask which is more, ₹99,999 or ₹1,00,000, and why. The reason should mention counting digits (6 beats 5), not 'nine is the biggest number'.",
       "learning_outcomes": [
         "Can read and write numbers up to ten lakh using Indian-system commas",
         "Can compare and order large numbers by digit count, then place-by-place",
@@ -2061,8 +2167,16 @@
       "strand": "num",
       "description": "Now the numbers grow: multiplying 3-digit numbers by 2-digit numbers, multiplying by tens and hundreds using zero patterns, and dividing by 2-digit numbers. The methods are the same ones you know — partial products and divide-multiply-subtract-bring-down — applied with more care, and always sanity-checked with estimation.",
       "prerequisites": [
-        "g4.num.mult-multi-digit",
-        "g4.num.division-long-intro"
+        {
+          "id": "g4.num.mult-multi-digit",
+          "strength": "hard",
+          "reason": "3-digit × 2-digit uses exactly the partial-products method learned with smaller numbers — it must already run smoothly."
+        },
+        {
+          "id": "g4.num.division-long-intro",
+          "strength": "hard",
+          "reason": "Dividing by 2-digit numbers is the same divide-multiply-subtract-bring-down cycle — it can't be extended before it exists."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -2075,6 +2189,7 @@
         "5.NBT.B.5",
         "5.NBT.B.6"
       ],
+      "parent_check": "Ask: 'Oranges are ₹85 a dozen — what would 20 dozens cost?' Watch for the shortcut: 85 × 2 = 170, then put back the zero to get ₹1,700. If they set up full long multiplication for ×20, or the answer comes out as ₹170, the multiply-by-tens zero pattern needs practice.",
       "learning_outcomes": [
         "Can multiply by 10, 100 and their multiples using zero patterns correctly",
         "Can multiply a 3-digit number by a 2-digit number using partial products",
@@ -2209,8 +2324,16 @@
       "strand": "num",
       "description": "A factor of a number divides it exactly; a multiple is what you get by multiplying it. Factors come in pairs and stop at the number itself, while multiples go on forever. Numbers with exactly two factors — 1 and themselves — are the primes, the building blocks of all whole numbers.",
       "prerequisites": [
-        "g3.num.mult-tables",
-        "g3.num.division-intro"
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "hard",
+          "reason": "Factors and multiples ARE the times tables read forwards and backwards — no tables, no factors."
+        },
+        {
+          "id": "g3.num.division-intro",
+          "strength": "hard",
+          "reason": "A factor is a number that divides exactly with nothing left over — you can't test that without knowing division and remainders."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -2221,6 +2344,7 @@
       "ccss": [
         "4.OA.B.4"
       ],
+      "parent_check": "Put out 12 beans and ask for every way to arrange them in equal rows (1×12, 2×6, 3×4). Each arrangement they find is a factor pair. Then ask: 'Can 12 beans make equal rows of 5?' No — so 5 is not a factor of 12. Finish with 7 beans: only one arrangement works, and that is exactly what makes 7 a prime number.",
       "learning_outcomes": [
         "Can list all factors of a number systematically using factor pairs",
         "Can list multiples of a number and decide whether one number is a multiple of another",
@@ -2356,7 +2480,11 @@
       "strand": "num",
       "description": "Different fractions can name the same amount: 1/2, 2/4 and 3/6 all sit at the same point. You make equivalent fractions by multiplying or dividing BOTH the numerator and denominator by the same number. With equivalence in hand you can compare any two fractions — by common denominators, by same numerators, or by clever benchmarks like 'how far from one whole?'.",
       "prerequisites": [
-        "g4.num.fractions-equal-parts"
+        {
+          "id": "g4.num.fractions-equal-parts",
+          "strength": "hard",
+          "reason": "Comparing fractions needs equal parts and the meaning of top and bottom numbers — you can only compare pieces cut the same fair way."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -2368,6 +2496,7 @@
         "4.NF.A.1",
         "4.NF.A.2"
       ],
+      "parent_check": "Fold one paper strip in half and an identical strip into quarters. Ask: 'Is 1/2 the same amount as 2/4?' Let them lay the pieces on top of each other to check. Then the trap question: 'Which is bigger, 1/3 or 1/5?' — the wrong answer is 1/5 'because 5 is bigger'; more cuts of the same strip make smaller pieces.",
       "learning_outcomes": [
         "Can generate equivalent fractions by multiplying or dividing both terms by the same number",
         "Can reduce a fraction to its simplest form",
@@ -2503,8 +2632,16 @@
       "strand": "num",
       "description": "Fractions can only be added or subtracted when the pieces are the same size — the same denominator. With like denominators you simply add or subtract the counts of pieces. When one denominator is a multiple of the other (halves and quarters, thirds and sixths), you first re-cut one fraction into the finer pieces, then combine. Wholes join in by renaming 1 as 4/4, 8/8 and so on.",
       "prerequisites": [
-        "g5.num.fractions-equivalent-compare",
-        "g4.num.fractions-equal-parts"
+        {
+          "id": "g5.num.fractions-equivalent-compare",
+          "strength": "hard",
+          "reason": "You can only add pieces of the same size — and making denominators match IS making equivalent fractions."
+        },
+        {
+          "id": "g4.num.fractions-equal-parts",
+          "strength": "hard",
+          "reason": "Adding 1/4 + 2/4 only makes sense if the child knows the 4 counts equal parts and the top counts pieces taken."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -2516,6 +2653,7 @@
         "4.NF.B.3",
         "5.NF.A.1"
       ],
+      "parent_check": "Cut a roti into 4 equal pieces. Ask: 'You eat 1/4 and I eat 2/4 — how much of the roti is gone?' (3/4.) Then the classic trap: 'What is 1/2 + 1/4?' If they answer 2/6 — adding tops and bottoms — show it with the pieces: half plus a quarter is clearly MORE than half, but 2/6 is less than half.",
       "learning_outcomes": [
         "Can add and subtract fractions with the same denominator, keeping the denominator fixed",
         "Can add and subtract fractions where one denominator is a multiple of the other",
@@ -2650,8 +2788,16 @@
       "strand": "num",
       "description": "Decimals extend place value to the right of the ones: tenths and hundredths, separated by the decimal point. 0.7 means 7 tenths (7/10), and 0.07 means 7 hundredths — ten times smaller. Decimals run our money (₹ and paise), our measurements (metres and centimetres) and every price tag, so reading them correctly matters every day.",
       "prerequisites": [
-        "g4.num.fractions-equal-parts",
-        "g4.num.numbers-to-100000"
+        {
+          "id": "g4.num.fractions-equal-parts",
+          "strength": "hard",
+          "reason": "0.7 IS the fraction 7/10 in new clothes — without tenths as fractions, the decimal point is meaningless."
+        },
+        {
+          "id": "g4.num.numbers-to-100000",
+          "strength": "hard",
+          "reason": "Tenths and hundredths extend the same place-value columns to the right of the ones — the column idea must already be solid."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -2663,6 +2809,7 @@
         "4.NF.C.6",
         "4.NF.C.7"
       ],
+      "parent_check": "Ask what ₹7.50 means. If they say '7 rupees and 50 paise', ask the follow-up: 'Which is more, ₹7.5 or ₹7.45?' — the trap answer is ₹7.45 'because 45 is bigger than 5'. ₹7.5 is the same as ₹7.50, so it wins. If they get that, ask why petrol pumps show prices like ₹102.47.",
       "learning_outcomes": [
         "Can read and write tenths and hundredths as fractions and as decimals",
         "Can place decimals like 0.3 and 0.45 on a number line between whole numbers",
@@ -2798,8 +2945,16 @@
       "strand": "num",
       "description": "Adding and subtracting decimals works exactly like whole numbers — as long as you line up the decimal points so tenths sit under tenths and hundredths under hundredths. Appending zeros (4.5 = 4.50) makes ragged numbers tidy. These are the calculations of shopkeepers and shoppers: totals, change and measurements every single day.",
       "prerequisites": [
-        "g5.num.decimals-intro",
-        "g4.num.add-sub-large"
+        {
+          "id": "g5.num.decimals-intro",
+          "strength": "hard",
+          "reason": "You can't line up tenths under tenths without knowing what tenths and hundredths are."
+        },
+        {
+          "id": "g4.num.add-sub-large",
+          "strength": "hard",
+          "reason": "It's the same column method with carrying and borrowing — the decimal point only adds a lining-up rule on top."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -2810,6 +2965,7 @@
       "ccss": [
         "5.NBT.B.7"
       ],
+      "parent_check": "Play shop: two items cost ₹12.50 and ₹6.75 — ask for the total, paper allowed (₹19.25). The give-away mistake is not lining up the decimal points, so the 5 of 12.50 gets added to the 5 of 6.75. Then ask: 'You pay with a ₹20 note — how much change?' (75 paise.)",
       "learning_outcomes": [
         "Can add and subtract decimals by aligning the decimal points",
         "Can pad with trailing zeros to equalise decimal places before computing",
@@ -2944,7 +3100,11 @@
       "strand": "geo",
       "description": "An angle measures a TURN — how far one arm swings away from the other. A right angle (a square corner) is 90 degrees, a straight angle is 180, and a full turn is 360. Angle size depends only on the amount of turn, not on how long the arms are drawn or which way the corner faces.",
       "prerequisites": [
-        "g3.geo.lines-shapes"
+        {
+          "id": "g3.geo.lines-shapes",
+          "strength": "soft",
+          "reason": "Corners and lines give angles a place to live and a vocabulary, but the idea of a turn can start fresh with a door or a clock hand."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -2956,6 +3116,7 @@
         "4.MD.C.5",
         "4.G.A.1"
       ],
+      "parent_check": "Open a door a crack and ask 'big angle or small?', then open it wide and ask again. Then the real test: draw two right-angle corners, one with short arms and one with long arms, and ask which angle is bigger. The trap is 'the long one' — both are the same quarter turn. An angle measures the TURN, not the length of the lines.",
       "learning_outcomes": [
         "Can identify right, acute and obtuse angles in shapes and surroundings",
         "Can state the degree landmarks: 90 (right), 180 (straight), 360 (full turn)",
@@ -3090,8 +3251,16 @@
       "strand": "geo",
       "description": "A net is a flat pattern that folds up into a solid — unfold a toothpaste box and you are looking at its net. You will count faces, edges and corners of cubes and cuboids, decide which arrangements of squares fold into a cube and which do not, and sketch boxes on flat paper. This is the skill of packaging designers everywhere.",
       "prerequisites": [
-        "g2.geo.2d-3d-shapes",
-        "g3.geo.lines-shapes"
+        {
+          "id": "g2.geo.2d-3d-shapes",
+          "strength": "hard",
+          "reason": "You can't unfold a cube into a net before knowing cubes, cuboids and their faces as solid shapes."
+        },
+        {
+          "id": "g3.geo.lines-shapes",
+          "strength": "soft",
+          "reason": "Naming squares and rectangles helps describe the faces of a net, but folding boxes can be learned hands-on without it."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -3102,6 +3271,7 @@
       "ccss": [
         "6.G.A.4"
       ],
+      "parent_check": "Take an empty toothpaste or soap box and ask them to guess how many flat faces it has (6), then carefully open it out flat and count together. Refold it, then ask: 'Could a closed box be made from 5 squares? From 7?' Have them guess first, then check against the opened-out box — a cube needs exactly 6.",
       "learning_outcomes": [
         "Can count faces, edges and vertices of cubes and cuboids",
         "Can decide by mental folding whether a given arrangement of squares is a net of a cube",
@@ -3237,9 +3407,21 @@
       "strand": "geo",
       "description": "Some shapes look exactly the same after a quarter turn (90°) or a half turn (180°) — that is turning (rotational) symmetry, a cousin of mirror symmetry but not the same thing. Turns also build patterns: many rangoli, tile and border designs repeat a single motif by rotating it again and again. You will predict what a shape looks like after a turn and continue turn-based patterns.",
       "prerequisites": [
-        "g4.geo.symmetry-reflection",
-        "g4.alg.patterns-rules",
-        "g5.geo.angles-intro"
+        {
+          "id": "g4.geo.symmetry-reflection",
+          "strength": "hard",
+          "reason": "Turning symmetry is understood by contrast with mirror symmetry — the folding-and-mirror idea has to come first."
+        },
+        {
+          "id": "g4.alg.patterns-rules",
+          "strength": "soft",
+          "reason": "The find-the-rule habit helps with repeating tile patterns, but turning symmetry itself doesn't depend on it."
+        },
+        {
+          "id": "g5.geo.angles-intro",
+          "strength": "hard",
+          "reason": "A quarter turn IS 90° and a half turn IS 180° — you can't describe turning symmetry without angle language."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -3251,6 +3433,7 @@
       "ccss": [
         "4.G.A.3"
       ],
+      "parent_check": "Draw a plus sign (+) on paper, turn the page a quarter turn and ask: 'Does it look the same as before?' (Yes.) Now try the letter S — it looks the same after a HALF turn but fails the mirror test. Then hunt the house together: fan blades, a rangoli, a square biscuit — which ones look the same after a turn?",
       "learning_outcomes": [
         "Can state that a quarter turn is 90°, a half turn 180° and a full turn 360°",
         "Can predict what a shape or letter looks like after a quarter or half turn",
@@ -3386,9 +3569,21 @@
       "strand": "mea",
       "description": "Counting squares one by one is slow — for rectangles, multiplication does it instantly: area = length × width, because the squares sit in equal rows. Perimeter has its own shortcut: 2 × (length + width). The two formulas answer two different questions (covering vs surrounding), use different units (square cm vs cm), and mixing them up is the classic trap.",
       "prerequisites": [
-        "g4.mea.area-intro",
-        "g4.mea.perimeter-intro",
-        "g4.num.mult-multi-digit"
+        {
+          "id": "g4.mea.area-intro",
+          "strength": "hard",
+          "reason": "Length × width is a shortcut for counting rows of squares — without the counting picture, the formula is a magic spell."
+        },
+        {
+          "id": "g4.mea.perimeter-intro",
+          "strength": "hard",
+          "reason": "The 2 × (length + width) shortcut only makes sense to a child who already knows perimeter as the walk around the boundary."
+        },
+        {
+          "id": "g4.num.mult-multi-digit",
+          "strength": "soft",
+          "reason": "Bigger rectangles need 2-digit multiplication like 24 × 15, but the formulas themselves can be learned with table-sized numbers."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -3400,6 +3595,7 @@
       "ccss": [
         "4.MD.A.3"
       ],
+      "parent_check": "Ask: 'The bathroom floor is 4 tiles one way and 6 tiles the other — how many tiles cover it?' You want 24 from 4 × 6, without counting every tile. Then the confusion test: 'If we lay a border strip around the edge of the room, is that the same 24?' No — the border is the perimeter, a completely different measure.",
       "learning_outcomes": [
         "Can compute the area of a rectangle as length × width and justify it with rows of squares",
         "Can compute the perimeter of a rectangle as 2 × (length + width)",
@@ -3535,9 +3731,21 @@
       "strand": "mea",
       "description": "Volume measures how much space something fills, and we measure it by counting unit cubes — including the ones hidden inside and underneath. A box packs cubes in layers: cubes per layer × number of layers. Rearranging the same cubes into a tower or a slab changes the shape but never the volume.",
       "prerequisites": [
-        "g4.mea.area-intro",
-        "g5.geo.nets-3d",
-        "g3.num.mult-tables"
+        {
+          "id": "g4.mea.area-intro",
+          "strength": "hard",
+          "reason": "One layer of cubes is exactly an area count — volume just stacks those layers, so counting squares must come first."
+        },
+        {
+          "id": "g5.geo.nets-3d",
+          "strength": "soft",
+          "reason": "Knowing boxes, faces and how solids are put together helps picture the hidden cubes, but the counting can be learned by stacking."
+        },
+        {
+          "id": "g3.num.mult-tables",
+          "strength": "soft",
+          "reason": "Cubes-per-layer × layers is faster with tables, but a child can still add the layers one at a time."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -3549,6 +3757,7 @@
         "5.MD.C.3",
         "5.MD.C.4"
       ],
+      "parent_check": "Stack sugar cubes or dice into a block 3 long, 2 wide and 2 high, and ask how many cubes in all. The trap is counting only the cubes they can SEE and missing the hidden ones at the back and inside. The strong answer works in layers: 3 × 2 = 6 cubes in a layer, 2 layers, so 12 cubes.",
       "learning_outcomes": [
         "Can find the volume of a cube-built solid by counting unit cubes, including hidden ones",
         "Can use layers to count: cubes in one layer × number of layers",
@@ -3684,8 +3893,16 @@
       "strand": "dat",
       "description": "Data answers questions — if you read it correctly. You will pull values out of tables, read scaled bar graphs precisely (including part-divisions), and interpret simple pie charts where a slice is a fraction of the total. The golden rules: check the scale, and remember a pie slice is a fraction — its actual count depends on the total.",
       "prerequisites": [
-        "g4.dat.bar-charts",
-        "g4.num.fractions-equal-parts"
+        {
+          "id": "g4.dat.bar-charts",
+          "strength": "hard",
+          "reason": "Interpreting graphs starts from reading scaled bars accurately — that skill can't be skipped."
+        },
+        {
+          "id": "g4.num.fractions-equal-parts",
+          "strength": "hard",
+          "reason": "A pie-chart slice IS a fraction of the whole — half and quarter slices mean nothing without fractions."
+        }
       ],
       "ncert": {
         "class": 5,
@@ -3696,6 +3913,7 @@
       "ccss": [
         "3.MD.B.3"
       ],
+      "parent_check": "Draw a circle as a 'pocket money chart': shade half for sweets, a quarter for toys, a quarter saved. Ask: 'If the pocket money is ₹40, how much went on sweets?' (₹20.) The trap answers are 'half' with no rupee amount, or treating the three slices as three EQUAL parts — the sweets slice is twice the others.",
       "learning_outcomes": [
         "Can extract and compare values from a data table, including finding least and greatest",
         "Can read bar graphs with scaled axes, including bars ending between gridlines",
