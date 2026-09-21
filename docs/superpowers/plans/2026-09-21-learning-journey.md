@@ -792,7 +792,11 @@ def interval_days(rung: int, multiplier: float = 1.0) -> int:
     profile's `retention` map and is tuned by /reflect, not here.
     """
     base = LADDER[rung] if rung < len(LADDER) else MONTHLY
-    return max(1, round(base * multiplier))
+    # Half-up, not round(). Python's round() is banker's rounding, so a 1.5x
+    # retention multiplier on the 7-day rung would silently give 10 days instead
+    # of 11 - a surprise nobody would predict from reading rules/10. Intervals are
+    # never negative, so +0.5 needs no sign handling.
+    return max(1, int(base * multiplier + 0.5))
 
 
 def schedule_review(entry, passed: bool, on: date, multiplier: float = 1.0) -> dict:
@@ -1069,6 +1073,10 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
 
     for log in logs:
         log_day = date.fromisoformat(log["date"])
+        # A rung is one review OUTCOME, not one item. Without this, a sitting with
+        # six correct answers would walk a node straight up to the 11-day rung.
+        # One sitting moves a node's schedule at most once.
+        scheduled_this_log = set()
         for item in log.get("assessment", {}).get("items", []):
             node_id = item.get("node")
             question_id = item.get("question")
@@ -1114,13 +1122,12 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
             # stays scheduled thereafter. Reviews for it are logged like any other
             # item, so a later failure reaches this same path and resets the rung.
             is_mastered = (record["score"] >= MASTERY_THRESHOLD and record["conceptual_ok"])
-            already = node_id in schedule
-            if is_mastered or already:
-                if is_mastered or not correct:
-                    schedule[node_id] = schedule_review(
-                        schedule.get(node_id), correct, log_day,
-                        float(retention.get(strand_of.get(node_id, ""), 1.0)),
-                    )
+            if (is_mastered or node_id in schedule) and node_id not in scheduled_this_log:
+                scheduled_this_log.add(node_id)
+                schedule[node_id] = schedule_review(
+                    schedule.get(node_id), correct, log_day,
+                    float(retention.get(strand_of.get(node_id, ""), 1.0)),
+                )
 
     for record in mastery.values():
         record["score"] = round(record["score"], 4)
@@ -1546,6 +1553,10 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
+# Also this directory, so the FakeKG fixture can be shared with test_path rather
+# than duplicated. Under `unittest discover -s tests -t .` these modules are
+# imported as tests.test_*, so a bare `from test_path import` would not resolve.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import jev_guide
 from test_path import FakeKG, profile_with
