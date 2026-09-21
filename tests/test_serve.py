@@ -21,8 +21,15 @@ class TestValidStudentId(unittest.TestCase):
     paths that reach the filesystem exactly as effectively."""
 
     def test_ordinary_ids_are_valid(self):
-        for student_id in ("S001", "S999", "S_1-a", "_template"):
+        for student_id in ("S001", "S999", "S_1-a"):
             self.assertTrue(jev_serve._valid_student_id(student_id))
+
+    def test_underscore_prefixed_ids_are_rejected(self):
+        """_template (and any _-prefixed folder) is not a student - list_students()
+        already skips these on read, and the write path must refuse them too, or
+        POST /api/student/_template/session rewrites the checked-in blank template."""
+        for student_id in ("_template", "_anything"):
+            self.assertFalse(jev_serve._valid_student_id(student_id))
 
     def test_dot_dot_traversal_is_rejected(self):
         self.assertFalse(jev_serve._valid_student_id("../../students/S001"))

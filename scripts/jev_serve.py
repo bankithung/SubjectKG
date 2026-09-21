@@ -50,6 +50,13 @@ STUDENT_ID_RE = re.compile(r"[A-Za-z0-9_-]+")
 
 
 def _valid_student_id(student_id: str) -> bool:
+    # `_`-prefixed folders (e.g. _template) are not students - list_students()
+    # already skips them on read (see child.name.startswith("_") below), so the
+    # write path must refuse them too. Without this, POST /api/student/_template/
+    # session rewrites the checked-in blank template that every real student is
+    # migrated from.
+    if student_id.startswith("_"):
+        return False
     return bool(STUDENT_ID_RE.fullmatch(student_id))
 
 
