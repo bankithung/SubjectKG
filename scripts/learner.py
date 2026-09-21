@@ -18,6 +18,8 @@ import tempfile
 from datetime import date, timedelta
 from pathlib import Path
 
+import path as pathmod
+
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -283,8 +285,6 @@ CARRIED_FIELDS = (
     "affect", "calibration", "projection_from", "seed",
 )
 
-MASTERY_THRESHOLD = 0.8
-
 
 def build_question_index(kg) -> dict:
     """(node_id, question_id) -> the facts the projection needs about that item.
@@ -431,7 +431,10 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
             # A node enters the review schedule the moment it is first MASTERED, and
             # stays scheduled thereafter. Reviews for it are logged like any other
             # item, so a later failure reaches this same path and resets the rung.
-            is_mastered = (record["score"] >= MASTERY_THRESHOLD and record["conceptual_ok"])
+            # MASTERED has exactly one definition, in path.is_mastered; wrap the
+            # in-progress record in a throwaway profile shape to reuse it rather
+            # than re-comparing against a second copy of the threshold here.
+            is_mastered = pathmod.is_mastered({"mastery": {node_id: record}}, node_id)
             if (is_mastered or node_id in schedule) and node_id not in scheduled_this_log:
                 scheduled_this_log.add(node_id)
                 schedule[node_id] = schedule_review(
