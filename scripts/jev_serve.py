@@ -273,8 +273,15 @@ class Console(BaseHTTPRequestHandler):
                 log = payload.get("log")
                 if not isinstance(log, dict) or "date" not in log:
                     return self._json({"error": "log with a date is required"}, 400)
-                before = learner.student_dir(student_id) / "profile.json"
-                previous = learner.read_json(before) if before.is_file() else {}
+                # Checked before anything touches disk: append_session mkdirs and
+                # writes the ledger entry unconditionally, so a typo'd id (ZZTEST,
+                # say) would otherwise leave an orphan sessions/ folder behind even
+                # though the request is ultimately rejected. /next, /gaps and GET
+                # /student/<id> all 404 here first; this endpoint must too.
+                profile_path = learner.student_dir(student_id) / "profile.json"
+                if not profile_path.is_file():
+                    return self._json({"error": f"no student {student_id}"}, 404)
+                previous = learner.read_json(profile_path)
                 written = learner.append_session(student_id, log)
                 profile, warnings = learner.reproject(student_id, self.kg, date.today())
                 learner.save_profile(student_id, profile)
@@ -312,9 +319,11 @@ class Console(BaseHTTPRequestHandler):
                 student_id = path[len("/api/student/"):-len("/reproject")]
                 if not _valid_student_id(student_id):
                     return self._json({"error": f"invalid student id {student_id!r}"}, 400)
-                profile, warnings = learner.reproject(student_id, self.kg, date.today())
                 stored_path = learner.student_dir(student_id) / "profile.json"
-                stored = learner.read_json(stored_path) if stored_path.is_file() else {}
+                if not stored_path.is_file():
+                    return self._json({"error": f"no student {student_id}"}, 404)
+                stored = learner.read_json(stored_path)
+                profile, warnings = learner.reproject(student_id, self.kg, date.today())
                 learner.save_profile(student_id, profile)
                 return self._json({
                     "profile": profile, "warnings": warnings,
