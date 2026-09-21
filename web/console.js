@@ -601,6 +601,7 @@ function wireQuizButtons() {
           node_id: quiz.node.id, prompt: question.prompt, correct, answer,
         });
         quiz.transcript.push({
+          question_id: question.id,
           prompt: question.prompt, correct, answer,
           is_correct: diagnosis.is_correct,
           misconception: diagnosis.misconception.id,
@@ -645,7 +646,22 @@ function advanceQuiz() {
   const outlet = $("#quizOut");
   outlet.innerHTML = quizHistory() + '<div class="working"><i></i></div>';
   api("/api/quiz/verdict", { node_id: quiz.node.id, transcript: quiz.transcript })
-    .then((verdict) => { outlet.innerHTML = quizHistory() + verdictCard(verdict); })
+    .then(async (verdict) => {
+      outlet.innerHTML = quizHistory() + verdictCard(verdict);
+      const studentId = $("#quizStudent").value;
+      if (!studentId) return;
+      // Only now, on an explicit finish, does the ledger gain a file. An abandoned
+      // sitting leaves no record, which is what makes crash recovery a non-event.
+      try {
+        const saved = await api(`/api/student/${encodeURIComponent(studentId)}/session`,
+                                { log: buildSessionLog(quiz.node.id, quiz.transcript, verdict) });
+        outlet.insertAdjacentHTML("beforeend", deltaCard(saved));
+        refreshStudents();
+      } catch (error) {
+        outlet.insertAdjacentHTML("beforeend",
+          `<div class="error">The sitting was judged but not recorded: ${escapeHtml(error.message)}</div>`);
+      }
+    })
     .catch((error) => {
       outlet.innerHTML = quizHistory() + `<div class="error">${escapeHtml(error.message)}</div>`;
     })
@@ -688,6 +704,65 @@ function initQuiz() {
     $("#quizNode").value = node ? `${node.id}  ${node.title}` : chip.dataset.quiz;
     begin();
   }));
+}
+
+/** Shape a finished sitting as a session log the ledger will accept. */
+function buildSessionLog(nodeId, transcript, verdict) {
+  const today = new Date().toISOString().slice(0, 10);
+  return {
+    student: $("#quizStudent").value,
+    date: today,
+    goal: `${nodeId}: quiz`,
+    nodes_touched: [nodeId],
+    reviews_done: [],
+    events: [],
+    assessment: {
+      items: transcript.map((item) => ({
+        node: nodeId,
+        question: item.question_id,
+        correct: item.is_correct >= 0.5,
+        answer_text: item.answer,
+        misconception_signalled:
+          item.misconception && !["no_error", "other_error"].includes(item.misconception)
+            ? item.misconception : undefined,
+        jev: {
+          is_correct: item.is_correct,
+          misconception: item.misconception,
+          confident: item.confident,
+          model: $("#modelTag").textContent,
+        },
+      })),
+    },
+    profile_updates: {},
+    reflection: {
+      goal_met: verdict ? verdict.mastery.value >= 1.5 : false,
+      evidence: verdict
+        ? `Jev read the sitting as "${verdict.mastery.label}" (${verdict.mastery.value}/2).`
+        : "",
+    },
+  };
+}
+
+function deltaCard(result) {
+  if (!result.mastery_delta.length) {
+    return '<div class="note">Recorded. No mastery score moved.</div>';
+  }
+  const rows = result.mastery_delta.map((row) => `<tr>
+    <td>${escapeHtml(GRAPH.nodes.find((n) => n.id === row.node)?.title || row.node)}
+      <span class="nid">${escapeHtml(row.node)}</span></td>
+    <td class="num">${row.from === null || row.from === undefined ? "—" : fixed(row.from)}</td>
+    <td class="num">→ ${fixed(row.to)}</td>
+    <td class="num">${row.newly_mastered ? '<span class="tag ok">now mastered</span>' : ""}</td>
+  </tr>`).join("");
+
+  return `<div class="card clean">
+    <span class="micro">written to the ledger — ${escapeHtml(result.written)}</span>
+    <table style="margin-top:8px"><thead><tr><th>concept</th><th>was</th><th>now</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    ${result.warnings.length
+      ? `<div class="error" style="margin-top:10px">${result.warnings.map(escapeHtml).join("<br>")}</div>`
+      : ""}
+  </div>`;
 }
 
 /* ================================= JOURNEY ================================= */
