@@ -26,10 +26,10 @@ def main() -> int:
             print(r.stdout + r.stderr)
             return 1
 
-    html = (ROOT / "viewer" / "index.html").read_text()
-    kg = (ROOT / "viewer" / "kg-data.js").read_text()
+    html = (ROOT / "viewer" / "index.html").read_text(encoding="utf-8")
+    kg = (ROOT / "viewer" / "kg-data.js").read_text(encoding="utf-8")
     if student:
-        overlay = (ROOT / "viewer" / "student-data.js").read_text()
+        overlay = (ROOT / "viewer" / "student-data.js").read_text(encoding="utf-8")
     else:
         overlay = "window.STUDENT_DATA = null;\n"
 
@@ -49,7 +49,7 @@ def main() -> int:
     dist.mkdir(exist_ok=True)
     name = f"SubjectKG-viewer{'-' + student if student else ''}.html"
     out = dist / name
-    out.write_text(html)
+    out.write_text(html, encoding="utf-8")
     print(f"Wrote {out.relative_to(ROOT)} ({len(html) // 1024} KB, "
           f"{'with ' + student + ' overlay' if student else 'no student overlay'})")
     return 0

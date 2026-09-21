@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # Strands are defined by the spine, not hardcoded, so the same tooling can validate
 # any subject's graph (see harness/prompts/add-subject.md).
-_SPINE = json.loads((ROOT / "kg" / "spine.json").read_text())
+_SPINE = json.loads((ROOT / "kg" / "spine.json").read_text(encoding="utf-8"))
 _STRANDS = "|".join(re.escape(s) for s in _SPINE["strands"])
 ID_RE = re.compile(rf"^g([1-9]|1[0-2])\.({_STRANDS})\.[a-z0-9-]+$")
 MICRO_ID_RE = re.compile(rf"^g([1-9]|1[0-2])\.({_STRANDS})\.[a-z0-9-]+\.[a-z0-9-]+$")
@@ -222,9 +222,9 @@ def main() -> int:
         print("build failed - aborting validation")
         return 1
 
-    spine = json.loads((ROOT / "kg" / "spine.json").read_text())
+    spine = json.loads((ROOT / "kg" / "spine.json").read_text(encoding="utf-8"))
     spine_ids = {n["id"] for n in spine["nodes"]}
-    graph = json.loads((ROOT / "kg" / "math.json").read_text())
+    graph = json.loads((ROOT / "kg" / "math.json").read_text(encoding="utf-8"))
     nodes = graph["nodes"]
 
     seen = set()

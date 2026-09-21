@@ -35,14 +35,14 @@ def main() -> int:
         return 1
     sid = sys.argv[1]
     sdir = ROOT / "students" / sid
-    profile = json.loads((sdir / "profile.json").read_text())
-    graph = json.loads((ROOT / "kg" / "math.json").read_text())
+    profile = json.loads((sdir / "profile.json").read_text(encoding="utf-8"))
+    graph = json.loads((ROOT / "kg" / "math.json").read_text(encoding="utf-8"))
     nodes = {n["id"]: n for n in graph["nodes"]}
     strands = graph["strands"]
     sessions = []
     for f in sorted((sdir / "sessions").glob("*.json")) if (sdir / "sessions").exists() else []:
         try:
-            sessions.append(json.loads(f.read_text()))
+            sessions.append(json.loads(f.read_text(encoding="utf-8")))
         except json.JSONDecodeError:
             print(f"WARN: skipping unparseable {f.name}")
     today = date.today().isoformat()
@@ -216,7 +216,7 @@ reviews cleared in a row: {streaks.get('reviews_cleared_in_a_row','—')}</p></d
     plan_file = sdir / "plan.md"
     if plan_file.exists():
         plan_html = (f'<h2>Personal learning plan</h2><div class="card">'
-                     f'<pre class="plan">{esc(plan_file.read_text().strip())}</pre></div>')
+                     f'<pre class="plan">{esc(plan_file.read_text(encoding="utf-8").strip())}</pre></div>')
 
     page = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
@@ -319,7 +319,7 @@ Graph map with this student's overlay: /kg show {esc(sid)} then open viewer/inde
 </body></html>"""
 
     out = sdir / "report.html"
-    out.write_text(page)
+    out.write_text(page, encoding="utf-8")
     print(f"Wrote {out.relative_to(ROOT)} ({len(sessions)} sessions, {n_items} Q&A items, "
           f"{len(mastery)} topics with evidence)")
     return 0
