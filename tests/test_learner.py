@@ -240,5 +240,180 @@ class TestReviewLadder(unittest.TestCase):
         self.assertEqual(entry["interval_days"], 11)  # 7 * 1.5 = 10.5 -> 11
 
 
+def _item(node, question, correct, misconception=None):
+    entry = {"node": node, "question": question, "correct": correct}
+    if misconception:
+        entry["misconception_signalled"] = misconception
+    return entry
+
+
+def _log(date_str, items, node="g5.num.x"):
+    return {
+        "student": "S001", "date": date_str, "goal": f"{node}: quiz",
+        "nodes_touched": [node], "events": [],
+        "assessment": {"items": items},
+        "profile_updates": {}, "reflection": {},
+    }
+
+
+# (node_id, question_id) -> difficulty, skill, and which misconceptions it targets
+QINDEX = {
+    ("g5.num.x", "q1"): {"difficulty": 3, "skill": "procedural", "targets": {"m1"}},
+    ("g5.num.x", "q2"): {"difficulty": 3, "skill": "conceptual", "targets": {"m1"}},
+    ("g5.num.x", "q3"): {"difficulty": 3, "skill": "procedural", "targets": {"m2"}},
+}
+STRANDS = {"g5.num.x": "num"}
+
+
+class TestProjection(unittest.TestCase):
+    def setUp(self):
+        self.today = date(2026, 3, 20)
+
+    def test_empty_ledger_gives_empty_mastery(self):
+        profile, warnings = learner.project({}, [], QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["mastery"], {})
+        self.assertEqual(profile["session_count"], 0)
+        self.assertEqual(warnings, [])
+
+    def test_correct_items_accumulate_mastery(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)]),
+                _log("2026-03-02", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        node = profile["mastery"]["g5.num.x"]
+        self.assertAlmostEqual(node["score"], 0.5345, places=4)
+        self.assertEqual(node["evidence_count"], 2)
+        self.assertEqual(node["last_seen"], "2026-03-02")
+
+    def test_conceptual_ok_needs_a_conceptual_item_specifically(self):
+        procedural_only = [_log("2026-03-01", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project({}, procedural_only, QINDEX, STRANDS, self.today)
+        self.assertFalse(profile["mastery"]["g5.num.x"]["conceptual_ok"])
+
+        with_conceptual = procedural_only + [
+            _log("2026-03-02", [_item("g5.num.x", "q2", True)])
+        ]
+        profile, _ = learner.project({}, with_conceptual, QINDEX, STRANDS, self.today)
+        self.assertTrue(profile["mastery"]["g5.num.x"]["conceptual_ok"])
+
+    def test_a_wrong_conceptual_item_does_not_set_the_flag(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q2", False)])]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        self.assertFalse(profile["mastery"]["g5.num.x"]["conceptual_ok"])
+
+    def test_signalled_misconception_is_recorded(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", False, "m1")])]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        active = profile["mastery"]["g5.num.x"]["misconceptions_active"]
+        self.assertEqual([m["id"] for m in active], ["m1"])
+        self.assertEqual(active[0]["repair_stage"], "observed")
+
+    def test_correct_answer_on_a_targeting_item_advances_the_repair(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", False, "m1")]),
+                _log("2026-03-02", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        active = profile["mastery"]["g5.num.x"]["misconceptions_active"]
+        self.assertEqual(active[0]["repair_stage"], "confronted")
+
+    def test_correct_answer_on_an_unrelated_item_does_not(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", False, "m1")]),
+                _log("2026-03-02", [_item("g5.num.x", "q3", True)])]  # q3 targets m2
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        active = profile["mastery"]["g5.num.x"]["misconceptions_active"]
+        self.assertEqual(active[0]["repair_stage"], "observed")
+
+    def test_review_is_scheduled_once_the_node_is_mastered(self):
+        items = [_item("g5.num.x", "q2", True)] * 6
+        logs = [_log("2026-03-01", items)]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        self.assertGreaterEqual(profile["mastery"]["g5.num.x"]["score"], 0.8)
+        self.assertIn("g5.num.x", profile["spaced_repetition"])
+
+    def test_unmastered_node_is_not_scheduled(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        self.assertNotIn("g5.num.x", profile["spaced_repetition"])
+
+    def test_session_count_and_last_session_follow_the_ledger(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)]),
+                _log("2026-03-04", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["session_count"], 2)
+        self.assertEqual(profile["last_session"], "2026-03-04")
+
+    def test_seed_fields_are_carried_through_untouched(self):
+        seed = {
+            "id": "S001", "created": "2026-01-01", "grade": 9,
+            "interests": ["cricket"], "goals": {"target": "boards"},
+            "language": {"explanation": "english"},
+            "strategy_stats": {"visual:num": {"tried": 3, "worked": 2}},
+            "retention": {"num": 1.2},
+        }
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["interests"], ["cricket"])
+        self.assertEqual(profile["goals"]["target"], "boards")
+        self.assertEqual(profile["strategy_stats"]["visual:num"]["worked"], 2)
+        self.assertEqual(profile["grade"], 9)
+
+    def test_retention_multiplier_is_applied_to_scheduling(self):
+        seed = {"id": "S001", "created": "2026-01-01", "grade": 9,
+                "retention": {"num": 1.5}}
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q2", True)] * 6)]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["spaced_repetition"]["g5.num.x"]["interval_days"], 2)
+
+    def test_unknown_question_is_warned_and_skipped(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q99", True)])]
+        profile, warnings = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["mastery"], {})
+        self.assertEqual(len(warnings), 1)
+        self.assertIn("q99", warnings[0])
+
+    def test_validate_accepts_a_complete_profile(self):
+        profile = {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "mastery": {"g5.num.x": {"score": 0.5, "evidence_count": 2,
+                                     "last_seen": "2026-03-01"}},
+            "strategy_stats": {}, "behavior": {},
+            "spaced_repetition": {"g5.num.x": {"next_review": "2026-03-05",
+                                               "interval_days": 3}},
+        }
+        self.assertEqual(learner.validate_profile(profile), [])
+
+    def test_validate_names_every_missing_required_root_key(self):
+        problems = learner.validate_profile({"id": "S001"})
+        joined = " ".join(problems)
+        for key in ("created", "grade", "mastery", "strategy_stats", "behavior",
+                    "spaced_repetition"):
+            self.assertIn(key, joined)
+
+    def test_validate_catches_a_mastery_score_out_of_range(self):
+        profile = {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "mastery": {"g5.num.x": {"score": 1.4, "evidence_count": 1,
+                                     "last_seen": "2026-03-01"}},
+            "strategy_stats": {}, "behavior": {}, "spaced_repetition": {},
+        }
+        problems = learner.validate_profile(profile)
+        self.assertTrue(any("score" in p and "g5.num.x" in p for p in problems))
+
+    def test_validate_catches_an_incomplete_review_entry(self):
+        profile = {
+            "id": "S001", "created": "2026-01-01", "grade": 5, "mastery": {},
+            "strategy_stats": {}, "behavior": {},
+            "spaced_repetition": {"g5.num.x": {"interval_days": 3}},
+        }
+        problems = learner.validate_profile(profile)
+        self.assertTrue(any("next_review" in p for p in problems))
+
+    def test_projection_is_deterministic(self):
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)]),
+                _log("2026-03-02", [_item("g5.num.x", "q2", False, "m1")])]
+        first, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        second, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(json.dumps(first, sort_keys=True),
+                         json.dumps(second, sort_keys=True))
+
+
 if __name__ == "__main__":
     unittest.main()
