@@ -10,6 +10,7 @@ The one rule that governs every write here: a profile is never a source of truth
 a failed write can always be repaired by reprojecting. The reverse must never be
 possible, which is why the ledger is only ever appended to.
 """
+import copy
 import io
 import json
 import os
@@ -303,8 +304,28 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
     """
     profile = {key: seed[key] for key in CARRIED_FIELDS if key in seed}
     profile.setdefault("id", seed.get("id", ""))
-    mastery, schedule, warnings = {}, {}, []
+    warnings = []
     retention = profile.get("retention", {}) or {}
+
+    # A profile written before session logging existed cannot be reprojected faithfully -
+    # the evidence was never recorded. Rather than fabricate a ledger to match, such a
+    # profile carries `projection_from`: the date its ledger becomes authoritative. Its
+    # stored model is the starting point, and only logs from that date onward replay on
+    # top. Without the marker this is a pure replay, which is right for every student
+    # enrolled after logging began.
+    #
+    # Deep-copied because project() must not mutate its arguments.
+    projection_from = seed.get("projection_from")
+    if projection_from:
+        mastery = copy.deepcopy(seed.get("mastery") or {})
+        schedule = copy.deepcopy(seed.get("spaced_repetition") or {})
+        prior_sessions = int(seed.get("session_count") or 0)
+        # Sessions before the marker are already baked into the seed; replaying them
+        # would count the same evidence twice.
+        logs = [log for log in logs if log["date"] >= projection_from]
+    else:
+        mastery, schedule = {}, {}
+        prior_sessions = 0
 
     for log in logs:
         log_day = date.fromisoformat(log["date"])
@@ -369,8 +390,9 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
 
     profile["mastery"] = mastery
     profile["spaced_repetition"] = schedule
-    profile["session_count"] = len(logs)
-    profile["last_session"] = logs[-1]["date"] if logs else None
+    profile["session_count"] = prior_sessions + len(logs)
+    profile["last_session"] = (logs[-1]["date"] if logs
+                               else seed.get("last_session") if projection_from else None)
     profile.setdefault("strategy_stats", {})
     profile.setdefault("behavior", {})
     return profile, warnings

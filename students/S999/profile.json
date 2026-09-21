@@ -60,5 +60,6 @@
     "g4.num.division-long-intro": { "next_review": "2026-07-20", "interval_days": 16, "lapses": 1 }
   },
   "session_count": 6,
-  "last_session": "2026-07-10"
+  "last_session": "2026-07-10",
+  "projection_from": "2026-07-11"
 }

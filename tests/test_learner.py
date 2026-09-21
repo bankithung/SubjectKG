@@ -414,6 +414,82 @@ class TestProjection(unittest.TestCase):
         self.assertEqual(json.dumps(first, sort_keys=True),
                          json.dumps(second, sort_keys=True))
 
+    def _seed_with_history(self):
+        """A profile written before session logging existed: real mastery, no ledger."""
+        return {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "projection_from": "2026-03-02",
+            "session_count": 6,
+            "last_session": "2026-03-01",
+            "mastery": {
+                "g5.num.x": {"score": 0.91, "evidence_count": 12,
+                             "last_seen": "2026-03-01", "conceptual_ok": True,
+                             "misconceptions_active": []},
+                "g9.other": {"score": 0.85, "evidence_count": 8,
+                             "last_seen": "2026-02-20", "conceptual_ok": True,
+                             "misconceptions_active": []},
+            },
+            "spaced_repetition": {
+                "g9.other": {"next_review": "2026-04-01", "interval_days": 16,
+                             "lapses": 0, "rung": 3},
+            },
+            "strategy_stats": {}, "behavior": {},
+        }
+
+    def test_seeded_profile_keeps_mastery_the_ledger_cannot_explain(self):
+        seed = self._seed_with_history()
+        profile, _ = learner.project(seed, [], QINDEX, STRANDS, self.today)
+        self.assertIn("g9.other", profile["mastery"],
+                      "a seeded node with no log must survive the projection")
+        self.assertEqual(profile["mastery"]["g9.other"]["score"], 0.85)
+        self.assertEqual(profile["spaced_repetition"]["g9.other"]["rung"], 3)
+
+    def test_seeded_profile_still_applies_logs_after_the_marker(self):
+        seed = self._seed_with_history()
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertLess(profile["mastery"]["g5.num.x"]["score"], 0.91,
+                        "a wrong answer after the marker must still move the score")
+        self.assertEqual(
+            [m["id"] for m in profile["mastery"]["g5.num.x"]["misconceptions_active"]],
+            ["m1"])
+
+    def test_seeded_profile_ignores_logs_before_the_marker(self):
+        seed = self._seed_with_history()
+        # Dated before projection_from: already baked into the seed, must not double-count.
+        logs = [_log("2026-02-15", [_item("g5.num.x", "q1", False, "m1")])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["mastery"]["g5.num.x"]["score"], 0.91)
+        self.assertEqual(profile["mastery"]["g5.num.x"]["misconceptions_active"], [])
+
+    def test_seeded_session_count_adds_to_the_seeds_count(self):
+        seed = self._seed_with_history()
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", True)]),
+                _log("2026-03-06", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["session_count"], 8, "6 seeded + 2 replayed")
+        self.assertEqual(profile["last_session"], "2026-03-06")
+
+    def test_seeded_profile_with_no_new_logs_keeps_its_last_session(self):
+        seed = self._seed_with_history()
+        profile, _ = learner.project(seed, [], QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["session_count"], 6)
+        self.assertEqual(profile["last_session"], "2026-03-01")
+
+    def test_unseeded_projection_is_unchanged(self):
+        """The default path must not shift: no marker means pure replay."""
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["session_count"], 1)
+        self.assertAlmostEqual(profile["mastery"]["g5.num.x"]["score"], 0.335, places=3)
+
+    def test_project_does_not_mutate_the_seed(self):
+        seed = self._seed_with_history()
+        before = json.dumps(seed, sort_keys=True)
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
+        learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(json.dumps(seed, sort_keys=True), before)
+
 
 if __name__ == "__main__":
     unittest.main()
