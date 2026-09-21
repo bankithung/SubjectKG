@@ -132,11 +132,34 @@ Useful variants:
                                    # questions underperform, KG fixes (run fortnightly)
 ```
 
+### 3b. The Jev console (semantic layer over the graph)
+
+```bash
+cp .env.example .env        # add your TYPESAFE_API_KEY
+python3 scripts/jev_serve.py    # -> http://localhost:8770
+```
+
+A browser console that puts [Jev](https://docs.typesafe.ai) — TypeSafe's System One
+model — in front of the graph. Jev returns typed judgments and probabilities rather
+than text, so its answers go straight into the student profile without a parsing step.
+Four screens:
+
+| Screen | What it asks Jev |
+|---|---|
+| **Route** | "Which of the 162 concepts is this learner asking about?" Type one line or twenty; each runs a beam search over strand → concept, then Jev adjudicates the shortlist. Replaces the substring grep in `/kg find`. |
+| **Quiz** | Sit any concept's authored test, answering in your own words. Each answer is diagnosed live; at the end Jev reads the whole sitting and says whether the concept has landed, whether one faulty idea runs through the errors, and what to do next. |
+| **Diagnose** | "This answer is wrong — which documented misconception does it reveal, how deep is the gap, did they sound sure, and what should the tutor do next?" **Works on free text**, which the MCQ distractor lookup cannot do. |
+| **Audit** | Turns Jev on the graph: are the 289 prerequisite edges real and correctly labelled hard/soft, and does every distractor actually detect what it claims to? Ranked worst-first. |
+| **Compare** | Jev's routing side by side with the keyword lookup it replaces. |
+
+Full write-up, including what Jev decides and what stays in code: **[docs/JEV.md](docs/JEV.md)**.
+
 ### 4. What to open in a browser
 
 | Page | For | How |
 |---|---|---|
 | `viewer/index.html` | Student/parent: the full 1-12 map, what unlocks what, why | `> /kg show S001` first (adds their green/amber/star/lock overlay), then open the file |
+| `localhost:8770` | Anyone: ask the graph questions in plain language, diagnose free-text answers, audit the graph | `python3 scripts/jev_serve.py` |
 | Class drill-down | The in-depth per-class graph, micro-skill by micro-skill | click any CLASS label inside the viewer |
 | `students/S001/report.html` | Teacher: full analytics - mastery, misconception tracker, every Q&A, what works | regenerated every session, or `python3 scripts/build_student_page.py S001` |
 | `students/S001/plan.md` | The student's own journey plan | any editor; embedded in report.html too |
@@ -184,6 +207,7 @@ corrected by observation, and rule changes are auditable as `harness-learning:` 
 | `kg/classes/class-NN.json` | Per-class in-depth graphs: each topic broken into ordered micro-skills |
 | `kg/math.json` | Built combined graph (`python3 scripts/build_kg.py`) |
 | `viewer/index.html` | Interactive graph viewer (works from `file://`) |
+| `web/` + `scripts/jev_*.py` | The Jev console: semantic routing, free-text diagnosis, graph audit ([docs/JEV.md](docs/JEV.md)) |
 | `students/` | One folder per student: profile, session logs, generated artifacts |
 | `scripts/` | build / validate / student overlay / NCERT PDF ingestion |
 
@@ -209,4 +233,6 @@ python3 scripts/ingest_ncert.py extract    # -> data/text/*.txt (pip install pyp
 - [ ] Ingest NCERT texts and split coarse nodes into finer micro-skills
 - [ ] Promote the best generated questions from session logs into the banks
 - [ ] More subjects: the spine/band/viewer machinery is subject-agnostic (hence "SubjectKG")
-- [ ] Optional web front-end; the data layer (JSON + schemas) is already API-shaped
+- [x] Optional web front-end — `scripts/jev_serve.py` + `web/`, a Jev-backed console over the same JSON
+- [ ] Feed Jev's audit findings back into the band files as `kg:` commits
+- [ ] Wire `diagnose()` into the `/tutor` loop so free-text answers update `profile.json` directly

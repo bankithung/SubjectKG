@@ -8,3 +8,9 @@ __pycache__/
 *.pyc
 .DS_Store
 dist/
+
+# Jev / TypeSafe API key - never commit (see scripts/jev_client.py)
+.env
+
+# Local Jev answer cache (safe to delete; rebuilds on demand)
+.jev-cache/

@@ -16,6 +16,11 @@ seriously as you would treat correctness in production code.
   `sessions/*.json` (logs), `artifacts/` (generated interactive HTML). Student data is
   private: ids only, never names, nothing leaves the repo (see rules/40).
 - `viewer/index.html` — self-contained interactive graph viewer for students/parents.
+- `web/` + `scripts/jev_*.py` — the Jev console: a localhost server putting TypeSafe's
+  System One model over the graph for semantic routing, free-text answer diagnosis, and
+  auditing the graph against itself. See `docs/JEV.md`. Start with
+  `python3 scripts/jev_serve.py`. The API key lives in `.env` (gitignored) and is read
+  server-side only — never put it in anything the browser loads.
 - `scripts/` — build, validate, student overlay export, NCERT PDF ingestion.
 - `harness/insights.md` — the cross-student teaching-insights ledger (append-only, evidenced).
 
@@ -57,6 +62,12 @@ conversation (names included); anonymous ids in every file. The checklist lives 
 ## Dev notes
 
 - Everything is plain JSON/Markdown/Python(stdlib)/static HTML — no build system, no deps.
+  This holds for the Jev console too: keep it stdlib-only. No pip, no npm.
+- When adding a Jev judgment, put the decision in the model, not in a threshold. If you
+  find yourself writing `if probability > 0.5` to reach a verdict, ask Jev for the
+  verdict instead (see the EDGE_VERDICTS / QUESTION_VERDICTS pattern in jev_brain.py).
+  Score levels must describe concrete situations a reader could recognise — a level the
+  model cannot judge from the state returns confidence 0.0, which is the symptom.
 - Schemas in `harness/schemas/` are the contracts; validate against them when editing.
 - Commit style: `session: <id> <date> <topic>` for tutoring, `kg:` for graph work,
   `harness-learning:` for rule amendments (see rules/50).

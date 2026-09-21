@@ -1,0 +1,230 @@
+#!/usr/bin/env python3
+"""Local server for the Jev console. Python stdlib only - no pip install, no build step.
+
+    python3 scripts/jev_serve.py
+    -> http://localhost:8770
+
+Why a server at all, in a repo that has proudly avoided one: the TypeSafe API key
+must never reach the browser. Every Jev call is made from this process; the page
+only ever talks to localhost. The 2.6 MB graph also stays here, and the browser is
+sent only the slice it is displaying.
+
+Bind address is 127.0.0.1 deliberately. This serves an authenticated API key to
+anything that can reach it, so it is not something to expose on a network.
+"""
+import argparse
+import json
+import mimetypes
+import sys
+import traceback
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from jev_brain import (KG, audit_edges, audit_questions, compare, diagnose, quiz_verdict,
+                       route, route_batch)
+from jev_client import JevClient, JevError
+
+ROOT = Path(__file__).resolve().parent.parent
+WEB_DIR = ROOT / "web"
+
+# Guard rails on anything that fans out into many paid API calls, so a typo in a
+# request body cannot spend the whole quota.
+MAX_BATCH_PROMPTS = 40
+MAX_AUDIT_ROWS = 60
+
+
+class Console(BaseHTTPRequestHandler):
+    server_version = "SubjectKG-Jev"
+    kg: KG = None
+    client: JevClient = None
+
+    # -- plumbing ---------------------------------------------------------------
+
+    def log_message(self, fmt, *args):
+        sys.stderr.write(f"  {self.address_string()} {fmt % args}\n")
+
+    def _send(self, status: int, body: bytes, content_type: str):
+        self.send_response(status)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _json(self, payload, status: int = 200):
+        self._send(status, json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+                   "application/json; charset=utf-8")
+
+    def _body(self) -> dict:
+        length = int(self.headers.get("Content-Length") or 0)
+        if not length:
+            return {}
+        return json.loads(self.rfile.read(length).decode("utf-8"))
+
+    # -- static -----------------------------------------------------------------
+
+    def _serve_file(self, relative: str):
+        target = (WEB_DIR / relative).resolve()
+        # Refuse anything that escapes web/ - this server reads from disk on request.
+        if not str(target).startswith(str(WEB_DIR.resolve())) or not target.is_file():
+            self._send(404, b"not found", "text/plain")
+            return
+        guessed = mimetypes.guess_type(target.name)[0] or "application/octet-stream"
+        if guessed.startswith("text/") or guessed.endswith(("javascript", "json")):
+            guessed += "; charset=utf-8"
+        self._send(200, target.read_bytes(), guessed)
+
+    # -- routes -----------------------------------------------------------------
+
+    def do_GET(self):
+        path = self.path.split("?")[0]
+        try:
+            if path in ("/", "/index.html"):
+                return self._serve_file("index.html")
+
+            if path == "/api/graph":
+                # The index the browser needs to populate pickers: ids and labels only.
+                return self._json({
+                    "strands": self.kg.strands,
+                    "strand_summaries": self.kg.strand_summaries,
+                    "counts": {
+                        "nodes": len(self.kg.nodes),
+                        "edges": len(self.kg.edges()),
+                        "questions": len(self.kg.all_questions()),
+                        "misconceptions": sum(len(n.get("misconceptions", []))
+                                              for n in self.kg.nodes),
+                        "micros": sum(len(n.get("micros", [])) for n in self.kg.nodes),
+                    },
+                    "nodes": [
+                        {"id": n["id"], "title": n["title"], "grade": n["grade"],
+                         "strand": n["strand"],
+                         "questions": len(n.get("questions", [])),
+                         "misconceptions": len(n.get("misconceptions", []))}
+                        for n in self.kg.nodes
+                    ],
+                })
+
+            if path.startswith("/api/node/"):
+                node_id = path[len("/api/node/"):]
+                node = self.kg.by_id.get(node_id)
+                if not node:
+                    return self._json({"error": f"no node {node_id}"}, 404)
+                return self._json(self.kg.summary(node))
+
+            if path == "/api/stats":
+                return self._json(dict(self.client.stats, model=self.client.model))
+
+            return self._serve_file(path.lstrip("/"))
+        except Exception as exc:  # noqa: BLE001
+            traceback.print_exc()
+            return self._json({"error": str(exc)}, 500)
+
+    def do_POST(self):
+        path = self.path.split("?")[0]
+        try:
+            payload = self._body()
+
+            if path == "/api/route":
+                utterance = (payload.get("utterance") or "").strip()
+                if not utterance:
+                    return self._json({"error": "utterance is required"}, 400)
+                return self._json(route(self.client, self.kg, utterance))
+
+            if path == "/api/route/batch":
+                prompts = [p.strip() for p in payload.get("utterances", []) if p and p.strip()]
+                if not prompts:
+                    return self._json({"error": "at least one prompt is required"}, 400)
+                if len(prompts) > MAX_BATCH_PROMPTS:
+                    return self._json(
+                        {"error": f"{len(prompts)} prompts exceeds the {MAX_BATCH_PROMPTS} "
+                                  f"limit for one run"}, 400)
+                return self._json({"results": route_batch(self.client, self.kg, prompts)})
+
+            if path == "/api/diagnose":
+                node_id = payload.get("node_id")
+                if not node_id or node_id not in self.kg.by_id:
+                    return self._json({"error": f"unknown node {node_id!r}"}, 400)
+                answer = (payload.get("answer") or "").strip()
+                if not answer:
+                    return self._json({"error": "the student's answer is required"}, 400)
+                return self._json(diagnose(
+                    self.client, self.kg, node_id,
+                    payload.get("prompt", ""), payload.get("correct", ""), answer,
+                ))
+
+            if path == "/api/quiz/verdict":
+                node_id = payload.get("node_id")
+                if not node_id or node_id not in self.kg.by_id:
+                    return self._json({"error": f"unknown node {node_id!r}"}, 400)
+                transcript = payload.get("transcript") or []
+                if not transcript:
+                    return self._json({"error": "answer at least one question first"}, 400)
+                return self._json(quiz_verdict(self.client, self.kg, node_id, transcript))
+
+            if path == "/api/audit/edges":
+                limit = min(int(payload.get("limit", 20)), MAX_AUDIT_ROWS)
+                return self._json(audit_edges(self.client, self.kg, limit,
+                                              int(payload.get("offset", 0))))
+
+            if path == "/api/audit/questions":
+                limit = min(int(payload.get("limit", 20)), MAX_AUDIT_ROWS)
+                return self._json(audit_questions(self.client, self.kg, limit,
+                                                  int(payload.get("offset", 0))))
+
+            if path == "/api/compare":
+                prompts = [p.strip() for p in payload.get("utterances", []) if p and p.strip()]
+                if not prompts:
+                    return self._json({"error": "at least one prompt is required"}, 400)
+                if len(prompts) > MAX_BATCH_PROMPTS:
+                    return self._json(
+                        {"error": f"{len(prompts)} prompts exceeds the {MAX_BATCH_PROMPTS} "
+                                  f"limit for one run"}, 400)
+                return self._json(compare(self.client, self.kg, prompts))
+
+            return self._json({"error": f"no endpoint {path}"}, 404)
+
+        except JevError as exc:
+            # A model/transport failure is expected operationally and is the user's
+            # to see in full - never swallowed into a generic 500.
+            return self._json({"error": f"Jev request failed: {exc}"}, 502)
+        except (ValueError, KeyError) as exc:
+            return self._json({"error": f"bad request: {exc}"}, 400)
+        except Exception as exc:  # noqa: BLE001
+            traceback.print_exc()
+            return self._json({"error": str(exc)}, 500)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    parser.add_argument("--port", type=int, default=8770)
+    parser.add_argument("--no-cache", action="store_true",
+                        help="bypass the local answer cache (costs tokens; use when "
+                             "measuring real latency)")
+    args = parser.parse_args()
+
+    try:
+        Console.client = JevClient(cache=not args.no_cache)
+    except JevError as exc:
+        print(f"\n{exc}\n", file=sys.stderr)
+        return 1
+
+    print("Loading the knowledge graph...", file=sys.stderr)
+    Console.kg = KG()
+    print(f"  {len(Console.kg.nodes)} nodes, {len(Console.kg.edges())} edges, "
+          f"{len(Console.kg.all_questions())} diagnostic questions", file=sys.stderr)
+
+    server = ThreadingHTTPServer(("127.0.0.1", args.port), Console)
+    print(f"\n  Jev console -> http://localhost:{args.port}"
+          f"\n  model: {Console.client.model}   cache: "
+          f"{'off' if args.no_cache else 'on'}\n  Ctrl-C to stop\n", file=sys.stderr)
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nstopped", file=sys.stderr)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

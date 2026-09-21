@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jev Console — SubjectKG</title>
+<!-- The signature element at 32px: mass concentrated left, fading right. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%232447E8'/%3E%3Crect x='5' y='11' width='13' height='10' fill='%23fff'/%3E%3Crect x='19' y='11' width='5' height='10' fill='%23fff' opacity='.45'/%3E%3Crect x='25' y='11' width='2' height='10' fill='%23fff' opacity='.25'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="console.css">
+</head>
+<body>
+
+<header>
+  <div class="wordmark"><b>SubjectKG</b> <span id="modelTag">jev</span></div>
+  <div class="counts">
+    <div><span class="micro">nodes</span><b id="cNodes">—</b></div>
+    <div><span class="micro">edges</span><b id="cEdges">—</b></div>
+    <div><span class="micro">questions</span><b id="cQuestions">—</b></div>
+    <div><span class="micro">misconceptions</span><b id="cMis">—</b></div>
+  </div>
+  <button class="ghost" id="themeBtn" title="Switch light / dark">◐</button>
+</header>
+
+<main>
+  <nav>
+    <button class="mode" data-stage="route" aria-current="true">
+      Route
+      <small>Which concept is this?</small>
+    </button>
+    <button class="mode" data-stage="quiz">
+      Quiz
+      <small>Sit a concept's test</small>
+    </button>
+    <button class="mode" data-stage="diagnose">
+      Diagnose
+      <small>What does this error reveal?</small>
+    </button>
+    <button class="mode" data-stage="audit">
+      Audit
+      <small>Is the graph itself right?</small>
+    </button>
+    <button class="mode" data-stage="compare">
+      Compare
+      <small>Jev vs keyword search</small>
+    </button>
+
+    <div class="rail-foot">
+      <span class="micro">this session</span>
+      <div class="meter"><span class="micro">calls</span><b id="sCalls">0</b></div>
+      <div class="meter"><span class="micro">cached</span><b id="sCached">0</b></div>
+      <div class="meter"><span class="micro">tokens in</span><b id="sIn">0</b></div>
+      <div class="meter"><span class="micro">tokens out</span><b id="sOut">0</b></div>
+    </div>
+  </nav>
+
+  <!-- ========================================================== ROUTE -->
+  <section class="stage" id="stage-route">
+    <h2>Route an utterance onto the graph</h2>
+    <p class="lede">
+      One line per question, in whatever words a learner would actually use. Each line
+      runs a beam search: Jev picks the strand, then the concept inside it, and the two
+      probabilities are combined as a geometric mean. Several lines run in parallel.
+    </p>
+
+    <div class="field">
+      <label class="micro" for="routeInput">what the learner said</label>
+      <textarea id="routeInput" rows="6" spellcheck="false"></textarea>
+    </div>
+
+    <div class="row">
+      <button class="run" id="routeRun">Route</button>
+      <span class="micro">presets</span>
+      <button class="chip" data-preset="plain">plain language</button>
+      <button class="chip" data-preset="wordy">described, not named</button>
+      <button class="chip" data-preset="edge">edge cases</button>
+    </div>
+
+    <div id="routeOut"></div>
+  </section>
+
+  <!-- =========================================================== QUIZ -->
+  <section class="stage" id="stage-quiz" hidden>
+    <h2>Sit a concept's test</h2>
+    <p class="lede">
+      Answer in your own words — you don't have to pick an option, and you don't have to
+      spell it right. Nothing is revealed until you commit. At the end, Jev reads the
+      whole sitting at once and says whether you have the concept.
+    </p>
+
+    <div class="row" id="quizSetup">
+      <div class="field" style="margin:0;flex:1;min-width:260px">
+        <label class="micro" for="quizNode">concept</label>
+        <input type="text" id="quizNode" list="nodeList" spellcheck="false"
+               placeholder="type to search 162 concepts…">
+      </div>
+      <button class="run" id="quizStart" style="align-self:end">Start</button>
+      <button class="chip" data-quiz="g5.num.fractions-add-sub">adding fractions</button>
+      <button class="chip" data-quiz="g4.geo.circle-intro">circles</button>
+      <button class="chip" data-quiz="g10.tri.intro">trigonometry</button>
+    </div>
+
+    <div id="quizOut"></div>
+  </section>
+
+  <!-- ======================================================= DIAGNOSE -->
+  <section class="stage" id="stage-diagnose" hidden>
+    <h2>Diagnose an answer</h2>
+    <p class="lede">
+      Pick a concept, then answer one of its authored questions however you like —
+      typed in full sentences, hedged, misspelt. The graph can only diagnose
+      pre-tagged multiple-choice picks today; this reads free text against the same
+      documented misconceptions, and asks five things in a single request.
+    </p>
+
+    <div class="field">
+      <label class="micro" for="nodePick">concept</label>
+      <input type="text" id="nodePick" list="nodeList" spellcheck="false"
+             placeholder="type to search 162 concepts…">
+      <datalist id="nodeList"></datalist>
+    </div>
+
+    <div class="field">
+      <label class="micro" for="qPick">question</label>
+      <select id="qPick"><option value="">— pick a concept first —</option></select>
+    </div>
+
+    <div class="field">
+      <label class="micro" for="qPrompt">question asked</label>
+      <textarea id="qPrompt" rows="2" spellcheck="false"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="micro" for="qCorrect">correct answer</label>
+      <input type="text" id="qCorrect" spellcheck="false">
+    </div>
+
+    <div class="field">
+      <label class="micro" for="qAnswer">what the student said</label>
+      <textarea id="qAnswer" rows="3" spellcheck="false"
+                placeholder="free text — the point is that it doesn't have to match an option"></textarea>
+    </div>
+
+    <div class="row">
+      <button class="run" id="diagRun">Diagnose</button>
+      <span class="micro">try</span>
+      <button class="chip" data-answer="confident">confidently wrong</button>
+      <button class="chip" data-answer="hedged">hedged and wrong</button>
+      <button class="chip" data-answer="right">right, in their own words</button>
+    </div>
+
+    <div id="diagOut"></div>
+  </section>
+
+  <!-- ========================================================== AUDIT -->
+  <section class="stage" id="stage-audit" hidden>
+    <h2>Audit the graph against itself</h2>
+    <p class="lede">
+      Every prerequisite edge was hand-written with a justification, and every wrong
+      option is supposed to detect a named misconception. Nobody has re-read all of
+      them. Jev checks each one and ranks what it finds worst-first.
+      <br><span class="micro" style="display:inline-block;margin-top:7px">not checked here</span>
+      whether an answer key is arithmetically right — Jev is documented as
+      <a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13.md" target="_blank"
+         rel="noopener">not a calculator</a>, and asking it anyway produced three false
+      alarms on correct keys. That check belongs in <code>validate_kg.py</code>.
+    </p>
+
+    <div class="row" style="margin-bottom:16px">
+      <div class="field" style="margin:0">
+        <label class="micro" for="auditTarget">check</label>
+        <select id="auditTarget">
+          <option value="edges">Prerequisite edges — is the dependency real, is hard/soft right?</option>
+          <option value="questions">Diagnostic questions — does every wrong option detect what it claims?</option>
+        </select>
+      </div>
+      <div class="field" style="margin:0;width:110px">
+        <label class="micro" for="auditLimit">how many</label>
+        <input type="text" id="auditLimit" value="20">
+      </div>
+      <div class="field" style="margin:0;width:110px">
+        <label class="micro" for="auditOffset">start at</label>
+        <input type="text" id="auditOffset" value="0">
+      </div>
+      <button class="run" id="auditRun" style="align-self:end">Run audit</button>
+    </div>
+
+    <div id="auditOut"></div>
+  </section>
+
+  <!-- ======================================================== COMPARE -->
+  <section class="stage" id="stage-compare" hidden>
+    <h2>Jev against the lookup it replaces</h2>
+    <p class="lede">
+      The baseline is what <code>/kg find</code> does today: token overlap against node
+      titles and descriptions. It is instant and free, and it is the right tool when a
+      learner already knows the technical word. The question is what happens when they
+      don't.
+    </p>
+
+    <div class="field">
+      <label class="micro" for="cmpInput">prompts, one per line</label>
+      <textarea id="cmpInput" rows="8" spellcheck="false"></textarea>
+    </div>
+
+    <div class="row">
+      <button class="run" id="cmpRun">Compare</button>
+      <button class="chip" data-preset="cmp">load the hard set</button>
+    </div>
+
+    <div id="cmpOut"></div>
+  </section>
+</main>
+
+<script src="console.js"></script>
+</body>
+</html>
