@@ -739,6 +739,19 @@ function buildSessionLog(nodeId, transcript, verdict) {
       evidence: verdict
         ? `Jev read the sitting as "${verdict.mastery.label}" (${verdict.mastery.value}/2).`
         : "",
+      // A quiz has no teaching moves to evaluate, so nothing "worked" in that sense -
+      // an empty array is the honest value, not a placeholder.
+      what_worked: [],
+      // The one real, observed failure a sitting can report: one faulty idea running
+      // through several wrong answers.
+      what_failed: verdict && verdict.persistent_misconception.id !== "none_persistent"
+        ? [`${verdict.persistent_misconception.id}: ${verdict.persistent_misconception.description || ""}`]
+        : [],
+      // Jev already produced a concrete, testable plan - use it rather than writing
+      // fresh prose here.
+      next_time: verdict
+        ? `${verdict.next_step.value.replace(/_/g, " ")} — ${verdict.next_step.description}`
+        : "",
     },
   };
 }

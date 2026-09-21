@@ -679,5 +679,74 @@ class TestStudentDirContainment(unittest.TestCase):
             learner.student_dir("../../../../evil", root=self.tmp)
 
 
+class TestSessionLogSchema(unittest.TestCase):
+    """No validator anywhere in the server enforces session-log.schema.json - not
+    even the endpoint that writes one. That is what let buildSessionLog() in
+    web/console.js ship with an incomplete `reflection` block: nothing failed, it
+    just wrote logs the schema does not actually describe. Sessions are an
+    append-only ledger, so a log written non-conforming stays that way forever;
+    this test is the only thing that would have caught it. Required fields are
+    read from the schema file itself, not hard-coded, so the test keeps up if the
+    schema changes."""
+
+    @classmethod
+    def setUpClass(cls):
+        schema_path = (Path(__file__).resolve().parent.parent
+                        / "harness" / "schemas" / "session-log.schema.json")
+        cls.schema = json.loads(schema_path.read_text(encoding="utf-8"))
+
+    @staticmethod
+    def _representative_log():
+        # Mirrors the shape web/console.js's buildSessionLog() produces for a
+        # finished quiz sitting where Jev named a persistent misconception.
+        return {
+            "student": "S001",
+            "date": "2026-09-21",
+            "goal": "g5.num.fractions-add-sub: quiz",
+            "nodes_touched": ["g5.num.fractions-add-sub"],
+            "reviews_done": [],
+            "events": [],
+            "assessment": {
+                "items": [{
+                    "node": "g5.num.fractions-add-sub",
+                    "question": "q1",
+                    "correct": False,
+                    "answer_text": "you just add the tops and bottoms straight across",
+                    "misconception_signalled": "m1",
+                    "jev": {
+                        "is_correct": 0.21, "misconception": "m1",
+                        "confident": 0.8, "model": "jev-latest",
+                    },
+                }],
+            },
+            "profile_updates": {},
+            "reflection": {
+                "goal_met": False,
+                "evidence": 'Jev read the sitting as "Not yet" (0.0/2).',
+                "what_worked": [],
+                "what_failed": ["m1: adds tops and bottoms separately"],
+                "next_time": "reteach differently — teach this again a different way",
+            },
+        }
+
+    def test_top_level_required_fields_are_present(self):
+        log = self._representative_log()
+        for key in self.schema["required"]:
+            self.assertIn(key, log, f"missing top-level required field {key!r}")
+
+    def test_assessment_item_required_fields_are_present(self):
+        log = self._representative_log()
+        required = self.schema["properties"]["assessment"]["properties"]["items"]["items"]["required"]
+        for item in log["assessment"]["items"]:
+            for key in required:
+                self.assertIn(key, item, f"assessment item missing required field {key!r}")
+
+    def test_reflection_required_fields_are_present(self):
+        log = self._representative_log()
+        required = self.schema["properties"]["reflection"]["required"]
+        for key in required:
+            self.assertIn(key, log["reflection"], f"reflection missing required field {key!r}")
+
+
 if __name__ == "__main__":
     unittest.main()
