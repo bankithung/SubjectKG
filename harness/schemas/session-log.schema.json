@@ -44,6 +44,22 @@
               "question": { "type": "string", "description": "Question id from the node bank, or 'generated:<hash>' with the item stored in generated_items." },
               "correct": { "type": "boolean" },
               "option_chosen": { "type": "string" },
+              "answer_text": {
+                "type": "string",
+                "description": "What the student actually typed, verbatim. Present for free-text answers; absent when they picked a listed option."
+              },
+              "jev": {
+                "type": "object",
+                "description": "The model's judgment of this answer. Recorded so every derived number in profile.json is traceable to the judgment that produced it.",
+                "properties": {
+                  "is_correct": { "type": "number", "minimum": 0, "maximum": 1 },
+                  "misconception": { "type": "string", "description": "Misconception id, or 'no_error' / 'other_error'." },
+                  "misconception_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+                  "depth": { "type": "number", "minimum": 0, "maximum": 2, "description": "0 slip, 1 procedural, 2 conceptual." },
+                  "confident": { "type": "number", "minimum": 0, "maximum": 1 },
+                  "model": { "type": "string", "description": "e.g. jev-1.13.0, so a later re-read knows which model version judged it." }
+                }
+              },
               "misconception_signalled": { "type": "string", "description": "Tag of the chosen distractor, if wrong." },
               "confirmed_as": { "enum": ["misconception", "slip", "unclear"], "description": "After the what-makes-you-say-that follow-up." },
               "latency_sec": { "type": "number", "description": "Only when actually measured; never estimated." },
