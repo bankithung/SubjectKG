@@ -280,7 +280,7 @@ def read_sessions(student_id: str, root: Path = ROOT):
 CARRIED_FIELDS = (
     "$schema", "id", "created", "grade", "goals", "interests", "language",
     "motivation", "retention", "error_signature", "strategy_stats", "behavior",
-    "affect", "calibration", "projection_from",
+    "affect", "calibration", "projection_from", "seed",
 )
 
 MASTERY_THRESHOLD = 0.8
@@ -329,13 +329,20 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
     # stored model is the starting point, and only logs from that date onward replay on
     # top. Without the marker this is a pure replay, which is right for every student
     # enrolled after logging began.
-    #
-    # Deep-copied because project() must not mutate its arguments.
     projection_from = seed.get("projection_from")
-    if projection_from:
-        mastery = copy.deepcopy(seed.get("mastery") or {})
-        schedule = copy.deepcopy(seed.get("spaced_repetition") or {})
-        prior_sessions = int(seed.get("session_count") or 0)
+    # The pre-ledger snapshot lives in its own nested object, NOT in the profile's own
+    # mastery/session_count. Those are the projection's OUTPUT: /session saves them back
+    # over profile.json, so reading the starting state from them would mean every later
+    # projection began from a profile that already contained the logs it was about to
+    # replay - counting each session twice, compounding with every sitting. `seed` is
+    # copied through verbatim by CARRIED_FIELDS and never recomputed, so what the next
+    # projection starts from cannot drift.
+    frozen = seed.get("seed") or {}
+    if projection_from and frozen:
+        # Deep-copied because project() must not mutate its arguments.
+        mastery = copy.deepcopy(frozen.get("mastery") or {})
+        schedule = copy.deepcopy(frozen.get("spaced_repetition") or {})
+        prior_sessions = int(frozen.get("session_count") or 0)
         # Sessions before the marker are already baked into the seed; replaying them
         # would count the same evidence twice.
         logs = [log for log in logs if log["date"] >= projection_from]
@@ -415,7 +422,7 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
     profile["spaced_repetition"] = schedule
     profile["session_count"] = prior_sessions + len(logs)
     profile["last_session"] = (logs[-1]["date"] if logs
-                               else seed.get("last_session") if projection_from else None)
+                               else frozen.get("last_session") if projection_from else None)
     profile.setdefault("strategy_stats", {})
     profile.setdefault("behavior", {})
     return profile, warnings

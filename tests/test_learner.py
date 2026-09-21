@@ -415,10 +415,9 @@ class TestProjection(unittest.TestCase):
                          json.dumps(second, sort_keys=True))
 
     def _seed_with_history(self):
-        """A profile written before session logging existed: real mastery, no ledger."""
-        return {
-            "id": "S001", "created": "2026-01-01", "grade": 5,
-            "projection_from": "2026-03-02",
+        """A migrated student: frozen pre-ledger state under `seed`, derived state on top
+        (as save_profile would have written it back)."""
+        frozen = {
             "session_count": 6,
             "last_session": "2026-03-01",
             "mastery": {
@@ -433,6 +432,15 @@ class TestProjection(unittest.TestCase):
                 "g9.other": {"next_review": "2026-04-01", "interval_days": 16,
                              "lapses": 0, "rung": 3},
             },
+        }
+        return {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "projection_from": "2026-03-02",
+            "seed": frozen,
+            "session_count": frozen["session_count"],
+            "last_session": frozen["last_session"],
+            "mastery": json.loads(json.dumps(frozen["mastery"])),
+            "spaced_repetition": json.loads(json.dumps(frozen["spaced_repetition"])),
             "strategy_stats": {}, "behavior": {},
         }
 
@@ -446,10 +454,17 @@ class TestProjection(unittest.TestCase):
 
     def test_seeded_profile_still_applies_logs_after_the_marker(self):
         seed = self._seed_with_history()
+        frozen_score = seed["seed"]["mastery"]["g5.num.x"]["score"]
         logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
         profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
-        self.assertLess(profile["mastery"]["g5.num.x"]["score"], 0.91,
-                        "a wrong answer after the marker must still move the score")
+        score = profile["mastery"]["g5.num.x"]["score"]
+        self.assertLess(score, frozen_score,
+                        "a wrong answer after the marker must move the score down")
+        # A record starting fresh (the unseeded path) would fall straight to the 0.05
+        # floor; only starting from the frozen 0.91 lands above 0.5 after one miss.
+        self.assertGreater(score, 0.5,
+                           "the wrong answer must be applied on top of the frozen "
+                           "score, not on top of a freshly-created record")
         self.assertEqual(
             [m["id"] for m in profile["mastery"]["g5.num.x"]["misconceptions_active"]],
             ["m1"])
@@ -494,19 +509,30 @@ class TestProjection(unittest.TestCase):
         """The schema requires only score/evidence_count/last_seen on a mastery record;
         conceptual_ok and misconceptions_active are optional and must not be assumed
         present just because a record came from a seed rather than the replay loop."""
-        seed = {
-            "id": "S001", "created": "2026-01-01", "grade": 5,
-            "projection_from": "2026-03-02",
+        frozen = {
             "session_count": 1,
             "last_session": "2026-03-01",
             "mastery": {
                 "g5.num.x": {"score": 0.6, "evidence_count": 3, "last_seen": "2026-03-01"},
             },
+            "spaced_repetition": {},
+        }
+        seed = {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "projection_from": "2026-03-02",
+            "seed": frozen,
+            "session_count": frozen["session_count"],
+            "last_session": frozen["last_session"],
+            "mastery": json.loads(json.dumps(frozen["mastery"])),
             "spaced_repetition": {}, "strategy_stats": {}, "behavior": {},
         }
         logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
         profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
-        self.assertLess(profile["mastery"]["g5.num.x"]["score"], 0.6)
+        score = profile["mastery"]["g5.num.x"]["score"]
+        self.assertLess(score, 0.6)
+        # A freshly-created record (the unseeded path) would fall to the 0.05 floor;
+        # this must land above that, proving it started from the frozen 0.6.
+        self.assertGreater(score, 0.05)
         self.assertEqual(
             [m["id"] for m in profile["mastery"]["g5.num.x"]["misconceptions_active"]],
             ["m1"])
@@ -520,6 +546,77 @@ class TestProjection(unittest.TestCase):
         self.assertNotEqual(profile["mastery"]["g5.num.x"]["score"], 0.91)
         self.assertIn("g9.other", profile["mastery"])
         self.assertEqual(profile["session_count"], 7)
+
+    def _frozen_seed_profile(self):
+        """A migrated student: frozen pre-ledger state under `seed`, derived state on top."""
+        frozen = {
+            "mastery": {
+                "g5.num.x": {"score": 0.91, "evidence_count": 12,
+                             "last_seen": "2026-03-01", "conceptual_ok": True},
+            },
+            "spaced_repetition": {},
+            "session_count": 6,
+            "last_session": "2026-03-01",
+        }
+        return {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "projection_from": "2026-03-02",
+            "seed": frozen,
+            # The derived top level, as save_profile would have written it.
+            "mastery": json.loads(json.dumps(frozen["mastery"])),
+            "spaced_repetition": {}, "session_count": 6,
+            "last_session": "2026-03-01",
+            "strategy_stats": {}, "behavior": {},
+        }
+
+    def test_repeated_projections_do_not_double_count(self):
+        """The bug this task exists to kill.
+
+        Simulates what POST /session does: project, save the result over the profile,
+        then project again with one more log. The second projection must not re-apply
+        the first log, however many times the cycle runs.
+        """
+        profile = self._frozen_seed_profile()
+        logs = []
+        for day in ("2026-03-05", "2026-03-08", "2026-03-11"):
+            logs.append(_log(day, [_item("g5.num.x", "q1", False, "m1")]))
+            # Feed the SAVED profile back in, exactly as reproject() would.
+            profile, _ = learner.project(profile, logs, QINDEX, STRANDS, self.today)
+
+        once, _ = learner.project(
+            self._frozen_seed_profile(), logs, QINDEX, STRANDS, self.today
+        )
+        self.assertAlmostEqual(profile["mastery"]["g5.num.x"]["score"],
+                               once["mastery"]["g5.num.x"]["score"], places=6,
+                               msg="three save-and-reproject cycles must equal one "
+                                   "projection of the same three logs")
+        self.assertEqual(profile["session_count"], once["session_count"])
+        self.assertEqual(profile["session_count"], 9, "6 frozen + 3 replayed")
+
+    def test_the_frozen_seed_survives_every_projection_unchanged(self):
+        profile = self._frozen_seed_profile()
+        original = json.dumps(profile["seed"], sort_keys=True)
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
+        for _ in range(3):
+            profile, _ = learner.project(profile, logs, QINDEX, STRANDS, self.today)
+            self.assertEqual(json.dumps(profile["seed"], sort_keys=True), original,
+                             "the frozen seed must be re-emitted byte-identical")
+
+    def test_frozen_seed_still_applies_post_marker_logs(self):
+        profile = self._frozen_seed_profile()
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
+        result, _ = learner.project(profile, logs, QINDEX, STRANDS, self.today)
+        self.assertLess(result["mastery"]["g5.num.x"]["score"], 0.91)
+        self.assertEqual(
+            [m["id"] for m in result["mastery"]["g5.num.x"]["misconceptions_active"]],
+            ["m1"])
+
+    def test_frozen_seed_still_ignores_pre_marker_logs(self):
+        profile = self._frozen_seed_profile()
+        logs = [_log("2026-02-15", [_item("g5.num.x", "q1", False, "m1")])]
+        result, _ = learner.project(profile, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(result["mastery"]["g5.num.x"]["score"], 0.91)
+        self.assertEqual(result["session_count"], 6)
 
 
 class TestAppendSession(unittest.TestCase):

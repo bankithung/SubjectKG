@@ -161,6 +161,16 @@
       "format": "date",
       "description": "The date from which students/<id>/sessions/ is the authoritative ledger for this profile. Fields before it were seeded from a profile written before session logging existed, and cannot be reprojected. null means the whole profile is derived from logs."
     },
+    "seed": {
+      "type": "object",
+      "description": "Frozen pre-ledger snapshot for a student whose profile predates session logging. Written once at migration and never again: the projection copies it through verbatim and derives the top-level mastery/spaced_repetition from it plus the logs dated on or after projection_from. It must never be updated from a projection's output, because that would make each session count twice.",
+      "properties": {
+        "mastery": { "type": "object" },
+        "spaced_repetition": { "type": "object" },
+        "session_count": { "type": "integer", "minimum": 0 },
+        "last_session": { "type": ["string", "null"], "format": "date" }
+      }
+    },
     "last_session": { "type": ["string", "null"], "format": "date", "description": "null until the first session." }
   }
 }

@@ -51,5 +51,11 @@
   "spaced_repetition": {},
   "session_count": 0,
   "last_session": null,
-  "projection_from": "2026-07-12"
+  "projection_from": "2026-07-12",
+  "seed": {
+    "mastery": {},
+    "spaced_repetition": {},
+    "session_count": 0,
+    "last_session": null
+  }
 }
