@@ -15,6 +15,7 @@ anything that can reach it, so it is not something to expose on a network.
 import argparse
 import json
 import mimetypes
+import re
 import sys
 import traceback
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -38,6 +39,18 @@ WEB_DIR = ROOT / "web"
 # request body cannot spend the whole quota.
 MAX_BATCH_PROMPTS = 40
 MAX_AUDIT_ROWS = 60
+
+# Every student-scoped route takes this straight from the URL and hands it to
+# learner.student_dir(), which joins it onto a filesystem path. An allowlist, not
+# a denylist: blocking ".." is not enough, since encodings, backslashes (this
+# repo runs on Windows) and absolute paths all reach the filesystem the same way
+# and none of them contain two literal dots. Every id in this repo looks like
+# "S001", so this costs nothing legitimate.
+STUDENT_ID_RE = re.compile(r"[A-Za-z0-9_-]+")
+
+
+def _valid_student_id(student_id: str) -> bool:
+    return bool(STUDENT_ID_RE.fullmatch(student_id))
 
 
 def list_students(root=learner.ROOT):
@@ -171,6 +184,8 @@ class Console(BaseHTTPRequestHandler):
 
             if path.startswith("/api/student/"):
                 student_id = path[len("/api/student/"):]
+                if not _valid_student_id(student_id):
+                    return self._json({"error": f"invalid student id {student_id!r}"}, 400)
                 profile_path = learner.student_dir(student_id) / "profile.json"
                 if not profile_path.is_file():
                     return self._json({"error": f"no student {student_id}"}, 404)
@@ -246,6 +261,8 @@ class Console(BaseHTTPRequestHandler):
 
             if path.startswith("/api/student/") and path.endswith("/session"):
                 student_id = path[len("/api/student/"):-len("/session")]
+                if not _valid_student_id(student_id):
+                    return self._json({"error": f"invalid student id {student_id!r}"}, 400)
                 log = payload.get("log")
                 if not isinstance(log, dict) or "date" not in log:
                     return self._json({"error": "log with a date is required"}, 400)
@@ -261,6 +278,8 @@ class Console(BaseHTTPRequestHandler):
 
             if path.startswith("/api/student/") and path.endswith("/next"):
                 student_id = path[len("/api/student/"):-len("/next")]
+                if not _valid_student_id(student_id):
+                    return self._json({"error": f"invalid student id {student_id!r}"}, 400)
                 profile_path = learner.student_dir(student_id) / "profile.json"
                 if not profile_path.is_file():
                     return self._json({"error": f"no student {student_id}"}, 404)
@@ -270,6 +289,8 @@ class Console(BaseHTTPRequestHandler):
 
             if path.startswith("/api/student/") and path.endswith("/gaps"):
                 student_id = path[len("/api/student/"):-len("/gaps")]
+                if not _valid_student_id(student_id):
+                    return self._json({"error": f"invalid student id {student_id!r}"}, 400)
                 target = payload.get("target")
                 if not target or target not in self.kg.by_id:
                     return self._json({"error": f"unknown target {target!r}"}, 400)
@@ -282,6 +303,8 @@ class Console(BaseHTTPRequestHandler):
 
             if path.startswith("/api/student/") and path.endswith("/reproject"):
                 student_id = path[len("/api/student/"):-len("/reproject")]
+                if not _valid_student_id(student_id):
+                    return self._json({"error": f"invalid student id {student_id!r}"}, 400)
                 profile, warnings = learner.reproject(student_id, self.kg, date.today())
                 stored_path = learner.student_dir(student_id) / "profile.json"
                 stored = learner.read_json(stored_path) if stored_path.is_file() else {}

@@ -522,5 +522,65 @@ class TestProjection(unittest.TestCase):
         self.assertEqual(profile["session_count"], 7)
 
 
+class TestAppendSession(unittest.TestCase):
+    """A log's `date` is spliced straight into a filename, so an unvalidated value
+    is a path-traversal write primitive, not just a malformed log (see
+    scripts/jev_serve.py's student-scoped POST routes, the caller of this)."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_a_valid_date_is_accepted(self):
+        target = learner.append_session("S001", {"date": "2026-09-21"}, root=self.tmp)
+        self.assertTrue(target.is_file())
+        self.assertEqual(target.name, "2026-09-21-01.json")
+
+    def test_two_sittings_same_day_get_sequential_suffixes(self):
+        first = learner.append_session("S001", {"date": "2026-09-21"}, root=self.tmp)
+        second = learner.append_session("S001", {"date": "2026-09-21"}, root=self.tmp)
+        self.assertEqual(first.name, "2026-09-21-01.json")
+        self.assertEqual(second.name, "2026-09-21-02.json")
+
+    def test_a_traversal_date_is_rejected_and_nothing_is_created(self):
+        with self.assertRaises(ValueError):
+            learner.append_session("S001", {"date": "../../evil"}, root=self.tmp)
+        self.assertFalse((self.tmp / "students").exists(),
+                         "an invalid date must not create so much as the sessions folder")
+
+    def test_a_non_string_date_is_rejected(self):
+        with self.assertRaises(ValueError):
+            learner.append_session("S001", {"date": 20260921}, root=self.tmp)
+
+    def test_a_malformed_date_string_is_rejected(self):
+        with self.assertRaises(ValueError):
+            learner.append_session("S001", {"date": "21-09-2026"}, root=self.tmp)
+
+
+class TestStudentDirContainment(unittest.TestCase):
+    """Defence in depth alongside the server's id allowlist (jev_serve.py): even a
+    caller that skips that check cannot walk student_dir() out of students/."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_an_ordinary_id_resolves_inside_students(self):
+        folder = learner.student_dir("S001", root=self.tmp)
+        self.assertEqual(folder, (self.tmp / "students" / "S001").resolve())
+
+    def test_a_dot_dot_id_is_rejected(self):
+        with self.assertRaises(ValueError):
+            learner.student_dir("../../evil", root=self.tmp)
+
+    def test_a_multi_level_dot_dot_id_is_rejected(self):
+        with self.assertRaises(ValueError):
+            learner.student_dir("../../../../evil", root=self.tmp)
+
+
 if __name__ == "__main__":
     unittest.main()

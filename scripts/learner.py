@@ -192,7 +192,23 @@ def schedule_review(entry, passed: bool, on: date, multiplier: float = 1.0) -> d
 
 
 def student_dir(student_id: str, root: Path = ROOT) -> Path:
-    return root / "students" / student_id
+    """The folder for one student, containment-checked.
+
+    The server allowlists student_id before it ever reaches here (see
+    jev_serve.py), but that check lives at the edge and a future call site could
+    forget it. This is the second, independent layer: whatever student_id turns
+    out to be, the path handed back is verified to still be inside students/
+    before anything downstream can read or write through it.
+    """
+    root = Path(root)
+    students_root = (root / "students").resolve()
+    try:
+        folder = (students_root / student_id).resolve()
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"invalid student id {student_id!r}: {exc}") from None
+    if folder != students_root and students_root not in folder.parents:
+        raise ValueError(f"invalid student id {student_id!r}: escapes students/")
+    return folder
 
 
 def read_json(path: Path) -> dict:
@@ -481,10 +497,21 @@ def append_session(student_id: str, log: dict, root: Path = ROOT) -> Path:
 
     Names the file <date>-<nn>.json, picking the next free nn. Two sittings on the
     same day get -01 and -02 and replay in that order.
+
+    `date` is validated before it ever touches a filename: it goes straight into
+    one, so an unvalidated value (`../../evil`, say) is a path-traversal write
+    primitive, not just a malformed log. Validated here rather than only at the
+    server's edge, so the ledger's own naming invariant holds for every caller,
+    present or future - nothing is created, not even the sessions/ folder, until
+    the date has been confirmed safe.
     """
+    day = log["date"]
+    try:
+        date.fromisoformat(day)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"log date {day!r} is not a valid ISO date: {exc}") from None
     folder = student_dir(student_id, root) / "sessions"
     folder.mkdir(parents=True, exist_ok=True)
-    day = log["date"]
     index = 1
     while (folder / f"{day}-{index:02d}.json").exists():
         index += 1
