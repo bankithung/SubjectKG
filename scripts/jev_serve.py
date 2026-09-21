@@ -24,6 +24,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from jev_brain import (KG, audit_edges, audit_questions, compare, diagnose, quiz_verdict,
                        route, route_batch)
+from datetime import date
+
+import jev_guide
+import learner
+import path as pathmod
 from jev_client import JevClient, JevError
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -33,6 +38,54 @@ WEB_DIR = ROOT / "web"
 # request body cannot spend the whole quota.
 MAX_BATCH_PROMPTS = 40
 MAX_AUDIT_ROWS = 60
+
+
+def list_students(root=learner.ROOT):
+    """Every student folder that has a profile, newest activity first."""
+    folder = root / "students"
+    if not folder.is_dir():
+        return []
+    out = []
+    for child in sorted(folder.iterdir()):
+        if not child.is_dir() or child.name.startswith("_"):
+            continue
+        profile_path = child / "profile.json"
+        if not profile_path.is_file():
+            continue
+        try:
+            profile = learner.read_json(profile_path)
+        except (ValueError, OSError):
+            continue
+        out.append({
+            "id": profile.get("id", child.name),
+            "grade": profile.get("grade"),
+            "session_count": profile.get("session_count", 0),
+            "last_session": profile.get("last_session"),
+            "mastered": len([
+                node for node in (profile.get("mastery") or {})
+                if pathmod.is_mastered(profile, node)
+            ]),
+        })
+    out.sort(key=lambda s: (s["last_session"] or "", s["id"]), reverse=True)
+    return out
+
+
+def _mastery_delta(before: dict, after: dict) -> list:
+    """Which nodes moved, and by how much. What the UI shows after a sitting."""
+    old = before.get("mastery") or {}
+    new = after.get("mastery") or {}
+    rows = []
+    for node_id, record in new.items():
+        was = (old.get(node_id) or {}).get("score")
+        now = record.get("score")
+        if was is None or abs(now - was) > 1e-9:
+            rows.append({
+                "node": node_id, "from": was, "to": now,
+                "newly_mastered": (pathmod.is_mastered(after, node_id)
+                                   and not pathmod.is_mastered(before, node_id)),
+            })
+    rows.sort(key=lambda r: -abs((r["to"] or 0) - (r["from"] or 0)))
+    return rows
 
 
 class Console(BaseHTTPRequestHandler):
@@ -113,6 +166,34 @@ class Console(BaseHTTPRequestHandler):
                     return self._json({"error": f"no node {node_id}"}, 404)
                 return self._json(self.kg.summary(node))
 
+            if path == "/api/students":
+                return self._json({"students": list_students()})
+
+            if path.startswith("/api/student/"):
+                student_id = path[len("/api/student/"):]
+                profile_path = learner.student_dir(student_id) / "profile.json"
+                if not profile_path.is_file():
+                    return self._json({"error": f"no student {student_id}"}, 404)
+                profile = learner.read_json(profile_path)
+                today = date.today()
+                return self._json({
+                    "profile": profile,
+                    "mastered": sorted(pathmod.mastered_set(profile)),
+                    "ready": pathmod.ready_nodes(self.kg, profile),
+                    "locked": pathmod.locked_nodes(self.kg, profile),
+                    "reviews_due": pathmod.reviews_due(profile, today),
+                    "review_debt": pathmod.review_debt(profile, today),
+                    "debt_limit": pathmod.REVIEW_DEBT_LIMIT,
+                    "misconceptions": [
+                        {"node": node_id, "node_title": self.kg.by_id[node_id]["title"],
+                         **entry, "stage": learner.display_stage(entry, today)}
+                        for node_id, record in (profile.get("mastery") or {}).items()
+                        if node_id in self.kg.by_id
+                        for entry in record.get("misconceptions_active", [])
+                        if entry.get("repair_stage") != "repaired"
+                    ],
+                })
+
             if path == "/api/stats":
                 return self._json(dict(self.client.stats, model=self.client.model))
 
@@ -162,6 +243,53 @@ class Console(BaseHTTPRequestHandler):
                 if not transcript:
                     return self._json({"error": "answer at least one question first"}, 400)
                 return self._json(quiz_verdict(self.client, self.kg, node_id, transcript))
+
+            if path.startswith("/api/student/") and path.endswith("/session"):
+                student_id = path[len("/api/student/"):-len("/session")]
+                log = payload.get("log")
+                if not isinstance(log, dict) or "date" not in log:
+                    return self._json({"error": "log with a date is required"}, 400)
+                before = learner.student_dir(student_id) / "profile.json"
+                previous = learner.read_json(before) if before.is_file() else {}
+                written = learner.append_session(student_id, log)
+                profile, warnings = learner.reproject(student_id, self.kg, date.today())
+                learner.save_profile(student_id, profile)
+                return self._json({
+                    "written": written.name, "warnings": warnings, "profile": profile,
+                    "mastery_delta": _mastery_delta(previous, profile),
+                })
+
+            if path.startswith("/api/student/") and path.endswith("/next"):
+                student_id = path[len("/api/student/"):-len("/next")]
+                profile_path = learner.student_dir(student_id) / "profile.json"
+                if not profile_path.is_file():
+                    return self._json({"error": f"no student {student_id}"}, 404)
+                return self._json(jev_guide.decide_next(
+                    self.client, self.kg, learner.read_json(profile_path), date.today()
+                ))
+
+            if path.startswith("/api/student/") and path.endswith("/gaps"):
+                student_id = path[len("/api/student/"):-len("/gaps")]
+                target = payload.get("target")
+                if not target or target not in self.kg.by_id:
+                    return self._json({"error": f"unknown target {target!r}"}, 400)
+                profile_path = learner.student_dir(student_id) / "profile.json"
+                if not profile_path.is_file():
+                    return self._json({"error": f"no student {student_id}"}, 404)
+                return self._json(jev_guide.rank_gaps(
+                    self.client, self.kg, learner.read_json(profile_path), target
+                ))
+
+            if path.startswith("/api/student/") and path.endswith("/reproject"):
+                student_id = path[len("/api/student/"):-len("/reproject")]
+                profile, warnings = learner.reproject(student_id, self.kg, date.today())
+                stored_path = learner.student_dir(student_id) / "profile.json"
+                stored = learner.read_json(stored_path) if stored_path.is_file() else {}
+                learner.save_profile(student_id, profile)
+                return self._json({
+                    "profile": profile, "warnings": warnings,
+                    "mastery_delta": _mastery_delta(stored, profile),
+                })
 
             if path == "/api/audit/edges":
                 limit = min(int(payload.get("limit", 20)), MAX_AUDIT_ROWS)

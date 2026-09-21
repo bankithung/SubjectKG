@@ -445,3 +445,22 @@ def save_profile(student_id: str, profile: dict, root: Path = ROOT) -> None:
             + "; ".join(problems)
         )
     atomic_write_json(student_dir(student_id, root) / "profile.json", profile)
+
+
+def append_session(student_id: str, log: dict, root: Path = ROOT) -> Path:
+    """Add one session log to the ledger. Never overwrites an existing file.
+
+    Names the file <date>-<nn>.json, picking the next free nn. Two sittings on the
+    same day get -01 and -02 and replay in that order.
+    """
+    folder = student_dir(student_id, root) / "sessions"
+    folder.mkdir(parents=True, exist_ok=True)
+    day = log["date"]
+    index = 1
+    while (folder / f"{day}-{index:02d}.json").exists():
+        index += 1
+    target = folder / f"{day}-{index:02d}.json"
+    payload = {key: value for key, value in log.items() if key != "_file"}
+    payload.setdefault("$schema", "../../../harness/schemas/session-log.schema.json")
+    atomic_write_json(target, payload)
+    return target
