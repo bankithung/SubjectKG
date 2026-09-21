@@ -5,6 +5,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
@@ -130,6 +131,68 @@ class TestMasteryCurve(unittest.TestCase):
         light = learner.update_mastery(0.5, True, 0.8)
         heavy = learner.update_mastery(0.5, True, 1.44)
         self.assertGreater(heavy, light)
+
+
+class TestRepairStaging(unittest.TestCase):
+    """rules/40 §5: retest after 2 days, then 7; only then repaired."""
+
+    def setUp(self):
+        self.day0 = date(2026, 3, 1)
+
+    def test_first_sighting_is_observed(self):
+        entry = learner.observe_misconception(None, "m2", self.day0)
+        self.assertEqual(entry["id"], "m2")
+        self.assertEqual(entry["repair_stage"], "observed")
+        self.assertEqual(entry["retests_passed"], 0)
+        self.assertIsNone(entry["retest_after"])
+        self.assertEqual(entry["first_seen"], "2026-03-01")
+
+    def test_correct_answer_confronts_it_and_schedules_two_days_out(self):
+        entry = learner.observe_misconception(None, "m2", self.day0)
+        entry = learner.pass_retest(entry, self.day0)
+        self.assertEqual(entry["repair_stage"], "confronted")
+        self.assertEqual(entry["retest_after"], "2026-03-03")
+        self.assertEqual(entry["retests_passed"], 0)
+
+    def test_retest_too_early_does_not_count(self):
+        entry = learner.pass_retest(
+            learner.observe_misconception(None, "m2", self.day0), self.day0
+        )
+        entry = learner.pass_retest(entry, date(2026, 3, 2))  # one day early
+        self.assertEqual(entry["retests_passed"], 0)
+        self.assertEqual(entry["retest_after"], "2026-03-03")
+
+    def test_two_retests_on_time_repair_it(self):
+        entry = learner.pass_retest(
+            learner.observe_misconception(None, "m2", self.day0), self.day0
+        )
+        entry = learner.pass_retest(entry, date(2026, 3, 3))
+        self.assertEqual(entry["retests_passed"], 1)
+        self.assertEqual(entry["retest_after"], "2026-03-10")
+        self.assertEqual(entry["repair_stage"], "confronted")
+
+        entry = learner.pass_retest(entry, date(2026, 3, 10))
+        self.assertEqual(entry["repair_stage"], "repaired")
+        self.assertIsNone(entry["retest_after"])
+
+    def test_wrong_answer_resets_all_the_way_to_observed(self):
+        entry = learner.pass_retest(
+            learner.observe_misconception(None, "m2", self.day0), self.day0
+        )
+        entry = learner.pass_retest(entry, date(2026, 3, 3))
+        entry = learner.observe_misconception(entry, "m2", date(2026, 3, 5))
+        self.assertEqual(entry["repair_stage"], "observed")
+        self.assertEqual(entry["retests_passed"], 0)
+        self.assertIsNone(entry["retest_after"])
+        self.assertEqual(entry["first_seen"], "2026-03-01", "first_seen must not move")
+
+    def test_display_stage_derives_retest_due_from_the_date(self):
+        entry = learner.pass_retest(
+            learner.observe_misconception(None, "m2", self.day0), self.day0
+        )
+        self.assertEqual(learner.display_stage(entry, date(2026, 3, 2)), "confronted")
+        self.assertEqual(learner.display_stage(entry, date(2026, 3, 3)), "retest-due")
+        self.assertEqual(learner.display_stage(entry, date(2026, 3, 9)), "retest-due")
 
 
 if __name__ == "__main__":

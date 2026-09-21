@@ -14,6 +14,7 @@ import io
 import json
 import os
 import tempfile
+from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -61,6 +62,83 @@ def update_mastery(score: float, correct: bool, weight: float) -> float:
     else:
         score = score - INCORRECT_LOSS * score * weight
     return max(MASTERY_FLOOR, min(MASTERY_CEILING, score))
+
+
+# ---------------------------------------------------------- misconception repair
+
+# rules/40 §5: "Re-test repaired misconceptions after 2 days, then 7; only then
+# mark repaired." Two passes, each no earlier than its due date.
+RETEST_GAPS = (2, 7)
+
+
+def _iso(value: date) -> str:
+    return value.isoformat()
+
+
+def observe_misconception(entry, misconception_id: str, on: date) -> dict:
+    """The student's answer revealed this misconception. Resets any repair progress.
+
+    A misconception that resurfaces is not partly repaired - it is back. rules/30 is
+    explicit that only a later correct answer on a targeting item confirms a repair,
+    so the converse holds too: a wrong answer withdraws the confirmation.
+
+    `first_seen` never moves. It records when this faulty idea first appeared, which
+    is what a teacher wants to know; the current stage records where repair has got to.
+    """
+    first_seen = entry.get("first_seen") if entry else None
+    return {
+        "id": misconception_id,
+        "first_seen": first_seen or _iso(on),
+        "repair_stage": "observed",
+        "retest_after": None,
+        "retests_passed": 0,
+    }
+
+
+def pass_retest(entry: dict, on: date) -> dict:
+    """A correct answer on an item that targets this misconception.
+
+    From `observed` this confronts it and schedules the first retest. After that,
+    a pass only counts once the due date has arrived - answering correctly an hour
+    later shows nothing about retention, which is the whole point of the gap.
+    """
+    updated = dict(entry)
+    stage = updated.get("repair_stage", "observed")
+
+    if stage == "repaired":
+        return updated
+
+    if stage == "observed":
+        updated["repair_stage"] = "confronted"
+        updated["retests_passed"] = 0
+        updated["retest_after"] = _iso(on + timedelta(days=RETEST_GAPS[0]))
+        return updated
+
+    due = updated.get("retest_after")
+    if due and _iso(on) < due:
+        return updated  # too early to count
+
+    passed = updated.get("retests_passed", 0) + 1
+    updated["retests_passed"] = passed
+    if passed >= len(RETEST_GAPS):
+        updated["repair_stage"] = "repaired"
+        updated["retest_after"] = None
+    else:
+        updated["retest_after"] = _iso(on + timedelta(days=RETEST_GAPS[passed]))
+    return updated
+
+
+def display_stage(entry: dict, today: date) -> str:
+    """`retest-due` is a function of the calendar, not a stored state.
+
+    The schema's enum includes it, but storing it would mean rewriting every
+    profile at midnight. It is exactly "confronted, and the due date has arrived".
+    """
+    stage = entry.get("repair_stage", "observed")
+    due = entry.get("retest_after")
+    if stage == "confronted" and due and _iso(today) >= due:
+        return "retest-due"
+    return stage
 
 
 def student_dir(student_id: str, root: Path = ROOT) -> Path:
