@@ -1,0 +1,59 @@
+{
+ "student": "S999",
+ "date": "2026-09-21",
+ "goal": "g3.num.add-sub-3digit: quiz",
+ "nodes_touched": [
+  "g3.num.add-sub-3digit"
+ ],
+ "reviews_done": [],
+ "events": [],
+ "assessment": {
+  "items": [
+   {
+    "node": "g3.num.add-sub-3digit",
+    "question": "q1",
+    "correct": false,
+    "answer_text": "345",
+    "jev": {
+     "is_correct": 0.01,
+     "misconception": "other_error",
+     "confident": 0.79,
+     "model": "jev-latest"
+    }
+   },
+   {
+    "node": "g3.num.add-sub-3digit",
+    "question": "q2",
+    "correct": false,
+    "answer_text": "260",
+    "jev": {
+     "is_correct": 0.02,
+     "misconception": "other_error",
+     "confident": 0.77,
+     "model": "jev-latest"
+    }
+   },
+   {
+    "node": "g3.num.add-sub-3digit",
+    "question": "q3",
+    "correct": false,
+    "answer_text": "900",
+    "jev": {
+     "is_correct": 0.01,
+     "misconception": "other_error",
+     "confident": 0.83,
+     "model": "jev-latest"
+    }
+   }
+  ]
+ },
+ "profile_updates": {},
+ "reflection": {
+  "goal_met": false,
+  "evidence": "Jev read the sitting as \"Not yet\" (0/2).",
+  "what_worked": [],
+  "what_failed": [],
+  "next_time": "reteach differently — The idea has not landed. Teach this same concept again in a different way - a manipulative, a drawing, a story"
+ },
+ "$schema": "../../../harness/schemas/session-log.schema.json"
+}
