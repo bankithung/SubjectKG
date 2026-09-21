@@ -195,5 +195,50 @@ class TestRepairStaging(unittest.TestCase):
         self.assertEqual(learner.display_stage(entry, date(2026, 3, 9)), "retest-due")
 
 
+class TestReviewLadder(unittest.TestCase):
+    """rules/10: 1, 3, 7, 16, 35 then monthly. rules/40 §7 scales by strand."""
+
+    def test_the_ladder_rungs(self):
+        self.assertEqual([learner.interval_days(r) for r in range(5)], [1, 3, 7, 16, 35])
+
+    def test_beyond_the_ladder_is_monthly(self):
+        self.assertEqual(learner.interval_days(5), 30)
+        self.assertEqual(learner.interval_days(9), 30)
+
+    def test_retention_multiplier_scales_the_gap(self):
+        self.assertEqual(learner.interval_days(2, 1.3), 9)   # 7 * 1.3 = 9.1
+        self.assertEqual(learner.interval_days(2, 0.6), 4)   # 7 * 0.6 = 4.2
+
+    def test_interval_never_drops_below_one_day(self):
+        self.assertEqual(learner.interval_days(0, 0.6), 1)
+
+    def test_first_schedule_starts_at_rung_zero(self):
+        entry = learner.schedule_review(None, True, date(2026, 3, 1), 1.0)
+        self.assertEqual(entry["rung"], 0)
+        self.assertEqual(entry["interval_days"], 1)
+        self.assertEqual(entry["next_review"], "2026-03-02")
+        self.assertEqual(entry["lapses"], 0)
+
+    def test_passing_advances_one_rung(self):
+        entry = learner.schedule_review(None, True, date(2026, 3, 1), 1.0)
+        entry = learner.schedule_review(entry, True, date(2026, 3, 2), 1.0)
+        self.assertEqual(entry["rung"], 1)
+        self.assertEqual(entry["interval_days"], 3)
+        self.assertEqual(entry["next_review"], "2026-03-05")
+
+    def test_failing_resets_to_rung_zero_and_counts_a_lapse(self):
+        entry = {"rung": 3, "lapses": 1, "interval_days": 16, "next_review": "2026-03-01"}
+        entry = learner.schedule_review(entry, False, date(2026, 3, 1), 1.0)
+        self.assertEqual(entry["rung"], 0)
+        self.assertEqual(entry["lapses"], 2)
+        self.assertEqual(entry["next_review"], "2026-03-02")
+
+    def test_strand_multiplier_applies_on_advance(self):
+        entry = {"rung": 1, "lapses": 0, "interval_days": 3, "next_review": "2026-03-01"}
+        entry = learner.schedule_review(entry, True, date(2026, 3, 1), 1.5)
+        self.assertEqual(entry["rung"], 2)
+        self.assertEqual(entry["interval_days"], 11)  # 7 * 1.5 = 10.5 -> 11
+
+
 if __name__ == "__main__":
     unittest.main()

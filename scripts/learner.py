@@ -141,6 +141,55 @@ def display_stage(entry: dict, today: date) -> str:
     return stage
 
 
+# ------------------------------------------------------------ spaced repetition
+
+# rules/10 §2: expanding intervals 1, 3, 7, 16, 35 days, then monthly.
+LADDER = (1, 3, 7, 16, 35)
+MONTHLY = 30
+
+
+def interval_days(rung: int, multiplier: float = 1.0) -> int:
+    """Days until the next review, scaled by the strand's personal forgetting curve.
+
+    rules/40 §7: a student who never forgets geometry but bleeds number facts gets
+    longer geometry gaps and shorter number ones. The multiplier comes from the
+    profile's `retention` map and is tuned by /reflect, not here.
+    """
+    base = LADDER[rung] if rung < len(LADDER) else MONTHLY
+    # Half-up, not round(). Python's round() is banker's rounding, so a 1.5x
+    # retention multiplier on the 7-day rung would silently give 10 days instead
+    # of 11 - a surprise nobody would predict from reading rules/10. Intervals are
+    # never negative, so +0.5 needs no sign handling.
+    return max(1, int(base * multiplier + 0.5))
+
+
+def schedule_review(entry, passed: bool, on: date, multiplier: float = 1.0) -> dict:
+    """Advance or reset a node's review schedule after a review attempt.
+
+    A pass moves one rung up the ladder. A failure drops straight back to rung 0 and
+    counts a lapse - there is no partial credit, because a node you could not recall
+    is a node you have to rebuild.
+    """
+    rung = 0 if entry is None else int(entry.get("rung", 0))
+    lapses = 0 if entry is None else int(entry.get("lapses", 0))
+
+    if entry is None:
+        rung = 0
+    elif passed:
+        rung += 1
+    else:
+        rung = 0
+        lapses += 1
+
+    days = interval_days(rung, multiplier)
+    return {
+        "rung": rung,
+        "lapses": lapses,
+        "interval_days": days,
+        "next_review": _iso(on + timedelta(days=days)),
+    }
+
+
 def student_dir(student_id: str, root: Path = ROOT) -> Path:
     return root / "students" / student_id
 
