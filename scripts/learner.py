@@ -19,6 +19,50 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 
+# --------------------------------------------------------------- mastery scoring
+
+# harness/rules/30-assessment.md:
+#   correct:   m <- m + 0.30 * (1 - m) * w
+#   incorrect: m <- m - 0.35 * m * w
+#   clamp [0.05, 0.99]
+CORRECT_GAIN = 0.30
+INCORRECT_LOSS = 0.35
+MASTERY_FLOOR, MASTERY_CEILING = 0.05, 0.99
+INITIAL_MASTERY = MASTERY_FLOOR
+
+CONCEPTUAL_SKILLS = frozenset({"conceptual", "application"})
+CONCEPTUAL_MULTIPLIER = 1.2
+
+
+def item_weight(difficulty, skill: str) -> float:
+    """Evidence weight of one item.
+
+    INTERPRETATION, flagged for a curriculum author to overrule: rules/30 names
+    three weights (0.8 easy, 1.0 medium, 1.2 hard) but every question in the graph
+    carries difficulty on a 1-5 scale. This interpolates linearly between the two
+    stated endpoints, so difficulty 1 -> 0.8 and difficulty 5 -> 1.2, with medium
+    (3) landing exactly on 1.0.
+
+    rules/30 then says conceptual and application items "count 1.2x vs procedural".
+    `recall` is not mentioned, so it is weighted the same as procedural rather than
+    inventing a discount the rules do not describe.
+    """
+    level = 3 if difficulty is None else max(1, min(5, int(difficulty)))
+    weight = 0.7 + 0.1 * level
+    if skill in CONCEPTUAL_SKILLS:
+        weight *= CONCEPTUAL_MULTIPLIER
+    return weight
+
+
+def update_mastery(score: float, correct: bool, weight: float) -> float:
+    """One item's effect on a node's mastery. rules/30, applied verbatim."""
+    if correct:
+        score = score + CORRECT_GAIN * (1.0 - score) * weight
+    else:
+        score = score - INCORRECT_LOSS * score * weight
+    return max(MASTERY_FLOOR, min(MASTERY_CEILING, score))
+
+
 def student_dir(student_id: str, root: Path = ROOT) -> Path:
     return root / "students" / student_id
 

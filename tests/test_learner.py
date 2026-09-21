@@ -74,5 +74,63 @@ class TestReadSessions(unittest.TestCase):
         self.assertEqual(warnings, [])
 
 
+class TestItemWeight(unittest.TestCase):
+    """rules/30 gives 0.8 easy / 1.0 medium / 1.2 hard; the data has difficulty 1-5."""
+
+    def test_endpoints_match_the_stated_weights(self):
+        self.assertAlmostEqual(learner.item_weight(1, "procedural"), 0.8, places=6)
+        self.assertAlmostEqual(learner.item_weight(5, "procedural"), 1.2, places=6)
+
+    def test_medium_is_one(self):
+        self.assertAlmostEqual(learner.item_weight(3, "procedural"), 1.0, places=6)
+
+    def test_conceptual_and_application_count_more(self):
+        self.assertAlmostEqual(learner.item_weight(3, "conceptual"), 1.2, places=6)
+        self.assertAlmostEqual(learner.item_weight(3, "application"), 1.2, places=6)
+
+    def test_recall_weighted_same_as_procedural(self):
+        self.assertAlmostEqual(
+            learner.item_weight(3, "recall"), learner.item_weight(3, "procedural"), places=6
+        )
+
+    def test_unknown_difficulty_falls_back_to_medium(self):
+        self.assertAlmostEqual(learner.item_weight(None, "procedural"), 1.0, places=6)
+
+
+class TestMasteryCurve(unittest.TestCase):
+    def test_five_correct_medium_items_cross_the_threshold(self):
+        score = learner.INITIAL_MASTERY
+        for _ in range(5):
+            score = learner.update_mastery(score, True, 1.0)
+        self.assertAlmostEqual(score, 0.8403, places=4)
+        self.assertGreater(score, 0.8)
+
+    def test_four_correct_medium_items_do_not(self):
+        score = learner.INITIAL_MASTERY
+        for _ in range(4):
+            score = learner.update_mastery(score, True, 1.0)
+        self.assertLess(score, 0.8)
+
+    def test_wrong_answer_applies_the_stated_penalty(self):
+        self.assertAlmostEqual(learner.update_mastery(0.8, False, 1.0), 0.52, places=6)
+
+    def test_clamped_above(self):
+        score = 0.99
+        for _ in range(20):
+            score = learner.update_mastery(score, True, 1.44)
+        self.assertLessEqual(score, 0.99)
+
+    def test_clamped_below(self):
+        score = 0.05
+        for _ in range(20):
+            score = learner.update_mastery(score, False, 1.44)
+        self.assertGreaterEqual(score, 0.05)
+
+    def test_heavier_weight_moves_further(self):
+        light = learner.update_mastery(0.5, True, 0.8)
+        heavy = learner.update_mastery(0.5, True, 1.44)
+        self.assertGreater(heavy, light)
+
+
 if __name__ == "__main__":
     unittest.main()
