@@ -506,6 +506,15 @@ def validate_profile(profile: dict) -> list:
         for key in _REVIEW_REQUIRED:
             if key not in entry:
                 problems.append(f"spaced_repetition[{node_id}] missing {key!r}")
+        next_review = entry.get("next_review")
+        if next_review is not None:
+            try:
+                date.fromisoformat(next_review)
+            except (TypeError, ValueError):
+                problems.append(
+                    f"spaced_repetition[{node_id}] next_review {next_review!r} "
+                    "is not a valid ISO date"
+                )
 
     return problems
 

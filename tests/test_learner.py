@@ -407,6 +407,28 @@ class TestProjection(unittest.TestCase):
         problems = learner.validate_profile(profile)
         self.assertTrue(any("next_review" in p for p in problems))
 
+    def test_validate_catches_a_malformed_next_review_date(self):
+        """path.reviews_due calls date.fromisoformat on next_review unguarded, so
+        a single bad date 500s the Journey endpoint for that student. The right
+        place to catch it is here, at the write boundary."""
+        profile = {
+            "id": "S001", "created": "2026-01-01", "grade": 5, "mastery": {},
+            "strategy_stats": {}, "behavior": {},
+            "spaced_repetition": {"g5.num.x": {"next_review": "not-a-date",
+                                               "interval_days": 3}},
+        }
+        problems = learner.validate_profile(profile)
+        self.assertTrue(any("next_review" in p and "g5.num.x" in p for p in problems))
+
+    def test_validate_accepts_a_well_formed_next_review_date(self):
+        profile = {
+            "id": "S001", "created": "2026-01-01", "grade": 5, "mastery": {},
+            "strategy_stats": {}, "behavior": {},
+            "spaced_repetition": {"g5.num.x": {"next_review": "2026-03-05",
+                                               "interval_days": 3}},
+        }
+        self.assertEqual(learner.validate_profile(profile), [])
+
     def test_projection_is_deterministic(self):
         logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)]),
                 _log("2026-03-02", [_item("g5.num.x", "q2", False, "m1")])]
