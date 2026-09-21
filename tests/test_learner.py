@@ -490,6 +490,37 @@ class TestProjection(unittest.TestCase):
         learner.project(seed, logs, QINDEX, STRANDS, self.today)
         self.assertEqual(json.dumps(seed, sort_keys=True), before)
 
+    def test_seeded_minimal_mastery_record_survives_a_replay(self):
+        """The schema requires only score/evidence_count/last_seen on a mastery record;
+        conceptual_ok and misconceptions_active are optional and must not be assumed
+        present just because a record came from a seed rather than the replay loop."""
+        seed = {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "projection_from": "2026-03-02",
+            "session_count": 1,
+            "last_session": "2026-03-01",
+            "mastery": {
+                "g5.num.x": {"score": 0.6, "evidence_count": 3, "last_seen": "2026-03-01"},
+            },
+            "spaced_repetition": {}, "strategy_stats": {}, "behavior": {},
+        }
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertLess(profile["mastery"]["g5.num.x"]["score"], 0.6)
+        self.assertEqual(
+            [m["id"] for m in profile["mastery"]["g5.num.x"]["misconceptions_active"]],
+            ["m1"])
+
+    def test_seeded_student_is_not_frozen_by_a_later_session(self):
+        """A migrated student must keep improving: a post-marker session on a seeded
+        node moves its score, other seeded nodes stay put, and the count advances."""
+        seed = self._seed_with_history()
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertNotEqual(profile["mastery"]["g5.num.x"]["score"], 0.91)
+        self.assertIn("g9.other", profile["mastery"])
+        self.assertEqual(profile["session_count"], 7)
+
 
 if __name__ == "__main__":
     unittest.main()

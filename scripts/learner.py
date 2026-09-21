@@ -350,6 +350,13 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
                 "last_seen": log["date"], "conceptual_ok": False,
                 "misconceptions_active": [],
             })
+            # A record reused verbatim from a seed (rather than freshly created above)
+            # may be missing these two optional fields - the schema requires only
+            # score/evidence_count/last_seen. Normalise here, at the point the record
+            # is about to be read and mutated anyway, so an untouched seeded node (no
+            # log this replay) is never touched and stays byte-identical to the seed.
+            record.setdefault("conceptual_ok", False)
+            record.setdefault("misconceptions_active", [])
 
             record["score"] = update_mastery(
                 record["score"], correct, item_weight(facts["difficulty"], facts["skill"])
