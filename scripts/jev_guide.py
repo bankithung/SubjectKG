@@ -218,3 +218,79 @@ def _assemble_reason(kg, profile: dict, chosen) -> str:
         parts.append("Hook that fits what they like: " + matched[0])
 
     return " ".join(parts)
+
+
+# ------------------------------------------------------------- gaps toward a goal
+
+BLOCKING_LEVELS = [
+    "A detail they can pick up alongside the target - not knowing it would slow them "
+    "down slightly but would not stop them",
+    "A real dependency - they would be able to follow the target topic but would keep "
+    "hitting steps they cannot do on their own",
+    "A hard blocker - the target topic cannot be understood at all until this is in "
+    "place, and attempting it first would only teach them to copy procedures",
+]
+
+
+def _chunk(items: list, size: int) -> list:
+    return [items[i:i + size] for i in range(0, len(items), size)]
+
+
+def rank_gaps(client, kg, profile: dict, target_id: str, batch: int = 10) -> dict:
+    """Order the gap path by how much each gap actually holds the student back.
+
+    gap_path returns a topological order, which says what depends on what but not
+    what matters. Depth is not consequence: a Class 3 gap two hops back can matter
+    far more than the Class 9 one immediately before the target.
+
+    One Score per gap. Gaps over one state would be wrong here - each gap is judged
+    against the same target, so they DO share a state, and batching them is the
+    cheap path. Chunked because a very long path would otherwise build one enormous
+    request, and the jaggedness notes warn that large states lose accuracy.
+    """
+    gaps = pathmod.gap_path(kg, profile, target_id)
+    target = kg.by_id.get(target_id)
+    if not gaps or not target:
+        return {"target": target and {"id": target["id"], "title": target["title"]},
+                "gaps": [], "total": 0}
+
+    ranked = []
+    for group in _chunk(gaps, batch):
+        questions = {
+            f"gap_{index}": score(
+                f"How much does not yet knowing \"{item['title']}\" (Class {item['grade']}) "
+                f"hold this student back from \"{target['title']}\"?",
+                BLOCKING_LEVELS,
+            )
+            for index, item in enumerate(group)
+        }
+        response = client.ask(
+            {
+                "target": {"title": target["title"], "class": target["grade"],
+                           "explained": target.get("description", "")[:400]},
+                "missing_concepts": [
+                    {"title": item["title"], "class": item["grade"],
+                     "explained": (item.get("description") or "")[:200]}
+                    for item in group
+                ],
+            },
+            questions,
+        )
+        for index, item in enumerate(group):
+            answer = response["answers"].get(f"gap_{index}")
+            blocking, confidence, _ = read_score(answer) if answer else (0.0, 0.0, {})
+            ranked.append(dict(item, blocking=round(blocking, 3),
+                               confidence=round(confidence, 4)))
+
+    # Teaching order still has to respect prerequisites, so keep the topological
+    # index and expose the blocking score alongside rather than resorting outright.
+    for position, item in enumerate(ranked):
+        item["teach_order"] = position
+    ranked_by_impact = sorted(ranked, key=lambda item: -item["blocking"])
+
+    return {
+        "target": {"id": target["id"], "title": target["title"], "grade": target["grade"]},
+        "gaps": ranked,
+        "by_impact": [item["id"] for item in ranked_by_impact],
+        "total": len(ranked),
+    }

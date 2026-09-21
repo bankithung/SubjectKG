@@ -70,5 +70,13 @@ class TestCandidateAssembly(unittest.TestCase):
         self.assertEqual(len(candidates), 12)
 
 
+class TestGapBatching(unittest.TestCase):
+    def test_gaps_are_chunked_for_batched_requests(self):
+        self.assertEqual(jev_guide._chunk([1, 2, 3, 4, 5], 2), [[1, 2], [3, 4], [5]])
+
+    def test_empty_input_gives_no_chunks(self):
+        self.assertEqual(jev_guide._chunk([], 3), [])
+
+
 if __name__ == "__main__":
     unittest.main()
