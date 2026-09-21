@@ -3,6 +3,7 @@ import sys
 import unittest
 from datetime import date
 from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 # Also this directory, so the FakeKG fixture can be shared with test_path rather
@@ -35,16 +36,40 @@ class TestCandidateAssembly(unittest.TestCase):
         self.assertEqual(review["kind"], "due_review")
 
     def test_debt_over_the_limit_forces_reviews_only(self):
+        """Guards rules/40 §6: over the debt limit, the candidate list must contain
+        nothing but due reviews - not even nodes that just became ready.
+
+        Mastering `a` makes `b`, `e` and `f` frontier-ready (their only hard
+        prerequisite is `a`), but none of them are due for review here. If the
+        forced early-return in assemble_candidates were ever skipped, those three
+        would leak in as frontier candidates alongside the due reviews.
+
+        The debt reviews are on ids `a`, `c`, `d` - real FakeKG nodes, not the
+        placeholder `n0..n10` ids the previous version of this test used (which
+        `kg.by_id` could never resolve, so the candidate list came back empty and
+        `all(... for c in candidates)` passed vacuously over nothing).
+        REVIEW_DEBT_LIMIT is patched down to 1 because FakeKG only has six nodes
+        total, too few to exceed the real limit of 10 while leaving b/e/f free of
+        due reviews for the leak check below.
+        """
         profile = profile_with(a=(0.9, True))
         profile["spaced_repetition"] = {
-            f"n{i}": {"next_review": "2026-02-01", "interval_days": 3, "lapses": 0}
-            for i in range(jev_guide.pathmod.REVIEW_DEBT_LIMIT + 1)
+            node_id: {"next_review": "2026-02-01", "interval_days": 3, "lapses": 0}
+            for node_id in ("a", "c", "d")
         }
-        candidates, forced = jev_guide.assemble_candidates(
-            FakeKG(), profile, date(2026, 3, 1)
-        )
+        with mock.patch.object(jev_guide.pathmod, "REVIEW_DEBT_LIMIT", 1):
+            candidates, forced = jev_guide.assemble_candidates(
+                FakeKG(), profile, date(2026, 3, 1)
+            )
         self.assertTrue(forced)
+        self.assertTrue(candidates, "forced debt review must not come back empty")
         self.assertTrue(all(c["kind"] == "due_review" for c in candidates))
+        leaked = {"b", "e", "f"} & {c["id"] for c in candidates}
+        self.assertFalse(
+            leaked,
+            "b/e/f become ready once a is mastered; they must not leak in as "
+            "frontier candidates while debt forces reviews-only",
+        )
 
     def test_active_misconception_becomes_a_retest_candidate(self):
         profile = profile_with(a=(0.5, False))
