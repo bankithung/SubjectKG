@@ -863,7 +863,9 @@ Assembles the previous three tasks into `project()`. This is where the ledger be
   - `build_question_index(kg) -> dict` mapping `(node_id, question_id) -> {"difficulty": int, "skill": str, "targets": set[str]}`
   - `CARRIED_FIELDS: tuple` — profile keys the ledger does not own
   - `reproject(student_id, kg, today, root=ROOT) -> tuple[dict, list[str]]`
-  - `save_profile(student_id, profile, root=ROOT) -> None`
+  - `save_profile(student_id, profile, root=ROOT) -> None` — validates before writing
+  - `validate_profile(profile: dict) -> list[str]` — returns a list of problems, empty if valid
+  - `ProfileInvalid(ValueError)` — raised by `save_profile` when validation fails
 
   `targets` is the set of misconception ids any option of that question is tagged with — used to decide whether a correct answer counts as a retest.
 
@@ -1000,6 +1002,43 @@ class TestProjection(unittest.TestCase):
         self.assertEqual(profile["mastery"], {})
         self.assertEqual(len(warnings), 1)
         self.assertIn("q99", warnings[0])
+
+    def test_validate_accepts_a_complete_profile(self):
+        profile = {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "mastery": {"g5.num.x": {"score": 0.5, "evidence_count": 2,
+                                     "last_seen": "2026-03-01"}},
+            "strategy_stats": {}, "behavior": {},
+            "spaced_repetition": {"g5.num.x": {"next_review": "2026-03-05",
+                                               "interval_days": 3}},
+        }
+        self.assertEqual(learner.validate_profile(profile), [])
+
+    def test_validate_names_every_missing_required_root_key(self):
+        problems = learner.validate_profile({"id": "S001"})
+        joined = " ".join(problems)
+        for key in ("created", "grade", "mastery", "strategy_stats", "behavior",
+                    "spaced_repetition"):
+            self.assertIn(key, joined)
+
+    def test_validate_catches_a_mastery_score_out_of_range(self):
+        profile = {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "mastery": {"g5.num.x": {"score": 1.4, "evidence_count": 1,
+                                     "last_seen": "2026-03-01"}},
+            "strategy_stats": {}, "behavior": {}, "spaced_repetition": {},
+        }
+        problems = learner.validate_profile(profile)
+        self.assertTrue(any("score" in p and "g5.num.x" in p for p in problems))
+
+    def test_validate_catches_an_incomplete_review_entry(self):
+        profile = {
+            "id": "S001", "created": "2026-01-01", "grade": 5, "mastery": {},
+            "strategy_stats": {}, "behavior": {},
+            "spaced_repetition": {"g5.num.x": {"interval_days": 3}},
+        }
+        problems = learner.validate_profile(profile)
+        self.assertTrue(any("next_review" in p for p in problems))
 
     def test_projection_is_deterministic(self):
         logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)]),
@@ -1153,7 +1192,62 @@ def reproject(student_id: str, kg, today: date, root: Path = ROOT):
     return profile, warnings + project_warnings
 
 
+class ProfileInvalid(ValueError):
+    """A projection produced something the profile schema would reject."""
+
+
+# Mirrors the `required` arrays in harness/schemas/student-profile.schema.json.
+# Deliberately NOT a general JSON Schema engine: this repo is stdlib-only, so
+# `jsonschema` is unavailable, and validate_kg.py has only ever checked the
+# knowledge graph. A targeted invariant check over the fields the schema marks
+# required honours the design's "fails loudly" promise at the right size.
+_PROFILE_REQUIRED = ("id", "created", "grade", "mastery", "strategy_stats",
+                     "behavior", "spaced_repetition")
+_MASTERY_REQUIRED = ("score", "evidence_count", "last_seen")
+_REVIEW_REQUIRED = ("next_review", "interval_days")
+
+
+def validate_profile(profile: dict) -> list:
+    """-> a list of problems, empty when the profile is valid.
+
+    Returns rather than raises so a caller can report every problem at once; a
+    student's profile failing on six counts should say so in one message rather
+    than six runs.
+    """
+    problems = []
+    for key in _PROFILE_REQUIRED:
+        if key not in profile:
+            problems.append(f"missing required key {key!r}")
+
+    for node_id, record in (profile.get("mastery") or {}).items():
+        for key in _MASTERY_REQUIRED:
+            if key not in record:
+                problems.append(f"mastery[{node_id}] missing {key!r}")
+        score = record.get("score")
+        if score is not None and not 0 <= score <= 1:
+            problems.append(f"mastery[{node_id}] score {score} outside [0, 1]")
+
+    for node_id, entry in (profile.get("spaced_repetition") or {}).items():
+        for key in _REVIEW_REQUIRED:
+            if key not in entry:
+                problems.append(f"spaced_repetition[{node_id}] missing {key!r}")
+
+    return problems
+
+
 def save_profile(student_id: str, profile: dict, root: Path = ROOT) -> None:
+    """Write a profile, refusing to persist one the schema would reject.
+
+    The ledger is the source of truth, so a refused write costs nothing: the
+    projection can be rerun once the cause is fixed. Writing a malformed profile
+    over a good one would cost the student their model.
+    """
+    problems = validate_profile(profile)
+    if problems:
+        raise ProfileInvalid(
+            f"refusing to write an invalid profile for {student_id}: "
+            + "; ".join(problems)
+        )
     atomic_write_json(student_dir(student_id, root) / "profile.json", profile)
 ```
 
