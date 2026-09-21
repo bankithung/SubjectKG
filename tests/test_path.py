@@ -10,7 +10,8 @@ import path as pathmod
 
 
 class FakeKG:
-    """A four-node graph: a -> b (hard), a -> c (soft), b -> d (hard)."""
+    """A six-node graph: a -> b (hard), a -> c (soft), b -> d (hard),
+    e (bare string prereq), f (no-strength prereq)."""
 
     def __init__(self):
         self.nodes = [
@@ -21,6 +22,9 @@ class FakeKG:
                 {"id": "a", "strength": "soft", "reason": "A makes C easier"}]},
             {"id": "d", "title": "D", "grade": 3, "strand": "num", "prerequisites": [
                 {"id": "b", "strength": "hard", "reason": "D builds directly on B"}]},
+            {"id": "e", "title": "E", "grade": 2, "strand": "num", "prerequisites": ["a"]},
+            {"id": "f", "title": "F", "grade": 2, "strand": "num", "prerequisites": [
+                {"id": "a", "reason": "F requires A (no explicit strength)"}]},
         ]
         self.by_id = {n["id"]: n for n in self.nodes}
 
@@ -76,6 +80,23 @@ class TestFrontier(unittest.TestCase):
     def test_soft_prereq_is_listed_as_recommended_not_blocking(self):
         ready = {n["id"]: n for n in pathmod.ready_nodes(self.kg, profile_with())}
         self.assertEqual([p["id"] for p in ready["c"]["recommended_first"]], ["a"])
+
+    def test_bare_string_prerequisite_counts_as_hard(self):
+        """A bare string edge (e.g., "prerequisites": ["a"]) must gate the dependent.
+        Regression to fail-open would silently let a student past the prerequisite."""
+        locked = {n["id"]: n for n in pathmod.locked_nodes(self.kg, profile_with())}
+        self.assertIn("e", locked, "e should be locked by unmastered a")
+        self.assertEqual([p["id"] for p in locked["e"]["blocked_by"]], ["a"])
+        self.assertEqual(locked["e"]["blocked_by"][0]["reason"], "")
+
+    def test_no_strength_key_counts_as_hard(self):
+        """A prerequisite dict with no 'strength' field must default to hard.
+        Regression to fail-open would silently let a student past the prerequisite."""
+        locked = {n["id"]: n for n in pathmod.locked_nodes(self.kg, profile_with())}
+        self.assertIn("f", locked, "f should be locked by unmastered a")
+        self.assertEqual([p["id"] for p in locked["f"]["blocked_by"]], ["a"])
+        self.assertEqual(locked["f"]["blocked_by"][0]["reason"],
+                         "F requires A (no explicit strength)")
 
 
 class TestReviews(unittest.TestCase):
