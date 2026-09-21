@@ -103,5 +103,23 @@ class TestGapBatching(unittest.TestCase):
         self.assertEqual(jev_guide._chunk([], 3), [])
 
 
+class TestRankGapsDegenerateReturn(unittest.TestCase):
+    """The happy path always includes `by_impact`; the early-return branches
+    (an unknown target, or a target with no gaps left to close) used not to,
+    so a caller reading result["by_impact"] unconditionally got a KeyError."""
+
+    def test_unknown_target_still_has_by_impact(self):
+        result = jev_guide.rank_gaps(mock.Mock(), FakeKG(), profile_with(), "no-such-node")
+        self.assertEqual(result["gaps"], [])
+        self.assertEqual(result["by_impact"], [])
+        self.assertEqual(result["total"], 0)
+
+    def test_already_mastered_target_still_has_by_impact(self):
+        profile = profile_with(a=(0.9, True))
+        result = jev_guide.rank_gaps(mock.Mock(), FakeKG(), profile, "a")
+        self.assertEqual(result["gaps"], [])
+        self.assertEqual(result["by_impact"], [])
+
+
 if __name__ == "__main__":
     unittest.main()

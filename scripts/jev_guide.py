@@ -252,7 +252,7 @@ def rank_gaps(client, kg, profile: dict, target_id: str, batch: int = 10) -> dic
     target = kg.by_id.get(target_id)
     if not gaps or not target:
         return {"target": target and {"id": target["id"], "title": target["title"]},
-                "gaps": [], "total": 0}
+                "gaps": [], "by_impact": [], "total": 0}
 
     ranked = []
     for group in _chunk(gaps, batch):
