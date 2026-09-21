@@ -14,3 +14,6 @@ dist/
 
 # Local Jev answer cache (safe to delete; rebuilds on demand)
 .jev-cache/
+
+# Subagent-driven-development scratch (ledger, briefs, review packages)
+.superpowers/
