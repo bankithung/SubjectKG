@@ -778,6 +778,111 @@ function deltaCard(result) {
   </div>`;
 }
 
+/* ================================== TODAY ================================== */
+
+const KIND_LABEL = {
+  due_review: "fading",
+  misconception_retest: "repair retest",
+  frontier: "ready to learn",
+};
+
+const RAMP_LABEL = ["ease off", "hold steady", "stretch"];
+
+function todayCard(data) {
+  if (!data.decision || !data.decision.pick) {
+    return `<div class="note">${escapeHtml(data.reason
+      || "Nothing is ready and nothing is due.")}</div>`;
+  }
+
+  const decision = data.decision;
+  const pick = decision.pick;
+
+  // Jev chose among these. Label each bar by its concept title rather than the
+  // composite id|kind key the server uses to keep the two senses of one node apart.
+  const byKey = Object.fromEntries(
+    data.candidates.map((c) => [`${c.id}|${c.kind}`, c]),
+  );
+  const choice = strip({
+    name: "decision · jev",
+    verdict: `<b>${escapeHtml(pick.title)}</b>`,
+    entries: Object.entries(decision.probabilities).map(([key, value]) => {
+      const candidate = byKey[key];
+      return {
+        label: candidate ? `${candidate.title} · ${KIND_LABEL[candidate.kind] || candidate.kind}` : key,
+        value,
+        tone: key === `${pick.id}|${pick.kind}` ? "good" : undefined,
+      };
+    }),
+    floor: 0.01,
+  });
+
+  const ramp = strip({
+    name: "difficulty next session",
+    verdict: `<b>${escapeHtml(RAMP_LABEL[Math.min(Math.round(decision.ramp.value), 2)])}</b>`,
+    entries: RAMP_LABEL.map((label, index) => ({
+      label, value: decision.ramp.probabilities[String(index)] || 0,
+      tone: index === 2 ? "good" : index === 0 ? "warn" : undefined,
+    })),
+    floor: 0,
+  });
+
+  // rules/40 §6 is policy, decided in code before any model call. Say that plainly
+  // rather than letting the screen imply Jev weighed it.
+  const forced = data.debt_forced
+    ? `<div class="error">Review debt is over the limit, so rules/40 §6 makes this a review
+       session — "your brain has ${data.candidates.length} things about to fade, let's rescue
+       them". Jev chose which to rescue first; it was not offered anything else.</div>`
+    : "";
+
+  const others = data.candidates
+    .filter((c) => !(c.id === pick.id && c.kind === pick.kind))
+    .slice(0, 8)
+    .map((c) => `<tr>
+      <td class="num">${fixed(decision.probabilities[`${c.id}|${c.kind}`] ?? 0)}</td>
+      <td>${escapeHtml(c.title)}<span class="nid">Class ${c.grade} · ${escapeHtml(c.id)}</span></td>
+      <td class="num">${escapeHtml(KIND_LABEL[c.kind] || c.kind)}</td>
+      <td>${escapeHtml(c.why)}</td>
+    </tr>`).join("");
+
+  return `${forced}
+    <div class="card">
+      <div class="nodeline">
+        <span class="tag on">Class ${pick.grade}</span>
+        <span class="tag">${escapeHtml(KIND_LABEL[pick.kind] || pick.kind)}</span>
+        <span class="tag">${escapeHtml(decision.session_shape.value.replace(/_/g, " "))}
+          ${fixed(decision.session_shape.confidence)}</span>
+        <span class="tag ${decision.fits_attention < 0.4 ? "bad" : "ok"}">fits attention
+          ${fixed(decision.fits_attention)}</span>
+        <span class="tag">${data.candidates.length} candidates</span>
+      </div>
+      <h3 style="font-size:21px">${escapeHtml(pick.title)}</h3>
+      <span class="nid">${escapeHtml(pick.id)}</span>
+
+      <div class="remedy">
+        <span class="micro">why this one</span>
+        ${escapeHtml(data.reason)}
+      </div>
+
+      ${choice}${ramp}
+
+      ${others ? `<span class="micro">what it weighed against</span>
+        <table style="margin-top:7px"><thead><tr>
+          <th></th><th>candidate</th><th>kind</th><th>why it was on the list</th>
+        </tr></thead><tbody>${others}</tbody></table>` : ""}
+
+      <details class="raw"><summary>raw response</summary><pre>${escapeHtml(JSON.stringify(data, null, 2))}</pre></details>
+    </div>`;
+}
+
+function initToday() {
+  $("#todayRun").addEventListener("click", () =>
+    run($("#todayRun"), $("#todayOut"), async () => {
+      const studentId = $("#todayStudent").value;
+      if (!studentId) return '<div class="note">Pick a student.</div>';
+      return todayCard(await api(`/api/student/${encodeURIComponent(studentId)}/next`, {}));
+    }));
+}
+
 /* ================================= JOURNEY ================================= */
 
 let STUDENTS = [];
@@ -884,7 +989,7 @@ async function refreshStudents() {
     const options = students.length
       ? students.map((s) => `<option value="${escapeHtml(s.id)}">${escapeHtml(s.id)} · Class ${s.grade ?? "?"} · ${s.mastered} mastered</option>`).join("")
       : '<option value="">— no students yet —</option>';
-    ["#journeyStudent", "#quizStudent"].forEach((selector) => {
+    ["#journeyStudent", "#quizStudent", "#todayStudent"].forEach((selector) => {
       const element = $(selector);
       if (element) element.innerHTML = `<option value="">— none —</option>${options}`;
     });
@@ -1108,6 +1213,7 @@ async function boot() {
   initRoute();
   initQuiz();
   initJourney();
+  initToday();
   initDiagnose();
   initAudit();
   initCompare();

@@ -34,6 +34,10 @@
       Journey
       <small>Where a student stands</small>
     </button>
+    <button class="mode" data-stage="today">
+      Today
+      <small>What should they do next?</small>
+    </button>
     <button class="mode" data-stage="quiz">
       Quiz
       <small>Sit a concept's test</small>
@@ -109,6 +113,27 @@
     </div>
 
     <div id="journeyOut"></div>
+  </section>
+
+  <!-- ========================================================== TODAY -->
+  <section class="stage" id="stage-today" hidden>
+    <h2>What should they do next?</h2>
+    <p class="lede">
+      Code assembles the candidates — what is due for review, which misconceptions are
+      owed a retest, and every concept whose prerequisites are met. Jev picks among them,
+      weighing the student's goal, interests and recent evidence. The reason shown is
+      built from the graph's own words, not written by the model.
+    </p>
+
+    <div class="row" style="margin-bottom:16px">
+      <div class="field" style="margin:0;min-width:200px">
+        <label class="micro" for="todayStudent">student</label>
+        <select id="todayStudent"><option value="">— loading —</option></select>
+      </div>
+      <button class="run" id="todayRun" style="align-self:end">Decide</button>
+    </div>
+
+    <div id="todayOut"></div>
   </section>
 
   <!-- =========================================================== QUIZ -->
