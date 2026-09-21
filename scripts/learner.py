@@ -499,6 +499,9 @@ def save_profile(student_id: str, profile: dict, root: Path = ROOT) -> None:
     atomic_write_json(student_dir(student_id, root) / "profile.json", profile)
 
 
+MAX_SITTINGS_PER_DAY = 500
+
+
 def append_session(student_id: str, log: dict, root: Path = ROOT) -> Path:
     """Add one session log to the ledger. Never overwrites an existing file.
 
@@ -511,6 +514,18 @@ def append_session(student_id: str, log: dict, root: Path = ROOT) -> Path:
     server's edge, so the ledger's own naming invariant holds for every caller,
     present or future - nothing is created, not even the sessions/ folder, until
     the date has been confirmed safe.
+
+    jev_serve.py is a ThreadingHTTPServer, so two /session posts for the same
+    student can run this concurrently. Picking the next free index with an
+    `.exists()` check and then writing separately (as this used to) has a race:
+    both threads can see the same index free before either has written, and the
+    second write then overwrites the first, silently destroying a log - the one
+    thing the ledger's append-only design says can never happen. `os.O_CREAT |
+    os.O_EXCL` makes "does this filename exist" and "claim it" a single atomic
+    kernel operation, so a losing thread gets FileExistsError and retries the
+    next index instead of clobbering the winner. Bounded so a pathological case
+    (hundreds of sittings logged for one student on one day) raises instead of
+    looping forever.
     """
     day = log["date"]
     try:
@@ -519,11 +534,30 @@ def append_session(student_id: str, log: dict, root: Path = ROOT) -> Path:
         raise ValueError(f"log date {day!r} is not a valid ISO date: {exc}") from None
     folder = student_dir(student_id, root) / "sessions"
     folder.mkdir(parents=True, exist_ok=True)
-    index = 1
-    while (folder / f"{day}-{index:02d}.json").exists():
-        index += 1
-    target = folder / f"{day}-{index:02d}.json"
     payload = {key: value for key, value in log.items() if key != "_file"}
     payload.setdefault("$schema", "../../../harness/schemas/session-log.schema.json")
-    atomic_write_json(target, payload)
-    return target
+    encoded = json.dumps(payload, ensure_ascii=False, indent=1).encode("utf-8")
+
+    for index in range(1, MAX_SITTINGS_PER_DAY + 1):
+        target = folder / f"{day}-{index:02d}.json"
+        try:
+            fd = os.open(str(target), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        except FileExistsError:
+            continue
+        try:
+            with os.fdopen(fd, "wb") as stream:
+                stream.write(encoded)
+                stream.flush()
+                os.fsync(stream.fileno())
+        except BaseException:
+            try:
+                target.unlink()
+            except OSError:
+                pass
+            raise
+        return target
+
+    raise RuntimeError(
+        f"could not allocate a session log filename for {student_id!r} on "
+        f"{day!r} after {MAX_SITTINGS_PER_DAY} attempts"
+    )

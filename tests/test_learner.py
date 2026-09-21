@@ -4,6 +4,7 @@ import json
 import shutil
 import sys
 import tempfile
+import threading
 import unittest
 from datetime import date
 from pathlib import Path
@@ -654,6 +655,75 @@ class TestAppendSession(unittest.TestCase):
     def test_a_malformed_date_string_is_rejected(self):
         with self.assertRaises(ValueError):
             learner.append_session("S001", {"date": "21-09-2026"}, root=self.tmp)
+
+
+class TestAppendSessionConcurrency(unittest.TestCase):
+    """jev_serve.py is a ThreadingHTTPServer: two /session POSTs for the same
+    student can call append_session concurrently. The old implementation chose
+    the next free index with a `.exists()` loop and then wrote through
+    atomic_write_json (os.replace - an unconditional overwrite). Two threads
+    racing for the same "next free" index before either has written end with
+    one silently overwriting the other's log - the one thing the ledger's
+    append-only design says can never happen. This proves the fix (exclusive
+    os.O_CREAT | os.O_EXCL create, retry on collision) holds under real
+    concurrency, not just in a single-threaded happy path."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_concurrent_appends_all_survive_with_distinct_filenames(self):
+        n = 40
+        # Pre-create the session folder so every thread's student_dir() call
+        # resolves the same, already-existing path. Path.resolve() on Windows can
+        # briefly disagree with itself while students/<id>/ is *first* being
+        # created concurrently (a real but separate race, outside what this test
+        # targets) - this isolates the test to the filename-allocation race in
+        # append_session itself, which is what fix 1 is about.
+        (self.tmp / "students" / "S001" / "sessions").mkdir(parents=True)
+        barrier = threading.Barrier(n)
+        results = [None] * n
+        errors = []
+
+        def worker(i):
+            try:
+                barrier.wait(timeout=10)  # force every thread to race at once
+                results[i] = learner.append_session(
+                    "S001", {"date": "2026-09-21", "marker": i}, root=self.tmp
+                )
+            except Exception as exc:  # noqa: BLE001
+                errors.append((i, exc))
+
+        threads = [threading.Thread(target=worker, args=(i,)) for i in range(n)]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join(timeout=15)
+
+        self.assertEqual(errors, [], f"append_session raised under concurrency: {errors}")
+
+        names = [p.name for p in results]
+        self.assertEqual(
+            len(names), len(set(names)),
+            "two sittings landed on the same filename - a race in index selection",
+        )
+
+        sessions_dir = self.tmp / "students" / "S001" / "sessions"
+        on_disk = sorted(sessions_dir.glob("*.json"))
+        self.assertEqual(
+            len(on_disk), n,
+            f"expected {n} distinct session logs, found {len(on_disk)} - a "
+            "concurrent write clobbered another",
+        )
+
+        # The stronger check: every sitting's own content survived, not merely
+        # that n files exist. A race that overwrites one thread's file with
+        # another's (same content shape, different `marker`) would pass a
+        # filename-count check but fail this one.
+        markers = sorted(learner.read_json(p)["marker"] for p in on_disk)
+        self.assertEqual(markers, list(range(n)))
 
 
 class TestStudentDirContainment(unittest.TestCase):
