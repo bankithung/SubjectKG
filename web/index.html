@@ -30,6 +30,10 @@
       Route
       <small>Which concept is this?</small>
     </button>
+    <button class="mode" data-stage="journey">
+      Journey
+      <small>Where a student stands</small>
+    </button>
     <button class="mode" data-stage="quiz">
       Quiz
       <small>Sit a concept's test</small>
@@ -79,6 +83,32 @@
     </div>
 
     <div id="routeOut"></div>
+  </section>
+
+  <!-- ======================================================== JOURNEY -->
+  <section class="stage" id="stage-journey" hidden>
+    <h2>Where a student stands</h2>
+    <p class="lede">
+      Everything on this screen is computed from the session ledger by
+      <code>path.py</code> — no model call, so it works whether or not Jev is
+      reachable. A locked concept names the exact prerequisite blocking it, in the
+      words the curriculum author wrote.
+    </p>
+
+    <div class="row" style="margin-bottom:16px">
+      <div class="field" style="margin:0;min-width:200px">
+        <label class="micro" for="journeyStudent">student</label>
+        <select id="journeyStudent"><option value="">— loading —</option></select>
+      </div>
+      <div class="field" style="margin:0;flex:1;min-width:240px">
+        <label class="micro" for="journeyTarget">goal (optional)</label>
+        <input type="text" id="journeyTarget" list="nodeList" spellcheck="false"
+               placeholder="pick a concept to see the path to it…">
+      </div>
+      <button class="run" id="journeyGaps" style="align-self:end">Show the path</button>
+    </div>
+
+    <div id="journeyOut"></div>
   </section>
 
   <!-- =========================================================== QUIZ -->

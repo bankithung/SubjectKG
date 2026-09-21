@@ -690,6 +690,132 @@ function initQuiz() {
   }));
 }
 
+/* ================================= JOURNEY ================================= */
+
+let STUDENTS = [];
+
+function journeyCard(data) {
+  const profile = data.profile;
+  const debtOver = data.review_debt > data.debt_limit;
+
+  const overdue = data.reviews_due.slice(0, 10).map((review) => `<tr>
+    <td>${escapeHtml(GRAPH.nodes.find((n) => n.id === review.id)?.title || review.id)}
+      <span class="nid">${escapeHtml(review.id)}</span></td>
+    <td class="num">${review.days_overdue}d</td>
+    <td class="num">${review.lapses ? `${review.lapses} lapses` : ""}</td>
+  </tr>`).join("");
+
+  const blocked = data.locked.slice(0, 12).map((node) => `<tr>
+    <td>${escapeHtml(node.title)}<span class="nid">Class ${node.grade} · ${escapeHtml(node.id)}</span></td>
+    <td>${node.blocked_by.map((prereq) =>
+      `<b>${escapeHtml(prereq.title)}</b>${prereq.reason
+        ? `<span class="nid">${escapeHtml(prereq.reason)}</span>` : ""}`).join("<br>")}</td>
+  </tr>`).join("");
+
+  const misconceptions = data.misconceptions.map((entry) => `<tr>
+    <td class="num"><span class="tag ${entry.stage === "retest-due" ? "bad" : ""}">${escapeHtml(entry.stage)}</span></td>
+    <td>${escapeHtml(entry.node_title)}<span class="nid">${escapeHtml(entry.node)} · ${escapeHtml(entry.id)}</span></td>
+    <td class="num">${escapeHtml(entry.first_seen || "")}</td>
+    <td class="num">${entry.retests_passed ?? 0} / 2</td>
+  </tr>`).join("");
+
+  return `<div class="summary-bar">
+      <div><span class="micro">mastered</span><b class="ok">${data.mastered.length}</b></div>
+      <div><span class="micro">ready now</span><b>${data.ready.length}</b></div>
+      <div><span class="micro">locked</span><b>${data.locked.length}</b></div>
+      <div><span class="micro">reviews due</span><b class="${debtOver ? "bad" : ""}">${data.review_debt}</b></div>
+      <div><span class="micro">sessions</span><b>${profile.session_count ?? 0}</b></div>
+    </div>
+
+    ${debtOver ? `<div class="error">Review debt is ${data.review_debt}, over the limit of
+      ${data.debt_limit}. rules/40 §6: the next session is a review session — "your brain has
+      ${data.review_debt} things about to fade, let's rescue them".</div>` : ""}
+
+    ${data.ready.length ? `<div class="card">
+      <span class="micro">ready to learn — every prerequisite in place</span>
+      <div class="nodeline" style="margin-top:8px">${data.ready.slice(0, 14).map((node) =>
+        `<span class="tag on">Class ${node.grade} · ${escapeHtml(node.title)}</span>`).join("")}</div>
+    </div>` : '<div class="note">Nothing is ready yet — this student has no recorded evidence.</div>'}
+
+    ${overdue ? `<div class="card"><span class="micro">fading — most overdue first</span>
+      <table style="margin-top:8px"><thead><tr><th>concept</th><th>overdue</th><th></th></tr></thead>
+      <tbody>${overdue}</tbody></table></div>` : ""}
+
+    ${misconceptions ? `<div class="card flagged">
+      <span class="micro">active misconceptions and how far repair has got</span>
+      <table style="margin-top:8px"><thead><tr><th>stage</th><th>concept</th><th>first seen</th><th>retests</th></tr></thead>
+      <tbody>${misconceptions}</tbody></table></div>` : ""}
+
+    ${blocked ? `<div class="card"><span class="micro">locked, and by what</span>
+      <table style="margin-top:8px"><thead><tr><th>concept</th><th>needs first</th></tr></thead>
+      <tbody>${blocked}</tbody></table></div>` : ""}`;
+}
+
+function gapsCard(data) {
+  if (!data.total) {
+    return `<div class="note">Nothing missing — every hard prerequisite for
+      ${escapeHtml(data.target?.title || "that concept")} is already mastered.</div>`;
+  }
+  const rows = data.gaps.map((gap) => `<tr>
+    <td class="num">${gap.teach_order + 1}</td>
+    <td>${escapeHtml(gap.title)}<span class="nid">Class ${gap.grade} · ${escapeHtml(gap.id)}</span></td>
+    <td style="width:170px">${inlineStrip([
+      { label: "blocks", value: Math.min(1, gap.blocking / 2), tone: "warn" },
+      { label: "minor", value: Math.max(0, 1 - gap.blocking / 2) },
+    ])}</td>
+    <td class="num">${fixed(gap.blocking)}</td>
+    <td class="num">${fixed(gap.confidence)}</td>
+  </tr>`).join("");
+
+  return `<div class="card">
+    <h3>${data.total} concepts between here and ${escapeHtml(data.target.title)}</h3>
+    <p class="lede" style="margin:6px 0 12px">Numbered in teaching order, which respects
+    prerequisites. The bar is Jev's judgment of how much each one actually blocks the
+    goal — depth in the graph is not the same as consequence.</p>
+    <table><thead><tr><th>#</th><th>concept</th><th>how much it blocks</th><th>score</th><th>conf</th></tr></thead>
+    <tbody>${rows}</tbody></table>
+  </div>`;
+}
+
+async function loadJourney() {
+  const studentId = $("#journeyStudent").value;
+  const outlet = $("#journeyOut");
+  if (!studentId) { outlet.innerHTML = '<div class="note">Pick a student.</div>'; return; }
+  outlet.innerHTML = '<div class="working"><i></i></div>';
+  try {
+    outlet.innerHTML = journeyCard(await api(`/api/student/${encodeURIComponent(studentId)}`));
+  } catch (error) {
+    outlet.innerHTML = `<div class="error">${escapeHtml(error.message)}</div>`;
+  }
+}
+
+async function refreshStudents() {
+  try {
+    const { students } = await api("/api/students");
+    STUDENTS = students;
+    const options = students.length
+      ? students.map((s) => `<option value="${escapeHtml(s.id)}">${escapeHtml(s.id)} · Class ${s.grade ?? "?"} · ${s.mastered} mastered</option>`).join("")
+      : '<option value="">— no students yet —</option>';
+    ["#journeyStudent", "#quizStudent"].forEach((selector) => {
+      const element = $(selector);
+      if (element) element.innerHTML = `<option value="">— none —</option>${options}`;
+    });
+  } catch { /* the console still works without a student list */ }
+}
+
+function initJourney() {
+  $("#journeyStudent").addEventListener("change", loadJourney);
+  $("#journeyGaps").addEventListener("click", () =>
+    run($("#journeyGaps"), $("#journeyOut"), async () => {
+      const studentId = $("#journeyStudent").value;
+      const target = nodeIdFromPicker($("#journeyTarget").value);
+      if (!studentId) return '<div class="note">Pick a student first.</div>';
+      if (!target) return '<div class="note">Pick a concept to aim at.</div>';
+      return gapsCard(await api(`/api/student/${encodeURIComponent(studentId)}/gaps`,
+                                { target }));
+    }));
+}
+
 /* ================================== AUDIT ================================== */
 
 function edgeFinding(finding) {
@@ -893,6 +1019,7 @@ async function boot() {
   initShell();
   initRoute();
   initQuiz();
+  initJourney();
   initDiagnose();
   initAudit();
   initCompare();
@@ -906,6 +1033,8 @@ async function boot() {
 
     $("#nodeList").innerHTML = GRAPH.nodes.map((node) =>
       `<option value="${escapeHtml(node.id)}  ${escapeHtml(node.title)}">Class ${node.grade} · ${node.questions} questions</option>`).join("");
+
+    await refreshStudents();
 
     // Open on a concept that has both authored questions and misconceptions, so the
     // diagnose screen is useful without hunting for a good example first.
