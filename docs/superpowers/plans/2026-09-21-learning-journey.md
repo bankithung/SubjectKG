@@ -2364,6 +2364,271 @@ because the ledger is the source of truth and the profile is derived."
 
 ---
 
+### Task 10a: Seed-aware projection (migration safety)
+
+**This fixes a data-destroying defect in shipped code.** `reproject()` currently rebuilds
+`mastery` and `spaced_repetition` purely from the session ledger. For a student whose
+profile predates session logging, that erases everything the ledger cannot account for.
+
+Measured on the real fixture `students/S999`: reprojecting takes it from 6 mastery records
+and `session_count: 6` down to 1 and 1. And this is not confined to the `/reproject`
+endpoint — `POST /api/student/<id>/session` reprojects after every quiz, so such a
+student's next sitting would wipe their record.
+
+The design spec already describes the fix
+(`docs/superpowers/specs/2026-09-21-learning-journey-design.md`, "Migration"):
+
+> Neither can be reprojected faithfully, because the evidence was never written down.
+> Rather than fabricate a ledger to match — which would violate "never fake data" for the
+> sake of tidiness — both keep their current profile as a **seed**: the projection starts
+> from the stored profile and applies logged sessions from this point on. A
+> `"projection_from"` marker records the date the ledger becomes authoritative. New
+> students are pure projections from their first session.
+
+The `projection_from` field already exists in `harness/schemas/student-profile.schema.json`
+and is already in `learner.CARRIED_FIELDS`. Nothing reads it yet. This task makes it mean
+something.
+
+**Files:**
+- Modify: `scripts/learner.py` (the `project` function)
+- Modify: `tests/test_learner.py` (new tests in `TestProjection`)
+- Modify: `students/S999/profile.json` (set the marker)
+- Modify: `students/S001/profile.json` (set the marker)
+
+**Interfaces:**
+- Consumes: everything `project` already uses.
+- Produces: no signature changes. `project(seed, logs, question_index, strand_of, today)`
+  keeps its shape; its *behaviour* becomes conditional on `seed["projection_from"]`.
+
+**The rule:**
+
+- **`projection_from` absent** → pure projection from the ledger. Exactly today's
+  behaviour. This is the correct path for every new student and must not change.
+- **`projection_from` present** → the stored profile's `mastery` and `spaced_repetition`
+  are the starting point, and only logs dated **on or after** the marker are replayed on
+  top. `session_count` becomes the seed's count plus the number of replayed logs.
+
+The marker means "the ledger is authoritative from this date onward". Sessions before it
+are already baked into the seed, so replaying them would double-count.
+
+- [ ] **Step 1: Write the failing tests**
+
+Add to `tests/test_learner.py`, inside the existing `TestProjection` class:
+
+```python
+    def _seed_with_history(self):
+        """A profile written before session logging existed: real mastery, no ledger."""
+        return {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "projection_from": "2026-03-02",
+            "session_count": 6,
+            "last_session": "2026-03-01",
+            "mastery": {
+                "g5.num.x": {"score": 0.91, "evidence_count": 12,
+                             "last_seen": "2026-03-01", "conceptual_ok": True,
+                             "misconceptions_active": []},
+                "g9.other": {"score": 0.85, "evidence_count": 8,
+                             "last_seen": "2026-02-20", "conceptual_ok": True,
+                             "misconceptions_active": []},
+            },
+            "spaced_repetition": {
+                "g9.other": {"next_review": "2026-04-01", "interval_days": 16,
+                             "lapses": 0, "rung": 3},
+            },
+            "strategy_stats": {}, "behavior": {},
+        }
+
+    def test_seeded_profile_keeps_mastery_the_ledger_cannot_explain(self):
+        seed = self._seed_with_history()
+        profile, _ = learner.project(seed, [], QINDEX, STRANDS, self.today)
+        self.assertIn("g9.other", profile["mastery"],
+                      "a seeded node with no log must survive the projection")
+        self.assertEqual(profile["mastery"]["g9.other"]["score"], 0.85)
+        self.assertEqual(profile["spaced_repetition"]["g9.other"]["rung"], 3)
+
+    def test_seeded_profile_still_applies_logs_after_the_marker(self):
+        seed = self._seed_with_history()
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertLess(profile["mastery"]["g5.num.x"]["score"], 0.91,
+                        "a wrong answer after the marker must still move the score")
+        self.assertEqual(
+            [m["id"] for m in profile["mastery"]["g5.num.x"]["misconceptions_active"]],
+            ["m1"])
+
+    def test_seeded_profile_ignores_logs_before_the_marker(self):
+        seed = self._seed_with_history()
+        # Dated before projection_from: already baked into the seed, must not double-count.
+        logs = [_log("2026-02-15", [_item("g5.num.x", "q1", False, "m1")])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["mastery"]["g5.num.x"]["score"], 0.91)
+        self.assertEqual(profile["mastery"]["g5.num.x"]["misconceptions_active"], [])
+
+    def test_seeded_session_count_adds_to_the_seeds_count(self):
+        seed = self._seed_with_history()
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", True)]),
+                _log("2026-03-06", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["session_count"], 8, "6 seeded + 2 replayed")
+        self.assertEqual(profile["last_session"], "2026-03-06")
+
+    def test_seeded_profile_with_no_new_logs_keeps_its_last_session(self):
+        seed = self._seed_with_history()
+        profile, _ = learner.project(seed, [], QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["session_count"], 6)
+        self.assertEqual(profile["last_session"], "2026-03-01")
+
+    def test_unseeded_projection_is_unchanged(self):
+        """The default path must not shift: no marker means pure replay."""
+        logs = [_log("2026-03-01", [_item("g5.num.x", "q1", True)])]
+        profile, _ = learner.project({}, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(profile["session_count"], 1)
+        self.assertAlmostEqual(profile["mastery"]["g5.num.x"]["score"], 0.335, places=3)
+
+    def test_project_does_not_mutate_the_seed(self):
+        seed = self._seed_with_history()
+        before = json.dumps(seed, sort_keys=True)
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", False, "m1")])]
+        learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        self.assertEqual(json.dumps(seed, sort_keys=True), before)
+```
+
+- [ ] **Step 2: Run the tests to verify they fail**
+
+Run: `python -m unittest tests.test_learner -v`
+Expected: the seeded tests FAIL — `test_seeded_profile_keeps_mastery_the_ledger_cannot_explain` with a KeyError or assertion on the missing `g9.other`, because `project` currently starts mastery from `{}` regardless. `test_unseeded_projection_is_unchanged` should already PASS.
+
+- [ ] **Step 3: Make `project` seed-aware**
+
+In `scripts/learner.py`, add `import copy` to the imports, and change the opening of
+`project` from:
+
+```python
+    profile = {key: seed[key] for key in CARRIED_FIELDS if key in seed}
+    profile.setdefault("id", seed.get("id", ""))
+    mastery, schedule, warnings = {}, {}, []
+    retention = profile.get("retention", {}) or {}
+
+    for log in logs:
+```
+
+to:
+
+```python
+    profile = {key: seed[key] for key in CARRIED_FIELDS if key in seed}
+    profile.setdefault("id", seed.get("id", ""))
+    warnings = []
+    retention = profile.get("retention", {}) or {}
+
+    # A profile written before session logging existed cannot be reprojected faithfully -
+    # the evidence was never recorded. Rather than fabricate a ledger to match, such a
+    # profile carries `projection_from`: the date its ledger becomes authoritative. Its
+    # stored model is the starting point, and only logs from that date onward replay on
+    # top. Without the marker this is a pure replay, which is right for every student
+    # enrolled after logging began.
+    #
+    # Deep-copied because project() must not mutate its arguments.
+    projection_from = seed.get("projection_from")
+    if projection_from:
+        mastery = copy.deepcopy(seed.get("mastery") or {})
+        schedule = copy.deepcopy(seed.get("spaced_repetition") or {})
+        prior_sessions = int(seed.get("session_count") or 0)
+        # Sessions before the marker are already baked into the seed; replaying them
+        # would count the same evidence twice.
+        logs = [log for log in logs if log["date"] >= projection_from]
+    else:
+        mastery, schedule = {}, {}
+        prior_sessions = 0
+
+    for log in logs:
+```
+
+Then change the three summary lines near the end of `project` from:
+
+```python
+    profile["session_count"] = len(logs)
+    profile["last_session"] = logs[-1]["date"] if logs else None
+```
+
+to:
+
+```python
+    profile["session_count"] = prior_sessions + len(logs)
+    profile["last_session"] = (logs[-1]["date"] if logs
+                               else seed.get("last_session") if projection_from else None)
+```
+
+Leave everything between untouched.
+
+- [ ] **Step 4: Run the tests to verify they pass**
+
+Run: `python -m unittest discover -s tests -t . -v`
+Expected: all green — the 74 existing tests plus the 7 new ones.
+
+- [ ] **Step 5: Set the marker on the two migrated students**
+
+Both existing students have profiles that predate session logging. Add `projection_from`
+to each, as a sibling of `session_count`, set to **the day after the last session the
+stored profile already accounts for** — so that session is not replayed on top of itself.
+
+- `students/S999/profile.json` — `last_session` is `2026-07-10`, so use `"projection_from": "2026-07-11"`.
+- `students/S001/profile.json` — `last_session` is `null` and it has no logs, so use its
+  `created` date: `"projection_from": "2026-07-12"`. Check the file's actual `created`
+  value and use that; do not assume.
+
+Edit the JSON directly. Do not run a script that rewrites the whole file — these are
+hand-authored fixtures and should show a one-line diff each.
+
+- [ ] **Step 6: Prove the defect is fixed**
+
+Run:
+
+```bash
+python -c "
+import sys; sys.path.insert(0,'scripts')
+from datetime import date
+from jev_brain import KG
+import learner, json
+for sid in ('S999','S001'):
+    stored = learner.read_json(learner.student_dir(sid)/'profile.json')
+    prof, warns = learner.reproject(sid, KG(), date.today())
+    same_mastery = stored.get('mastery') == prof.get('mastery')
+    print(f'{sid}: stored mastery={len(stored.get(\"mastery\",{}))} reprojected={len(prof.get(\"mastery\",{}))} identical={same_mastery} sessions {stored.get(\"session_count\")}->{prof.get(\"session_count\")} warnings={len(warns)}')
+"
+```
+
+Expected: for both students, `identical=True`, the mastery counts equal, and
+`session_count` unchanged. **Reprojecting a migrated student must now be a no-op.** If
+any count drops, the fix is incomplete — stop and report.
+
+Then confirm the working tree shows only your four intended files as modified:
+`git status --porcelain`
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add scripts/learner.py tests/test_learner.py students/S999/profile.json students/S001/profile.json
+git commit -m "learner: seed-aware projection, so migrating a student cannot erase them
+
+reproject() rebuilt mastery purely from the ledger, so calling it on a profile
+written before session logging existed destroyed everything the logs could not
+account for. On the S999 fixture that was 6 mastery records down to 1. Worse
+than a dangerous admin endpoint: the session endpoint reprojects after every
+quiz, so such a student's next sitting would have wiped their model.
+
+The design spec already described the fix and it was simply never built. A
+profile that predates logging now carries projection_from - the date its ledger
+becomes authoritative. Its stored model is the starting point and only logs from
+that date onward replay on top, so nothing is double-counted and nothing the
+ledger cannot explain is thrown away.
+
+Without the marker the behaviour is unchanged: a pure replay, which is correct
+for every student enrolled after logging began. Reprojecting S001 or S999 is now
+a no-op."
+```
+
+---
+
 ### Task 11: The Journey screen
 
 **Files:**
