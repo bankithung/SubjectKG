@@ -3027,3 +3027,55 @@ leaves no trace and crash recovery is a non-event."
 **Type consistency.** `is_mastered(profile, node_id)` takes that argument order everywhere. `display_stage(entry, today)` likewise. `reproject` returns `(profile, warnings)` in Task 6 and is destructured that way in Task 10. `assemble_candidates` returns `(candidates, forced)` in Task 8 and is destructured that way in `decide_next` and in the tests. Candidate option keys are `f"{id}|{kind}"` when built and split the same way when read.
 
 **One ordering constraint:** Task 12 Step 3 adds `question_id` to the quiz transcript. Task 6's projection skips items whose `(node, question)` pair is unknown, so without that step every logged item would be warned about and discarded. Do not reorder these.
+
+---
+
+## Outcome and follow-ups
+
+Completed 2026-09-21. 13 tasks plus three inserted during execution (a UTF-8 encoding fix, and
+two rounds on migration safety), then one fix wave from the whole-branch review. 35 commits,
+115 tests, `validate_kg.py` clean.
+
+Three defects in *this plan's own design* were found during execution and fixed: migration
+erasing a student's history, the migration fix double-counting and compounding, and a path
+traversal in the student endpoints. The whole-branch review then found a fourth — concurrent
+appends silently destroying a session log — which was rated Critical and fixed.
+
+### Deferred, in rough priority order
+
+1. **`learner.student_dir` resolve() race (Windows).** `Path.resolve()` can transiently
+   disagree with itself while a student folder is first created by concurrent threads. Fails
+   *closed* — the id allowlist already forbids separators, so no timing quirk can make an
+   out-of-tree path read as in-tree; the only failure mode is a spurious rejection. Not a
+   security issue.
+2. **Factor the student-id guard.** `_valid_student_id` is called in five branches of
+   `jev_serve.py`. Extracting and validating the id once for the whole `/api/student/`
+   dispatch would make a future endpoint's omission impossible rather than merely absent.
+3. **`append_session` durability.** The fix traded atomic temp-then-replace for
+   `O_CREAT|O_EXCL`, so a crash mid-write can leave a truncated log where before it left
+   none. That is strictly better than the silent overwrite it replaced — `read_sessions`
+   skips unparseable logs with a named warning — but both properties are obtainable: write to
+   a temp file, `os.link` it to the target (which fails if the target exists), then unlink the
+   temp.
+4. **`learner.read_json`** uses `io.open(...).read()` with no context manager, leaking a
+   handle to the GC. One call site, no correctness effect.
+5. **`jev_guide._assemble_reason`** is pure and easily testable but has no unit test.
+6. **`test_interval_never_drops_below_one_day`** does not exercise the floor it names: with
+   the smallest multiplier rules/40 permits (0.6) the raw value is already 1, so `max(1, …)`
+   is unreachable for any legal input. Either assert with an out-of-range multiplier or drop
+   the floor.
+7. **`MASTERED` is still duplicated** in `scripts/export_student_overlay.py:35` and
+   `scripts/build_student_page.py:71,83,277`. Both predate this branch and were left alone,
+   but the spec names the viewer overlay as a consumer of the single definition.
+
+### Not verified
+
+**Neither web screen was rendered in a browser.** No agent in this session could drive one.
+Both are verified at the code, asset and endpoint level — every field each renderer reads was
+confirmed present in a live response, including the `debt_forced` and `misconception_retest`
+branches — but nobody has *seen* them paint. Click through before trusting the layout.
+
+### Slices C and D remain unbuilt, as the spec intended
+
+Adaptive placement (a diagnostic that binary-searches prerequisite chains to seed a new
+student in one sitting) and the journey visualisation over time.
