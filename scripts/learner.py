@@ -338,14 +338,38 @@ def project(seed: dict, logs: list, question_index: dict, strand_of: dict, today
     # copied through verbatim by CARRIED_FIELDS and never recomputed, so what the next
     # projection starts from cannot drift.
     frozen = seed.get("seed") or {}
+    if projection_from and not frozen:
+        # A marker with no frozen baseline is malformed, not merely un-migrated: an
+        # un-migrated profile has no marker at all and falls to the plain-replay
+        # branch below, which is correct for it. This profile claims some history
+        # predates the ledger (the marker) but does not say what that history was
+        # (no seed), so falling through to a full unfiltered replay would silently
+        # erase exactly the pre-ledger evidence the marker exists to protect.
+        # Refuse rather than guess.
+        raise ValueError(
+            f"profile {seed.get('id', '?')!r} carries projection_from="
+            f"{projection_from!r} but no seed: malformed migration state, "
+            "refusing to replay (would silently discard pre-ledger history)"
+        )
     if projection_from and frozen:
         # Deep-copied because project() must not mutate its arguments.
         mastery = copy.deepcopy(frozen.get("mastery") or {})
         schedule = copy.deepcopy(frozen.get("spaced_repetition") or {})
         prior_sessions = int(frozen.get("session_count") or 0)
         # Sessions before the marker are already baked into the seed; replaying them
-        # would count the same evidence twice.
-        logs = [log for log in logs if log["date"] >= projection_from]
+        # would count the same evidence twice. Not silently dropped, though: a log
+        # that predates the marker is unusual enough (the browser supplies `date`,
+        # so a backwards clock reaches this) to name in the warnings rather than
+        # filter out without comment.
+        kept, skipped = [], []
+        for log in logs:
+            (kept if log["date"] >= projection_from else skipped).append(log)
+        for log in skipped:
+            warnings.append(
+                f"{log.get('_file', log['date'])}: dated before projection_from "
+                f"({projection_from}), already reflected in the seed; skipped"
+            )
+        logs = kept
     else:
         mastery, schedule = {}, {}
         prior_sessions = 0

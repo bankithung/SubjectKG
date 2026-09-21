@@ -478,6 +478,42 @@ class TestProjection(unittest.TestCase):
         self.assertEqual(profile["mastery"]["g5.num.x"]["score"], 0.91)
         self.assertEqual(profile["mastery"]["g5.num.x"]["misconceptions_active"], [])
 
+    def test_pre_marker_log_is_named_in_warnings_not_silently_dropped(self):
+        """Skipping a pre-marker log is correct; doing it in silence is not. A
+        backwards clock (the browser supplies `date`) can produce exactly this,
+        and the spec's failure handling requires skipped logs be named loudly."""
+        seed = self._seed_with_history()
+        logs = [_log("2026-02-15", [_item("g5.num.x", "q1", False, "m1")])]
+        profile, warnings = learner.project(seed, logs, QINDEX, STRANDS, self.today)
+        # Still excluded - the filtering itself must not change.
+        self.assertEqual(profile["mastery"]["g5.num.x"]["score"], 0.91)
+        self.assertEqual(len(warnings), 1)
+        self.assertIn("2026-02-15", warnings[0])
+        self.assertIn(seed["projection_from"], warnings[0])
+
+    def test_marker_without_seed_raises_instead_of_replaying(self):
+        """A profile with projection_from but no seed object is malformed: falling
+        through to a full unfiltered replay (the old behaviour) would silently
+        erase the pre-ledger history the marker exists to protect. Refuse instead."""
+        seed = {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "projection_from": "2026-03-02",
+            "strategy_stats": {}, "behavior": {},
+        }
+        logs = [_log("2026-03-05", [_item("g5.num.x", "q1", True)])]
+        with self.assertRaises(ValueError):
+            learner.project(seed, logs, QINDEX, STRANDS, self.today)
+
+    def test_marker_with_empty_seed_object_also_raises(self):
+        """`seed: {}` is falsy, same malformed case as a missing key entirely."""
+        seed = {
+            "id": "S001", "created": "2026-01-01", "grade": 5,
+            "projection_from": "2026-03-02", "seed": {},
+            "strategy_stats": {}, "behavior": {},
+        }
+        with self.assertRaises(ValueError):
+            learner.project(seed, [], QINDEX, STRANDS, self.today)
+
     def test_seeded_session_count_adds_to_the_seeds_count(self):
         seed = self._seed_with_history()
         logs = [_log("2026-03-05", [_item("g5.num.x", "q1", True)]),
